@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table cellpadding="0" cellspacing="0" width="900px" align="center">
+            <tr>
+                <td align="left" width="350px">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/admin/images/Logo 5.JPG" Width="350px"
+                        Height="150px" />
+                </td>
+                <td valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" 
+                    style="font-family: calibri; font-size: 24px; font-weight: bold; color: #663300">
+                <asp:Label ID="Label1" runat="server" Text="Admin"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
