@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true"
-    CodeFile="admin_home.aspx.cs" Inherits="admin_home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeFile="registration.aspx.cs" Inherits="admin_registration" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: thin dotted #000000">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: thin dotted #000000">
         <tr>
             <td style="font-family: Calibri; font-size: 18px; font-weight: bold; color: #009999">
                 <br />
@@ -76,3 +75,4 @@
         </tr>
     </table>
 </asp:Content>
+
