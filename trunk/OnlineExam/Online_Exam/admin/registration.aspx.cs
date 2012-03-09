@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_home : System.Web.UI.Page
+public partial class admin_registration : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,11 +13,10 @@ public partial class admin_home : System.Web.UI.Page
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
-        RegistrationBL obj = new RegistrationBL(txtname.Text,Convert.ToInt64(txtmobile.Text),txtemail.Text,DateTime.Now);
+        RegistrationBL obj = new RegistrationBL(txtname.Text, Convert.ToInt64(txtmobile.Text), txtemail.Text, DateTime.Now);
         if (obj.Insert())
         {
-            lbregister.Text = "register successfully";
+            lbregister.Text = "registered successfully";
         }
-
     }
 }
