@@ -41,8 +41,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <br />
+                        <td colspan="2" height="10px">
+                           
+                            <asp:Label ID="lbLogin" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
