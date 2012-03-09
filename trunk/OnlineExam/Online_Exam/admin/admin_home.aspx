@@ -52,7 +52,7 @@
                             E-mail&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;
                         </td>
                         <td>
-                            <asp:TextBox ID="txtcollege" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtemail" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +62,8 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <asp:Button ID="btnsubmit" runat="server" Text="register" />
+                            <asp:Button ID="btnsubmit" runat="server" Text="register" 
+                                onclick="btnsubmit_Click" />
                         </td>
                     </tr>
                 </table>
