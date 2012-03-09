@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OnlineExam" Class="OnlineExamDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=ICONSTECH\SQLEXPRESS;Initial Catalog=OnlineExam;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=i-constech.com;Initial Catalog=Biz_OutSource_To_India;Integrated Security=False;User ID=biz" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.OnlineCategory" Member="OnlineCategories">
     <Type Name="OnlineCategory">
       <Column Name="CategoryId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

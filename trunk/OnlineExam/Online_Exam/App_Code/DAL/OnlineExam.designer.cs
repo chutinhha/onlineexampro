@@ -9,307 +9,308 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Linq;
-using System.Data.Linq.Mapping;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-
-
-
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="OnlineExam")]
-public partial class OnlineExamDataContext : System.Data.Linq.DataContext
+namespace DAL
 {
+	using System.Data.Linq;
+	using System.Data.Linq.Mapping;
+	using System.Data;
+	using System.Collections.Generic;
+	using System.Reflection;
+	using System.Linq;
+	using System.Linq.Expressions;
+	using System.ComponentModel;
+	using System;
 	
-	private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 	
-  #region Extensibility Method Definitions
-  partial void OnCreated();
-  partial void InsertOnlineCategory(OnlineCategory instance);
-  partial void UpdateOnlineCategory(OnlineCategory instance);
-  partial void DeleteOnlineCategory(OnlineCategory instance);
-  partial void InsertOnlineOption(OnlineOption instance);
-  partial void UpdateOnlineOption(OnlineOption instance);
-  partial void DeleteOnlineOption(OnlineOption instance);
-  partial void InsertOnlineQuestion(OnlineQuestion instance);
-  partial void UpdateOnlineQuestion(OnlineQuestion instance);
-  partial void DeleteOnlineQuestion(OnlineQuestion instance);
-  partial void InsertOnlineRegistration(OnlineRegistration instance);
-  partial void UpdateOnlineRegistration(OnlineRegistration instance);
-  partial void DeleteOnlineRegistration(OnlineRegistration instance);
-  partial void InsertOnlineResult(OnlineResult instance);
-  partial void UpdateOnlineResult(OnlineResult instance);
-  partial void DeleteOnlineResult(OnlineResult instance);
-  partial void InsertOnlineResultMark(OnlineResultMark instance);
-  partial void UpdateOnlineResultMark(OnlineResultMark instance);
-  partial void DeleteOnlineResultMark(OnlineResultMark instance);
-  #endregion
-	
-	public OnlineExamDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["OnlineExamConnectionString"].ConnectionString, mappingSource)
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="OnlineExam")]
+	public partial class OnlineExamDataContext : System.Data.Linq.DataContext
 	{
-		OnCreated();
-	}
-	
-	public OnlineExamDataContext(string connection) : 
-			base(connection, mappingSource)
-	{
-		OnCreated();
-	}
-	
-	public OnlineExamDataContext(System.Data.IDbConnection connection) : 
-			base(connection, mappingSource)
-	{
-		OnCreated();
-	}
-	
-	public OnlineExamDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-			base(connection, mappingSource)
-	{
-		OnCreated();
-	}
-	
-	public OnlineExamDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
-			base(connection, mappingSource)
-	{
-		OnCreated();
-	}
-	
-	public System.Data.Linq.Table<OnlineCategory> OnlineCategories
-	{
-		get
+		
+		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+		
+    #region Extensibility Method Definitions
+    partial void OnCreated();
+    partial void InsertOnlineCategory(OnlineCategory instance);
+    partial void UpdateOnlineCategory(OnlineCategory instance);
+    partial void DeleteOnlineCategory(OnlineCategory instance);
+    partial void InsertOnlineOption(OnlineOption instance);
+    partial void UpdateOnlineOption(OnlineOption instance);
+    partial void DeleteOnlineOption(OnlineOption instance);
+    partial void InsertOnlineQuestion(OnlineQuestion instance);
+    partial void UpdateOnlineQuestion(OnlineQuestion instance);
+    partial void DeleteOnlineQuestion(OnlineQuestion instance);
+    partial void InsertOnlineRegistration(OnlineRegistration instance);
+    partial void UpdateOnlineRegistration(OnlineRegistration instance);
+    partial void DeleteOnlineRegistration(OnlineRegistration instance);
+    partial void InsertOnlineResult(OnlineResult instance);
+    partial void UpdateOnlineResult(OnlineResult instance);
+    partial void DeleteOnlineResult(OnlineResult instance);
+    partial void InsertOnlineResultMark(OnlineResultMark instance);
+    partial void UpdateOnlineResultMark(OnlineResultMark instance);
+    partial void DeleteOnlineResultMark(OnlineResultMark instance);
+    #endregion
+		
+		public OnlineExamDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["OnlineExamConnectionString"].ConnectionString, mappingSource)
 		{
-			return this.GetTable<OnlineCategory>();
+			OnCreated();
+		}
+		
+		public OnlineExamDataContext(string connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public OnlineExamDataContext(System.Data.IDbConnection connection) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public OnlineExamDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public OnlineExamDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+				base(connection, mappingSource)
+		{
+			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<OnlineCategory> OnlineCategories
+		{
+			get
+			{
+				return this.GetTable<OnlineCategory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineOption> OnlineOptions
+		{
+			get
+			{
+				return this.GetTable<OnlineOption>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineQuestion> OnlineQuestions
+		{
+			get
+			{
+				return this.GetTable<OnlineQuestion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineRegistration> OnlineRegistrations
+		{
+			get
+			{
+				return this.GetTable<OnlineRegistration>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineResult> OnlineResults
+		{
+			get
+			{
+				return this.GetTable<OnlineResult>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineResultMark> OnlineResultMarks
+		{
+			get
+			{
+				return this.GetTable<OnlineResultMark>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewDeleteCommand")]
+		public int sp_OnlineCategoryNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryId", DbType="BigInt")] System.Nullable<long> original_CategoryId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_CategoryId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewInsertCommand")]
+		public ISingleResult<sp_OnlineCategoryNewInsertCommandResult> sp_OnlineCategoryNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="NVarChar(100)")] string category)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category);
+			return ((ISingleResult<sp_OnlineCategoryNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewSelectCommand")]
+		public ISingleResult<sp_OnlineCategoryNewSelectCommandResult> sp_OnlineCategoryNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineCategoryNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewUpdateCommand")]
+		public ISingleResult<sp_OnlineCategoryNewUpdateCommandResult> sp_OnlineCategoryNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="NVarChar(100)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryId", DbType="BigInt")] System.Nullable<long> original_CategoryId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryId", DbType="BigInt")] System.Nullable<long> categoryId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, original_CategoryId, categoryId);
+			return ((ISingleResult<sp_OnlineCategoryNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewDeleteCommand")]
+		public int sp_OnlineOptionsNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_OptionId", DbType="BigInt")] System.Nullable<long> original_OptionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_OptionId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewInsertCommand")]
+		public ISingleResult<sp_OnlineOptionsNewInsertCommandResult> sp_OnlineOptionsNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionName", DbType="NVarChar(500)")] string optionName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionType", DbType="Int")] System.Nullable<int> optionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_QuestionId", DbType="BigInt")] System.Nullable<long> fK_QuestionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), optionName, optionType, fK_QuestionId);
+			return ((ISingleResult<sp_OnlineOptionsNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewSelectCommand")]
+		public ISingleResult<sp_OnlineOptionsNewSelectCommandResult> sp_OnlineOptionsNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineOptionsNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewUpdateCommand")]
+		public ISingleResult<sp_OnlineOptionsNewUpdateCommandResult> sp_OnlineOptionsNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionName", DbType="NVarChar(500)")] string optionName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionType", DbType="Int")] System.Nullable<int> optionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_QuestionId", DbType="BigInt")] System.Nullable<long> fK_QuestionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_OptionId", DbType="BigInt")] System.Nullable<long> original_OptionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionId", DbType="BigInt")] System.Nullable<long> optionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), optionName, optionType, fK_QuestionId, original_OptionId, optionId);
+			return ((ISingleResult<sp_OnlineOptionsNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewDeleteCommand")]
+		public int sp_OnlineQuestionNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_QuestionId", DbType="BigInt")] System.Nullable<long> original_QuestionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_QuestionId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewInsertCommand")]
+		public ISingleResult<sp_OnlineQuestionNewInsertCommandResult> sp_OnlineQuestionNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imageurl", DbType="NVarChar(200)")] string imageurl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, imageurl, fK_Answer, fK_Category);
+			return ((ISingleResult<sp_OnlineQuestionNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewSelectCommand")]
+		public ISingleResult<sp_OnlineQuestionNewSelectCommandResult> sp_OnlineQuestionNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineQuestionNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewUpdateCommand")]
+		public ISingleResult<sp_OnlineQuestionNewUpdateCommandResult> sp_OnlineQuestionNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imageurl", DbType="NVarChar(200)")] string imageurl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_QuestionId", DbType="BigInt")] System.Nullable<long> original_QuestionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuestionId", DbType="BigInt")] System.Nullable<long> questionId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, imageurl, fK_Answer, fK_Category, original_QuestionId, questionId);
+			return ((ISingleResult<sp_OnlineQuestionNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewDeleteCommand")]
+		public int sp_OnlineRegistrationNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_UserId", DbType="BigInt")] System.Nullable<long> original_UserId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_UserId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewSelectCommand")]
+		public ISingleResult<sp_OnlineRegistrationNewSelectCommandResult> sp_OnlineRegistrationNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineRegistrationNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewUpdateCommand")]
+		public ISingleResult<sp_OnlineRegistrationNewUpdateCommandResult> sp_OnlineRegistrationNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_UserId", DbType="BigInt")] System.Nullable<long> original_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="BigInt")] System.Nullable<long> userId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, mobile, email, date, original_UserId, userId);
+			return ((ISingleResult<sp_OnlineRegistrationNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewInsertCommand")]
+		public ISingleResult<sp_OnlineRegistrationNewInsertCommandResult> sp_OnlineRegistrationNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, mobile, email, date);
+			return ((ISingleResult<sp_OnlineRegistrationNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewDeleteCommand")]
+		public int sp_OnlineResultMarksNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_MarkId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewInsertCommand")]
+		public ISingleResult<sp_OnlineResultMarksNewInsertCommandResult> sp_OnlineResultMarksNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_MarkType", DbType="BigInt")] System.Nullable<long> fK_MarkType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_MarkType, fK_ResultId);
+			return ((ISingleResult<sp_OnlineResultMarksNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewSelectCommand")]
+		public ISingleResult<sp_OnlineResultMarksNewSelectCommandResult> sp_OnlineResultMarksNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineResultMarksNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewUpdateCommand")]
+		public ISingleResult<sp_OnlineResultMarksNewUpdateCommandResult> sp_OnlineResultMarksNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_MarkType", DbType="BigInt")] System.Nullable<long> fK_MarkType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MarkId", DbType="BigInt")] System.Nullable<long> markId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_MarkType, fK_ResultId, original_MarkId, markId);
+			return ((ISingleResult<sp_OnlineResultMarksNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewDeleteCommand")]
+		public int sp_OnlineResultNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ResultId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewInsertCommand")]
+		public ISingleResult<sp_OnlineResultNewInsertCommandResult> sp_OnlineResultNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_UserId, mark);
+			return ((ISingleResult<sp_OnlineResultNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewSelectCommand")]
+		public ISingleResult<sp_OnlineResultNewSelectCommandResult> sp_OnlineResultNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineResultNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewUpdateCommand")]
+		public ISingleResult<sp_OnlineResultNewUpdateCommandResult> sp_OnlineResultNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ResultId", DbType="BigInt")] System.Nullable<long> resultId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_UserId, mark, original_ResultId, resultId);
+			return ((ISingleResult<sp_OnlineResultNewUpdateCommandResult>)(result.ReturnValue));
 		}
 	}
 	
-	public System.Data.Linq.Table<OnlineOption> OnlineOptions
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineCategory")]
+	public partial class OnlineCategory : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		get
-		{
-			return this.GetTable<OnlineOption>();
-		}
-	}
-	
-	public System.Data.Linq.Table<OnlineQuestion> OnlineQuestions
-	{
-		get
-		{
-			return this.GetTable<OnlineQuestion>();
-		}
-	}
-	
-	public System.Data.Linq.Table<OnlineRegistration> OnlineRegistrations
-	{
-		get
-		{
-			return this.GetTable<OnlineRegistration>();
-		}
-	}
-	
-	public System.Data.Linq.Table<OnlineResult> OnlineResults
-	{
-		get
-		{
-			return this.GetTable<OnlineResult>();
-		}
-	}
-	
-	public System.Data.Linq.Table<OnlineResultMark> OnlineResultMarks
-	{
-		get
-		{
-			return this.GetTable<OnlineResultMark>();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewDeleteCommand")]
-	public int sp_OnlineCategoryNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryId", DbType="BigInt")] System.Nullable<long> original_CategoryId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_CategoryId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewInsertCommand")]
-	public ISingleResult<sp_OnlineCategoryNewInsertCommandResult> sp_OnlineCategoryNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="NVarChar(100)")] string category)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category);
-		return ((ISingleResult<sp_OnlineCategoryNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewSelectCommand")]
-	public ISingleResult<sp_OnlineCategoryNewSelectCommandResult> sp_OnlineCategoryNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineCategoryNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCategoryNewUpdateCommand")]
-	public ISingleResult<sp_OnlineCategoryNewUpdateCommandResult> sp_OnlineCategoryNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="NVarChar(100)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_CategoryId", DbType="BigInt")] System.Nullable<long> original_CategoryId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CategoryId", DbType="BigInt")] System.Nullable<long> categoryId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, original_CategoryId, categoryId);
-		return ((ISingleResult<sp_OnlineCategoryNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewDeleteCommand")]
-	public int sp_OnlineOptionsNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_OptionId", DbType="BigInt")] System.Nullable<long> original_OptionId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_OptionId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewInsertCommand")]
-	public ISingleResult<sp_OnlineOptionsNewInsertCommandResult> sp_OnlineOptionsNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionName", DbType="NVarChar(500)")] string optionName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionType", DbType="Int")] System.Nullable<int> optionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_QuestionId", DbType="BigInt")] System.Nullable<long> fK_QuestionId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), optionName, optionType, fK_QuestionId);
-		return ((ISingleResult<sp_OnlineOptionsNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewSelectCommand")]
-	public ISingleResult<sp_OnlineOptionsNewSelectCommandResult> sp_OnlineOptionsNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineOptionsNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineOptionsNewUpdateCommand")]
-	public ISingleResult<sp_OnlineOptionsNewUpdateCommandResult> sp_OnlineOptionsNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionName", DbType="NVarChar(500)")] string optionName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionType", DbType="Int")] System.Nullable<int> optionType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_QuestionId", DbType="BigInt")] System.Nullable<long> fK_QuestionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_OptionId", DbType="BigInt")] System.Nullable<long> original_OptionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OptionId", DbType="BigInt")] System.Nullable<long> optionId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), optionName, optionType, fK_QuestionId, original_OptionId, optionId);
-		return ((ISingleResult<sp_OnlineOptionsNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewDeleteCommand")]
-	public int sp_OnlineQuestionNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_QuestionId", DbType="BigInt")] System.Nullable<long> original_QuestionId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_QuestionId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewInsertCommand")]
-	public ISingleResult<sp_OnlineQuestionNewInsertCommandResult> sp_OnlineQuestionNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imageurl", DbType="NVarChar(200)")] string imageurl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, imageurl, fK_Answer, fK_Category);
-		return ((ISingleResult<sp_OnlineQuestionNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewSelectCommand")]
-	public ISingleResult<sp_OnlineQuestionNewSelectCommandResult> sp_OnlineQuestionNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineQuestionNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewUpdateCommand")]
-	public ISingleResult<sp_OnlineQuestionNewUpdateCommandResult> sp_OnlineQuestionNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imageurl", DbType="NVarChar(200)")] string imageurl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_QuestionId", DbType="BigInt")] System.Nullable<long> original_QuestionId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuestionId", DbType="BigInt")] System.Nullable<long> questionId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, imageurl, fK_Answer, fK_Category, original_QuestionId, questionId);
-		return ((ISingleResult<sp_OnlineQuestionNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewDeleteCommand")]
-	public int sp_OnlineRegistrationNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_UserId", DbType="BigInt")] System.Nullable<long> original_UserId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_UserId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewSelectCommand")]
-	public ISingleResult<sp_OnlineRegistrationNewSelectCommandResult> sp_OnlineRegistrationNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineRegistrationNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewUpdateCommand")]
-	public ISingleResult<sp_OnlineRegistrationNewUpdateCommandResult> sp_OnlineRegistrationNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_UserId", DbType="BigInt")] System.Nullable<long> original_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="BigInt")] System.Nullable<long> userId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, mobile, email, date, original_UserId, userId);
-		return ((ISingleResult<sp_OnlineRegistrationNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineRegistrationNewInsertCommand")]
-	public ISingleResult<sp_OnlineRegistrationNewInsertCommandResult> sp_OnlineRegistrationNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, mobile, email, date);
-		return ((ISingleResult<sp_OnlineRegistrationNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewDeleteCommand")]
-	public int sp_OnlineResultMarksNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_MarkId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewInsertCommand")]
-	public ISingleResult<sp_OnlineResultMarksNewInsertCommandResult> sp_OnlineResultMarksNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_MarkType", DbType="BigInt")] System.Nullable<long> fK_MarkType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_MarkType, fK_ResultId);
-		return ((ISingleResult<sp_OnlineResultMarksNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewSelectCommand")]
-	public ISingleResult<sp_OnlineResultMarksNewSelectCommandResult> sp_OnlineResultMarksNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineResultMarksNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultMarksNewUpdateCommand")]
-	public ISingleResult<sp_OnlineResultMarksNewUpdateCommandResult> sp_OnlineResultMarksNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_MarkType", DbType="BigInt")] System.Nullable<long> fK_MarkType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MarkId", DbType="BigInt")] System.Nullable<long> markId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_MarkType, fK_ResultId, original_MarkId, markId);
-		return ((ISingleResult<sp_OnlineResultMarksNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewDeleteCommand")]
-	public int sp_OnlineResultNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ResultId);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewInsertCommand")]
-	public ISingleResult<sp_OnlineResultNewInsertCommandResult> sp_OnlineResultNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_UserId, mark);
-		return ((ISingleResult<sp_OnlineResultNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewSelectCommand")]
-	public ISingleResult<sp_OnlineResultNewSelectCommandResult> sp_OnlineResultNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_OnlineResultNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineResultNewUpdateCommand")]
-	public ISingleResult<sp_OnlineResultNewUpdateCommandResult> sp_OnlineResultNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ResultId", DbType="BigInt")] System.Nullable<long> resultId)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_UserId, mark, original_ResultId, resultId);
-		return ((ISingleResult<sp_OnlineResultNewUpdateCommandResult>)(result.ReturnValue));
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineCategory")]
-public partial class OnlineCategory : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _CategoryId;
-	
-	private string _Category;
-	
-	private EntitySet<OnlineQuestion> _OnlineQuestions;
-	
-	private EntitySet<OnlineResultMark> _OnlineResultMarks;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CategoryId;
+		
+		private string _Category;
+		
+		private EntitySet<OnlineQuestion> _OnlineQuestions;
+		
+		private EntitySet<OnlineResultMark> _OnlineResultMarks;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -319,143 +320,143 @@ public partial class OnlineCategory : INotifyPropertyChanging, INotifyPropertyCh
     partial void OnCategoryChanging(string value);
     partial void OnCategoryChanged();
     #endregion
-	
-	public OnlineCategory()
-	{
-		this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
-		this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long CategoryId
-	{
-		get
+		
+		public OnlineCategory()
 		{
-			return this._CategoryId;
+			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
+			this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long CategoryId
 		{
-			if ((this._CategoryId != value))
+			get
 			{
-				this.OnCategoryIdChanging(value);
-				this.SendPropertyChanging();
-				this._CategoryId = value;
-				this.SendPropertyChanged("CategoryId");
-				this.OnCategoryIdChanged();
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
-	public string Category
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
+		public string Category
 		{
-			return this._Category;
-		}
-		set
-		{
-			if ((this._Category != value))
+			get
 			{
-				this.OnCategoryChanging(value);
-				this.SendPropertyChanging();
-				this._Category = value;
-				this.SendPropertyChanged("Category");
-				this.OnCategoryChanged();
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="CategoryId", OtherKey="FK_Category")]
-	public EntitySet<OnlineQuestion> OnlineQuestions
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="CategoryId", OtherKey="FK_Category")]
+		public EntitySet<OnlineQuestion> OnlineQuestions
 		{
-			return this._OnlineQuestions;
+			get
+			{
+				return this._OnlineQuestions;
+			}
+			set
+			{
+				this._OnlineQuestions.Assign(value);
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineResultMark", Storage="_OnlineResultMarks", ThisKey="CategoryId", OtherKey="FK_MarkType")]
+		public EntitySet<OnlineResultMark> OnlineResultMarks
 		{
-			this._OnlineQuestions.Assign(value);
+			get
+			{
+				return this._OnlineResultMarks;
+			}
+			set
+			{
+				this._OnlineResultMarks.Assign(value);
+			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineResultMark", Storage="_OnlineResultMarks", ThisKey="CategoryId", OtherKey="FK_MarkType")]
-	public EntitySet<OnlineResultMark> OnlineResultMarks
-	{
-		get
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			return this._OnlineResultMarks;
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
 		}
-		set
+		
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			this._OnlineResultMarks.Assign(value);
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
+		
+		private void attach_OnlineQuestions(OnlineQuestion entity)
 		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
+			this.SendPropertyChanging();
+			entity.OnlineCategory = this;
 		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
+		
+		private void detach_OnlineQuestions(OnlineQuestion entity)
 		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			this.SendPropertyChanging();
+			entity.OnlineCategory = null;
+		}
+		
+		private void attach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = this;
+		}
+		
+		private void detach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = null;
 		}
 	}
 	
-	private void attach_OnlineQuestions(OnlineQuestion entity)
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineOptions")]
+	public partial class OnlineOption : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		this.SendPropertyChanging();
-		entity.OnlineCategory = this;
-	}
-	
-	private void detach_OnlineQuestions(OnlineQuestion entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineCategory = null;
-	}
-	
-	private void attach_OnlineResultMarks(OnlineResultMark entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineCategory = this;
-	}
-	
-	private void detach_OnlineResultMarks(OnlineResultMark entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineCategory = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineOptions")]
-public partial class OnlineOption : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _OptionId;
-	
-	private string _OptionName;
-	
-	private System.Nullable<int> _OptionType;
-	
-	private System.Nullable<long> _FK_QuestionId;
-	
-	private EntitySet<OnlineQuestion> _OnlineQuestions;
-	
-	private EntityRef<OnlineQuestion> _OnlineQuestion;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _OptionId;
+		
+		private string _OptionName;
+		
+		private System.Nullable<int> _OptionType;
+		
+		private System.Nullable<long> _FK_QuestionId;
+		
+		private EntitySet<OnlineQuestion> _OnlineQuestions;
+		
+		private EntityRef<OnlineQuestion> _OnlineQuestion;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -469,200 +470,200 @@ public partial class OnlineOption : INotifyPropertyChanging, INotifyPropertyChan
     partial void OnFK_QuestionIdChanging(System.Nullable<long> value);
     partial void OnFK_QuestionIdChanged();
     #endregion
-	
-	public OnlineOption()
-	{
-		this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
-		this._OnlineQuestion = default(EntityRef<OnlineQuestion>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long OptionId
-	{
-		get
+		
+		public OnlineOption()
 		{
-			return this._OptionId;
+			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
+			this._OnlineQuestion = default(EntityRef<OnlineQuestion>);
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long OptionId
 		{
-			if ((this._OptionId != value))
+			get
 			{
-				this.OnOptionIdChanging(value);
-				this.SendPropertyChanging();
-				this._OptionId = value;
-				this.SendPropertyChanged("OptionId");
-				this.OnOptionIdChanged();
+				return this._OptionId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
-	public string OptionName
-	{
-		get
-		{
-			return this._OptionName;
-		}
-		set
-		{
-			if ((this._OptionName != value))
+			set
 			{
-				this.OnOptionNameChanging(value);
-				this.SendPropertyChanging();
-				this._OptionName = value;
-				this.SendPropertyChanged("OptionName");
-				this.OnOptionNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
-	public System.Nullable<int> OptionType
-	{
-		get
-		{
-			return this._OptionType;
-		}
-		set
-		{
-			if ((this._OptionType != value))
-			{
-				this.OnOptionTypeChanging(value);
-				this.SendPropertyChanging();
-				this._OptionType = value;
-				this.SendPropertyChanged("OptionType");
-				this.OnOptionTypeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
-	public System.Nullable<long> FK_QuestionId
-	{
-		get
-		{
-			return this._FK_QuestionId;
-		}
-		set
-		{
-			if ((this._FK_QuestionId != value))
-			{
-				if (this._OnlineQuestion.HasLoadedOrAssignedValue)
+				if ((this._OptionId != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					this.OnOptionIdChanging(value);
+					this.SendPropertyChanging();
+					this._OptionId = value;
+					this.SendPropertyChanged("OptionId");
+					this.OnOptionIdChanged();
 				}
-				this.OnFK_QuestionIdChanging(value);
-				this.SendPropertyChanging();
-				this._FK_QuestionId = value;
-				this.SendPropertyChanged("FK_QuestionId");
-				this.OnFK_QuestionIdChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="OptionId", OtherKey="FK_Answer")]
-	public EntitySet<OnlineQuestion> OnlineQuestions
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
+		public string OptionName
 		{
-			return this._OnlineQuestions;
-		}
-		set
-		{
-			this._OnlineQuestions.Assign(value);
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineQuestion", ThisKey="FK_QuestionId", OtherKey="QuestionId", IsForeignKey=true)]
-	public OnlineQuestion OnlineQuestion
-	{
-		get
-		{
-			return this._OnlineQuestion.Entity;
-		}
-		set
-		{
-			OnlineQuestion previousValue = this._OnlineQuestion.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineQuestion.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
+				return this._OptionName;
+			}
+			set
+			{
+				if ((this._OptionName != value))
 				{
-					this._OnlineQuestion.Entity = null;
-					previousValue.OnlineOptions.Remove(this);
+					this.OnOptionNameChanging(value);
+					this.SendPropertyChanging();
+					this._OptionName = value;
+					this.SendPropertyChanged("OptionName");
+					this.OnOptionNameChanged();
 				}
-				this._OnlineQuestion.Entity = value;
-				if ((value != null))
-				{
-					value.OnlineOptions.Add(this);
-					this._FK_QuestionId = value.QuestionId;
-				}
-				else
-				{
-					this._FK_QuestionId = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("OnlineQuestion");
 			}
 		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
+		public System.Nullable<int> OptionType
 		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
+			get
+			{
+				return this._OptionType;
+			}
+			set
+			{
+				if ((this._OptionType != value))
+				{
+					this.OnOptionTypeChanging(value);
+					this.SendPropertyChanging();
+					this._OptionType = value;
+					this.SendPropertyChanged("OptionType");
+					this.OnOptionTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
+		public System.Nullable<long> FK_QuestionId
+		{
+			get
+			{
+				return this._FK_QuestionId;
+			}
+			set
+			{
+				if ((this._FK_QuestionId != value))
+				{
+					if (this._OnlineQuestion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_QuestionIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_QuestionId = value;
+					this.SendPropertyChanged("FK_QuestionId");
+					this.OnFK_QuestionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="OptionId", OtherKey="FK_Answer")]
+		public EntitySet<OnlineQuestion> OnlineQuestions
+		{
+			get
+			{
+				return this._OnlineQuestions;
+			}
+			set
+			{
+				this._OnlineQuestions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineQuestion", ThisKey="FK_QuestionId", OtherKey="QuestionId", IsForeignKey=true)]
+		public OnlineQuestion OnlineQuestion
+		{
+			get
+			{
+				return this._OnlineQuestion.Entity;
+			}
+			set
+			{
+				OnlineQuestion previousValue = this._OnlineQuestion.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineQuestion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineQuestion.Entity = null;
+						previousValue.OnlineOptions.Remove(this);
+					}
+					this._OnlineQuestion.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineOptions.Add(this);
+						this._FK_QuestionId = value.QuestionId;
+					}
+					else
+					{
+						this._FK_QuestionId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineQuestion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OnlineQuestions(OnlineQuestion entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineOption = this;
+		}
+		
+		private void detach_OnlineQuestions(OnlineQuestion entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineOption = null;
 		}
 	}
 	
-	protected virtual void SendPropertyChanged(String propertyName)
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineQuestion")]
+	public partial class OnlineQuestion : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-	
-	private void attach_OnlineQuestions(OnlineQuestion entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineOption = this;
-	}
-	
-	private void detach_OnlineQuestions(OnlineQuestion entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineOption = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineQuestion")]
-public partial class OnlineQuestion : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _QuestionId;
-	
-	private string _Question;
-	
-	private string _Imageurl;
-	
-	private System.Nullable<long> _FK_Answer;
-	
-	private System.Nullable<long> _FK_Category;
-	
-	private EntitySet<OnlineOption> _OnlineOptions;
-	
-	private EntityRef<OnlineOption> _OnlineOption;
-	
-	private EntityRef<OnlineCategory> _OnlineCategory;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		private EntitySet<OnlineOption> _OnlineOptions;
+		
+		private EntityRef<OnlineOption> _OnlineOption;
+		
+		private EntityRef<OnlineCategory> _OnlineCategory;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -678,255 +679,255 @@ public partial class OnlineQuestion : INotifyPropertyChanging, INotifyPropertyCh
     partial void OnFK_CategoryChanging(System.Nullable<long> value);
     partial void OnFK_CategoryChanged();
     #endregion
-	
-	public OnlineQuestion()
-	{
-		this._OnlineOptions = new EntitySet<OnlineOption>(new Action<OnlineOption>(this.attach_OnlineOptions), new Action<OnlineOption>(this.detach_OnlineOptions));
-		this._OnlineOption = default(EntityRef<OnlineOption>);
-		this._OnlineCategory = default(EntityRef<OnlineCategory>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long QuestionId
-	{
-		get
+		
+		public OnlineQuestion()
 		{
-			return this._QuestionId;
+			this._OnlineOptions = new EntitySet<OnlineOption>(new Action<OnlineOption>(this.attach_OnlineOptions), new Action<OnlineOption>(this.detach_OnlineOptions));
+			this._OnlineOption = default(EntityRef<OnlineOption>);
+			this._OnlineCategory = default(EntityRef<OnlineCategory>);
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long QuestionId
 		{
-			if ((this._QuestionId != value))
+			get
 			{
-				this.OnQuestionIdChanging(value);
-				this.SendPropertyChanging();
-				this._QuestionId = value;
-				this.SendPropertyChanged("QuestionId");
-				this.OnQuestionIdChanged();
+				return this._QuestionId;
+			}
+			set
+			{
+				if ((this._QuestionId != value))
+				{
+					this.OnQuestionIdChanging(value);
+					this.SendPropertyChanging();
+					this._QuestionId = value;
+					this.SendPropertyChanged("QuestionId");
+					this.OnQuestionIdChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-	public string Question
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
 		{
-			return this._Question;
-		}
-		set
-		{
-			if ((this._Question != value))
+			get
 			{
-				this.OnQuestionChanging(value);
-				this.SendPropertyChanging();
-				this._Question = value;
-				this.SendPropertyChanged("Question");
-				this.OnQuestionChanged();
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this.OnQuestionChanging(value);
+					this.SendPropertyChanging();
+					this._Question = value;
+					this.SendPropertyChanged("Question");
+					this.OnQuestionChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-	public string Imageurl
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
 		{
-			return this._Imageurl;
-		}
-		set
-		{
-			if ((this._Imageurl != value))
+			get
 			{
-				this.OnImageurlChanging(value);
-				this.SendPropertyChanging();
-				this._Imageurl = value;
-				this.SendPropertyChanged("Imageurl");
-				this.OnImageurlChanged();
+				return this._Imageurl;
+			}
+			set
+			{
+				if ((this._Imageurl != value))
+				{
+					this.OnImageurlChanging(value);
+					this.SendPropertyChanging();
+					this._Imageurl = value;
+					this.SendPropertyChanged("Imageurl");
+					this.OnImageurlChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-	public System.Nullable<long> FK_Answer
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
 		{
-			return this._FK_Answer;
-		}
-		set
-		{
-			if ((this._FK_Answer != value))
+			get
 			{
-				if (this._OnlineOption.HasLoadedOrAssignedValue)
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					if (this._OnlineOption.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_AnswerChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Answer = value;
+					this.SendPropertyChanged("FK_Answer");
+					this.OnFK_AnswerChanged();
 				}
-				this.OnFK_AnswerChanging(value);
-				this.SendPropertyChanging();
-				this._FK_Answer = value;
-				this.SendPropertyChanged("FK_Answer");
-				this.OnFK_AnswerChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-	public System.Nullable<long> FK_Category
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
 		{
-			return this._FK_Category;
-		}
-		set
-		{
-			if ((this._FK_Category != value))
+			get
 			{
-				if (this._OnlineCategory.HasLoadedOrAssignedValue)
+				return this._FK_Category;
+			}
+			set
+			{
+				if ((this._FK_Category != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					if (this._OnlineCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_CategoryChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Category = value;
+					this.SendPropertyChanged("FK_Category");
+					this.OnFK_CategoryChanged();
 				}
-				this.OnFK_CategoryChanging(value);
-				this.SendPropertyChanging();
-				this._FK_Category = value;
-				this.SendPropertyChanged("FK_Category");
-				this.OnFK_CategoryChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineOptions", ThisKey="QuestionId", OtherKey="FK_QuestionId")]
-	public EntitySet<OnlineOption> OnlineOptions
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineOptions", ThisKey="QuestionId", OtherKey="FK_QuestionId")]
+		public EntitySet<OnlineOption> OnlineOptions
 		{
-			return this._OnlineOptions;
-		}
-		set
-		{
-			this._OnlineOptions.Assign(value);
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineOption", ThisKey="FK_Answer", OtherKey="OptionId", IsForeignKey=true)]
-	public OnlineOption OnlineOption
-	{
-		get
-		{
-			return this._OnlineOption.Entity;
-		}
-		set
-		{
-			OnlineOption previousValue = this._OnlineOption.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineOption.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._OnlineOption.Entity = null;
-					previousValue.OnlineQuestions.Remove(this);
-				}
-				this._OnlineOption.Entity = value;
-				if ((value != null))
-				{
-					value.OnlineQuestions.Add(this);
-					this._FK_Answer = value.OptionId;
-				}
-				else
-				{
-					this._FK_Answer = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("OnlineOption");
+				return this._OnlineOptions;
+			}
+			set
+			{
+				this._OnlineOptions.Assign(value);
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineCategory", ThisKey="FK_Category", OtherKey="CategoryId", IsForeignKey=true)]
-	public OnlineCategory OnlineCategory
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineOption", ThisKey="FK_Answer", OtherKey="OptionId", IsForeignKey=true)]
+		public OnlineOption OnlineOption
 		{
-			return this._OnlineCategory.Entity;
-		}
-		set
-		{
-			OnlineCategory previousValue = this._OnlineCategory.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
+				return this._OnlineOption.Entity;
+			}
+			set
+			{
+				OnlineOption previousValue = this._OnlineOption.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineOption.HasLoadedOrAssignedValue == false)))
 				{
-					this._OnlineCategory.Entity = null;
-					previousValue.OnlineQuestions.Remove(this);
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineOption.Entity = null;
+						previousValue.OnlineQuestions.Remove(this);
+					}
+					this._OnlineOption.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineQuestions.Add(this);
+						this._FK_Answer = value.OptionId;
+					}
+					else
+					{
+						this._FK_Answer = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineOption");
 				}
-				this._OnlineCategory.Entity = value;
-				if ((value != null))
-				{
-					value.OnlineQuestions.Add(this);
-					this._FK_Category = value.CategoryId;
-				}
-				else
-				{
-					this._FK_Category = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("OnlineCategory");
 			}
 		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineCategory", ThisKey="FK_Category", OtherKey="CategoryId", IsForeignKey=true)]
+		public OnlineCategory OnlineCategory
 		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
+			get
+			{
+				return this._OnlineCategory.Entity;
+			}
+			set
+			{
+				OnlineCategory previousValue = this._OnlineCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineCategory.Entity = null;
+						previousValue.OnlineQuestions.Remove(this);
+					}
+					this._OnlineCategory.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineQuestions.Add(this);
+						this._FK_Category = value.CategoryId;
+					}
+					else
+					{
+						this._FK_Category = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineCategory");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OnlineOptions(OnlineOption entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineQuestion = this;
+		}
+		
+		private void detach_OnlineOptions(OnlineOption entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineQuestion = null;
 		}
 	}
 	
-	protected virtual void SendPropertyChanged(String propertyName)
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineRegistration")]
+	public partial class OnlineRegistration : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-	
-	private void attach_OnlineOptions(OnlineOption entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineQuestion = this;
-	}
-	
-	private void detach_OnlineOptions(OnlineOption entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineQuestion = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineRegistration")]
-public partial class OnlineRegistration : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _UserId;
-	
-	private string _Name;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private string _Email;
-	
-	private System.Nullable<System.DateTime> _Date;
-	
-	private EntitySet<OnlineResult> _OnlineResults;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _UserId;
+		
+		private string _Name;
+		
+		private System.Nullable<long> _Mobile;
+		
+		private string _Email;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private EntitySet<OnlineResult> _OnlineResults;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -942,175 +943,175 @@ public partial class OnlineRegistration : INotifyPropertyChanging, INotifyProper
     partial void OnDateChanging(System.Nullable<System.DateTime> value);
     partial void OnDateChanged();
     #endregion
-	
-	public OnlineRegistration()
-	{
-		this._OnlineResults = new EntitySet<OnlineResult>(new Action<OnlineResult>(this.attach_OnlineResults), new Action<OnlineResult>(this.detach_OnlineResults));
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long UserId
-	{
-		get
+		
+		public OnlineRegistration()
 		{
-			return this._UserId;
+			this._OnlineResults = new EntitySet<OnlineResult>(new Action<OnlineResult>(this.attach_OnlineResults), new Action<OnlineResult>(this.detach_OnlineResults));
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long UserId
 		{
-			if ((this._UserId != value))
+			get
 			{
-				this.OnUserIdChanging(value);
-				this.SendPropertyChanging();
-				this._UserId = value;
-				this.SendPropertyChanged("UserId");
-				this.OnUserIdChanged();
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-	public string Name
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+		public string Name
 		{
-			return this._Name;
-		}
-		set
-		{
-			if ((this._Name != value))
+			get
 			{
-				this.OnNameChanging(value);
-				this.SendPropertyChanging();
-				this._Name = value;
-				this.SendPropertyChanged("Name");
-				this.OnNameChanged();
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+		public System.Nullable<long> Mobile
 		{
-			return this._Mobile;
-		}
-		set
-		{
-			if ((this._Mobile != value))
+			get
 			{
-				this.OnMobileChanging(value);
-				this.SendPropertyChanging();
-				this._Mobile = value;
-				this.SendPropertyChanged("Mobile");
-				this.OnMobileChanged();
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
+					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
-	public string Email
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
+		public string Email
 		{
-			return this._Email;
-		}
-		set
-		{
-			if ((this._Email != value))
+			get
 			{
-				this.OnEmailChanging(value);
-				this.SendPropertyChanging();
-				this._Email = value;
-				this.SendPropertyChanged("Email");
-				this.OnEmailChanged();
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Date
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
-			return this._Date;
-		}
-		set
-		{
-			if ((this._Date != value))
+			get
 			{
-				this.OnDateChanging(value);
-				this.SendPropertyChanging();
-				this._Date = value;
-				this.SendPropertyChanged("Date");
-				this.OnDateChanged();
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineRegistration_OnlineResult", Storage="_OnlineResults", ThisKey="UserId", OtherKey="FK_UserId")]
-	public EntitySet<OnlineResult> OnlineResults
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineRegistration_OnlineResult", Storage="_OnlineResults", ThisKey="UserId", OtherKey="FK_UserId")]
+		public EntitySet<OnlineResult> OnlineResults
 		{
-			return this._OnlineResults;
+			get
+			{
+				return this._OnlineResults;
+			}
+			set
+			{
+				this._OnlineResults.Assign(value);
+			}
 		}
-		set
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			this._OnlineResults.Assign(value);
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
 		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
+		
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
+		
+		private void attach_OnlineResults(OnlineResult entity)
 		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			this.SendPropertyChanging();
+			entity.OnlineRegistration = this;
+		}
+		
+		private void detach_OnlineResults(OnlineResult entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineRegistration = null;
 		}
 	}
 	
-	private void attach_OnlineResults(OnlineResult entity)
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineResult")]
+	public partial class OnlineResult : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		this.SendPropertyChanging();
-		entity.OnlineRegistration = this;
-	}
-	
-	private void detach_OnlineResults(OnlineResult entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineRegistration = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineResult")]
-public partial class OnlineResult : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _ResultId;
-	
-	private System.Nullable<long> _FK_UserId;
-	
-	private System.Nullable<int> _Mark;
-	
-	private EntitySet<OnlineResultMark> _OnlineResultMarks;
-	
-	private EntityRef<OnlineRegistration> _OnlineRegistration;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ResultId;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private EntitySet<OnlineResultMark> _OnlineResultMarks;
+		
+		private EntityRef<OnlineRegistration> _OnlineRegistration;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1122,176 +1123,176 @@ public partial class OnlineResult : INotifyPropertyChanging, INotifyPropertyChan
     partial void OnMarkChanging(System.Nullable<int> value);
     partial void OnMarkChanged();
     #endregion
-	
-	public OnlineResult()
-	{
-		this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
-		this._OnlineRegistration = default(EntityRef<OnlineRegistration>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long ResultId
-	{
-		get
+		
+		public OnlineResult()
 		{
-			return this._ResultId;
+			this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
+			this._OnlineRegistration = default(EntityRef<OnlineRegistration>);
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ResultId
 		{
-			if ((this._ResultId != value))
+			get
 			{
-				this.OnResultIdChanging(value);
-				this.SendPropertyChanging();
-				this._ResultId = value;
-				this.SendPropertyChanged("ResultId");
-				this.OnResultIdChanged();
+				return this._ResultId;
+			}
+			set
+			{
+				if ((this._ResultId != value))
+				{
+					this.OnResultIdChanging(value);
+					this.SendPropertyChanging();
+					this._ResultId = value;
+					this.SendPropertyChanged("ResultId");
+					this.OnResultIdChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
-	public System.Nullable<long> FK_UserId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
 		{
-			return this._FK_UserId;
-		}
-		set
-		{
-			if ((this._FK_UserId != value))
+			get
 			{
-				if (this._OnlineRegistration.HasLoadedOrAssignedValue)
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					if (this._OnlineRegistration.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_UserIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_UserId = value;
+					this.SendPropertyChanged("FK_UserId");
+					this.OnFK_UserIdChanged();
 				}
-				this.OnFK_UserIdChanging(value);
-				this.SendPropertyChanging();
-				this._FK_UserId = value;
-				this.SendPropertyChanged("FK_UserId");
-				this.OnFK_UserIdChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			return this._Mark;
-		}
-		set
-		{
-			if ((this._Mark != value))
+			get
 			{
-				this.OnMarkChanging(value);
-				this.SendPropertyChanging();
-				this._Mark = value;
-				this.SendPropertyChanged("Mark");
-				this.OnMarkChanged();
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this.OnMarkChanging(value);
+					this.SendPropertyChanging();
+					this._Mark = value;
+					this.SendPropertyChanged("Mark");
+					this.OnMarkChanged();
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineResult_OnlineResultMark", Storage="_OnlineResultMarks", ThisKey="ResultId", OtherKey="FK_ResultId")]
-	public EntitySet<OnlineResultMark> OnlineResultMarks
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineResult_OnlineResultMark", Storage="_OnlineResultMarks", ThisKey="ResultId", OtherKey="FK_ResultId")]
+		public EntitySet<OnlineResultMark> OnlineResultMarks
 		{
-			return this._OnlineResultMarks;
-		}
-		set
-		{
-			this._OnlineResultMarks.Assign(value);
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineRegistration_OnlineResult", Storage="_OnlineRegistration", ThisKey="FK_UserId", OtherKey="UserId", IsForeignKey=true)]
-	public OnlineRegistration OnlineRegistration
-	{
-		get
-		{
-			return this._OnlineRegistration.Entity;
-		}
-		set
-		{
-			OnlineRegistration previousValue = this._OnlineRegistration.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineRegistration.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._OnlineRegistration.Entity = null;
-					previousValue.OnlineResults.Remove(this);
-				}
-				this._OnlineRegistration.Entity = value;
-				if ((value != null))
-				{
-					value.OnlineResults.Add(this);
-					this._FK_UserId = value.UserId;
-				}
-				else
-				{
-					this._FK_UserId = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("OnlineRegistration");
+				return this._OnlineResultMarks;
+			}
+			set
+			{
+				this._OnlineResultMarks.Assign(value);
 			}
 		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineRegistration_OnlineResult", Storage="_OnlineRegistration", ThisKey="FK_UserId", OtherKey="UserId", IsForeignKey=true)]
+		public OnlineRegistration OnlineRegistration
 		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
+			get
+			{
+				return this._OnlineRegistration.Entity;
+			}
+			set
+			{
+				OnlineRegistration previousValue = this._OnlineRegistration.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineRegistration.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineRegistration.Entity = null;
+						previousValue.OnlineResults.Remove(this);
+					}
+					this._OnlineRegistration.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineResults.Add(this);
+						this._FK_UserId = value.UserId;
+					}
+					else
+					{
+						this._FK_UserId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineRegistration");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineResult = this;
+		}
+		
+		private void detach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineResult = null;
 		}
 	}
 	
-	protected virtual void SendPropertyChanged(String propertyName)
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineResultMarks")]
+	public partial class OnlineResultMark : INotifyPropertyChanging, INotifyPropertyChanged
 	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-	
-	private void attach_OnlineResultMarks(OnlineResultMark entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineResult = this;
-	}
-	
-	private void detach_OnlineResultMarks(OnlineResultMark entity)
-	{
-		this.SendPropertyChanging();
-		entity.OnlineResult = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineResultMarks")]
-public partial class OnlineResultMark : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _MarkId;
-	
-	private System.Nullable<int> _Mark;
-	
-	private System.Nullable<long> _FK_MarkType;
-	
-	private System.Nullable<long> _FK_ResultId;
-	
-	private EntityRef<OnlineCategory> _OnlineCategory;
-	
-	private EntityRef<OnlineResult> _OnlineResult;
-	
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_MarkType;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		private EntityRef<OnlineCategory> _OnlineCategory;
+		
+		private EntityRef<OnlineResult> _OnlineResult;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1305,1572 +1306,1573 @@ public partial class OnlineResultMark : INotifyPropertyChanging, INotifyProperty
     partial void OnFK_ResultIdChanging(System.Nullable<long> value);
     partial void OnFK_ResultIdChanged();
     #endregion
-	
-	public OnlineResultMark()
-	{
-		this._OnlineCategory = default(EntityRef<OnlineCategory>);
-		this._OnlineResult = default(EntityRef<OnlineResult>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long MarkId
-	{
-		get
+		
+		public OnlineResultMark()
 		{
-			return this._MarkId;
+			this._OnlineCategory = default(EntityRef<OnlineCategory>);
+			this._OnlineResult = default(EntityRef<OnlineResult>);
+			OnCreated();
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long MarkId
 		{
-			if ((this._MarkId != value))
+			get
 			{
-				this.OnMarkIdChanging(value);
-				this.SendPropertyChanging();
-				this._MarkId = value;
-				this.SendPropertyChanged("MarkId");
-				this.OnMarkIdChanged();
+				return this._MarkId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
-		{
-			return this._Mark;
-		}
-		set
-		{
-			if ((this._Mark != value))
+			set
 			{
-				this.OnMarkChanging(value);
-				this.SendPropertyChanging();
-				this._Mark = value;
-				this.SendPropertyChanged("Mark");
-				this.OnMarkChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
-	public System.Nullable<long> FK_MarkType
-	{
-		get
-		{
-			return this._FK_MarkType;
-		}
-		set
-		{
-			if ((this._FK_MarkType != value))
-			{
-				if (this._OnlineCategory.HasLoadedOrAssignedValue)
+				if ((this._MarkId != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					this.OnMarkIdChanging(value);
+					this.SendPropertyChanging();
+					this._MarkId = value;
+					this.SendPropertyChanged("MarkId");
+					this.OnMarkIdChanged();
 				}
-				this.OnFK_MarkTypeChanging(value);
-				this.SendPropertyChanging();
-				this._FK_MarkType = value;
-				this.SendPropertyChanged("FK_MarkType");
-				this.OnFK_MarkTypeChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
-	public System.Nullable<long> FK_ResultId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			return this._FK_ResultId;
-		}
-		set
-		{
-			if ((this._FK_ResultId != value))
+			get
 			{
-				if (this._OnlineResult.HasLoadedOrAssignedValue)
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
 				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					this.OnMarkChanging(value);
+					this.SendPropertyChanging();
+					this._Mark = value;
+					this.SendPropertyChanged("Mark");
+					this.OnMarkChanged();
 				}
-				this.OnFK_ResultIdChanging(value);
-				this.SendPropertyChanging();
-				this._FK_ResultId = value;
-				this.SendPropertyChanged("FK_ResultId");
-				this.OnFK_ResultIdChanged();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineResultMark", Storage="_OnlineCategory", ThisKey="FK_MarkType", OtherKey="CategoryId", IsForeignKey=true)]
-	public OnlineCategory OnlineCategory
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
+		public System.Nullable<long> FK_MarkType
 		{
-			return this._OnlineCategory.Entity;
-		}
-		set
-		{
-			OnlineCategory previousValue = this._OnlineCategory.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
+				return this._FK_MarkType;
+			}
+			set
+			{
+				if ((this._FK_MarkType != value))
 				{
-					this._OnlineCategory.Entity = null;
-					previousValue.OnlineResultMarks.Remove(this);
+					if (this._OnlineCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_MarkTypeChanging(value);
+					this.SendPropertyChanging();
+					this._FK_MarkType = value;
+					this.SendPropertyChanged("FK_MarkType");
+					this.OnFK_MarkTypeChanged();
 				}
-				this._OnlineCategory.Entity = value;
-				if ((value != null))
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
 				{
-					value.OnlineResultMarks.Add(this);
-					this._FK_MarkType = value.CategoryId;
+					if (this._OnlineResult.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_ResultIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_ResultId = value;
+					this.SendPropertyChanged("FK_ResultId");
+					this.OnFK_ResultIdChanged();
 				}
-				else
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineResultMark", Storage="_OnlineCategory", ThisKey="FK_MarkType", OtherKey="CategoryId", IsForeignKey=true)]
+		public OnlineCategory OnlineCategory
+		{
+			get
+			{
+				return this._OnlineCategory.Entity;
+			}
+			set
+			{
+				OnlineCategory previousValue = this._OnlineCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
 				{
-					this._FK_MarkType = default(Nullable<long>);
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineCategory.Entity = null;
+						previousValue.OnlineResultMarks.Remove(this);
+					}
+					this._OnlineCategory.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineResultMarks.Add(this);
+						this._FK_MarkType = value.CategoryId;
+					}
+					else
+					{
+						this._FK_MarkType = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineCategory");
 				}
-				this.SendPropertyChanged("OnlineCategory");
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineResult_OnlineResultMark", Storage="_OnlineResult", ThisKey="FK_ResultId", OtherKey="ResultId", IsForeignKey=true)]
-	public OnlineResult OnlineResult
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineResult_OnlineResultMark", Storage="_OnlineResult", ThisKey="FK_ResultId", OtherKey="ResultId", IsForeignKey=true)]
+		public OnlineResult OnlineResult
 		{
-			return this._OnlineResult.Entity;
-		}
-		set
-		{
-			OnlineResult previousValue = this._OnlineResult.Entity;
-			if (((previousValue != value) 
-						|| (this._OnlineResult.HasLoadedOrAssignedValue == false)))
+			get
 			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
+				return this._OnlineResult.Entity;
+			}
+			set
+			{
+				OnlineResult previousValue = this._OnlineResult.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineResult.HasLoadedOrAssignedValue == false)))
 				{
-					this._OnlineResult.Entity = null;
-					previousValue.OnlineResultMarks.Remove(this);
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineResult.Entity = null;
+						previousValue.OnlineResultMarks.Remove(this);
+					}
+					this._OnlineResult.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineResultMarks.Add(this);
+						this._FK_ResultId = value.ResultId;
+					}
+					else
+					{
+						this._FK_ResultId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineResult");
 				}
-				this._OnlineResult.Entity = value;
-				if ((value != null))
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class sp_OnlineCategoryNewInsertCommandResult
+	{
+		
+		private long _CategoryId;
+		
+		private string _Category;
+		
+		public sp_OnlineCategoryNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
+		public long CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
 				{
-					value.OnlineResultMarks.Add(this);
-					this._FK_ResultId = value.ResultId;
+					this._CategoryId = value;
 				}
-				else
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
 				{
-					this._FK_ResultId = default(Nullable<long>);
+					this._Category = value;
 				}
-				this.SendPropertyChanged("OnlineResult");
 			}
 		}
 	}
 	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-public partial class sp_OnlineCategoryNewInsertCommandResult
-{
-	
-	private long _CategoryId;
-	
-	private string _Category;
-	
-	public sp_OnlineCategoryNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
-	public long CategoryId
-	{
-		get
-		{
-			return this._CategoryId;
-		}
-		set
-		{
-			if ((this._CategoryId != value))
-			{
-				this._CategoryId = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
-	public string Category
-	{
-		get
-		{
-			return this._Category;
-		}
-		set
-		{
-			if ((this._Category != value))
-			{
-				this._Category = value;
-			}
-		}
-	}
-}
-
-public partial class sp_OnlineCategoryNewSelectCommandResult
-{
-	
-	private long _CategoryId;
-	
-	private string _Category;
-	
-	public sp_OnlineCategoryNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
-	public long CategoryId
-	{
-		get
-		{
-			return this._CategoryId;
-		}
-		set
-		{
-			if ((this._CategoryId != value))
-			{
-				this._CategoryId = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
-	public string Category
-	{
-		get
-		{
-			return this._Category;
-		}
-		set
-		{
-			if ((this._Category != value))
-			{
-				this._Category = value;
-			}
-		}
-	}
-}
-
-public partial class sp_OnlineCategoryNewUpdateCommandResult
-{
-	
-	private long _CategoryId;
-	
-	private string _Category;
-	
-	public sp_OnlineCategoryNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
-	public long CategoryId
-	{
-		get
-		{
-			return this._CategoryId;
-		}
-		set
-		{
-			if ((this._CategoryId != value))
-			{
-				this._CategoryId = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
-	public string Category
-	{
-		get
-		{
-			return this._Category;
-		}
-		set
-		{
-			if ((this._Category != value))
-			{
-				this._Category = value;
-			}
-		}
-	}
-}
-
-public partial class sp_OnlineOptionsNewInsertCommandResult
-{
-	
-	private long _OptionId;
-	
-	private string _OptionName;
-	
-	private System.Nullable<int> _OptionType;
-	
-	private System.Nullable<long> _FK_QuestionId;
-	
-	public sp_OnlineOptionsNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
-	public long OptionId
-	{
-		get
-		{
-			return this._OptionId;
-		}
-		set
-		{
-			if ((this._OptionId != value))
-			{
-				this._OptionId = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
-	public string OptionName
-	{
-		get
-		{
-			return this._OptionName;
-		}
-		set
-		{
-			if ((this._OptionName != value))
-			{
-				this._OptionName = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
-	public System.Nullable<int> OptionType
-	{
-		get
-		{
-			return this._OptionType;
-		}
-		set
-		{
-			if ((this._OptionType != value))
-			{
-				this._OptionType = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
-	public System.Nullable<long> FK_QuestionId
-	{
-		get
-		{
-			return this._FK_QuestionId;
-		}
-		set
-		{
-			if ((this._FK_QuestionId != value))
-			{
-				this._FK_QuestionId = value;
-			}
-		}
-	}
-}
-
-public partial class sp_OnlineOptionsNewSelectCommandResult
-{
-	
-	private long _OptionId;
-	
-	private string _OptionName;
-	
-	private System.Nullable<int> _OptionType;
-	
-	private System.Nullable<long> _FK_QuestionId;
-	
-	public sp_OnlineOptionsNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
-	public long OptionId
+	public partial class sp_OnlineCategoryNewSelectCommandResult
 	{
-		get
+		
+		private long _CategoryId;
+		
+		private string _Category;
+		
+		public sp_OnlineCategoryNewSelectCommandResult()
 		{
-			return this._OptionId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
+		public long CategoryId
 		{
-			if ((this._OptionId != value))
+			get
 			{
-				this._OptionId = value;
+				return this._CategoryId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
-	public string OptionName
-	{
-		get
-		{
-			return this._OptionName;
-		}
-		set
-		{
-			if ((this._OptionName != value))
+			set
 			{
-				this._OptionName = value;
+				if ((this._CategoryId != value))
+				{
+					this._CategoryId = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
-	public System.Nullable<int> OptionType
-	{
-		get
-		{
-			return this._OptionType;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
+		public string Category
 		{
-			if ((this._OptionType != value))
+			get
 			{
-				this._OptionType = value;
+				return this._Category;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
-	public System.Nullable<long> FK_QuestionId
-	{
-		get
-		{
-			return this._FK_QuestionId;
-		}
-		set
-		{
-			if ((this._FK_QuestionId != value))
+			set
 			{
-				this._FK_QuestionId = value;
+				if ((this._Category != value))
+				{
+					this._Category = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineOptionsNewUpdateCommandResult
-{
-	
-	private long _OptionId;
-	
-	private string _OptionName;
-	
-	private System.Nullable<int> _OptionType;
-	
-	private System.Nullable<long> _FK_QuestionId;
-	
-	public sp_OnlineOptionsNewUpdateCommandResult()
-	{
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
-	public long OptionId
+	public partial class sp_OnlineCategoryNewUpdateCommandResult
 	{
-		get
+		
+		private long _CategoryId;
+		
+		private string _Category;
+		
+		public sp_OnlineCategoryNewUpdateCommandResult()
 		{
-			return this._OptionId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="BigInt NOT NULL")]
+		public long CategoryId
 		{
-			if ((this._OptionId != value))
+			get
 			{
-				this._OptionId = value;
+				return this._CategoryId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
-	public string OptionName
-	{
-		get
-		{
-			return this._OptionName;
-		}
-		set
-		{
-			if ((this._OptionName != value))
+			set
 			{
-				this._OptionName = value;
+				if ((this._CategoryId != value))
+				{
+					this._CategoryId = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
-	public System.Nullable<int> OptionType
-	{
-		get
-		{
-			return this._OptionType;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(100)")]
+		public string Category
 		{
-			if ((this._OptionType != value))
+			get
 			{
-				this._OptionType = value;
+				return this._Category;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
-	public System.Nullable<long> FK_QuestionId
-	{
-		get
-		{
-			return this._FK_QuestionId;
-		}
-		set
-		{
-			if ((this._FK_QuestionId != value))
+			set
 			{
-				this._FK_QuestionId = value;
+				if ((this._Category != value))
+				{
+					this._Category = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineQuestionNewInsertCommandResult
-{
-	
-	private long _QuestionId;
-	
-	private string _Question;
-	
-	private string _Imageurl;
-	
-	private System.Nullable<long> _FK_Answer;
-	
-	private System.Nullable<long> _FK_Category;
-	
-	public sp_OnlineQuestionNewInsertCommandResult()
-	{
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
-	public long QuestionId
+	public partial class sp_OnlineOptionsNewInsertCommandResult
 	{
-		get
+		
+		private long _OptionId;
+		
+		private string _OptionName;
+		
+		private System.Nullable<int> _OptionType;
+		
+		private System.Nullable<long> _FK_QuestionId;
+		
+		public sp_OnlineOptionsNewInsertCommandResult()
 		{
-			return this._QuestionId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
+		public long OptionId
 		{
-			if ((this._QuestionId != value))
+			get
 			{
-				this._QuestionId = value;
+				return this._OptionId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-	public string Question
-	{
-		get
-		{
-			return this._Question;
-		}
-		set
-		{
-			if ((this._Question != value))
+			set
 			{
-				this._Question = value;
+				if ((this._OptionId != value))
+				{
+					this._OptionId = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-	public string Imageurl
-	{
-		get
-		{
-			return this._Imageurl;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
+		public string OptionName
 		{
-			if ((this._Imageurl != value))
+			get
 			{
-				this._Imageurl = value;
+				return this._OptionName;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-	public System.Nullable<long> FK_Answer
-	{
-		get
-		{
-			return this._FK_Answer;
-		}
-		set
-		{
-			if ((this._FK_Answer != value))
+			set
 			{
-				this._FK_Answer = value;
+				if ((this._OptionName != value))
+				{
+					this._OptionName = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-	public System.Nullable<long> FK_Category
-	{
-		get
-		{
-			return this._FK_Category;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
+		public System.Nullable<int> OptionType
 		{
-			if ((this._FK_Category != value))
+			get
 			{
-				this._FK_Category = value;
+				return this._OptionType;
 			}
-		}
-	}
-}
-
-public partial class sp_OnlineQuestionNewSelectCommandResult
-{
-	
-	private long _QuestionId;
-	
-	private string _Question;
-	
-	private string _Imageurl;
-	
-	private System.Nullable<long> _FK_Answer;
-	
-	private System.Nullable<long> _FK_Category;
-	
-	public sp_OnlineQuestionNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
-	public long QuestionId
-	{
-		get
-		{
-			return this._QuestionId;
-		}
-		set
-		{
-			if ((this._QuestionId != value))
+			set
 			{
-				this._QuestionId = value;
+				if ((this._OptionType != value))
+				{
+					this._OptionType = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-	public string Question
-	{
-		get
-		{
-			return this._Question;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
+		public System.Nullable<long> FK_QuestionId
 		{
-			if ((this._Question != value))
+			get
 			{
-				this._Question = value;
+				return this._FK_QuestionId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-	public string Imageurl
-	{
-		get
-		{
-			return this._Imageurl;
-		}
-		set
-		{
-			if ((this._Imageurl != value))
+			set
 			{
-				this._Imageurl = value;
+				if ((this._FK_QuestionId != value))
+				{
+					this._FK_QuestionId = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-	public System.Nullable<long> FK_Answer
+	public partial class sp_OnlineOptionsNewSelectCommandResult
 	{
-		get
+		
+		private long _OptionId;
+		
+		private string _OptionName;
+		
+		private System.Nullable<int> _OptionType;
+		
+		private System.Nullable<long> _FK_QuestionId;
+		
+		public sp_OnlineOptionsNewSelectCommandResult()
 		{
-			return this._FK_Answer;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
+		public long OptionId
 		{
-			if ((this._FK_Answer != value))
+			get
 			{
-				this._FK_Answer = value;
+				return this._OptionId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-	public System.Nullable<long> FK_Category
-	{
-		get
-		{
-			return this._FK_Category;
-		}
-		set
-		{
-			if ((this._FK_Category != value))
+			set
 			{
-				this._FK_Category = value;
+				if ((this._OptionId != value))
+				{
+					this._OptionId = value;
+				}
 			}
-		}
-	}
-}
-
-public partial class sp_OnlineQuestionNewUpdateCommandResult
-{
-	
-	private long _QuestionId;
-	
-	private string _Question;
-	
-	private string _Imageurl;
-	
-	private System.Nullable<long> _FK_Answer;
-	
-	private System.Nullable<long> _FK_Category;
-	
-	public sp_OnlineQuestionNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
-	public long QuestionId
-	{
-		get
-		{
-			return this._QuestionId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
+		public string OptionName
 		{
-			if ((this._QuestionId != value))
+			get
 			{
-				this._QuestionId = value;
+				return this._OptionName;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-	public string Question
-	{
-		get
-		{
-			return this._Question;
-		}
-		set
-		{
-			if ((this._Question != value))
+			set
 			{
-				this._Question = value;
+				if ((this._OptionName != value))
+				{
+					this._OptionName = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-	public string Imageurl
-	{
-		get
-		{
-			return this._Imageurl;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
+		public System.Nullable<int> OptionType
 		{
-			if ((this._Imageurl != value))
+			get
 			{
-				this._Imageurl = value;
+				return this._OptionType;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-	public System.Nullable<long> FK_Answer
-	{
-		get
-		{
-			return this._FK_Answer;
-		}
-		set
-		{
-			if ((this._FK_Answer != value))
+			set
 			{
-				this._FK_Answer = value;
+				if ((this._OptionType != value))
+				{
+					this._OptionType = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-	public System.Nullable<long> FK_Category
-	{
-		get
-		{
-			return this._FK_Category;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
+		public System.Nullable<long> FK_QuestionId
 		{
-			if ((this._FK_Category != value))
+			get
 			{
-				this._FK_Category = value;
+				return this._FK_QuestionId;
 			}
-		}
-	}
-}
-
-public partial class sp_OnlineRegistrationNewSelectCommandResult
-{
-	
-	private long _UserId;
-	
-	private string _Name;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private string _Email;
-	
-	private System.Nullable<System.DateTime> _Date;
-	
-	public sp_OnlineRegistrationNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
-	public long UserId
-	{
-		get
-		{
-			return this._UserId;
-		}
-		set
-		{
-			if ((this._UserId != value))
+			set
 			{
-				this._UserId = value;
+				if ((this._FK_QuestionId != value))
+				{
+					this._FK_QuestionId = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-	public string Name
+	public partial class sp_OnlineOptionsNewUpdateCommandResult
 	{
-		get
+		
+		private long _OptionId;
+		
+		private string _OptionName;
+		
+		private System.Nullable<int> _OptionType;
+		
+		private System.Nullable<long> _FK_QuestionId;
+		
+		public sp_OnlineOptionsNewUpdateCommandResult()
 		{
-			return this._Name;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionId", DbType="BigInt NOT NULL")]
+		public long OptionId
 		{
-			if ((this._Name != value))
+			get
 			{
-				this._Name = value;
+				return this._OptionId;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
-		{
-			return this._Mobile;
-		}
-		set
-		{
-			if ((this._Mobile != value))
+			set
 			{
-				this._Mobile = value;
+				if ((this._OptionId != value))
+				{
+					this._OptionId = value;
+				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
-	public string Email
-	{
-		get
-		{
-			return this._Email;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionName", DbType="NVarChar(500)")]
+		public string OptionName
 		{
-			if ((this._Email != value))
+			get
 			{
-				this._Email = value;
+				return this._OptionName;
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Date
-	{
-		get
-		{
-			return this._Date;
-		}
-		set
-		{
-			if ((this._Date != value))
+			set
 			{
-				this._Date = value;
+				if ((this._OptionName != value))
+				{
+					this._OptionName = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineRegistrationNewUpdateCommandResult
-{
-	
-	private long _UserId;
-	
-	private string _Name;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private string _Email;
-	
-	private System.Nullable<System.DateTime> _Date;
-	
-	public sp_OnlineRegistrationNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
-	public long UserId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionType", DbType="Int")]
+		public System.Nullable<int> OptionType
 		{
-			return this._UserId;
+			get
+			{
+				return this._OptionType;
+			}
+			set
+			{
+				if ((this._OptionType != value))
+				{
+					this._OptionType = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_QuestionId", DbType="BigInt")]
+		public System.Nullable<long> FK_QuestionId
 		{
-			if ((this._UserId != value))
+			get
 			{
-				this._UserId = value;
+				return this._FK_QuestionId;
 			}
+			set
+			{
+				if ((this._FK_QuestionId != value))
+				{
+					this._FK_QuestionId = value;
+				}
+			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-	public string Name
+	public partial class sp_OnlineQuestionNewInsertCommandResult
 	{
-		get
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		public sp_OnlineQuestionNewInsertCommandResult()
 		{
-			return this._Name;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
+		public long QuestionId
 		{
-			if ((this._Name != value))
+			get
+			{
+				return this._QuestionId;
+			}
+			set
 			{
-				this._Name = value;
+				if ((this._QuestionId != value))
+				{
+					this._QuestionId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
 		{
-			return this._Mobile;
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this._Question = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
 		{
-			if ((this._Mobile != value))
+			get
+			{
+				return this._Imageurl;
+			}
+			set
 			{
-				this._Mobile = value;
+				if ((this._Imageurl != value))
+				{
+					this._Imageurl = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
-	public string Email
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
 		{
-			return this._Email;
+			get
+			{
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
+				{
+					this._FK_Answer = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
 		{
-			if ((this._Email != value))
+			get
 			{
-				this._Email = value;
+				return this._FK_Category;
 			}
+			set
+			{
+				if ((this._FK_Category != value))
+				{
+					this._FK_Category = value;
+				}
+			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Date
+	public partial class sp_OnlineQuestionNewSelectCommandResult
 	{
-		get
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		public sp_OnlineQuestionNewSelectCommandResult()
 		{
-			return this._Date;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
+		public long QuestionId
 		{
-			if ((this._Date != value))
+			get
+			{
+				return this._QuestionId;
+			}
+			set
 			{
-				this._Date = value;
+				if ((this._QuestionId != value))
+				{
+					this._QuestionId = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineRegistrationNewInsertCommandResult
-{
-	
-	private long _UserId;
-	
-	private string _Name;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private string _Email;
-	
-	private System.Nullable<System.DateTime> _Date;
-	
-	public sp_OnlineRegistrationNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
-	public long UserId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
 		{
-			return this._UserId;
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this._Question = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
 		{
-			if ((this._UserId != value))
+			get
+			{
+				return this._Imageurl;
+			}
+			set
 			{
-				this._UserId = value;
+				if ((this._Imageurl != value))
+				{
+					this._Imageurl = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
-	public string Name
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
 		{
-			return this._Name;
+			get
+			{
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
+				{
+					this._FK_Answer = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
 		{
-			if ((this._Name != value))
+			get
 			{
-				this._Name = value;
+				return this._FK_Category;
 			}
+			set
+			{
+				if ((this._FK_Category != value))
+				{
+					this._FK_Category = value;
+				}
+			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
+	public partial class sp_OnlineQuestionNewUpdateCommandResult
 	{
-		get
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		public sp_OnlineQuestionNewUpdateCommandResult()
 		{
-			return this._Mobile;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
+		public long QuestionId
 		{
-			if ((this._Mobile != value))
+			get
+			{
+				return this._QuestionId;
+			}
+			set
 			{
-				this._Mobile = value;
+				if ((this._QuestionId != value))
+				{
+					this._QuestionId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
-	public string Email
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
 		{
-			return this._Email;
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this._Question = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
 		{
-			if ((this._Email != value))
+			get
+			{
+				return this._Imageurl;
+			}
+			set
 			{
-				this._Email = value;
+				if ((this._Imageurl != value))
+				{
+					this._Imageurl = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Date
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
 		{
-			return this._Date;
+			get
+			{
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
+				{
+					this._FK_Answer = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
 		{
-			if ((this._Date != value))
+			get
 			{
-				this._Date = value;
+				return this._FK_Category;
 			}
+			set
+			{
+				if ((this._FK_Category != value))
+				{
+					this._FK_Category = value;
+				}
+			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultMarksNewInsertCommandResult
-{
-	
-	private long _MarkId;
-	
-	private System.Nullable<int> _Mark;
-	
-	private System.Nullable<long> _FK_MarkType;
-	
-	private System.Nullable<long> _FK_ResultId;
-	
-	public sp_OnlineResultMarksNewInsertCommandResult()
-	{
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
-	public long MarkId
+	public partial class sp_OnlineRegistrationNewSelectCommandResult
 	{
-		get
+		
+		private long _UserId;
+		
+		private string _Name;
+		
+		private System.Nullable<long> _Mobile;
+		
+		private string _Email;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		public sp_OnlineRegistrationNewSelectCommandResult()
 		{
-			return this._MarkId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
+		public long UserId
 		{
-			if ((this._MarkId != value))
+			get
+			{
+				return this._UserId;
+			}
+			set
 			{
-				this._MarkId = value;
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+		public string Name
 		{
-			return this._Mark;
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+		public System.Nullable<long> Mobile
 		{
-			if ((this._Mark != value))
+			get
+			{
+				return this._Mobile;
+			}
+			set
 			{
-				this._Mark = value;
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
-	public System.Nullable<long> FK_MarkType
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
+		public string Email
 		{
-			return this._FK_MarkType;
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
-			if ((this._FK_MarkType != value))
+			get
+			{
+				return this._Date;
+			}
+			set
 			{
-				this._FK_MarkType = value;
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
-	public System.Nullable<long> FK_ResultId
+	public partial class sp_OnlineRegistrationNewUpdateCommandResult
 	{
-		get
+		
+		private long _UserId;
+		
+		private string _Name;
+		
+		private System.Nullable<long> _Mobile;
+		
+		private string _Email;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		public sp_OnlineRegistrationNewUpdateCommandResult()
 		{
-			return this._FK_ResultId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
+		public long UserId
 		{
-			if ((this._FK_ResultId != value))
+			get
+			{
+				return this._UserId;
+			}
+			set
 			{
-				this._FK_ResultId = value;
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultMarksNewSelectCommandResult
-{
-	
-	private long _MarkId;
-	
-	private System.Nullable<int> _Mark;
-	
-	private System.Nullable<long> _FK_MarkType;
-	
-	private System.Nullable<long> _FK_ResultId;
-	
-	public sp_OnlineResultMarksNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
-	public long MarkId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+		public string Name
 		{
-			return this._MarkId;
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+		public System.Nullable<long> Mobile
 		{
-			if ((this._MarkId != value))
+			get
+			{
+				return this._Mobile;
+			}
+			set
 			{
-				this._MarkId = value;
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
+		public string Email
 		{
-			return this._Mark;
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
-			if ((this._Mark != value))
+			get
+			{
+				return this._Date;
+			}
+			set
 			{
-				this._Mark = value;
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
-	public System.Nullable<long> FK_MarkType
+	public partial class sp_OnlineRegistrationNewInsertCommandResult
 	{
-		get
+		
+		private long _UserId;
+		
+		private string _Name;
+		
+		private System.Nullable<long> _Mobile;
+		
+		private string _Email;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		public sp_OnlineRegistrationNewInsertCommandResult()
 		{
-			return this._FK_MarkType;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL")]
+		public long UserId
 		{
-			if ((this._FK_MarkType != value))
+			get
 			{
-				this._FK_MarkType = value;
+				return this._UserId;
 			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
-	public System.Nullable<long> FK_ResultId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+		public string Name
 		{
-			return this._FK_ResultId;
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+		public System.Nullable<long> Mobile
 		{
-			if ((this._FK_ResultId != value))
+			get
+			{
+				return this._Mobile;
+			}
+			set
 			{
-				this._FK_ResultId = value;
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultMarksNewUpdateCommandResult
-{
-	
-	private long _MarkId;
-	
-	private System.Nullable<int> _Mark;
-	
-	private System.Nullable<long> _FK_MarkType;
-	
-	private System.Nullable<long> _FK_ResultId;
-	
-	public sp_OnlineResultMarksNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
-	public long MarkId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
+		public string Email
 		{
-			return this._MarkId;
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
-			if ((this._MarkId != value))
+			get
+			{
+				return this._Date;
+			}
+			set
 			{
-				this._MarkId = value;
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
+	public partial class sp_OnlineResultMarksNewInsertCommandResult
 	{
-		get
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_MarkType;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		public sp_OnlineResultMarksNewInsertCommandResult()
 		{
-			return this._Mark;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
 		{
-			if ((this._Mark != value))
+			get
+			{
+				return this._MarkId;
+			}
+			set
 			{
-				this._Mark = value;
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
-	public System.Nullable<long> FK_MarkType
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			return this._FK_MarkType;
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
+		public System.Nullable<long> FK_MarkType
+		{
+			get
+			{
+				return this._FK_MarkType;
+			}
+			set
+			{
+				if ((this._FK_MarkType != value))
+				{
+					this._FK_MarkType = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
 		{
-			if ((this._FK_MarkType != value))
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
 			{
-				this._FK_MarkType = value;
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
-	public System.Nullable<long> FK_ResultId
+	public partial class sp_OnlineResultMarksNewSelectCommandResult
 	{
-		get
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_MarkType;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		public sp_OnlineResultMarksNewSelectCommandResult()
 		{
-			return this._FK_ResultId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
 		{
-			if ((this._FK_ResultId != value))
+			get
 			{
-				this._FK_ResultId = value;
+				return this._MarkId;
 			}
+			set
+			{
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
+			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultNewInsertCommandResult
-{
-	
-	private long _ResultId;
-	
-	private System.Nullable<long> _FK_UserId;
-	
-	private System.Nullable<int> _Mark;
-	
-	public sp_OnlineResultNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
-	public long ResultId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
+		{
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
+		public System.Nullable<long> FK_MarkType
 		{
-			return this._ResultId;
+			get
+			{
+				return this._FK_MarkType;
+			}
+			set
+			{
+				if ((this._FK_MarkType != value))
+				{
+					this._FK_MarkType = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
 		{
-			if ((this._ResultId != value))
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
 			{
-				this._ResultId = value;
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
-	public System.Nullable<long> FK_UserId
+	public partial class sp_OnlineResultMarksNewUpdateCommandResult
 	{
-		get
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_MarkType;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		public sp_OnlineResultMarksNewUpdateCommandResult()
 		{
-			return this._FK_UserId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
 		{
-			if ((this._FK_UserId != value))
+			get
+			{
+				return this._MarkId;
+			}
+			set
 			{
-				this._FK_UserId = value;
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			return this._Mark;
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_MarkType", DbType="BigInt")]
+		public System.Nullable<long> FK_MarkType
 		{
-			if ((this._Mark != value))
+			get
 			{
-				this._Mark = value;
+				return this._FK_MarkType;
 			}
+			set
+			{
+				if ((this._FK_MarkType != value))
+				{
+					this._FK_MarkType = value;
+				}
+			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultNewSelectCommandResult
-{
-	
-	private long _ResultId;
-	
-	private System.Nullable<long> _FK_UserId;
-	
-	private System.Nullable<int> _Mark;
-	
-	public sp_OnlineResultNewSelectCommandResult()
-	{
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
+			}
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
-	public long ResultId
+	public partial class sp_OnlineResultNewInsertCommandResult
 	{
-		get
+		
+		private long _ResultId;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		private System.Nullable<int> _Mark;
+		
+		public sp_OnlineResultNewInsertCommandResult()
 		{
-			return this._ResultId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
 		{
-			if ((this._ResultId != value))
+			get
+			{
+				return this._ResultId;
+			}
+			set
 			{
-				this._ResultId = value;
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
-	public System.Nullable<long> FK_UserId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
 		{
-			return this._FK_UserId;
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			if ((this._FK_UserId != value))
+			get
+			{
+				return this._Mark;
+			}
+			set
 			{
-				this._FK_UserId = value;
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
+	public partial class sp_OnlineResultNewSelectCommandResult
 	{
-		get
+		
+		private long _ResultId;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		private System.Nullable<int> _Mark;
+		
+		public sp_OnlineResultNewSelectCommandResult()
 		{
-			return this._Mark;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
 		{
-			if ((this._Mark != value))
+			get
+			{
+				return this._ResultId;
+			}
+			set
 			{
-				this._Mark = value;
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
 			}
 		}
-	}
-}
-
-public partial class sp_OnlineResultNewUpdateCommandResult
-{
-	
-	private long _ResultId;
-	
-	private System.Nullable<long> _FK_UserId;
-	
-	private System.Nullable<int> _Mark;
-	
-	public sp_OnlineResultNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
-	public long ResultId
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
 		{
-			return this._ResultId;
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			if ((this._ResultId != value))
+			get
 			{
-				this._ResultId = value;
+				return this._Mark;
 			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
-	public System.Nullable<long> FK_UserId
+	public partial class sp_OnlineResultNewUpdateCommandResult
 	{
-		get
+		
+		private long _ResultId;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		private System.Nullable<int> _Mark;
+		
+		public sp_OnlineResultNewUpdateCommandResult()
 		{
-			return this._FK_UserId;
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
 		{
-			if ((this._FK_UserId != value))
+			get
+			{
+				return this._ResultId;
+			}
+			set
 			{
-				this._FK_UserId = value;
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
-	public System.Nullable<int> Mark
-	{
-		get
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
 		{
-			return this._Mark;
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
+				}
+			}
 		}
-		set
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
 		{
-			if ((this._Mark != value))
+			get
+			{
+				return this._Mark;
+			}
+			set
 			{
-				this._Mark = value;
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
 			}
 		}
 	}
