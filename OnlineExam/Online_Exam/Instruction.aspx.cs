@@ -11,4 +11,8 @@ public partial class Instruction : System.Web.UI.Page
     {
         lbuser.Text = Convert.ToString(Session["cadidate"]);
     }
+    protected void btnStart_Click(object sender, EventArgs e)
+    {
+
+    }
 }
