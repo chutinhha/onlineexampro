@@ -27,7 +27,18 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
-        //OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text,path,
+        string path = string.Empty;
+        var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, 0, Convert.ToInt64(ddlCatagory.SelectedValue));
+        foreach (var item in obj)
+        {
+            DataTable dt = (DataTable)ViewState["Answers"];
+            int i = 1;
+            foreach (DataRow gg in dt.Rows)
+            {
+                OnlineExamHelper.Context.sp_OnlineOptionsNewInsertCommand(gg["Answer"].ToString(), i, item.QuestionId);
+                i++;
+            }
+        }
     }
     protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
     {
