@@ -22,7 +22,7 @@ namespace DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="OnlineExam")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Biz_OutSource_To_India")]
 	public partial class OnlineExamDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,9 +36,6 @@ namespace DAL
     partial void InsertOnlineOption(OnlineOption instance);
     partial void UpdateOnlineOption(OnlineOption instance);
     partial void DeleteOnlineOption(OnlineOption instance);
-    partial void InsertOnlineQuestion(OnlineQuestion instance);
-    partial void UpdateOnlineQuestion(OnlineQuestion instance);
-    partial void DeleteOnlineQuestion(OnlineQuestion instance);
     partial void InsertOnlineRegistration(OnlineRegistration instance);
     partial void UpdateOnlineRegistration(OnlineRegistration instance);
     partial void DeleteOnlineRegistration(OnlineRegistration instance);
@@ -48,6 +45,9 @@ namespace DAL
     partial void InsertOnlineResultMark(OnlineResultMark instance);
     partial void UpdateOnlineResultMark(OnlineResultMark instance);
     partial void DeleteOnlineResultMark(OnlineResultMark instance);
+    partial void InsertOnlineQuestion(OnlineQuestion instance);
+    partial void UpdateOnlineQuestion(OnlineQuestion instance);
+    partial void DeleteOnlineQuestion(OnlineQuestion instance);
     #endregion
 		
 		public OnlineExamDataContext() : 
@@ -96,14 +96,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<OnlineQuestion> OnlineQuestions
-		{
-			get
-			{
-				return this.GetTable<OnlineQuestion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<OnlineRegistration> OnlineRegistrations
 		{
 			get
@@ -125,6 +117,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<OnlineResultMark>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineQuestion> OnlineQuestions
+		{
+			get
+			{
+				return this.GetTable<OnlineQuestion>();
 			}
 		}
 		
@@ -189,13 +189,6 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_QuestionId);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewInsertCommand")]
-		public ISingleResult<sp_OnlineQuestionNewInsertCommandResult> sp_OnlineQuestionNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Imageurl", DbType="NVarChar(200)")] string imageurl, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, imageurl, fK_Answer, fK_Category);
-			return ((ISingleResult<sp_OnlineQuestionNewInsertCommandResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewSelectCommand")]
@@ -295,6 +288,13 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_UserId, mark, original_ResultId, resultId);
 			return ((ISingleResult<sp_OnlineResultNewUpdateCommandResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineQuestionNewInsertCommand")]
+		public ISingleResult<sp_OnlineQuestionNewInsertCommandResult> sp_OnlineQuestionNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Question", DbType="NVarChar(500)")] string question, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Answer", DbType="BigInt")] System.Nullable<long> fK_Answer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_Category", DbType="BigInt")] System.Nullable<long> fK_Category)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), question, path, fK_Answer, fK_Category);
+			return ((ISingleResult<sp_OnlineQuestionNewInsertCommandResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineCategory")]
@@ -307,9 +307,9 @@ namespace DAL
 		
 		private string _Category;
 		
-		private EntitySet<OnlineQuestion> _OnlineQuestions;
-		
 		private EntitySet<OnlineResultMark> _OnlineResultMarks;
+		
+		private EntitySet<OnlineQuestion> _OnlineQuestions;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -323,8 +323,8 @@ namespace DAL
 		
 		public OnlineCategory()
 		{
-			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
 			this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
+			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
 			OnCreated();
 		}
 		
@@ -368,19 +368,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="CategoryId", OtherKey="FK_Category")]
-		public EntitySet<OnlineQuestion> OnlineQuestions
-		{
-			get
-			{
-				return this._OnlineQuestions;
-			}
-			set
-			{
-				this._OnlineQuestions.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineResultMark", Storage="_OnlineResultMarks", ThisKey="CategoryId", OtherKey="FK_MarkType")]
 		public EntitySet<OnlineResultMark> OnlineResultMarks
 		{
@@ -391,6 +378,19 @@ namespace DAL
 			set
 			{
 				this._OnlineResultMarks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="CategoryId", OtherKey="FK_Category")]
+		public EntitySet<OnlineQuestion> OnlineQuestions
+		{
+			get
+			{
+				return this._OnlineQuestions;
+			}
+			set
+			{
+				this._OnlineQuestions.Assign(value);
 			}
 		}
 		
@@ -414,18 +414,6 @@ namespace DAL
 			}
 		}
 		
-		private void attach_OnlineQuestions(OnlineQuestion entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineCategory = this;
-		}
-		
-		private void detach_OnlineQuestions(OnlineQuestion entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineCategory = null;
-		}
-		
 		private void attach_OnlineResultMarks(OnlineResultMark entity)
 		{
 			this.SendPropertyChanging();
@@ -433,6 +421,18 @@ namespace DAL
 		}
 		
 		private void detach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = null;
+		}
+		
+		private void attach_OnlineQuestions(OnlineQuestion entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = this;
+		}
+		
+		private void detach_OnlineQuestions(OnlineQuestion entity)
 		{
 			this.SendPropertyChanging();
 			entity.OnlineCategory = null;
@@ -453,8 +453,6 @@ namespace DAL
 		
 		private System.Nullable<long> _FK_QuestionId;
 		
-		private EntitySet<OnlineQuestion> _OnlineQuestions;
-		
 		private EntityRef<OnlineQuestion> _OnlineQuestion;
 		
     #region Extensibility Method Definitions
@@ -473,7 +471,6 @@ namespace DAL
 		
 		public OnlineOption()
 		{
-			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
 			this._OnlineQuestion = default(EntityRef<OnlineQuestion>);
 			OnCreated();
 		}
@@ -562,19 +559,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineQuestions", ThisKey="OptionId", OtherKey="FK_Answer")]
-		public EntitySet<OnlineQuestion> OnlineQuestions
-		{
-			get
-			{
-				return this._OnlineQuestions;
-			}
-			set
-			{
-				this._OnlineQuestions.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineQuestion", ThisKey="FK_QuestionId", OtherKey="QuestionId", IsForeignKey=true)]
 		public OnlineQuestion OnlineQuestion
 		{
@@ -627,286 +611,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_OnlineQuestions(OnlineQuestion entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineOption = this;
-		}
-		
-		private void detach_OnlineQuestions(OnlineQuestion entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineOption = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineQuestion")]
-	public partial class OnlineQuestion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _QuestionId;
-		
-		private string _Question;
-		
-		private string _Imageurl;
-		
-		private System.Nullable<long> _FK_Answer;
-		
-		private System.Nullable<long> _FK_Category;
-		
-		private EntitySet<OnlineOption> _OnlineOptions;
-		
-		private EntityRef<OnlineOption> _OnlineOption;
-		
-		private EntityRef<OnlineCategory> _OnlineCategory;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnQuestionIdChanging(long value);
-    partial void OnQuestionIdChanged();
-    partial void OnQuestionChanging(string value);
-    partial void OnQuestionChanged();
-    partial void OnImageurlChanging(string value);
-    partial void OnImageurlChanged();
-    partial void OnFK_AnswerChanging(System.Nullable<long> value);
-    partial void OnFK_AnswerChanged();
-    partial void OnFK_CategoryChanging(System.Nullable<long> value);
-    partial void OnFK_CategoryChanged();
-    #endregion
-		
-		public OnlineQuestion()
-		{
-			this._OnlineOptions = new EntitySet<OnlineOption>(new Action<OnlineOption>(this.attach_OnlineOptions), new Action<OnlineOption>(this.detach_OnlineOptions));
-			this._OnlineOption = default(EntityRef<OnlineOption>);
-			this._OnlineCategory = default(EntityRef<OnlineCategory>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long QuestionId
-		{
-			get
-			{
-				return this._QuestionId;
-			}
-			set
-			{
-				if ((this._QuestionId != value))
-				{
-					this.OnQuestionIdChanging(value);
-					this.SendPropertyChanging();
-					this._QuestionId = value;
-					this.SendPropertyChanged("QuestionId");
-					this.OnQuestionIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-		public string Question
-		{
-			get
-			{
-				return this._Question;
-			}
-			set
-			{
-				if ((this._Question != value))
-				{
-					this.OnQuestionChanging(value);
-					this.SendPropertyChanging();
-					this._Question = value;
-					this.SendPropertyChanged("Question");
-					this.OnQuestionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-		public string Imageurl
-		{
-			get
-			{
-				return this._Imageurl;
-			}
-			set
-			{
-				if ((this._Imageurl != value))
-				{
-					this.OnImageurlChanging(value);
-					this.SendPropertyChanging();
-					this._Imageurl = value;
-					this.SendPropertyChanged("Imageurl");
-					this.OnImageurlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-		public System.Nullable<long> FK_Answer
-		{
-			get
-			{
-				return this._FK_Answer;
-			}
-			set
-			{
-				if ((this._FK_Answer != value))
-				{
-					if (this._OnlineOption.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFK_AnswerChanging(value);
-					this.SendPropertyChanging();
-					this._FK_Answer = value;
-					this.SendPropertyChanged("FK_Answer");
-					this.OnFK_AnswerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-		public System.Nullable<long> FK_Category
-		{
-			get
-			{
-				return this._FK_Category;
-			}
-			set
-			{
-				if ((this._FK_Category != value))
-				{
-					if (this._OnlineCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFK_CategoryChanging(value);
-					this.SendPropertyChanging();
-					this._FK_Category = value;
-					this.SendPropertyChanged("FK_Category");
-					this.OnFK_CategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineOptions", ThisKey="QuestionId", OtherKey="FK_QuestionId")]
-		public EntitySet<OnlineOption> OnlineOptions
-		{
-			get
-			{
-				return this._OnlineOptions;
-			}
-			set
-			{
-				this._OnlineOptions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineOption_OnlineQuestion", Storage="_OnlineOption", ThisKey="FK_Answer", OtherKey="OptionId", IsForeignKey=true)]
-		public OnlineOption OnlineOption
-		{
-			get
-			{
-				return this._OnlineOption.Entity;
-			}
-			set
-			{
-				OnlineOption previousValue = this._OnlineOption.Entity;
-				if (((previousValue != value) 
-							|| (this._OnlineOption.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OnlineOption.Entity = null;
-						previousValue.OnlineQuestions.Remove(this);
-					}
-					this._OnlineOption.Entity = value;
-					if ((value != null))
-					{
-						value.OnlineQuestions.Add(this);
-						this._FK_Answer = value.OptionId;
-					}
-					else
-					{
-						this._FK_Answer = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("OnlineOption");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineCategory", ThisKey="FK_Category", OtherKey="CategoryId", IsForeignKey=true)]
-		public OnlineCategory OnlineCategory
-		{
-			get
-			{
-				return this._OnlineCategory.Entity;
-			}
-			set
-			{
-				OnlineCategory previousValue = this._OnlineCategory.Entity;
-				if (((previousValue != value) 
-							|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._OnlineCategory.Entity = null;
-						previousValue.OnlineQuestions.Remove(this);
-					}
-					this._OnlineCategory.Entity = value;
-					if ((value != null))
-					{
-						value.OnlineQuestions.Add(this);
-						this._FK_Category = value.CategoryId;
-					}
-					else
-					{
-						this._FK_Category = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("OnlineCategory");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OnlineOptions(OnlineOption entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineQuestion = this;
-		}
-		
-		private void detach_OnlineOptions(OnlineOption entity)
-		{
-			this.SendPropertyChanging();
-			entity.OnlineQuestion = null;
 		}
 	}
 	
@@ -1491,6 +1195,233 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineQuestion")]
+	public partial class OnlineQuestion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		private EntitySet<OnlineOption> _OnlineOptions;
+		
+		private EntityRef<OnlineCategory> _OnlineCategory;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnQuestionIdChanging(long value);
+    partial void OnQuestionIdChanged();
+    partial void OnQuestionChanging(string value);
+    partial void OnQuestionChanged();
+    partial void OnImageurlChanging(string value);
+    partial void OnImageurlChanged();
+    partial void OnFK_AnswerChanging(System.Nullable<long> value);
+    partial void OnFK_AnswerChanged();
+    partial void OnFK_CategoryChanging(System.Nullable<long> value);
+    partial void OnFK_CategoryChanged();
+    #endregion
+		
+		public OnlineQuestion()
+		{
+			this._OnlineOptions = new EntitySet<OnlineOption>(new Action<OnlineOption>(this.attach_OnlineOptions), new Action<OnlineOption>(this.detach_OnlineOptions));
+			this._OnlineCategory = default(EntityRef<OnlineCategory>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long QuestionId
+		{
+			get
+			{
+				return this._QuestionId;
+			}
+			set
+			{
+				if ((this._QuestionId != value))
+				{
+					this.OnQuestionIdChanging(value);
+					this.SendPropertyChanging();
+					this._QuestionId = value;
+					this.SendPropertyChanged("QuestionId");
+					this.OnQuestionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
+		{
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this.OnQuestionChanging(value);
+					this.SendPropertyChanging();
+					this._Question = value;
+					this.SendPropertyChanged("Question");
+					this.OnQuestionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
+		{
+			get
+			{
+				return this._Imageurl;
+			}
+			set
+			{
+				if ((this._Imageurl != value))
+				{
+					this.OnImageurlChanging(value);
+					this.SendPropertyChanging();
+					this._Imageurl = value;
+					this.SendPropertyChanged("Imageurl");
+					this.OnImageurlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
+		{
+			get
+			{
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
+				{
+					this.OnFK_AnswerChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Answer = value;
+					this.SendPropertyChanged("FK_Answer");
+					this.OnFK_AnswerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
+		{
+			get
+			{
+				return this._FK_Category;
+			}
+			set
+			{
+				if ((this._FK_Category != value))
+				{
+					if (this._OnlineCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_CategoryChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Category = value;
+					this.SendPropertyChanged("FK_Category");
+					this.OnFK_CategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineQuestion_OnlineOption", Storage="_OnlineOptions", ThisKey="QuestionId", OtherKey="FK_QuestionId")]
+		public EntitySet<OnlineOption> OnlineOptions
+		{
+			get
+			{
+				return this._OnlineOptions;
+			}
+			set
+			{
+				this._OnlineOptions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineQuestion", Storage="_OnlineCategory", ThisKey="FK_Category", OtherKey="CategoryId", IsForeignKey=true)]
+		public OnlineCategory OnlineCategory
+		{
+			get
+			{
+				return this._OnlineCategory.Entity;
+			}
+			set
+			{
+				OnlineCategory previousValue = this._OnlineCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineCategory.Entity = null;
+						previousValue.OnlineQuestions.Remove(this);
+					}
+					this._OnlineCategory.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineQuestions.Add(this);
+						this._FK_Category = value.CategoryId;
+					}
+					else
+					{
+						this._FK_Category = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineCategory");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OnlineOptions(OnlineOption entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineQuestion = this;
+		}
+		
+		private void detach_OnlineOptions(OnlineOption entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineQuestion = null;
+		}
+	}
+	
 	public partial class sp_OnlineCategoryNewInsertCommandResult
 	{
 		
@@ -1858,104 +1789,6 @@ namespace DAL
 				if ((this._FK_QuestionId != value))
 				{
 					this._FK_QuestionId = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_OnlineQuestionNewInsertCommandResult
-	{
-		
-		private long _QuestionId;
-		
-		private string _Question;
-		
-		private string _Imageurl;
-		
-		private System.Nullable<long> _FK_Answer;
-		
-		private System.Nullable<long> _FK_Category;
-		
-		public sp_OnlineQuestionNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
-		public long QuestionId
-		{
-			get
-			{
-				return this._QuestionId;
-			}
-			set
-			{
-				if ((this._QuestionId != value))
-				{
-					this._QuestionId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
-		public string Question
-		{
-			get
-			{
-				return this._Question;
-			}
-			set
-			{
-				if ((this._Question != value))
-				{
-					this._Question = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
-		public string Imageurl
-		{
-			get
-			{
-				return this._Imageurl;
-			}
-			set
-			{
-				if ((this._Imageurl != value))
-				{
-					this._Imageurl = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
-		public System.Nullable<long> FK_Answer
-		{
-			get
-			{
-				return this._FK_Answer;
-			}
-			set
-			{
-				if ((this._FK_Answer != value))
-				{
-					this._FK_Answer = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
-		public System.Nullable<long> FK_Category
-		{
-			get
-			{
-				return this._FK_Category;
-			}
-			set
-			{
-				if ((this._FK_Category != value))
-				{
-					this._FK_Category = value;
 				}
 			}
 		}
@@ -2872,6 +2705,104 @@ namespace DAL
 				if ((this._Mark != value))
 				{
 					this._Mark = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineQuestionNewInsertCommandResult
+	{
+		
+		private long _QuestionId;
+		
+		private string _Question;
+		
+		private string _Imageurl;
+		
+		private System.Nullable<long> _FK_Answer;
+		
+		private System.Nullable<long> _FK_Category;
+		
+		public sp_OnlineQuestionNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionId", DbType="BigInt NOT NULL")]
+		public long QuestionId
+		{
+			get
+			{
+				return this._QuestionId;
+			}
+			set
+			{
+				if ((this._QuestionId != value))
+				{
+					this._QuestionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question", DbType="NVarChar(500)")]
+		public string Question
+		{
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				if ((this._Question != value))
+				{
+					this._Question = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imageurl", DbType="NVarChar(200)")]
+		public string Imageurl
+		{
+			get
+			{
+				return this._Imageurl;
+			}
+			set
+			{
+				if ((this._Imageurl != value))
+				{
+					this._Imageurl = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Answer", DbType="BigInt")]
+		public System.Nullable<long> FK_Answer
+		{
+			get
+			{
+				return this._FK_Answer;
+			}
+			set
+			{
+				if ((this._FK_Answer != value))
+				{
+					this._FK_Answer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Category", DbType="BigInt")]
+		public System.Nullable<long> FK_Category
+		{
+			get
+			{
+				return this._FK_Category;
+			}
+			set
+			{
+				if ((this._FK_Category != value))
+				{
+					this._FK_Category = value;
 				}
 			}
 		}
