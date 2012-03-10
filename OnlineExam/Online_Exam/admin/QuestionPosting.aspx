@@ -31,11 +31,21 @@
                         </td>
                     </tr>
                     <tr>
+                        <td colspan="4">
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="left">
                             Question :
                         </td>
                         <td align="left" colspan="3">
                             <asp:TextBox ID="txtQuestion" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -47,11 +57,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td colspan="4">
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="left">
-                            Answer :
+                            Insert Options :
                         </td>
                         <td align="left" colspan="3">
-                            <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtOption" runat="server"></asp:TextBox>
                             <asp:Button ID="btnAnswerAdd" runat="server" OnClick="btnAnswerAdd_Click" Text="Add" />
                         </td>
                     </tr>
@@ -70,6 +85,19 @@
                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                 <SortedDescendingHeaderStyle BackColor="#383838" />
                             </asp:GridView>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        Answer :
+                        </td>
+                        <td colspan="3" align="left">
+                            <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

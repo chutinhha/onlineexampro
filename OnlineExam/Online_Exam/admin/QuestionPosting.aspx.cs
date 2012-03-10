@@ -27,8 +27,9 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
-        string path = string.Empty;
-        var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, 0, Convert.ToInt64(ddlCatagory.SelectedValue));
+        string path = "~/upload/" + fuImage.FileName;
+        fuImage.SaveAs(Server.MapPath(path));
+        var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, Convert.ToInt64(txtAnswer.Text) , Convert.ToInt64(ddlCatagory.SelectedValue));
         foreach (var item in obj)
         {
             DataTable dt = (DataTable)ViewState["Answers"];
@@ -73,7 +74,7 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
             dt = CreateTable();
         }
         DataRow dr = dt.NewRow();
-        dr["Answer"] = txtAnswer.Text;
+        dr["Answer"] = txtOption.Text;
         dt.Rows.Add(dr);
         BindGrid(dt);
         ViewState["Answers"] = dt;
@@ -100,4 +101,5 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
         BindGrid(dt);
         ViewState["Answers"] = dt;
     }
+   
 }

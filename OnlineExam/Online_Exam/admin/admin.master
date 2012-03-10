@@ -20,9 +20,29 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center" 
-                    style="font-family: calibri; font-size: 24px; font-weight: bold; color: #663300">
-                <asp:Label ID="Label1" runat="server" Text="Admin"></asp:Label>
+                <td colspan="2" align="center" style="font-family: calibri; font-size: 24px; font-weight: bold;
+                    color: #663300">
+                    <asp:Label ID="Label1" runat="server" Text="Admin"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Button ID="Button1" runat="server" Text="Assign Test" 
+                                    PostBackUrl="~/admin/Assgin Test.aspx" />
+                            </td>
+                            <td>
+                                <asp:Button ID="Button2" runat="server" Text="Post Question" 
+                                    PostBackUrl="~/admin/QuestionPosting.aspx" />
+                            </td>
+                            <td>
+                                <asp:Button ID="Button3" runat="server" Text="View Result" 
+                                    PostBackUrl="~/admin/View Result.aspx" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
