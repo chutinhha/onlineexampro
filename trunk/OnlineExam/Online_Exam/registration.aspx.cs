@@ -29,6 +29,8 @@ public partial class admin_registration : System.Web.UI.Page
                 if (obj.Insert())
                 {
                     lbregister.Text = "registered successfully";
+                    Session["cadidate"] = txtname.Text;
+                    Response.Redirect("Instruction.aspx");
                 }
             }
         }
