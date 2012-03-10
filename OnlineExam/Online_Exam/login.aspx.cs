@@ -20,7 +20,7 @@ public partial class login : System.Web.UI.Page
 
             var login = from c in obj.OnlineRegistrations where c.Name == txtname.Text && c.Mobile == Convert.ToInt64(txtpassword.Text) select c;
 
-            if (login.Count()!=0)
+            if (login.Count()==1)
             {
                
                 Session["cadidate"] = txtname.Text;
