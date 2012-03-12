@@ -34,6 +34,7 @@ public partial class admin_adminHome : System.Web.UI.Page
     }
     protected void btnAssign_Click(object sender, EventArgs e)
     {
-
+        Session["timeDuration"] = Convert.ToInt32(txtTime.Text);
+        Response.Redirect("View.aspx");
     }
 }

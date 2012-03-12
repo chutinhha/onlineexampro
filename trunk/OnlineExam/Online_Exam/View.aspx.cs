@@ -10,10 +10,41 @@ public partial class View : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //int aa =Convert.ToInt32(  Session["timeDuration"]);
+        int aa = 3610;
         if (!IsPostBack)
         {
             BindGrid();
+            Session["time"] = DateTime.Now.AddSeconds(aa);
+
         }
+
+
+    }
+    protected void Timer1_Tick(object sender, EventArgs e)
+    {
+        TimeSpan time1 = new TimeSpan();
+        time1 = (DateTime)Session["time"] - DateTime.Now;
+
+        if (time1.Seconds <= 0)
+        {
+            if (time1.Minutes <= 0)
+            {
+                if (time1.Hours <= 0)
+                {
+                    Label1.Text = "TimeOut!";
+                }
+
+            }
+
+        }
+        else
+        {
+            Label4.Text = time1.Hours.ToString();
+            Label1.Text = time1.Seconds.ToString();
+            Label3.Text = time1.Minutes.ToString();
+        }
+
     }
 
     private void BindGrid()
