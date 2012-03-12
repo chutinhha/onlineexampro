@@ -27,7 +27,7 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
-        string path = "~/upload/" + fuImage.FileName;
+        string path = "~/admin/upload/" + fuImage.FileName;
         fuImage.SaveAs(Server.MapPath(path));
         var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, Convert.ToInt64(txtAnswer.Text) , Convert.ToInt64(ddlCatagory.SelectedValue));
         foreach (var item in obj)

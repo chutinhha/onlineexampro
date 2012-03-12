@@ -13,7 +13,7 @@
                         Catagory :
                         </td>
                         <td>
-                            <asp:ListBox ID="ListBoxCatagory" runat="server"></asp:ListBox>
+                            <asp:ListBox ID="ListBoxCatagory" runat="server" SelectionMode="Multiple"></asp:ListBox>
                         </td>
                     </tr>
                     <tr>

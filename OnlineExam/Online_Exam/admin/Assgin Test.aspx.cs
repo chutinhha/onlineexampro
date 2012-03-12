@@ -9,7 +9,17 @@ public partial class admin_Assgin_Test : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            BindListBox();
+        }
+    }
 
+    private void BindListBox()
+    {
+        ListBoxCatagory.DataSource = OnlineExamHelper.Context.sp_OnlineCategoryNewSelectCommand();
+        ListBoxCatagory.DataTextField = "Category";
+        ListBoxCatagory.DataBind();
     }
     protected void btnOk_Click(object sender, EventArgs e)
     {
