@@ -60,12 +60,15 @@ public partial class View : System.Web.UI.Page
         obj.Columns.Add(dc);
         dc = new DataColumn("Question");
         obj.Columns.Add(dc);
+        dc = new DataColumn("Imageurl");
+        obj.Columns.Add(dc);
         var vv = OnlineExamHelper.Context.OnlineQuestions.Select(a => a);
         foreach (var item in vv)
         {
             DataRow dr = obj.NewRow();
             dr["Question"] = item.Question;
             dr["QuesId"] = item.QuestionId;
+            dr["Imageurl"] = item.Imageurl;
             obj.Rows.Add(dr);
         }
         GridView1.DataSource = obj;
