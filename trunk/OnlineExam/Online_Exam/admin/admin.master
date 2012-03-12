@@ -29,10 +29,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td>
-                                <asp:Button ID="Button1" runat="server" Text="Assign Test" 
-                                    PostBackUrl="~/admin/Assgin Test.aspx" />
-                            </td>
+                            
                             <td>
                                 <asp:Button ID="Button2" runat="server" Text="Post Question" 
                                     PostBackUrl="~/admin/QuestionPosting.aspx" />
