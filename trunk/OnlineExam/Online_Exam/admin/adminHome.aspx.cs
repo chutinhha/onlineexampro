@@ -59,7 +59,16 @@ public partial class admin_adminHome : System.Web.UI.Page
             if (chk.Checked)
             {
                 TextBox txt = ((TextBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("txt_" + item.CategoryId));
-                dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
+                int dd = OnlineExamHelper.Context.OnlineQuestions.Count(a => a.FK_Category == item.CategoryId);
+                if (dd > Convert.ToInt32(txt.Text))
+                {
+                    dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
+                }
+                else
+                {
+                    lblError.Text = "Enter less than " + dd.ToString() + " in " + item.Category + " Category";
+                    return;
+                }
             }
             i++;
         }

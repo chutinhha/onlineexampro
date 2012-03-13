@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Collections;
 
 public partial class View : System.Web.UI.Page
 {
@@ -78,17 +79,27 @@ public partial class View : System.Web.UI.Page
         obj.Columns.Add(dc);
         Dictionary<long, int> dic = (Dictionary<long, int>)Session["cat"];
         Random rd = new Random();
+        List<long> CreatedIds = new List<long>();
         foreach (KeyValuePair<long, int> item in dic)
         {
             List<long> ids = OnlineExamHelper.Context.OnlineQuestions.Where(a => a.FK_Category == item.Key).Select(a => a.QuestionId).ToList();
-            for (int i = 0; i < item.Value; i++)
+            int coun = item.Value;
+            for (int i = 0; i < coun; i++)
             {
                 var vv = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.FK_Category == item.Key && a.QuestionId == ids[rd.Next(0, ids.Count)]);
-                DataRow dr = obj.NewRow();
-                dr["Question"] = vv.Question;
-                dr["QuesId"] = vv.QuestionId;
-                dr["Imageurl"] = vv.Imageurl;
-                obj.Rows.Add(dr);
+                if (CreatedIds.Contains(vv.QuestionId))
+                {
+                    coun = coun + 1;
+                }
+                else
+                {
+                    CreatedIds.Add(vv.QuestionId);
+                    DataRow dr = obj.NewRow();
+                    dr["Question"] = vv.Question;
+                    dr["QuesId"] = vv.QuestionId;
+                    dr["Imageurl"] = vv.Imageurl;
+                    obj.Rows.Add(dr);
+                }
             }
         }
         GridView1.DataSource = obj;
@@ -122,7 +133,7 @@ public partial class View : System.Web.UI.Page
         foreach (GridViewRow item in GridView1.Rows)
         {
             RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
-            long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);            
+            long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
         }
     }
 }
