@@ -16,12 +16,6 @@
             catch (e) { if (e.which == BR) { return false; } }
         }
         document.oncontextmenu = function () { alert(msg); return false; }
-
-
-
-
-
-
     </script>
 </head>
 <body>

@@ -27,9 +27,17 @@
         </tr>
         <tr>
             <td>
+                &nbsp;</td>
+            <td>
+                <asp:Label ID="lblError" runat="server"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Category
             </td>
             <td>
+
                 <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
             </td>
         </tr>
