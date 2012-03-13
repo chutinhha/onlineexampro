@@ -12,17 +12,18 @@
                         <ContentTemplate>
                             <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
                             </asp:Timer>
-                            <asp:Label ID="Label4" runat="server"></asp:Label>&nbsp;:
-                            <asp:Label ID="Label3" runat="server"></asp:Label>&nbsp;:
-                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                            <asp:Label ID="lblHours" runat="server"></asp:Label>&nbsp;:
+                            <asp:Label ID="lblMin" runat="server"></asp:Label>&nbsp;:
+                            <asp:Label ID="lblSecs" runat="server"></asp:Label>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
             </td>
         </tr>
-    </table>
+        <tr><td>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-        DataKeyNames="QuesId" OnRowDataBound="GridView1_RowDataBound" ShowHeader="False">
+        DataKeyNames="QuesId" OnRowDataBound="GridView1_RowDataBound" 
+        ShowHeader="False" onpageindexchanging="GridView1_PageIndexChanging">
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
@@ -48,4 +49,12 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    </td></tr>
+    <tr><td align="center">
+    
+        <asp:Button ID="Complete" runat="server" onclick="Complete_Click" 
+            style="width: 83px" Text="Complete" />
+    
+    </td></tr>
+    </table>
 </asp:Content>

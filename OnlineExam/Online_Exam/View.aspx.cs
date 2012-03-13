@@ -11,39 +11,53 @@ public partial class View : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //int aa =Convert.ToInt32(  Session["timeDuration"]);
+        if (Session["cat"] == null | Session["timeDuration"] == null)
+        {
+            Response.Redirect("~/admin/loginAdmin.aspx");
+        }
         int aa = 3610;
         if (!IsPostBack)
         {
             BindGrid();
             Session["time"] = DateTime.Now.AddSeconds(aa);
-
         }
-
-
     }
     protected void Timer1_Tick(object sender, EventArgs e)
     {
-        TimeSpan time1 = new TimeSpan();
-        time1 = (DateTime)Session["time"] - DateTime.Now;
-
-        if (time1.Seconds <= 0)
+        DateTime dt = (DateTime)Session["timeDuration"];
+        DateTime dt1 = (DateTime)Session["TimeLeft"];
+        TimeSpan sp = dt.Subtract(dt1);
+        if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
         {
-            if (time1.Minutes <= 0)
-            {
-                if (time1.Hours <= 0)
-                {
-                    Label1.Text = "TimeOut!";
-                }
-
-            }
-
+            Response.Redirect("~/admin/View Result.aspx");
         }
         else
         {
-            Label4.Text = time1.Hours.ToString();
-            Label1.Text = time1.Seconds.ToString();
-            Label3.Text = time1.Minutes.ToString();
+            lblHours.Text = sp.Hours.ToString();
+            lblMin.Text = sp.Minutes.ToString();
+            lblSecs.Text = sp.Seconds.ToString();
+            dt1 = dt1.AddSeconds(1);
+            Session["TimeLeft"] = dt1;
         }
+        //TimeSpan time1 = new TimeSpan();
+        //time1 = (DateTime)Session["time"] - DateTime.Now;
+
+        //if (time1.Seconds <= 0)
+        //{
+        //    if (time1.Minutes <= 0)
+        //    {
+        //        if (time1.Hours <= 0)
+        //        {
+        //            Label1.Text = "TimeOut!";
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    Label4.Text = time1.Hours.ToString();
+        //    Label1.Text = time1.Seconds.ToString();
+        //    Label3.Text = time1.Minutes.ToString();
+        //}
 
     }
 
@@ -62,14 +76,20 @@ public partial class View : System.Web.UI.Page
         obj.Columns.Add(dc);
         dc = new DataColumn("Imageurl");
         obj.Columns.Add(dc);
-        var vv = OnlineExamHelper.Context.OnlineQuestions.Select(a => a);
-        foreach (var item in vv)
+        Dictionary<long, int> dic = (Dictionary<long, int>)Session["cat"];
+        Random rd = new Random();
+        foreach (KeyValuePair<long, int> item in dic)
         {
-            DataRow dr = obj.NewRow();
-            dr["Question"] = item.Question;
-            dr["QuesId"] = item.QuestionId;
-            dr["Imageurl"] = item.Imageurl;
-            obj.Rows.Add(dr);
+            List<long> ids = OnlineExamHelper.Context.OnlineQuestions.Where(a => a.FK_Category == item.Key).Select(a => a.QuestionId).ToList();
+            for (int i = 0; i < item.Value; i++)
+            {
+                var vv = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.FK_Category == item.Key && a.QuestionId == ids[rd.Next(0, ids.Count)]);
+                DataRow dr = obj.NewRow();
+                dr["Question"] = vv.Question;
+                dr["QuesId"] = vv.QuestionId;
+                dr["Imageurl"] = vv.Imageurl;
+                obj.Rows.Add(dr);
+            }
         }
         GridView1.DataSource = obj;
         GridView1.DataBind();
@@ -85,6 +105,24 @@ public partial class View : System.Web.UI.Page
             rdl.DataTextField = "OptionName";
             rdl.DataValueField = "OptionId";
             rdl.DataBind();
+            Image img = (Image)item.FindControl("Image1");
+            if (string.IsNullOrEmpty(OnlineExamHelper.Context.OnlineQuestions.Single(a => a.QuestionId == aa).Imageurl))
+            {
+                img.Visible = false;
+            }
+        }
+    }
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGrid();
+    }
+    protected void Complete_Click(object sender, EventArgs e)
+    {
+        foreach (GridViewRow item in GridView1.Rows)
+        {
+            RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
+            long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);            
         }
     }
 }

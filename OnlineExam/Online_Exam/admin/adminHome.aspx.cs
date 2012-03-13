@@ -10,31 +10,64 @@ public partial class admin_adminHome : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         CreateControls();
+        if (!IsPostBack)
+        {
+            for (int i = 0; i < 25; i++)
+            {
+                ddlHours.Items.Add(i.ToString());
+            }
+            for (int i = 0; i < 61; i++)
+            {
+                ddlMinitues.Items.Add(i.ToString());
+                ddlSecs.Items.Add(i.ToString());
+            }
+        }
     }
 
     private void CreateControls()
     {
         var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
         Table tbl = new Table();
+        int i = 0;
         foreach (var item in ss)
         {
             TableRow tr = new TableRow();
             TableCell td = new TableCell();
             CheckBox chk = new CheckBox();
             chk.Text = item.Category;
+            chk.ID = "chk_" + item.CategoryId;
             td.Controls.Add(chk);
             TableCell td1 = new TableCell();
             TextBox txt = new TextBox();
+            txt.ID = "txt_" + item.CategoryId;
             td1.Controls.Add(txt);
             tr.Controls.Add(td);
             tr.Controls.Add(td1);
             tbl.Controls.Add(tr);
+            i++;
         }
         PlaceHolder1.Controls.Add(tbl);
     }
     protected void btnAssign_Click(object sender, EventArgs e)
     {
-        Session["timeDuration"] = Convert.ToInt32(txtTime.Text);
-        Response.Redirect("View.aspx");
+        var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);       
+        int i = 0;
+        Dictionary<long, int> dic = new Dictionary<long, int>();
+        foreach (var item in ss)
+        {
+            CheckBox chk = ((CheckBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("chk_" + item.CategoryId));
+            if (chk.Checked)
+            {
+                TextBox txt = ((TextBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("txt_" + item.CategoryId));
+                dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
+            }
+            i++;
+        }
+        Session["cat"] = dic;
+        DateTime dt = DateTime.Now;
+        Session["TimeLeft"] = dt;
+        dt = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
+        Session["timeDuration"] = dt;        
+        Response.Redirect("~/View.aspx");
     }
 }
