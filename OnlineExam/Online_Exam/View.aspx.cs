@@ -130,10 +130,43 @@ public partial class View : System.Web.UI.Page
     }
     protected void Complete_Click(object sender, EventArgs e)
     {
+        Dictionary<long, int> dic = new Dictionary<long, int>();
+        Dictionary<long, int> dics = (Dictionary<long, int>)Session["cat"];
+
         foreach (GridViewRow item in GridView1.Rows)
         {
             RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
             long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
+            var dd = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.QuestionId == aa);
+            if (true)
+            {
+                dic.Add(aa, 1);
+            }
+            else
+            {
+                dic.Add(aa, 0);
+            }
         }
+        int m = 0;
+        Dictionary<long, int> mar = new Dictionary<long, int>();
+        var qu = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
+        foreach (var item in qu)
+        {
+            if (dics.Keys.Contains(item.CategoryId))
+            {
+                foreach (KeyValuePair<long, int> va in dic)
+                {
+                    long key = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.QuestionId == va.Key).FK_Category.Value;
+                    if (key == item.CategoryId)
+                    {
+                        m += va.Value;
+                    }
+                }
+                mar.Add(item.CategoryId, m);
+                m = 0;
+            }
+        }
+        Session["result"] = mar;
+        Response.Redirect("result.aspx");
     }
 }
