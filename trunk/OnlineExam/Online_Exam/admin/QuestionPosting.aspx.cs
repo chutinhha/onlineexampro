@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using DAL;
 
 public partial class admin_QuestionPosting : System.Web.UI.Page
 {
@@ -40,7 +41,20 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
             int i = 1;
             foreach (DataRow gg in dt.Rows)
             {
-                OnlineExamHelper.Context.sp_OnlineOptionsNewInsertCommand(gg["Answer"].ToString(), i, item.QuestionId);
+                var ans = OnlineExamHelper.Context.sp_OnlineOptionsNewInsertCommand(gg["Answer"].ToString(), i, item.QuestionId);
+                int an = Convert.ToInt32(txtAnswer.Text);
+                if (i == an)
+                {
+                    using (var context = new OnlineExamDataContext())
+                    {
+                        foreach (var opt in ans)
+                        {
+                            var updat = context.OnlineQuestions.Single(a => a.QuestionId == item.QuestionId);
+                            updat.FK_Answer = opt.OptionId;
+                            context.SubmitChanges();
+                        }
+                    }
+                }
                 i++;
             }
         }
@@ -89,7 +103,6 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
         dt.Columns.Add(new DataColumn("Answer"));
         return dt;
     }
-
     private void BindGrid(DataTable dt)
     {
         if (dt != null)
@@ -105,5 +118,4 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
         BindGrid(dt);
         ViewState["Answers"] = dt;
     }
-   
 }

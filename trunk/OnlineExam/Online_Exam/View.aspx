@@ -28,6 +28,8 @@
             <asp:TemplateField>
                 <ItemTemplate>
                     <table>
+                    <tr><td>
+                        <asp:Label ID="lblCategory" runat="server"></asp:Label></td></tr>
                         <tr>
                             <td>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Sno") %>'></asp:Label>.
