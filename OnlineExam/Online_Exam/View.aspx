@@ -20,43 +20,49 @@
                 </div>
             </td>
         </tr>
-        <tr><td>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-        DataKeyNames="QuesId" OnRowDataBound="GridView1_RowDataBound" 
-        ShowHeader="False" onpageindexchanging="GridView1_PageIndexChanging">
-        <Columns>
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <table>
-                    <tr><td>
-                        <asp:Label ID="lblCategory" runat="server"></asp:Label></td></tr>
-                        <tr>
-                            <td>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Sno") %>'></asp:Label>.
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Question") %>'></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Imageurl") %>' /></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                                </asp:RadioButtonList>
-                            </td>
-                        </tr>
-                    </table>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
-    </td></tr>
-    <tr><td align="center">
-    
-        <asp:Button ID="Complete" runat="server" onclick="Complete_Click" 
-            style="width: 83px" Text="Complete" />
-    
-    </td></tr>
+        <tr>
+            <td>
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                    DataKeyNames="QuesId" OnRowDataBound="GridView1_RowDataBound" ShowHeader="False"
+                    OnPageIndexChanging="GridView1_PageIndexChanging">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblCategory" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Sno") %>'></asp:Label>.
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Question") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Imageurl") %>' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+                                            </asp:RadioButtonList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <asp:Button ID="Complete" runat="server" OnClick="Complete_Click" Style="width: 83px"
+                    Text="Complete" />
+            </td>
+        </tr>
     </table>
 </asp:Content>
