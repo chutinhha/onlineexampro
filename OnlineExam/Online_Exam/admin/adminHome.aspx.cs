@@ -9,19 +9,29 @@ public partial class admin_adminHome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        CreateControls();
-        if (!IsPostBack)
+        string aa = Convert.ToString(Session["admin"]);
+        if (aa == String.Empty)
         {
-            for (int i = 0; i < 25; i++)
+
+            Response.Redirect("loginAdmin.aspx");
+        }
+        else
+        {
+            CreateControls();
+            if (!IsPostBack)
             {
-                ddlHours.Items.Add(i.ToString());
-            }
-            for (int i = 0; i < 61; i++)
-            {
-                ddlMinitues.Items.Add(i.ToString());
-                ddlSecs.Items.Add(i.ToString());
+                for (int i = 0; i < 25; i++)
+                {
+                    ddlHours.Items.Add(i.ToString());
+                }
+                for (int i = 0; i < 61; i++)
+                {
+                    ddlMinitues.Items.Add(i.ToString());
+                    ddlSecs.Items.Add(i.ToString());
+                }
             }
         }
+
     }
 
     private void CreateControls()
@@ -50,7 +60,8 @@ public partial class admin_adminHome : System.Web.UI.Page
     }
     protected void btnAssign_Click(object sender, EventArgs e)
     {
-        var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);       
+        
+        var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
         int i = 0;
         Dictionary<long, int> dic = new Dictionary<long, int>();
         foreach (var item in ss)
@@ -60,7 +71,7 @@ public partial class admin_adminHome : System.Web.UI.Page
             {
                 TextBox txt = ((TextBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("txt_" + item.CategoryId));
                 int dd = OnlineExamHelper.Context.OnlineQuestions.Count(a => a.FK_Category == item.CategoryId);
-                if (dd > Convert.ToInt32(txt.Text))
+                if (dd >= Convert.ToInt32(txt.Text))
                 {
                     dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
                 }
@@ -76,7 +87,7 @@ public partial class admin_adminHome : System.Web.UI.Page
         DateTime dt = DateTime.Now;
         Session["TimeLeft"] = dt;
         dt = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
-        Session["timeDuration"] = dt;        
+        Session["timeDuration"] = dt;
         Response.Redirect("~/View.aspx");
     }
 }

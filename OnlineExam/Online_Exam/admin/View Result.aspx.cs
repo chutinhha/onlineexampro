@@ -9,6 +9,11 @@ public partial class admin_View_Result : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string aa = Convert.ToString(Session["admin"]);
+        if (aa == String.Empty)
+        {
 
+            Response.Redirect("loginAdmin.aspx");
+        }
     }
 }

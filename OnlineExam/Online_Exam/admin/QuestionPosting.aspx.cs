@@ -11,10 +11,19 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        string aa = Convert.ToString(Session["admin"]);
+        if (aa == string.Empty)
         {
-            BindDropDown();
+            Response.Redirect("loginAdmin.aspx");
         }
+        else
+        {
+            if (!IsPostBack)
+            {
+                BindDropDown();
+            }
+        }
+
     }
 
     private void BindDropDown()
@@ -28,13 +37,17 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
+
+
         string path = string.Empty;
         if (fuImage.HasFile)
         {
             path = "~/admin/upload/" + fuImage.FileName;
             fuImage.SaveAs(Server.MapPath(path));
         }
-        var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, Convert.ToInt64(txtAnswer.Text) , Convert.ToInt64(ddlCatagory.SelectedValue));
+
+
+        var obj = OnlineExamHelper.Context.sp_OnlineQuestionNewInsertCommand(txtQuestion.Text, path, Convert.ToInt64(txtAnswer.Text), Convert.ToInt64(ddlCatagory.SelectedValue));
         foreach (var item in obj)
         {
             DataTable dt = (DataTable)ViewState["Answers"];
@@ -58,6 +71,15 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
                 i++;
             }
         }
+        lbregister.Text = "Question Posted";
+        emptyfield();
+    }
+
+    private void emptyfield()
+    {
+        txtQuestion.Text = string.Empty;
+        txtOption.Text = string.Empty;
+        txtAnswer.Text = string.Empty;
     }
     protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -96,6 +118,7 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
         dt.Rows.Add(dr);
         BindGrid(dt);
         ViewState["Answers"] = dt;
+        txtOption.Text = string.Empty;
     }
     private DataTable CreateTable()
     {

@@ -10,12 +10,7 @@
                 <br />
             </td>
         </tr>
-        <tr>
-            <td align="right">
-                Welcome,
-                <asp:Label ID="lbuser" runat="server"></asp:Label>
-            </td>
-        </tr>
+        
         <tr>
             <td>
                 Instruction

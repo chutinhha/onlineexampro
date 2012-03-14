@@ -9,7 +9,12 @@ public partial class Instruction : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        lbuser.Text = Convert.ToString(Session["cadidate"]);
+        string aa = Convert.ToString(Session["cadidate"]);
+        if (aa == string.Empty)
+        {
+            Response.Redirect("~/admin/loginAdmin.aspx");
+        }
+       
     }
     protected void btnStart_Click(object sender, EventArgs e)
     {

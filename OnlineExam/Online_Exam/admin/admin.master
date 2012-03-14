@@ -7,14 +7,15 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color: #99CCFF">
     <form id="form1" runat="server">
     <div>
-        <table cellpadding="0" cellspacing="0" width="900px" align="center">
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" 
+            bgcolor="White">
             <tr>
                 <td align="left" width="350px">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/admin/images/Logo 5.JPG" Width="350px"
-                        Height="150px" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/admin/images/logo_for_test.png" Width="350px"
+                        Height="135px" />
                 </td>
                 <td valign="bottom">
                 </td>
@@ -30,11 +31,11 @@
                     <table>
                         <tr>
                             
-                            <td>
+                            <td style="font-family: Calibri">
                                 <asp:Button ID="Button2" runat="server" Text="Post Question" 
                                     PostBackUrl="~/admin/QuestionPosting.aspx" />
                             </td>
-                            <td>
+                            <td style="font-family: Calibri">
                                 <asp:Button ID="Button3" runat="server" Text="View Result" 
                                     PostBackUrl="~/admin/View Result.aspx" />
                             </td>
