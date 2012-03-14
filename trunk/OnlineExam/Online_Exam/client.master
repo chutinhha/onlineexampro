@@ -15,21 +15,28 @@
             try { if (event.button == BM || event.button == BR) { return false; } }
             catch (e) { if (e.which == BR) { return false; } }
         }
-        document.oncontextmenu = function () { alert(msg); return false; }
+        document.oncontextmenu = function () {  return false; }
     </script>
 </head>
-<body>
+<body style="background-color: #99CCFF">
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="adasd" runat="server">
     </cc1:ToolkitScriptManager>
     <div>
-        <table cellpadding="0" cellspacing="0" width="900px" align="center">
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" 
+            style="background-color: #FFFFFF">
             <tr>
                 <td align="left">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Logo 5.JPG" Width="350px"
-                        Height="150px" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/images/logo_for_test.png" Width="350px"
+                        Height="135px" />
                 </td>
             </tr>
+            <tr>
+            <td align="right">
+                Welcome,
+                <asp:Label ID="lbuser" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
             <tr>
                 <td>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

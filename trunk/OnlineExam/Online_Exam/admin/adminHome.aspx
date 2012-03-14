@@ -10,12 +10,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table class="style1">
+    <table class="style1" align="center">
         <tr>
-            <td>
+            <td style="font-family: Calibri">
                 Time
             </td>
-            <td>
+            <td style="font-family: Calibri">
                 <asp:DropDownList ID="ddlHours" runat="server">
                 </asp:DropDownList>
                 hours<asp:DropDownList ID="ddlMinitues" runat="server">
@@ -28,15 +28,15 @@
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
+            <td style="font-family: Calibri; color: #CC0000">
                 <asp:Label ID="lblError" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-family: Calibri">
                 Category
             </td>
-            <td>
+            <td style="font-family: Calibri">
 
                 <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
             </td>
@@ -45,7 +45,7 @@
             <td>
                 &nbsp;
             </td>
-            <td>
+            <td style="font-family: Calibri">
                 <asp:Button ID="btnAssign" runat="server" OnClick="btnAssign_Click" Text="Assign" />
             </td>
         </tr>

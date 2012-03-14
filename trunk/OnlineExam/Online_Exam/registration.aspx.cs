@@ -6,18 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL;
 
-public partial class admin_registration : System.Web.UI.Page
+public partial class registration : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string aa = Convert.ToString(Session["admin"]);
+        if (aa == string.Empty)
+        {
+            Response.Redirect("loginAdmin.aspx");
+        }
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
 
         using (OnlineExamDataContext obj1 = new OnlineExamDataContext())
         {
-            var number = from c in obj1.OnlineRegistrations where c.Mobile == Convert.ToInt64(txtmobile.Text) select c;
+            var number = OnlineExamHelper.Context.OnlineRegistrations.Where(a => a.Name == Convert.ToString(txtname.Text) && a.Mobile == Convert.ToInt64(txtmobile.Text)).Select(a => a.UserId);
             if (number.Count() >= 1)
             {
                 lbregister.Text = "Already exists";
@@ -28,11 +33,12 @@ public partial class admin_registration : System.Web.UI.Page
                 RegistrationBL obj = new RegistrationBL(txtname.Text, Convert.ToInt64(txtmobile.Text), txtemail.Text, DateTime.Now);
                 if (obj.Insert())
                 {
-                    lbregister.Text = "registered successfully";
                     Session["cadidate"] = txtname.Text;
+                    Session["admin"] = string.Empty;
                     Response.Redirect("Instruction.aspx");
                 }
             }
         }
     }
+
 }

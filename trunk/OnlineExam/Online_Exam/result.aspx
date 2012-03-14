@@ -11,7 +11,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-family: calibri">
                 your test results are:
             </td>
         </tr>

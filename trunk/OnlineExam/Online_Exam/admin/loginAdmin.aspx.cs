@@ -18,5 +18,17 @@ public partial class admin_loginAdmin : System.Web.UI.Page
             Session["admin"] = txtname.Text;
             Response.Redirect("adminHome.aspx");
         }
+        else
+        {
+            emptyfield();
+            lbLogin.Text = "enter valid username & password";
+        }
     }
+
+    private void emptyfield()
+    {
+        txtname.Text = string.Empty;
+        txtpassword.Text = string.Empty;
+    }
+
 }

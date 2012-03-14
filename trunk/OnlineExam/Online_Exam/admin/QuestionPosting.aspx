@@ -16,7 +16,7 @@
                 <table width="500px" align="center" style="border: thin groove #008080">
                     <tr>
                         <td height="30px" align="left" width="100px">
-                            Catagory :
+                            Catagory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </td>
                         <td align="left">
                             <asp:DropDownList Width="140px" ID="ddlCatagory" runat="server" AutoPostBack="True"
@@ -37,25 +37,14 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            Question :
+                            Question &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </td>
                         <td align="left" colspan="3">
                             <asp:TextBox ID="txtQuestion" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="4">
-                            <br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left">
-                            Image :
-                        </td>
-                        <td align="left" colspan="3">
-                            <asp:FileUpload ID="fuImage" runat="server" />
-                        </td>
-                    </tr>
+                   
+                    
                     <tr>
                         <td colspan="4">
                             <br />
@@ -68,6 +57,11 @@
                         <td align="left" colspan="3">
                             <asp:TextBox ID="txtOption" runat="server"></asp:TextBox>
                             <asp:Button ID="btnAnswerAdd" runat="server" OnClick="btnAnswerAdd_Click" Text="Add" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -93,22 +87,35 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                        Answer :
+                        <td align="left">
+                        Answer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                         </td>
                         <td colspan="3" align="left">
                             <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
                         </td>
                     </tr>
+                     <tr>
+                        <td colspan="4">
+                            <br />
+                        </td>
+                    </tr>
                     <tr>
-                        <td colspan="4" align="center" height="25px">
+                        <td align="left">
+                            Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                        </td>
+                        <td align="left" colspan="3">
+                            <asp:FileUpload ID="fuImage" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center" height="25px" 
+                            style="font-family: calibri; color: #006600">
                             <asp:Label ID="lbregister" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4" align="center">
                             <asp:Button ID="btnsubmit" runat="server" Text="Post Question" OnClick="btnsubmit_Click" />
-                            <asp:LinkButton ID="lnkView" runat="server" PostBackUrl="~/View.aspx">View</asp:LinkButton>
                         </td>
                     </tr>
                 </table>

@@ -9,6 +9,8 @@ public partial class client : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
+            lbuser.Text = Convert.ToString(Session["cadidate"]);
+       
     }
 }

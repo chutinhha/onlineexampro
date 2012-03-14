@@ -11,17 +11,30 @@ public partial class View : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         //int aa =Convert.ToInt32(  Session["timeDuration"]);
-        if (Session["cat"] == null | Session["timeDuration"] == null)
+        string aa = Convert.ToString(Session["cadidate"]);
+        if (aa == string.Empty)
         {
             Response.Redirect("~/admin/loginAdmin.aspx");
         }
-        int aa = 3610;
-        if (!IsPostBack)
+        else
         {
-            BindGrid();
-            Session["time"] = DateTime.Now.AddSeconds(aa);
+            if (Session["cat"] == null | Session["timeDuration"] == null)
+            {
+                Response.Redirect("~/admin/loginAdmin.aspx");
+            }
+            //  int aa = 3610;
+
+            if (!IsPostBack)
+            {
+                // int aa = 3610;
+                BindGrid();
+                // Session["time"] = DateTime.Now.AddSeconds(aa);
+            }
         }
+
+
     }
     protected void Timer1_Tick(object sender, EventArgs e)
     {
