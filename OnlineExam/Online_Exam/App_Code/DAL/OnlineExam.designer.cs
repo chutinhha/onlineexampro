@@ -48,6 +48,12 @@ namespace DAL
     partial void InsertOnlineResultMark(OnlineResultMark instance);
     partial void UpdateOnlineResultMark(OnlineResultMark instance);
     partial void DeleteOnlineResultMark(OnlineResultMark instance);
+    partial void InsertOnlineAssignDetail(OnlineAssignDetail instance);
+    partial void UpdateOnlineAssignDetail(OnlineAssignDetail instance);
+    partial void DeleteOnlineAssignDetail(OnlineAssignDetail instance);
+    partial void InsertOnlineCateCount(OnlineCateCount instance);
+    partial void UpdateOnlineCateCount(OnlineCateCount instance);
+    partial void DeleteOnlineCateCount(OnlineCateCount instance);
     #endregion
 		
 		public OnlineExamDataContext() : 
@@ -125,6 +131,22 @@ namespace DAL
 			get
 			{
 				return this.GetTable<OnlineResultMark>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineAssignDetail> OnlineAssignDetails
+		{
+			get
+			{
+				return this.GetTable<OnlineAssignDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OnlineCateCount> OnlineCateCounts
+		{
+			get
+			{
+				return this.GetTable<OnlineCateCount>();
 			}
 		}
 		
@@ -294,6 +316,62 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_CategoryId);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineAssignDetailsNewDeleteCommand")]
+		public int sp_OnlineAssignDetailsNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCateCountsNewUpdateCommand")]
+		public ISingleResult<sp_OnlineCateCountsNewUpdateCommandResult> sp_OnlineCateCountsNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_CateId", DbType="BigInt")] System.Nullable<long> fK_CateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Count", DbType="Int")] System.Nullable<int> count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_AsDeID", DbType="BigInt")] System.Nullable<long> fK_AsDeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_CateId, count, fK_AsDeID, original_Id, id);
+			return ((ISingleResult<sp_OnlineCateCountsNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineAssignDetailsNewInsertCommand")]
+		public ISingleResult<sp_OnlineAssignDetailsNewInsertCommandResult> sp_OnlineAssignDetailsNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDuration", DbType="DateTime")] System.Nullable<System.DateTime> timeDuration, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeLeft", DbType="DateTime")] System.Nullable<System.DateTime> timeLeft)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), timeDuration, timeLeft);
+			return ((ISingleResult<sp_OnlineAssignDetailsNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineAssignDetailsNewSelectCommand")]
+		public ISingleResult<sp_OnlineAssignDetailsNewSelectCommandResult> sp_OnlineAssignDetailsNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineAssignDetailsNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineAssignDetailsNewUpdateCommand")]
+		public ISingleResult<sp_OnlineAssignDetailsNewUpdateCommandResult> sp_OnlineAssignDetailsNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDuration", DbType="DateTime")] System.Nullable<System.DateTime> timeDuration, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeLeft", DbType="DateTime")] System.Nullable<System.DateTime> timeLeft, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), timeDuration, timeLeft, original_Id, id);
+			return ((ISingleResult<sp_OnlineAssignDetailsNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCateCountsNewDeleteCommand")]
+		public int sp_OnlineCateCountsNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCateCountsNewInsertCommand")]
+		public ISingleResult<sp_OnlineCateCountsNewInsertCommandResult> sp_OnlineCateCountsNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_CateId", DbType="BigInt")] System.Nullable<long> fK_CateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Count", DbType="Int")] System.Nullable<int> count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_AsDeID", DbType="BigInt")] System.Nullable<long> fK_AsDeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_CateId, count, fK_AsDeID);
+			return ((ISingleResult<sp_OnlineCateCountsNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_OnlineCateCountsNewSelectCommand")]
+		public ISingleResult<sp_OnlineCateCountsNewSelectCommandResult> sp_OnlineCateCountsNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_OnlineCateCountsNewSelectCommandResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -486,6 +564,8 @@ namespace DAL
 		
 		private EntitySet<OnlineResultMark> _OnlineResultMarks;
 		
+		private EntitySet<OnlineCateCount> _OnlineCateCounts;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -500,6 +580,7 @@ namespace DAL
 		{
 			this._OnlineQuestions = new EntitySet<OnlineQuestion>(new Action<OnlineQuestion>(this.attach_OnlineQuestions), new Action<OnlineQuestion>(this.detach_OnlineQuestions));
 			this._OnlineResultMarks = new EntitySet<OnlineResultMark>(new Action<OnlineResultMark>(this.attach_OnlineResultMarks), new Action<OnlineResultMark>(this.detach_OnlineResultMarks));
+			this._OnlineCateCounts = new EntitySet<OnlineCateCount>(new Action<OnlineCateCount>(this.attach_OnlineCateCounts), new Action<OnlineCateCount>(this.detach_OnlineCateCounts));
 			OnCreated();
 		}
 		
@@ -569,6 +650,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineCateCount", Storage="_OnlineCateCounts", ThisKey="CategoryId", OtherKey="FK_CateId")]
+		public EntitySet<OnlineCateCount> OnlineCateCounts
+		{
+			get
+			{
+				return this._OnlineCateCounts;
+			}
+			set
+			{
+				this._OnlineCateCounts.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -608,6 +702,18 @@ namespace DAL
 		}
 		
 		private void detach_OnlineResultMarks(OnlineResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = null;
+		}
+		
+		private void attach_OnlineCateCounts(OnlineCateCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineCategory = this;
+		}
+		
+		private void detach_OnlineCateCounts(OnlineCateCount entity)
 		{
 			this.SendPropertyChanging();
 			entity.OnlineCategory = null;
@@ -1397,6 +1503,360 @@ namespace DAL
 						this._FK_ResultId = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("OnlineResult");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineAssignDetails")]
+	public partial class OnlineAssignDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		private EntitySet<OnlineCateCount> _OnlineCateCounts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnTimeDurationChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeDurationChanged();
+    partial void OnTimeLeftChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeLeftChanged();
+    #endregion
+		
+		public OnlineAssignDetail()
+		{
+			this._OnlineCateCounts = new EntitySet<OnlineCateCount>(new Action<OnlineCateCount>(this.attach_OnlineCateCounts), new Action<OnlineCateCount>(this.detach_OnlineCateCounts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this.OnTimeDurationChanging(value);
+					this.SendPropertyChanging();
+					this._TimeDuration = value;
+					this.SendPropertyChanged("TimeDuration");
+					this.OnTimeDurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this.OnTimeLeftChanging(value);
+					this.SendPropertyChanging();
+					this._TimeLeft = value;
+					this.SendPropertyChanged("TimeLeft");
+					this.OnTimeLeftChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineAssignDetail_OnlineCateCount", Storage="_OnlineCateCounts", ThisKey="Id", OtherKey="FK_AsDeID")]
+		public EntitySet<OnlineCateCount> OnlineCateCounts
+		{
+			get
+			{
+				return this._OnlineCateCounts;
+			}
+			set
+			{
+				this._OnlineCateCounts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OnlineCateCounts(OnlineCateCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineAssignDetail = this;
+		}
+		
+		private void detach_OnlineCateCounts(OnlineCateCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.OnlineAssignDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OnlineCateCounts")]
+	public partial class OnlineCateCount : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		private System.Nullable<int> _Count;
+		
+		private System.Nullable<long> _FK_AsDeID;
+		
+		private EntityRef<OnlineAssignDetail> _OnlineAssignDetail;
+		
+		private EntityRef<OnlineCategory> _OnlineCategory;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFK_CateIdChanging(System.Nullable<long> value);
+    partial void OnFK_CateIdChanged();
+    partial void OnCountChanging(System.Nullable<int> value);
+    partial void OnCountChanged();
+    partial void OnFK_AsDeIDChanging(System.Nullable<long> value);
+    partial void OnFK_AsDeIDChanged();
+    #endregion
+		
+		public OnlineCateCount()
+		{
+			this._OnlineAssignDetail = default(EntityRef<OnlineAssignDetail>);
+			this._OnlineCategory = default(EntityRef<OnlineCategory>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					if (this._OnlineCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_CateIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_CateId = value;
+					this.SendPropertyChanged("FK_CateId");
+					this.OnFK_CateIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count", DbType="Int")]
+		public System.Nullable<int> Count
+		{
+			get
+			{
+				return this._Count;
+			}
+			set
+			{
+				if ((this._Count != value))
+				{
+					this.OnCountChanging(value);
+					this.SendPropertyChanging();
+					this._Count = value;
+					this.SendPropertyChanged("Count");
+					this.OnCountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_AsDeID", DbType="BigInt")]
+		public System.Nullable<long> FK_AsDeID
+		{
+			get
+			{
+				return this._FK_AsDeID;
+			}
+			set
+			{
+				if ((this._FK_AsDeID != value))
+				{
+					if (this._OnlineAssignDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_AsDeIDChanging(value);
+					this.SendPropertyChanging();
+					this._FK_AsDeID = value;
+					this.SendPropertyChanged("FK_AsDeID");
+					this.OnFK_AsDeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineAssignDetail_OnlineCateCount", Storage="_OnlineAssignDetail", ThisKey="FK_AsDeID", OtherKey="Id", IsForeignKey=true)]
+		public OnlineAssignDetail OnlineAssignDetail
+		{
+			get
+			{
+				return this._OnlineAssignDetail.Entity;
+			}
+			set
+			{
+				OnlineAssignDetail previousValue = this._OnlineAssignDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineAssignDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineAssignDetail.Entity = null;
+						previousValue.OnlineCateCounts.Remove(this);
+					}
+					this._OnlineAssignDetail.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineCateCounts.Add(this);
+						this._FK_AsDeID = value.Id;
+					}
+					else
+					{
+						this._FK_AsDeID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineAssignDetail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OnlineCategory_OnlineCateCount", Storage="_OnlineCategory", ThisKey="FK_CateId", OtherKey="CategoryId", IsForeignKey=true)]
+		public OnlineCategory OnlineCategory
+		{
+			get
+			{
+				return this._OnlineCategory.Entity;
+			}
+			set
+			{
+				OnlineCategory previousValue = this._OnlineCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._OnlineCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._OnlineCategory.Entity = null;
+						previousValue.OnlineCateCounts.Remove(this);
+					}
+					this._OnlineCategory.Entity = value;
+					if ((value != null))
+					{
+						value.OnlineCateCounts.Add(this);
+						this._FK_CateId = value.CategoryId;
+					}
+					else
+					{
+						this._FK_CateId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("OnlineCategory");
 				}
 			}
 		}
@@ -2767,6 +3227,432 @@ namespace DAL
 				if ((this._FK_UserId != value))
 				{
 					this._FK_UserId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineCateCountsNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		private System.Nullable<int> _Count;
+		
+		private System.Nullable<long> _FK_AsDeID;
+		
+		public sp_OnlineCateCountsNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count", DbType="Int")]
+		public System.Nullable<int> Count
+		{
+			get
+			{
+				return this._Count;
+			}
+			set
+			{
+				if ((this._Count != value))
+				{
+					this._Count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_AsDeID", DbType="BigInt")]
+		public System.Nullable<long> FK_AsDeID
+		{
+			get
+			{
+				return this._FK_AsDeID;
+			}
+			set
+			{
+				if ((this._FK_AsDeID != value))
+				{
+					this._FK_AsDeID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineAssignDetailsNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_OnlineAssignDetailsNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineAssignDetailsNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_OnlineAssignDetailsNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineAssignDetailsNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_OnlineAssignDetailsNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineCateCountsNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		private System.Nullable<int> _Count;
+		
+		private System.Nullable<long> _FK_AsDeID;
+		
+		public sp_OnlineCateCountsNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count", DbType="Int")]
+		public System.Nullable<int> Count
+		{
+			get
+			{
+				return this._Count;
+			}
+			set
+			{
+				if ((this._Count != value))
+				{
+					this._Count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_AsDeID", DbType="BigInt")]
+		public System.Nullable<long> FK_AsDeID
+		{
+			get
+			{
+				return this._FK_AsDeID;
+			}
+			set
+			{
+				if ((this._FK_AsDeID != value))
+				{
+					this._FK_AsDeID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_OnlineCateCountsNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		private System.Nullable<int> _Count;
+		
+		private System.Nullable<long> _FK_AsDeID;
+		
+		public sp_OnlineCateCountsNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count", DbType="Int")]
+		public System.Nullable<int> Count
+		{
+			get
+			{
+				return this._Count;
+			}
+			set
+			{
+				if ((this._Count != value))
+				{
+					this._Count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_AsDeID", DbType="BigInt")]
+		public System.Nullable<long> FK_AsDeID
+		{
+			get
+			{
+				return this._FK_AsDeID;
+			}
+			set
+			{
+				if ((this._FK_AsDeID != value))
+				{
+					this._FK_AsDeID = value;
 				}
 			}
 		}

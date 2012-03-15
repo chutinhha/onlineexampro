@@ -9,7 +9,10 @@ public partial class admin_loginAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            txtname.Focus();
+        }
     }
     protected void btnlogin_Click(object sender, EventArgs e)
     {
@@ -22,6 +25,7 @@ public partial class admin_loginAdmin : System.Web.UI.Page
         {
             emptyfield();
             lbLogin.Text = "enter valid username & password";
+            txtname.Focus();
         }
     }
 
@@ -30,5 +34,4 @@ public partial class admin_loginAdmin : System.Web.UI.Page
         txtname.Text = string.Empty;
         txtpassword.Text = string.Empty;
     }
-
 }

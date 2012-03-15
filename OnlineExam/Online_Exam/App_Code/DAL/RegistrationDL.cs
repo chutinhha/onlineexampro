@@ -12,7 +12,11 @@ internal class RegistrationDL
 
     internal static bool Insert(RegistrationBL registrationBL)
     {
-        OnlineExamHelper.Context.sp_OnlineRegistrationNewInsertCommand(registrationBL.Name, registrationBL.Mobile, registrationBL.Email, registrationBL.Date);
+        var aa = OnlineExamHelper.Context.sp_OnlineRegistrationNewInsertCommand(registrationBL.Name, registrationBL.Mobile, registrationBL.Email, registrationBL.Date);
+        foreach (var item in aa)
+        {
+            registrationBL.UserId = item.UserId;
+        }
         return true;
     }
 
