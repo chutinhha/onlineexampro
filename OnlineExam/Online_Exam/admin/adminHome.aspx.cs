@@ -88,6 +88,7 @@ public partial class admin_adminHome : System.Web.UI.Page
         Session["TimeLeft"] = dt;
         dt = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
         Session["timeDuration"] = dt;
-        Response.Redirect("~/View.aspx");
+      
+        Response.Redirect("~/registration.aspx");
     }
 }
