@@ -17,6 +17,7 @@
         </tr>
         <tr>
             <td>
+                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
             </td>
         </tr>
     </table>

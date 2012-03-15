@@ -12,7 +12,7 @@
                         <ContentTemplate>
                             <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
                             </asp:Timer>
-                            <table style="background-color: #99CCFF">
+                            <table>
                                 <tr>
                                     <td style="color: #000000">
                                         <asp:Label ID="lblHours" runat="server"></asp:Label>&nbsp;:
@@ -20,7 +20,7 @@
                                     <td style="color: #000000">
                                         <asp:Label ID="lblMin" runat="server"></asp:Label>&nbsp;:
                                     </td>
-                                    <td style="color: #CC3300"  >
+                                    <td style="color: #CC3300">
                                         <asp:Label ID="lblSecs" runat="server"></asp:Label>
                                     </td>
                                 </tr>
@@ -39,6 +39,11 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <table>
+                                    <tr>
+                                        <td>
+                                            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td style="font-family: calibri">
                                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("Sno") %>'></asp:Label>.

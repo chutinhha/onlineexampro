@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DAL;
 
 public partial class result : System.Web.UI.Page
 {
@@ -22,13 +23,17 @@ public partial class result : System.Web.UI.Page
             {
                 m += item.Value;
             }
+            var userid = OnlineExamHelper.Context.OnlineRegistrations.Single(a => a.Name == aa);
+            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(Convert.ToInt64( userid.UserId), m);
             foreach (KeyValuePair<long, int> item in mar)
             {
                 Label lbl = new Label();
                 int mark = item.Value;
                 long fk_category = item.Key;
+                OnlineExamHelper.Context.sp_OnlineResultMarksNewInsertCommand(mark, fk_category, userid.UserId);
                 lbl.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category + " : " + item.Value.ToString() + "<br>";
-                Page.Controls.Add(lbl);
+                //Page.Controls.Add(lbl);
+                PlaceHolder1.Controls.Add(lbl);
             }
         }
 
