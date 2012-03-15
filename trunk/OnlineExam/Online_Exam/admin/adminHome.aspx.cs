@@ -9,10 +9,8 @@ public partial class admin_adminHome : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string aa = Convert.ToString(Session["admin"]);
-        if (aa == String.Empty)
+        if (Session["admin"] == null)
         {
-
             Response.Redirect("loginAdmin.aspx");
         }
         else
@@ -60,7 +58,6 @@ public partial class admin_adminHome : System.Web.UI.Page
     }
     protected void btnAssign_Click(object sender, EventArgs e)
     {
-        
         var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
         int i = 0;
         Dictionary<long, int> dic = new Dictionary<long, int>();
@@ -83,12 +80,20 @@ public partial class admin_adminHome : System.Web.UI.Page
             }
             i++;
         }
-        Session["cat"] = dic;
+
         DateTime dt = DateTime.Now;
-        Session["TimeLeft"] = dt;
-        dt = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
-        Session["timeDuration"] = dt;
-      
+        //Session["TimeLeft"] = dt;
+        DateTime dt1 = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
+        //Session["timeDuration"] = dt1;
+        var de = OnlineExamHelper.Context.sp_OnlineAssignDetailsNewInsertCommand(dt1, dt);
+        foreach (var item in de)
+        {
+            //Session["cat"] = dic;
+            foreach (KeyValuePair<long, int> item1 in dic)
+            {
+                OnlineExamHelper.Context.sp_OnlineCateCountsNewInsertCommand(item1.Key, item1.Value, item.Id);
+            }
+        }
         Response.Redirect("~/registration.aspx");
     }
 }

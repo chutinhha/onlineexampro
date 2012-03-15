@@ -15,6 +15,7 @@
       <Column Name="Category" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="OnlineCategory_OnlineQuestion" Member="OnlineQuestions" ThisKey="CategoryId" OtherKey="FK_Category" Type="OnlineQuestion" />
       <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineResultMarks" ThisKey="CategoryId" OtherKey="FK_CateId" Type="OnlineResultMark" />
+      <Association Name="OnlineCategory_OnlineCateCount" Member="OnlineCateCounts" ThisKey="CategoryId" OtherKey="FK_CateId" Type="OnlineCateCount" />
     </Type>
   </Table>
   <Table Name="dbo.OnlineQuestion" Member="OnlineQuestions">
@@ -55,6 +56,24 @@
       <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineCategory" ThisKey="FK_CateId" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
       <Association Name="OnlineResult_OnlineResultMark" Member="OnlineResult" ThisKey="FK_ResultId" OtherKey="ResultId" Type="OnlineResult" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OnlineAssignDetails" Member="OnlineAssignDetails">
+    <Type Name="OnlineAssignDetail">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeDuration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeLeft" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="OnlineAssignDetail_OnlineCateCount" Member="OnlineCateCounts" ThisKey="Id" OtherKey="FK_AsDeID" Type="OnlineCateCount" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OnlineCateCounts" Member="OnlineCateCounts">
+    <Type Name="OnlineCateCount">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_AsDeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="OnlineAssignDetail_OnlineCateCount" Member="OnlineAssignDetail" ThisKey="FK_AsDeID" OtherKey="Id" Type="OnlineAssignDetail" IsForeignKey="true" />
+      <Association Name="OnlineCategory_OnlineCateCount" Member="OnlineCategory" ThisKey="FK_CateId" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_OnlineCategoryNewInsertCommand" Method="sp_OnlineCategoryNewInsertCommand">
@@ -264,5 +283,72 @@
   <Function Name="dbo.sp_OnlineCategoryNewDeleteCommand" Method="sp_OnlineCategoryNewDeleteCommand">
     <Parameter Name="Original_CategoryId" Parameter="original_CategoryId" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_OnlineAssignDetailsNewDeleteCommand" Method="sp_OnlineAssignDetailsNewDeleteCommand">
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_OnlineCateCountsNewUpdateCommand" Method="sp_OnlineCateCountsNewUpdateCommand">
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Count" Parameter="count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_AsDeID" Parameter="fK_AsDeID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_OnlineCateCountsNewUpdateCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_AsDeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_OnlineAssignDetailsNewInsertCommand" Method="sp_OnlineAssignDetailsNewInsertCommand">
+    <Parameter Name="TimeDuration" Parameter="timeDuration" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeLeft" Parameter="timeLeft" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_OnlineAssignDetailsNewInsertCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TimeDuration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeLeft" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_OnlineAssignDetailsNewSelectCommand" Method="sp_OnlineAssignDetailsNewSelectCommand">
+    <ElementType Name="sp_OnlineAssignDetailsNewSelectCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TimeDuration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeLeft" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_OnlineAssignDetailsNewUpdateCommand" Method="sp_OnlineAssignDetailsNewUpdateCommand">
+    <Parameter Name="TimeDuration" Parameter="timeDuration" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeLeft" Parameter="timeLeft" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_OnlineAssignDetailsNewUpdateCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TimeDuration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeLeft" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_OnlineCateCountsNewDeleteCommand" Method="sp_OnlineCateCountsNewDeleteCommand">
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_OnlineCateCountsNewInsertCommand" Method="sp_OnlineCateCountsNewInsertCommand">
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Count" Parameter="count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_AsDeID" Parameter="fK_AsDeID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_OnlineCateCountsNewInsertCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_AsDeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_OnlineCateCountsNewSelectCommand" Method="sp_OnlineCateCountsNewSelectCommand">
+    <ElementType Name="sp_OnlineCateCountsNewSelectCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_AsDeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

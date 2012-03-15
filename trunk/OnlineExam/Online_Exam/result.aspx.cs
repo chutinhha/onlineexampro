@@ -10,10 +10,9 @@ public partial class result : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string aa = Convert.ToString(Session["cadidate"]);
-        if (aa == string.Empty)
+        if (Session["cadidate"] == null)
         {
-            Response.Redirect("~/admin/loginAdmin.aspx");
+            Response.Redirect("ConfirmPage.aspx");
         }
         else
         {
@@ -23,20 +22,18 @@ public partial class result : System.Web.UI.Page
             {
                 m += item.Value;
             }
-            var userid = OnlineExamHelper.Context.OnlineRegistrations.Single(a => a.Name == aa);
-            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(m, userid.UserId);
+            long userid = Convert.ToInt64(Session["cadidate"]);
+            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(m, userid);
             foreach (KeyValuePair<long, int> item in mar)
             {
                 Label lbl = new Label();
                 int mark = item.Value;
                 long fk_category = item.Key;
-                OnlineExamHelper.Context.sp_OnlineResultMarksNewInsertCommand(mark, fk_category, userid.UserId);
+                OnlineExamHelper.Context.sp_OnlineResultMarksNewInsertCommand(mark, fk_category, userid);
                 lbl.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category + " : " + item.Value.ToString() + "<br>";
                 //Page.Controls.Add(lbl);
                 PlaceHolder1.Controls.Add(lbl);
             }
         }
-
-
     }
 }

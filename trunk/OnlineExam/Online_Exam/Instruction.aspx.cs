@@ -9,10 +9,9 @@ public partial class Instruction : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string aa = Convert.ToString(Session["cadidate"]);
-        if (aa == string.Empty)
+        if (Session["cadidate"] == null)
         {
-            Response.Redirect("~/admin/loginAdmin.aspx");
+            Response.Redirect("ConfirmPage.aspx");
         }
        
     }
