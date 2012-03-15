@@ -8,16 +8,16 @@ using System.Web;
 /// </summary>
 public class ResultBL : ResultProperties, IOnlinExam
 {
-    public ResultBL(long resultId, long fK_UserId, int mark)
+    public ResultBL(long resultId, long fK_UserId, int totalMark)
     {
         this.ResultId = resultId;
         this.FK_UserId = fK_UserId;
-        this.Mark = mark;
+        this.TotalMark = totalMark;
     }
     public ResultBL(long fK_UserId, int mark)
     {
         this.FK_UserId = fK_UserId;
-        this.Mark = mark;
+        this.TotalMark = mark;
     }
     public ResultBL(long resultId)
     {

@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Biz_OutSource_To_India" Class="OnlineExamDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=i-constech.com;Initial Catalog=Biz_OutSource_To_India;Integrated Security=False;User ID=biz" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OnlineExamConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.OnlineCategory" Member="OnlineCategories">
-    <Type Name="OnlineCategory">
-      <Column Name="CategoryId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Category" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineResultMarks" ThisKey="CategoryId" OtherKey="FK_MarkType" Type="OnlineResultMark" />
-      <Association Name="OnlineCategory_OnlineQuestion" Member="OnlineQuestions" ThisKey="CategoryId" OtherKey="FK_Category" Type="OnlineQuestion" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=i-constech.com;Initial Catalog=Biz_OutSource_To_India;Persist Security Info=True;User ID=biz" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Biz_OutSource_To_IndiaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.OnlineOptions" Member="OnlineOptions">
     <Type Name="OnlineOption">
       <Column Name="OptionId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -15,6 +7,25 @@
       <Column Name="OptionType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="OnlineQuestion_OnlineOption" Member="OnlineQuestion" ThisKey="FK_QuestionId" OtherKey="QuestionId" Type="OnlineQuestion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OnlineCategory" Member="OnlineCategories">
+    <Type Name="OnlineCategory">
+      <Column Name="CategoryId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="OnlineCategory_OnlineQuestion" Member="OnlineQuestions" ThisKey="CategoryId" OtherKey="FK_Category" Type="OnlineQuestion" />
+      <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineResultMarks" ThisKey="CategoryId" OtherKey="FK_CateId" Type="OnlineResultMark" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OnlineQuestion" Member="OnlineQuestions">
+    <Type Name="OnlineQuestion">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Imageurl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="OnlineQuestion_OnlineOption" Member="OnlineOptions" ThisKey="QuestionId" OtherKey="FK_QuestionId" Type="OnlineOption" />
+      <Association Name="OnlineCategory_OnlineQuestion" Member="OnlineCategory" ThisKey="FK_Category" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OnlineRegistration" Member="OnlineRegistrations">
@@ -30,8 +41,8 @@
   <Table Name="dbo.OnlineResult" Member="OnlineResults">
     <Type Name="OnlineResult">
       <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="OnlineResult_OnlineResultMark" Member="OnlineResultMarks" ThisKey="ResultId" OtherKey="FK_ResultId" Type="OnlineResultMark" />
       <Association Name="OnlineRegistration_OnlineResult" Member="OnlineRegistration" ThisKey="FK_UserId" OtherKey="UserId" Type="OnlineRegistration" IsForeignKey="true" />
     </Type>
@@ -40,27 +51,12 @@
     <Type Name="OnlineResultMark">
       <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FK_MarkType" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineCategory" ThisKey="FK_MarkType" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="OnlineCategory_OnlineResultMark" Member="OnlineCategory" ThisKey="FK_CateId" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
       <Association Name="OnlineResult_OnlineResultMark" Member="OnlineResult" ThisKey="FK_ResultId" OtherKey="ResultId" Type="OnlineResult" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OnlineQuestion" Member="OnlineQuestions">
-    <Type Name="OnlineQuestion">
-      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Imageurl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="OnlineQuestion_OnlineOption" Member="OnlineOptions" ThisKey="QuestionId" OtherKey="FK_QuestionId" Type="OnlineOption" />
-      <Association Name="OnlineCategory_OnlineQuestion" Member="OnlineCategory" ThisKey="FK_Category" OtherKey="CategoryId" Type="OnlineCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Function Name="dbo.sp_OnlineCategoryNewDeleteCommand" Method="sp_OnlineCategoryNewDeleteCommand">
-    <Parameter Name="Original_CategoryId" Parameter="original_CategoryId" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_OnlineCategoryNewInsertCommand" Method="sp_OnlineCategoryNewInsertCommand">
     <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(100)" />
     <ElementType Name="sp_OnlineCategoryNewInsertCommandResult">
@@ -123,8 +119,12 @@
     <Parameter Name="Original_QuestionId" Parameter="original_QuestionId" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_OnlineQuestionNewSelectCommand" Method="sp_OnlineQuestionNewSelectCommand">
-    <ElementType Name="sp_OnlineQuestionNewSelectCommandResult">
+  <Function Name="dbo.sp_OnlineQuestionNewInsertCommand" Method="sp_OnlineQuestionNewInsertCommand">
+    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="path" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FK_Answer" Parameter="fK_Answer" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_Category" Parameter="fK_Category" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_OnlineQuestionNewInsertCommandResult">
       <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Imageurl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -132,9 +132,16 @@
       <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_OnlineQuestionNewSelectCommand" Method="sp_OnlineQuestionNewSelectCommand">
+    <ElementType Name="sp_OnlineQuestionNewSelectCommandResult">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_OnlineQuestionNewUpdateCommand" Method="sp_OnlineQuestionNewUpdateCommand">
     <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="Imageurl" Parameter="imageurl" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="FK_Answer" Parameter="fK_Answer" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="FK_Category" Parameter="fK_Category" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Original_QuestionId" Parameter="original_QuestionId" Type="System.Int64" DbType="BigInt" />
@@ -142,7 +149,6 @@
     <ElementType Name="sp_OnlineQuestionNewUpdateCommandResult">
       <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Imageurl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
@@ -150,6 +156,19 @@
   <Function Name="dbo.sp_OnlineRegistrationNewDeleteCommand" Method="sp_OnlineRegistrationNewDeleteCommand">
     <Parameter Name="Original_UserId" Parameter="original_UserId" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_OnlineRegistrationNewInsertCommand" Method="sp_OnlineRegistrationNewInsertCommand">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_OnlineRegistrationNewInsertCommandResult">
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineRegistrationNewSelectCommand" Method="sp_OnlineRegistrationNewSelectCommand">
     <ElementType Name="sp_OnlineRegistrationNewSelectCommandResult">
@@ -175,53 +194,40 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_OnlineRegistrationNewInsertCommand" Method="sp_OnlineRegistrationNewInsertCommand">
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <ElementType Name="sp_OnlineRegistrationNewInsertCommandResult">
-      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_OnlineResultMarksNewDeleteCommand" Method="sp_OnlineResultMarksNewDeleteCommand">
     <Parameter Name="Original_MarkId" Parameter="original_MarkId" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_OnlineResultMarksNewInsertCommand" Method="sp_OnlineResultMarksNewInsertCommand">
     <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FK_MarkType" Parameter="fK_MarkType" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="FK_ResultId" Parameter="fK_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
     <ElementType Name="sp_OnlineResultMarksNewInsertCommandResult">
       <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FK_MarkType" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineResultMarksNewSelectCommand" Method="sp_OnlineResultMarksNewSelectCommand">
     <ElementType Name="sp_OnlineResultMarksNewSelectCommandResult">
       <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FK_MarkType" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineResultMarksNewUpdateCommand" Method="sp_OnlineResultMarksNewUpdateCommand">
     <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FK_MarkType" Parameter="fK_MarkType" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="FK_ResultId" Parameter="fK_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Original_MarkId" Parameter="original_MarkId" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="MarkId" Parameter="markId" Type="System.Int64" DbType="BigInt" />
     <ElementType Name="sp_OnlineResultMarksNewUpdateCommandResult">
       <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FK_MarkType" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineResultNewDeleteCommand" Method="sp_OnlineResultNewDeleteCommand">
@@ -229,43 +235,34 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_OnlineResultNewInsertCommand" Method="sp_OnlineResultNewInsertCommand">
+    <Parameter Name="TotalMark" Parameter="totalMark" Type="System.Int32" DbType="Int" />
     <Parameter Name="FK_UserId" Parameter="fK_UserId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_OnlineResultNewInsertCommandResult">
       <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineResultNewSelectCommand" Method="sp_OnlineResultNewSelectCommand">
     <ElementType Name="sp_OnlineResultNewSelectCommandResult">
       <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_OnlineResultNewUpdateCommand" Method="sp_OnlineResultNewUpdateCommand">
+    <Parameter Name="TotalMark" Parameter="totalMark" Type="System.Int32" DbType="Int" />
     <Parameter Name="FK_UserId" Parameter="fK_UserId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
     <Parameter Name="Original_ResultId" Parameter="original_ResultId" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ResultId" Parameter="resultId" Type="System.Int64" DbType="BigInt" />
     <ElementType Name="sp_OnlineResultNewUpdateCommandResult">
       <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_OnlineQuestionNewInsertCommand" Method="sp_OnlineQuestionNewInsertCommand">
-    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="path" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="FK_Answer" Parameter="fK_Answer" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FK_Category" Parameter="fK_Category" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_OnlineQuestionNewInsertCommandResult">
-      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Imageurl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FK_Category" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
+  <Function Name="dbo.sp_OnlineCategoryNewDeleteCommand" Method="sp_OnlineCategoryNewDeleteCommand">
+    <Parameter Name="Original_CategoryId" Parameter="original_CategoryId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

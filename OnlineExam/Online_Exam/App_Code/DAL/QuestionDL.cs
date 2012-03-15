@@ -18,7 +18,7 @@ internal class QuestionDL
 
     internal static bool Update(QuestionBL questionBL)
     {
-        OnlineExamHelper.Context.sp_OnlineQuestionNewUpdateCommand(questionBL.Question, questionBL.Imageurl, questionBL.FK_Answer, questionBL.FK_Category, questionBL.QuestionId, questionBL.QuestionId);
+        OnlineExamHelper.Context.sp_OnlineQuestionNewUpdateCommand(questionBL.Question, questionBL.FK_Answer, questionBL.FK_Category, questionBL.QuestionId, questionBL.QuestionId);
         return true;
 
     }
