@@ -12,13 +12,13 @@ public class ResultDL
 
     internal static bool Insert(ResultBL resultBL)
     {
-        OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(resultBL.FK_UserId, resultBL.Mark);
+        OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(resultBL.TotalMark, resultBL.FK_UserId);
         return true;
     }
 
     internal static bool Update(ResultBL resultBL)
     {
-        OnlineExamHelper.Context.sp_OnlineResultNewUpdateCommand(resultBL.FK_UserId, resultBL.Mark, resultBL.ResultId, resultBL.ResultId);
+        OnlineExamHelper.Context.sp_OnlineResultNewUpdateCommand(resultBL.TotalMark, resultBL.FK_UserId, resultBL.ResultId, resultBL.ResultId);
         return true;
     }
 

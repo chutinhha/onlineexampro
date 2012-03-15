@@ -24,7 +24,7 @@ public partial class result : System.Web.UI.Page
                 m += item.Value;
             }
             var userid = OnlineExamHelper.Context.OnlineRegistrations.Single(a => a.Name == aa);
-            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(Convert.ToInt64( userid.UserId), m);
+            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(m, userid.UserId);
             foreach (KeyValuePair<long, int> item in mar)
             {
                 Label lbl = new Label();

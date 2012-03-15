@@ -15,17 +15,18 @@ public abstract class ResultProperties
         get { return fK_UserId; }
         set { fK_UserId = value; }
     }
-
     public long ResultId
     {
         get { return resultId; }
         set { resultId = value; }
     }
-    private int mark;
+    private int totalMark;
 
-    public int Mark
+    public int TotalMark
     {
-        get { return mark; }
-        set { mark = value; }
+        get { return totalMark; }
+        set { totalMark = value; }
     }
+
+    
 }
