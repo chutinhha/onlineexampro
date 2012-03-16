@@ -49,7 +49,9 @@ public partial class ConfirmPage : System.Web.UI.Page
     }
     protected void btnYes_Click(object sender, EventArgs e)
     {
+        Session["cadidatename"] = txtName.Text;
         Response.Redirect("View.aspx");
+        
     }
     protected void btnNo_Click(object sender, EventArgs e)
     {

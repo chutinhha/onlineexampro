@@ -23,16 +23,19 @@ public partial class result : System.Web.UI.Page
                 m += item.Value;
             }
             long userid = Convert.ToInt64(Session["cadidate"]);
-            OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(m, userid);
-            foreach (KeyValuePair<long, int> item in mar)
+            var ghhgh = OnlineExamHelper.Context.sp_OnlineResultNewInsertCommand(m, userid);
+            foreach (var aa in ghhgh)
             {
-                Label lbl = new Label();
-                int mark = item.Value;
-                long fk_category = item.Key;
-                OnlineExamHelper.Context.sp_OnlineResultMarksNewInsertCommand(mark, fk_category, userid);
-                lbl.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category + " : " + item.Value.ToString() + "<br>";
-                //Page.Controls.Add(lbl);
-                PlaceHolder1.Controls.Add(lbl);
+                foreach (KeyValuePair<long, int> item in mar)
+                {
+                    Label lbl = new Label();
+                    int mark = item.Value;
+                    long fk_category = item.Key;
+                    OnlineExamHelper.Context.sp_OnlineResultMarksNewInsertCommand(mark, aa.ResultId, fk_category);
+                    lbl.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category + " : " + item.Value.ToString() + "<br>";
+                    //Page.Controls.Add(lbl);
+                    PlaceHolder1.Controls.Add(lbl);
+                }
             }
         }
     }
