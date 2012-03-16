@@ -27,6 +27,7 @@ public partial class registration : System.Web.UI.Page
                 RegistrationBL obj = new RegistrationBL(txtname.Text, Convert.ToInt64(txtmobile.Text), txtemail.Text, DateTime.Now);
                 if (obj.Insert())
                 {
+                    Session["cadidatename"] = obj.Name;
                     Session["cadidate"] = obj.UserId;
                     Session["admin"] = null;
                     var dd = OnlineExamHelper.Context.OnlineAssignDetails.Select(a => a);
