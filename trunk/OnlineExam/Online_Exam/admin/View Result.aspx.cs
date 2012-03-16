@@ -15,7 +15,7 @@ public partial class admin_View_Result : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            GridView1.DataSource = from a in OnlineExamHelper.Context.OnlineResults join b in OnlineExamHelper.Context.OnlineResultMarks on a.ResultId equals b.FK_ResultId
+            GridView1.DataSource = from a in OnlineExamHelper.Context.OnlineResults 
                                    select new
                                    {
                                        Name = a.OnlineRegistration.Name,
