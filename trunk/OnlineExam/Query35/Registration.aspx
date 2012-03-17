@@ -56,7 +56,8 @@
                     </cc1:ValidatorCalloutExtender>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                         ErrorMessage="Enter mail id in correct format" Display="None" 
-                        ControlToValidate="txtMailId"></asp:RegularExpressionValidator>
+                        ControlToValidate="txtMailId" 
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                         <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" TargetControlID="RegularExpressionValidator1" runat="server">
                     </cc1:ValidatorCalloutExtender>
                 </td>

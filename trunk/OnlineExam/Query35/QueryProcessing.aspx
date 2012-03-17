@@ -43,16 +43,6 @@
             </td>
 
         </tr>
-        <tr>
-            <td align="center" colspan="2">
-                
-                
-                <asp:GridView ID="GridView1" runat="server">
-                </asp:GridView>
-                
-                
-                </td>
-
-        </tr>
+       
     </table>
 </asp:Content>

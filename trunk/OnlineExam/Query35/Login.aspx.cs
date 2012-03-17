@@ -20,6 +20,10 @@ public partial class Login : System.Web.UI.Page
                 Session["UserName"] = txtUsername.Text;
                 Response.Redirect("Default.aspx");
             }
+            else
+            {
+                Label1.Text = "Incorrect username or password";
+            }
         }
     }
 }
