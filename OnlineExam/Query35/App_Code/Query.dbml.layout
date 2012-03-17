@@ -8,17 +8,36 @@
         <elementListCompartment Id="42908634-8c7c-47ba-a67c-dbeb06e3d76f" absoluteBounds="4.89, 2.46, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c2cded17-01f8-4647-8d6f-d240577f9dc0" absoluteBounds="1.875, 0.875, 2, 1.5891951497395831">
+    <classShape Id="fdba910c-557e-4d79-8268-f22941fb1b4e" absoluteBounds="1.5, 0.75, 2, 1.5891951497395831">
       <DataClassMoniker Name="/QueryDataContext/tblSource" />
       <nestedChildShapes>
-        <elementListCompartment Id="711b52bd-e12f-4bbf-8167-1811348f98e8" absoluteBounds="1.8899999999999997, 1.335, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="98ba69ae-f10e-478e-b9f4-1f4dec8e4cd9" absoluteBounds="1.5149999999999997, 1.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.875 : 2.23209757486979); (3.875 : 2.23209757486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.875 : 2.16959757486979); (3.5 : 2.16959757486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/QueryDataContext/tblType/tblType_tblSource" />
       <nodes>
         <classShapeMoniker Id="da3a1a10-8f83-4be5-ac44-76e87e6dea3a" />
-        <classShapeMoniker Id="c2cded17-01f8-4647-8d6f-d240577f9dc0" />
+        <classShapeMoniker Id="fdba910c-557e-4d79-8268-f22941fb1b4e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="408a55de-e899-402a-be9f-a74ecf6f1bbc" absoluteBounds="3.5, 5.125, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/QueryDataContext/tblLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="335b93c9-81e5-4541-9aa0-dad3941adc48" absoluteBounds="3.515, 5.585, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f6ed5257-0938-44f7-80a9-a474247b679b" absoluteBounds="0.75, 4.875, 2, 1.7535424804687505">
+      <DataClassMoniker Name="/QueryDataContext/tblUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae45e76c-ba83-474f-b99b-d0e480ffbb1a" absoluteBounds="0.765, 5.335, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.75525024414063); (3.5 : 5.75525024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QueryDataContext/tblUser/tblUser_tblLog" />
+      <nodes>
+        <classShapeMoniker Id="f6ed5257-0938-44f7-80a9-a474247b679b" />
+        <classShapeMoniker Id="408a55de-e899-402a-be9f-a74ecf6f1bbc" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

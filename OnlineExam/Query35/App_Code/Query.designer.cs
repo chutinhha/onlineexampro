@@ -35,6 +35,12 @@ public partial class QueryDataContext : System.Data.Linq.DataContext
   partial void InserttblSource(tblSource instance);
   partial void UpdatetblSource(tblSource instance);
   partial void DeletetblSource(tblSource instance);
+  partial void InserttblLog(tblLog instance);
+  partial void UpdatetblLog(tblLog instance);
+  partial void DeletetblLog(tblLog instance);
+  partial void InserttblUser(tblUser instance);
+  partial void UpdatetblUser(tblUser instance);
+  partial void DeletetblUser(tblUser instance);
   #endregion
 	
 	public QueryDataContext() : 
@@ -80,6 +86,22 @@ public partial class QueryDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<tblSource>();
+		}
+	}
+	
+	public System.Data.Linq.Table<tblLog> tblLogs
+	{
+		get
+		{
+			return this.GetTable<tblLog>();
+		}
+	}
+	
+	public System.Data.Linq.Table<tblUser> tblUsers
+	{
+		get
+		{
+			return this.GetTable<tblUser>();
 		}
 	}
 }
@@ -238,7 +260,7 @@ public partial class tblSource : INotifyPropertyChanging, INotifyPropertyChanged
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 	public long Id
 	{
 		get
@@ -258,7 +280,7 @@ public partial class tblSource : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationName", DbType="NVarChar(50)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationName", DbType="NVarChar(500)")]
 	public string LocationName
 	{
 		get
@@ -394,6 +416,367 @@ public partial class tblSource : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLog")]
+public partial class tblLog : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _Id;
+	
+	private System.Nullable<long> _FK_UserID;
+	
+	private System.Nullable<long> _FK_SourceId;
+	
+	private EntityRef<tblUser> _tblUser;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFK_UserIDChanging(System.Nullable<long> value);
+    partial void OnFK_UserIDChanged();
+    partial void OnFK_SourceIdChanging(System.Nullable<long> value);
+    partial void OnFK_SourceIdChanged();
+    #endregion
+	
+	public tblLog()
+	{
+		this._tblUser = default(EntityRef<tblUser>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserID", DbType="BigInt")]
+	public System.Nullable<long> FK_UserID
+	{
+		get
+		{
+			return this._FK_UserID;
+		}
+		set
+		{
+			if ((this._FK_UserID != value))
+			{
+				if (this._tblUser.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnFK_UserIDChanging(value);
+				this.SendPropertyChanging();
+				this._FK_UserID = value;
+				this.SendPropertyChanged("FK_UserID");
+				this.OnFK_UserIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SourceId", DbType="BigInt")]
+	public System.Nullable<long> FK_SourceId
+	{
+		get
+		{
+			return this._FK_SourceId;
+		}
+		set
+		{
+			if ((this._FK_SourceId != value))
+			{
+				this.OnFK_SourceIdChanging(value);
+				this.SendPropertyChanging();
+				this._FK_SourceId = value;
+				this.SendPropertyChanged("FK_SourceId");
+				this.OnFK_SourceIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblUser_tblLog", Storage="_tblUser", ThisKey="FK_UserID", OtherKey="Id", IsForeignKey=true)]
+	public tblUser tblUser
+	{
+		get
+		{
+			return this._tblUser.Entity;
+		}
+		set
+		{
+			tblUser previousValue = this._tblUser.Entity;
+			if (((previousValue != value) 
+						|| (this._tblUser.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._tblUser.Entity = null;
+					previousValue.tblLogs.Remove(this);
+				}
+				this._tblUser.Entity = value;
+				if ((value != null))
+				{
+					value.tblLogs.Add(this);
+					this._FK_UserID = value.Id;
+				}
+				else
+				{
+					this._FK_UserID = default(Nullable<long>);
+				}
+				this.SendPropertyChanged("tblUser");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblUser")]
+public partial class tblUser : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _Id;
+	
+	private string _UserName;
+	
+	private string _Password;
+	
+	private string _MailId;
+	
+	private System.Nullable<long> _MobileNumber;
+	
+	private System.Nullable<System.DateTime> _Date;
+	
+	private EntitySet<tblLog> _tblLogs;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnMailIdChanging(string value);
+    partial void OnMailIdChanged();
+    partial void OnMobileNumberChanging(System.Nullable<long> value);
+    partial void OnMobileNumberChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    #endregion
+	
+	public tblUser()
+	{
+		this._tblLogs = new EntitySet<tblLog>(new Action<tblLog>(this.attach_tblLogs), new Action<tblLog>(this.detach_tblLogs));
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(500)")]
+	public string UserName
+	{
+		get
+		{
+			return this._UserName;
+		}
+		set
+		{
+			if ((this._UserName != value))
+			{
+				this.OnUserNameChanging(value);
+				this.SendPropertyChanging();
+				this._UserName = value;
+				this.SendPropertyChanged("UserName");
+				this.OnUserNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(500)")]
+	public string Password
+	{
+		get
+		{
+			return this._Password;
+		}
+		set
+		{
+			if ((this._Password != value))
+			{
+				this.OnPasswordChanging(value);
+				this.SendPropertyChanging();
+				this._Password = value;
+				this.SendPropertyChanged("Password");
+				this.OnPasswordChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailId", DbType="NVarChar(500)")]
+	public string MailId
+	{
+		get
+		{
+			return this._MailId;
+		}
+		set
+		{
+			if ((this._MailId != value))
+			{
+				this.OnMailIdChanging(value);
+				this.SendPropertyChanging();
+				this._MailId = value;
+				this.SendPropertyChanged("MailId");
+				this.OnMailIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobileNumber", DbType="BigInt")]
+	public System.Nullable<long> MobileNumber
+	{
+		get
+		{
+			return this._MobileNumber;
+		}
+		set
+		{
+			if ((this._MobileNumber != value))
+			{
+				this.OnMobileNumberChanging(value);
+				this.SendPropertyChanging();
+				this._MobileNumber = value;
+				this.SendPropertyChanged("MobileNumber");
+				this.OnMobileNumberChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Date
+	{
+		get
+		{
+			return this._Date;
+		}
+		set
+		{
+			if ((this._Date != value))
+			{
+				this.OnDateChanging(value);
+				this.SendPropertyChanging();
+				this._Date = value;
+				this.SendPropertyChanged("Date");
+				this.OnDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblUser_tblLog", Storage="_tblLogs", ThisKey="Id", OtherKey="FK_UserID")]
+	public EntitySet<tblLog> tblLogs
+	{
+		get
+		{
+			return this._tblLogs;
+		}
+		set
+		{
+			this._tblLogs.Assign(value);
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	
+	private void attach_tblLogs(tblLog entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblUser = this;
+	}
+	
+	private void detach_tblLogs(tblLog entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblUser = null;
 	}
 }
 #pragma warning restore 1591

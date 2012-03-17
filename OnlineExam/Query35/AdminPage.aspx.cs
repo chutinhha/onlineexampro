@@ -20,9 +20,9 @@ public partial class AdminPage : System.Web.UI.Page
         {
             var source = new tblSource();
             source.FK_TypeId = Convert.ToInt64(ddlTypes.SelectedValue);
-            source.Latitude = Convert.ToDecimal(lblLatitude.Text);
-            source.LocationName = lblLocation.Text;
-            source.Lontitude = Convert.ToDecimal(lblLontidude.Text);
+            source.Latitude = Convert.ToDecimal(HiddenField2.Value);
+            source.LocationName = HiddenField1.Value;
+            source.Lontitude = Convert.ToDecimal(HiddenField3.Value);
             obj.tblSources.InsertOnSubmit(source);
             obj.SubmitChanges();
         }
@@ -38,7 +38,6 @@ public partial class AdminPage : System.Web.UI.Page
         }
         BindDropdown();
     }
-
     private void BindDropdown()
     {
         ddlTypes.DataSource = QueryHelper.Context.tblTypes.Select(a => a);
