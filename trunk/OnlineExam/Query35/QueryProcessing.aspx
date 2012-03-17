@@ -9,7 +9,7 @@
             <td>
                 Query<span style="color:Red">*</span></td>
             <td>
-                <asp:TextBox ID="TextBox1" runat="server" ontextchanged="TextBox1_TextChanged" 
+                <asp:TextBox ID="TextBox1" runat="server" 
                     ValidationGroup="v1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="TextBox1" Display="None" ErrorMessage="Please Enter A Query" 

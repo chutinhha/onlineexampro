@@ -16,7 +16,16 @@ public partial class AdminPage : System.Web.UI.Page
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        using (var obj = new QueryDataContext())
+        {
+            var source = new tblSource();
+            source.FK_TypeId = Convert.ToInt64(ddlTypes.SelectedValue);
+            source.Latitude = Convert.ToDecimal(lblLatitude.Text);
+            source.LocationName = lblLocation.Text;
+            source.Lontitude = Convert.ToDecimal(lblLontidude.Text);
+            obj.tblSources.InsertOnSubmit(source);
+            obj.SubmitChanges();
+        }
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
