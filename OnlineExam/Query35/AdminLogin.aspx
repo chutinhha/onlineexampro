@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true"
     CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .style1
@@ -34,8 +32,7 @@
                 &nbsp;
             </td>
             <td>
-                <asp:Button ID="btnLogin" runat="server" Text="Login" 
-                    onclick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
             </td>
         </tr>
     </table>

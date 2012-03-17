@@ -28,18 +28,18 @@ public partial class SearchingNeighbours : System.Web.UI.Page
                 {
                     Session["Count"] = 0;
                 }
-                foreach (var item in res)
-                {
-                    if (QueryHelper.Context.tblLogs.Count(a => a.FK_SourceId == item.FK_SourceId && a.FK_UserID == QueryHelper.Context.tblUsers.Single(b => b.UserName == Session["UserName"].ToString()).Id) <= 0)
-                    {
-                        var log = new tblLog();
-                        log.FK_SourceId = item.Id;
-                        log.FK_UserID = QueryHelper.Context.tblUsers.Single(a => a.UserName == Session["UserName"].ToString()).Id;
-                        log.Date = DateTime.Now;
-                        obj.tblLogs.InsertOnSubmit(log);
-                        obj.SubmitChanges();
-                    }
-                }
+                //foreach (var item in res)
+                //{
+                //    if (QueryHelper.Context.tblLogs.Count(a => a.FK_SourceId == item.FK_SourceId && a.FK_UserID == QueryHelper.Context.tblUsers.Single(b => b.UserName == Session["UserName"].ToString()).Id) <= 0)
+                //    {
+                //        var log = new tblLog();
+                //        log.FK_SourceId = item.FK_SourceId;
+                //        log.FK_UserID = QueryHelper.Context.tblUsers.Single(a => a.UserName == Session["UserName"].ToString()).Id;
+                //        log.Date = DateTime.Now;
+                //        obj.tblLogs.InsertOnSubmit(log);
+                //        obj.SubmitChanges();
+                //    }
+                //}
             }
         }
     }
