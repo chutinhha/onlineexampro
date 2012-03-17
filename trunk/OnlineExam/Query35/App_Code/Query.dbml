@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QueryProcessing" Class="QueryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MAJ-056\SQLEXPRESS;Initial Catalog=QueryProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QueryProcessingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblTypes" Member="tblTypes">
+    <Type Name="tblType">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblType_tblSource" Member="tblSources" ThisKey="Id" OtherKey="FK_TypeId" Type="tblSource" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSource" Member="tblSources">
+    <Type Name="tblSource">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
+      <Column Name="Lontitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
+      <Column Name="FK_TypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblType_tblSource" Member="tblType" ThisKey="FK_TypeId" OtherKey="Id" Type="tblType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
