@@ -38,7 +38,7 @@
     <table>
         <tr>
             <td>
-                Enter Result Name
+                Enter Result Name<span style="color:Red">*</span></td>
             </td>
             <td>
                 <asp:TextBox ID="txtAddress1" runat="server"></asp:TextBox>
@@ -46,19 +46,27 @@
         </tr>
         <tr>
             <td>
-                Type
+                Type<span style="color:Red">*</span></td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="ddlTypes" Display="None" 
+                    ErrorMessage="Type Shoul be selected before processin add" ValidationGroup="v1"></asp:RequiredFieldValidator>
             </td>
             <td>
-                <asp:DropDownList ID="ddlTypes" runat="server">
+                <asp:DropDownList ID="ddlTypes" runat="server" ValidationGroup="v1">
                 </asp:DropDownList>
-                <asp:TextBox ID="txtType" runat="server"></asp:TextBox>
-                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add Type" />
+                <asp:TextBox ID="txtType" runat="server" ValidationGroup="v2"></asp:TextBox>
+                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add Type" 
+                    ValidationGroup="v2" />
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2">
                 <input type="submit" onclick="initialize();showLocation(); return false;" name="find"
-                    value="Search" />
+                    value="Search" /><asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
+                    runat="server" ControlToValidate="txtType" Display="None" 
+                    ErrorMessage="Enter values in textbox to add additional types" 
+                    ValidationGroup="v2"></asp:RequiredFieldValidator>
+&nbsp;<asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="v1" />
             </td>
         </tr>
         <tr>
@@ -93,7 +101,8 @@
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <asp:Button ID="Button2" runat="server" Text="Add" OnClick="Button2_Click" />
+                <asp:Button ID="Button2" runat="server" Text="Add" OnClick="Button2_Click" 
+                    ValidationGroup="v1" />
             </td>
         </tr>
     </table>
