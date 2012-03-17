@@ -11,4 +11,15 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        using (var obj = new QueryDataContext())
+        {
+            if (QueryHelper.Context.tblUsers.Count(a => a.UserName == txtUsername.Text&&a.Password==txtPassword.Text) > 0)
+            {
+                Session["UserName"] = txtUsername.Text;
+                Response.Redirect("Default.aspx");
+            }
+        }
+    }
 }
