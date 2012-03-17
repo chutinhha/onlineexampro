@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Query">
+  <DataContextMoniker Name="/QueryDataContext" />
+  <nestedChildShapes>
+    <classShape Id="da3a1a10-8f83-4be5-ac44-76e87e6dea3a" absoluteBounds="4.875, 2, 2, 1.0961531575520833">
+      <DataClassMoniker Name="/QueryDataContext/tblType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42908634-8c7c-47ba-a67c-dbeb06e3d76f" absoluteBounds="4.89, 2.46, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2cded17-01f8-4647-8d6f-d240577f9dc0" absoluteBounds="4.125, 1.875, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/QueryDataContext/tblSource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="711b52bd-e12f-4bbf-8167-1811348f98e8" absoluteBounds="4.14, 2.335, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 2.54807657877604); (3.875 : 2.54807657877604); (3.875 : 2.66959757486979); (4.125 : 2.66959757486979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/QueryDataContext/tblType/tblType_tblSource" />
+      <nodes>
+        <classShapeMoniker Id="da3a1a10-8f83-4be5-ac44-76e87e6dea3a" />
+        <classShapeMoniker Id="c2cded17-01f8-4647-8d6f-d240577f9dc0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
