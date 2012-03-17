@@ -9,6 +9,10 @@ public partial class AdminPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["AdminUserName"] == null)
+        {
+            Response.Redirect("AdminLogin.aspx");
+        }
         if (!IsPostBack)
         {
             BindDropdown();

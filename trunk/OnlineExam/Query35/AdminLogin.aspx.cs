@@ -14,6 +14,7 @@ public partial class AdminLogin : System.Web.UI.Page
     {
         if (txtUserName.Text == "admin" && txtPassword.Text == "admin")
         {
+            Session["AdminUserName"] = txtUserName.Text;
             Response.Redirect("AdminPage.aspx");
         }
     }

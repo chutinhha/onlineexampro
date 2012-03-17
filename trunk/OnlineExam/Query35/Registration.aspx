@@ -29,6 +29,7 @@
                         ControlToValidate="txtUsername" Display="None"></asp:RequiredFieldValidator>
                     <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" TargetControlID="RequiredFieldValidator1" runat="server">
                     </cc1:ValidatorCalloutExtender>
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -70,7 +71,7 @@
                         ControlToValidate="txtMobileNumber" Display="None"></asp:RequiredFieldValidator>
                         <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" TargetControlID="RequiredFieldValidator4" runat="server">
                     </cc1:ValidatorCalloutExtender>
-                    <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server" FilterType="Numbers">
+                    <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" TargetControlID="txtMobileNumber" runat="server" FilterType="Numbers">
                     </cc1:FilteredTextBoxExtender>
                 </td>
             </tr>

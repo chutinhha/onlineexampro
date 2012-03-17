@@ -5,10 +5,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+    
+        <table class="style1">
+            <tr>
+                <td>
+                    Username</td>
+                <td>
+                    <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password</td>
+                <td>
+                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    <asp:Button ID="btnLogin" runat="server" onclick="btnLogin_Click" 
+                        Text="Login" />
+                </td>
+            </tr>
+        </table>
     
     </div>
     </form>
