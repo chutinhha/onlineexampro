@@ -1,30 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QueryProcessing" Class="QueryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=MAJ-056\SQLEXPRESS;Initial Catalog=QueryProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QueryProcessingConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tblTypes" Member="tblTypes">
-    <Type Name="tblType">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="tblType_tblSource" Member="tblSources" ThisKey="Id" OtherKey="FK_TypeId" Type="tblSource" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblSource" Member="tblSources">
-    <Type Name="tblSource">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LocationName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
-      <Column Name="Lontitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
-      <Column Name="FK_TypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tblType_tblSource" Member="tblType" ThisKey="FK_TypeId" OtherKey="Id" Type="tblType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblLog" Member="tblLogs">
-    <Type Name="tblLog">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FK_UserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FK_SourceId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tblUser_tblLog" Member="tblUser" ThisKey="FK_UserID" OtherKey="Id" Type="tblUser" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblUser" Member="tblUsers">
     <Type Name="tblUser">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -34,6 +9,34 @@
       <Column Name="MobileNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="tblUser_tblLog" Member="tblLogs" ThisKey="Id" OtherKey="FK_UserID" Type="tblLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSource" Member="tblSources">
+    <Type Name="tblSource">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
+      <Column Name="Lontitude" Type="System.Decimal" DbType="Decimal(18,7)" CanBeNull="true" />
+      <Column Name="FK_TypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblSource_tblLog" Member="tblLogs" ThisKey="Id" OtherKey="FK_SourceId" Type="tblLog" />
+      <Association Name="tblType_tblSource" Member="tblType" ThisKey="FK_TypeId" OtherKey="Id" Type="tblType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTypes" Member="tblTypes">
+    <Type Name="tblType">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblType_tblSource" Member="tblSources" ThisKey="Id" OtherKey="FK_TypeId" Type="tblSource" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLog" Member="tblLogs">
+    <Type Name="tblLog">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_UserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_SourceId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblSource_tblLog" Member="tblSource" ThisKey="FK_SourceId" OtherKey="Id" Type="tblSource" IsForeignKey="true" />
+      <Association Name="tblUser_tblLog" Member="tblUser" ThisKey="FK_UserID" OtherKey="Id" Type="tblUser" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

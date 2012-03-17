@@ -29,18 +29,18 @@ public partial class QueryDataContext : System.Data.Linq.DataContext
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
-  partial void InserttblType(tblType instance);
-  partial void UpdatetblType(tblType instance);
-  partial void DeletetblType(tblType instance);
-  partial void InserttblSource(tblSource instance);
-  partial void UpdatetblSource(tblSource instance);
-  partial void DeletetblSource(tblSource instance);
-  partial void InserttblLog(tblLog instance);
-  partial void UpdatetblLog(tblLog instance);
-  partial void DeletetblLog(tblLog instance);
   partial void InserttblUser(tblUser instance);
   partial void UpdatetblUser(tblUser instance);
   partial void DeletetblUser(tblUser instance);
+  partial void InserttblSource(tblSource instance);
+  partial void UpdatetblSource(tblSource instance);
+  partial void DeletetblSource(tblSource instance);
+  partial void InserttblType(tblType instance);
+  partial void UpdatetblType(tblType instance);
+  partial void DeletetblType(tblType instance);
+  partial void InserttblLog(tblLog instance);
+  partial void UpdatetblLog(tblLog instance);
+  partial void DeletetblLog(tblLog instance);
   #endregion
 	
 	public QueryDataContext() : 
@@ -73,11 +73,11 @@ public partial class QueryDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<tblType> tblTypes
+	public System.Data.Linq.Table<tblUser> tblUsers
 	{
 		get
 		{
-			return this.GetTable<tblType>();
+			return this.GetTable<tblUser>();
 		}
 	}
 	
@@ -89,483 +89,19 @@ public partial class QueryDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<tblType> tblTypes
+	{
+		get
+		{
+			return this.GetTable<tblType>();
+		}
+	}
+	
 	public System.Data.Linq.Table<tblLog> tblLogs
 	{
 		get
 		{
 			return this.GetTable<tblLog>();
-		}
-	}
-	
-	public System.Data.Linq.Table<tblUser> tblUsers
-	{
-		get
-		{
-			return this.GetTable<tblUser>();
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblTypes")]
-public partial class tblType : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _Id;
-	
-	private string _TypeName;
-	
-	private EntitySet<tblSource> _tblSources;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnTypeNameChanging(string value);
-    partial void OnTypeNameChanged();
-    #endregion
-	
-	public tblType()
-	{
-		this._tblSources = new EntitySet<tblSource>(new Action<tblSource>(this.attach_tblSources), new Action<tblSource>(this.detach_tblSources));
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeName", DbType="NVarChar(50)")]
-	public string TypeName
-	{
-		get
-		{
-			return this._TypeName;
-		}
-		set
-		{
-			if ((this._TypeName != value))
-			{
-				this.OnTypeNameChanging(value);
-				this.SendPropertyChanging();
-				this._TypeName = value;
-				this.SendPropertyChanged("TypeName");
-				this.OnTypeNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblType_tblSource", Storage="_tblSources", ThisKey="Id", OtherKey="FK_TypeId")]
-	public EntitySet<tblSource> tblSources
-	{
-		get
-		{
-			return this._tblSources;
-		}
-		set
-		{
-			this._tblSources.Assign(value);
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-	
-	private void attach_tblSources(tblSource entity)
-	{
-		this.SendPropertyChanging();
-		entity.tblType = this;
-	}
-	
-	private void detach_tblSources(tblSource entity)
-	{
-		this.SendPropertyChanging();
-		entity.tblType = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSource")]
-public partial class tblSource : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _Id;
-	
-	private string _LocationName;
-	
-	private System.Nullable<decimal> _Latitude;
-	
-	private System.Nullable<decimal> _Lontitude;
-	
-	private System.Nullable<long> _FK_TypeId;
-	
-	private EntityRef<tblType> _tblType;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnLocationNameChanging(string value);
-    partial void OnLocationNameChanged();
-    partial void OnLatitudeChanging(System.Nullable<decimal> value);
-    partial void OnLatitudeChanged();
-    partial void OnLontitudeChanging(System.Nullable<decimal> value);
-    partial void OnLontitudeChanged();
-    partial void OnFK_TypeIdChanging(System.Nullable<long> value);
-    partial void OnFK_TypeIdChanged();
-    #endregion
-	
-	public tblSource()
-	{
-		this._tblType = default(EntityRef<tblType>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationName", DbType="NVarChar(500)")]
-	public string LocationName
-	{
-		get
-		{
-			return this._LocationName;
-		}
-		set
-		{
-			if ((this._LocationName != value))
-			{
-				this.OnLocationNameChanging(value);
-				this.SendPropertyChanging();
-				this._LocationName = value;
-				this.SendPropertyChanged("LocationName");
-				this.OnLocationNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="Decimal(18,7)")]
-	public System.Nullable<decimal> Latitude
-	{
-		get
-		{
-			return this._Latitude;
-		}
-		set
-		{
-			if ((this._Latitude != value))
-			{
-				this.OnLatitudeChanging(value);
-				this.SendPropertyChanging();
-				this._Latitude = value;
-				this.SendPropertyChanged("Latitude");
-				this.OnLatitudeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lontitude", DbType="Decimal(18,7)")]
-	public System.Nullable<decimal> Lontitude
-	{
-		get
-		{
-			return this._Lontitude;
-		}
-		set
-		{
-			if ((this._Lontitude != value))
-			{
-				this.OnLontitudeChanging(value);
-				this.SendPropertyChanging();
-				this._Lontitude = value;
-				this.SendPropertyChanged("Lontitude");
-				this.OnLontitudeChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TypeId", DbType="BigInt")]
-	public System.Nullable<long> FK_TypeId
-	{
-		get
-		{
-			return this._FK_TypeId;
-		}
-		set
-		{
-			if ((this._FK_TypeId != value))
-			{
-				if (this._tblType.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnFK_TypeIdChanging(value);
-				this.SendPropertyChanging();
-				this._FK_TypeId = value;
-				this.SendPropertyChanged("FK_TypeId");
-				this.OnFK_TypeIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblType_tblSource", Storage="_tblType", ThisKey="FK_TypeId", OtherKey="Id", IsForeignKey=true)]
-	public tblType tblType
-	{
-		get
-		{
-			return this._tblType.Entity;
-		}
-		set
-		{
-			tblType previousValue = this._tblType.Entity;
-			if (((previousValue != value) 
-						|| (this._tblType.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._tblType.Entity = null;
-					previousValue.tblSources.Remove(this);
-				}
-				this._tblType.Entity = value;
-				if ((value != null))
-				{
-					value.tblSources.Add(this);
-					this._FK_TypeId = value.Id;
-				}
-				else
-				{
-					this._FK_TypeId = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("tblType");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLog")]
-public partial class tblLog : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private long _Id;
-	
-	private System.Nullable<long> _FK_UserID;
-	
-	private System.Nullable<long> _FK_SourceId;
-	
-	private EntityRef<tblUser> _tblUser;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnFK_UserIDChanging(System.Nullable<long> value);
-    partial void OnFK_UserIDChanged();
-    partial void OnFK_SourceIdChanging(System.Nullable<long> value);
-    partial void OnFK_SourceIdChanged();
-    #endregion
-	
-	public tblLog()
-	{
-		this._tblUser = default(EntityRef<tblUser>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public long Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserID", DbType="BigInt")]
-	public System.Nullable<long> FK_UserID
-	{
-		get
-		{
-			return this._FK_UserID;
-		}
-		set
-		{
-			if ((this._FK_UserID != value))
-			{
-				if (this._tblUser.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnFK_UserIDChanging(value);
-				this.SendPropertyChanging();
-				this._FK_UserID = value;
-				this.SendPropertyChanged("FK_UserID");
-				this.OnFK_UserIDChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SourceId", DbType="BigInt")]
-	public System.Nullable<long> FK_SourceId
-	{
-		get
-		{
-			return this._FK_SourceId;
-		}
-		set
-		{
-			if ((this._FK_SourceId != value))
-			{
-				this.OnFK_SourceIdChanging(value);
-				this.SendPropertyChanging();
-				this._FK_SourceId = value;
-				this.SendPropertyChanged("FK_SourceId");
-				this.OnFK_SourceIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblUser_tblLog", Storage="_tblUser", ThisKey="FK_UserID", OtherKey="Id", IsForeignKey=true)]
-	public tblUser tblUser
-	{
-		get
-		{
-			return this._tblUser.Entity;
-		}
-		set
-		{
-			tblUser previousValue = this._tblUser.Entity;
-			if (((previousValue != value) 
-						|| (this._tblUser.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._tblUser.Entity = null;
-					previousValue.tblLogs.Remove(this);
-				}
-				this._tblUser.Entity = value;
-				if ((value != null))
-				{
-					value.tblLogs.Add(this);
-					this._FK_UserID = value.Id;
-				}
-				else
-				{
-					this._FK_UserID = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("tblUser");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
@@ -777,6 +313,563 @@ public partial class tblUser : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		this.SendPropertyChanging();
 		entity.tblUser = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSource")]
+public partial class tblSource : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _Id;
+	
+	private string _LocationName;
+	
+	private System.Nullable<decimal> _Latitude;
+	
+	private System.Nullable<decimal> _Lontitude;
+	
+	private System.Nullable<long> _FK_TypeId;
+	
+	private EntitySet<tblLog> _tblLogs;
+	
+	private EntityRef<tblType> _tblType;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnLocationNameChanging(string value);
+    partial void OnLocationNameChanged();
+    partial void OnLatitudeChanging(System.Nullable<decimal> value);
+    partial void OnLatitudeChanged();
+    partial void OnLontitudeChanging(System.Nullable<decimal> value);
+    partial void OnLontitudeChanged();
+    partial void OnFK_TypeIdChanging(System.Nullable<long> value);
+    partial void OnFK_TypeIdChanged();
+    #endregion
+	
+	public tblSource()
+	{
+		this._tblLogs = new EntitySet<tblLog>(new Action<tblLog>(this.attach_tblLogs), new Action<tblLog>(this.detach_tblLogs));
+		this._tblType = default(EntityRef<tblType>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationName", DbType="NVarChar(500)")]
+	public string LocationName
+	{
+		get
+		{
+			return this._LocationName;
+		}
+		set
+		{
+			if ((this._LocationName != value))
+			{
+				this.OnLocationNameChanging(value);
+				this.SendPropertyChanging();
+				this._LocationName = value;
+				this.SendPropertyChanged("LocationName");
+				this.OnLocationNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="Decimal(18,7)")]
+	public System.Nullable<decimal> Latitude
+	{
+		get
+		{
+			return this._Latitude;
+		}
+		set
+		{
+			if ((this._Latitude != value))
+			{
+				this.OnLatitudeChanging(value);
+				this.SendPropertyChanging();
+				this._Latitude = value;
+				this.SendPropertyChanged("Latitude");
+				this.OnLatitudeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lontitude", DbType="Decimal(18,7)")]
+	public System.Nullable<decimal> Lontitude
+	{
+		get
+		{
+			return this._Lontitude;
+		}
+		set
+		{
+			if ((this._Lontitude != value))
+			{
+				this.OnLontitudeChanging(value);
+				this.SendPropertyChanging();
+				this._Lontitude = value;
+				this.SendPropertyChanged("Lontitude");
+				this.OnLontitudeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TypeId", DbType="BigInt")]
+	public System.Nullable<long> FK_TypeId
+	{
+		get
+		{
+			return this._FK_TypeId;
+		}
+		set
+		{
+			if ((this._FK_TypeId != value))
+			{
+				if (this._tblType.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnFK_TypeIdChanging(value);
+				this.SendPropertyChanging();
+				this._FK_TypeId = value;
+				this.SendPropertyChanged("FK_TypeId");
+				this.OnFK_TypeIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSource_tblLog", Storage="_tblLogs", ThisKey="Id", OtherKey="FK_SourceId")]
+	public EntitySet<tblLog> tblLogs
+	{
+		get
+		{
+			return this._tblLogs;
+		}
+		set
+		{
+			this._tblLogs.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblType_tblSource", Storage="_tblType", ThisKey="FK_TypeId", OtherKey="Id", IsForeignKey=true)]
+	public tblType tblType
+	{
+		get
+		{
+			return this._tblType.Entity;
+		}
+		set
+		{
+			tblType previousValue = this._tblType.Entity;
+			if (((previousValue != value) 
+						|| (this._tblType.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._tblType.Entity = null;
+					previousValue.tblSources.Remove(this);
+				}
+				this._tblType.Entity = value;
+				if ((value != null))
+				{
+					value.tblSources.Add(this);
+					this._FK_TypeId = value.Id;
+				}
+				else
+				{
+					this._FK_TypeId = default(Nullable<long>);
+				}
+				this.SendPropertyChanged("tblType");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	
+	private void attach_tblLogs(tblLog entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblSource = this;
+	}
+	
+	private void detach_tblLogs(tblLog entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblSource = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblTypes")]
+public partial class tblType : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _Id;
+	
+	private string _TypeName;
+	
+	private EntitySet<tblSource> _tblSources;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnTypeNameChanging(string value);
+    partial void OnTypeNameChanged();
+    #endregion
+	
+	public tblType()
+	{
+		this._tblSources = new EntitySet<tblSource>(new Action<tblSource>(this.attach_tblSources), new Action<tblSource>(this.detach_tblSources));
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeName", DbType="NVarChar(50)")]
+	public string TypeName
+	{
+		get
+		{
+			return this._TypeName;
+		}
+		set
+		{
+			if ((this._TypeName != value))
+			{
+				this.OnTypeNameChanging(value);
+				this.SendPropertyChanging();
+				this._TypeName = value;
+				this.SendPropertyChanged("TypeName");
+				this.OnTypeNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblType_tblSource", Storage="_tblSources", ThisKey="Id", OtherKey="FK_TypeId")]
+	public EntitySet<tblSource> tblSources
+	{
+		get
+		{
+			return this._tblSources;
+		}
+		set
+		{
+			this._tblSources.Assign(value);
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	
+	private void attach_tblSources(tblSource entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblType = this;
+	}
+	
+	private void detach_tblSources(tblSource entity)
+	{
+		this.SendPropertyChanging();
+		entity.tblType = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLog")]
+public partial class tblLog : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private long _Id;
+	
+	private System.Nullable<long> _FK_UserID;
+	
+	private System.Nullable<long> _FK_SourceId;
+	
+	private System.Nullable<System.DateTime> _Date;
+	
+	private EntityRef<tblSource> _tblSource;
+	
+	private EntityRef<tblUser> _tblUser;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFK_UserIDChanging(System.Nullable<long> value);
+    partial void OnFK_UserIDChanged();
+    partial void OnFK_SourceIdChanging(System.Nullable<long> value);
+    partial void OnFK_SourceIdChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    #endregion
+	
+	public tblLog()
+	{
+		this._tblSource = default(EntityRef<tblSource>);
+		this._tblUser = default(EntityRef<tblUser>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public long Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserID", DbType="BigInt")]
+	public System.Nullable<long> FK_UserID
+	{
+		get
+		{
+			return this._FK_UserID;
+		}
+		set
+		{
+			if ((this._FK_UserID != value))
+			{
+				if (this._tblUser.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnFK_UserIDChanging(value);
+				this.SendPropertyChanging();
+				this._FK_UserID = value;
+				this.SendPropertyChanged("FK_UserID");
+				this.OnFK_UserIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SourceId", DbType="BigInt")]
+	public System.Nullable<long> FK_SourceId
+	{
+		get
+		{
+			return this._FK_SourceId;
+		}
+		set
+		{
+			if ((this._FK_SourceId != value))
+			{
+				if (this._tblSource.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnFK_SourceIdChanging(value);
+				this.SendPropertyChanging();
+				this._FK_SourceId = value;
+				this.SendPropertyChanged("FK_SourceId");
+				this.OnFK_SourceIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Date
+	{
+		get
+		{
+			return this._Date;
+		}
+		set
+		{
+			if ((this._Date != value))
+			{
+				this.OnDateChanging(value);
+				this.SendPropertyChanging();
+				this._Date = value;
+				this.SendPropertyChanged("Date");
+				this.OnDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSource_tblLog", Storage="_tblSource", ThisKey="FK_SourceId", OtherKey="Id", IsForeignKey=true)]
+	public tblSource tblSource
+	{
+		get
+		{
+			return this._tblSource.Entity;
+		}
+		set
+		{
+			tblSource previousValue = this._tblSource.Entity;
+			if (((previousValue != value) 
+						|| (this._tblSource.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._tblSource.Entity = null;
+					previousValue.tblLogs.Remove(this);
+				}
+				this._tblSource.Entity = value;
+				if ((value != null))
+				{
+					value.tblLogs.Add(this);
+					this._FK_SourceId = value.Id;
+				}
+				else
+				{
+					this._FK_SourceId = default(Nullable<long>);
+				}
+				this.SendPropertyChanged("tblSource");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblUser_tblLog", Storage="_tblUser", ThisKey="FK_UserID", OtherKey="Id", IsForeignKey=true)]
+	public tblUser tblUser
+	{
+		get
+		{
+			return this._tblUser.Entity;
+		}
+		set
+		{
+			tblUser previousValue = this._tblUser.Entity;
+			if (((previousValue != value) 
+						|| (this._tblUser.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._tblUser.Entity = null;
+					previousValue.tblLogs.Remove(this);
+				}
+				this._tblUser.Entity = value;
+				if ((value != null))
+				{
+					value.tblLogs.Add(this);
+					this._FK_UserID = value.Id;
+				}
+				else
+				{
+					this._FK_UserID = default(Nullable<long>);
+				}
+				this.SendPropertyChanged("tblUser");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }
 #pragma warning restore 1591

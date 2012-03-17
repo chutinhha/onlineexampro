@@ -5,18 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
+   
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
     
-        <table class="style1">
+        <table>
+            <tr>
+                <td align="center" colspan="2">
+                    <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
             <tr>
                 <td>
                     Username</td>
