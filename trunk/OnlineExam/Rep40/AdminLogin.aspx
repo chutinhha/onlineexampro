@@ -1,15 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
- <style type="text/css">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
         .style1
         {
             width: 100%;
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <table class="style1">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table class="style1">
         <tr>
             <td>
                 Username
@@ -36,4 +37,3 @@
         </tr>
     </table>
 </asp:Content>
-

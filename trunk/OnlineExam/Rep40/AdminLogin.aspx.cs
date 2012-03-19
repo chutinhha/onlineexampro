@@ -9,7 +9,11 @@ public partial class AdminLogin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            Session.Abandon();
+            Session.Clear();
+        }
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {

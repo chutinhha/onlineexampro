@@ -9,7 +9,10 @@ public partial class AdminMain : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["AdminUserName"] == null)
+        {
+            Response.Redirect("AdminLogin.aspx");
+        }
     }
     protected void btnInsert_Click(object sender, EventArgs e)
     {
