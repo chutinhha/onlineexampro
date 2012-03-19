@@ -9,6 +9,10 @@ public partial class Negative : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserName"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
         if (!IsPostBack)
         {
             GridView1.DataSource = OntologyHelper.Context.tblPersons.Where(a => a.Category == 1);

@@ -1,58 +1,52 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminMain.aspx.cs" Inherits="AdminMain" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/admin.master" CodeFile="AdminMain.aspx.cs"
+    Inherits="AdminMain" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<asp:Content ID="conten1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
         {
             width: 100%;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-    
         <table class="style1">
             <tr>
                 <td>
-                    Host Name</td>
+                    Host Name
+                </td>
                 <td>
                     <asp:TextBox ID="txtHost" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    IP Address</td>
+                    IP Address
+                </td>
                 <td>
                     <asp:TextBox ID="txtIP" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Category</td>
+                    Category
+                </td>
                 <td>
-                <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
-                    RepeatDirection="Horizontal">
-                    <asp:ListItem Value="0">Positive</asp:ListItem>
-                    <asp:ListItem Value="1">Negative</asp:ListItem>
-                </asp:RadioButtonList>
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Value="0">Positive</asp:ListItem>
+                        <asp:ListItem Value="1">Negative</asp:ListItem>
+                    </asp:RadioButtonList>
                 </td>
             </tr>
             <tr>
                 <td>
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
                 <td>
-                    <asp:Button ID="btnInsert" runat="server" onclick="btnInsert_Click" 
-                        Text="Insert" />
+                    <asp:Button ID="btnInsert" runat="server" OnClick="btnInsert_Click" Text="Insert" />
                 </td>
             </tr>
         </table>
-    
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>
