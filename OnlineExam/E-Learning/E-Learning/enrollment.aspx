@@ -26,6 +26,11 @@
                             <td>
                                 : <asp:TextBox ID="txtRollNumber" runat="server"></asp:TextBox>
                                 
+                                <asp:RequiredFieldValidator ID="valRollNo" runat="server" 
+                                    ControlToValidate="txtRollNumber" 
+                                    ErrorMessage="Enter the Roll Number to continue" 
+                                    ValidationGroup="reqRegister" ForeColor="Red"></asp:RequiredFieldValidator>
+                                
                             </td>
                         </tr>
                         <tr>
@@ -34,6 +39,10 @@
                             </td>
                             <td>
                                 : <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                
+                                <asp:RequiredFieldValidator ID="valName" runat="server" 
+                                    ControlToValidate="txtName" ErrorMessage="Enter the name to continue" 
+                                    ValidationGroup="reqRegister" ForeColor="Red"></asp:RequiredFieldValidator>
                                 
                             </td>
                         </tr>
@@ -51,6 +60,10 @@
                             </td>
                             <td>
                                 : <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="valDept" runat="server" 
+                                    ControlToValidate="txtDepartment" 
+                                    ErrorMessage="Enter the Department Name to continue" 
+                                    ValidationGroup="reqRegister" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +74,8 @@
                                 : <asp:TextBox ID="txtEMailId" runat="server"></asp:TextBox>
                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEMailId" 
                                     ID="valEmailid" 
-                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                                    ValidationGroup="reqRegister" ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>
@@ -70,6 +84,9 @@
                             </td>
                             <td>
                                 : <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                    ControlToValidate="txtAddress" ErrorMessage="RequiredFieldValidator" 
+                                    ValidationGroup="reqRegister" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -78,6 +95,10 @@
                             </td>
                             <td>
                                 : <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="valPostalCode" runat="server" 
+                                    ControlToValidate="txtPostalCode" 
+                                    ErrorMessage="Enter the postal code to continue" ForeColor="Red" 
+                                    ValidationGroup="reqRegister"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -85,7 +106,12 @@
                                 Mobile Number
                             </td>
                             <td>
-                                : <asp:TextBox ID="txtMobileNumber" runat="server"></asp:TextBox>
+                                : <asp:TextBox ID="txtMobileNumber" 
+                                    runat="server" MaxLength="10"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ValMobileNo" runat="server" 
+                                    ControlToValidate="txtMobileNumber" 
+                                    ErrorMessage="Enter the Mobile Number to Continue" ForeColor="Red" 
+                                    ValidationGroup="reqRegister"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -96,6 +122,9 @@
                                 : <asp:DropDownList ID="ddlRoll" runat="server" 
                                     onselectedindexchanged="ddlRoll_SelectedIndexChanged">
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="valRollId" runat="server" 
+                                    ControlToValidate="ddlRoll" ErrorMessage="Enter any one Role to Continue" 
+                                    ForeColor="Red" ValidationGroup="reqRegister"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -103,7 +132,7 @@
                                 &nbsp;</td>
                             <td>
                                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" 
-                                    Text="Register" />
+                                    Text="Register" ValidationGroup="reqRegister" />
                             </td>
                         </tr>
                     </table>

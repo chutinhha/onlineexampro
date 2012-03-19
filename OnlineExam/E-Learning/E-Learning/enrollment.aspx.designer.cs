@@ -40,6 +40,15 @@ namespace E_Learning {
         protected global::System.Web.UI.WebControls.TextBox txtRollNumber;
         
         /// <summary>
+        /// valRollNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRollNo;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
+        /// valName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valName;
         
         /// <summary>
         /// txtYear control.
@@ -65,6 +83,15 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDepartment;
+        
+        /// <summary>
+        /// valDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valDept;
         
         /// <summary>
         /// txtEMailId control.
@@ -94,6 +121,15 @@ namespace E_Learning {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// txtPostalCode control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPostalCode;
+        
+        /// <summary>
+        /// valPostalCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPostalCode;
         
         /// <summary>
         /// txtMobileNumber control.
@@ -112,6 +157,15 @@ namespace E_Learning {
         protected global::System.Web.UI.WebControls.TextBox txtMobileNumber;
         
         /// <summary>
+        /// ValMobileNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValMobileNo;
+        
+        /// <summary>
         /// ddlRoll control.
         /// </summary>
         /// <remarks>
@@ -119,6 +173,15 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRoll;
+        
+        /// <summary>
+        /// valRollId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRollId;
         
         /// <summary>
         /// Button1 control.
