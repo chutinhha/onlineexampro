@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace E_Learning {
-    
-    
-    public partial class WebForm1 {
+
+
+    public partial class StudentAssignment
+    {
         
         /// <summary>
         /// form1 control.
