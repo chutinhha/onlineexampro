@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace E_Learning
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class StudentNotes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

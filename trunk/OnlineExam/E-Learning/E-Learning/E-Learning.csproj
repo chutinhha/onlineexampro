@@ -13,7 +13,6 @@
     <RootNamespace>E_Learning</RootNamespace>
     <AssemblyName>E-Learning</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,7 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\..\..\Downloads\NPOI 1.2.4 assembly\.net 4.0\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\..\..\..\Downloads\NPOI 1.2.4 assembly\.net 4.0\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -55,10 +63,11 @@
     <Content Include="AdminHome.aspx" />
     <Content Include="adminstyle.css" />
     <Content Include="AssignmentsPage.aspx" />
+    <Content Include="bannerimages\bg.png" />
     <Content Include="bannerimages\bgline.jpg" />
     <Content Include="bannerimages\clg ban.jpg" />
     <Content Include="bannerimages\clg banner.jpg" />
-    <Content Include="bannerimages\clg bannner2.jpg" />
+    <Content Include="bannerimages\clgbannner2.jpg" />
     <Content Include="bannerimages\clg logo blue bg.jpg" />
     <Content Include="bannerimages\clg Logo.jpg" />
     <Content Include="bannerimages\clg TUV logo copy.jpg" />
@@ -73,6 +82,8 @@
     <Content Include="bannerimages\Untitled-1 copy.jpg" />
     <Content Include="enrollment.aspx" />
     <Content Include="fileupload.aspx" />
+    <Content Include="StudentNotes.aspx" />
+    <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
     <Content Include="HomeNew.aspx" />
     <Content Include="Images\home-bg.jpg" />
@@ -108,16 +119,16 @@
     <Content Include="Images\Home_29.gif" />
     <Content Include="Images\Home_30.gif" />
     <Content Include="Images\zzz.jpg" />
-    <Content Include="StudentAssignment.aspx" />
+    <Content Include="menu_style.css" />
     <Content Include="StudentForum.aspx" />
     <Content Include="StudentHome.aspx" />
     <Content Include="test.aspx" />
     <Content Include="testgen.aspx" />
     <Content Include="ucAssignmentsStaff.ascx" />
-    <Content Include="ucForums.ascx" />
     <Content Include="ucHeader.ascx" />
     <Content Include="ucStudentAssignment.ascx" />
     <Content Include="ucstudentheader.ascx" />
+    <Content Include="ucStudentNote.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -128,7 +139,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="ucAdminheadertemplate.ascx" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="StudentAssignment.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminHome.aspx.cs">
@@ -170,6 +181,20 @@
     <Compile Include="fileupload.aspx.designer.cs">
       <DependentUpon>fileupload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentNotes.aspx.cs">
+      <DependentUpon>StudentNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentNotes.aspx.designer.cs">
+      <DependentUpon>StudentNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucForums.ascx.cs">
+      <DependentUpon>ucForums.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucForums.ascx.designer.cs">
+      <DependentUpon>ucForums.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Forums.aspx.cs">
       <DependentUpon>Forums.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,13 +210,6 @@
       <DependentUpon>HomeNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentAssignment.aspx.cs">
-      <DependentUpon>StudentAssignment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentAssignment.aspx.designer.cs">
-      <DependentUpon>StudentAssignment.aspx</DependentUpon>
-    </Compile>
     <Compile Include="StudentForum.aspx.cs">
       <DependentUpon>StudentForum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,13 +245,6 @@
     <Compile Include="ucAssignmentsStaff.ascx.designer.cs">
       <DependentUpon>ucAssignmentsStaff.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ucForums.ascx.cs">
-      <DependentUpon>ucForums.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ucForums.ascx.designer.cs">
-      <DependentUpon>ucForums.ascx</DependentUpon>
-    </Compile>
     <Compile Include="ucHeader.ascx.cs">
       <DependentUpon>ucHeader.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,12 +273,19 @@
     <Compile Include="ucstudentheader.ascx.designer.cs">
       <DependentUpon>ucstudentheader.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="StudentAssignment.aspx.cs">
+      <DependentUpon>StudentAssignment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="StudentAssignment.aspx.designer.cs">
+      <DependentUpon>StudentAssignment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucStudentNote.ascx.cs">
+      <DependentUpon>ucStudentNote.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucStudentNote.ascx.designer.cs">
+      <DependentUpon>ucStudentNote.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -308,7 +326,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1104</DevelopmentServerPort>
+          <DevelopmentServerPort>1271</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

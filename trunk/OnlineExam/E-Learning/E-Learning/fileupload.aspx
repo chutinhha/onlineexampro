@@ -64,7 +64,7 @@
                             <asp:FileUpload ID="flpDoc" runat="server" />
                         </td>
                         <td>
-                            <asp:RequiredFieldValidator ID="reqFlp" runat="server" ErrorMessage="Choose any files to continue" ControlToValidate="flpdoc" ValidationGroup="valUploadSubmit"></asp:RequiredFieldValidator></td>
+                            <asp:RequiredFieldValidator ID="reqFlp" runat="server" ForeColor="Red" ErrorMessage="Choose any files to continue" ControlToValidate="flpdoc" ValidationGroup="valUploadSubmit"></asp:RequiredFieldValidator></td>
                         <td>
                             &nbsp;</td>
                     </tr>

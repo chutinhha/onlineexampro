@@ -7,14 +7,6 @@
       <Association Name="tblCategory_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_CategoryId" Type="tblForumQuestion" />
     </Type>
   </Table>
-  <Table Name="dbo.tblFiles" Member="tblFiles">
-    <Type Name="tblFile">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Association Name="tblSubject_tblFile" Member="tblSubject" ThisKey="FK_SubjectId" OtherKey="Id" Type="tblSubject" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblForumQuestion" Member="tblForumQuestions">
     <Type Name="tblForumQuestion">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -43,6 +35,7 @@
       <Association Name="tblLogin_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumQuestion" />
       <Association Name="tblLogin_tblForumAnswer" Member="tblForumAnswers" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumAnswer" />
       <Association Name="tblLogin_tblAssignment" Member="tblAssignments" ThisKey="Id" OtherKey="FK_StaffId" Type="tblAssignment" />
+      <Association Name="tblLogin_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_StaffId" Type="tblNote" />
       <Association Name="tblRole_tblLogin" Member="tblRole" ThisKey="FK_RoleId" OtherKey="Id" Type="tblRole" IsForeignKey="true" />
     </Type>
   </Table>
@@ -78,7 +71,6 @@
     <Type Name="tblSubject">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SubjectName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Association Name="tblSubject_tblFile" Member="tblFiles" ThisKey="Id" OtherKey="FK_SubjectId" Type="tblFile" />
       <Association Name="tblSubject_tblTitle" Member="tblTitles" ThisKey="Id" OtherKey="FK_SubjectId" Type="tblTitle" />
     </Type>
   </Table>
@@ -111,6 +103,23 @@
       <Column Name="FK_StudentId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="tblLogin_tblAssignment" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblNotes" Member="tblNotes">
+    <Type Name="tblNote">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblLogin_tblNote" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
+      <Association Name="tblFile_tblNote" Member="tblFile" ThisKey="FK_FileId" OtherKey="Id" Type="tblFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFiles" Member="tblFiles">
+    <Type Name="tblFile">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="tblFile_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_FileId" Type="tblNote" />
     </Type>
   </Table>
   <Function Name="dbo.sp_tblLoginNewDeleteCommand" Method="sp_tblLoginNewDeleteCommand">
@@ -241,37 +250,6 @@
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TitleName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblFilesNewDeleteCommand" Method="sp_tblFilesNewDeleteCommand">
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_tblFilesNewInsertCommand" Method="sp_tblFilesNewInsertCommand">
-    <Parameter Name="FK_SubjectId" Parameter="fK_SubjectId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FilePath" Parameter="filePath" Type="System.String" DbType="NVarChar(500)" />
-    <ElementType Name="sp_tblFilesNewInsertCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblFilesNewSelectCommand" Method="sp_tblFilesNewSelectCommand">
-    <ElementType Name="sp_tblFilesNewSelectCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblFilesNewUpdateCommand" Method="sp_tblFilesNewUpdateCommand">
-    <Parameter Name="FK_SubjectId" Parameter="fK_SubjectId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FilePath" Parameter="filePath" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_tblFilesNewUpdateCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_tblQuestionNewDeleteCommand" Method="sp_tblQuestionNewDeleteCommand">
@@ -430,6 +408,75 @@
       <Column Name="AssignNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FK_StudentId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblNotesNewDeleteCommand" Method="sp_tblNotesNewDeleteCommand">
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblNotesNewInsertCommand" Method="sp_tblNotesNewInsertCommand">
+    <Parameter Name="FK_StaffId" Parameter="fK_StaffId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_FileId" Parameter="fK_FileId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblNotesNewInsertCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblNotesNewSelectCommand" Method="sp_tblNotesNewSelectCommand">
+    <ElementType Name="sp_tblNotesNewSelectCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblNotesNewUpdateCommand" Method="sp_tblNotesNewUpdateCommand">
+    <Parameter Name="FK_StaffId" Parameter="fK_StaffId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_FileId" Parameter="fK_FileId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblNotesNewUpdateCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblFilesNewDeleteCommand" Method="sp_tblFilesNewDeleteCommand">
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblFilesNewInsertCommand" Method="sp_tblFilesNewInsertCommand">
+    <Parameter Name="FK_TitleId" Parameter="fK_TitleId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FilePath" Parameter="filePath" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sp_tblFilesNewInsertCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblFilesNewSelectCommand" Method="sp_tblFilesNewSelectCommand">
+    <ElementType Name="sp_tblFilesNewSelectCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblFilesNewUpdateCommand" Method="sp_tblFilesNewUpdateCommand">
+    <Parameter Name="FK_TitleId" Parameter="fK_TitleId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FilePath" Parameter="filePath" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblFilesNewUpdateCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_select_file" Method="sp_select_file">
+    <ElementType Name="sp_select_fileResult">
+      <Column Name="TitleName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SubjectName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

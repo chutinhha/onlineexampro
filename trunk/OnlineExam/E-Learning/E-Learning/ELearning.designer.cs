@@ -33,9 +33,6 @@ namespace E_Learning
     partial void InserttblCategory(tblCategory instance);
     partial void UpdatetblCategory(tblCategory instance);
     partial void DeletetblCategory(tblCategory instance);
-    partial void InserttblFile(tblFile instance);
-    partial void UpdatetblFile(tblFile instance);
-    partial void DeletetblFile(tblFile instance);
     partial void InserttblForumQuestion(tblForumQuestion instance);
     partial void UpdatetblForumQuestion(tblForumQuestion instance);
     partial void DeletetblForumQuestion(tblForumQuestion instance);
@@ -63,6 +60,12 @@ namespace E_Learning
     partial void InserttblAssignment(tblAssignment instance);
     partial void UpdatetblAssignment(tblAssignment instance);
     partial void DeletetblAssignment(tblAssignment instance);
+    partial void InserttblNote(tblNote instance);
+    partial void UpdatetblNote(tblNote instance);
+    partial void DeletetblNote(tblNote instance);
+    partial void InserttblFile(tblFile instance);
+    partial void UpdatetblFile(tblFile instance);
+    partial void DeletetblFile(tblFile instance);
     #endregion
 		
 		public ELearningDataContext() : 
@@ -100,14 +103,6 @@ namespace E_Learning
 			get
 			{
 				return this.GetTable<tblCategory>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblFile> tblFiles
-		{
-			get
-			{
-				return this.GetTable<tblFile>();
 			}
 		}
 		
@@ -180,6 +175,22 @@ namespace E_Learning
 			get
 			{
 				return this.GetTable<tblAssignment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblNote> tblNotes
+		{
+			get
+			{
+				return this.GetTable<tblNote>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFile> tblFiles
+		{
+			get
+			{
+				return this.GetTable<tblFile>();
 			}
 		}
 		
@@ -265,34 +276,6 @@ namespace E_Learning
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), titleName, fK_SubjectId, id);
 			return ((ISingleResult<sp_tblTitlesNewUpdateCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewDeleteCommand")]
-		public int sp_tblFilesNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewInsertCommand")]
-		public ISingleResult<sp_tblFilesNewInsertCommandResult> sp_tblFilesNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_SubjectId", DbType="BigInt")] System.Nullable<long> fK_SubjectId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FilePath", DbType="NVarChar(500)")] string filePath)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_SubjectId, filePath);
-			return ((ISingleResult<sp_tblFilesNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewSelectCommand")]
-		public ISingleResult<sp_tblFilesNewSelectCommandResult> sp_tblFilesNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_tblFilesNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewUpdateCommand")]
-		public ISingleResult<sp_tblFilesNewUpdateCommandResult> sp_tblFilesNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_SubjectId", DbType="BigInt")] System.Nullable<long> fK_SubjectId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FilePath", DbType="NVarChar(500)")] string filePath, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_SubjectId, filePath, original_Id, id);
-			return ((ISingleResult<sp_tblFilesNewUpdateCommandResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblQuestionNewDeleteCommand")]
@@ -384,6 +367,69 @@ namespace E_Learning
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), staffId, status);
 			return ((ISingleResult<sp_selectResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNotesNewDeleteCommand")]
+		public int sp_tblNotesNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNotesNewInsertCommand")]
+		public ISingleResult<sp_tblNotesNewInsertCommandResult> sp_tblNotesNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_StaffId", DbType="BigInt")] System.Nullable<long> fK_StaffId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_FileId", DbType="BigInt")] System.Nullable<long> fK_FileId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_StaffId, fK_FileId);
+			return ((ISingleResult<sp_tblNotesNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNotesNewSelectCommand")]
+		public ISingleResult<sp_tblNotesNewSelectCommandResult> sp_tblNotesNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblNotesNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNotesNewUpdateCommand")]
+		public ISingleResult<sp_tblNotesNewUpdateCommandResult> sp_tblNotesNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_StaffId", DbType="BigInt")] System.Nullable<long> fK_StaffId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_FileId", DbType="BigInt")] System.Nullable<long> fK_FileId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_StaffId, fK_FileId, original_Id, id);
+			return ((ISingleResult<sp_tblNotesNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewDeleteCommand")]
+		public int sp_tblFilesNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewInsertCommand")]
+		public ISingleResult<sp_tblFilesNewInsertCommandResult> sp_tblFilesNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_TitleId", DbType="BigInt")] System.Nullable<long> fK_TitleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FilePath", DbType="NVarChar(500)")] string filePath)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_TitleId, filePath);
+			return ((ISingleResult<sp_tblFilesNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewSelectCommand")]
+		public ISingleResult<sp_tblFilesNewSelectCommandResult> sp_tblFilesNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblFilesNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblFilesNewUpdateCommand")]
+		public ISingleResult<sp_tblFilesNewUpdateCommandResult> sp_tblFilesNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_TitleId", DbType="BigInt")] System.Nullable<long> fK_TitleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FilePath", DbType="NVarChar(500)")] string filePath, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fK_TitleId, filePath, original_Id, id);
+			return ((ISingleResult<sp_tblFilesNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_select_file")]
+		public ISingleResult<sp_select_fileResult> sp_select_file()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_select_fileResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -498,157 +544,6 @@ namespace E_Learning
 		{
 			this.SendPropertyChanging();
 			entity.tblCategory = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFiles")]
-	public partial class tblFile : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Id;
-		
-		private System.Nullable<long> _FK_SubjectId;
-		
-		private string _FilePath;
-		
-		private EntityRef<tblSubject> _tblSubject;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnFK_SubjectIdChanging(System.Nullable<long> value);
-    partial void OnFK_SubjectIdChanged();
-    partial void OnFilePathChanging(string value);
-    partial void OnFilePathChanged();
-    #endregion
-		
-		public tblFile()
-		{
-			this._tblSubject = default(EntityRef<tblSubject>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SubjectId", DbType="BigInt")]
-		public System.Nullable<long> FK_SubjectId
-		{
-			get
-			{
-				return this._FK_SubjectId;
-			}
-			set
-			{
-				if ((this._FK_SubjectId != value))
-				{
-					if (this._tblSubject.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFK_SubjectIdChanging(value);
-					this.SendPropertyChanging();
-					this._FK_SubjectId = value;
-					this.SendPropertyChanged("FK_SubjectId");
-					this.OnFK_SubjectIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this.OnFilePathChanging(value);
-					this.SendPropertyChanging();
-					this._FilePath = value;
-					this.SendPropertyChanged("FilePath");
-					this.OnFilePathChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSubject_tblFile", Storage="_tblSubject", ThisKey="FK_SubjectId", OtherKey="Id", IsForeignKey=true)]
-		public tblSubject tblSubject
-		{
-			get
-			{
-				return this._tblSubject.Entity;
-			}
-			set
-			{
-				tblSubject previousValue = this._tblSubject.Entity;
-				if (((previousValue != value) 
-							|| (this._tblSubject.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblSubject.Entity = null;
-						previousValue.tblFiles.Remove(this);
-					}
-					this._tblSubject.Entity = value;
-					if ((value != null))
-					{
-						value.tblFiles.Add(this);
-						this._FK_SubjectId = value.Id;
-					}
-					else
-					{
-						this._FK_SubjectId = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("tblSubject");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -928,6 +823,8 @@ namespace E_Learning
 		
 		private EntitySet<tblAssignment> _tblAssignments;
 		
+		private EntitySet<tblNote> _tblNotes;
+		
 		private EntityRef<tblRole> _tblRole;
 		
     #region Extensibility Method Definitions
@@ -965,6 +862,7 @@ namespace E_Learning
 			this._tblForumQuestions = new EntitySet<tblForumQuestion>(new Action<tblForumQuestion>(this.attach_tblForumQuestions), new Action<tblForumQuestion>(this.detach_tblForumQuestions));
 			this._tblForumAnswers = new EntitySet<tblForumAnswer>(new Action<tblForumAnswer>(this.attach_tblForumAnswers), new Action<tblForumAnswer>(this.detach_tblForumAnswers));
 			this._tblAssignments = new EntitySet<tblAssignment>(new Action<tblAssignment>(this.attach_tblAssignments), new Action<tblAssignment>(this.detach_tblAssignments));
+			this._tblNotes = new EntitySet<tblNote>(new Action<tblNote>(this.attach_tblNotes), new Action<tblNote>(this.detach_tblNotes));
 			this._tblRole = default(EntityRef<tblRole>);
 			OnCreated();
 		}
@@ -1252,6 +1150,19 @@ namespace E_Learning
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblNote", Storage="_tblNotes", ThisKey="Id", OtherKey="FK_StaffId")]
+		public EntitySet<tblNote> tblNotes
+		{
+			get
+			{
+				return this._tblNotes;
+			}
+			set
+			{
+				this._tblNotes.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRole_tblLogin", Storage="_tblRole", ThisKey="FK_RoleId", OtherKey="Id", IsForeignKey=true)]
 		public tblRole tblRole
 		{
@@ -1337,6 +1248,18 @@ namespace E_Learning
 		}
 		
 		private void detach_tblAssignments(tblAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = null;
+		}
+		
+		private void attach_tblNotes(tblNote entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = this;
+		}
+		
+		private void detach_tblNotes(tblNote entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblLogin = null;
@@ -1876,8 +1799,6 @@ namespace E_Learning
 		
 		private string _SubjectName;
 		
-		private EntitySet<tblFile> _tblFiles;
-		
 		private EntitySet<tblTitle> _tblTitles;
 		
     #region Extensibility Method Definitions
@@ -1892,7 +1813,6 @@ namespace E_Learning
 		
 		public tblSubject()
 		{
-			this._tblFiles = new EntitySet<tblFile>(new Action<tblFile>(this.attach_tblFiles), new Action<tblFile>(this.detach_tblFiles));
 			this._tblTitles = new EntitySet<tblTitle>(new Action<tblTitle>(this.attach_tblTitles), new Action<tblTitle>(this.detach_tblTitles));
 			OnCreated();
 		}
@@ -1937,19 +1857,6 @@ namespace E_Learning
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSubject_tblFile", Storage="_tblFiles", ThisKey="Id", OtherKey="FK_SubjectId")]
-		public EntitySet<tblFile> tblFiles
-		{
-			get
-			{
-				return this._tblFiles;
-			}
-			set
-			{
-				this._tblFiles.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSubject_tblTitle", Storage="_tblTitles", ThisKey="Id", OtherKey="FK_SubjectId")]
 		public EntitySet<tblTitle> tblTitles
 		{
@@ -1981,18 +1888,6 @@ namespace E_Learning
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tblFiles(tblFile entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSubject = this;
-		}
-		
-		private void detach_tblFiles(tblFile entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSubject = null;
 		}
 		
 		private void attach_tblTitles(tblTitle entity)
@@ -2626,6 +2521,336 @@ namespace E_Learning
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblNotes")]
+	public partial class tblNote : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_StaffId;
+		
+		private System.Nullable<long> _FK_FileId;
+		
+		private EntityRef<tblLogin> _tblLogin;
+		
+		private EntityRef<tblFile> _tblFile;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFK_StaffIdChanging(System.Nullable<long> value);
+    partial void OnFK_StaffIdChanged();
+    partial void OnFK_FileIdChanging(System.Nullable<long> value);
+    partial void OnFK_FileIdChanged();
+    #endregion
+		
+		public tblNote()
+		{
+			this._tblLogin = default(EntityRef<tblLogin>);
+			this._tblFile = default(EntityRef<tblFile>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_StaffId", DbType="BigInt")]
+		public System.Nullable<long> FK_StaffId
+		{
+			get
+			{
+				return this._FK_StaffId;
+			}
+			set
+			{
+				if ((this._FK_StaffId != value))
+				{
+					if (this._tblLogin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_StaffIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_StaffId = value;
+					this.SendPropertyChanged("FK_StaffId");
+					this.OnFK_StaffIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_FileId", DbType="BigInt")]
+		public System.Nullable<long> FK_FileId
+		{
+			get
+			{
+				return this._FK_FileId;
+			}
+			set
+			{
+				if ((this._FK_FileId != value))
+				{
+					if (this._tblFile.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_FileIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_FileId = value;
+					this.SendPropertyChanged("FK_FileId");
+					this.OnFK_FileIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblNote", Storage="_tblLogin", ThisKey="FK_StaffId", OtherKey="Id", IsForeignKey=true)]
+		public tblLogin tblLogin
+		{
+			get
+			{
+				return this._tblLogin.Entity;
+			}
+			set
+			{
+				tblLogin previousValue = this._tblLogin.Entity;
+				if (((previousValue != value) 
+							|| (this._tblLogin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblLogin.Entity = null;
+						previousValue.tblNotes.Remove(this);
+					}
+					this._tblLogin.Entity = value;
+					if ((value != null))
+					{
+						value.tblNotes.Add(this);
+						this._FK_StaffId = value.Id;
+					}
+					else
+					{
+						this._FK_StaffId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblLogin");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFile_tblNote", Storage="_tblFile", ThisKey="FK_FileId", OtherKey="Id", IsForeignKey=true)]
+		public tblFile tblFile
+		{
+			get
+			{
+				return this._tblFile.Entity;
+			}
+			set
+			{
+				tblFile previousValue = this._tblFile.Entity;
+				if (((previousValue != value) 
+							|| (this._tblFile.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblFile.Entity = null;
+						previousValue.tblNotes.Remove(this);
+					}
+					this._tblFile.Entity = value;
+					if ((value != null))
+					{
+						value.tblNotes.Add(this);
+						this._FK_FileId = value.Id;
+					}
+					else
+					{
+						this._FK_FileId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblFile");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFiles")]
+	public partial class tblFile : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_TitleId;
+		
+		private string _FilePath;
+		
+		private EntitySet<tblNote> _tblNotes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFK_TitleIdChanging(System.Nullable<long> value);
+    partial void OnFK_TitleIdChanged();
+    partial void OnFilePathChanging(string value);
+    partial void OnFilePathChanged();
+    #endregion
+		
+		public tblFile()
+		{
+			this._tblNotes = new EntitySet<tblNote>(new Action<tblNote>(this.attach_tblNotes), new Action<tblNote>(this.detach_tblNotes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TitleId", DbType="BigInt")]
+		public System.Nullable<long> FK_TitleId
+		{
+			get
+			{
+				return this._FK_TitleId;
+			}
+			set
+			{
+				if ((this._FK_TitleId != value))
+				{
+					this.OnFK_TitleIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_TitleId = value;
+					this.SendPropertyChanged("FK_TitleId");
+					this.OnFK_TitleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this.OnFilePathChanging(value);
+					this.SendPropertyChanging();
+					this._FilePath = value;
+					this.SendPropertyChanged("FilePath");
+					this.OnFilePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblFile_tblNote", Storage="_tblNotes", ThisKey="Id", OtherKey="FK_FileId")]
+		public EntitySet<tblNote> tblNotes
+		{
+			get
+			{
+				return this._tblNotes;
+			}
+			set
+			{
+				this._tblNotes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblNotes(tblNote entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFile = this;
+		}
+		
+		private void detach_tblNotes(tblNote entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblFile = null;
 		}
 	}
 	
@@ -3614,192 +3839,6 @@ namespace E_Learning
 				if ((this._FK_SubjectId != value))
 				{
 					this._FK_SubjectId = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_tblFilesNewInsertCommandResult
-	{
-		
-		private long _Id;
-		
-		private System.Nullable<long> _FK_SubjectId;
-		
-		private string _FilePath;
-		
-		public sp_tblFilesNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SubjectId", DbType="BigInt")]
-		public System.Nullable<long> FK_SubjectId
-		{
-			get
-			{
-				return this._FK_SubjectId;
-			}
-			set
-			{
-				if ((this._FK_SubjectId != value))
-				{
-					this._FK_SubjectId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this._FilePath = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_tblFilesNewSelectCommandResult
-	{
-		
-		private long _Id;
-		
-		private System.Nullable<long> _FK_SubjectId;
-		
-		private string _FilePath;
-		
-		public sp_tblFilesNewSelectCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SubjectId", DbType="BigInt")]
-		public System.Nullable<long> FK_SubjectId
-		{
-			get
-			{
-				return this._FK_SubjectId;
-			}
-			set
-			{
-				if ((this._FK_SubjectId != value))
-				{
-					this._FK_SubjectId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this._FilePath = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_tblFilesNewUpdateCommandResult
-	{
-		
-		private long _Id;
-		
-		private System.Nullable<long> _FK_SubjectId;
-		
-		private string _FilePath;
-		
-		public sp_tblFilesNewUpdateCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_SubjectId", DbType="BigInt")]
-		public System.Nullable<long> FK_SubjectId
-		{
-			get
-			{
-				return this._FK_SubjectId;
-			}
-			set
-			{
-				if ((this._FK_SubjectId != value))
-				{
-					this._FK_SubjectId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
-		public string FilePath
-		{
-			get
-			{
-				return this._FilePath;
-			}
-			set
-			{
-				if ((this._FilePath != value))
-				{
-					this._FilePath = value;
 				}
 			}
 		}
@@ -5068,6 +5107,440 @@ namespace E_Learning
 				if ((this._FK_StudentId != value))
 				{
 					this._FK_StudentId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblNotesNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_StaffId;
+		
+		private System.Nullable<long> _FK_FileId;
+		
+		public sp_tblNotesNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_StaffId", DbType="BigInt")]
+		public System.Nullable<long> FK_StaffId
+		{
+			get
+			{
+				return this._FK_StaffId;
+			}
+			set
+			{
+				if ((this._FK_StaffId != value))
+				{
+					this._FK_StaffId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_FileId", DbType="BigInt")]
+		public System.Nullable<long> FK_FileId
+		{
+			get
+			{
+				return this._FK_FileId;
+			}
+			set
+			{
+				if ((this._FK_FileId != value))
+				{
+					this._FK_FileId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblNotesNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_StaffId;
+		
+		private System.Nullable<long> _FK_FileId;
+		
+		public sp_tblNotesNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_StaffId", DbType="BigInt")]
+		public System.Nullable<long> FK_StaffId
+		{
+			get
+			{
+				return this._FK_StaffId;
+			}
+			set
+			{
+				if ((this._FK_StaffId != value))
+				{
+					this._FK_StaffId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_FileId", DbType="BigInt")]
+		public System.Nullable<long> FK_FileId
+		{
+			get
+			{
+				return this._FK_FileId;
+			}
+			set
+			{
+				if ((this._FK_FileId != value))
+				{
+					this._FK_FileId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblNotesNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_StaffId;
+		
+		private System.Nullable<long> _FK_FileId;
+		
+		public sp_tblNotesNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_StaffId", DbType="BigInt")]
+		public System.Nullable<long> FK_StaffId
+		{
+			get
+			{
+				return this._FK_StaffId;
+			}
+			set
+			{
+				if ((this._FK_StaffId != value))
+				{
+					this._FK_StaffId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_FileId", DbType="BigInt")]
+		public System.Nullable<long> FK_FileId
+		{
+			get
+			{
+				return this._FK_FileId;
+			}
+			set
+			{
+				if ((this._FK_FileId != value))
+				{
+					this._FK_FileId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblFilesNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_TitleId;
+		
+		private string _FilePath;
+		
+		public sp_tblFilesNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TitleId", DbType="BigInt")]
+		public System.Nullable<long> FK_TitleId
+		{
+			get
+			{
+				return this._FK_TitleId;
+			}
+			set
+			{
+				if ((this._FK_TitleId != value))
+				{
+					this._FK_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this._FilePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblFilesNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_TitleId;
+		
+		private string _FilePath;
+		
+		public sp_tblFilesNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TitleId", DbType="BigInt")]
+		public System.Nullable<long> FK_TitleId
+		{
+			get
+			{
+				return this._FK_TitleId;
+			}
+			set
+			{
+				if ((this._FK_TitleId != value))
+				{
+					this._FK_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this._FilePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblFilesNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _FK_TitleId;
+		
+		private string _FilePath;
+		
+		public sp_tblFilesNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_TitleId", DbType="BigInt")]
+		public System.Nullable<long> FK_TitleId
+		{
+			get
+			{
+				return this._FK_TitleId;
+			}
+			set
+			{
+				if ((this._FK_TitleId != value))
+				{
+					this._FK_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this._FilePath = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_select_fileResult
+	{
+		
+		private string _TitleName;
+		
+		private string _SubjectName;
+		
+		private string _FilePath;
+		
+		public sp_select_fileResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TitleName", DbType="NVarChar(500)")]
+		public string TitleName
+		{
+			get
+			{
+				return this._TitleName;
+			}
+			set
+			{
+				if ((this._TitleName != value))
+				{
+					this._TitleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubjectName", DbType="NVarChar(500)")]
+		public string SubjectName
+		{
+			get
+			{
+				return this._SubjectName;
+			}
+			set
+			{
+				if ((this._SubjectName != value))
+				{
+					this._SubjectName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilePath", DbType="NVarChar(500)")]
+		public string FilePath
+		{
+			get
+			{
+				return this._FilePath;
+			}
+			set
+			{
+				if ((this._FilePath != value))
+				{
+					this._FilePath = value;
 				}
 			}
 		}
