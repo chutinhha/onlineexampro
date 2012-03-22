@@ -27,7 +27,7 @@ public partial class View : System.Web.UI.Page
         TimeSpan sp = dt.Subtract(dt1);
         if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
         {
-            Response.Redirect("~/admin/View Result.aspx");
+            Response.Redirect("result.aspx");
         }
         else
         {
@@ -77,7 +77,7 @@ public partial class View : System.Web.UI.Page
         Dictionary<long, int> dic = (Dictionary<long, int>)Session["cat"];
         Random rd = new Random();
         List<long> CreatedIds = new List<long>();
-       // PlaceHolder pla = (PlaceHolder)GridView1.FindControl("PlaceHolder1");
+        //PlaceHolder pla = (PlaceHolder)GridView1.FindControl("PlaceHolder1");
 
         foreach (KeyValuePair<long, int> item in dic)
         {

@@ -10,7 +10,7 @@
     <cc1:ToolkitScriptManager runat="server" ID="sdfd">
     </cc1:ToolkitScriptManager>
     <div>
-        <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: thin dotted #000000;
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: medium dotted #008080;
             background-color: #FFFFFF;">
             <tr>
                 <td>
@@ -31,6 +31,9 @@
                     <br />
                 </td>
             </tr>
+            <cc1:FilteredTextBoxExtender ID="asdsa" runat="server" TargetControlID="txtname"
+                FilterMode="ValidChars" FilterType="LowercaseLetters,UppercaseLetters">
+            </cc1:FilteredTextBoxExtender>
             <tr>
                 <td align="center">
                     <table width="300px" align="center" style="border: thin groove #008080">
@@ -57,7 +60,9 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtmobile" MaxLength="10" runat="server"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="adfas" runat="server" TargetControlID="txtmobile" FilterMode="ValidChars" FilterType="Numbers"></cc1:FilteredTextBoxExtender>
+                                <cc1:FilteredTextBoxExtender ID="adfas" runat="server" TargetControlID="txtmobile"
+                                    FilterMode="ValidChars" FilterType="Numbers">
+                                </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>
                         <tr>
@@ -77,11 +82,9 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center" height="25px" style="font-family: calibri">
-                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" 
-                                    ForeColor="#CC0000"></asp:Label><asp:RegularExpressionValidator
-                                    ID="RegularExpressionValidator1" runat="server" 
-                                    ErrorMessage="enter valid id" ControlToValidate="txtemail" ValidationGroup="a" 
-                                    Font-Names="Calibri" ForeColor="#CC0000" 
+                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label><asp:RegularExpressionValidator
+                                    ID="RegularExpressionValidator1" runat="server" ErrorMessage="enter valid id"
+                                    ControlToValidate="txtemail" ValidationGroup="a" Font-Names="Calibri" ForeColor="#CC0000"
                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                             </td>
                         </tr>

@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
     <div>
         <table cellpadding="0" cellspacing="0" width="900px" align="center" 
-            bgcolor="White">
+            bgcolor="White" style="border: medium dotted #008080;
+            background-color: #FFFFFF;">
             <tr>
                 <td align="left" width="350px">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/admin/images/logo_for_test.png" Width="350px"
@@ -39,6 +40,8 @@
                                 <asp:Button ID="Button3" runat="server" Text="View Result" 
                                     PostBackUrl="~/admin/View Result.aspx" />
                             </td>
+                            <td style="font-family: Calibri"><asp:Button ID="btnhome" runat="server" Text="Admin Home" 
+                                    PostBackUrl="~/admin/adminHome.aspx" /></td>
                         </tr>
                     </table>
                 </td>

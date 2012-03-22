@@ -6,8 +6,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="900px">
         <tr>
-            <td align="right" style="font-family: calibri">
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="right" style="font-family: calibri;">
                 <div>
+                <cc1:AlwaysVisibleControlExtender runat="server" ID="asdsd" TargetControlID="UpdatePanel1" HorizontalSide="Right" HorizontalOffset="300" VerticalOffset="180" ></cc1:AlwaysVisibleControlExtender>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
@@ -32,9 +38,14 @@
         </tr>
         <tr>
             <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                     DataKeyNames="QuesId" OnRowDataBound="GridView1_RowDataBound" ShowHeader="False"
-                    OnPageIndexChanging="GridView1_PageIndexChanging">
+                    OnPageIndexChanging="GridView1_PageIndexChanging" Width="750px">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
