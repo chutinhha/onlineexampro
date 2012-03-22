@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="E_Learning.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentNotes.aspx.cs" Inherits="E_Learning.StudentNotes" %>
 
-<%@ Register src="ucStudentAssignment.ascx" tagname="ucStudentAssignment" tagprefix="uc1" %>
+<%@ Register src="ucStudentNote.ascx" tagname="ucStudentNote" tagprefix="uc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
     <div>
     
-        <uc1:ucStudentAssignment ID="ucStudentAssignment1" runat="server" />
+        <uc1:ucStudentNote ID="ucStudentNote1" runat="server" />
     
     </div>
     </form>

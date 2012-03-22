@@ -10,7 +10,7 @@
 namespace E_Learning {
     
     
-    public partial class WebForm1 {
+    public partial class StudentNotes {
         
         /// <summary>
         /// form1 control.
@@ -22,12 +22,12 @@ namespace E_Learning {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ucStudentAssignment1 control.
+        /// ucStudentNote1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::E_Learning.ucStudentAssignment ucStudentAssignment1;
+        protected global::E_Learning.ucStudentNote ucStudentNote1;
     }
 }

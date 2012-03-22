@@ -60,7 +60,7 @@ namespace E_Learning
 
         protected void btnAddTitle_Click(object sender, EventArgs e)
         {
-            var tit = ElearningHelper.Context.tblTitles.Where(a => a.TitleName == txtTitle.Text && a.tblSubject.Id==Convert.ToInt64(ddlSubject.SelectedValue));
+            var tit = ElearningHelper.Context.tblTitles.Where(a => a.TitleName == txtTitle.Text && a.tblSubject.Id == Convert.ToInt64(ddlSubject.SelectedValue));
             if (tit.Count() > 0)
             {
                 Response.Write("<script>alert('Item Already Exists')</script>");
@@ -80,7 +80,11 @@ namespace E_Learning
             {
                 path = "~/UploadedFiles/" + flpDoc.FileName;
                 flpDoc.SaveAs(Server.MapPath(path));
-                ElearningHelper.Context.sp_tblFilesNewInsertCommand(Convert.ToInt64(ddlSubject.SelectedValue), path);
+                var fl = ElearningHelper.Context.sp_tblFilesNewInsertCommand(Convert.ToInt64(ddlTitle.SelectedValue), path);
+                foreach (var item in fl)
+                {
+                    ElearningHelper.Context.sp_tblNotesNewInsertCommand(ElearningHelper.Context.tblLogins.Single(a => a.RollNumber == Session["UserName"].ToString()).Id, item.Id);
+                }
             }
         }
     }

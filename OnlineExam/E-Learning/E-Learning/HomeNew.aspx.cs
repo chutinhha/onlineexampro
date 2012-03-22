@@ -25,7 +25,7 @@ namespace E_Learning
                 Session["UserName"] = txtUserName.Text;
                 if (Convert.ToInt32(Session["Role"]) == 3)
                 {
-                    Response.Redirect("WebForm1.aspx");
+                    Response.Redirect("StudentHome.aspx");
                 }
                 else
                 {

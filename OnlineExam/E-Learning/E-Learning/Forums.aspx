@@ -26,7 +26,8 @@
                                         Question:
                                     </td>
                                     <td style="font-family: georgia, serif; font-size: 13px">
-                                        <asp:TextBox ID="txtForumQuestion" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtForumQuestion" runat="server" Height="64px" 
+                                            TextMode="MultiLine" Width="449px"></asp:TextBox>
                                         <asp:RequiredFieldValidator runat="server" ID="reqForumquestion" ControlToValidate="txtForumQuestion"
                                             ErrorMessage="Enter any Question to Continue" ValidationGroup="valPost" ForeColor="Red"
                                             ></asp:RequiredFieldValidator>
@@ -51,7 +52,8 @@
                                         &nbsp;
                                     </td>
                                     <td style="font-family: georgia, serif; font-size: 13px">
-                                        <asp:Button ID="btnPost" OnClick="btnPost_Click" runat="server" Text="Post" ValidationGroup="valPost" />
+                                        <asp:Button ID="btnPost" OnClick="btnPost_Click" runat="server" Text="Post" 
+                                            ValidationGroup="valPost" Width="47px" />
                                     </td>
                                 </tr>
                             </table>
@@ -108,7 +110,7 @@
                                                                         Your Answer:
                                                                     </td>
                                                                     <td>
-                                                                        <asp:TextBox ID="txtForumAnswer" runat="server"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtForumAnswer" runat="server" TextMode="MultiLine"></asp:TextBox>
                                                                         <asp:RequiredFieldValidator runat="server" ID="reqForumAns" ForeColor="Red" ErrorMessage="Enter any answer to continue" ControlToValidate="txtForumAnswer" ValidationGroup="valForumAnswer"></asp:RequiredFieldValidator>
                                                                     </td>
                                                                 </tr>
