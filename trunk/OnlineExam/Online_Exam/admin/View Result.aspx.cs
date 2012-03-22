@@ -15,12 +15,11 @@ public partial class admin_View_Result : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            GridView1.DataSource = from a in OnlineExamHelper.Context.OnlineResults 
+            GridView1.DataSource = from a in OnlineExamHelper.Context.OnlineResults
                                    select new
                                    {
                                        Name = a.OnlineRegistration.Name,
                                        TotalMark = a.TotalMark
-
                                    };
             GridView1.DataBind();
         }

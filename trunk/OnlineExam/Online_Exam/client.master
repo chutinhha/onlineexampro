@@ -15,16 +15,30 @@
             try { if (event.button == BM || event.button == BR) { return false; } }
             catch (e) { if (e.which == BR) { return false; } }
         }
-        document.oncontextmenu = function () {  return false; }
+        document.oncontextmenu = function () { return false; }
     </script>
+    <script type="text/javascript">
+        window.history.forward(1);
+        document.attachEvent("onkeydown", my_onkeydown_handler);
+        function my_onkeydown_handler() {
+            switch (event.keyCode) {
+
+                case 116: // 'F5'
+                    event.returnValue = false;
+                    event.keyCode = 0;
+                    window.status = "We have disabled F5";
+                    break;
+            }
+        }
+</script>
 </head>
 <body style="background-color: #99CCFF">
     <form id="form1" runat="server">
     <cc1:ToolkitScriptManager ID="adasd" runat="server">
     </cc1:ToolkitScriptManager>
     <div>
-        <table cellpadding="0" cellspacing="0" width="900px" align="center" 
-            style="background-color: #FFFFFF">
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: medium dotted #008080;
+            background-color: #FFFFFF;">
             <tr>
                 <td align="left">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/images/logo_for_test.png" Width="350px"
@@ -32,11 +46,11 @@
                 </td>
             </tr>
             <tr>
-            <td align="right">
-                Welcome,
-                <asp:Label ID="lbuser" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
+                <td align="right">
+                    Welcome,
+                    <asp:Label ID="lbuser" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
             <tr>
                 <td>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -70,7 +70,10 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
                 }
                 i++;
             }
+            dt.Clear();
+            BindGrid(dt);
         }
+        
         lbregister.Text = "Question Posted";
         emptyfield();
     }
