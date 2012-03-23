@@ -140,13 +140,16 @@ public partial class View : System.Web.UI.Page
             RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
             long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
             var dd = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.QuestionId == aa);
-            if (Convert.ToInt64(rdl.SelectedValue) == dd.FK_Answer)
+            if (!string.IsNullOrEmpty( Convert.ToString(rdl.SelectedValue)))
             {
-                dic.Add(aa, 1);
-            }
-            else
-            {
-                dic.Add(aa, 0);
+                if (Convert.ToInt64(rdl.SelectedValue) == dd.FK_Answer)
+                {
+                    dic.Add(aa, 1);
+                }
+                else
+                {
+                    dic.Add(aa, 0);
+                }
             }
         }
         int m = 0;
