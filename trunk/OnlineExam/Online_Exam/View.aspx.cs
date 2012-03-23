@@ -27,6 +27,7 @@ public partial class View : System.Web.UI.Page
         TimeSpan sp = dt.Subtract(dt1);
         if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
         {
+            Complete_Click(sender,new EventArgs());
             Response.Redirect("result.aspx");
         }
         else
