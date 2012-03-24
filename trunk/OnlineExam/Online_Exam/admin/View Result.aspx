@@ -7,10 +7,12 @@
     <table cellpadding="0" cellspacing="0" width="900px" align="center">
         <tr>
             <td>
-            <br />
+                <br />
             </td>
         </tr>
         <tr>
+            <td width="50px">
+            </td>
             <td>
                 <asp:GridView ID="GridView1" runat="server">
                 </asp:GridView>
