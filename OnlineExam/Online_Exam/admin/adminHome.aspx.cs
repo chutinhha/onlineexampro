@@ -61,6 +61,14 @@ public partial class admin_adminHome : System.Web.UI.Page
     }
     protected void btnAssign_Click(object sender, EventArgs e)
     {
+        if (CheckBox1.Checked)
+        {
+            Session["accept"] = "1";
+        }
+        else
+        {
+            Session["accept"] = string.Empty;
+        }
         var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
         int i = 0;
         Dictionary<long, int> dic = new Dictionary<long, int>();

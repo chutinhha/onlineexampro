@@ -19,15 +19,25 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-family: Calibri; font-size: 18px; font-weight: bold; color: #009999">
-                    <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="Label1" runat="server" Text="Registeration form:" Font-Underline="True"></asp:Label>
+                <td style="color: #009999; font-size: 24px; font-weight: bold" align="center">
+                    Online Test
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="font-family: Calibri; font-size: 18px; font-weight: bold; color: #009999">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="Registeration form:" Font-Underline="True"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:ImageButton ID="ImageButton1" runat="server" Width="84px" Height="30px" ImageUrl="~/images/AdminLogo.gif"
+                        PostBackUrl="~/admin/loginAdmin.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
                     <br />
                 </td>
             </tr>
@@ -59,7 +69,7 @@
                                 :&nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <asp:TextBox ID="txtmobile" MaxLength="10" runat="server" Height="22px"></asp:TextBox>
+                                <asp:TextBox ID="txtmobile" MaxLength="10" runat="server"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="adfas" runat="server" TargetControlID="txtmobile"
                                     FilterMode="ValidChars" FilterType="Numbers">
                                 </cc1:FilteredTextBoxExtender>
@@ -83,22 +93,10 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center" height="25px" style="font-family: calibri">
+                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="enter valid id"
                                     ControlToValidate="txtemail" ValidationGroup="a" Font-Names="Calibri" ForeColor="#CC0000"
                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left" style="font-family: calibri">
-                                Admin Control :
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center" height="25px" style="font-family: calibri">
-                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label>
                             </td>
                         </tr>
                         <tr>
