@@ -27,7 +27,8 @@
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td style="font-family: Calibri; color: #CC0000">
                 <asp:Label ID="lblError" runat="server"></asp:Label>
             </td>
@@ -37,8 +38,12 @@
                 Category
             </td>
             <td style="font-family: Calibri">
-
                 <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="lbValidation" runat="server" ForeColor="#CC0000" ></asp:Label>
             </td>
         </tr>
         <tr>

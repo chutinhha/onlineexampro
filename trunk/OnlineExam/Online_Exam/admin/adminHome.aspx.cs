@@ -31,7 +31,7 @@ public partial class admin_adminHome : System.Web.UI.Page
                 }
             }
         }
-        
+
 
     }
 
@@ -64,48 +64,50 @@ public partial class admin_adminHome : System.Web.UI.Page
         if (CheckBox1.Checked)
         {
             Session["accept"] = "1";
+
+            var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
+            int i = 0;
+            Dictionary<long, int> dic = new Dictionary<long, int>();
+            foreach (var item in ss)
+            {
+                CheckBox chk = ((CheckBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("chk_" + item.CategoryId));
+                if (chk.Checked)
+                {
+                    TextBox txt = ((TextBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("txt_" + item.CategoryId));
+                    int dd = OnlineExamHelper.Context.OnlineQuestions.Count(a => a.FK_Category == item.CategoryId);
+                    if (dd >= Convert.ToInt32(txt.Text))
+                    {
+                        dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
+                    }
+                    else
+                    {
+                        lblError.Text = "Enter less than " + dd.ToString() + " in " + item.Category + " Category";
+                        return;
+                    }
+                }
+                i++;
+            }
+
+            DateTime dt = DateTime.Now;
+            //Session["TimeLeft"] = dt;
+            DateTime dt1 = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
+            //Session["timeDuration"] = dt1;
+            var de = OnlineExamHelper.Context.sp_OnlineAssignDetailsNewInsertCommand(dt1, dt);
+            foreach (var item in de)
+            {
+                //Session["cat"] = dic;
+                foreach (KeyValuePair<long, int> item1 in dic)
+                {
+                    OnlineExamHelper.Context.sp_OnlineCateCountsNewInsertCommand(item1.Key, item1.Value, item.Id);
+                }
+            }
+            Response.Redirect("~/registration.aspx");
         }
         else
         {
             Session["accept"] = string.Empty;
+            lbValidation.Text = "check box not checked";
         }
-        var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
-        int i = 0;
-        Dictionary<long, int> dic = new Dictionary<long, int>();
-        foreach (var item in ss)
-        {
-            CheckBox chk = ((CheckBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("chk_" + item.CategoryId));
-            if (chk.Checked)
-            {
-                TextBox txt = ((TextBox)((ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1")).FindControl("txt_" + item.CategoryId));
-                int dd = OnlineExamHelper.Context.OnlineQuestions.Count(a => a.FK_Category == item.CategoryId);
-                if (dd >= Convert.ToInt32(txt.Text))
-                {
-                    dic.Add(item.CategoryId, Convert.ToInt32(txt.Text));
-                }
-                else
-                {
-                    lblError.Text = "Enter less than " + dd.ToString() + " in " + item.Category + " Category";
-                    return;
-                }
-            }
-            i++;
-        }
-
-        DateTime dt = DateTime.Now;
-        //Session["TimeLeft"] = dt;
-        DateTime dt1 = dt.AddHours(Convert.ToDouble(ddlHours.SelectedItem.Text)).AddMinutes(Convert.ToDouble(ddlMinitues.SelectedItem.Text)).AddSeconds(Convert.ToDouble(ddlSecs.SelectedItem.Text));
-        //Session["timeDuration"] = dt1;
-        var de = OnlineExamHelper.Context.sp_OnlineAssignDetailsNewInsertCommand(dt1, dt);
-        foreach (var item in de)
-        {
-            //Session["cat"] = dic;
-            foreach (KeyValuePair<long, int> item1 in dic)
-            {
-                OnlineExamHelper.Context.sp_OnlineCateCountsNewInsertCommand(item1.Key, item1.Value, item.Id);
-            }
-        }
-        Response.Redirect("~/registration.aspx");
     }
-    
+
 }
