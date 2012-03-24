@@ -13,8 +13,5 @@ public partial class admin : System.Web.UI.MasterPage
     }
 
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        
-    }
+   
 }

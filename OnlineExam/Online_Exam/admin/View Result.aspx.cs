@@ -9,6 +9,8 @@ public partial class admin_View_Result : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Button tre = (Button)Master.FindControl("Button3");
+        tre.Enabled = false;
         if (Session["admin"] == null)
         {
             Response.Redirect("loginAdmin.aspx");
