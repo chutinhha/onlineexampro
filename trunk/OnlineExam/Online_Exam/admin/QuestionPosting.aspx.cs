@@ -18,6 +18,8 @@ public partial class admin_QuestionPosting : System.Web.UI.Page
         }
         else
         {
+            Button dsf = (Button)Master.FindControl("Button2");
+            dsf.Enabled = false;
             if (!IsPostBack)
             {
                 BindDropDown();

@@ -15,6 +15,8 @@ public partial class admin_adminHome : System.Web.UI.Page
         }
         else
         {
+            Button fdf = (Button)Master.FindControl("btnhome");
+            fdf.Enabled = false;
             CreateControls();
             if (!IsPostBack)
             {
@@ -29,6 +31,7 @@ public partial class admin_adminHome : System.Web.UI.Page
                 }
             }
         }
+        
 
     }
 
