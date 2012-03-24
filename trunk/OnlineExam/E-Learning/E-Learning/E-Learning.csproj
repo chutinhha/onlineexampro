@@ -83,6 +83,7 @@
     <Content Include="enrollment.aspx" />
     <Content Include="fileupload.aspx" />
     <Content Include="StudentNotes.aspx" />
+    <Content Include="StudentTest.aspx" />
     <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
     <Content Include="HomeNew.aspx" />
@@ -129,6 +130,7 @@
     <Content Include="ucStudentAssignment.ascx" />
     <Content Include="ucstudentheader.ascx" />
     <Content Include="ucStudentNote.ascx" />
+    <Content Include="ucTest.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -187,6 +189,13 @@
     </Compile>
     <Compile Include="StudentNotes.aspx.designer.cs">
       <DependentUpon>StudentNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentTest.aspx.cs">
+      <DependentUpon>StudentTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentTest.aspx.designer.cs">
+      <DependentUpon>StudentTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="ucForums.ascx.cs">
       <DependentUpon>ucForums.ascx</DependentUpon>
@@ -286,6 +295,13 @@
     </Compile>
     <Compile Include="ucStudentNote.ascx.designer.cs">
       <DependentUpon>ucStudentNote.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ucTest.ascx.cs">
+      <DependentUpon>ucTest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucTest.ascx.designer.cs">
+      <DependentUpon>ucTest.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
