@@ -96,4 +96,5 @@ public partial class admin_adminHome : System.Web.UI.Page
         }
         Response.Redirect("~/registration.aspx");
     }
+    
 }

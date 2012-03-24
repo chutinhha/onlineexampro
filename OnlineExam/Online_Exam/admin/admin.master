@@ -34,7 +34,7 @@
                             
                             <td style="font-family: Calibri">
                                 <asp:Button ID="Button2" runat="server" Text="Post Question" 
-                                    PostBackUrl="~/admin/QuestionPosting.aspx" />
+                                    PostBackUrl="~/admin/QuestionPosting.aspx" onclick="Button2_Click"/>
                             </td>
                             <td style="font-family: Calibri">
                                 <asp:Button ID="Button3" runat="server" Text="View Result" 

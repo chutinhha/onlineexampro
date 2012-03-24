@@ -46,9 +46,12 @@ public partial class registration : System.Web.UI.Page
                         }
                         Session["cat"] = dic;
                     }
+                    
                     Response.Redirect("Instruction.aspx");
                 }
             }
         }
     }
+
+    
 }
