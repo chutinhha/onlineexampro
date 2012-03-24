@@ -59,15 +59,16 @@
                                 :&nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <asp:TextBox ID="txtmobile" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtmobile" MaxLength="10" runat="server" Height="22px"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="adfas" runat="server" TargetControlID="txtmobile"
                                     FilterMode="ValidChars" FilterType="Numbers">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
-                                <br />
+                            <td colspan="2" align="center">
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="enter valid mobile no"
+                                    ControlToValidate="txtmobile" ForeColor="#CC0000" ValidationExpression="\d{10}"></asp:RegularExpressionValidator><br />
                             </td>
                         </tr>
                         <tr>
@@ -82,10 +83,22 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center" height="25px" style="font-family: calibri">
-                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label><asp:RegularExpressionValidator
-                                    ID="RegularExpressionValidator1" runat="server" ErrorMessage="enter valid id"
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="enter valid id"
                                     ControlToValidate="txtemail" ValidationGroup="a" Font-Names="Calibri" ForeColor="#CC0000"
                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="font-family: calibri">
+                                Admin Control :
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" height="25px" style="font-family: calibri">
+                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label>
                             </td>
                         </tr>
                         <tr>
