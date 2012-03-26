@@ -37,7 +37,7 @@ public partial class result : System.Web.UI.Page
                     PlaceHolder1.Controls.Add(lbl);
                 }
             }
-            Session["accept"] = string.Empty;
+           // Session["accept"] = string.Empty;
         }
     }
 }
