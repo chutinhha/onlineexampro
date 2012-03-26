@@ -11,15 +11,15 @@ public partial class registration : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-        //if (Session["accept"] == "1")
-        //{
-        //    btnsubmit.Enabled = true;
-        //}
-        //else
-        //{
-        //    btnsubmit.Enabled = false;
-        //}
+
+        if (Application["accept"] == "1")
+        {
+            btnsubmit.Enabled = true;
+        }
+        else
+        {
+            btnsubmit.Enabled = false;
+        }
 
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
