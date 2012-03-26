@@ -27,7 +27,7 @@ public partial class View : System.Web.UI.Page
         TimeSpan sp = dt.Subtract(dt1);
         if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
         {
-            Complete_Click(sender,new EventArgs());
+            Complete_Click(sender, new EventArgs());
             Response.Redirect("result.aspx");
         }
         else
@@ -78,15 +78,18 @@ public partial class View : System.Web.UI.Page
         Dictionary<long, int> dic = (Dictionary<long, int>)Session["cat"];
         Random rd = new Random();
         List<long> CreatedIds = new List<long>();
-        //PlaceHolder pla = (PlaceHolder)GridView1.FindControl("PlaceHolder1");
+
+        PlaceHolder pla = (PlaceHolder)GridView1.FindControl("PlaceHolder1");
 
         foreach (KeyValuePair<long, int> item in dic)
         {
+
             List<long> ids = OnlineExamHelper.Context.OnlineQuestions.Where(a => a.FK_Category == item.Key).Select(a => a.QuestionId).ToList();
             int coun = item.Value;
-            //Label lbssd = new Label();
-            //lbssd.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category;
-            //pla.Controls.Add(lbssd);
+            Label lbssd = new Label();
+            lbssd.Text = OnlineExamHelper.Context.OnlineCategories.Single(a => a.CategoryId == item.Key).Category;
+            pla.Controls.Add(lbssd);
+
             for (int i = 0; i < coun; i++)
             {
                 var vv = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.FK_Category == item.Key && a.QuestionId == ids[rd.Next(0, ids.Count)]);
@@ -105,13 +108,19 @@ public partial class View : System.Web.UI.Page
                 }
             }
         }
+
+
         GridView1.DataSource = obj;
         GridView1.DataBind();
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+
+
         foreach (GridViewRow item in GridView1.Rows)
         {
+
+
             RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
             long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
             var ss = OnlineExamHelper.Context.OnlineOptions.Where(a => a.FK_QuestionId == aa);
@@ -141,7 +150,7 @@ public partial class View : System.Web.UI.Page
             RadioButtonList rdl = (RadioButtonList)item.FindControl("RadioButtonList1");
             long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
             var dd = OnlineExamHelper.Context.OnlineQuestions.Single(a => a.QuestionId == aa);
-            if (!string.IsNullOrEmpty( Convert.ToString(rdl.SelectedValue)))
+            if (!string.IsNullOrEmpty(Convert.ToString(rdl.SelectedValue)))
             {
                 if (Convert.ToInt64(rdl.SelectedValue) == dd.FK_Answer)
                 {
