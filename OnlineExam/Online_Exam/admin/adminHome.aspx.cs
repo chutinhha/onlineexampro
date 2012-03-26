@@ -109,4 +109,8 @@ public partial class admin_adminHome : System.Web.UI.Page
         }
     }
 
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        Application["accept"] = true;
+    }
 }
