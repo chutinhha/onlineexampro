@@ -52,7 +52,8 @@
             </td>
             <td style="font-family: Calibri">
                 <asp:Button ID="btnAssign" runat="server" OnClick="btnAssign_Click" Text="Assign" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBox
-                    ID="CheckBox1" runat="server" Text="accept" />
+                    ID="CheckBox1" runat="server" Text="accept" AutoPostBack="True" 
+                    oncheckedchanged="CheckBox1_CheckedChanged" />
             </td>
         </tr>
     </table>

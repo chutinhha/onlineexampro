@@ -7,8 +7,8 @@
 </head>
 <body style="background-color: #99CCFF">
     <form id="form1" runat="server">
-    <cc1:ToolkitScriptManager runat="server" ID="sdfd">
-    </cc1:ToolkitScriptManager>
+    <cc1:toolkitscriptmanager runat="server" id="sdfd">
+    </cc1:toolkitscriptmanager>
     <div>
         <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: medium dotted #008080;
             background-color: #FFFFFF;">
@@ -41,9 +41,9 @@
                     <br />
                 </td>
             </tr>
-            <cc1:FilteredTextBoxExtender ID="asdsa" runat="server" TargetControlID="txtname"
-                FilterMode="ValidChars" FilterType="LowercaseLetters,UppercaseLetters">
-            </cc1:FilteredTextBoxExtender>
+            <cc1:filteredtextboxextender id="asdsa" runat="server" targetcontrolid="txtname"
+                filtermode="ValidChars" filtertype="LowercaseLetters,UppercaseLetters">
+            </cc1:filteredtextboxextender>
             <tr>
                 <td align="center">
                     <table width="300px" align="center" style="border: thin groove #008080">
@@ -70,9 +70,9 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtmobile" MaxLength="10" runat="server"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="adfas" runat="server" TargetControlID="txtmobile"
-                                    FilterMode="ValidChars" FilterType="Numbers">
-                                </cc1:FilteredTextBoxExtender>
+                                <cc1:filteredtextboxextender id="adfas" runat="server" targetcontrolid="txtmobile"
+                                    filtermode="ValidChars" filtertype="Numbers">
+                                </cc1:filteredtextboxextender>
                             </td>
                         </tr>
                         <tr>
@@ -101,8 +101,11 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
+                                <%while (Convert.ToBoolean(Application["accept"]) == true)
+                                  {%>
                                 <asp:Button ID="btnsubmit" runat="server" Text="register" OnClick="btnsubmit_Click"
                                     ValidationGroup="a" />
+                                <% }%>
                             </td>
                         </tr>
                     </table>
