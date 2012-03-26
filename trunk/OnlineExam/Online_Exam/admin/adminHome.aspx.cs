@@ -63,8 +63,7 @@ public partial class admin_adminHome : System.Web.UI.Page
     {
         if (CheckBox1.Checked)
         {
-            Session["accept"] = "1";
-
+            Application["accept"] = "1";
             var ss = OnlineExamHelper.Context.OnlineCategories.Select(a => a);
             int i = 0;
             Dictionary<long, int> dic = new Dictionary<long, int>();
@@ -105,7 +104,7 @@ public partial class admin_adminHome : System.Web.UI.Page
         }
         else
         {
-            Session["accept"] = string.Empty;
+            Application["accept"] = string.Empty;
             lbValidation.Text = "check box not checked";
         }
     }
