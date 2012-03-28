@@ -8,7 +8,6 @@ using System.Web;
 /// </summary>
 interface IOnlinExam
 {
-
     bool Insert();
     bool Update();
     bool Delete();
