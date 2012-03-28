@@ -84,6 +84,7 @@
     <Content Include="fileupload.aspx" />
     <Content Include="StudentNotes.aspx" />
     <Content Include="StudentTest.aspx" />
+    <Content Include="ucfilesview.ascx" />
     <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
     <Content Include="HomeNew.aspx" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="StudentTest.aspx.designer.cs">
       <DependentUpon>StudentTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucfilesview.ascx.cs">
+      <DependentUpon>ucfilesview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucfilesview.ascx.designer.cs">
+      <DependentUpon>ucfilesview.ascx</DependentUpon>
     </Compile>
     <Compile Include="ucForums.ascx.cs">
       <DependentUpon>ucForums.ascx</DependentUpon>
