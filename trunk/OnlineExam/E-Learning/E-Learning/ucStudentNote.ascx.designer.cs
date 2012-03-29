@@ -13,12 +13,21 @@ namespace E_Learning {
     public partial class ucStudentNote {
         
         /// <summary>
-        /// dlNotes control.
+        /// ddlNotesSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlNotes;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNotesSubject;
+        
+        /// <summary>
+        /// ddlNotesTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNotesTitle;
     }
 }

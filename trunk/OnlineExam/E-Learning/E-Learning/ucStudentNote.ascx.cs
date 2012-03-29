@@ -17,22 +17,30 @@ namespace E_Learning
         {
             if (!IsPostBack)
             {
-                BindList();
+                BindSub();
+              //  BindTitle();
             }
         }
-
-        private void BindList()
+        protected void ddlNotesSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dlNotes.DataSource = ElearningHelper.Context.sp_select_file();
-            dlNotes.DataBind();
-        }
-        protected void dlNotes_ItemCommand(object source, DataListCommandEventArgs e)
+            BindTitle();
+        } 
+        private void BindSub()
         {
-            if (e.CommandName == "View")
-            {
-                string path = Convert.ToString(e.CommandArgument);
-                //System.Diagnostics.Process.Start(Server.MapPath(path));
-            }
+            ddlNotesSubject.DataSource = ElearningHelper.Context.sp_tblSubjectsNewSelectCommand();
+            ddlNotesSubject.DataTextField = "SubjectName";
+            ddlNotesSubject.DataValueField = "Id";
+            ddlNotesSubject.DataBind();
+            ddlNotesSubject.Items.Insert(0, "-Select-");
         }
-    }
+             
+        private void BindTitle()
+        {
+            ddlNotesTitle.DataSource = ElearningHelper.Context.tblTitles.Where(a => a.FK_SubjectId == Convert.ToInt64(ddlNotesSubject.SelectedValue));
+            ddlNotesTitle.DataTextField = "TitleName";
+            ddlNotesTitle.DataValueField = "Id";
+            ddlNotesTitle.DataBind();
+            ddlNotesTitle.Items.Insert(0, "-Select-");
+        }
+       }
 }
