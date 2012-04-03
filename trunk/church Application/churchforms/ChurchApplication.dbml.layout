@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ChurchApplication">
+  <DataContextMoniker Name="/ChurchApplicationDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4ed4f679-6f0b-4192-b6cb-8b7e83a7dfe2" absoluteBounds="4.625, 1.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_MemberDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="663a62bd-2d26-495b-b0da-d7e532eae094" absoluteBounds="4.64, 1.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3006dd00-cd32-4641-a3e6-87399cdae007" absoluteBounds="1.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_LoginDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d632f782-49f4-48c8-ac53-deda6c340c2b" absoluteBounds="1.5150000000000001, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
