@@ -44,17 +44,5 @@ namespace churchforms.Properties {
                 return ((string)(this["ChurchApplicationConnectionString"]));
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("117, 25")]
-        public global::System.Drawing.Point yrtyr {
-            get {
-                return ((global::System.Drawing.Point)(this["yrtyr"]));
-            }
-            set {
-                this["yrtyr"] = value;
-            }
-        }
     }
 }

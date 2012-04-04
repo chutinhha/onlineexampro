@@ -30,12 +30,12 @@ namespace churchforms
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertChurch_MemberDetail(Church_MemberDetail instance);
-    partial void UpdateChurch_MemberDetail(Church_MemberDetail instance);
-    partial void DeleteChurch_MemberDetail(Church_MemberDetail instance);
     partial void InsertChurch_LoginDetail(Church_LoginDetail instance);
     partial void UpdateChurch_LoginDetail(Church_LoginDetail instance);
     partial void DeleteChurch_LoginDetail(Church_LoginDetail instance);
+    partial void InsertChurch_MemberDetail(Church_MemberDetail instance);
+    partial void UpdateChurch_MemberDetail(Church_MemberDetail instance);
+    partial void DeleteChurch_MemberDetail(Church_MemberDetail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -68,19 +68,19 @@ namespace churchforms
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Church_MemberDetail> Church_MemberDetails
-		{
-			get
-			{
-				return this.GetTable<Church_MemberDetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Church_LoginDetail> Church_LoginDetails
 		{
 			get
 			{
 				return this.GetTable<Church_LoginDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_MemberDetail> Church_MemberDetails
+		{
+			get
+			{
+				return this.GetTable<Church_MemberDetail>();
 			}
 		}
 		
@@ -96,6 +96,140 @@ namespace churchforms
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromdate, todate);
 			return ((ISingleResult<sp_Church_MemberDetailBirthdatepickResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_LoginDetail")]
+	public partial class Church_LoginDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Login_id;
+		
+		private System.Nullable<int> _Login_type;
+		
+		private string _Login_name;
+		
+		private string _Password;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLogin_idChanging(long value);
+    partial void OnLogin_idChanged();
+    partial void OnLogin_typeChanging(System.Nullable<int> value);
+    partial void OnLogin_typeChanged();
+    partial void OnLogin_nameChanging(string value);
+    partial void OnLogin_nameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    #endregion
+		
+		public Church_LoginDetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Login_id
+		{
+			get
+			{
+				return this._Login_id;
+			}
+			set
+			{
+				if ((this._Login_id != value))
+				{
+					this.OnLogin_idChanging(value);
+					this.SendPropertyChanging();
+					this._Login_id = value;
+					this.SendPropertyChanged("Login_id");
+					this.OnLogin_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_type", DbType="Int")]
+		public System.Nullable<int> Login_type
+		{
+			get
+			{
+				return this._Login_type;
+			}
+			set
+			{
+				if ((this._Login_type != value))
+				{
+					this.OnLogin_typeChanging(value);
+					this.SendPropertyChanging();
+					this._Login_type = value;
+					this.SendPropertyChanged("Login_type");
+					this.OnLogin_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_name", DbType="NVarChar(50)")]
+		public string Login_name
+		{
+			get
+			{
+				return this._Login_name;
+			}
+			set
+			{
+				if ((this._Login_name != value))
+				{
+					this.OnLogin_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Login_name = value;
+					this.SendPropertyChanged("Login_name");
+					this.OnLogin_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -115,7 +249,7 @@ namespace churchforms
 		
 		private string _Address;
 		
-		private System.Nullable<long> _Telephone;
+		private string _Telephone;
 		
 		private System.Nullable<long> _Mobile;
 		
@@ -145,7 +279,7 @@ namespace churchforms
     partial void OnFamilyNoChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
-    partial void OnTelephoneChanging(System.Nullable<long> value);
+    partial void OnTelephoneChanging(string value);
     partial void OnTelephoneChanged();
     partial void OnMobileChanging(System.Nullable<long> value);
     partial void OnMobileChanged();
@@ -268,8 +402,8 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
-		public System.Nullable<long> Telephone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="NVarChar(50)")]
+		public string Telephone
 		{
 			get
 			{
@@ -449,140 +583,6 @@ namespace churchforms
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_LoginDetail")]
-	public partial class Church_LoginDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Login_id;
-		
-		private System.Nullable<int> _Login_type;
-		
-		private string _Login_name;
-		
-		private string _Password;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLogin_idChanging(long value);
-    partial void OnLogin_idChanged();
-    partial void OnLogin_typeChanging(System.Nullable<int> value);
-    partial void OnLogin_typeChanged();
-    partial void OnLogin_nameChanging(string value);
-    partial void OnLogin_nameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    #endregion
-		
-		public Church_LoginDetail()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long Login_id
-		{
-			get
-			{
-				return this._Login_id;
-			}
-			set
-			{
-				if ((this._Login_id != value))
-				{
-					this.OnLogin_idChanging(value);
-					this.SendPropertyChanging();
-					this._Login_id = value;
-					this.SendPropertyChanged("Login_id");
-					this.OnLogin_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_type", DbType="Int")]
-		public System.Nullable<int> Login_type
-		{
-			get
-			{
-				return this._Login_type;
-			}
-			set
-			{
-				if ((this._Login_type != value))
-				{
-					this.OnLogin_typeChanging(value);
-					this.SendPropertyChanging();
-					this._Login_type = value;
-					this.SendPropertyChanged("Login_type");
-					this.OnLogin_typeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Login_name", DbType="NVarChar(50)")]
-		public string Login_name
-		{
-			get
-			{
-				return this._Login_name;
-			}
-			set
-			{
-				if ((this._Login_name != value))
-				{
-					this.OnLogin_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Login_name = value;
-					this.SendPropertyChanged("Login_name");
-					this.OnLogin_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	public partial class sp_Church_MemberDetailMarriagedatepickResult
 	{
 		
@@ -596,7 +596,7 @@ namespace churchforms
 		
 		private string _Address;
 		
-		private System.Nullable<long> _Telephone;
+		private string _Telephone;
 		
 		private System.Nullable<long> _Mobile;
 		
@@ -695,9 +695,9 @@ namespace churchforms
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
-		public System.Nullable<long> Telephone
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Telephone", DbType = "NVarChar(50)")]
+		public string Telephone
 		{
 			get
 			{
@@ -838,7 +838,7 @@ namespace churchforms
 		
 		private string _Address;
 		
-		private System.Nullable<long> _Telephone;
+		private string _Telephone;
 		
 		private System.Nullable<long> _Mobile;
 		
@@ -937,9 +937,9 @@ namespace churchforms
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
-		public System.Nullable<long> Telephone
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Telephone", DbType = "NVarChar(50)")]
+		public string Telephone
 		{
 			get
 			{

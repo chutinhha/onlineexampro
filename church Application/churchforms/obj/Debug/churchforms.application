@@ -4,14 +4,14 @@
   <description asmv2:publisher="My Church" co.v1:suiteName="My Church" asmv2:product="My Church" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="churchforms.exe.manifest" size="6951">
+    <dependentAssembly dependencyType="install" codebase="churchforms.exe.manifest" size="6950">
       <assemblyIdentity name="churchforms.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>E0a/zOgt0mjT95dkNuVmb4vqi9k=</dsig:DigestValue>
+        <dsig:DigestValue>0rderiC1g4aUFUOMExBzlbvUd80=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

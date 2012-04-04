@@ -47,6 +47,11 @@
             this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerMarriage = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -231,28 +236,30 @@
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(562, 32);
+            this.txtTelephone.Location = new System.Drawing.Point(580, 32);
+            this.txtTelephone.MaxLength = 11;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(161, 21);
             this.txtTelephone.TabIndex = 7;
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(562, 73);
+            this.txtMobile.Location = new System.Drawing.Point(580, 73);
+            this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(161, 21);
             this.txtMobile.TabIndex = 8;
             // 
             // txtOccupation
             // 
-            this.txtOccupation.Location = new System.Drawing.Point(562, 111);
+            this.txtOccupation.Location = new System.Drawing.Point(580, 111);
             this.txtOccupation.Name = "txtOccupation";
             this.txtOccupation.Size = new System.Drawing.Size(161, 21);
             this.txtOccupation.TabIndex = 9;
             // 
             // dateTimePickerDOB
             // 
-            this.dateTimePickerDOB.Location = new System.Drawing.Point(562, 147);
+            this.dateTimePickerDOB.Location = new System.Drawing.Point(580, 147);
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(200, 21);
             this.dateTimePickerDOB.TabIndex = 10;
@@ -269,6 +276,11 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label11);
@@ -305,6 +317,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Detail Entry";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(747, 106);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(15, 15);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(747, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 15);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(277, 167);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(15, 15);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(277, 126);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 15);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(277, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(15, 15);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "*";
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Maroon;
@@ -313,7 +375,7 @@
             this.button3.Location = new System.Drawing.Point(305, 90);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 31);
-            this.button3.TabIndex = 18;
+            this.button3.TabIndex = 25;
             this.button3.Text = "Family Member";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -342,10 +404,10 @@
             // cbUnmarried
             // 
             this.cbUnmarried.AutoSize = true;
-            this.cbUnmarried.Location = new System.Drawing.Point(661, 184);
+            this.cbUnmarried.Location = new System.Drawing.Point(580, 184);
             this.cbUnmarried.Name = "cbUnmarried";
             this.cbUnmarried.Size = new System.Drawing.Size(67, 19);
-            this.cbUnmarried.TabIndex = 12;
+            this.cbUnmarried.TabIndex = 11;
             this.cbUnmarried.Text = "Single";
             this.cbUnmarried.UseVisualStyleBackColor = true;
             this.cbUnmarried.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
@@ -353,10 +415,10 @@
             // cbMarried
             // 
             this.cbMarried.AutoSize = true;
-            this.cbMarried.Location = new System.Drawing.Point(580, 184);
+            this.cbMarried.Location = new System.Drawing.Point(655, 184);
             this.cbMarried.Name = "cbMarried";
             this.cbMarried.Size = new System.Drawing.Size(76, 19);
-            this.cbMarried.TabIndex = 11;
+            this.cbMarried.TabIndex = 12;
             this.cbMarried.Text = "Married";
             this.cbMarried.UseVisualStyleBackColor = true;
             this.cbMarried.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -824,9 +886,8 @@
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::churchforms.Properties.Settings.Default, "yrtyr", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = global::churchforms.Properties.Settings.Default.yrtyr;
+            this.Location = new System.Drawing.Point(118, 25);
             this.MaximizeBox = false;
             this.Name = "MemberDetail";
             this.ShowIcon = false;
@@ -933,5 +994,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn registerDateDataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }

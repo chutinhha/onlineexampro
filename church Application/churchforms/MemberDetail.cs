@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace churchforms
 {
@@ -25,55 +26,127 @@ namespace churchforms
         private void button2_Click(object sender, EventArgs e)
         {
 
-            String marital = "Married";
-            if (cbUnmarried.Checked)
+
+            try
             {
-                marital = "Unmarried";
+                Validationfieldtext(txtName);
+                Validationfieldnum(txtTelephone);
+                Validationfieldnum(txtMobile);
+                Validationfieldtext(txtOccupation);
+                if (txtName.Text != string.Empty && txtFamilyno.Text != string.Empty && txtAddress.Text != string.Empty && txtMobile.Text != string.Empty && txtOccupation.Text != string.Empty)
+                {
+                    if (txtMobile.TextLength == 10)
+                    {
+
+
+                        String marital = "Unmarried";
+                        if (cbMarried.Checked)
+                        {
+                            marital = "Married";
+                        }
+
+                        using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+                        {
+                            Church_MemberDetail obj = new Church_MemberDetail();
+                            obj.MemberName = txtName.Text;
+                            if (txtCardno.Text == "")
+                            {
+                                obj.CardNo = null;
+                            }
+                            else
+                            {
+                                obj.CardNo = Convert.ToInt64(txtCardno.Text);
+                            }
+
+                            obj.FamilyNo = Convert.ToInt32(txtFamilyno.Text);
+                            obj.Address = Convert.ToString(txtAddress.Text);
+                            obj.Gender = Convert.ToString(comboBox1.Text);
+                            if (txtTelephone.Text == "")
+                            {
+                                obj.Telephone = null;
+                            }
+                            else
+                            {
+                                obj.Telephone = Convert.ToString(txtTelephone.Text);
+
+                            }
+                            obj.Mobile = Convert.ToInt64(txtMobile.Text);
+                            obj.Occupation = txtOccupation.Text;
+                            obj.DOB = Convert.ToDateTime(dateTimePickerDOB.Text);
+                            obj.MaritalStatus = marital;
+                            obj.RegisterDate = DateTime.Now;
+                            if (marital == "Married")
+                            {
+                                obj.MarriageDate = Convert.ToDateTime(dateTimePickerMarriage.Text);
+
+
+                            }
+                            else
+                            {
+                                obj.MarriageDate = null;
+                            }
+                            churchDB.Church_MemberDetails.InsertOnSubmit(obj);
+                            churchDB.SubmitChanges();
+                            Cardno();
+                            emptyfield();
+                            //  dataGridView1.Refresh();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("enter valid mobile no!");
+                    }
+                }
+
+                else
+                {
+                    label14.Visible = true;
+                    label15.Visible = true;
+                    label16.Visible = true;
+                    label17.Visible = true;
+                    label18.Visible = true;
+                    MessageBox.Show("Fill the mandatory fields *");
+                }
+
+
+
+
             }
-
-            using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+            catch (Exception ex)
             {
-                Church_MemberDetail obj = new Church_MemberDetail();
-                obj.MemberName = txtName.Text;
-                if (txtCardno.Text == "")
-                {
-                    obj.CardNo = null;
-                }
-                else
-                {
-                    obj.CardNo = Convert.ToInt64(txtCardno.Text);
-                }
-
-                obj.FamilyNo = Convert.ToInt32(txtFamilyno.Text);
-                obj.Address = Convert.ToString(txtAddress.Text);
-                obj.Gender = Convert.ToString(comboBox1.Text);
-                obj.Telephone = Convert.ToInt64(txtTelephone.Text);
-                obj.Mobile = Convert.ToInt64(txtMobile.Text);
-                obj.Occupation = txtOccupation.Text;
-                obj.DOB = Convert.ToDateTime(dateTimePickerDOB.Text);
-                obj.MaritalStatus = marital;
-                obj.RegisterDate = DateTime.Now;
-                if (marital == "Unmarried")
-                {
-                    obj.MarriageDate = null;
-
-                }
-                else
-                {
-                    obj.MarriageDate = Convert.ToDateTime(dateTimePickerMarriage.Text);
-                }
-                churchDB.Church_MemberDetails.InsertOnSubmit(obj);
-                churchDB.SubmitChanges();
-                Cardno();
-                emptyfield();
-                //  dataGridView1.Refresh();
+                MessageBox.Show(ex.Message);
             }
         }
+
+        private void Validationfieldnum(TextBox textBoxControl1)
+        {
+            Regex rx = new Regex("[^0-9|^\t]");
+            if (rx.IsMatch(textBoxControl1.Text))
+            {
+                textBoxControl1.Text = string.Empty;
+                textBoxControl1.Focus();
+                throw new Exception("Enter Number only!");
+            }
+        }
+
+        private void Validationfieldtext(TextBox textBoxControl)
+        {
+            Regex rx = new Regex("[^A-Z|^a-z|^|^_ |^\t]");
+            if (rx.IsMatch(textBoxControl.Text))
+            {
+                textBoxControl.Text = string.Empty;
+                textBoxControl.Focus();
+                throw new Exception("Enter alphabets only! To split use underscore!");
+            }
+        }
+
+
+
+
 
         private void emptyfield()
         {
             txtName.Text = string.Empty;
-
             txtMobile.Text = string.Empty;
             txtOccupation.Text = string.Empty;
 
@@ -102,12 +175,17 @@ namespace churchforms
 
         private void MemberDetail_Load(object sender, EventArgs e)
         {
+            txtName.Focus();
+            cbUnmarried.Checked = true;
+            dateTimePickerMarriage.Enabled = false;
+            label14.Visible = false;
+            label15.Visible = false;
+            label16.Visible = false;
+            label17.Visible = false;
+            label18.Visible = false;
             dataGridView2.Visible = false;
             // TODO: This line of code loads data into the 'churchApplicationDataSet2.Church_MemberDetail' table. You can move, or remove it, as needed.
             this.church_MemberDetailTableAdapter.Fill(this.churchApplicationDataSet2.Church_MemberDetail);
-
-
-
             Cardno();
             Familyno();
             comboBox1.Text = "Male";
@@ -204,9 +282,10 @@ namespace churchforms
         private void button7_Click(object sender, EventArgs e)
         {
 
-            if (System.Windows.Forms.MessageBox.Show("Do you want to Save?.", "Conformation", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Asterisk, System.Windows.Forms.MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+            if (System.Windows.Forms.MessageBox.Show("Do you want to Save?", "Conformation", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Asterisk, System.Windows.Forms.MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
             {
                 church_MemberDetailTableAdapter.Update(churchApplicationDataSet2);
+                MessageBox.Show("Successfully Saved!");
             }
 
         }
@@ -216,12 +295,5 @@ namespace churchforms
             dataGridView2.Visible = false;
             this.church_MemberDetailTableAdapter.Fill(this.churchApplicationDataSet2.Church_MemberDetail);
         }
-
-
-
-
-
-
-
     }
 }

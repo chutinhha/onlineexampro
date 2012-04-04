@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ChurchApplication" Class="ChurchApplicationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Church_LoginDetail" Member="Church_LoginDetails">
+    <Type Name="Church_LoginDetail">
+      <Column Name="Login_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Login_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Church_MemberDetail" Member="Church_MemberDetails">
     <Type Name="Church_MemberDetail">
       <Column Name="MemberId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,7 +15,7 @@
       <Column Name="CardNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FamilyNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Occupation" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
@@ -15,14 +23,6 @@
       <Column Name="MaritalStatus" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="MarriageDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="RegisterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Church_LoginDetail" Member="Church_LoginDetails">
-    <Type Name="Church_LoginDetail">
-      <Column Name="Login_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Login_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Login_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Church_MemberDetailMarriagedatepick" Method="sp_Church_MemberDetailMarriagedatepick">

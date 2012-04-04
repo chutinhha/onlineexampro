@@ -38,7 +38,8 @@
             // btnmember
             // 
             this.btnmember.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnmember.Font = new System.Drawing.Font("Jokerman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmember.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmember.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnmember.Location = new System.Drawing.Point(0, 0);
             this.btnmember.Name = "btnmember";
             this.btnmember.Size = new System.Drawing.Size(116, 50);
@@ -50,7 +51,8 @@
             // btnAccounts
             // 
             this.btnAccounts.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnAccounts.Font = new System.Drawing.Font("Jokerman", 9.75F);
+            this.btnAccounts.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnAccounts.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnAccounts.Location = new System.Drawing.Point(0, 50);
             this.btnAccounts.Name = "btnAccounts";
             this.btnAccounts.Size = new System.Drawing.Size(116, 50);
@@ -62,7 +64,8 @@
             // btnReport
             // 
             this.btnReport.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnReport.Font = new System.Drawing.Font("Jokerman", 9.75F);
+            this.btnReport.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnReport.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnReport.Location = new System.Drawing.Point(0, 100);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(116, 50);
@@ -73,7 +76,8 @@
             // btnResetpwd
             // 
             this.btnResetpwd.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnResetpwd.Font = new System.Drawing.Font("Jokerman", 9.75F);
+            this.btnResetpwd.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnResetpwd.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnResetpwd.Location = new System.Drawing.Point(0, 150);
             this.btnResetpwd.Name = "btnResetpwd";
             this.btnResetpwd.Size = new System.Drawing.Size(116, 50);

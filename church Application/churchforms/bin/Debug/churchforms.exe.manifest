@@ -83,24 +83,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="churchforms.exe" size="155648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="churchforms.exe" size="173056">
       <assemblyIdentity name="churchforms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aozsnkVc8/Lksfz3kK+T/PG0bJE=</dsig:DigestValue>
+        <dsig:DigestValue>d5VrEG/MMs8AFah91lrgXa+x+Rc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="churchforms.exe.config" size="1362">
+  <file name="churchforms.exe.config" size="673">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>BvgmJpwhpblbh50tAXSGdlLFWkA=</dsig:DigestValue>
+      <dsig:DigestValue>VQq87Q+rSYBJjXmen0Km/tA7ZRU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icons.ico" size="32038">
