@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Church_MemberDetail](
 	[CardNo] [bigint] NULL,
 	[FamilyNo] [int] NULL,
 	[Address] [nvarchar](200) NULL,
-	[Telephone] [bigint] NULL,
+	[Telephone] [nvarchar](50) NULL,
 	[Mobile] [bigint] NULL,
 	[Occupation] [nvarchar](100) NULL,
 	[Gender] [nvarchar](10) NULL,
@@ -96,4 +96,8 @@ select * from dbo.Church_MemberDetail where (DOB between @fromdate and @todate)
 
 GO
 
-
+use [ChurchApplication]
+go
+insert into Church_LoginDetail values(0,'admin','admin')
+insert into Church_LoginDetail values(1,'account','account')
+go
