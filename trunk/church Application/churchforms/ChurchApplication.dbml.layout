@@ -14,5 +14,17 @@
         <elementListCompartment Id="c4e3c6b5-ac5c-4a6a-bc61-767cd8a20169" absoluteBounds="5.14, 2.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="2775e113-eba8-4b25-a622-5f86c7270d15" absoluteBounds="0.75, 3.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_Accountdetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fef739e2-8b55-4461-bf94-d0afb5d15cd6" absoluteBounds="0.765, 4.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f949d942-3e09-4e0a-86a3-e0f575300dd4" absoluteBounds="2.875, 4.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_OfferingDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30196901-f0fd-4eb7-a0a0-1efd829a6d5c" absoluteBounds="2.89, 5.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
