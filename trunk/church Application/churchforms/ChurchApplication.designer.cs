@@ -36,12 +36,12 @@ namespace churchforms
     partial void InsertChurch_MemberDetail(Church_MemberDetail instance);
     partial void UpdateChurch_MemberDetail(Church_MemberDetail instance);
     partial void DeleteChurch_MemberDetail(Church_MemberDetail instance);
-    partial void InsertChurch_Accountdetail(Church_Accountdetail instance);
-    partial void UpdateChurch_Accountdetail(Church_Accountdetail instance);
-    partial void DeleteChurch_Accountdetail(Church_Accountdetail instance);
     partial void InsertChurch_OfferingDetail(Church_OfferingDetail instance);
     partial void UpdateChurch_OfferingDetail(Church_OfferingDetail instance);
     partial void DeleteChurch_OfferingDetail(Church_OfferingDetail instance);
+    partial void InsertChurch_Accountdetail(Church_Accountdetail instance);
+    partial void UpdateChurch_Accountdetail(Church_Accountdetail instance);
+    partial void DeleteChurch_Accountdetail(Church_Accountdetail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -90,19 +90,19 @@ namespace churchforms
 			}
 		}
 		
-		public System.Data.Linq.Table<Church_Accountdetail> Church_Accountdetails
-		{
-			get
-			{
-				return this.GetTable<Church_Accountdetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Church_OfferingDetail> Church_OfferingDetails
 		{
 			get
 			{
 				return this.GetTable<Church_OfferingDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_Accountdetail> Church_Accountdetails
+		{
+			get
+			{
+				return this.GetTable<Church_Accountdetail>();
 			}
 		}
 		
@@ -605,6 +605,120 @@ namespace churchforms
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_OfferingDetail")]
+	public partial class Church_OfferingDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Offering_id;
+		
+		private string _Offername;
+		
+		private EntitySet<Church_Accountdetail> _Church_Accountdetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOffering_idChanging(int value);
+    partial void OnOffering_idChanged();
+    partial void OnOffernameChanging(string value);
+    partial void OnOffernameChanged();
+    #endregion
+		
+		public Church_OfferingDetail()
+		{
+			this._Church_Accountdetails = new EntitySet<Church_Accountdetail>(new Action<Church_Accountdetail>(this.attach_Church_Accountdetails), new Action<Church_Accountdetail>(this.detach_Church_Accountdetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Offering_id
+		{
+			get
+			{
+				return this._Offering_id;
+			}
+			set
+			{
+				if ((this._Offering_id != value))
+				{
+					this.OnOffering_idChanging(value);
+					this.SendPropertyChanging();
+					this._Offering_id = value;
+					this.SendPropertyChanged("Offering_id");
+					this.OnOffering_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offername", DbType="NVarChar(50)")]
+		public string Offername
+		{
+			get
+			{
+				return this._Offername;
+			}
+			set
+			{
+				if ((this._Offername != value))
+				{
+					this.OnOffernameChanging(value);
+					this.SendPropertyChanging();
+					this._Offername = value;
+					this.SendPropertyChanged("Offername");
+					this.OnOffernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_OfferingDetail_Church_Accountdetail", Storage="_Church_Accountdetails", ThisKey="Offering_id", OtherKey="Offering_type")]
+		public EntitySet<Church_Accountdetail> Church_Accountdetails
+		{
+			get
+			{
+				return this._Church_Accountdetails;
+			}
+			set
+			{
+				this._Church_Accountdetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_Accountdetails(Church_Accountdetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_OfferingDetail = this;
+		}
+		
+		private void detach_Church_Accountdetails(Church_Accountdetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_OfferingDetail = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_Accountdetail")]
 	public partial class Church_Accountdetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -619,19 +733,39 @@ namespace churchforms
 		
 		private System.Nullable<int> _Offering_type;
 		
-		private System.Nullable<int> _CashAmount;
+		private System.Nullable<decimal> _CashAmount;
 		
-		private string _Bankname;
+		private System.Nullable<int> _Bankname;
 		
 		private string _Bankbranch;
 		
 		private string _Chequeno;
 		
-		private System.Nullable<int> _ChequeAmount;
+		private System.Nullable<decimal> _ChequeAmount;
 		
 		private System.Nullable<System.DateTime> _ChequeDate;
 		
 		private System.Nullable<System.DateTime> _RegisteredDate;
+		
+		private System.Nullable<int> @__1000x;
+		
+		private System.Nullable<int> @__500x;
+		
+		private System.Nullable<int> @__100x;
+		
+		private System.Nullable<int> @__50x;
+		
+		private System.Nullable<int> @__20x;
+		
+		private System.Nullable<int> @__10x;
+		
+		private System.Nullable<int> @__5x;
+		
+		private System.Nullable<int> @__2x;
+		
+		private System.Nullable<int> @__1x;
+		
+		private EntityRef<Church_OfferingDetail> _Church_OfferingDetail;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -645,24 +779,43 @@ namespace churchforms
     partial void OnMainCatagoryChanged();
     partial void OnOffering_typeChanging(System.Nullable<int> value);
     partial void OnOffering_typeChanged();
-    partial void OnCashAmountChanging(System.Nullable<int> value);
+    partial void OnCashAmountChanging(System.Nullable<decimal> value);
     partial void OnCashAmountChanged();
-    partial void OnBanknameChanging(string value);
+    partial void OnBanknameChanging(System.Nullable<int> value);
     partial void OnBanknameChanged();
     partial void OnBankbranchChanging(string value);
     partial void OnBankbranchChanged();
     partial void OnChequenoChanging(string value);
     partial void OnChequenoChanged();
-    partial void OnChequeAmountChanging(System.Nullable<int> value);
+    partial void OnChequeAmountChanging(System.Nullable<decimal> value);
     partial void OnChequeAmountChanged();
     partial void OnChequeDateChanging(System.Nullable<System.DateTime> value);
     partial void OnChequeDateChanged();
     partial void OnRegisteredDateChanging(System.Nullable<System.DateTime> value);
     partial void OnRegisteredDateChanged();
+    partial void On_1000xChanging(System.Nullable<int> value);
+    partial void On_1000xChanged();
+    partial void On_500xChanging(System.Nullable<int> value);
+    partial void On_500xChanged();
+    partial void On_100xChanging(System.Nullable<int> value);
+    partial void On_100xChanged();
+    partial void On_50xChanging(System.Nullable<int> value);
+    partial void On_50xChanged();
+    partial void On_20xChanging(System.Nullable<int> value);
+    partial void On_20xChanged();
+    partial void On_10xChanging(System.Nullable<int> value);
+    partial void On_10xChanged();
+    partial void On_5xChanging(System.Nullable<int> value);
+    partial void On_5xChanged();
+    partial void On_2xChanging(System.Nullable<int> value);
+    partial void On_2xChanged();
+    partial void On_1xChanging(System.Nullable<int> value);
+    partial void On_1xChanged();
     #endregion
 		
 		public Church_Accountdetail()
 		{
+			this._Church_OfferingDetail = default(EntityRef<Church_OfferingDetail>);
 			OnCreated();
 		}
 		
@@ -737,6 +890,10 @@ namespace churchforms
 			{
 				if ((this._Offering_type != value))
 				{
+					if (this._Church_OfferingDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnOffering_typeChanging(value);
 					this.SendPropertyChanging();
 					this._Offering_type = value;
@@ -746,8 +903,8 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashAmount", DbType="Int")]
-		public System.Nullable<int> CashAmount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> CashAmount
 		{
 			get
 			{
@@ -766,8 +923,8 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankname", DbType="NVarChar(50)")]
-		public string Bankname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankname", DbType="Int")]
+		public System.Nullable<int> Bankname
 		{
 			get
 			{
@@ -826,8 +983,8 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeAmount", DbType="Int")]
-		public System.Nullable<int> ChequeAmount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> ChequeAmount
 		{
 			get
 			{
@@ -886,88 +1043,216 @@ namespace churchforms
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_OfferingDetail")]
-	public partial class Church_OfferingDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Offering_id;
-		
-		private string _Offername;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOffering_idChanging(int value);
-    partial void OnOffering_idChanged();
-    partial void OnOffernameChanging(string value);
-    partial void OnOffernameChanged();
-    #endregion
-		
-		public Church_OfferingDetail()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Offering_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1000x]", Storage="__1000x", DbType="Int")]
+		public System.Nullable<int> _1000x
 		{
 			get
 			{
-				return this._Offering_id;
+				return this.@__1000x;
 			}
 			set
 			{
-				if ((this._Offering_id != value))
+				if ((this.@__1000x != value))
 				{
-					this.OnOffering_idChanging(value);
+					this.On_1000xChanging(value);
 					this.SendPropertyChanging();
-					this._Offering_id = value;
-					this.SendPropertyChanged("Offering_id");
-					this.OnOffering_idChanged();
+					this.@__1000x = value;
+					this.SendPropertyChanged("_1000x");
+					this.On_1000xChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offername", DbType="NVarChar(50)")]
-		public string Offername
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[500x]", Storage="__500x", DbType="Int")]
+		public System.Nullable<int> _500x
 		{
 			get
 			{
-				return this._Offername;
+				return this.@__500x;
 			}
 			set
 			{
-				if ((this._Offername != value))
+				if ((this.@__500x != value))
 				{
-					this.OnOffernameChanging(value);
+					this.On_500xChanging(value);
 					this.SendPropertyChanging();
-					this._Offername = value;
-					this.SendPropertyChanged("Offername");
-					this.OnOffernameChanged();
+					this.@__500x = value;
+					this.SendPropertyChanged("_500x");
+					this.On_500xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[100x]", Storage="__100x", DbType="Int")]
+		public System.Nullable<int> _100x
+		{
+			get
+			{
+				return this.@__100x;
+			}
+			set
+			{
+				if ((this.@__100x != value))
+				{
+					this.On_100xChanging(value);
+					this.SendPropertyChanging();
+					this.@__100x = value;
+					this.SendPropertyChanged("_100x");
+					this.On_100xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[50x]", Storage="__50x", DbType="Int")]
+		public System.Nullable<int> _50x
+		{
+			get
+			{
+				return this.@__50x;
+			}
+			set
+			{
+				if ((this.@__50x != value))
+				{
+					this.On_50xChanging(value);
+					this.SendPropertyChanging();
+					this.@__50x = value;
+					this.SendPropertyChanged("_50x");
+					this.On_50xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[20x]", Storage="__20x", DbType="Int")]
+		public System.Nullable<int> _20x
+		{
+			get
+			{
+				return this.@__20x;
+			}
+			set
+			{
+				if ((this.@__20x != value))
+				{
+					this.On_20xChanging(value);
+					this.SendPropertyChanging();
+					this.@__20x = value;
+					this.SendPropertyChanged("_20x");
+					this.On_20xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[10x]", Storage="__10x", DbType="Int")]
+		public System.Nullable<int> _10x
+		{
+			get
+			{
+				return this.@__10x;
+			}
+			set
+			{
+				if ((this.@__10x != value))
+				{
+					this.On_10xChanging(value);
+					this.SendPropertyChanging();
+					this.@__10x = value;
+					this.SendPropertyChanged("_10x");
+					this.On_10xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[5x]", Storage="__5x", DbType="Int")]
+		public System.Nullable<int> _5x
+		{
+			get
+			{
+				return this.@__5x;
+			}
+			set
+			{
+				if ((this.@__5x != value))
+				{
+					this.On_5xChanging(value);
+					this.SendPropertyChanging();
+					this.@__5x = value;
+					this.SendPropertyChanged("_5x");
+					this.On_5xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2x]", Storage="__2x", DbType="Int")]
+		public System.Nullable<int> _2x
+		{
+			get
+			{
+				return this.@__2x;
+			}
+			set
+			{
+				if ((this.@__2x != value))
+				{
+					this.On_2xChanging(value);
+					this.SendPropertyChanging();
+					this.@__2x = value;
+					this.SendPropertyChanged("_2x");
+					this.On_2xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1x]", Storage="__1x", DbType="Int")]
+		public System.Nullable<int> _1x
+		{
+			get
+			{
+				return this.@__1x;
+			}
+			set
+			{
+				if ((this.@__1x != value))
+				{
+					this.On_1xChanging(value);
+					this.SendPropertyChanging();
+					this.@__1x = value;
+					this.SendPropertyChanged("_1x");
+					this.On_1xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_OfferingDetail_Church_Accountdetail", Storage="_Church_OfferingDetail", ThisKey="Offering_type", OtherKey="Offering_id", IsForeignKey=true)]
+		public Church_OfferingDetail Church_OfferingDetail
+		{
+			get
+			{
+				return this._Church_OfferingDetail.Entity;
+			}
+			set
+			{
+				Church_OfferingDetail previousValue = this._Church_OfferingDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_OfferingDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_OfferingDetail.Entity = null;
+						previousValue.Church_Accountdetails.Remove(this);
+					}
+					this._Church_OfferingDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_Accountdetails.Add(this);
+						this._Offering_type = value.Offering_id;
+					}
+					else
+					{
+						this._Offering_type = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_OfferingDetail");
 				}
 			}
 		}
