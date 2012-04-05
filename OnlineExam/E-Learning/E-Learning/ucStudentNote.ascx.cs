@@ -42,5 +42,13 @@ namespace E_Learning
             ddlNotesTitle.DataBind();
             ddlNotesTitle.Items.Insert(0, "-Select-");
         }
+
+        protected void BtnView_Click(object sender, EventArgs e)
+        {            
+            var ar=ElearningHelper.Context.tblFiles.Where(a => a.FK_TitleId == Convert.ToInt64(ddlNotesTitle.SelectedValue));
+            lblLink.Text =Convert.ToString(ar.Select(a => a.FilePath));           
+        }
        }
+
+    
 }

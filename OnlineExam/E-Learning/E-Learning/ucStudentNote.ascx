@@ -19,5 +19,13 @@
         </asp:DropDownList>
     </td>
     </tr>
+    <tr>
+    <td>
+        <asp:Button ID="BtnView" runat="server" Text="Button" onclick="BtnView_Click" />
+    </td>
+    <td>
+        <asp:Label ID="lblLink" runat="server" AutoPostBack="True" Text="Label"></asp:Label>
+    </td>
+    </tr>
     </table>
     
