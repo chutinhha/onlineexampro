@@ -25,6 +25,27 @@
       <Column Name="RegisterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Church_Accountdetail" Member="Church_Accountdetails">
+    <Type Name="Church_Accountdetail">
+      <Column Name="Account_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cardno" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MainCatagory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Offering_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CashAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bankname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Bankbranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chequeno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChequeAmount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChequeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegisteredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_OfferingDetail" Member="Church_OfferingDetails">
+    <Type Name="Church_OfferingDetail">
+      <Column Name="Offering_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Offername" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_Church_MemberDetailMarriagedatepick" Method="sp_Church_MemberDetailMarriagedatepick">
     <Parameter Name="fromdate" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="todate" Type="System.DateTime" DbType="DateTime" />

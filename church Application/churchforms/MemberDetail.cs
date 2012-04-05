@@ -16,6 +16,7 @@ namespace churchforms
         public MemberDetail()
         {
             InitializeComponent();
+            dateTimePicker1.CustomFormat = "MMMM YYYY";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -258,12 +259,12 @@ namespace churchforms
             dataGridView2.Visible = true;
             using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
             {
+               // DateTimeConverter obj = new DateTimeConverter();
+                
+               // label19.Text = dateTimePicker1.Text;
                 var member = churchDB.sp_Church_MemberDetailBirthdatepick(Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text));
-
-
                 dataGridView2.DataSource = member;
                 //dataGridView1.datab
-
             }
         }
 

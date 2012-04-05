@@ -36,6 +36,12 @@ namespace churchforms
     partial void InsertChurch_MemberDetail(Church_MemberDetail instance);
     partial void UpdateChurch_MemberDetail(Church_MemberDetail instance);
     partial void DeleteChurch_MemberDetail(Church_MemberDetail instance);
+    partial void InsertChurch_Accountdetail(Church_Accountdetail instance);
+    partial void UpdateChurch_Accountdetail(Church_Accountdetail instance);
+    partial void DeleteChurch_Accountdetail(Church_Accountdetail instance);
+    partial void InsertChurch_OfferingDetail(Church_OfferingDetail instance);
+    partial void UpdateChurch_OfferingDetail(Church_OfferingDetail instance);
+    partial void DeleteChurch_OfferingDetail(Church_OfferingDetail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -81,6 +87,22 @@ namespace churchforms
 			get
 			{
 				return this.GetTable<Church_MemberDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_Accountdetail> Church_Accountdetails
+		{
+			get
+			{
+				return this.GetTable<Church_Accountdetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_OfferingDetail> Church_OfferingDetails
+		{
+			get
+			{
+				return this.GetTable<Church_OfferingDetail>();
 			}
 		}
 		
@@ -583,6 +605,394 @@ namespace churchforms
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_Accountdetail")]
+	public partial class Church_Accountdetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Account_id;
+		
+		private System.Nullable<long> _Cardno;
+		
+		private System.Nullable<int> _MainCatagory;
+		
+		private System.Nullable<int> _Offering_type;
+		
+		private System.Nullable<int> _CashAmount;
+		
+		private string _Bankname;
+		
+		private string _Bankbranch;
+		
+		private string _Chequeno;
+		
+		private System.Nullable<int> _ChequeAmount;
+		
+		private System.Nullable<System.DateTime> _ChequeDate;
+		
+		private System.Nullable<System.DateTime> _RegisteredDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccount_idChanging(long value);
+    partial void OnAccount_idChanged();
+    partial void OnCardnoChanging(System.Nullable<long> value);
+    partial void OnCardnoChanged();
+    partial void OnMainCatagoryChanging(System.Nullable<int> value);
+    partial void OnMainCatagoryChanged();
+    partial void OnOffering_typeChanging(System.Nullable<int> value);
+    partial void OnOffering_typeChanged();
+    partial void OnCashAmountChanging(System.Nullable<int> value);
+    partial void OnCashAmountChanged();
+    partial void OnBanknameChanging(string value);
+    partial void OnBanknameChanged();
+    partial void OnBankbranchChanging(string value);
+    partial void OnBankbranchChanged();
+    partial void OnChequenoChanging(string value);
+    partial void OnChequenoChanged();
+    partial void OnChequeAmountChanging(System.Nullable<int> value);
+    partial void OnChequeAmountChanged();
+    partial void OnChequeDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnChequeDateChanged();
+    partial void OnRegisteredDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegisteredDateChanged();
+    #endregion
+		
+		public Church_Accountdetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Account_id
+		{
+			get
+			{
+				return this._Account_id;
+			}
+			set
+			{
+				if ((this._Account_id != value))
+				{
+					this.OnAccount_idChanging(value);
+					this.SendPropertyChanging();
+					this._Account_id = value;
+					this.SendPropertyChanged("Account_id");
+					this.OnAccount_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cardno", DbType="BigInt")]
+		public System.Nullable<long> Cardno
+		{
+			get
+			{
+				return this._Cardno;
+			}
+			set
+			{
+				if ((this._Cardno != value))
+				{
+					this.OnCardnoChanging(value);
+					this.SendPropertyChanging();
+					this._Cardno = value;
+					this.SendPropertyChanged("Cardno");
+					this.OnCardnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MainCatagory", DbType="Int")]
+		public System.Nullable<int> MainCatagory
+		{
+			get
+			{
+				return this._MainCatagory;
+			}
+			set
+			{
+				if ((this._MainCatagory != value))
+				{
+					this.OnMainCatagoryChanging(value);
+					this.SendPropertyChanging();
+					this._MainCatagory = value;
+					this.SendPropertyChanged("MainCatagory");
+					this.OnMainCatagoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_type", DbType="Int")]
+		public System.Nullable<int> Offering_type
+		{
+			get
+			{
+				return this._Offering_type;
+			}
+			set
+			{
+				if ((this._Offering_type != value))
+				{
+					this.OnOffering_typeChanging(value);
+					this.SendPropertyChanging();
+					this._Offering_type = value;
+					this.SendPropertyChanged("Offering_type");
+					this.OnOffering_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashAmount", DbType="Int")]
+		public System.Nullable<int> CashAmount
+		{
+			get
+			{
+				return this._CashAmount;
+			}
+			set
+			{
+				if ((this._CashAmount != value))
+				{
+					this.OnCashAmountChanging(value);
+					this.SendPropertyChanging();
+					this._CashAmount = value;
+					this.SendPropertyChanged("CashAmount");
+					this.OnCashAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankname", DbType="NVarChar(50)")]
+		public string Bankname
+		{
+			get
+			{
+				return this._Bankname;
+			}
+			set
+			{
+				if ((this._Bankname != value))
+				{
+					this.OnBanknameChanging(value);
+					this.SendPropertyChanging();
+					this._Bankname = value;
+					this.SendPropertyChanged("Bankname");
+					this.OnBanknameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankbranch", DbType="NVarChar(50)")]
+		public string Bankbranch
+		{
+			get
+			{
+				return this._Bankbranch;
+			}
+			set
+			{
+				if ((this._Bankbranch != value))
+				{
+					this.OnBankbranchChanging(value);
+					this.SendPropertyChanging();
+					this._Bankbranch = value;
+					this.SendPropertyChanged("Bankbranch");
+					this.OnBankbranchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chequeno", DbType="NVarChar(50)")]
+		public string Chequeno
+		{
+			get
+			{
+				return this._Chequeno;
+			}
+			set
+			{
+				if ((this._Chequeno != value))
+				{
+					this.OnChequenoChanging(value);
+					this.SendPropertyChanging();
+					this._Chequeno = value;
+					this.SendPropertyChanged("Chequeno");
+					this.OnChequenoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeAmount", DbType="Int")]
+		public System.Nullable<int> ChequeAmount
+		{
+			get
+			{
+				return this._ChequeAmount;
+			}
+			set
+			{
+				if ((this._ChequeAmount != value))
+				{
+					this.OnChequeAmountChanging(value);
+					this.SendPropertyChanging();
+					this._ChequeAmount = value;
+					this.SendPropertyChanged("ChequeAmount");
+					this.OnChequeAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ChequeDate
+		{
+			get
+			{
+				return this._ChequeDate;
+			}
+			set
+			{
+				if ((this._ChequeDate != value))
+				{
+					this.OnChequeDateChanging(value);
+					this.SendPropertyChanging();
+					this._ChequeDate = value;
+					this.SendPropertyChanged("ChequeDate");
+					this.OnChequeDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisteredDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RegisteredDate
+		{
+			get
+			{
+				return this._RegisteredDate;
+			}
+			set
+			{
+				if ((this._RegisteredDate != value))
+				{
+					this.OnRegisteredDateChanging(value);
+					this.SendPropertyChanging();
+					this._RegisteredDate = value;
+					this.SendPropertyChanged("RegisteredDate");
+					this.OnRegisteredDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_OfferingDetail")]
+	public partial class Church_OfferingDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Offering_id;
+		
+		private string _Offername;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOffering_idChanging(int value);
+    partial void OnOffering_idChanged();
+    partial void OnOffernameChanging(string value);
+    partial void OnOffernameChanged();
+    #endregion
+		
+		public Church_OfferingDetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Offering_id
+		{
+			get
+			{
+				return this._Offering_id;
+			}
+			set
+			{
+				if ((this._Offering_id != value))
+				{
+					this.OnOffering_idChanging(value);
+					this.SendPropertyChanging();
+					this._Offering_id = value;
+					this.SendPropertyChanged("Offering_id");
+					this.OnOffering_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offername", DbType="NVarChar(50)")]
+		public string Offername
+		{
+			get
+			{
+				return this._Offername;
+			}
+			set
+			{
+				if ((this._Offername != value))
+				{
+					this.OnOffernameChanging(value);
+					this.SendPropertyChanging();
+					this._Offername = value;
+					this.SendPropertyChanged("Offername");
+					this.OnOffernameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class sp_Church_MemberDetailMarriagedatepickResult
 	{
 		
@@ -596,7 +1006,7 @@ namespace churchforms
 		
 		private string _Address;
 		
-		private string _Telephone;
+		private System.Nullable<long> _Telephone;
 		
 		private System.Nullable<long> _Mobile;
 		
@@ -695,9 +1105,9 @@ namespace churchforms
 				}
 			}
 		}
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Telephone", DbType = "NVarChar(50)")]
-		public string Telephone
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
+		public System.Nullable<long> Telephone
 		{
 			get
 			{
@@ -838,7 +1248,7 @@ namespace churchforms
 		
 		private string _Address;
 		
-		private string _Telephone;
+		private System.Nullable<long> _Telephone;
 		
 		private System.Nullable<long> _Mobile;
 		
@@ -937,9 +1347,9 @@ namespace churchforms
 				}
 			}
 		}
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Telephone", DbType = "NVarChar(50)")]
-		public string Telephone
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
+		public System.Nullable<long> Telephone
 		{
 			get
 			{
