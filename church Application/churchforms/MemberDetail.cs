@@ -255,14 +255,17 @@ namespace churchforms
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
+        {            
             dataGridView2.Visible = true;
             using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
             {
                // DateTimeConverter obj = new DateTimeConverter();
                 
                // label19.Text = dateTimePicker1.Text;
-                var member = churchDB.sp_Church_MemberDetailBirthdatepick(Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text));
+                DateTime dt = Convert.ToDateTime(dateTimePicker1.Text);
+                DateTime dt1 = Convert.ToDateTime(dateTimePicker2.Text);
+                var member = from a in churchDB.Church_MemberDetails where a.DOB.Value.Day >= dt.Day && a.DOB.Value.Day <= dt1.Day && a.DOB.Value.Month >= dt.Month && a.DOB.Value.Month <= dt1.Month select a;
+                //var member = churchDB.sp_Church_MemberDetailBirthdatepick(Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text));
                 dataGridView2.DataSource = member;
                 //dataGridView1.datab
             }
