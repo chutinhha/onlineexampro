@@ -42,6 +42,9 @@ namespace churchforms
     partial void InsertChurch_Accountdetail(Church_Accountdetail instance);
     partial void UpdateChurch_Accountdetail(Church_Accountdetail instance);
     partial void DeleteChurch_Accountdetail(Church_Accountdetail instance);
+    partial void InsertChurch_BankDetail(Church_BankDetail instance);
+    partial void UpdateChurch_BankDetail(Church_BankDetail instance);
+    partial void DeleteChurch_BankDetail(Church_BankDetail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -106,18 +109,12 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Church_MemberDetailMarriagedatepick")]
-		public ISingleResult<sp_Church_MemberDetailMarriagedatepickResult> sp_Church_MemberDetailMarriagedatepick([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fromdate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> todate)
+		public System.Data.Linq.Table<Church_BankDetail> Church_BankDetails
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromdate, todate);
-			return ((ISingleResult<sp_Church_MemberDetailMarriagedatepickResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Church_MemberDetailBirthdatepick")]
-		public ISingleResult<sp_Church_MemberDetailBirthdatepickResult> sp_Church_MemberDetailBirthdatepick([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> fromdate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> todate)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fromdate, todate);
-			return ((ISingleResult<sp_Church_MemberDetailBirthdatepickResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<Church_BankDetail>();
+			}
 		}
 	}
 	
@@ -767,6 +764,8 @@ namespace churchforms
 		
 		private EntityRef<Church_OfferingDetail> _Church_OfferingDetail;
 		
+		private EntityRef<Church_BankDetail> _Church_BankDetail;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -816,6 +815,7 @@ namespace churchforms
 		public Church_Accountdetail()
 		{
 			this._Church_OfferingDetail = default(EntityRef<Church_OfferingDetail>);
+			this._Church_BankDetail = default(EntityRef<Church_BankDetail>);
 			OnCreated();
 		}
 		
@@ -934,6 +934,10 @@ namespace churchforms
 			{
 				if ((this._Bankname != value))
 				{
+					if (this._Church_BankDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnBanknameChanging(value);
 					this.SendPropertyChanging();
 					this._Bankname = value;
@@ -1257,6 +1261,40 @@ namespace churchforms
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_Accountdetail", Storage="_Church_BankDetail", ThisKey="Bankname", OtherKey="Bank_id", IsForeignKey=true)]
+		public Church_BankDetail Church_BankDetail
+		{
+			get
+			{
+				return this._Church_BankDetail.Entity;
+			}
+			set
+			{
+				Church_BankDetail previousValue = this._Church_BankDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_BankDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_BankDetail.Entity = null;
+						previousValue.Church_Accountdetails.Remove(this);
+					}
+					this._Church_BankDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_Accountdetails.Add(this);
+						this._Bankname = value.Bank_id;
+					}
+					else
+					{
+						this._Bankname = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_BankDetail");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1278,487 +1316,117 @@ namespace churchforms
 		}
 	}
 	
-	public partial class sp_Church_MemberDetailMarriagedatepickResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_BankDetail")]
+	public partial class Church_BankDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private long _MemberId;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MemberName;
+		private int _Bank_id;
 		
-		private System.Nullable<long> _CardNo;
+		private string _Bank_name;
 		
-		private System.Nullable<int> _FamilyNo;
+		private EntitySet<Church_Accountdetail> _Church_Accountdetails;
 		
-		private string _Address;
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBank_idChanging(int value);
+    partial void OnBank_idChanged();
+    partial void OnBank_nameChanging(string value);
+    partial void OnBank_nameChanged();
+    #endregion
 		
-		private System.Nullable<long> _Telephone;
-		
-		private System.Nullable<long> _Mobile;
-		
-		private string _Occupation;
-		
-		private string _Gender;
-		
-		private System.Nullable<System.DateTime> _DOB;
-		
-		private string _MaritalStatus;
-		
-		private System.Nullable<System.DateTime> _MarriageDate;
-		
-		private System.Nullable<System.DateTime> _RegisterDate;
-		
-		public sp_Church_MemberDetailMarriagedatepickResult()
+		public Church_BankDetail()
 		{
+			this._Church_Accountdetails = new EntitySet<Church_Accountdetail>(new Action<Church_Accountdetail>(this.attach_Church_Accountdetails), new Action<Church_Accountdetail>(this.detach_Church_Accountdetails));
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="BigInt NOT NULL")]
-		public long MemberId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Bank_id
 		{
 			get
 			{
-				return this._MemberId;
+				return this._Bank_id;
 			}
 			set
 			{
-				if ((this._MemberId != value))
+				if ((this._Bank_id != value))
 				{
-					this._MemberId = value;
+					this.OnBank_idChanging(value);
+					this.SendPropertyChanging();
+					this._Bank_id = value;
+					this.SendPropertyChanged("Bank_id");
+					this.OnBank_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberName", DbType="NVarChar(50)")]
-		public string MemberName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_name", DbType="NVarChar(50)")]
+		public string Bank_name
 		{
 			get
 			{
-				return this._MemberName;
+				return this._Bank_name;
 			}
 			set
 			{
-				if ((this._MemberName != value))
+				if ((this._Bank_name != value))
 				{
-					this._MemberName = value;
+					this.OnBank_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Bank_name = value;
+					this.SendPropertyChanged("Bank_name");
+					this.OnBank_nameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardNo", DbType="BigInt")]
-		public System.Nullable<long> CardNo
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_Accountdetail", Storage="_Church_Accountdetails", ThisKey="Bank_id", OtherKey="Bankname")]
+		public EntitySet<Church_Accountdetail> Church_Accountdetails
 		{
 			get
 			{
-				return this._CardNo;
+				return this._Church_Accountdetails;
 			}
 			set
 			{
-				if ((this._CardNo != value))
-				{
-					this._CardNo = value;
-				}
+				this._Church_Accountdetails.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FamilyNo", DbType="Int")]
-		public System.Nullable<int> FamilyNo
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			get
+			if ((this.PropertyChanging != null))
 			{
-				return this._FamilyNo;
-			}
-			set
-			{
-				if ((this._FamilyNo != value))
-				{
-					this._FamilyNo = value;
-				}
+				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200)")]
-		public string Address
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			get
+			if ((this.PropertyChanged != null))
 			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
-		public System.Nullable<long> Telephone
+		private void attach_Church_Accountdetails(Church_Accountdetail entity)
 		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this._Telephone = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-		public System.Nullable<long> Mobile
+		private void detach_Church_Accountdetails(Church_Accountdetail entity)
 		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this._Mobile = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(100)")]
-		public string Occupation
-		{
-			get
-			{
-				return this._Occupation;
-			}
-			set
-			{
-				if ((this._Occupation != value))
-				{
-					this._Occupation = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(10)")]
-		public string Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this._Gender = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DOB
-		{
-			get
-			{
-				return this._DOB;
-			}
-			set
-			{
-				if ((this._DOB != value))
-				{
-					this._DOB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaritalStatus", DbType="NVarChar(10)")]
-		public string MaritalStatus
-		{
-			get
-			{
-				return this._MaritalStatus;
-			}
-			set
-			{
-				if ((this._MaritalStatus != value))
-				{
-					this._MaritalStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarriageDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MarriageDate
-		{
-			get
-			{
-				return this._MarriageDate;
-			}
-			set
-			{
-				if ((this._MarriageDate != value))
-				{
-					this._MarriageDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisterDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> RegisterDate
-		{
-			get
-			{
-				return this._RegisterDate;
-			}
-			set
-			{
-				if ((this._RegisterDate != value))
-				{
-					this._RegisterDate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_Church_MemberDetailBirthdatepickResult
-	{
-		
-		private long _MemberId;
-		
-		private string _MemberName;
-		
-		private System.Nullable<long> _CardNo;
-		
-		private System.Nullable<int> _FamilyNo;
-		
-		private string _Address;
-		
-		private System.Nullable<long> _Telephone;
-		
-		private System.Nullable<long> _Mobile;
-		
-		private string _Occupation;
-		
-		private string _Gender;
-		
-		private System.Nullable<System.DateTime> _DOB;
-		
-		private string _MaritalStatus;
-		
-		private System.Nullable<System.DateTime> _MarriageDate;
-		
-		private System.Nullable<System.DateTime> _RegisterDate;
-		
-		public sp_Church_MemberDetailBirthdatepickResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberId", DbType="BigInt NOT NULL")]
-		public long MemberId
-		{
-			get
-			{
-				return this._MemberId;
-			}
-			set
-			{
-				if ((this._MemberId != value))
-				{
-					this._MemberId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberName", DbType="NVarChar(50)")]
-		public string MemberName
-		{
-			get
-			{
-				return this._MemberName;
-			}
-			set
-			{
-				if ((this._MemberName != value))
-				{
-					this._MemberName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardNo", DbType="BigInt")]
-		public System.Nullable<long> CardNo
-		{
-			get
-			{
-				return this._CardNo;
-			}
-			set
-			{
-				if ((this._CardNo != value))
-				{
-					this._CardNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FamilyNo", DbType="Int")]
-		public System.Nullable<int> FamilyNo
-		{
-			get
-			{
-				return this._FamilyNo;
-			}
-			set
-			{
-				if ((this._FamilyNo != value))
-				{
-					this._FamilyNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="BigInt")]
-		public System.Nullable<long> Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this._Telephone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-		public System.Nullable<long> Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this._Mobile = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(100)")]
-		public string Occupation
-		{
-			get
-			{
-				return this._Occupation;
-			}
-			set
-			{
-				if ((this._Occupation != value))
-				{
-					this._Occupation = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(10)")]
-		public string Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this._Gender = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DOB
-		{
-			get
-			{
-				return this._DOB;
-			}
-			set
-			{
-				if ((this._DOB != value))
-				{
-					this._DOB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaritalStatus", DbType="NVarChar(10)")]
-		public string MaritalStatus
-		{
-			get
-			{
-				return this._MaritalStatus;
-			}
-			set
-			{
-				if ((this._MaritalStatus != value))
-				{
-					this._MaritalStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarriageDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MarriageDate
-		{
-			get
-			{
-				return this._MarriageDate;
-			}
-			set
-			{
-				if ((this._MarriageDate != value))
-				{
-					this._MarriageDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisterDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> RegisterDate
-		{
-			get
-			{
-				return this._RegisterDate;
-			}
-			set
-			{
-				if ((this._RegisterDate != value))
-				{
-					this._RegisterDate = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = null;
 		}
 	}
 }
