@@ -26,8 +26,6 @@ namespace churchforms
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 Validationfieldtext(txtName);
@@ -107,10 +105,6 @@ namespace churchforms
                     label18.Visible = true;
                     MessageBox.Show("Fill the mandatory fields *");
                 }
-
-
-
-
             }
             catch (Exception ex)
             {
