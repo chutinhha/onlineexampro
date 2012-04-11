@@ -10,21 +10,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <cc1:ToolkitScriptManager ID="dfd" runat="server"></cc1:ToolkitScriptManager>
     <div>
     
         <table>
             <tr>
                 <td align="right">
                     <asp:ImageButton ID="imgLeft" runat="server" 
-                        ImageUrl="~/Images/arrow33l.gif" />
+                        ImageUrl="~/Images/arrow33l.gif" onclick="imgLeft_Click" />
                 </td>
                 <td>
                     <asp:Image ID="imgSource" runat="server" Height="500px" Width="500px" />
+                    <asp:Label ID="Label1" runat="server" Text="There is no images to display" 
+                        Font-Italic="True" ForeColor="Red"></asp:Label>
                 </td>
                 <td align="left">
                     <asp:ImageButton ID="imgRight" runat="server" 
                         ImageUrl="~/Images/arrow33r.gif" onclick="imgRight_Click" />
-                    <asp:Label ID="Label1" runat="server" Text="There is no images to display"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -121,13 +123,15 @@
                 <td>
                     </td>
                 <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" 
+                        onclick="btnSubmit_Click" />
                 </td>
                 <td>
                     </td>
             </tr>
         </table>
-    
+        <asp:TextBox ID="TextBox1" runat="server" Height="173px" Width="413px"></asp:TextBox>
+        <cc1:HtmlEditorExtender ID="ds" runat="server" TargetControlID="TextBox1"></cc1:HtmlEditorExtender>
     </div>
     </form>
 </body>
