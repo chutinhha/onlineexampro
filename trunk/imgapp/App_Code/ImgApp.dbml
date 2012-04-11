@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="imgapDB" Class="ImgAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\imgapDB.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="imgapDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblImages" Member="tblImages">
+    <Type Name="tblImage">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BoxBarcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AltId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Des1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Des2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Des3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Des4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DestroyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ImgaePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FK_User" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblUsera_tblImage" Member="tblUsera" ThisKey="FK_User" OtherKey="Id" Type="tblUsera" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUsera" Member="tblUseras">
+    <Type Name="tblUsera">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblUsera_tblImage" Member="tblImages" ThisKey="Id" OtherKey="FK_User" Type="tblImage" />
+    </Type>
+  </Table>
+</Database>
