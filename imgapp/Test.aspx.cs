@@ -16,7 +16,7 @@ public partial class Test : System.Web.UI.Page
         }
         TextBox1.Enabled = false;
         ds.Enabled = false;
-        if (!IsPostBack)s
+        if (!IsPostBack)
         {
             Label1.Visible = false;
             ViewState["ImgId"] = ImgAppHelper.Context.tblImages.Where(a => a.FK_User == Convert.ToInt64(Session["UserId"])).OrderByDescending(a => a.Id).First().Id + 1;
