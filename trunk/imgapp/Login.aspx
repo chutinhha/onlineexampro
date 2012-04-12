@@ -58,7 +58,6 @@
             </tr>
         </table>
     </div>
-    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
     </form>
 </body>
 </html>
