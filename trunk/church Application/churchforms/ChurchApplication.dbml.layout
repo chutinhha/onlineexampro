@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ChurchApplication">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.75" name="ChurchApplication">
   <DataContextMoniker Name="/ChurchApplicationDataContext" />
   <nestedChildShapes>
     <classShape Id="4441a6c2-e415-4e46-8e97-3b1350ccf92a" absoluteBounds="1.5, 1.25, 2, 1.5785953776041666">
@@ -32,18 +32,37 @@
         <elementListCompartment Id="2f075c28-94a8-4f65-93d7-395c7a42cf32" absoluteBounds="4.515, 1.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.625 : 4.59699625651042); (4.5 : 4.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.625 : 4.59699625651042); (4.5 : 4.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ChurchApplicationDataContext/Church_BankDetail/Church_BankDetail_Church_GeneralOfferingDetail" />
       <nodes>
         <classShapeMoniker Id="80c77893-a4af-481b-aff4-3ab7d199cbeb" />
         <classShapeMoniker Id="9c2f249e-b14a-423d-ab76-3a28318ceaca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.375 : 0.9999995); (5.5 : 0.9999995); (5.5 : 1.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.375 : 0.9999995); (5.5 : 0.9999995); (5.5 : 1.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ChurchApplicationDataContext/Church_OfferingDetail/Church_OfferingDetail_Church_GeneralOfferingDetail" />
       <nodes>
         <classShapeMoniker Id="77e43643-a6b8-4333-9f0b-15a5e3fbbf73" />
         <classShapeMoniker Id="9c2f249e-b14a-423d-ab76-3a28318ceaca" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="59cbc9cb-cb67-428f-9cb4-9ca0138df6d1" absoluteBounds="0.75, 7.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_AuctionType_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="503bd2d4-5aea-4195-a555-6a7bdddac949" absoluteBounds="0.765, 8.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab7ba2f3-65e4-4717-9f76-db7b65f7d21f" absoluteBounds="5.625, 7, 2, 2.5401025390625">
+      <DataClassMoniker Name="/ChurchApplicationDataContext/Church_Auction_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6e04a61-41f8-4afc-a036-4a630cf08294" absoluteBounds="5.64, 7.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 8.22199625651042); (5.625 : 8.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ChurchApplicationDataContext/Church_AuctionType_Detail/Church_AuctionType_Detail_Church_Auction_Detail" />
+      <nodes>
+        <classShapeMoniker Id="59cbc9cb-cb67-428f-9cb4-9ca0138df6d1" />
+        <classShapeMoniker Id="ab7ba2f3-65e4-4717-9f76-db7b65f7d21f" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
