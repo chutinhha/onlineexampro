@@ -1,0 +1,12 @@
+c:\users\prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\bin\E-Learning.dll
+c:\users\prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\bin\E-Learning.pdb
+c:\users\prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\obj\Debug\ResolveAssemblyReference.cache
+c:\users\prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\obj\Debug\E-Learning.dll
+c:\users\prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\obj\Debug\E-Learning.pdb
+C:\Users\Prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\bin\Ionic.Zip.dll
+C:\Users\Prewin\documents\visual studio 2010\Projects\E-Learning\E-Learning\bin\NPOI.dll
+D:\E-learn repository\E-Learning\E-Learning\bin\E-Learning.dll
+D:\E-learn repository\E-Learning\E-Learning\bin\E-Learning.pdb
+D:\E-learn repository\E-Learning\E-Learning\obj\Debug\ResolveAssemblyReference.cache
+D:\E-learn repository\E-Learning\E-Learning\obj\Debug\E-Learning.dll
+D:\E-learn repository\E-Learning\E-Learning\obj\Debug\E-Learning.pdb
