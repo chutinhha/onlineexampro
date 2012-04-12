@@ -1,0 +1,123 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="registration.aspx.cs" Inherits="registration" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body style="background-color: #99CCFF">
+    <form id="form1" runat="server">
+    <cc1:toolkitscriptmanager runat="server" id="sdfd">
+    </cc1:toolkitscriptmanager>
+    <div>
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" style="border: medium dotted #008080;
+            background-color: #FFFFFF;">
+            <tr>
+                <td>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/images/logo_for_test.png" Width="350px"
+                        Height="135px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="color: #009999; font-size: 24px; font-weight: bold" align="center">
+                    Online Test
+                </td>
+            </tr>
+            <tr>
+                <td style="font-family: Calibri; font-size: 18px; font-weight: bold; color: #009999">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label1" runat="server" Text="Registeration form:" Font-Underline="True"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:ImageButton ID="ImageButton1" runat="server" Width="84px" Height="30px" ImageUrl="~/images/AdminLogo.gif"
+                        PostBackUrl="~/admin/loginAdmin.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <br />
+                </td>
+            </tr>
+            <cc1:filteredtextboxextender id="asdsa" runat="server" targetcontrolid="txtname"
+                filtermode="ValidChars" filtertype="LowercaseLetters,UppercaseLetters">
+            </cc1:filteredtextboxextender>
+            <tr>
+                <td align="center">
+                    <table width="300px" align="center" style="border: thin groove #008080">
+                        <tr>
+                            <td align="left" style="font-family: calibri">
+                                Name<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*"
+                                    ControlToValidate="txtname" ForeColor="#CC0000" ValidationGroup="a"></asp:RequiredFieldValidator>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                :&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtname" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="font-family: calibri">
+                                Mobile<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtmobile"
+                                    ErrorMessage="*" ForeColor="#CC0000" ValidationGroup="a"></asp:RequiredFieldValidator>&nbsp;&nbsp;&nbsp;
+                                :&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtmobile" MaxLength="10" runat="server"></asp:TextBox>
+                                <cc1:filteredtextboxextender id="adfas" runat="server" targetcontrolid="txtmobile"
+                                    filtermode="ValidChars" filtertype="Numbers">
+                                </cc1:filteredtextboxextender>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="enter valid mobile no"
+                                    ControlToValidate="txtmobile" ForeColor="#CC0000" ValidationExpression="\d{10}"></asp:RegularExpressionValidator><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" style="font-family: calibri">
+                                E-mail<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
+                                    ControlToValidate="txtemail" ForeColor="#CC0000" ValidationGroup="a"></asp:RequiredFieldValidator>&nbsp;&nbsp;&nbsp;&nbsp;
+                                :&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtemail" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" height="25px" style="font-family: calibri">
+                                <asp:Label ID="lbregister" runat="server" Font-Names="Calibri" ForeColor="#CC0000"></asp:Label>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="enter valid id"
+                                    ControlToValidate="txtemail" ValidationGroup="a" Font-Names="Calibri" ForeColor="#CC0000"
+                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <%while (Convert.ToBoolean(Application["accept"]) == true)
+                                  {%>
+                                <asp:Button ID="btnsubmit" runat="server" Text="register" OnClick="btnsubmit_Click"
+                                    ValidationGroup="a" />
+                                <% }%>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

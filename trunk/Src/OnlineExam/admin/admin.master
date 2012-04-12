@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: #99CCFF">
+    <form id="form1" runat="server">
+    <div>
+        <table cellpadding="0" cellspacing="0" width="900px" align="center" 
+            bgcolor="White" style="border: medium dotted #008080;
+            background-color: #FFFFFF;">
+            <tr>
+                <td align="left" width="350px">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/admin/images/logo_for_test.png" Width="350px"
+                        Height="135px" />
+                </td>
+                <td valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="font-family: calibri; font-size: 24px; font-weight: bold;
+                    color: #663300">
+                    <asp:Label ID="Label1" runat="server" Text="Admin"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            
+                            <td style="font-family: Calibri">
+                                <asp:Button ID="Button2" runat="server" Text="Post Question" 
+                                    PostBackUrl="~/admin/QuestionPosting.aspx"/>
+                            </td>
+                            <td style="font-family: Calibri">
+                                <asp:Button ID="Button3" runat="server" Text="View Result" 
+                                    PostBackUrl="~/admin/View Result.aspx" />
+                            </td>
+                            <td style="font-family: Calibri"><asp:Button ID="btnhome" runat="server" Text="Admin Home" 
+                                    PostBackUrl="~/admin/adminHome.aspx" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

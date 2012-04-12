@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ImgApp">
+  <DataContextMoniker Name="/ImgAppDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7e6f437d-d847-497f-81fd-138c4f05e6d6" absoluteBounds="3.5, 1, 2, 3.0683211263020831">
+      <DataClassMoniker Name="/ImgAppDataContext/tblImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="681bfda1-5dc3-4d53-9840-940f27729e28" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0acd97d2-ba7e-4287-bbce-060374add57e" absoluteBounds="0.75, 1.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/ImgAppDataContext/tblUsera" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e85d775f-6aa0-4b92-ae1d-4b8bcd592c41" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.46242390950521); (3.5 : 2.46242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImgAppDataContext/tblUsera/tblUsera_tblImage" />
+      <nodes>
+        <classShapeMoniker Id="0acd97d2-ba7e-4287-bbce-060374add57e" />
+        <classShapeMoniker Id="7e6f437d-d847-497f-81fd-138c4f05e6d6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
