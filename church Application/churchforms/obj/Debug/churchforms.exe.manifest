@@ -83,14 +83,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="churchforms.exe" size="287744">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="churchforms.exe" size="301568">
       <assemblyIdentity name="churchforms" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yo88u10e8xbCHu6zjKv7Cucs2ms=</dsig:DigestValue>
+        <dsig:DigestValue>8pd9rZYQLDdc5ykM76KHCiIyUrs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

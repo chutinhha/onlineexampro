@@ -45,6 +45,12 @@ namespace churchforms
     partial void InsertChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
     partial void UpdateChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
     partial void DeleteChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
+    partial void InsertChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void UpdateChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void DeleteChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void InsertChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void UpdateChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void DeleteChurch_Auction_Detail(Church_Auction_Detail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -114,6 +120,22 @@ namespace churchforms
 			get
 			{
 				return this.GetTable<Church_GeneralOfferingDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_AuctionType_Detail> Church_AuctionType_Details
+		{
+			get
+			{
+				return this.GetTable<Church_AuctionType_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_Auction_Detail> Church_Auction_Details
+		{
+			get
+			{
+				return this.GetTable<Church_Auction_Detail>();
 			}
 		}
 	}
@@ -1357,6 +1379,415 @@ namespace churchforms
 						this._Offering_type = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Church_OfferingDetail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_AuctionType_Detail")]
+	public partial class Church_AuctionType_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Auction_id;
+		
+		private string _Auction_Name;
+		
+		private EntitySet<Church_Auction_Detail> _Church_Auction_Details;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAuction_idChanging(int value);
+    partial void OnAuction_idChanged();
+    partial void OnAuction_NameChanging(string value);
+    partial void OnAuction_NameChanged();
+    #endregion
+		
+		public Church_AuctionType_Detail()
+		{
+			this._Church_Auction_Details = new EntitySet<Church_Auction_Detail>(new Action<Church_Auction_Detail>(this.attach_Church_Auction_Details), new Action<Church_Auction_Detail>(this.detach_Church_Auction_Details));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Auction_id
+		{
+			get
+			{
+				return this._Auction_id;
+			}
+			set
+			{
+				if ((this._Auction_id != value))
+				{
+					this.OnAuction_idChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_id = value;
+					this.SendPropertyChanged("Auction_id");
+					this.OnAuction_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Name", DbType="NVarChar(50)")]
+		public string Auction_Name
+		{
+			get
+			{
+				return this._Auction_Name;
+			}
+			set
+			{
+				if ((this._Auction_Name != value))
+				{
+					this.OnAuction_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Name = value;
+					this.SendPropertyChanged("Auction_Name");
+					this.OnAuction_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_Auction_Details", ThisKey="Auction_id", OtherKey="Auction_Type")]
+		public EntitySet<Church_Auction_Detail> Church_Auction_Details
+		{
+			get
+			{
+				return this._Church_Auction_Details;
+			}
+			set
+			{
+				this._Church_Auction_Details.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_Auction_Details(Church_Auction_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AuctionType_Detail = this;
+		}
+		
+		private void detach_Church_Auction_Details(Church_Auction_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AuctionType_Detail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_Auction_Detail")]
+	public partial class Church_Auction_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _id;
+		
+		private System.Nullable<long> _Card_No;
+		
+		private System.Nullable<int> _Auction_Type;
+		
+		private string _Thing_Name;
+		
+		private System.Nullable<System.DateTime> _Auction_Date;
+		
+		private System.Nullable<decimal> _Original_Price;
+		
+		private System.Nullable<decimal> _inicial_Amount;
+		
+		private string _Full_Payment;
+		
+		private System.Nullable<System.DateTime> _Register_Date;
+		
+		private EntityRef<Church_AuctionType_Detail> _Church_AuctionType_Detail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(long value);
+    partial void OnidChanged();
+    partial void OnCard_NoChanging(System.Nullable<long> value);
+    partial void OnCard_NoChanged();
+    partial void OnAuction_TypeChanging(System.Nullable<int> value);
+    partial void OnAuction_TypeChanged();
+    partial void OnThing_NameChanging(string value);
+    partial void OnThing_NameChanged();
+    partial void OnAuction_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnAuction_DateChanged();
+    partial void OnOriginal_PriceChanging(System.Nullable<decimal> value);
+    partial void OnOriginal_PriceChanged();
+    partial void Oninicial_AmountChanging(System.Nullable<decimal> value);
+    partial void Oninicial_AmountChanged();
+    partial void OnFull_PaymentChanging(string value);
+    partial void OnFull_PaymentChanged();
+    partial void OnRegister_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegister_DateChanged();
+    #endregion
+		
+		public Church_Auction_Detail()
+		{
+			this._Church_AuctionType_Detail = default(EntityRef<Church_AuctionType_Detail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Card_No", DbType="BigInt")]
+		public System.Nullable<long> Card_No
+		{
+			get
+			{
+				return this._Card_No;
+			}
+			set
+			{
+				if ((this._Card_No != value))
+				{
+					this.OnCard_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Card_No = value;
+					this.SendPropertyChanged("Card_No");
+					this.OnCard_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Type", DbType="Int")]
+		public System.Nullable<int> Auction_Type
+		{
+			get
+			{
+				return this._Auction_Type;
+			}
+			set
+			{
+				if ((this._Auction_Type != value))
+				{
+					if (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAuction_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Type = value;
+					this.SendPropertyChanged("Auction_Type");
+					this.OnAuction_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thing_Name", DbType="NVarChar(50)")]
+		public string Thing_Name
+		{
+			get
+			{
+				return this._Thing_Name;
+			}
+			set
+			{
+				if ((this._Thing_Name != value))
+				{
+					this.OnThing_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Thing_Name = value;
+					this.SendPropertyChanged("Thing_Name");
+					this.OnThing_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Auction_Date
+		{
+			get
+			{
+				return this._Auction_Date;
+			}
+			set
+			{
+				if ((this._Auction_Date != value))
+				{
+					this.OnAuction_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Date = value;
+					this.SendPropertyChanged("Auction_Date");
+					this.OnAuction_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Original_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Original_Price
+		{
+			get
+			{
+				return this._Original_Price;
+			}
+			set
+			{
+				if ((this._Original_Price != value))
+				{
+					this.OnOriginal_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._Original_Price = value;
+					this.SendPropertyChanged("Original_Price");
+					this.OnOriginal_PriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inicial_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> inicial_Amount
+		{
+			get
+			{
+				return this._inicial_Amount;
+			}
+			set
+			{
+				if ((this._inicial_Amount != value))
+				{
+					this.Oninicial_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._inicial_Amount = value;
+					this.SendPropertyChanged("inicial_Amount");
+					this.Oninicial_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Payment", DbType="NVarChar(50)")]
+		public string Full_Payment
+		{
+			get
+			{
+				return this._Full_Payment;
+			}
+			set
+			{
+				if ((this._Full_Payment != value))
+				{
+					this.OnFull_PaymentChanging(value);
+					this.SendPropertyChanging();
+					this._Full_Payment = value;
+					this.SendPropertyChanged("Full_Payment");
+					this.OnFull_PaymentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Register_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Register_Date
+		{
+			get
+			{
+				return this._Register_Date;
+			}
+			set
+			{
+				if ((this._Register_Date != value))
+				{
+					this.OnRegister_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Register_Date = value;
+					this.SendPropertyChanged("Register_Date");
+					this.OnRegister_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_AuctionType_Detail", ThisKey="Auction_Type", OtherKey="Auction_id", IsForeignKey=true)]
+		public Church_AuctionType_Detail Church_AuctionType_Detail
+		{
+			get
+			{
+				return this._Church_AuctionType_Detail.Entity;
+			}
+			set
+			{
+				Church_AuctionType_Detail previousValue = this._Church_AuctionType_Detail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_AuctionType_Detail.Entity = null;
+						previousValue.Church_Auction_Details.Remove(this);
+					}
+					this._Church_AuctionType_Detail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_Auction_Details.Add(this);
+						this._Auction_Type = value.Auction_id;
+					}
+					else
+					{
+						this._Auction_Type = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_AuctionType_Detail");
 				}
 			}
 		}
