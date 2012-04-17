@@ -251,6 +251,7 @@
             this.Name = "SundayAuction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Sunday Auction";
+            this.Load += new System.EventHandler(this.SundayAuction_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

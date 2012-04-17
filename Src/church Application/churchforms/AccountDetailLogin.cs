@@ -27,8 +27,6 @@ namespace churchforms
                     this.Close();
                     GeneralOffering accdetail = new GeneralOffering();
                     accdetail.ShowDialog();
-                  
-                    
                 }
                 else
                 {

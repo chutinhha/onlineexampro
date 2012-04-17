@@ -17,7 +17,6 @@ D:\church Application\churchforms\obj\Debug\churchforms.TrustInfo.xml
 D:\church Application\churchforms\obj\Debug\churchforms.exe.manifest
 D:\church Application\churchforms\obj\Debug\churchforms.application
 D:\church Application\churchforms\obj\Debug\churchforms.Resetpwd.resources
-D:\church Application\churchforms\obj\Debug\churchforms.CashBook.resources
 D:\church Application\churchforms\obj\Debug\churchforms.HarvestDue.resources
 D:\church Application\churchforms\obj\Debug\churchforms.Rew_HouseVisit.resources
 D:\church Application\churchforms\obj\Debug\churchforms.SubscriptionCard.resources
@@ -26,3 +25,12 @@ D:\church Application\churchforms\obj\Debug\churchforms.SundayAuction.resources
 D:\church Application\churchforms\obj\Debug\churchforms.Harvest.resources
 D:\church Application\churchforms\obj\Debug\churchforms.SundayAuctionDue.resources
 D:\church Application\churchforms\obj\Debug\churchforms.GeneralOffering.resources
+D:\church Application\churchforms\obj\Debug\churchforms.CriditMissionAccount.resources
+D:\church Application\churchforms\obj\Debug\churchforms.ExpenditureMissionAccount.resources
+D:\church Application\churchforms\obj\Debug\churchforms.LedgerValues.resources
+D:\church Application\churchforms\obj\Debug\churchforms.MissionAccount.resources
+D:\church Application\churchforms\obj\Debug\churchforms.WomenFollow.resources
+D:\church Application\churchforms\obj\Debug\churchforms.BankDeposit.resources
+D:\church Application\churchforms\obj\Debug\churchforms.GeneralAccount.resources
+D:\church Application\churchforms\obj\Debug\churchforms.CriditGeneralAccount.resources
+D:\church Application\churchforms\obj\Debug\churchforms.ExpenditureGeneralAccount.resources

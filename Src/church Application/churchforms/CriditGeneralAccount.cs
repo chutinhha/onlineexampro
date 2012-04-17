@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace churchforms
 {
-    public partial class CashBook : Form
+    public partial class CriditGeneralAccount : Form
     {
-        public CashBook()
+        public CriditGeneralAccount()
         {
             InitializeComponent();
         }
