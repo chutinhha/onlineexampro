@@ -15,7 +15,7 @@ namespace churchforms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SundayAuction());
+            Application.Run(new OtherIncome());
         }
     }
 }

@@ -34,7 +34,7 @@ namespace churchforms
         {
             if (a == 1)
             {
-                CashBook cashobj = new CashBook();
+                GeneralAccount cashobj = new GeneralAccount();
                 cashobj.ShowDialog();
                 //AccountDetailLogin accdetaillogin = new AccountDetailLogin();
                 //accdetaillogin.Show();
@@ -55,8 +55,6 @@ namespace churchforms
            
                 Resetpwd reset = new Resetpwd();
                 reset.ShowDialog();
-
-           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,6 +67,30 @@ namespace churchforms
         {
             SundayAuction sunobj = new SundayAuction();
             sunobj.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MissionAccount obj = new MissionAccount();
+            obj.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LedgerValues obj = new LedgerValues();
+            obj.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            WomenFollow obj = new WomenFollow();
+            obj.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            BankDeposit obj = new BankDeposit();
+            obj.ShowDialog();
         }
 
 

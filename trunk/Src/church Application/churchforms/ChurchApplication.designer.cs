@@ -30,6 +30,24 @@ namespace churchforms
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void UpdateChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void DeleteChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void InsertChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void UpdateChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void DeleteChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
+    partial void InsertChurch_BankDetail(Church_BankDetail instance);
+    partial void UpdateChurch_BankDetail(Church_BankDetail instance);
+    partial void DeleteChurch_BankDetail(Church_BankDetail instance);
+    partial void InsertChurch_FormDetail(Church_FormDetail instance);
+    partial void UpdateChurch_FormDetail(Church_FormDetail instance);
+    partial void DeleteChurch_FormDetail(Church_FormDetail instance);
+    partial void InsertChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
+    partial void UpdateChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
+    partial void DeleteChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
+    partial void InsertChurch_HouseVisitDetail(Church_HouseVisitDetail instance);
+    partial void UpdateChurch_HouseVisitDetail(Church_HouseVisitDetail instance);
+    partial void DeleteChurch_HouseVisitDetail(Church_HouseVisitDetail instance);
     partial void InsertChurch_LoginDetail(Church_LoginDetail instance);
     partial void UpdateChurch_LoginDetail(Church_LoginDetail instance);
     partial void DeleteChurch_LoginDetail(Church_LoginDetail instance);
@@ -39,18 +57,18 @@ namespace churchforms
     partial void InsertChurch_OfferingDetail(Church_OfferingDetail instance);
     partial void UpdateChurch_OfferingDetail(Church_OfferingDetail instance);
     partial void DeleteChurch_OfferingDetail(Church_OfferingDetail instance);
-    partial void InsertChurch_BankDetail(Church_BankDetail instance);
-    partial void UpdateChurch_BankDetail(Church_BankDetail instance);
-    partial void DeleteChurch_BankDetail(Church_BankDetail instance);
-    partial void InsertChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
-    partial void UpdateChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
-    partial void DeleteChurch_GeneralOfferingDetail(Church_GeneralOfferingDetail instance);
-    partial void InsertChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
-    partial void UpdateChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
-    partial void DeleteChurch_AuctionType_Detail(Church_AuctionType_Detail instance);
-    partial void InsertChurch_Auction_Detail(Church_Auction_Detail instance);
-    partial void UpdateChurch_Auction_Detail(Church_Auction_Detail instance);
-    partial void DeleteChurch_Auction_Detail(Church_Auction_Detail instance);
+    partial void InsertChurch_OtherIncome(Church_OtherIncome instance);
+    partial void UpdateChurch_OtherIncome(Church_OtherIncome instance);
+    partial void DeleteChurch_OtherIncome(Church_OtherIncome instance);
+    partial void InsertChurch_AuctionStatus(Church_AuctionStatus instance);
+    partial void UpdateChurch_AuctionStatus(Church_AuctionStatus instance);
+    partial void DeleteChurch_AuctionStatus(Church_AuctionStatus instance);
+    partial void InsertChurch_AmountDetail(Church_AmountDetail instance);
+    partial void UpdateChurch_AmountDetail(Church_AmountDetail instance);
+    partial void DeleteChurch_AmountDetail(Church_AmountDetail instance);
+    partial void InsertChurch_SubscriptionDetail(Church_SubscriptionDetail instance);
+    partial void UpdateChurch_SubscriptionDetail(Church_SubscriptionDetail instance);
+    partial void DeleteChurch_SubscriptionDetail(Church_SubscriptionDetail instance);
     #endregion
 		
 		public ChurchApplicationDataContext() : 
@@ -83,6 +101,54 @@ namespace churchforms
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Church_Auction_Detail> Church_Auction_Details
+		{
+			get
+			{
+				return this.GetTable<Church_Auction_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_AuctionType_Detail> Church_AuctionType_Details
+		{
+			get
+			{
+				return this.GetTable<Church_AuctionType_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_BankDetail> Church_BankDetails
+		{
+			get
+			{
+				return this.GetTable<Church_BankDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_FormDetail> Church_FormDetails
+		{
+			get
+			{
+				return this.GetTable<Church_FormDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_GeneralOfferingDetail> Church_GeneralOfferingDetails
+		{
+			get
+			{
+				return this.GetTable<Church_GeneralOfferingDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Church_HouseVisitDetail> Church_HouseVisitDetails
+		{
+			get
+			{
+				return this.GetTable<Church_HouseVisitDetail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Church_LoginDetail> Church_LoginDetails
 		{
 			get
@@ -107,35 +173,1379 @@ namespace churchforms
 			}
 		}
 		
-		public System.Data.Linq.Table<Church_BankDetail> Church_BankDetails
+		public System.Data.Linq.Table<Church_OtherIncome> Church_OtherIncomes
 		{
 			get
 			{
-				return this.GetTable<Church_BankDetail>();
+				return this.GetTable<Church_OtherIncome>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Church_GeneralOfferingDetail> Church_GeneralOfferingDetails
+		public System.Data.Linq.Table<Church_AuctionStatus> Church_AuctionStatus
 		{
 			get
 			{
-				return this.GetTable<Church_GeneralOfferingDetail>();
+				return this.GetTable<Church_AuctionStatus>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Church_AuctionType_Detail> Church_AuctionType_Details
+		public System.Data.Linq.Table<Church_AmountDetail> Church_AmountDetails
 		{
 			get
 			{
-				return this.GetTable<Church_AuctionType_Detail>();
+				return this.GetTable<Church_AmountDetail>();
 			}
 		}
 		
-		public System.Data.Linq.Table<Church_Auction_Detail> Church_Auction_Details
+		public System.Data.Linq.Table<Church_SubscriptionDetail> Church_SubscriptionDetails
 		{
 			get
 			{
-				return this.GetTable<Church_Auction_Detail>();
+				return this.GetTable<Church_SubscriptionDetail>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_Auction_Detail")]
+	public partial class Church_Auction_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _id;
+		
+		private System.Nullable<long> _Card_No;
+		
+		private System.Nullable<int> _Auction_Type;
+		
+		private string _Thing_Name;
+		
+		private System.Nullable<System.DateTime> _Auction_Date;
+		
+		private System.Nullable<decimal> _Original_Price;
+		
+		private System.Nullable<decimal> _inicial_Amount;
+		
+		private System.Nullable<System.DateTime> _Register_Date;
+		
+		private EntityRef<Church_AuctionType_Detail> _Church_AuctionType_Detail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(long value);
+    partial void OnidChanged();
+    partial void OnCard_NoChanging(System.Nullable<long> value);
+    partial void OnCard_NoChanged();
+    partial void OnAuction_TypeChanging(System.Nullable<int> value);
+    partial void OnAuction_TypeChanged();
+    partial void OnThing_NameChanging(string value);
+    partial void OnThing_NameChanged();
+    partial void OnAuction_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnAuction_DateChanged();
+    partial void OnOriginal_PriceChanging(System.Nullable<decimal> value);
+    partial void OnOriginal_PriceChanged();
+    partial void Oninicial_AmountChanging(System.Nullable<decimal> value);
+    partial void Oninicial_AmountChanged();
+    partial void OnRegister_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegister_DateChanged();
+    #endregion
+		
+		public Church_Auction_Detail()
+		{
+			this._Church_AuctionType_Detail = default(EntityRef<Church_AuctionType_Detail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Card_No", DbType="BigInt")]
+		public System.Nullable<long> Card_No
+		{
+			get
+			{
+				return this._Card_No;
+			}
+			set
+			{
+				if ((this._Card_No != value))
+				{
+					this.OnCard_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Card_No = value;
+					this.SendPropertyChanged("Card_No");
+					this.OnCard_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Type", DbType="Int")]
+		public System.Nullable<int> Auction_Type
+		{
+			get
+			{
+				return this._Auction_Type;
+			}
+			set
+			{
+				if ((this._Auction_Type != value))
+				{
+					if (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAuction_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Type = value;
+					this.SendPropertyChanged("Auction_Type");
+					this.OnAuction_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thing_Name", DbType="NVarChar(50)")]
+		public string Thing_Name
+		{
+			get
+			{
+				return this._Thing_Name;
+			}
+			set
+			{
+				if ((this._Thing_Name != value))
+				{
+					this.OnThing_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Thing_Name = value;
+					this.SendPropertyChanged("Thing_Name");
+					this.OnThing_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Auction_Date
+		{
+			get
+			{
+				return this._Auction_Date;
+			}
+			set
+			{
+				if ((this._Auction_Date != value))
+				{
+					this.OnAuction_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Date = value;
+					this.SendPropertyChanged("Auction_Date");
+					this.OnAuction_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Original_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Original_Price
+		{
+			get
+			{
+				return this._Original_Price;
+			}
+			set
+			{
+				if ((this._Original_Price != value))
+				{
+					this.OnOriginal_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._Original_Price = value;
+					this.SendPropertyChanged("Original_Price");
+					this.OnOriginal_PriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inicial_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> inicial_Amount
+		{
+			get
+			{
+				return this._inicial_Amount;
+			}
+			set
+			{
+				if ((this._inicial_Amount != value))
+				{
+					this.Oninicial_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._inicial_Amount = value;
+					this.SendPropertyChanged("inicial_Amount");
+					this.Oninicial_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Register_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Register_Date
+		{
+			get
+			{
+				return this._Register_Date;
+			}
+			set
+			{
+				if ((this._Register_Date != value))
+				{
+					this.OnRegister_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Register_Date = value;
+					this.SendPropertyChanged("Register_Date");
+					this.OnRegister_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_AuctionType_Detail", ThisKey="Auction_Type", OtherKey="Auction_id", IsForeignKey=true)]
+		public Church_AuctionType_Detail Church_AuctionType_Detail
+		{
+			get
+			{
+				return this._Church_AuctionType_Detail.Entity;
+			}
+			set
+			{
+				Church_AuctionType_Detail previousValue = this._Church_AuctionType_Detail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_AuctionType_Detail.Entity = null;
+						previousValue.Church_Auction_Details.Remove(this);
+					}
+					this._Church_AuctionType_Detail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_Auction_Details.Add(this);
+						this._Auction_Type = value.Auction_id;
+					}
+					else
+					{
+						this._Auction_Type = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_AuctionType_Detail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_AuctionType_Detail")]
+	public partial class Church_AuctionType_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Auction_id;
+		
+		private string _Auction_Name;
+		
+		private EntitySet<Church_Auction_Detail> _Church_Auction_Details;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAuction_idChanging(int value);
+    partial void OnAuction_idChanged();
+    partial void OnAuction_NameChanging(string value);
+    partial void OnAuction_NameChanged();
+    #endregion
+		
+		public Church_AuctionType_Detail()
+		{
+			this._Church_Auction_Details = new EntitySet<Church_Auction_Detail>(new Action<Church_Auction_Detail>(this.attach_Church_Auction_Details), new Action<Church_Auction_Detail>(this.detach_Church_Auction_Details));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Auction_id
+		{
+			get
+			{
+				return this._Auction_id;
+			}
+			set
+			{
+				if ((this._Auction_id != value))
+				{
+					this.OnAuction_idChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_id = value;
+					this.SendPropertyChanged("Auction_id");
+					this.OnAuction_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Name", DbType="NVarChar(50)")]
+		public string Auction_Name
+		{
+			get
+			{
+				return this._Auction_Name;
+			}
+			set
+			{
+				if ((this._Auction_Name != value))
+				{
+					this.OnAuction_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Name = value;
+					this.SendPropertyChanged("Auction_Name");
+					this.OnAuction_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_Auction_Details", ThisKey="Auction_id", OtherKey="Auction_Type")]
+		public EntitySet<Church_Auction_Detail> Church_Auction_Details
+		{
+			get
+			{
+				return this._Church_Auction_Details;
+			}
+			set
+			{
+				this._Church_Auction_Details.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_Auction_Details(Church_Auction_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AuctionType_Detail = this;
+		}
+		
+		private void detach_Church_Auction_Details(Church_Auction_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AuctionType_Detail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_BankDetail")]
+	public partial class Church_BankDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Bank_id;
+		
+		private string _Bank_name;
+		
+		private EntitySet<Church_GeneralOfferingDetail> _Church_GeneralOfferingDetails;
+		
+		private EntitySet<Church_AmountDetail> _Church_AmountDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBank_idChanging(int value);
+    partial void OnBank_idChanged();
+    partial void OnBank_nameChanging(string value);
+    partial void OnBank_nameChanged();
+    #endregion
+		
+		public Church_BankDetail()
+		{
+			this._Church_GeneralOfferingDetails = new EntitySet<Church_GeneralOfferingDetail>(new Action<Church_GeneralOfferingDetail>(this.attach_Church_GeneralOfferingDetails), new Action<Church_GeneralOfferingDetail>(this.detach_Church_GeneralOfferingDetails));
+			this._Church_AmountDetails = new EntitySet<Church_AmountDetail>(new Action<Church_AmountDetail>(this.attach_Church_AmountDetails), new Action<Church_AmountDetail>(this.detach_Church_AmountDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Bank_id
+		{
+			get
+			{
+				return this._Bank_id;
+			}
+			set
+			{
+				if ((this._Bank_id != value))
+				{
+					this.OnBank_idChanging(value);
+					this.SendPropertyChanging();
+					this._Bank_id = value;
+					this.SendPropertyChanged("Bank_id");
+					this.OnBank_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_name", DbType="NVarChar(50)")]
+		public string Bank_name
+		{
+			get
+			{
+				return this._Bank_name;
+			}
+			set
+			{
+				if ((this._Bank_name != value))
+				{
+					this.OnBank_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Bank_name = value;
+					this.SendPropertyChanged("Bank_name");
+					this.OnBank_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_GeneralOfferingDetail", Storage="_Church_GeneralOfferingDetails", ThisKey="Bank_id", OtherKey="Bankname")]
+		public EntitySet<Church_GeneralOfferingDetail> Church_GeneralOfferingDetails
+		{
+			get
+			{
+				return this._Church_GeneralOfferingDetails;
+			}
+			set
+			{
+				this._Church_GeneralOfferingDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_AmountDetail", Storage="_Church_AmountDetails", ThisKey="Bank_id", OtherKey="Bank_Name")]
+		public EntitySet<Church_AmountDetail> Church_AmountDetails
+		{
+			get
+			{
+				return this._Church_AmountDetails;
+			}
+			set
+			{
+				this._Church_AmountDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_GeneralOfferingDetails(Church_GeneralOfferingDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = this;
+		}
+		
+		private void detach_Church_GeneralOfferingDetails(Church_GeneralOfferingDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = null;
+		}
+		
+		private void attach_Church_AmountDetails(Church_AmountDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = this;
+		}
+		
+		private void detach_Church_AmountDetails(Church_AmountDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_BankDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_FormDetail")]
+	public partial class Church_FormDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Form_id;
+		
+		private string _Form_Name;
+		
+		private EntitySet<Church_AmountDetail> _Church_AmountDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnForm_idChanging(int value);
+    partial void OnForm_idChanged();
+    partial void OnForm_NameChanging(string value);
+    partial void OnForm_NameChanged();
+    #endregion
+		
+		public Church_FormDetail()
+		{
+			this._Church_AmountDetails = new EntitySet<Church_AmountDetail>(new Action<Church_AmountDetail>(this.attach_Church_AmountDetails), new Action<Church_AmountDetail>(this.detach_Church_AmountDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Form_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Form_id
+		{
+			get
+			{
+				return this._Form_id;
+			}
+			set
+			{
+				if ((this._Form_id != value))
+				{
+					this.OnForm_idChanging(value);
+					this.SendPropertyChanging();
+					this._Form_id = value;
+					this.SendPropertyChanged("Form_id");
+					this.OnForm_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Form_Name", DbType="NVarChar(50)")]
+		public string Form_Name
+		{
+			get
+			{
+				return this._Form_Name;
+			}
+			set
+			{
+				if ((this._Form_Name != value))
+				{
+					this.OnForm_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Form_Name = value;
+					this.SendPropertyChanged("Form_Name");
+					this.OnForm_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_FormDetail_Church_AmountDetail", Storage="_Church_AmountDetails", ThisKey="Form_id", OtherKey="Form_id")]
+		public EntitySet<Church_AmountDetail> Church_AmountDetails
+		{
+			get
+			{
+				return this._Church_AmountDetails;
+			}
+			set
+			{
+				this._Church_AmountDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_AmountDetails(Church_AmountDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_FormDetail = this;
+		}
+		
+		private void detach_Church_AmountDetails(Church_AmountDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_FormDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_GeneralOfferingDetail")]
+	public partial class Church_GeneralOfferingDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Account_id;
+		
+		private System.Nullable<int> _Offering_type;
+		
+		private System.Nullable<decimal> _CashAmount;
+		
+		private System.Nullable<int> _Bankname;
+		
+		private string _Bankbranch;
+		
+		private string _Chequeno;
+		
+		private System.Nullable<decimal> _ChequeAmount;
+		
+		private System.Nullable<System.DateTime> _ChequeDate;
+		
+		private System.Nullable<System.DateTime> _RegisteredDate;
+		
+		private System.Nullable<int> @__1000x;
+		
+		private System.Nullable<int> @__500x;
+		
+		private System.Nullable<int> @__100x;
+		
+		private System.Nullable<int> @__50x;
+		
+		private System.Nullable<int> @__20x;
+		
+		private System.Nullable<int> @__10x;
+		
+		private System.Nullable<int> @__5x;
+		
+		private System.Nullable<int> @__2x;
+		
+		private System.Nullable<int> @__1x;
+		
+		private EntityRef<Church_BankDetail> _Church_BankDetail;
+		
+		private EntityRef<Church_OfferingDetail> _Church_OfferingDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccount_idChanging(long value);
+    partial void OnAccount_idChanged();
+    partial void OnOffering_typeChanging(System.Nullable<int> value);
+    partial void OnOffering_typeChanged();
+    partial void OnCashAmountChanging(System.Nullable<decimal> value);
+    partial void OnCashAmountChanged();
+    partial void OnBanknameChanging(System.Nullable<int> value);
+    partial void OnBanknameChanged();
+    partial void OnBankbranchChanging(string value);
+    partial void OnBankbranchChanged();
+    partial void OnChequenoChanging(string value);
+    partial void OnChequenoChanged();
+    partial void OnChequeAmountChanging(System.Nullable<decimal> value);
+    partial void OnChequeAmountChanged();
+    partial void OnChequeDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnChequeDateChanged();
+    partial void OnRegisteredDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegisteredDateChanged();
+    partial void On_1000xChanging(System.Nullable<int> value);
+    partial void On_1000xChanged();
+    partial void On_500xChanging(System.Nullable<int> value);
+    partial void On_500xChanged();
+    partial void On_100xChanging(System.Nullable<int> value);
+    partial void On_100xChanged();
+    partial void On_50xChanging(System.Nullable<int> value);
+    partial void On_50xChanged();
+    partial void On_20xChanging(System.Nullable<int> value);
+    partial void On_20xChanged();
+    partial void On_10xChanging(System.Nullable<int> value);
+    partial void On_10xChanged();
+    partial void On_5xChanging(System.Nullable<int> value);
+    partial void On_5xChanged();
+    partial void On_2xChanging(System.Nullable<int> value);
+    partial void On_2xChanged();
+    partial void On_1xChanging(System.Nullable<int> value);
+    partial void On_1xChanged();
+    #endregion
+		
+		public Church_GeneralOfferingDetail()
+		{
+			this._Church_BankDetail = default(EntityRef<Church_BankDetail>);
+			this._Church_OfferingDetail = default(EntityRef<Church_OfferingDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Account_id
+		{
+			get
+			{
+				return this._Account_id;
+			}
+			set
+			{
+				if ((this._Account_id != value))
+				{
+					this.OnAccount_idChanging(value);
+					this.SendPropertyChanging();
+					this._Account_id = value;
+					this.SendPropertyChanged("Account_id");
+					this.OnAccount_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_type", DbType="Int")]
+		public System.Nullable<int> Offering_type
+		{
+			get
+			{
+				return this._Offering_type;
+			}
+			set
+			{
+				if ((this._Offering_type != value))
+				{
+					if (this._Church_OfferingDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOffering_typeChanging(value);
+					this.SendPropertyChanging();
+					this._Offering_type = value;
+					this.SendPropertyChanged("Offering_type");
+					this.OnOffering_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> CashAmount
+		{
+			get
+			{
+				return this._CashAmount;
+			}
+			set
+			{
+				if ((this._CashAmount != value))
+				{
+					this.OnCashAmountChanging(value);
+					this.SendPropertyChanging();
+					this._CashAmount = value;
+					this.SendPropertyChanged("CashAmount");
+					this.OnCashAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankname", DbType="Int")]
+		public System.Nullable<int> Bankname
+		{
+			get
+			{
+				return this._Bankname;
+			}
+			set
+			{
+				if ((this._Bankname != value))
+				{
+					if (this._Church_BankDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBanknameChanging(value);
+					this.SendPropertyChanging();
+					this._Bankname = value;
+					this.SendPropertyChanged("Bankname");
+					this.OnBanknameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankbranch", DbType="NVarChar(50)")]
+		public string Bankbranch
+		{
+			get
+			{
+				return this._Bankbranch;
+			}
+			set
+			{
+				if ((this._Bankbranch != value))
+				{
+					this.OnBankbranchChanging(value);
+					this.SendPropertyChanging();
+					this._Bankbranch = value;
+					this.SendPropertyChanged("Bankbranch");
+					this.OnBankbranchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chequeno", DbType="NVarChar(50)")]
+		public string Chequeno
+		{
+			get
+			{
+				return this._Chequeno;
+			}
+			set
+			{
+				if ((this._Chequeno != value))
+				{
+					this.OnChequenoChanging(value);
+					this.SendPropertyChanging();
+					this._Chequeno = value;
+					this.SendPropertyChanged("Chequeno");
+					this.OnChequenoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> ChequeAmount
+		{
+			get
+			{
+				return this._ChequeAmount;
+			}
+			set
+			{
+				if ((this._ChequeAmount != value))
+				{
+					this.OnChequeAmountChanging(value);
+					this.SendPropertyChanging();
+					this._ChequeAmount = value;
+					this.SendPropertyChanged("ChequeAmount");
+					this.OnChequeAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ChequeDate
+		{
+			get
+			{
+				return this._ChequeDate;
+			}
+			set
+			{
+				if ((this._ChequeDate != value))
+				{
+					this.OnChequeDateChanging(value);
+					this.SendPropertyChanging();
+					this._ChequeDate = value;
+					this.SendPropertyChanged("ChequeDate");
+					this.OnChequeDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisteredDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RegisteredDate
+		{
+			get
+			{
+				return this._RegisteredDate;
+			}
+			set
+			{
+				if ((this._RegisteredDate != value))
+				{
+					this.OnRegisteredDateChanging(value);
+					this.SendPropertyChanging();
+					this._RegisteredDate = value;
+					this.SendPropertyChanged("RegisteredDate");
+					this.OnRegisteredDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1000x]", Storage="__1000x", DbType="Int")]
+		public System.Nullable<int> _1000x
+		{
+			get
+			{
+				return this.@__1000x;
+			}
+			set
+			{
+				if ((this.@__1000x != value))
+				{
+					this.On_1000xChanging(value);
+					this.SendPropertyChanging();
+					this.@__1000x = value;
+					this.SendPropertyChanged("_1000x");
+					this.On_1000xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[500x]", Storage="__500x", DbType="Int")]
+		public System.Nullable<int> _500x
+		{
+			get
+			{
+				return this.@__500x;
+			}
+			set
+			{
+				if ((this.@__500x != value))
+				{
+					this.On_500xChanging(value);
+					this.SendPropertyChanging();
+					this.@__500x = value;
+					this.SendPropertyChanged("_500x");
+					this.On_500xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[100x]", Storage="__100x", DbType="Int")]
+		public System.Nullable<int> _100x
+		{
+			get
+			{
+				return this.@__100x;
+			}
+			set
+			{
+				if ((this.@__100x != value))
+				{
+					this.On_100xChanging(value);
+					this.SendPropertyChanging();
+					this.@__100x = value;
+					this.SendPropertyChanged("_100x");
+					this.On_100xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[50x]", Storage="__50x", DbType="Int")]
+		public System.Nullable<int> _50x
+		{
+			get
+			{
+				return this.@__50x;
+			}
+			set
+			{
+				if ((this.@__50x != value))
+				{
+					this.On_50xChanging(value);
+					this.SendPropertyChanging();
+					this.@__50x = value;
+					this.SendPropertyChanged("_50x");
+					this.On_50xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[20x]", Storage="__20x", DbType="Int")]
+		public System.Nullable<int> _20x
+		{
+			get
+			{
+				return this.@__20x;
+			}
+			set
+			{
+				if ((this.@__20x != value))
+				{
+					this.On_20xChanging(value);
+					this.SendPropertyChanging();
+					this.@__20x = value;
+					this.SendPropertyChanged("_20x");
+					this.On_20xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[10x]", Storage="__10x", DbType="Int")]
+		public System.Nullable<int> _10x
+		{
+			get
+			{
+				return this.@__10x;
+			}
+			set
+			{
+				if ((this.@__10x != value))
+				{
+					this.On_10xChanging(value);
+					this.SendPropertyChanging();
+					this.@__10x = value;
+					this.SendPropertyChanged("_10x");
+					this.On_10xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[5x]", Storage="__5x", DbType="Int")]
+		public System.Nullable<int> _5x
+		{
+			get
+			{
+				return this.@__5x;
+			}
+			set
+			{
+				if ((this.@__5x != value))
+				{
+					this.On_5xChanging(value);
+					this.SendPropertyChanging();
+					this.@__5x = value;
+					this.SendPropertyChanged("_5x");
+					this.On_5xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2x]", Storage="__2x", DbType="Int")]
+		public System.Nullable<int> _2x
+		{
+			get
+			{
+				return this.@__2x;
+			}
+			set
+			{
+				if ((this.@__2x != value))
+				{
+					this.On_2xChanging(value);
+					this.SendPropertyChanging();
+					this.@__2x = value;
+					this.SendPropertyChanged("_2x");
+					this.On_2xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1x]", Storage="__1x", DbType="Int")]
+		public System.Nullable<int> _1x
+		{
+			get
+			{
+				return this.@__1x;
+			}
+			set
+			{
+				if ((this.@__1x != value))
+				{
+					this.On_1xChanging(value);
+					this.SendPropertyChanging();
+					this.@__1x = value;
+					this.SendPropertyChanged("_1x");
+					this.On_1xChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_GeneralOfferingDetail", Storage="_Church_BankDetail", ThisKey="Bankname", OtherKey="Bank_id", IsForeignKey=true)]
+		public Church_BankDetail Church_BankDetail
+		{
+			get
+			{
+				return this._Church_BankDetail.Entity;
+			}
+			set
+			{
+				Church_BankDetail previousValue = this._Church_BankDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_BankDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_BankDetail.Entity = null;
+						previousValue.Church_GeneralOfferingDetails.Remove(this);
+					}
+					this._Church_BankDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_GeneralOfferingDetails.Add(this);
+						this._Bankname = value.Bank_id;
+					}
+					else
+					{
+						this._Bankname = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_BankDetail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_OfferingDetail_Church_GeneralOfferingDetail", Storage="_Church_OfferingDetail", ThisKey="Offering_type", OtherKey="Offering_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Church_OfferingDetail Church_OfferingDetail
+		{
+			get
+			{
+				return this._Church_OfferingDetail.Entity;
+			}
+			set
+			{
+				Church_OfferingDetail previousValue = this._Church_OfferingDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_OfferingDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_OfferingDetail.Entity = null;
+						previousValue.Church_GeneralOfferingDetails.Remove(this);
+					}
+					this._Church_OfferingDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_GeneralOfferingDetails.Add(this);
+						this._Offering_type = value.Offering_id;
+					}
+					else
+					{
+						this._Offering_type = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_OfferingDetail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_HouseVisitDetail")]
+	public partial class Church_HouseVisitDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _House_Id;
+		
+		private string _Towards;
+		
+		private System.Nullable<long> _FK_Amountid;
+		
+		private EntityRef<Church_AmountDetail> _Church_AmountDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnHouse_IdChanging(long value);
+    partial void OnHouse_IdChanged();
+    partial void OnTowardsChanging(string value);
+    partial void OnTowardsChanged();
+    partial void OnFK_AmountidChanging(System.Nullable<long> value);
+    partial void OnFK_AmountidChanged();
+    #endregion
+		
+		public Church_HouseVisitDetail()
+		{
+			this._Church_AmountDetail = default(EntityRef<Church_AmountDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_House_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long House_Id
+		{
+			get
+			{
+				return this._House_Id;
+			}
+			set
+			{
+				if ((this._House_Id != value))
+				{
+					this.OnHouse_IdChanging(value);
+					this.SendPropertyChanging();
+					this._House_Id = value;
+					this.SendPropertyChanged("House_Id");
+					this.OnHouse_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Towards", DbType="NVarChar(200)")]
+		public string Towards
+		{
+			get
+			{
+				return this._Towards;
+			}
+			set
+			{
+				if ((this._Towards != value))
+				{
+					this.OnTowardsChanging(value);
+					this.SendPropertyChanging();
+					this._Towards = value;
+					this.SendPropertyChanged("Towards");
+					this.OnTowardsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Amountid", DbType="BigInt")]
+		public System.Nullable<long> FK_Amountid
+		{
+			get
+			{
+				return this._FK_Amountid;
+			}
+			set
+			{
+				if ((this._FK_Amountid != value))
+				{
+					if (this._Church_AmountDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_AmountidChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Amountid = value;
+					this.SendPropertyChanged("FK_Amountid");
+					this.OnFK_AmountidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AmountDetail_Church_HouseVisitDetail", Storage="_Church_AmountDetail", ThisKey="FK_Amountid", OtherKey="Amount_Id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Church_AmountDetail Church_AmountDetail
+		{
+			get
+			{
+				return this._Church_AmountDetail.Entity;
+			}
+			set
+			{
+				Church_AmountDetail previousValue = this._Church_AmountDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_AmountDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_AmountDetail.Entity = null;
+						previousValue.Church_HouseVisitDetails.Remove(this);
+					}
+					this._Church_AmountDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_HouseVisitDetails.Add(this);
+						this._FK_Amountid = value.Amount_Id;
+					}
+					else
+					{
+						this._FK_Amountid = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Church_AmountDetail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -738,1002 +2148,143 @@ namespace churchforms
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_BankDetail")]
-	public partial class Church_BankDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_OtherIncome")]
+	public partial class Church_OtherIncome : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Bank_id;
+		private long _Other_Id;
 		
-		private string _Bank_name;
+		private string _Name;
 		
-		private EntitySet<Church_GeneralOfferingDetail> _Church_GeneralOfferingDetails;
+		private string _Towards;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBank_idChanging(int value);
-    partial void OnBank_idChanged();
-    partial void OnBank_nameChanging(string value);
-    partial void OnBank_nameChanged();
-    #endregion
+		private System.Nullable<decimal> _Amount;
 		
-		public Church_BankDetail()
-		{
-			this._Church_GeneralOfferingDetails = new EntitySet<Church_GeneralOfferingDetail>(new Action<Church_GeneralOfferingDetail>(this.attach_Church_GeneralOfferingDetails), new Action<Church_GeneralOfferingDetail>(this.detach_Church_GeneralOfferingDetails));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Bank_id
-		{
-			get
-			{
-				return this._Bank_id;
-			}
-			set
-			{
-				if ((this._Bank_id != value))
-				{
-					this.OnBank_idChanging(value);
-					this.SendPropertyChanging();
-					this._Bank_id = value;
-					this.SendPropertyChanged("Bank_id");
-					this.OnBank_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_name", DbType="NVarChar(50)")]
-		public string Bank_name
-		{
-			get
-			{
-				return this._Bank_name;
-			}
-			set
-			{
-				if ((this._Bank_name != value))
-				{
-					this.OnBank_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Bank_name = value;
-					this.SendPropertyChanged("Bank_name");
-					this.OnBank_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_GeneralOfferingDetail", Storage="_Church_GeneralOfferingDetails", ThisKey="Bank_id", OtherKey="Bankname")]
-		public EntitySet<Church_GeneralOfferingDetail> Church_GeneralOfferingDetails
-		{
-			get
-			{
-				return this._Church_GeneralOfferingDetails;
-			}
-			set
-			{
-				this._Church_GeneralOfferingDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Church_GeneralOfferingDetails(Church_GeneralOfferingDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Church_BankDetail = this;
-		}
-		
-		private void detach_Church_GeneralOfferingDetails(Church_GeneralOfferingDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Church_BankDetail = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_GeneralOfferingDetail")]
-	public partial class Church_GeneralOfferingDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Account_id;
-		
-		private System.Nullable<int> _Offering_type;
-		
-		private System.Nullable<decimal> _CashAmount;
-		
-		private System.Nullable<int> _Bankname;
-		
-		private string _Bankbranch;
-		
-		private string _Chequeno;
-		
-		private System.Nullable<decimal> _ChequeAmount;
-		
-		private System.Nullable<System.DateTime> _ChequeDate;
-		
-		private System.Nullable<System.DateTime> _RegisteredDate;
-		
-		private System.Nullable<int> @__1000x;
-		
-		private System.Nullable<int> @__500x;
-		
-		private System.Nullable<int> @__100x;
-		
-		private System.Nullable<int> @__50x;
-		
-		private System.Nullable<int> @__20x;
-		
-		private System.Nullable<int> @__10x;
-		
-		private System.Nullable<int> @__5x;
-		
-		private System.Nullable<int> @__2x;
-		
-		private System.Nullable<int> @__1x;
-		
-		private EntityRef<Church_BankDetail> _Church_BankDetail;
-		
-		private EntityRef<Church_OfferingDetail> _Church_OfferingDetail;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAccount_idChanging(long value);
-    partial void OnAccount_idChanged();
-    partial void OnOffering_typeChanging(System.Nullable<int> value);
-    partial void OnOffering_typeChanged();
-    partial void OnCashAmountChanging(System.Nullable<decimal> value);
-    partial void OnCashAmountChanged();
-    partial void OnBanknameChanging(System.Nullable<int> value);
-    partial void OnBanknameChanged();
-    partial void OnBankbranchChanging(string value);
-    partial void OnBankbranchChanged();
-    partial void OnChequenoChanging(string value);
-    partial void OnChequenoChanged();
-    partial void OnChequeAmountChanging(System.Nullable<decimal> value);
-    partial void OnChequeAmountChanged();
-    partial void OnChequeDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnChequeDateChanged();
-    partial void OnRegisteredDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnRegisteredDateChanged();
-    partial void On_1000xChanging(System.Nullable<int> value);
-    partial void On_1000xChanged();
-    partial void On_500xChanging(System.Nullable<int> value);
-    partial void On_500xChanged();
-    partial void On_100xChanging(System.Nullable<int> value);
-    partial void On_100xChanged();
-    partial void On_50xChanging(System.Nullable<int> value);
-    partial void On_50xChanged();
-    partial void On_20xChanging(System.Nullable<int> value);
-    partial void On_20xChanged();
-    partial void On_10xChanging(System.Nullable<int> value);
-    partial void On_10xChanged();
-    partial void On_5xChanging(System.Nullable<int> value);
-    partial void On_5xChanged();
-    partial void On_2xChanging(System.Nullable<int> value);
-    partial void On_2xChanged();
-    partial void On_1xChanging(System.Nullable<int> value);
-    partial void On_1xChanged();
-    #endregion
-		
-		public Church_GeneralOfferingDetail()
-		{
-			this._Church_BankDetail = default(EntityRef<Church_BankDetail>);
-			this._Church_OfferingDetail = default(EntityRef<Church_OfferingDetail>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long Account_id
-		{
-			get
-			{
-				return this._Account_id;
-			}
-			set
-			{
-				if ((this._Account_id != value))
-				{
-					this.OnAccount_idChanging(value);
-					this.SendPropertyChanging();
-					this._Account_id = value;
-					this.SendPropertyChanged("Account_id");
-					this.OnAccount_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Offering_type", DbType="Int")]
-		public System.Nullable<int> Offering_type
-		{
-			get
-			{
-				return this._Offering_type;
-			}
-			set
-			{
-				if ((this._Offering_type != value))
-				{
-					if (this._Church_OfferingDetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOffering_typeChanging(value);
-					this.SendPropertyChanging();
-					this._Offering_type = value;
-					this.SendPropertyChanged("Offering_type");
-					this.OnOffering_typeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashAmount", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> CashAmount
-		{
-			get
-			{
-				return this._CashAmount;
-			}
-			set
-			{
-				if ((this._CashAmount != value))
-				{
-					this.OnCashAmountChanging(value);
-					this.SendPropertyChanging();
-					this._CashAmount = value;
-					this.SendPropertyChanged("CashAmount");
-					this.OnCashAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankname", DbType="Int")]
-		public System.Nullable<int> Bankname
-		{
-			get
-			{
-				return this._Bankname;
-			}
-			set
-			{
-				if ((this._Bankname != value))
-				{
-					if (this._Church_BankDetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBanknameChanging(value);
-					this.SendPropertyChanging();
-					this._Bankname = value;
-					this.SendPropertyChanged("Bankname");
-					this.OnBanknameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bankbranch", DbType="NVarChar(50)")]
-		public string Bankbranch
-		{
-			get
-			{
-				return this._Bankbranch;
-			}
-			set
-			{
-				if ((this._Bankbranch != value))
-				{
-					this.OnBankbranchChanging(value);
-					this.SendPropertyChanging();
-					this._Bankbranch = value;
-					this.SendPropertyChanged("Bankbranch");
-					this.OnBankbranchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chequeno", DbType="NVarChar(50)")]
-		public string Chequeno
-		{
-			get
-			{
-				return this._Chequeno;
-			}
-			set
-			{
-				if ((this._Chequeno != value))
-				{
-					this.OnChequenoChanging(value);
-					this.SendPropertyChanging();
-					this._Chequeno = value;
-					this.SendPropertyChanged("Chequeno");
-					this.OnChequenoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeAmount", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> ChequeAmount
-		{
-			get
-			{
-				return this._ChequeAmount;
-			}
-			set
-			{
-				if ((this._ChequeAmount != value))
-				{
-					this.OnChequeAmountChanging(value);
-					this.SendPropertyChanging();
-					this._ChequeAmount = value;
-					this.SendPropertyChanged("ChequeAmount");
-					this.OnChequeAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChequeDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ChequeDate
-		{
-			get
-			{
-				return this._ChequeDate;
-			}
-			set
-			{
-				if ((this._ChequeDate != value))
-				{
-					this.OnChequeDateChanging(value);
-					this.SendPropertyChanging();
-					this._ChequeDate = value;
-					this.SendPropertyChanged("ChequeDate");
-					this.OnChequeDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisteredDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> RegisteredDate
-		{
-			get
-			{
-				return this._RegisteredDate;
-			}
-			set
-			{
-				if ((this._RegisteredDate != value))
-				{
-					this.OnRegisteredDateChanging(value);
-					this.SendPropertyChanging();
-					this._RegisteredDate = value;
-					this.SendPropertyChanged("RegisteredDate");
-					this.OnRegisteredDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1000x]", Storage="__1000x", DbType="Int")]
-		public System.Nullable<int> _1000x
-		{
-			get
-			{
-				return this.@__1000x;
-			}
-			set
-			{
-				if ((this.@__1000x != value))
-				{
-					this.On_1000xChanging(value);
-					this.SendPropertyChanging();
-					this.@__1000x = value;
-					this.SendPropertyChanged("_1000x");
-					this.On_1000xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[500x]", Storage="__500x", DbType="Int")]
-		public System.Nullable<int> _500x
-		{
-			get
-			{
-				return this.@__500x;
-			}
-			set
-			{
-				if ((this.@__500x != value))
-				{
-					this.On_500xChanging(value);
-					this.SendPropertyChanging();
-					this.@__500x = value;
-					this.SendPropertyChanged("_500x");
-					this.On_500xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[100x]", Storage="__100x", DbType="Int")]
-		public System.Nullable<int> _100x
-		{
-			get
-			{
-				return this.@__100x;
-			}
-			set
-			{
-				if ((this.@__100x != value))
-				{
-					this.On_100xChanging(value);
-					this.SendPropertyChanging();
-					this.@__100x = value;
-					this.SendPropertyChanged("_100x");
-					this.On_100xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[50x]", Storage="__50x", DbType="Int")]
-		public System.Nullable<int> _50x
-		{
-			get
-			{
-				return this.@__50x;
-			}
-			set
-			{
-				if ((this.@__50x != value))
-				{
-					this.On_50xChanging(value);
-					this.SendPropertyChanging();
-					this.@__50x = value;
-					this.SendPropertyChanged("_50x");
-					this.On_50xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[20x]", Storage="__20x", DbType="Int")]
-		public System.Nullable<int> _20x
-		{
-			get
-			{
-				return this.@__20x;
-			}
-			set
-			{
-				if ((this.@__20x != value))
-				{
-					this.On_20xChanging(value);
-					this.SendPropertyChanging();
-					this.@__20x = value;
-					this.SendPropertyChanged("_20x");
-					this.On_20xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[10x]", Storage="__10x", DbType="Int")]
-		public System.Nullable<int> _10x
-		{
-			get
-			{
-				return this.@__10x;
-			}
-			set
-			{
-				if ((this.@__10x != value))
-				{
-					this.On_10xChanging(value);
-					this.SendPropertyChanging();
-					this.@__10x = value;
-					this.SendPropertyChanged("_10x");
-					this.On_10xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[5x]", Storage="__5x", DbType="Int")]
-		public System.Nullable<int> _5x
-		{
-			get
-			{
-				return this.@__5x;
-			}
-			set
-			{
-				if ((this.@__5x != value))
-				{
-					this.On_5xChanging(value);
-					this.SendPropertyChanging();
-					this.@__5x = value;
-					this.SendPropertyChanged("_5x");
-					this.On_5xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2x]", Storage="__2x", DbType="Int")]
-		public System.Nullable<int> _2x
-		{
-			get
-			{
-				return this.@__2x;
-			}
-			set
-			{
-				if ((this.@__2x != value))
-				{
-					this.On_2xChanging(value);
-					this.SendPropertyChanging();
-					this.@__2x = value;
-					this.SendPropertyChanged("_2x");
-					this.On_2xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1x]", Storage="__1x", DbType="Int")]
-		public System.Nullable<int> _1x
-		{
-			get
-			{
-				return this.@__1x;
-			}
-			set
-			{
-				if ((this.@__1x != value))
-				{
-					this.On_1xChanging(value);
-					this.SendPropertyChanging();
-					this.@__1x = value;
-					this.SendPropertyChanged("_1x");
-					this.On_1xChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_GeneralOfferingDetail", Storage="_Church_BankDetail", ThisKey="Bankname", OtherKey="Bank_id", IsForeignKey=true)]
-		public Church_BankDetail Church_BankDetail
-		{
-			get
-			{
-				return this._Church_BankDetail.Entity;
-			}
-			set
-			{
-				Church_BankDetail previousValue = this._Church_BankDetail.Entity;
-				if (((previousValue != value) 
-							|| (this._Church_BankDetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Church_BankDetail.Entity = null;
-						previousValue.Church_GeneralOfferingDetails.Remove(this);
-					}
-					this._Church_BankDetail.Entity = value;
-					if ((value != null))
-					{
-						value.Church_GeneralOfferingDetails.Add(this);
-						this._Bankname = value.Bank_id;
-					}
-					else
-					{
-						this._Bankname = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Church_BankDetail");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_OfferingDetail_Church_GeneralOfferingDetail", Storage="_Church_OfferingDetail", ThisKey="Offering_type", OtherKey="Offering_id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Church_OfferingDetail Church_OfferingDetail
-		{
-			get
-			{
-				return this._Church_OfferingDetail.Entity;
-			}
-			set
-			{
-				Church_OfferingDetail previousValue = this._Church_OfferingDetail.Entity;
-				if (((previousValue != value) 
-							|| (this._Church_OfferingDetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Church_OfferingDetail.Entity = null;
-						previousValue.Church_GeneralOfferingDetails.Remove(this);
-					}
-					this._Church_OfferingDetail.Entity = value;
-					if ((value != null))
-					{
-						value.Church_GeneralOfferingDetails.Add(this);
-						this._Offering_type = value.Offering_id;
-					}
-					else
-					{
-						this._Offering_type = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Church_OfferingDetail");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_AuctionType_Detail")]
-	public partial class Church_AuctionType_Detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Auction_id;
-		
-		private string _Auction_Name;
-		
-		private EntitySet<Church_Auction_Detail> _Church_Auction_Details;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAuction_idChanging(int value);
-    partial void OnAuction_idChanged();
-    partial void OnAuction_NameChanging(string value);
-    partial void OnAuction_NameChanged();
-    #endregion
-		
-		public Church_AuctionType_Detail()
-		{
-			this._Church_Auction_Details = new EntitySet<Church_Auction_Detail>(new Action<Church_Auction_Detail>(this.attach_Church_Auction_Details), new Action<Church_Auction_Detail>(this.detach_Church_Auction_Details));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Auction_id
-		{
-			get
-			{
-				return this._Auction_id;
-			}
-			set
-			{
-				if ((this._Auction_id != value))
-				{
-					this.OnAuction_idChanging(value);
-					this.SendPropertyChanging();
-					this._Auction_id = value;
-					this.SendPropertyChanged("Auction_id");
-					this.OnAuction_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Name", DbType="NVarChar(50)")]
-		public string Auction_Name
-		{
-			get
-			{
-				return this._Auction_Name;
-			}
-			set
-			{
-				if ((this._Auction_Name != value))
-				{
-					this.OnAuction_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Auction_Name = value;
-					this.SendPropertyChanged("Auction_Name");
-					this.OnAuction_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_Auction_Details", ThisKey="Auction_id", OtherKey="Auction_Type")]
-		public EntitySet<Church_Auction_Detail> Church_Auction_Details
-		{
-			get
-			{
-				return this._Church_Auction_Details;
-			}
-			set
-			{
-				this._Church_Auction_Details.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Church_Auction_Details(Church_Auction_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Church_AuctionType_Detail = this;
-		}
-		
-		private void detach_Church_Auction_Details(Church_Auction_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Church_AuctionType_Detail = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_Auction_Detail")]
-	public partial class Church_Auction_Detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _id;
-		
-		private System.Nullable<long> _Card_No;
-		
-		private System.Nullable<int> _Auction_Type;
-		
-		private string _Thing_Name;
-		
-		private System.Nullable<System.DateTime> _Auction_Date;
-		
-		private System.Nullable<decimal> _Original_Price;
-		
-		private System.Nullable<decimal> _inicial_Amount;
-		
-		private string _Full_Payment;
+		private System.Nullable<System.DateTime> _Date;
 		
 		private System.Nullable<System.DateTime> _Register_Date;
 		
-		private EntityRef<Church_AuctionType_Detail> _Church_AuctionType_Detail;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(long value);
-    partial void OnidChanged();
-    partial void OnCard_NoChanging(System.Nullable<long> value);
-    partial void OnCard_NoChanged();
-    partial void OnAuction_TypeChanging(System.Nullable<int> value);
-    partial void OnAuction_TypeChanged();
-    partial void OnThing_NameChanging(string value);
-    partial void OnThing_NameChanged();
-    partial void OnAuction_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnAuction_DateChanged();
-    partial void OnOriginal_PriceChanging(System.Nullable<decimal> value);
-    partial void OnOriginal_PriceChanged();
-    partial void Oninicial_AmountChanging(System.Nullable<decimal> value);
-    partial void Oninicial_AmountChanged();
-    partial void OnFull_PaymentChanging(string value);
-    partial void OnFull_PaymentChanged();
+    partial void OnOther_IdChanging(long value);
+    partial void OnOther_IdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnTowardsChanging(string value);
+    partial void OnTowardsChanged();
+    partial void OnAmountChanging(System.Nullable<decimal> value);
+    partial void OnAmountChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
     partial void OnRegister_DateChanging(System.Nullable<System.DateTime> value);
     partial void OnRegister_DateChanged();
     #endregion
 		
-		public Church_Auction_Detail()
+		public Church_OtherIncome()
 		{
-			this._Church_AuctionType_Detail = default(EntityRef<Church_AuctionType_Detail>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Other_Id
 		{
 			get
 			{
-				return this._id;
+				return this._Other_Id;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Other_Id != value))
 				{
-					this.OnidChanging(value);
+					this.OnOther_IdChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Other_Id = value;
+					this.SendPropertyChanged("Other_Id");
+					this.OnOther_IdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Card_No", DbType="BigInt")]
-		public System.Nullable<long> Card_No
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
 		{
 			get
 			{
-				return this._Card_No;
+				return this._Name;
 			}
 			set
 			{
-				if ((this._Card_No != value))
+				if ((this._Name != value))
 				{
-					this.OnCard_NoChanging(value);
+					this.OnNameChanging(value);
 					this.SendPropertyChanging();
-					this._Card_No = value;
-					this.SendPropertyChanged("Card_No");
-					this.OnCard_NoChanged();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Type", DbType="Int")]
-		public System.Nullable<int> Auction_Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Towards", DbType="NVarChar(200)")]
+		public string Towards
 		{
 			get
 			{
-				return this._Auction_Type;
+				return this._Towards;
 			}
 			set
 			{
-				if ((this._Auction_Type != value))
+				if ((this._Towards != value))
 				{
-					if (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAuction_TypeChanging(value);
+					this.OnTowardsChanging(value);
 					this.SendPropertyChanging();
-					this._Auction_Type = value;
-					this.SendPropertyChanged("Auction_Type");
-					this.OnAuction_TypeChanged();
+					this._Towards = value;
+					this.SendPropertyChanged("Towards");
+					this.OnTowardsChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thing_Name", DbType="NVarChar(50)")]
-		public string Thing_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Amount
 		{
 			get
 			{
-				return this._Thing_Name;
+				return this._Amount;
 			}
 			set
 			{
-				if ((this._Thing_Name != value))
+				if ((this._Amount != value))
 				{
-					this.OnThing_NameChanging(value);
+					this.OnAmountChanging(value);
 					this.SendPropertyChanging();
-					this._Thing_Name = value;
-					this.SendPropertyChanged("Thing_Name");
-					this.OnThing_NameChanged();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Auction_Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
 			get
 			{
-				return this._Auction_Date;
+				return this._Date;
 			}
 			set
 			{
-				if ((this._Auction_Date != value))
+				if ((this._Date != value))
 				{
-					this.OnAuction_DateChanging(value);
+					this.OnDateChanging(value);
 					this.SendPropertyChanging();
-					this._Auction_Date = value;
-					this.SendPropertyChanged("Auction_Date");
-					this.OnAuction_DateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Original_Price", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> Original_Price
-		{
-			get
-			{
-				return this._Original_Price;
-			}
-			set
-			{
-				if ((this._Original_Price != value))
-				{
-					this.OnOriginal_PriceChanging(value);
-					this.SendPropertyChanging();
-					this._Original_Price = value;
-					this.SendPropertyChanged("Original_Price");
-					this.OnOriginal_PriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inicial_Amount", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> inicial_Amount
-		{
-			get
-			{
-				return this._inicial_Amount;
-			}
-			set
-			{
-				if ((this._inicial_Amount != value))
-				{
-					this.Oninicial_AmountChanging(value);
-					this.SendPropertyChanging();
-					this._inicial_Amount = value;
-					this.SendPropertyChanged("inicial_Amount");
-					this.Oninicial_AmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Payment", DbType="NVarChar(50)")]
-		public string Full_Payment
-		{
-			get
-			{
-				return this._Full_Payment;
-			}
-			set
-			{
-				if ((this._Full_Payment != value))
-				{
-					this.OnFull_PaymentChanging(value);
-					this.SendPropertyChanging();
-					this._Full_Payment = value;
-					this.SendPropertyChanged("Full_Payment");
-					this.OnFull_PaymentChanged();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
 			}
 		}
@@ -1758,36 +2309,1183 @@ namespace churchforms
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AuctionType_Detail_Church_Auction_Detail", Storage="_Church_AuctionType_Detail", ThisKey="Auction_Type", OtherKey="Auction_id", IsForeignKey=true)]
-		public Church_AuctionType_Detail Church_AuctionType_Detail
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_AuctionStatus")]
+	public partial class Church_AuctionStatus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Auction_Id;
+		
+		private System.Nullable<long> _Card_No;
+		
+		private System.Nullable<decimal> _Sunday_Action_Total;
+		
+		private System.Nullable<decimal> _Harvest_Total;
+		
+		private System.Nullable<decimal> _Sunday_Action_Payed;
+		
+		private System.Nullable<decimal> _Harvest_Payed;
+		
+		private System.Nullable<byte> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAuction_IdChanging(long value);
+    partial void OnAuction_IdChanged();
+    partial void OnCard_NoChanging(System.Nullable<long> value);
+    partial void OnCard_NoChanged();
+    partial void OnSunday_Action_TotalChanging(System.Nullable<decimal> value);
+    partial void OnSunday_Action_TotalChanged();
+    partial void OnHarvest_TotalChanging(System.Nullable<decimal> value);
+    partial void OnHarvest_TotalChanged();
+    partial void OnSunday_Action_PayedChanging(System.Nullable<decimal> value);
+    partial void OnSunday_Action_PayedChanged();
+    partial void OnHarvest_PayedChanging(System.Nullable<decimal> value);
+    partial void OnHarvest_PayedChanged();
+    partial void OnStatusChanging(System.Nullable<byte> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Church_AuctionStatus()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Auction_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Auction_Id
 		{
 			get
 			{
-				return this._Church_AuctionType_Detail.Entity;
+				return this._Auction_Id;
 			}
 			set
 			{
-				Church_AuctionType_Detail previousValue = this._Church_AuctionType_Detail.Entity;
+				if ((this._Auction_Id != value))
+				{
+					this.OnAuction_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Auction_Id = value;
+					this.SendPropertyChanged("Auction_Id");
+					this.OnAuction_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Card_No", DbType="BigInt")]
+		public System.Nullable<long> Card_No
+		{
+			get
+			{
+				return this._Card_No;
+			}
+			set
+			{
+				if ((this._Card_No != value))
+				{
+					this.OnCard_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Card_No = value;
+					this.SendPropertyChanged("Card_No");
+					this.OnCard_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sunday_Action_Total", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Sunday_Action_Total
+		{
+			get
+			{
+				return this._Sunday_Action_Total;
+			}
+			set
+			{
+				if ((this._Sunday_Action_Total != value))
+				{
+					this.OnSunday_Action_TotalChanging(value);
+					this.SendPropertyChanging();
+					this._Sunday_Action_Total = value;
+					this.SendPropertyChanged("Sunday_Action_Total");
+					this.OnSunday_Action_TotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harvest_Total", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Harvest_Total
+		{
+			get
+			{
+				return this._Harvest_Total;
+			}
+			set
+			{
+				if ((this._Harvest_Total != value))
+				{
+					this.OnHarvest_TotalChanging(value);
+					this.SendPropertyChanging();
+					this._Harvest_Total = value;
+					this.SendPropertyChanged("Harvest_Total");
+					this.OnHarvest_TotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sunday_Action_Payed", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Sunday_Action_Payed
+		{
+			get
+			{
+				return this._Sunday_Action_Payed;
+			}
+			set
+			{
+				if ((this._Sunday_Action_Payed != value))
+				{
+					this.OnSunday_Action_PayedChanging(value);
+					this.SendPropertyChanging();
+					this._Sunday_Action_Payed = value;
+					this.SendPropertyChanged("Sunday_Action_Payed");
+					this.OnSunday_Action_PayedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harvest_Payed", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Harvest_Payed
+		{
+			get
+			{
+				return this._Harvest_Payed;
+			}
+			set
+			{
+				if ((this._Harvest_Payed != value))
+				{
+					this.OnHarvest_PayedChanging(value);
+					this.SendPropertyChanging();
+					this._Harvest_Payed = value;
+					this.SendPropertyChanged("Harvest_Payed");
+					this.OnHarvest_PayedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="TinyInt")]
+		public System.Nullable<byte> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_AmountDetail")]
+	public partial class Church_AmountDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Amount_Id;
+		
+		private System.Nullable<long> _Card_No;
+		
+		private string _Recipt_No;
+		
+		private System.Nullable<System.DateTime> _Payment_Date;
+		
+		private System.Nullable<decimal> _Cash_Amount;
+		
+		private System.Nullable<int> _Bank_Name;
+		
+		private string _Branch_Name;
+		
+		private string _Cheque_No;
+		
+		private System.Nullable<System.DateTime> _Cheque_Date;
+		
+		private System.Nullable<decimal> _Cheque_Amount;
+		
+		private System.Nullable<System.DateTime> _Register_Date;
+		
+		private System.Nullable<int> _Form_id;
+		
+		private EntitySet<Church_HouseVisitDetail> _Church_HouseVisitDetails;
+		
+		private EntitySet<Church_SubscriptionDetail> _Church_SubscriptionDetails;
+		
+		private EntityRef<Church_BankDetail> _Church_BankDetail;
+		
+		private EntityRef<Church_FormDetail> _Church_FormDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAmount_IdChanging(long value);
+    partial void OnAmount_IdChanged();
+    partial void OnCard_NoChanging(System.Nullable<long> value);
+    partial void OnCard_NoChanged();
+    partial void OnRecipt_NoChanging(string value);
+    partial void OnRecipt_NoChanged();
+    partial void OnPayment_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPayment_DateChanged();
+    partial void OnCash_AmountChanging(System.Nullable<decimal> value);
+    partial void OnCash_AmountChanged();
+    partial void OnBank_NameChanging(System.Nullable<int> value);
+    partial void OnBank_NameChanged();
+    partial void OnBranch_NameChanging(string value);
+    partial void OnBranch_NameChanged();
+    partial void OnCheque_NoChanging(string value);
+    partial void OnCheque_NoChanged();
+    partial void OnCheque_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCheque_DateChanged();
+    partial void OnCheque_AmountChanging(System.Nullable<decimal> value);
+    partial void OnCheque_AmountChanged();
+    partial void OnRegister_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegister_DateChanged();
+    partial void OnForm_idChanging(System.Nullable<int> value);
+    partial void OnForm_idChanged();
+    #endregion
+		
+		public Church_AmountDetail()
+		{
+			this._Church_HouseVisitDetails = new EntitySet<Church_HouseVisitDetail>(new Action<Church_HouseVisitDetail>(this.attach_Church_HouseVisitDetails), new Action<Church_HouseVisitDetail>(this.detach_Church_HouseVisitDetails));
+			this._Church_SubscriptionDetails = new EntitySet<Church_SubscriptionDetail>(new Action<Church_SubscriptionDetail>(this.attach_Church_SubscriptionDetails), new Action<Church_SubscriptionDetail>(this.detach_Church_SubscriptionDetails));
+			this._Church_BankDetail = default(EntityRef<Church_BankDetail>);
+			this._Church_FormDetail = default(EntityRef<Church_FormDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Amount_Id
+		{
+			get
+			{
+				return this._Amount_Id;
+			}
+			set
+			{
+				if ((this._Amount_Id != value))
+				{
+					this.OnAmount_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Amount_Id = value;
+					this.SendPropertyChanged("Amount_Id");
+					this.OnAmount_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Card_No", DbType="BigInt")]
+		public System.Nullable<long> Card_No
+		{
+			get
+			{
+				return this._Card_No;
+			}
+			set
+			{
+				if ((this._Card_No != value))
+				{
+					this.OnCard_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Card_No = value;
+					this.SendPropertyChanged("Card_No");
+					this.OnCard_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Recipt_No", DbType="NVarChar(50)")]
+		public string Recipt_No
+		{
+			get
+			{
+				return this._Recipt_No;
+			}
+			set
+			{
+				if ((this._Recipt_No != value))
+				{
+					this.OnRecipt_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Recipt_No = value;
+					this.SendPropertyChanged("Recipt_No");
+					this.OnRecipt_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Payment_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Payment_Date
+		{
+			get
+			{
+				return this._Payment_Date;
+			}
+			set
+			{
+				if ((this._Payment_Date != value))
+				{
+					this.OnPayment_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Payment_Date = value;
+					this.SendPropertyChanged("Payment_Date");
+					this.OnPayment_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cash_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Cash_Amount
+		{
+			get
+			{
+				return this._Cash_Amount;
+			}
+			set
+			{
+				if ((this._Cash_Amount != value))
+				{
+					this.OnCash_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._Cash_Amount = value;
+					this.SendPropertyChanged("Cash_Amount");
+					this.OnCash_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bank_Name", DbType="Int")]
+		public System.Nullable<int> Bank_Name
+		{
+			get
+			{
+				return this._Bank_Name;
+			}
+			set
+			{
+				if ((this._Bank_Name != value))
+				{
+					if (this._Church_BankDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBank_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Bank_Name = value;
+					this.SendPropertyChanged("Bank_Name");
+					this.OnBank_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Branch_Name", DbType="NVarChar(50)")]
+		public string Branch_Name
+		{
+			get
+			{
+				return this._Branch_Name;
+			}
+			set
+			{
+				if ((this._Branch_Name != value))
+				{
+					this.OnBranch_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Branch_Name = value;
+					this.SendPropertyChanged("Branch_Name");
+					this.OnBranch_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cheque_No", DbType="NVarChar(50)")]
+		public string Cheque_No
+		{
+			get
+			{
+				return this._Cheque_No;
+			}
+			set
+			{
+				if ((this._Cheque_No != value))
+				{
+					this.OnCheque_NoChanging(value);
+					this.SendPropertyChanging();
+					this._Cheque_No = value;
+					this.SendPropertyChanged("Cheque_No");
+					this.OnCheque_NoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cheque_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Cheque_Date
+		{
+			get
+			{
+				return this._Cheque_Date;
+			}
+			set
+			{
+				if ((this._Cheque_Date != value))
+				{
+					this.OnCheque_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Cheque_Date = value;
+					this.SendPropertyChanged("Cheque_Date");
+					this.OnCheque_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cheque_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Cheque_Amount
+		{
+			get
+			{
+				return this._Cheque_Amount;
+			}
+			set
+			{
+				if ((this._Cheque_Amount != value))
+				{
+					this.OnCheque_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._Cheque_Amount = value;
+					this.SendPropertyChanged("Cheque_Amount");
+					this.OnCheque_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Register_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Register_Date
+		{
+			get
+			{
+				return this._Register_Date;
+			}
+			set
+			{
+				if ((this._Register_Date != value))
+				{
+					this.OnRegister_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Register_Date = value;
+					this.SendPropertyChanged("Register_Date");
+					this.OnRegister_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Form_id", DbType="Int")]
+		public System.Nullable<int> Form_id
+		{
+			get
+			{
+				return this._Form_id;
+			}
+			set
+			{
+				if ((this._Form_id != value))
+				{
+					if (this._Church_FormDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnForm_idChanging(value);
+					this.SendPropertyChanging();
+					this._Form_id = value;
+					this.SendPropertyChanged("Form_id");
+					this.OnForm_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AmountDetail_Church_HouseVisitDetail", Storage="_Church_HouseVisitDetails", ThisKey="Amount_Id", OtherKey="FK_Amountid")]
+		public EntitySet<Church_HouseVisitDetail> Church_HouseVisitDetails
+		{
+			get
+			{
+				return this._Church_HouseVisitDetails;
+			}
+			set
+			{
+				this._Church_HouseVisitDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AmountDetail_Church_SubscriptionDetail", Storage="_Church_SubscriptionDetails", ThisKey="Amount_Id", OtherKey="FK_AmountId")]
+		public EntitySet<Church_SubscriptionDetail> Church_SubscriptionDetails
+		{
+			get
+			{
+				return this._Church_SubscriptionDetails;
+			}
+			set
+			{
+				this._Church_SubscriptionDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_BankDetail_Church_AmountDetail", Storage="_Church_BankDetail", ThisKey="Bank_Name", OtherKey="Bank_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Church_BankDetail Church_BankDetail
+		{
+			get
+			{
+				return this._Church_BankDetail.Entity;
+			}
+			set
+			{
+				Church_BankDetail previousValue = this._Church_BankDetail.Entity;
 				if (((previousValue != value) 
-							|| (this._Church_AuctionType_Detail.HasLoadedOrAssignedValue == false)))
+							|| (this._Church_BankDetail.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Church_AuctionType_Detail.Entity = null;
-						previousValue.Church_Auction_Details.Remove(this);
+						this._Church_BankDetail.Entity = null;
+						previousValue.Church_AmountDetails.Remove(this);
 					}
-					this._Church_AuctionType_Detail.Entity = value;
+					this._Church_BankDetail.Entity = value;
 					if ((value != null))
 					{
-						value.Church_Auction_Details.Add(this);
-						this._Auction_Type = value.Auction_id;
+						value.Church_AmountDetails.Add(this);
+						this._Bank_Name = value.Bank_id;
 					}
 					else
 					{
-						this._Auction_Type = default(Nullable<int>);
+						this._Bank_Name = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Church_AuctionType_Detail");
+					this.SendPropertyChanged("Church_BankDetail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_FormDetail_Church_AmountDetail", Storage="_Church_FormDetail", ThisKey="Form_id", OtherKey="Form_id", IsForeignKey=true)]
+		public Church_FormDetail Church_FormDetail
+		{
+			get
+			{
+				return this._Church_FormDetail.Entity;
+			}
+			set
+			{
+				Church_FormDetail previousValue = this._Church_FormDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_FormDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_FormDetail.Entity = null;
+						previousValue.Church_AmountDetails.Remove(this);
+					}
+					this._Church_FormDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_AmountDetails.Add(this);
+						this._Form_id = value.Form_id;
+					}
+					else
+					{
+						this._Form_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Church_FormDetail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Church_HouseVisitDetails(Church_HouseVisitDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AmountDetail = this;
+		}
+		
+		private void detach_Church_HouseVisitDetails(Church_HouseVisitDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AmountDetail = null;
+		}
+		
+		private void attach_Church_SubscriptionDetails(Church_SubscriptionDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AmountDetail = this;
+		}
+		
+		private void detach_Church_SubscriptionDetails(Church_SubscriptionDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Church_AmountDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Church_SubscriptionDetail")]
+	public partial class Church_SubscriptionDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Subscription_id;
+		
+		private System.Nullable<decimal> _MonthlyOffer;
+		
+		private System.Nullable<decimal> _Harvest;
+		
+		private System.Nullable<decimal> _ThanksGiving;
+		
+		private System.Nullable<decimal> _NewBuildingFund;
+		
+		private System.Nullable<decimal> _WomensFellowShip;
+		
+		private System.Nullable<decimal> _MensFellowShip;
+		
+		private System.Nullable<decimal> _YouthFellowShip;
+		
+		private System.Nullable<decimal> _SundaySchool;
+		
+		private System.Nullable<decimal> _EducationFund;
+		
+		private System.Nullable<decimal> _PoorFund;
+		
+		private System.Nullable<decimal> _I_M_S;
+		
+		private System.Nullable<decimal> _N_M_S;
+		
+		private System.Nullable<decimal> _BibleSociety;
+		
+		private System.Nullable<decimal> _D_B_M;
+		
+		private System.Nullable<decimal> _Meetings;
+		
+		private System.Nullable<decimal> _Others;
+		
+		private System.Nullable<long> _FK_AmountId;
+		
+		private EntityRef<Church_AmountDetail> _Church_AmountDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSubscription_idChanging(long value);
+    partial void OnSubscription_idChanged();
+    partial void OnMonthlyOfferChanging(System.Nullable<decimal> value);
+    partial void OnMonthlyOfferChanged();
+    partial void OnHarvestChanging(System.Nullable<decimal> value);
+    partial void OnHarvestChanged();
+    partial void OnThanksGivingChanging(System.Nullable<decimal> value);
+    partial void OnThanksGivingChanged();
+    partial void OnNewBuildingFundChanging(System.Nullable<decimal> value);
+    partial void OnNewBuildingFundChanged();
+    partial void OnWomensFellowShipChanging(System.Nullable<decimal> value);
+    partial void OnWomensFellowShipChanged();
+    partial void OnMensFellowShipChanging(System.Nullable<decimal> value);
+    partial void OnMensFellowShipChanged();
+    partial void OnYouthFellowShipChanging(System.Nullable<decimal> value);
+    partial void OnYouthFellowShipChanged();
+    partial void OnSundaySchoolChanging(System.Nullable<decimal> value);
+    partial void OnSundaySchoolChanged();
+    partial void OnEducationFundChanging(System.Nullable<decimal> value);
+    partial void OnEducationFundChanged();
+    partial void OnPoorFundChanging(System.Nullable<decimal> value);
+    partial void OnPoorFundChanged();
+    partial void OnI_M_SChanging(System.Nullable<decimal> value);
+    partial void OnI_M_SChanged();
+    partial void OnN_M_SChanging(System.Nullable<decimal> value);
+    partial void OnN_M_SChanged();
+    partial void OnBibleSocietyChanging(System.Nullable<decimal> value);
+    partial void OnBibleSocietyChanged();
+    partial void OnD_B_MChanging(System.Nullable<decimal> value);
+    partial void OnD_B_MChanged();
+    partial void OnMeetingsChanging(System.Nullable<decimal> value);
+    partial void OnMeetingsChanged();
+    partial void OnOthersChanging(System.Nullable<decimal> value);
+    partial void OnOthersChanged();
+    partial void OnFK_AmountIdChanging(System.Nullable<long> value);
+    partial void OnFK_AmountIdChanged();
+    #endregion
+		
+		public Church_SubscriptionDetail()
+		{
+			this._Church_AmountDetail = default(EntityRef<Church_AmountDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subscription_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Subscription_id
+		{
+			get
+			{
+				return this._Subscription_id;
+			}
+			set
+			{
+				if ((this._Subscription_id != value))
+				{
+					this.OnSubscription_idChanging(value);
+					this.SendPropertyChanging();
+					this._Subscription_id = value;
+					this.SendPropertyChanged("Subscription_id");
+					this.OnSubscription_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyOffer", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> MonthlyOffer
+		{
+			get
+			{
+				return this._MonthlyOffer;
+			}
+			set
+			{
+				if ((this._MonthlyOffer != value))
+				{
+					this.OnMonthlyOfferChanging(value);
+					this.SendPropertyChanging();
+					this._MonthlyOffer = value;
+					this.SendPropertyChanged("MonthlyOffer");
+					this.OnMonthlyOfferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Harvest", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Harvest
+		{
+			get
+			{
+				return this._Harvest;
+			}
+			set
+			{
+				if ((this._Harvest != value))
+				{
+					this.OnHarvestChanging(value);
+					this.SendPropertyChanging();
+					this._Harvest = value;
+					this.SendPropertyChanged("Harvest");
+					this.OnHarvestChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanksGiving", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> ThanksGiving
+		{
+			get
+			{
+				return this._ThanksGiving;
+			}
+			set
+			{
+				if ((this._ThanksGiving != value))
+				{
+					this.OnThanksGivingChanging(value);
+					this.SendPropertyChanging();
+					this._ThanksGiving = value;
+					this.SendPropertyChanged("ThanksGiving");
+					this.OnThanksGivingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBuildingFund", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> NewBuildingFund
+		{
+			get
+			{
+				return this._NewBuildingFund;
+			}
+			set
+			{
+				if ((this._NewBuildingFund != value))
+				{
+					this.OnNewBuildingFundChanging(value);
+					this.SendPropertyChanging();
+					this._NewBuildingFund = value;
+					this.SendPropertyChanged("NewBuildingFund");
+					this.OnNewBuildingFundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WomensFellowShip", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> WomensFellowShip
+		{
+			get
+			{
+				return this._WomensFellowShip;
+			}
+			set
+			{
+				if ((this._WomensFellowShip != value))
+				{
+					this.OnWomensFellowShipChanging(value);
+					this.SendPropertyChanging();
+					this._WomensFellowShip = value;
+					this.SendPropertyChanged("WomensFellowShip");
+					this.OnWomensFellowShipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MensFellowShip", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> MensFellowShip
+		{
+			get
+			{
+				return this._MensFellowShip;
+			}
+			set
+			{
+				if ((this._MensFellowShip != value))
+				{
+					this.OnMensFellowShipChanging(value);
+					this.SendPropertyChanging();
+					this._MensFellowShip = value;
+					this.SendPropertyChanged("MensFellowShip");
+					this.OnMensFellowShipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YouthFellowShip", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> YouthFellowShip
+		{
+			get
+			{
+				return this._YouthFellowShip;
+			}
+			set
+			{
+				if ((this._YouthFellowShip != value))
+				{
+					this.OnYouthFellowShipChanging(value);
+					this.SendPropertyChanging();
+					this._YouthFellowShip = value;
+					this.SendPropertyChanged("YouthFellowShip");
+					this.OnYouthFellowShipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SundaySchool", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> SundaySchool
+		{
+			get
+			{
+				return this._SundaySchool;
+			}
+			set
+			{
+				if ((this._SundaySchool != value))
+				{
+					this.OnSundaySchoolChanging(value);
+					this.SendPropertyChanging();
+					this._SundaySchool = value;
+					this.SendPropertyChanged("SundaySchool");
+					this.OnSundaySchoolChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EducationFund", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> EducationFund
+		{
+			get
+			{
+				return this._EducationFund;
+			}
+			set
+			{
+				if ((this._EducationFund != value))
+				{
+					this.OnEducationFundChanging(value);
+					this.SendPropertyChanging();
+					this._EducationFund = value;
+					this.SendPropertyChanged("EducationFund");
+					this.OnEducationFundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoorFund", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> PoorFund
+		{
+			get
+			{
+				return this._PoorFund;
+			}
+			set
+			{
+				if ((this._PoorFund != value))
+				{
+					this.OnPoorFundChanging(value);
+					this.SendPropertyChanging();
+					this._PoorFund = value;
+					this.SendPropertyChanged("PoorFund");
+					this.OnPoorFundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_I_M_S", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> I_M_S
+		{
+			get
+			{
+				return this._I_M_S;
+			}
+			set
+			{
+				if ((this._I_M_S != value))
+				{
+					this.OnI_M_SChanging(value);
+					this.SendPropertyChanging();
+					this._I_M_S = value;
+					this.SendPropertyChanged("I_M_S");
+					this.OnI_M_SChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_N_M_S", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> N_M_S
+		{
+			get
+			{
+				return this._N_M_S;
+			}
+			set
+			{
+				if ((this._N_M_S != value))
+				{
+					this.OnN_M_SChanging(value);
+					this.SendPropertyChanging();
+					this._N_M_S = value;
+					this.SendPropertyChanged("N_M_S");
+					this.OnN_M_SChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BibleSociety", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BibleSociety
+		{
+			get
+			{
+				return this._BibleSociety;
+			}
+			set
+			{
+				if ((this._BibleSociety != value))
+				{
+					this.OnBibleSocietyChanging(value);
+					this.SendPropertyChanging();
+					this._BibleSociety = value;
+					this.SendPropertyChanged("BibleSociety");
+					this.OnBibleSocietyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D_B_M", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> D_B_M
+		{
+			get
+			{
+				return this._D_B_M;
+			}
+			set
+			{
+				if ((this._D_B_M != value))
+				{
+					this.OnD_B_MChanging(value);
+					this.SendPropertyChanging();
+					this._D_B_M = value;
+					this.SendPropertyChanged("D_B_M");
+					this.OnD_B_MChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Meetings", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Meetings
+		{
+			get
+			{
+				return this._Meetings;
+			}
+			set
+			{
+				if ((this._Meetings != value))
+				{
+					this.OnMeetingsChanging(value);
+					this.SendPropertyChanging();
+					this._Meetings = value;
+					this.SendPropertyChanged("Meetings");
+					this.OnMeetingsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Others", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Others
+		{
+			get
+			{
+				return this._Others;
+			}
+			set
+			{
+				if ((this._Others != value))
+				{
+					this.OnOthersChanging(value);
+					this.SendPropertyChanging();
+					this._Others = value;
+					this.SendPropertyChanged("Others");
+					this.OnOthersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_AmountId", DbType="BigInt")]
+		public System.Nullable<long> FK_AmountId
+		{
+			get
+			{
+				return this._FK_AmountId;
+			}
+			set
+			{
+				if ((this._FK_AmountId != value))
+				{
+					if (this._Church_AmountDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_AmountIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_AmountId = value;
+					this.SendPropertyChanged("FK_AmountId");
+					this.OnFK_AmountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Church_AmountDetail_Church_SubscriptionDetail", Storage="_Church_AmountDetail", ThisKey="FK_AmountId", OtherKey="Amount_Id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Church_AmountDetail Church_AmountDetail
+		{
+			get
+			{
+				return this._Church_AmountDetail.Entity;
+			}
+			set
+			{
+				Church_AmountDetail previousValue = this._Church_AmountDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._Church_AmountDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Church_AmountDetail.Entity = null;
+						previousValue.Church_SubscriptionDetails.Remove(this);
+					}
+					this._Church_AmountDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Church_SubscriptionDetails.Add(this);
+						this._FK_AmountId = value.Amount_Id;
+					}
+					else
+					{
+						this._FK_AmountId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Church_AmountDetail");
 				}
 			}
 		}

@@ -73,6 +73,7 @@ namespace churchforms
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             try
             {
                 Validationfieldnumamount(textBox3);
@@ -119,17 +120,50 @@ namespace churchforms
                         textBox4.Focus();
                         throw new Exception("Enter inicial Price!");
                     }
-                    obj.Full_Payment = "NO";
-                    if (obj.Original_Price == obj.inicial_Amount)
-                    {
-                        obj.Full_Payment = "YES";
-                    }
+                    //obj.Full_Payment = "NO";
+                    //if (obj.Original_Price == obj.inicial_Amount)
+                    //{
+                    //    obj.Full_Payment = "YES";
+                    //}
                     obj.Register_Date = DateTime.Now;
                     churchDB.Church_Auction_Details.InsertOnSubmit(obj);
                     churchDB.SubmitChanges();
                     MessageBox.Show("Submit Successfully!");
-                    Emptycontrol();
                     
+
+                    var num = from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a;
+                    if (num.Count()==0) 
+                    {
+                        Church_AuctionStatus status = new Church_AuctionStatus();
+                        status.Card_No = Convert.ToInt64(textBox1.Text);
+                        status.Harvest_Total = Convert.ToDecimal(textBox3.Text);
+                        status.Harvest_Payed = Convert.ToDecimal(textBox4.Text);
+                        status.Status = 0;
+                        if (status.Harvest_Total == status.Harvest_Payed)
+                        {
+                            status.Status = 1;
+                        }
+                        churchDB.Church_AuctionStatus.InsertOnSubmit(status);
+                        churchDB.SubmitChanges();
+                    }
+                    else
+                    {
+                        var num1 = (from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a ).First();
+                        if (num1.Harvest_Total==null&&num1.Harvest_Payed==null)
+                        {
+                            num1.Harvest_Total = 0;
+                            num1.Harvest_Payed = 0;
+                        }
+                        num1.Harvest_Total = num1.Harvest_Total + Convert.ToDecimal(textBox3.Text);
+                        num1.Harvest_Payed = num1.Harvest_Payed + Convert.ToDecimal(textBox4.Text);
+                        num1.Status = 0;
+                        if (num1.Harvest_Total==num1.Harvest_Payed)
+                        {
+                            num1.Status = 1;
+                        }
+                        churchDB.SubmitChanges();
+                    }
+                    Emptycontrol();
                 }
             }
             catch (Exception ex)
@@ -148,6 +182,11 @@ namespace churchforms
             textBox2.Text = string.Empty;
             textBox3.Text = string.Empty;
             textBox4.Text = string.Empty;
+        }
+
+        private void Harvest_Load(object sender, EventArgs e)
+        {
+            textBox4.Text = Convert.ToString(0);
         }
     }
 }

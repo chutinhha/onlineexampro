@@ -1,6 +1,6 @@
 ﻿namespace churchforms
 {
-    partial class CashBook
+    partial class CriditGeneralAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashBook));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriditGeneralAccount));
             this.btnGentraloffering = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -98,7 +98,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(116, 50);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Sunday Auction";
+            this.button4.Text = "Auction Due";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -115,7 +115,7 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // CashBook
+            // CriditGeneralAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,8 +128,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGentraloffering);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CashBook";
-            this.Text = "CashBook";
+            this.Name = "CriditGeneralAccount";
+            this.Text = "Cridit General Account";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 

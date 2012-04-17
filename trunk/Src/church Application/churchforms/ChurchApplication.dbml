@@ -1,5 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ChurchApplication" Class="ChurchApplicationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Church_Auction_Detail" Member="Church_Auction_Details">
+    <Type Name="Church_Auction_Detail">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Card_No" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Auction_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Thing_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Auction_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Original_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="inicial_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Register_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Church_AuctionType_Detail_Church_Auction_Detail" Member="Church_AuctionType_Detail" ThisKey="Auction_Type" OtherKey="Auction_id" Type="Church_AuctionType_Detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_AuctionType_Detail" Member="Church_AuctionType_Details">
+    <Type Name="Church_AuctionType_Detail">
+      <Column Name="Auction_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Auction_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Church_AuctionType_Detail_Church_Auction_Detail" Member="Church_Auction_Details" ThisKey="Auction_id" OtherKey="Auction_Type" Type="Church_Auction_Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_BankDetail" Member="Church_BankDetails">
+    <Type Name="Church_BankDetail">
+      <Column Name="Bank_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bank_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Church_BankDetail_Church_GeneralOfferingDetail" Member="Church_GeneralOfferingDetails" ThisKey="Bank_id" OtherKey="Bankname" Type="Church_GeneralOfferingDetail" />
+      <Association Name="Church_BankDetail_Church_AmountDetail" Member="Church_AmountDetails" ThisKey="Bank_id" OtherKey="Bank_Name" Type="Church_AmountDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_FormDetail" Member="Church_FormDetails">
+    <Type Name="Church_FormDetail">
+      <Column Name="Form_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Form_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Church_FormDetail_Church_AmountDetail" Member="Church_AmountDetails" ThisKey="Form_id" OtherKey="Form_id" Type="Church_AmountDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_GeneralOfferingDetail" Member="Church_GeneralOfferingDetails">
+    <Type Name="Church_GeneralOfferingDetail">
+      <Column Name="Account_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Offering_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CashAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Bankname" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bankbranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chequeno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChequeAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ChequeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegisteredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[1000x]" Member="_1000x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[500x]" Member="_500x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100x]" Member="_100x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[50x]" Member="_50x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[20x]" Member="_20x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[10x]" Member="_10x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[5x]" Member="_5x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2x]" Member="_2x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1x]" Member="_1x" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Church_BankDetail_Church_GeneralOfferingDetail" Member="Church_BankDetail" ThisKey="Bankname" OtherKey="Bank_id" Type="Church_BankDetail" IsForeignKey="true" />
+      <Association Name="Church_OfferingDetail_Church_GeneralOfferingDetail" Member="Church_OfferingDetail" ThisKey="Offering_type" OtherKey="Offering_id" Type="Church_OfferingDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_HouseVisitDetail" Member="Church_HouseVisitDetails">
+    <Type Name="Church_HouseVisitDetail">
+      <Column Name="House_Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Towards" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FK_Amountid" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Church_AmountDetail_Church_HouseVisitDetail" Member="Church_AmountDetail" ThisKey="FK_Amountid" OtherKey="Amount_Id" Type="Church_AmountDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Table Name="dbo.Church_LoginDetail" Member="Church_LoginDetails">
     <Type Name="Church_LoginDetail">
       <Column Name="Login_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -32,56 +99,68 @@
       <Association Name="Church_OfferingDetail_Church_GeneralOfferingDetail" Member="Church_GeneralOfferingDetails" ThisKey="Offering_id" OtherKey="Offering_type" Type="Church_GeneralOfferingDetail" />
     </Type>
   </Table>
-  <Table Name="dbo.Church_BankDetail" Member="Church_BankDetails">
-    <Type Name="Church_BankDetail">
-      <Column Name="Bank_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Bank_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Church_BankDetail_Church_GeneralOfferingDetail" Member="Church_GeneralOfferingDetails" ThisKey="Bank_id" OtherKey="Bankname" Type="Church_GeneralOfferingDetail" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Church_GeneralOfferingDetail" Member="Church_GeneralOfferingDetails">
-    <Type Name="Church_GeneralOfferingDetail">
-      <Column Name="Account_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Offering_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CashAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Bankname" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Bankbranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Chequeno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ChequeAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="ChequeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RegisteredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[1000x]" Member="_1000x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[500x]" Member="_500x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[100x]" Member="_100x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[50x]" Member="_50x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[20x]" Member="_20x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[10x]" Member="_10x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[5x]" Member="_5x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[2x]" Member="_2x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="[1x]" Member="_1x" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Church_BankDetail_Church_GeneralOfferingDetail" Member="Church_BankDetail" ThisKey="Bankname" OtherKey="Bank_id" Type="Church_BankDetail" IsForeignKey="true" />
-      <Association Name="Church_OfferingDetail_Church_GeneralOfferingDetail" Member="Church_OfferingDetail" ThisKey="Offering_type" OtherKey="Offering_id" Type="Church_OfferingDetail" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Church_AuctionType_Detail" Member="Church_AuctionType_Details">
-    <Type Name="Church_AuctionType_Detail">
-      <Column Name="Auction_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Auction_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Church_AuctionType_Detail_Church_Auction_Detail" Member="Church_Auction_Details" ThisKey="Auction_id" OtherKey="Auction_Type" Type="Church_Auction_Detail" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Church_Auction_Detail" Member="Church_Auction_Details">
-    <Type Name="Church_Auction_Detail">
-      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Card_No" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Auction_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Thing_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Auction_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Original_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="inicial_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Full_Payment" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.Church_OtherIncome" Member="Church_OtherIncomes">
+    <Type Name="Church_OtherIncome">
+      <Column Name="Other_Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Towards" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Register_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Church_AuctionType_Detail_Church_Auction_Detail" Member="Church_AuctionType_Detail" ThisKey="Auction_Type" OtherKey="Auction_id" Type="Church_AuctionType_Detail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_AuctionStatus" Member="Church_AuctionStatus">
+    <Type Name="Church_AuctionStatus">
+      <Column Name="Auction_Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Card_No" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Sunday_Action_Total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Harvest_Total" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Sunday_Action_Payed" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Harvest_Payed" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_AmountDetail" Member="Church_AmountDetails">
+    <Type Name="Church_AmountDetail">
+      <Column Name="Amount_Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Card_No" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Recipt_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Payment_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cash_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Bank_Name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Branch_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cheque_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cheque_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cheque_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Register_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Form_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Church_AmountDetail_Church_HouseVisitDetail" Member="Church_HouseVisitDetails" ThisKey="Amount_Id" OtherKey="FK_Amountid" Type="Church_HouseVisitDetail" />
+      <Association Name="Church_AmountDetail_Church_SubscriptionDetail" Member="Church_SubscriptionDetails" ThisKey="Amount_Id" OtherKey="FK_AmountId" Type="Church_SubscriptionDetail" />
+      <Association Name="Church_BankDetail_Church_AmountDetail" Member="Church_BankDetail" ThisKey="Bank_Name" OtherKey="Bank_id" Type="Church_BankDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Church_FormDetail_Church_AmountDetail" Member="Church_FormDetail" ThisKey="Form_id" OtherKey="Form_id" Type="Church_FormDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Church_SubscriptionDetail" Member="Church_SubscriptionDetails">
+    <Type Name="Church_SubscriptionDetail">
+      <Column Name="Subscription_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MonthlyOffer" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Harvest" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ThanksGiving" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NewBuildingFund" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="WomensFellowShip" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="MensFellowShip" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="YouthFellowShip" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SundaySchool" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="EducationFund" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PoorFund" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="I_M_S" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="N_M_S" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BibleSociety" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="D_B_M" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Meetings" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Others" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="FK_AmountId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Church_AmountDetail_Church_SubscriptionDetail" Member="Church_AmountDetail" ThisKey="FK_AmountId" OtherKey="Amount_Id" Type="Church_AmountDetail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
 </Database>

@@ -116,15 +116,37 @@ namespace churchforms
                         textBox4.Focus();
                         throw new Exception("Enter inicial Price!");
                     }
-                    obj.Full_Payment = "NO";
-                    if (obj.Original_Price == obj.inicial_Amount)
-                    {
-                        obj.Full_Payment = "YES";
-                    }
+                    //obj.Full_Payment = "NO";
+                    //if (obj.Original_Price == obj.inicial_Amount)
+                    //{
+                    //    obj.Full_Payment = "YES";
+                    //}
                     obj.Register_Date = DateTime.Now;
                     churchDB.Church_Auction_Details.InsertOnSubmit(obj);
                     churchDB.SubmitChanges();
                     MessageBox.Show("Submit Successfully!");
+                    var num = from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a;
+                    if (num.Count() == 0)
+                    {
+                        Church_AuctionStatus status = new Church_AuctionStatus();
+                        status.Card_No = Convert.ToInt64(textBox1.Text);
+                        status.Sunday_Action_Total = Convert.ToDecimal(textBox3.Text);
+                        status.Sunday_Action_Payed = Convert.ToDecimal(textBox4.Text);
+                        churchDB.Church_AuctionStatus.InsertOnSubmit(status);
+                        churchDB.SubmitChanges();
+                    }
+                    else
+                    {
+                        var num1 = (from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).First();
+                        if (num1.Sunday_Action_Total==null&&num1.Sunday_Action_Payed==null)
+                        {
+                            num1.Sunday_Action_Total = 0;
+                            num1.Sunday_Action_Payed = 0;
+                        }
+                        num1.Sunday_Action_Total = num1.Sunday_Action_Total + Convert.ToDecimal(textBox3.Text);
+                        num1.Sunday_Action_Payed = num1.Sunday_Action_Payed + Convert.ToDecimal(textBox4.Text);
+                        churchDB.SubmitChanges();
+                    }
                     Emptycontrol();
                 }
             }
@@ -143,6 +165,11 @@ namespace churchforms
             textBox2.Text = string.Empty;
             textBox3.Text = string.Empty;
             textBox4.Text = string.Empty;
+        }
+
+        private void SundayAuction_Load(object sender, EventArgs e)
+        {
+            textBox4.Text = Convert.ToString(0);
         }
     }
 }
