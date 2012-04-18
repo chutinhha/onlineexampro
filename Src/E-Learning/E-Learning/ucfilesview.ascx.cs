@@ -11,7 +11,9 @@ namespace E_Learning
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string ss = Convert.ToString(Session["filepath"]);
+            string ff = "<object type='video/x-ms-wmv' data='" + ss + "' width='420' height='340'><param name='url' value='" + ss + "'/><param name='src' value='" + ss + "'/><param name='autostart' value='true' /><param name='sound' value='false' /> <param name='controller' value='true' /></object>";
+            gg.InnerHtml = ff;
         }
     }
 }

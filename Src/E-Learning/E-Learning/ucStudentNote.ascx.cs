@@ -18,13 +18,13 @@ namespace E_Learning
             if (!IsPostBack)
             {
                 BindSub();
-              //  BindTitle();
+                //  BindTitle();
             }
         }
         protected void ddlNotesSubject_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindTitle();
-        } 
+        }
         private void BindSub()
         {
             ddlNotesSubject.DataSource = ElearningHelper.Context.sp_tblSubjectsNewSelectCommand();
@@ -33,7 +33,7 @@ namespace E_Learning
             ddlNotesSubject.DataBind();
             ddlNotesSubject.Items.Insert(0, "-Select-");
         }
-             
+
         private void BindTitle()
         {
             ddlNotesTitle.DataSource = ElearningHelper.Context.tblTitles.Where(a => a.FK_SubjectId == Convert.ToInt64(ddlNotesSubject.SelectedValue));
@@ -44,11 +44,25 @@ namespace E_Learning
         }
 
         protected void BtnView_Click(object sender, EventArgs e)
-        {            
-            var ar=ElearningHelper.Context.tblFiles.Where(a => a.FK_TitleId == Convert.ToInt64(ddlNotesTitle.SelectedValue));
-            lblLink.Text =Convert.ToString(ar.Select(a => a.FilePath));           
-        }
-       }
+        {
+            if (ElearningHelper.Context.tblFiles.Count(a => a.FK_TitleId == Convert.ToInt64(ddlNotesTitle.SelectedValue)) > 0)
+            {
+                string filepath = ElearningHelper.Context.tblFiles.Single(a => a.FK_TitleId == Convert.ToInt64(ddlNotesTitle.SelectedValue)).FilePath;
+                string[] ff = filepath.Split('.');
+                if (ff[ff.Length - 1] == "wmv")
+                {
+                    Session["filepath"] = filepath.Replace("~","..");
+                    Response.Redirect("test.aspx");
+                }
+                else
+                {
 
-    
+                }
+            }
+            else
+            {
+                
+            }
+        }
+    }
 }
