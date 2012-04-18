@@ -24,9 +24,9 @@ namespace churchforms
                 var varify = from a in churchDB.Church_LoginDetails where (a.Login_type == logintype && a.Login_name == txtaccountnamager.Text && a.Password == txtPassword.Text) select a;
                 if (varify.Count() == 1)
                 {
-                    this.Close();
                     GeneralOffering accdetail = new GeneralOffering();
                     accdetail.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
