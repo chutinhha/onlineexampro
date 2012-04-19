@@ -42,7 +42,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 50);
             this.button1.TabIndex = 5;
-            this.button1.Text = "expenditure Mission";
+            this.button1.Text = "Expenditure Mission";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -55,7 +55,7 @@
             this.btnGentraloffering.Name = "btnGentraloffering";
             this.btnGentraloffering.Size = new System.Drawing.Size(116, 50);
             this.btnGentraloffering.TabIndex = 4;
-            this.btnGentraloffering.Text = "cridit Mission";
+            this.btnGentraloffering.Text = "Cridit Mission";
             this.btnGentraloffering.UseVisualStyleBackColor = false;
             this.btnGentraloffering.Click += new System.EventHandler(this.btnGentraloffering_Click);
             // 
