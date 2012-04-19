@@ -93,6 +93,37 @@ namespace churchforms
             obj.ShowDialog();
         }
 
+        private void menu_Load(object sender, EventArgs e)
+        {
+            if (a==0)
+            {
+                btnAccounts.Enabled = false;
+                btnAccounts.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button1.Enabled = false;
+                button1.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button2.Enabled = false;
+                button2.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button3.Enabled = false;
+                button3.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button4.Enabled = false;
+                button4.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button5.Enabled = false;
+                button5.BackColor = System.Drawing.Color.FromName("Gainsboro");
+                button6.Enabled = false;
+                button6.BackColor = System.Drawing.Color.FromName("Gainsboro");
+            }
+            else
+            {
+                btnAccounts.Enabled = true;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+            }
+        }
+
 
     }
 }

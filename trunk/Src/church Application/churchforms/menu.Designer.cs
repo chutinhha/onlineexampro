@@ -72,7 +72,7 @@
             this.btnReport.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnReport.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnReport.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnReport.Location = new System.Drawing.Point(0, 350);
+            this.btnReport.Location = new System.Drawing.Point(0, 400);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(116, 50);
             this.btnReport.TabIndex = 2;
@@ -149,7 +149,7 @@
             this.button5.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button5.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button5.Location = new System.Drawing.Point(0, 400);
+            this.button5.Location = new System.Drawing.Point(0, 350);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 50);
             this.button5.TabIndex = 8;
@@ -190,6 +190,7 @@
             this.Name = "menu";
             this.Text = "menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.menu_Load);
             this.ResumeLayout(false);
 
         }

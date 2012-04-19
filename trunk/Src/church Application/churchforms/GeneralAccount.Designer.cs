@@ -42,7 +42,7 @@
             this.btnGentraloffering.Name = "btnGentraloffering";
             this.btnGentraloffering.Size = new System.Drawing.Size(116, 60);
             this.btnGentraloffering.TabIndex = 2;
-            this.btnGentraloffering.Text = "cridit General Account";
+            this.btnGentraloffering.Text = "Cridit General Account";
             this.btnGentraloffering.UseVisualStyleBackColor = false;
             this.btnGentraloffering.Click += new System.EventHandler(this.btnGentraloffering_Click);
             // 
@@ -55,7 +55,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 62);
             this.button1.TabIndex = 3;
-            this.button1.Text = "expenditure General Account";
+            this.button1.Text = "Expenditure General Account";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -70,7 +70,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cash Book";
+            this.Text = "General Account";
             this.ResumeLayout(false);
 
         }

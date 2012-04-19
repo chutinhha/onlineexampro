@@ -265,7 +265,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(325, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(558, 532);
+            this.groupBox1.Size = new System.Drawing.Size(558, 539);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Amount Detail";
@@ -465,7 +465,7 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // GentralOffering
+            // GeneralOffering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -482,7 +482,7 @@
             this.Location = new System.Drawing.Point(120, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "GentralOffering";
+            this.Name = "GeneralOffering";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gentral Offering";
             this.Load += new System.EventHandler(this.AccountDetail_Load);
