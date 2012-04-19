@@ -528,3 +528,56 @@ ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_
 GO
 
 
+USE [ChurchApplication]
+GO
+
+/****** Object:  Table [dbo].[Church_AccountType_Detail]    Script Date: 04/19/2012 18:32:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Church_AccountType_Detail](
+	[Account_id] [int] IDENTITY(1,1) NOT NULL,
+	[Account_Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Church_AccountType_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Account_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+USE [ChurchApplication]
+GO
+
+/****** Object:  Table [dbo].[Church_OpeningBalanceDetail]    Script Date: 04/19/2012 18:32:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Church_OpeningBalanceDetail](
+	[Opening_Id] [int] IDENTITY(1,1) NOT NULL,
+	[Opening_Bal_Cash] [decimal](18, 2) NULL,
+	[Opening_Bal_Account] [decimal](18, 2) NULL,
+	[Account_type] [int] NULL,
+ CONSTRAINT [PK_Church_OpeningBalanceDetail] PRIMARY KEY CLUSTERED 
+(
+	[Opening_Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Church_OpeningBalanceDetail]  WITH CHECK ADD  CONSTRAINT [FK_Church_OpeningBalanceDetail_Church_AccountType_Detail] FOREIGN KEY([Opening_Id])
+REFERENCES [dbo].[Church_AccountType_Detail] ([Account_id])
+GO
+
+ALTER TABLE [dbo].[Church_OpeningBalanceDetail] CHECK CONSTRAINT [FK_Church_OpeningBalanceDetail_Church_AccountType_Detail]
+GO
+
+
