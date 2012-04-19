@@ -420,3 +420,111 @@ ALTER TABLE [dbo].[Church_GeneralOfferingDetail] CHECK CONSTRAINT [FK_Church_Acc
 GO
 
 
+USE [ChurchApplication]
+GO
+
+/****** Object:  Table [dbo].[Church_GeneralExpenditureType_Detail]    Script Date: 04/19/2012 13:18:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Church_GeneralExpenditureType_Detail](
+	[Expenditure_id] [int] IDENTITY(1,1) NOT NULL,
+	[Expenditure_Name] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Church_EstablishmentType_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Expenditure_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+USE [ChurchApplication]
+GO
+
+/****** Object:  Table [dbo].[Church_MissionExpenditureType_Detail]    Script Date: 04/19/2012 13:19:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Church_MissionExpenditureType_Detail](
+	[MissionExprnditure_Id] [int] IDENTITY(1,1) NOT NULL,
+	[MissionExpenditure_Name] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Church_MissionExpenditureType_Detail] PRIMARY KEY CLUSTERED 
+(
+	[MissionExprnditure_Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+USE [ChurchApplication]
+GO
+
+/****** Object:  Table [dbo].[Church_ExpenditureAmount_Detail]    Script Date: 04/19/2012 13:20:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Church_ExpenditureAmount_Detail](
+	[ExpenditureAmount_Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Towards] [nvarchar](200) NULL,
+	[Payment_Date] [datetime] NULL,
+	[Cash_Amount] [decimal](18, 2) NULL,
+	[Bank_Name] [int] NULL,
+	[Branch_Name] [nvarchar](50) NULL,
+	[Cheque_No] [nvarchar](50) NULL,
+	[Cheque_Date] [datetime] NULL,
+	[Cheque_Amount] [decimal](18, 2) NULL,
+	[Register_Date] [datetime] NULL,
+	[ExpenditureType] [int] NULL,
+	[MissionExpenditureType] [int] NULL,
+	[Formid] [int] NULL,
+ CONSTRAINT [PK_Church_EstablishmentAmount_Detail] PRIMARY KEY CLUSTERED 
+(
+	[ExpenditureAmount_Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Church_ExpenditureAmount_Detail_Church_FormDetail] FOREIGN KEY([Formid])
+REFERENCES [dbo].[Church_FormDetail] ([Form_id])
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_ExpenditureAmount_Detail_Church_FormDetail]
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_BankDetail] FOREIGN KEY([Bank_Name])
+REFERENCES [dbo].[Church_BankDetail] ([Bank_id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_BankDetail]
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_GeneralExpenditureType_Detail] FOREIGN KEY([ExpenditureType])
+REFERENCES [dbo].[Church_GeneralExpenditureType_Detail] ([Expenditure_id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_GeneralExpenditureType_Detail]
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_MissionExpenditureType_Detail] FOREIGN KEY([MissionExpenditureType])
+REFERENCES [dbo].[Church_MissionExpenditureType_Detail] ([MissionExprnditure_Id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_GeneralExpenditureAmount_Detail_Church_MissionExpenditureType_Detail]
+GO
+
+
