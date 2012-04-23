@@ -20,7 +20,7 @@ begin
 declare @variable1 decimal(18,2)
 declare @variable2 decimal(18,2)
 
-select SUM(a.MonthlyOffer)as MonthlyOffer,SUM(a.Harvest)as Harvest,SUM(a.ThanksGiving)as ThanksGiving,SUM(a.NewBuildingFund)as NewBuildingFund,SUM(a.WomensFellowShip)as WomensFellowShip ,SUM(a.MensFellowShip)as MensFellowShip,SUM(a.YouthFellowShip)as YouthFellowShip,SUM(a.SundaySchool)as SundaySchool,SUM(a.EducationFund)as EducationFund,SUM(a.PoorFund)as PoorFund,SUM(a.I_M_S)as I_M_S,SUM(a.N_M_S)as N_M_S,SUM(a.BibleSociety)as BibleSociety,SUM(a.D_B_M)as D_B_M,SUM(a.Meetings)as Meetings,SUM(a.Others)as Others from dbo.Church_SubscriptionDetail a 
+select SUM(a.MonthlyOffer)as MonthlyOffer,SUM(a.NewBuildingFund)as NewBuildingFund from dbo.Church_SubscriptionDetail a 
 join dbo.Church_AmountDetail b on a.FK_AmountId=b.Amount_Id where b.Payment_Date between @fromdate and @todate	
 
 
@@ -60,6 +60,9 @@ select SUM(Cheque_Amount)+SUM(Cash_Amount) as House_Visit from dbo.Church_Amount
 
 select SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) as InterestReceived from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id where a.Offering_type=10 and( b.Payment_Date between @fromdate and @todate)
 
+select SUM(Cash_Amount)+SUM(Cheque_Amount) as Harvest from dbo.Church_AmountDetail where Form_id=3 or Form_id=9 and(Payment_Date between @fromdate and @todate)
+
+select SUM(Cash_Amount)+SUM(Cheque_Amount) as sunday_auction from dbo.Church_AmountDetail where Form_id=4 or Form_id=10 and(Payment_Date between @fromdate and @todate)
 End
 GO
 
