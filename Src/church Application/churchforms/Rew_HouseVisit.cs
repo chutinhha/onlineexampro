@@ -118,6 +118,10 @@ namespace churchforms
                                 throw new Exception("Enter Amount!");
                             }
                         }
+                        else
+                        {
+                            obj.Cash_Amount = 0;
+                        }
                         if (checkBox1.Checked)
                         {
                             if (txtChequeAmount.Text != string.Empty && txtChequeno.Text != string.Empty && txtBranch.Text != string.Empty)
@@ -133,18 +137,22 @@ namespace churchforms
                                 throw new Exception("Fill all cheque enabled fields!");
                             }
                         }
+                        else
+                        {
+                            obj.Cheque_Amount = 0;
+                        }
                         obj.Payment_Date = Convert.ToDateTime(dateTimePicker1.Text);
                         obj.Register_Date = DateTime.Now;
                         obj.Form_id = 2;
                         churchDB.Church_AmountDetails.InsertOnSubmit(obj);
                         churchDB.SubmitChanges();
-                        MessageBox.Show("Submit Successfully");
                         long aa = (from a in churchDB.Church_AmountDetails select a.Amount_Id).Max();
                         Church_HouseVisitDetail mun = new Church_HouseVisitDetail();
                         mun.Towards = textBox3.Text;
                         mun.FK_Amountid = aa;
                         churchDB.Church_HouseVisitDetails.InsertOnSubmit(mun);
                         churchDB.SubmitChanges();
+                        MessageBox.Show("Submit Successfully");
                         emptyfield();
                     }
                     else

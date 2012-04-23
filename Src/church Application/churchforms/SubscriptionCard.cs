@@ -45,6 +45,10 @@ namespace churchforms
                             obj.Cash_Amount = Convert.ToDecimal(txtCashamount.Text);
                         }
                     }
+                    else
+                    {
+                        obj.Cash_Amount = 0;
+                    }
                     if (checkBox1.Checked)
                     {
                         if (textBox18.Text != txtChequeAmount.Text)
@@ -63,6 +67,10 @@ namespace churchforms
                             obj.Cheque_Date = Convert.ToDateTime(ChequeDate.Text);
                             obj.Cheque_Amount = Convert.ToDecimal(txtChequeAmount.Text);
                         }
+                    }
+                    else
+                    {
+                        obj.Cheque_Amount = 0;
                     }
                     obj.Card_No = Convert.ToInt64(textBox1.Text);
                     obj.Payment_Date = Convert.ToDateTime(dateTimePicker1.Text);
@@ -191,8 +199,15 @@ namespace churchforms
         {
             using (ChurchApplicationDataContext obj = new ChurchApplicationDataContext())
             {
-                var Bal = (from a in obj.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).First();
-                label30.Text = Convert.ToString(Bal.Harvest_Total - Bal.Harvest_Payed);
+                var Bal = (from a in obj.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).SingleOrDefault();
+                if (Bal!=null)
+                {
+                    label30.Text = Convert.ToString(Bal.Harvest_Total - Bal.Harvest_Payed);
+                }
+                else
+                {
+                    label30.Text = "0";
+                }
             }
         }
 

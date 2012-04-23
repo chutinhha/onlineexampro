@@ -99,6 +99,7 @@ namespace churchforms
                 {
 
                     Church_GeneralOfferingDetail obj = new Church_GeneralOfferingDetail();
+                    Church_AmountDetail obj1 = new Church_AmountDetail();
                     if (comboBox3.Text=="Others")
                     {
                         textBox10.Focus();
@@ -142,7 +143,7 @@ namespace churchforms
                         {
                             if (txtCashamount.Text != string.Empty)
                             {
-                                obj.CashAmount = Convert.ToDecimal(txtCashamount.Text);
+                                obj1.Cash_Amount = Convert.ToDecimal(txtCashamount.Text);
                                 if (!checkBox3.Checked)
                                 {
                                     obj._1000x = Convert.ToInt32(textBox1.Text);
@@ -162,23 +163,37 @@ namespace churchforms
                                 throw new Exception("Enter Amount!");
                             }
                         }
+                        else
+                        {
+                            obj1.Cash_Amount = 0;
+                        }
                         if (checkBox1.Checked)
                         {
                             if (txtChequeAmount.Text != string.Empty && txtChequeno.Text != string.Empty && txtBranch.Text != string.Empty)
                             {
-                                obj.Bankname = Convert.ToInt32(comboBox2.SelectedValue);
-                                obj.Bankbranch = txtBranch.Text;
-                                obj.Chequeno = txtChequeno.Text;
-                                obj.ChequeDate = Convert.ToDateTime(ChequeDate.Text);
-                                obj.ChequeAmount = Convert.ToDecimal(txtChequeAmount.Text);
+                                obj1.Bank_Name = Convert.ToInt32(comboBox2.SelectedValue);
+                                obj1.Branch_Name = txtBranch.Text;
+                                obj1.Cheque_No = txtChequeno.Text;
+                                obj1.Cheque_Date = Convert.ToDateTime(ChequeDate.Text);
+                                obj1.Cheque_Amount = Convert.ToDecimal(txtChequeAmount.Text);
                             }
                             else
                             {
                                 throw new Exception("Fill all cheque enabled fields!");
                             }
                         }
+                        else
+                        {
+                            obj1.Cheque_Amount = 0;
+                        }
                         obj.Offering_type = Convert.ToInt32(comboBox3.SelectedValue);
-                        obj.RegisteredDate = DateTime.Now;
+                        obj1.Register_Date = DateTime.Now;
+                        obj1.Payment_Date = Convert.ToDateTime(dateTimePicker1.Text);
+                        obj1.Form_id = 7;
+                        churchDB.Church_AmountDetails.InsertOnSubmit(obj1);
+                        churchDB.SubmitChanges();
+                        long aa = (from a in churchDB.Church_AmountDetails select a.Amount_Id).Max();
+                        obj.FK_Amountid = aa;
                         churchDB.Church_GeneralOfferingDetails.InsertOnSubmit(obj);
                         churchDB.SubmitChanges();
                         MessageBox.Show("Save Successfully!");

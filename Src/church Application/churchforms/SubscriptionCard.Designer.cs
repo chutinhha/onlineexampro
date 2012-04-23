@@ -394,7 +394,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(30, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(325, 537);
+            this.groupBox2.Size = new System.Drawing.Size(345, 537);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Catagory";
@@ -428,7 +428,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(233, 8);
+            this.label30.Location = new System.Drawing.Point(286, 16);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(0, 15);
             this.label30.TabIndex = 9;
@@ -436,11 +436,11 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(120, 8);
+            this.label29.Location = new System.Drawing.Point(101, 16);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(121, 15);
+            this.label29.Size = new System.Drawing.Size(176, 15);
             this.label29.TabIndex = 9;
-            this.label29.Text = "Bending Amount:";
+            this.label29.Text = "Harvest Balance Amount:";
             // 
             // textBox17
             // 
@@ -710,9 +710,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(31, 71);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 15);
+            this.label4.Size = new System.Drawing.Size(151, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Monthly Offer:";
+            this.label4.Text = "Monthly Subscription:";
             // 
             // SubscriptionCard
             // 

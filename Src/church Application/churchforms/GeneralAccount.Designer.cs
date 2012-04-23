@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralAccount));
             this.btnGentraloffering = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGentraloffering
@@ -40,9 +42,9 @@
             this.btnGentraloffering.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.btnGentraloffering.Location = new System.Drawing.Point(0, -1);
             this.btnGentraloffering.Name = "btnGentraloffering";
-            this.btnGentraloffering.Size = new System.Drawing.Size(116, 60);
+            this.btnGentraloffering.Size = new System.Drawing.Size(116, 50);
             this.btnGentraloffering.TabIndex = 2;
-            this.btnGentraloffering.Text = "Cridit General Account";
+            this.btnGentraloffering.Text = "Income";
             this.btnGentraloffering.UseVisualStyleBackColor = false;
             this.btnGentraloffering.Click += new System.EventHandler(this.btnGentraloffering_Click);
             // 
@@ -51,13 +53,38 @@
             this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button1.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.Location = new System.Drawing.Point(0, 59);
+            this.button1.Location = new System.Drawing.Point(0, 49);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 62);
+            this.button1.Size = new System.Drawing.Size(116, 50);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Expenditure General Account";
+            this.button1.Text = "Expenditure";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button2.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button2.Location = new System.Drawing.Point(0, 99);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(116, 50);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Ledger";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button3.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button3.Location = new System.Drawing.Point(0, 149);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(116, 55);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Income & Expenditure";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // GeneralAccount
             // 
@@ -65,6 +92,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 262);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGentraloffering);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -79,5 +108,7 @@
 
         private System.Windows.Forms.Button btnGentraloffering;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

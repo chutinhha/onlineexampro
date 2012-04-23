@@ -124,6 +124,10 @@ namespace churchforms
                                     throw new Exception("Enter Amount!");
                                 }
                             }
+                            else
+                            {
+                                obj.Cash_Amount = 0;
+                            }
                             if (checkBox1.Checked)
                             {
                                 if (txtChequeAmount.Text != string.Empty && txtChequeno.Text != string.Empty && txtBranch.Text != string.Empty)
@@ -138,6 +142,10 @@ namespace churchforms
                                 {
                                     throw new Exception("Fill all cheque enabled fields!");
                                 }
+                            }
+                            else
+                            {
+                                obj.Cheque_Amount = 0;
                             }
                             obj.Payment_Date = Convert.ToDateTime(dateTimePicker1.Text);
                             obj.Register_Date = DateTime.Now;
