@@ -1,0 +1,66 @@
+USE [ChurchApplication]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_Church_GeneralLedgerValues]    Script Date: 04/23/2012 10:48:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE proc [dbo].[sp_Church_GeneralLedgerValues]
+@fromdate datetime,
+@todate datetime,
+@ThanksGiving decimal(18,2) output,
+@SundaySchool decimal(18,2) output
+
+as
+begin
+declare @variable1 decimal(18,2)
+declare @variable2 decimal(18,2)
+
+select SUM(a.MonthlyOffer)as MonthlyOffer,SUM(a.Harvest)as Harvest,SUM(a.ThanksGiving)as ThanksGiving,SUM(a.NewBuildingFund)as NewBuildingFund,SUM(a.WomensFellowShip)as WomensFellowShip ,SUM(a.MensFellowShip)as MensFellowShip,SUM(a.YouthFellowShip)as YouthFellowShip,SUM(a.SundaySchool)as SundaySchool,SUM(a.EducationFund)as EducationFund,SUM(a.PoorFund)as PoorFund,SUM(a.I_M_S)as I_M_S,SUM(a.N_M_S)as N_M_S,SUM(a.BibleSociety)as BibleSociety,SUM(a.D_B_M)as D_B_M,SUM(a.Meetings)as Meetings,SUM(a.Others)as Others from dbo.Church_SubscriptionDetail a 
+join dbo.Church_AmountDetail b on a.FK_AmountId=b.Amount_Id where b.Payment_Date between @fromdate and @todate	
+
+
+select @variable1=SUM(a.ThanksGiving) from dbo.Church_SubscriptionDetail a join dbo.Church_AmountDetail b on a.FK_AmountId=b.Amount_Id where b.Payment_Date between @fromdate and @todate
+
+select @variable2=SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id where a.Offering_type=1 and( b.Payment_Date between @fromdate and @todate)
+if(@variable1 is null)
+begin
+set @variable1=0
+end
+if(@variable2 is null)
+begin
+set @variable2=0
+end
+set @ThanksGiving=@variable1+@variable2
+
+select SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) as Sunday_offering from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id where a.Offering_type=0 and( b.Payment_Date between @fromdate and @todate)
+
+select @variable1=SUM(a.SundaySchool) from dbo.Church_SubscriptionDetail a join dbo.Church_AmountDetail b on a.FK_AmountId=b.Amount_Id where b.Payment_Date between @fromdate and @todate
+
+select @variable2=SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id where a.Offering_type=8 and( b.Payment_Date between @fromdate and @todate)
+
+if(@variable1 is null)
+begin
+set @variable1=0
+end
+if(@variable2 is null)
+begin
+set @variable2=0
+end
+
+set @SundaySchool=@variable1+@variable2
+
+select SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) as Birth_Marriage from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id  where (a.Offering_type=2 or a.Offering_type=5) and( b.Payment_Date between @fromdate and @todate)
+
+select SUM(Cheque_Amount)+SUM(Cash_Amount) as House_Visit from dbo.Church_AmountDetail where Form_id=2 and( Payment_Date between @fromdate and @todate)
+
+select SUM(b.Cash_Amount)+SUM(b.Cheque_Amount) as InterestReceived from dbo.Church_GeneralOfferingDetail a join dbo.Church_AmountDetail b on a.FK_Amountid=b.Amount_Id where a.Offering_type=10 and( b.Payment_Date between @fromdate and @todate)
+
+End
+GO
+
+
