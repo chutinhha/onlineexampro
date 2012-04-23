@@ -18,13 +18,19 @@ namespace churchforms
 
         private void btnGentraloffering_Click(object sender, EventArgs e)
         {
-            CriditGeneralAccount obj = new CriditGeneralAccount();
+            IncomeGeneralAccount obj = new IncomeGeneralAccount();
             obj.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ExpenditureGeneralAccount obj = new ExpenditureGeneralAccount();
+            obj.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Income_and_Expenditure_general obj = new Income_and_Expenditure_general();
             obj.ShowDialog();
         }
     }

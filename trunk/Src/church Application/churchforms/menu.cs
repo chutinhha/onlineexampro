@@ -75,13 +75,7 @@ namespace churchforms
             obj.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            LedgerValues obj = new LedgerValues();
-            obj.ShowDialog();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
+       private void button6_Click(object sender, EventArgs e)
         {
             WomenFollow obj = new WomenFollow();
             obj.ShowDialog();
@@ -105,8 +99,6 @@ namespace churchforms
                 button2.BackColor = System.Drawing.Color.FromName("Gainsboro");
                 button3.Enabled = false;
                 button3.BackColor = System.Drawing.Color.FromName("Gainsboro");
-                button4.Enabled = false;
-                button4.BackColor = System.Drawing.Color.FromName("Gainsboro");
                 button5.Enabled = false;
                 button5.BackColor = System.Drawing.Color.FromName("Gainsboro");
                 button6.Enabled = false;
@@ -118,7 +110,6 @@ namespace churchforms
                 button1.Enabled = true;
                 button2.Enabled = true;
                 button3.Enabled = true;
-                button4.Enabled = true;
                 button5.Enabled = true;
                 button6.Enabled = true;
             }

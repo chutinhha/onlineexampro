@@ -118,17 +118,17 @@
     <Compile Include="GeneralAccount.Designer.cs">
       <DependentUpon>GeneralAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="CriditGeneralAccount.cs">
+    <Compile Include="IncomeGeneralAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CriditGeneralAccount.Designer.cs">
-      <DependentUpon>CriditGeneralAccount.cs</DependentUpon>
+    <Compile Include="IncomeGeneralAccount.Designer.cs">
+      <DependentUpon>IncomeGeneralAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="CriditMissionAccount.cs">
+    <Compile Include="IncomeMissionAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CriditMissionAccount.Designer.cs">
-      <DependentUpon>CriditMissionAccount.cs</DependentUpon>
+    <Compile Include="IncomeMissionAccount.Designer.cs">
+      <DependentUpon>IncomeMissionAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="ExpenditureGeneralAccount.cs">
       <SubType>Form</SubType>
@@ -141,6 +141,12 @@
     </Compile>
     <Compile Include="ExpenditureMissionAccount.Designer.cs">
       <DependentUpon>ExpenditureMissionAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralAccountBankDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneralAccountBankDeposit.Designer.cs">
+      <DependentUpon>GeneralAccountBankDeposit.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneralOffering.cs">
       <SubType>Form</SubType>
@@ -182,11 +188,23 @@
     <Compile Include="HarvestDue.Designer.cs">
       <DependentUpon>HarvestDue.cs</DependentUpon>
     </Compile>
-    <Compile Include="LedgerValues.cs">
+    <Compile Include="GeneralLedgerValues.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LedgerValues.Designer.cs">
-      <DependentUpon>LedgerValues.cs</DependentUpon>
+    <Compile Include="GeneralLedgerValues.Designer.cs">
+      <DependentUpon>GeneralLedgerValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Income_and_Expenditure_general.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Income_and_Expenditure_general.Designer.cs">
+      <DependentUpon>Income_and_Expenditure_general.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Income_Expenditure_For_Mission_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Income_Expenditure_For_Mission_Account.Designer.cs">
+      <DependentUpon>Income_Expenditure_For_Mission_Account.cs</DependentUpon>
     </Compile>
     <Compile Include="MemberDetail.cs">
       <SubType>Form</SubType>
@@ -205,6 +223,12 @@
     </Compile>
     <Compile Include="MissionAccount.Designer.cs">
       <DependentUpon>MissionAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MissionAccountBankDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MissionAccountBankDeposit.Designer.cs">
+      <DependentUpon>MissionAccountBankDeposit.cs</DependentUpon>
     </Compile>
     <Compile Include="OtherIncome.cs">
       <SubType>Form</SubType>
@@ -256,17 +280,20 @@
     <EmbeddedResource Include="GeneralAccount.resx">
       <DependentUpon>GeneralAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CriditGeneralAccount.resx">
-      <DependentUpon>CriditGeneralAccount.cs</DependentUpon>
+    <EmbeddedResource Include="IncomeGeneralAccount.resx">
+      <DependentUpon>IncomeGeneralAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CriditMissionAccount.resx">
-      <DependentUpon>CriditMissionAccount.cs</DependentUpon>
+    <EmbeddedResource Include="IncomeMissionAccount.resx">
+      <DependentUpon>IncomeMissionAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExpenditureGeneralAccount.resx">
       <DependentUpon>ExpenditureGeneralAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExpenditureMissionAccount.resx">
       <DependentUpon>ExpenditureMissionAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneralAccountBankDeposit.resx">
+      <DependentUpon>GeneralAccountBankDeposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralOffering.resx">
       <DependentUpon>GeneralOffering.cs</DependentUpon>
@@ -283,11 +310,20 @@
     <EmbeddedResource Include="HarvestDue.resx">
       <DependentUpon>HarvestDue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LedgerValues.resx">
-      <DependentUpon>LedgerValues.cs</DependentUpon>
+    <EmbeddedResource Include="GeneralLedgerValues.resx">
+      <DependentUpon>GeneralLedgerValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Income_and_Expenditure_general.resx">
+      <DependentUpon>Income_and_Expenditure_general.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Income_Expenditure_For_Mission_Account.resx">
+      <DependentUpon>Income_Expenditure_For_Mission_Account.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MissionAccount.resx">
       <DependentUpon>MissionAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MissionAccountBankDeposit.resx">
+      <DependentUpon>MissionAccountBankDeposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherIncome.resx">
       <DependentUpon>OtherIncome.cs</DependentUpon>

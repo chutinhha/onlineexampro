@@ -122,7 +122,7 @@
             // 
             this.ChequeDate.Location = new System.Drawing.Point(257, 206);
             this.ChequeDate.Name = "ChequeDate";
-            this.ChequeDate.Size = new System.Drawing.Size(196, 21);
+            this.ChequeDate.Size = new System.Drawing.Size(242, 21);
             this.ChequeDate.TabIndex = 30;
             // 
             // label20
@@ -252,7 +252,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(135, 144);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 21);
+            this.dateTimePicker1.Size = new System.Drawing.Size(240, 21);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // label6
@@ -285,9 +285,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(187, 41);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 15);
+            this.label4.Size = new System.Drawing.Size(120, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Bending Amount:";
+            this.label4.Text = "Balance Amount:";
             // 
             // textBox1
             // 

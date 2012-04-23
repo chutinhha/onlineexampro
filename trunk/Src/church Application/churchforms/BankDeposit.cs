@@ -15,5 +15,17 @@ namespace churchforms
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GeneralAccountBankDeposit general = new GeneralAccountBankDeposit();
+            general.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MissionAccountBankDeposit mission = new MissionAccountBankDeposit();
+            mission.ShowDialog();
+        }
     }
 }

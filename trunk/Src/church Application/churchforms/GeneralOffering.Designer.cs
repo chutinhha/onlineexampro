@@ -69,7 +69,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -263,7 +267,7 @@
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox1.Location = new System.Drawing.Point(325, 30);
+            this.groupBox1.Location = new System.Drawing.Point(427, 30);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(558, 539);
             this.groupBox1.TabIndex = 20;
@@ -340,7 +344,7 @@
             // 
             this.ChequeDate.Location = new System.Drawing.Point(224, 406);
             this.ChequeDate.Name = "ChequeDate";
-            this.ChequeDate.Size = new System.Drawing.Size(196, 21);
+            this.ChequeDate.Size = new System.Drawing.Size(240, 21);
             this.ChequeDate.TabIndex = 18;
             // 
             // label14
@@ -418,7 +422,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(12, 116);
+            this.label16.Location = new System.Drawing.Point(43, 55);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 15);
             this.label16.TabIndex = 21;
@@ -430,9 +434,9 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "-select-"});
-            this.comboBox3.Location = new System.Drawing.Point(120, 112);
+            this.comboBox3.Location = new System.Drawing.Point(155, 52);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.Size = new System.Drawing.Size(200, 23);
             this.comboBox3.TabIndex = 2;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -447,9 +451,9 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(15, 141);
+            this.textBox10.Location = new System.Drawing.Point(173, 81);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.Size = new System.Drawing.Size(100, 21);
             this.textBox10.TabIndex = 28;
             // 
             // button2
@@ -457,13 +461,48 @@
             this.button2.BackColor = System.Drawing.Color.Maroon;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(121, 139);
+            this.button2.Location = new System.Drawing.Point(279, 79);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(39, 23);
             this.button2.TabIndex = 29;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(155, 128);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(43, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 15);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Payment Date:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox2.Location = new System.Drawing.Point(15, 69);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(383, 216);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Offering Detail";
             // 
             // GeneralOffering
             // 
@@ -472,11 +511,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1232, 682);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(120, 4);
@@ -488,6 +524,8 @@
             this.Load += new System.EventHandler(this.AccountDetail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,5 +573,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

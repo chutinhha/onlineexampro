@@ -15,5 +15,17 @@ namespace churchforms
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+            {
+                var all = churchDB.sp_Church_WomensFollowShip(Convert.ToDateTime(dateTimePicker1.Text), Convert.ToDateTime(dateTimePicker2.Text));
+                foreach (var item in all)
+                {
+                    label19.Text = Convert.ToString(item.WomensFellowShip);
+                }
+            }
+        }
     }
 }

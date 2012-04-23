@@ -32,6 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -98,7 +98,14 @@
             this.groupBox1.Size = new System.Drawing.Size(386, 206);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Recipt Detail";
+            this.groupBox1.Text = "Receipt Detail";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(144, 132);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 21);
+            this.textBox3.TabIndex = 14;
             // 
             // dateTimePicker1
             // 
@@ -137,9 +144,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(49, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 15);
+            this.label4.Size = new System.Drawing.Size(84, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Recipt No:";
+            this.label4.Text = "Receipt No:";
             // 
             // groupBox3
             // 
@@ -298,13 +305,6 @@
             this.checkBox2.Text = "Cash";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(144, 132);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 14;
             // 
             // label12
             // 

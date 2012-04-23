@@ -1,6 +1,6 @@
 ﻿namespace churchforms
 {
-    partial class CriditGeneralAccount
+    partial class IncomeGeneralAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriditGeneralAccount));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomeGeneralAccount));
             this.btnGentraloffering = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // CriditGeneralAccount
+            // IncomeGeneralAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,8 +128,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGentraloffering);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CriditGeneralAccount";
-            this.Text = "Cridit General Account";
+            this.Name = "IncomeGeneralAccount";
+            this.Text = "Income General Account";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
