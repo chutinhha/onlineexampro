@@ -1,10 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucTest.ascx.cs" Inherits="E_Learning.ucTest" %>
-<style type="text/css">
-    .style1
-    {
-        text-align: left;
-    }
-</style>
 <table align="center">
     <tr>
         <td align="center">
