@@ -45,7 +45,7 @@
         <classShapeMoniker Id="8b460267-3c9f-425e-a223-51da094983d5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 4.53449625651042); (6.78125 : 4.53449625651042); (6.78125 : 7.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 4.53449625651042); (6.78125 : 4.53449625651042); (6.78125 : 7.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ELearningDataContext/tblLogin/tblLogin_tblForumQuestion" />
       <nodes>
         <classShapeMoniker Id="4ab17b9c-3053-44d2-b9cf-aac69867b64e" />
@@ -72,7 +72,7 @@
         <elementListCompartment Id="f0e1b778-0dda-4eb3-8b65-6fd5c9d4c9a3" absoluteBounds="7.2650000000000006, 5.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 5.55850341796875); (6.69791666666667 : 5.55850341796875 : JumpStart); (6.86458333333333 : 5.55850341796875 : JumpEnd); (7.25 : 5.55850341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 5.55850341796875); (7.25 : 5.55850341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ELearningDataContext/tblLogin/tblLogin_tblForumAnswer" />
       <nodes>
         <classShapeMoniker Id="4ab17b9c-3053-44d2-b9cf-aac69867b64e" />
@@ -85,7 +85,7 @@
         <elementListCompartment Id="ce83d10e-da2f-4150-b63b-28660cd38d89" absoluteBounds="0.76499999999999968, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 3.125); (4.5 : 2.0624995); (2.75 : 2.0624995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.71875 : 3.125); (3.71875 : 2.69554718880208); (2.75 : 2.69554718880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ELearningDataContext/tblLogin/tblLogin_tblAssignment" />
       <nodes>
         <classShapeMoniker Id="4ab17b9c-3053-44d2-b9cf-aac69867b64e" />
@@ -130,11 +130,24 @@
         <elementListCompartment Id="dc4fcf7f-96d3-43c1-95c3-bff076113dcd" absoluteBounds="7.14, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.5 : 3); (7.5 : 1.8862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.5 : 3); (7.5 : 1.8862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ELearningDataContext/tblQuestionTitle/tblQuestionTitle_tblQuestion" />
       <nodes>
         <classShapeMoniker Id="9e9b1824-ec2f-484f-8f87-435b4f517aec" />
         <classShapeMoniker Id="83bda1ae-b259-4cd2-8f26-e42e0429c78f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4103e4c8-0e6d-4cb7-aa06-5cd9c4c6f34c" absoluteBounds="4, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ELearningDataContext/tblAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8edf824-aebf-4dbb-ad43-c8840cf5858e" absoluteBounds="4.015, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.87606537995793 : 0.5); (5.50106537995793 : 0.125); (4.9062505 : 0.125); (4.9062505 : 0.625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ELearningDataContext/tblQuestion/tblQuestion_tblAnswer" />
+      <nodes>
+        <classShapeMoniker Id="83bda1ae-b259-4cd2-8f26-e42e0429c78f" />
+        <classShapeMoniker Id="4103e4c8-0e6d-4cb7-aa06-5cd9c4c6f34c" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
