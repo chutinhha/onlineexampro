@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ChurchApplication" Class="ChurchApplicationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MAHENDRAN;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Church_AccountType_Detail" Member="Church_AccountType_Details">
     <Type Name="Church_AccountType_Detail">
       <Column Name="Account_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -244,6 +244,16 @@
     <Parameter Name="todate" Type="System.DateTime" DbType="DateTime" />
     <ElementType Name="sp_Church_WomensFollowShipResult">
       <Column Name="WomensFellowShip" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Church_GeneralLedgerValues" Method="sp_Church_GeneralLedgerValues">
+    <Parameter Name="fromdate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="todate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ThanksGiving" Parameter="thanksGiving" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Parameter Name="SundaySchool" Parameter="sundaySchool" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <ElementType Name="sp_Church_GeneralLedgerValuesResult">
+      <Column Name="MonthlyOffer" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="NewBuildingFund" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

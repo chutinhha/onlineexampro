@@ -26,7 +26,7 @@ namespace churchforms.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local)\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Secur" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MAHENDRAN;Initial Catalog=ChurchApplication;Integrated Secur" +
             "ity=True")]
         public string Church_Management {
             get {
@@ -37,7 +37,7 @@ namespace churchforms.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local)\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Secur" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MAHENDRAN;Initial Catalog=ChurchApplication;Integrated Secur" +
             "ity=True")]
         public string ChurchApplicationConnectionString {
             get {
