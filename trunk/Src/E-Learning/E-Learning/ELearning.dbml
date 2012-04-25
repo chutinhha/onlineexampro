@@ -106,6 +106,7 @@
       <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblQuestion_tblAnswer" Member="tblAnswers" ThisKey="QuestionId" OtherKey="FK_QuestionId" Type="tblAnswer" />
       <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestionTitle" ThisKey="Fk_QuestionTitle" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
     </Type>
   </Table>
@@ -114,6 +115,15 @@
       <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestions" ThisKey="QuestionTitleId" OtherKey="Fk_QuestionTitle" Type="tblQuestion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAnswers" Member="tblAnswers">
+    <Type Name="tblAnswer">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblQuestion_tblAnswer" Member="tblQuestion" ThisKey="FK_QuestionId" OtherKey="QuestionId" Type="tblQuestion" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_tblLoginNewDeleteCommand" Method="sp_tblLoginNewDeleteCommand">
