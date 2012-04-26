@@ -128,10 +128,12 @@
     <Content Include="testgen.aspx" />
     <Content Include="ucAssignmentsStaff.ascx" />
     <Content Include="ucHeader.ascx" />
+    <Content Include="ucQuestionPosting.ascx" />
     <Content Include="ucStudentAssignment.ascx" />
     <Content Include="ucstudentheader.ascx" />
     <Content Include="ucStudentNote.ascx" />
     <Content Include="ucTest.ascx" />
+    <Content Include="ucView.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -143,6 +145,7 @@
     </Content>
     <Content Include="ucAdminheadertemplate.ascx" />
     <Content Include="StudentAssignment.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminHome.aspx.cs">
@@ -276,6 +279,13 @@
     <Compile Include="ucAdminheadertemplate.ascx.designer.cs">
       <DependentUpon>ucAdminheadertemplate.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ucQuestionPosting.ascx.cs">
+      <DependentUpon>ucQuestionPosting.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucQuestionPosting.ascx.designer.cs">
+      <DependentUpon>ucQuestionPosting.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ucStudentAssignment.ascx.cs">
       <DependentUpon>ucStudentAssignment.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,6 +320,20 @@
     </Compile>
     <Compile Include="ucTest.ascx.designer.cs">
       <DependentUpon>ucTest.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ucView.ascx.cs">
+      <DependentUpon>ucView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucView.ascx.designer.cs">
+      <DependentUpon>ucView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -13,40 +13,31 @@ namespace E_Learning {
     public partial class ucQuestionPosting {
         
         /// <summary>
-        /// ddlQuestionTitle control.
+        /// ddlCatagory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQuestionTitle;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCatagory;
         
         /// <summary>
-        /// txtQuestionTitleAdd control.
+        /// txtAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuestionTitleAdd;
+        protected global::System.Web.UI.WebControls.TextBox txtAdd;
         
         /// <summary>
-        /// btnQuestionTitleAdd control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuestionTitleAdd;
-        
-        /// <summary>
-        /// txtQuestionNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuestionNo;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
         /// txtQuestion control.
@@ -58,21 +49,57 @@ namespace E_Learning {
         protected global::System.Web.UI.WebControls.TextBox txtQuestion;
         
         /// <summary>
-        /// txtAddOption control.
+        /// txtOption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddOption;
+        protected global::System.Web.UI.WebControls.TextBox txtOption;
         
         /// <summary>
-        /// btnAddOption control.
+        /// btnAnswerAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddOption;
+        protected global::System.Web.UI.WebControls.Button btnAnswerAdd;
+        
+        /// <summary>
+        /// grdAnswers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAnswers;
+        
+        /// <summary>
+        /// txtAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAnswer;
+        
+        /// <summary>
+        /// lbregister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbregister;
+        
+        /// <summary>
+        /// btnsubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
     }
 }

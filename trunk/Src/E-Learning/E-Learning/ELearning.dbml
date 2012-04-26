@@ -1,10 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="elearn" Class="ELearningDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=PREWIN-PC\SQLEXPRESS;Initial Catalog=elearn;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="elearnConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblAnswers" Member="tblAnswers">
+    <Type Name="tblAnswer">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblQuestion_tblAnswer" Member="tblQuestion" ThisKey="FK_QuestionId" OtherKey="QuestionId" Type="tblQuestion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAssignments" Member="tblAssignments">
+    <Type Name="tblAssignment">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Topic" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AssignNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FK_StudentId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblLogin_tblAssignment" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tblCategory" Member="tblCategories">
     <Type Name="tblCategory">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="tblCategory_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_CategoryId" Type="tblForumQuestion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFiles" Member="tblFiles">
+    <Type Name="tblFile">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="tblFile_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_FileId" Type="tblNote" />
+      <Association Name="tblTitle_tblFile" Member="tblTitle" ThisKey="FK_TitleId" OtherKey="Id" Type="tblTitle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblForumAnswer" Member="tblForumAnswers">
+    <Type Name="tblForumAnswer">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblForumQuestion_tblForumAnswer" Member="tblForumQuestion" ThisKey="FK_QuestionId" OtherKey="Id" Type="tblForumQuestion" IsForeignKey="true" />
+      <Association Name="tblLogin_tblForumAnswer" Member="tblLogin" ThisKey="FK_UserId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblForumQuestion" Member="tblForumQuestions">
@@ -14,6 +56,7 @@
       <Column Name="FK_CategoryId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblForumQuestion_tblForumAnswer" Member="tblForumAnswers" ThisKey="Id" OtherKey="FK_QuestionId" Type="tblForumAnswer" />
       <Association Name="tblCategory_tblForumQuestion" Member="tblCategory" ThisKey="FK_CategoryId" OtherKey="Id" Type="tblCategory" IsForeignKey="true" />
       <Association Name="tblLogin_tblForumQuestion" Member="tblLogin" ThisKey="FK_UserId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
     </Type>
@@ -32,11 +75,30 @@
       <Column Name="FK_RoleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="PostalCode" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tblLogin_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumQuestion" />
-      <Association Name="tblLogin_tblForumAnswer" Member="tblForumAnswers" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumAnswer" />
       <Association Name="tblLogin_tblAssignment" Member="tblAssignments" ThisKey="Id" OtherKey="FK_StaffId" Type="tblAssignment" />
+      <Association Name="tblLogin_tblForumAnswer" Member="tblForumAnswers" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumAnswer" />
+      <Association Name="tblLogin_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumQuestion" />
       <Association Name="tblLogin_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_StaffId" Type="tblNote" />
       <Association Name="tblRole_tblLogin" Member="tblRole" ThisKey="FK_RoleId" OtherKey="Id" Type="tblRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblNotes" Member="tblNotes">
+    <Type Name="tblNote">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblFile_tblNote" Member="tblFile" ThisKey="FK_FileId" OtherKey="Id" Type="tblFile" IsForeignKey="true" />
+      <Association Name="tblLogin_tblNote" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblQuestion" Member="tblQuestions">
+    <Type Name="tblQuestion">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblQuestion_tblAnswer" Member="tblAnswers" ThisKey="QuestionId" OtherKey="FK_QuestionId" Type="tblAnswer" />
+      <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestionTitle" ThisKey="Fk_QuestionTitle" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblRoles" Member="tblRoles">
@@ -58,72 +120,15 @@
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TitleName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblTitle_tblFile" Member="tblFiles" ThisKey="Id" OtherKey="FK_TitleId" Type="tblFile" />
       <Association Name="tblSubject_tblTitle" Member="tblSubject" ThisKey="FK_SubjectId" OtherKey="Id" Type="tblSubject" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblForumAnswer" Member="tblForumAnswers">
-    <Type Name="tblForumAnswer">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Answer" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="tblLogin_tblForumAnswer" Member="tblLogin" ThisKey="FK_UserId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblAssignments" Member="tblAssignments">
-    <Type Name="tblAssignment">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Topic" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="AssignNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FK_StudentId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="tblLogin_tblAssignment" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblNotes" Member="tblNotes">
-    <Type Name="tblNote">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FK_StaffId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FK_FileId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tblLogin_tblNote" Member="tblLogin" ThisKey="FK_StaffId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
-      <Association Name="tblFile_tblNote" Member="tblFile" ThisKey="FK_FileId" OtherKey="Id" Type="tblFile" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblFiles" Member="tblFiles">
-    <Type Name="tblFile">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FK_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Association Name="tblFile_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_FileId" Type="tblNote" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblQuestion" Member="tblQuestions">
-    <Type Name="tblQuestion">
-      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="tblQuestion_tblAnswer" Member="tblAnswers" ThisKey="QuestionId" OtherKey="FK_QuestionId" Type="tblAnswer" />
-      <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestionTitle" ThisKey="Fk_QuestionTitle" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblQuestionTitle" Member="tblQuestionTitles">
     <Type Name="tblQuestionTitle">
-      <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestions" ThisKey="QuestionTitleId" OtherKey="Fk_QuestionTitle" Type="tblQuestion" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblAnswers" Member="tblAnswers">
-    <Type Name="tblAnswer">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="tblQuestion_tblAnswer" Member="tblQuestion" ThisKey="FK_QuestionId" OtherKey="QuestionId" Type="tblQuestion" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_tblLoginNewDeleteCommand" Method="sp_tblLoginNewDeleteCommand">
@@ -254,93 +259,6 @@
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TitleName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FK_SubjectId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionNewDeleteCommand" Method="sp_tblQuestionNewDeleteCommand">
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_tblQuestionNewInsertCommand" Method="sp_tblQuestionNewInsertCommand">
-    <Parameter Name="Fk_TitleId" Parameter="fk_TitleId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="QuestionNumber" Parameter="questionNumber" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="OptionA" Parameter="optionA" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionB" Parameter="optionB" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionC" Parameter="optionC" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionD" Parameter="optionD" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Answer" Parameter="answer" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_tblQuestionNewInsertCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Fk_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="QuestionNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="OptionA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionNewSelectCommand" Method="sp_tblQuestionNewSelectCommand">
-    <ElementType Name="sp_tblQuestionNewSelectCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Fk_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="QuestionNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="OptionA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionNewUpdateCommand" Method="sp_tblQuestionNewUpdateCommand">
-    <Parameter Name="Fk_TitleId" Parameter="fk_TitleId" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="QuestionNumber" Parameter="questionNumber" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="OptionA" Parameter="optionA" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionB" Parameter="optionB" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionC" Parameter="optionC" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OptionD" Parameter="optionD" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Answer" Parameter="answer" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_tblQuestionNewUpdateCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Fk_TitleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="QuestionNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Question" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="OptionA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionTitleNewDeleteCommand" Method="sp_tblQuestionTitleNewDeleteCommand">
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_tblQuestionTitleNewInsertCommand" Method="sp_tblQuestionTitleNewInsertCommand">
-    <Parameter Name="QuestionTitle" Parameter="questionTitle" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_tblQuestionTitleNewInsertCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionTitleNewSelectCommand" Method="sp_tblQuestionTitleNewSelectCommand">
-    <ElementType Name="sp_tblQuestionTitleNewSelectCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblQuestionTitleNewUpdateCommand" Method="sp_tblQuestionTitleNewUpdateCommand">
-    <Parameter Name="QuestionTitle" Parameter="questionTitle" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_tblQuestionTitleNewUpdateCommandResult">
-      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_tblAssignmentsNewDeleteCommand" Method="sp_tblAssignmentsNewDeleteCommand">
@@ -481,6 +399,104 @@
       <Column Name="TitleName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="SubjectName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="FilePath" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblAnswersNewDeleteCommand" Method="sp_tblAnswersNewDeleteCommand">
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblAnswersNewInsertCommand" Method="sp_tblAnswersNewInsertCommand">
+    <Parameter Name="Answer" Parameter="answer" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FK_QuestionId" Parameter="fK_QuestionId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AnswerType" Parameter="answerType" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblAnswersNewInsertCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblAnswersNewSelectCommand" Method="sp_tblAnswersNewSelectCommand">
+    <ElementType Name="sp_tblAnswersNewSelectCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblAnswersNewUpdateCommand" Method="sp_tblAnswersNewUpdateCommand">
+    <Parameter Name="Answer" Parameter="answer" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FK_QuestionId" Parameter="fK_QuestionId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AnswerType" Parameter="answerType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblAnswersNewUpdateCommandResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FK_QuestionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AnswerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionNewDeleteCommand" Method="sp_tblQuestionNewDeleteCommand">
+    <Parameter Name="Original_QuestionId" Parameter="original_QuestionId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblQuestionNewInsertCommand" Method="sp_tblQuestionNewInsertCommand">
+    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Fk_QuestionTitle" Parameter="fk_QuestionTitle" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_Answer" Parameter="fK_Answer" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblQuestionNewInsertCommandResult">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionNewSelectCommand" Method="sp_tblQuestionNewSelectCommand">
+    <ElementType Name="sp_tblQuestionNewSelectCommandResult">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionNewUpdateCommand" Method="sp_tblQuestionNewUpdateCommand">
+    <Parameter Name="Question" Parameter="question" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Fk_QuestionTitle" Parameter="fk_QuestionTitle" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_Answer" Parameter="fK_Answer" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_QuestionId" Parameter="original_QuestionId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="QuestionId" Parameter="questionId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblQuestionNewUpdateCommandResult">
+      <Column Name="QuestionId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Fk_QuestionTitle" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_Answer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionTitleNewDeleteCommand" Method="sp_tblQuestionTitleNewDeleteCommand">
+    <Parameter Name="Original_QuestionTitleId" Parameter="original_QuestionTitleId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblQuestionTitleNewInsertCommand" Method="sp_tblQuestionTitleNewInsertCommand">
+    <Parameter Name="QuestionTitle" Parameter="questionTitle" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_tblQuestionTitleNewInsertCommandResult">
+      <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionTitleNewSelectCommand" Method="sp_tblQuestionTitleNewSelectCommand">
+    <ElementType Name="sp_tblQuestionTitleNewSelectCommandResult">
+      <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblQuestionTitleNewUpdateCommand" Method="sp_tblQuestionTitleNewUpdateCommand">
+    <Parameter Name="QuestionTitle" Parameter="questionTitle" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Original_QuestionTitleId" Parameter="original_QuestionTitleId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="QuestionTitleId" Parameter="questionTitleId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblQuestionTitleNewUpdateCommandResult">
+      <Column Name="QuestionTitleId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
