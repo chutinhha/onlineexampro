@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data.Linq;
-using System.Data.Linq.Mapping;
-using System.Reflection;
 
 namespace churchforms
 {
@@ -24,7 +21,7 @@ namespace churchforms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=Mahendran;Initial Catalog=ChurchApplication;Integrated Security=True");
+            SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("sp_Church_GeneralLedgerValues", con);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -44,24 +41,19 @@ namespace churchforms
             DataSet ds = new DataSet();
             da.Fill(ds);
             con.Close();
-            
-            lblMonthlySubs.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            lblNewBuildFund.Text = Convert.ToString(ds.Tables[0].Rows[0]["NewBuildingFund"]);
-            lblSundayOff.Text = Convert.ToString(ds.Tables[1].Rows[0]["Sunday_offering"]);
-            lblBirthDay.Text = Convert.ToString(ds.Tables[2].Rows[0]["Birth_Marriage"]);
-            lblRewHouseVisit.Text = Convert.ToString(ds.Tables[3].Rows[0]["House_Visit"]);
-            lblInterestReceived.Text = Convert.ToString(ds.Tables[4].Rows[0]["InterestReceived"]);
-            lblHarv.Text = Convert.ToString(ds.Tables[5].Rows[0]["Harvest"]);
-            lblSundayAuction.Text = Convert.ToString(ds.Tables[6].Rows[0]["sunday_auction"]);
-            //label22.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label23.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label26.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label27.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label28.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label29.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label30.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label31.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
-            //label32.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
+
+            label1.Text = Convert.ToString(ds.Tables[0].Rows[0]["MonthlyOffer"]);
+            label18.Text = Convert.ToString(ds.Tables[0].Rows[0]["NewBuildingFund"]);
+            label13.Text = Convert.ToString(ds.Tables[1].Rows[0]["Sunday_offering"]);
+            label15.Text = Convert.ToString(ds.Tables[2].Rows[0]["Birth_Marriage"]);
+            label16.Text = Convert.ToString(ds.Tables[3].Rows[0]["House_Visit"]);
+            label17.Text = Convert.ToString(ds.Tables[4].Rows[0]["InterestReceived"]);
+            label2.Text = Convert.ToString(ds.Tables[5].Rows[0]["Harvest"]);
+            label21.Text = Convert.ToString(ds.Tables[6].Rows[0]["sunday_auction"]);
+            label22.Text = Convert.ToString(ds.Tables[7].Rows[0]["others"]);
+            label3.Text = Convert.ToString(sp.Value);
+            label14.Text = Convert.ToString(sp1.Value);
+            label19.Text = Convert.ToString(ds.Tables[8].Rows[0]["fixeddeposit"]);
         }
     }
 }

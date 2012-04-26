@@ -30,7 +30,7 @@ namespace churchforms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Income_Expenditure_For_Mission_Account obj = new Income_Expenditure_For_Mission_Account();
+            Income_and_Expenditure_Mission obj = new Income_and_Expenditure_Mission();
             obj.ShowDialog();
         }
     }

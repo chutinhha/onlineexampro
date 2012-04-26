@@ -1,6 +1,6 @@
 ﻿namespace churchforms
 {
-    partial class Income_Expenditure_For_Mission_Account
+    partial class Income_and_Expenditure_Mission
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Income_Expenditure_For_Mission_Account));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Income_and_Expenditure_Mission));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +41,9 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -61,20 +64,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -137,9 +126,8 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(107, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
             // 
             // label1
             // 
@@ -147,9 +135,8 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(107, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(0, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -193,6 +180,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "GET";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker3
             // 
@@ -232,18 +220,7 @@
             // 
             this.groupBox2.Controls.Add(this.label40);
             this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.label38);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.label30);
@@ -273,11 +250,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Income";
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(306, 330);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(0, 15);
+            this.label40.TabIndex = 117;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(74, 330);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(46, 15);
+            this.label39.TabIndex = 10;
+            this.label39.Text = "Total:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(324, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 15);
+            this.label7.TabIndex = 105;
+            this.label7.Text = "Cash";
+            // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(279, 289);
+            this.label32.Location = new System.Drawing.Point(324, 291);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(0, 15);
             this.label32.TabIndex = 104;
@@ -286,7 +290,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(279, 258);
+            this.label31.Location = new System.Drawing.Point(324, 260);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(0, 15);
             this.label31.TabIndex = 103;
@@ -295,7 +299,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(279, 230);
+            this.label30.Location = new System.Drawing.Point(324, 232);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(0, 15);
             this.label30.TabIndex = 102;
@@ -304,7 +308,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(279, 203);
+            this.label29.Location = new System.Drawing.Point(324, 205);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(0, 15);
             this.label29.TabIndex = 101;
@@ -313,7 +317,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(279, 175);
+            this.label5.Location = new System.Drawing.Point(324, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 15);
             this.label5.TabIndex = 100;
@@ -322,7 +326,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(279, 149);
+            this.label6.Location = new System.Drawing.Point(324, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 15);
             this.label6.TabIndex = 99;
@@ -331,7 +335,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(279, 123);
+            this.label26.Location = new System.Drawing.Point(324, 125);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(0, 15);
             this.label26.TabIndex = 98;
@@ -340,7 +344,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(279, 97);
+            this.label23.Location = new System.Drawing.Point(324, 99);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(0, 15);
             this.label23.TabIndex = 97;
@@ -349,7 +353,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(280, 72);
+            this.label21.Location = new System.Drawing.Point(325, 74);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(0, 15);
             this.label21.TabIndex = 96;
@@ -358,7 +362,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(279, 46);
+            this.label20.Location = new System.Drawing.Point(324, 48);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(0, 15);
             this.label20.TabIndex = 95;
@@ -453,133 +457,6 @@
             this.label12.TabIndex = 89;
             this.label12.Text = "Poor Fund:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(279, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 15);
-            this.label7.TabIndex = 105;
-            this.label7.Text = "Cash";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(361, 21);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(57, 15);
-            this.label33.TabIndex = 106;
-            this.label33.Text = "Cheque";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(371, 289);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 15);
-            this.label10.TabIndex = 116;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(371, 258);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(0, 15);
-            this.label18.TabIndex = 115;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(371, 230);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 15);
-            this.label19.TabIndex = 114;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(371, 203);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(0, 15);
-            this.label22.TabIndex = 113;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(371, 175);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(0, 15);
-            this.label24.TabIndex = 112;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(371, 149);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(0, 15);
-            this.label34.TabIndex = 111;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(371, 123);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(0, 15);
-            this.label35.TabIndex = 110;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(371, 97);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(0, 15);
-            this.label36.TabIndex = 109;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(372, 72);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(0, 15);
-            this.label37.TabIndex = 108;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(371, 46);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 15);
-            this.label38.TabIndex = 107;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(74, 330);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(46, 15);
-            this.label39.TabIndex = 10;
-            this.label39.Text = "Total:";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.Black;
-            this.label40.Location = new System.Drawing.Point(306, 330);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(55, 15);
-            this.label40.TabIndex = 117;
-            this.label40.Text = "label40";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label41);
@@ -631,9 +508,8 @@
             this.label41.ForeColor = System.Drawing.Color.Black;
             this.label41.Location = new System.Drawing.Point(306, 330);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(55, 15);
+            this.label41.Size = new System.Drawing.Size(0, 15);
             this.label41.TabIndex = 117;
-            this.label41.Text = "label41";
             // 
             // label42
             // 
@@ -932,7 +808,7 @@
             this.label74.TabIndex = 89;
             this.label74.Text = "Poor Fund:";
             // 
-            // Income_Expenditure_For_Mission_Account
+            // Income_and_Expenditure_Mission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -943,9 +819,10 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Income_Expenditure_For_Mission_Account";
+            this.Name = "Income_and_Expenditure_Mission";
             this.Text = "Mission Income & Expenditure";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Income_and_Expenditure_Mission_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -993,17 +870,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox3;

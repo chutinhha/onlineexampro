@@ -173,7 +173,7 @@
             this.Controls.Add(this.btnmember);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "menu";
-            this.Text = "menu";
+            this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.menu_Load);
             this.ResumeLayout(false);

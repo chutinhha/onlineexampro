@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace churchforms
 {
@@ -78,7 +79,6 @@ namespace churchforms
                     obj.Form_id = 1;
                     churchDB.Church_AmountDetails.InsertOnSubmit(obj);
                     churchDB.SubmitChanges();
-                    MessageBox.Show("Submit Successfully!");
                     long aa = (from a in churchDB.Church_AmountDetails select a.Amount_Id).Max();
                     Church_SubscriptionDetail subobj = new Church_SubscriptionDetail();
                     subobj.MonthlyOffer = Convert.ToDecimal(textBox2.Text);
@@ -100,13 +100,23 @@ namespace churchforms
                     subobj.FK_AmountId = aa;
                     churchDB.Church_SubscriptionDetails.InsertOnSubmit(subobj);
                     churchDB.SubmitChanges();
-                    var cal = (from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).First();
-                    cal.Harvest_Payed = cal.Harvest_Payed + Convert.ToDecimal(textBox16.Text);
-                    if (cal.Harvest_Total == cal.Harvest_Payed)
+                    var cal = (from a in churchDB.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).FirstOrDefault();
+                    if (cal != null)
                     {
-                        cal.Status = 1;
+                        cal.Harvest_Payed = cal.Harvest_Payed + Convert.ToDecimal(textBox16.Text);
+                        if (cal.Harvest_Total == cal.Harvest_Payed)
+                        {
+                            cal.Status = 1;
+                        }
+                        churchDB.SubmitChanges();
                     }
+                    var amount = (from a in churchDB.Church_OpeningBalanceDetails where a.Account_type == 1 select a).FirstOrDefault();
+                    amount.Opening_Bal_Cash = amount.Opening_Bal_Cash + Convert.ToDecimal(textBox2.Text) + Convert.ToDecimal(textBox3.Text) + Convert.ToDecimal(textBox4.Text) + Convert.ToDecimal(textBox8.Text) + Convert.ToDecimal(textBox16.Text);
                     churchDB.SubmitChanges();
+                    var mission = (from a in churchDB.Church_OpeningBalanceDetails where a.Account_type == 2 select a).FirstOrDefault();
+                    mission.Opening_Bal_Cash = mission.Opening_Bal_Cash + Convert.ToDecimal(textBox6.Text) + Convert.ToDecimal(textBox7.Text) + Convert.ToDecimal(textBox9.Text) + Convert.ToDecimal(textBox10.Text) + Convert.ToDecimal(textBox11.Text) + Convert.ToDecimal(textBox12.Text) + Convert.ToDecimal(textBox13.Text) + Convert.ToDecimal(textBox14.Text) + Convert.ToDecimal(textBox15.Text) + Convert.ToDecimal(textBox17.Text);
+                    churchDB.SubmitChanges();
+                    MessageBox.Show("Submit Successfully!");
                     Bindingamount();
                     emptyfield();
                 }
@@ -173,6 +183,7 @@ namespace churchforms
                     {
                         Validationfieldnum(textBox1);
                         var name = (from a in obj.Church_MemberDetails where a.CardNo == Convert.ToInt64(textBox1.Text) select a).SingleOrDefault();
+                        comboBox1.Text = (from a in obj.Church_MemberDetails where a.CardNo == Convert.ToInt64(textBox1.Text) select a.MemberName).FirstOrDefault();
                         if (name != null)
                         {
                             Bindingamount();
@@ -200,7 +211,7 @@ namespace churchforms
             using (ChurchApplicationDataContext obj = new ChurchApplicationDataContext())
             {
                 var Bal = (from a in obj.Church_AuctionStatus where a.Card_No == Convert.ToInt64(textBox1.Text) select a).SingleOrDefault();
-                if (Bal!=null)
+                if (Bal != null)
                 {
                     label30.Text = Convert.ToString(Bal.Harvest_Total - Bal.Harvest_Payed);
                 }
@@ -593,6 +604,9 @@ namespace churchforms
                 comboBox2.DataSource = from a in obj.Church_BankDetails select a;
                 comboBox2.DisplayMember = "Bank_name";
                 comboBox2.ValueMember = "Bank_id";
+                comboBox1.DataSource = from a in obj.Church_MemberDetails select a;
+                comboBox1.DisplayMember = "MemberName";
+                comboBox1.ValueMember = "MemberId";
             }
         }
 
@@ -628,6 +642,86 @@ namespace churchforms
             }
         }
 
-        
+        //private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+        //    {
+        //        var name = churchDB.sp_Church_NameSearch(comboBox1.Text);
+        //        comboBox1.DataSource = name;
+        //        foreach (var item in name)
+        //        {
+        //            comboBox1.DisplayMember = item.MemberName;
+        //            comboBox1.ValueMember = Convert.ToString(item.MemberId);
+        //        }
+        //    }
+        //    SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True");
+        //    con.Open();
+        //    SqlCommand cmd = new SqlCommand("sp_Church_NameSearch", con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@name", Convert.ToString(comboBox1.Text));
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataSet ds = new DataSet();
+        //    da.Fill(ds);
+        //    con.Close();
+        //    comboBox1.DataSource = ds.Tables[0];
+        //    comboBox1.DisplayMember = Convert.ToString(ds.Tables[0].Rows[0]["name"]);
+        //    //comboBox2.ValueMember = Convert.ToString(ds.Tables[0].Rows[0]["id"]);
+
+        //}
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (ChurchApplicationDataContext obj = new ChurchApplicationDataContext())
+            {
+                try
+                {
+                    var name = (from a in obj.Church_MemberDetails where a.MemberId == Convert.ToInt64(comboBox1.SelectedValue) select a).FirstOrDefault();
+                    if (name != null)
+                    {
+                        textBox1.Text = Convert.ToString(name.CardNo);
+                        label2.Text = name.MemberName;
+                        label3.Text = Convert.ToString(name.Mobile);
+                        string[] Address = name.Address.Split(',');
+                        label26.Text = Address[0] + ",";
+                        label27.Text = Address[1] + ".";
+                    }
+                    else
+                    {
+                        label31.Text = "It's not valid Card No!";
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
+
+        private void comboBox1_TextUpdate(object sender, EventArgs e)
+        {
+            //using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+            //{
+            //    //MessageBox.Show(comboBox1.Text);
+            //    var name = churchDB.sp_Church_NameSearch(comboBox1.Text);
+            //    comboBox1.DataSource = name;
+
+            //}
+            ////SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True");
+            ////con.Open();
+            ////SqlCommand cmd = new SqlCommand("sp_Church_NameSearch", con);
+            ////cmd.CommandType = CommandType.StoredProcedure;
+            ////cmd.Parameters.AddWithValue("@name", Convert.ToString(comboBox1.Text));
+            ////SqlDataAdapter da = new SqlDataAdapter(cmd);
+            ////DataSet ds = new DataSet();
+            ////da.Fill(ds);
+            ////con.Close();
+            ////comboBox1.DataSource = ds.Tables[0];
+            ////comboBox1.DisplayMember = Convert.ToString(ds.Tables[0].Rows[0]["name"]);
+            ////comboBox1.ValueMember = Convert.ToString(ds.Tables[0].Rows[0]["id"]);
+        }
+
+
     }
 }
