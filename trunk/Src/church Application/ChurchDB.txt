@@ -1,10 +1,10 @@
 
-create database test
+create database [ChurchApplication]
 go
 
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_MissionExpenditureType_Detail]    Script Date: 04/23/2012 19:02:34 ******/
@@ -26,7 +26,7 @@ CREATE TABLE [dbo].[Church_MissionExpenditureType_Detail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_AuctionType_Detail]    Script Date: 04/23/2012 19:03:03 ******/
@@ -48,7 +48,7 @@ CREATE TABLE [dbo].[Church_AuctionType_Detail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_GeneralExpenditureType_Detail]    Script Date: 04/23/2012 19:03:40 ******/
@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[Church_GeneralExpenditureType_Detail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_OfferingDetail]    Script Date: 04/23/2012 19:04:01 ******/
@@ -92,7 +92,7 @@ CREATE TABLE [dbo].[Church_OfferingDetail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_FormDetail]    Script Date: 04/23/2012 19:04:38 ******/
@@ -114,7 +114,7 @@ CREATE TABLE [dbo].[Church_FormDetail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_BankDetail]    Script Date: 04/23/2012 19:05:05 ******/
@@ -136,7 +136,7 @@ CREATE TABLE [dbo].[Church_BankDetail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_AmountDetail]    Script Date: 04/23/2012 19:06:00 ******/
@@ -184,7 +184,7 @@ ALTER TABLE [dbo].[Church_AmountDetail] CHECK CONSTRAINT [FK_Church_AmountDetail
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_GeneralOfferingDetail]    Script Date: 04/23/2012 19:06:25 ******/
@@ -232,7 +232,7 @@ ALTER TABLE [dbo].[Church_GeneralOfferingDetail] CHECK CONSTRAINT [FK_Church_Gen
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_HouseVisitDetail]    Script Date: 04/23/2012 19:06:54 ******/
@@ -263,7 +263,7 @@ ALTER TABLE [dbo].[Church_HouseVisitDetail] CHECK CONSTRAINT [FK_Church_HouseVis
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_ExpenditureAmount_Detail]    Script Date: 04/23/2012 19:07:42 ******/
@@ -327,7 +327,7 @@ ALTER TABLE [dbo].[Church_ExpenditureAmount_Detail] CHECK CONSTRAINT [FK_Church_
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_Auction_Detail]    Script Date: 04/23/2012 19:08:19 ******/
@@ -366,7 +366,7 @@ ALTER TABLE [dbo].[Church_Auction_Detail] CHECK CONSTRAINT [FK_Church_Auction_De
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_OtherIncome]    Script Date: 04/23/2012 19:08:52 ******/
@@ -398,7 +398,7 @@ ALTER TABLE [dbo].[Church_OtherIncome] CHECK CONSTRAINT [FK_Church_OtherIncome_C
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_SubscriptionDetail]    Script Date: 04/23/2012 19:09:18 ******/
@@ -444,7 +444,7 @@ ALTER TABLE [dbo].[Church_SubscriptionDetail] CHECK CONSTRAINT [FK_Church_Subscr
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_AuctionStatus]    Script Date: 04/23/2012 19:09:54 ******/
@@ -471,7 +471,7 @@ CREATE TABLE [dbo].[Church_AuctionStatus](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_OtherIncome]    Script Date: 04/23/2012 19:10:10 ******/
@@ -506,7 +506,7 @@ CREATE TABLE [dbo].[Church_MemberDetail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_AccountType_Detail]    Script Date: 04/23/2012 19:10:56 ******/
@@ -528,7 +528,7 @@ CREATE TABLE [dbo].[Church_AccountType_Detail](
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
 /****** Object:  Table [dbo].[Church_OpeningBalanceDetail]    Script Date: 04/23/2012 19:11:16 ******/
@@ -559,10 +559,10 @@ ALTER TABLE [dbo].[Church_OpeningBalanceDetail] CHECK CONSTRAINT [FK_Church_Open
 GO
 
 
-USE test
+USE [ChurchApplication]
 GO
 
-/****** Object:  Table [dbo].[Church_Deposit_Detail]    Script Date: 04/23/2012 19:11:35 ******/
+/****** Object:  Table [dbo].[Church_Deposit_Detail]    Script Date: 04/26/2012 18:00:02 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -571,10 +571,8 @@ GO
 
 CREATE TABLE [dbo].[Church_Deposit_Detail](
 	[Deposit_id] [int] IDENTITY(1,1) NOT NULL,
-	[Towards] [nvarchar](100) NULL,
 	[Amount] [decimal](18, 2) NULL,
-	[From_Date] [datetime] NULL,
-	[To_Date] [datetime] NULL,
+	[Payment_Date] [datetime] NULL,
 	[Register_Date] [datetime] NULL,
 	[Account_type] [int] NULL,
  CONSTRAINT [PK_Church_Deposit_Detail] PRIMARY KEY CLUSTERED 

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ChurchApplication" Class="ChurchApplicationDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MAHENDRAN;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True" SettingsObjectName="churchforms.Properties.Settings" SettingsPropertyName="ChurchApplicationConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Church_AccountType_Detail" Member="Church_AccountType_Details">
     <Type Name="Church_AccountType_Detail">
       <Column Name="Account_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Account_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Church_AccountType_Detail_Church_Deposit_Detail" Member="Church_Deposit_Details" ThisKey="Account_id" OtherKey="Account_type" Type="Church_Deposit_Detail" />
       <Association Name="Church_AccountType_Detail_Church_OpeningBalanceDetail" Member="Church_OpeningBalanceDetail" ThisKey="Account_id" OtherKey="Opening_Id" Type="Church_OpeningBalanceDetail" Cardinality="One" />
+      <Association Name="Church_AccountType_Detail_Church_Deposit_Detail" Member="Church_Deposit_Details" ThisKey="Account_id" OtherKey="Account_type" Type="Church_Deposit_Detail" />
     </Type>
   </Table>
   <Table Name="dbo.Church_AmountDetail" Member="Church_AmountDetails">
@@ -66,18 +66,6 @@
       <Column Name="Bank_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Church_BankDetail_Church_AmountDetail" Member="Church_AmountDetails" ThisKey="Bank_id" OtherKey="Bank_Name" Type="Church_AmountDetail" />
       <Association Name="Church_BankDetail_Church_ExpenditureAmount_Detail" Member="Church_ExpenditureAmount_Details" ThisKey="Bank_id" OtherKey="Bank_Name" Type="Church_ExpenditureAmount_Detail" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Church_Deposit_Detail" Member="Church_Deposit_Details">
-    <Type Name="Church_Deposit_Detail">
-      <Column Name="Deposit_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Towards" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="From_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="To_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Register_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Account_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Church_AccountType_Detail_Church_Deposit_Detail" Member="Church_AccountType_Detail" ThisKey="Account_type" OtherKey="Account_id" Type="Church_AccountType_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Church_ExpenditureAmount_Detail" Member="Church_ExpenditureAmount_Details">
@@ -222,6 +210,16 @@
       <Association Name="Church_AmountDetail_Church_SubscriptionDetail" Member="Church_AmountDetail" ThisKey="FK_AmountId" OtherKey="Amount_Id" Type="Church_AmountDetail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
+  <Table Name="dbo.Church_Deposit_Detail" Member="Church_Deposit_Details">
+    <Type Name="Church_Deposit_Detail">
+      <Column Name="Deposit_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Payment_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Register_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Account_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Church_AccountType_Detail_Church_Deposit_Detail" Member="Church_AccountType_Detail" ThisKey="Account_type" OtherKey="Account_id" Type="Church_AccountType_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_Church_CriditMissionAccount" Method="sp_Church_CriditMissionAccount">
     <Parameter Name="fromdate" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="todate" Type="System.DateTime" DbType="DateTime" />
@@ -246,14 +244,10 @@
       <Column Name="WomensFellowShip" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_Church_GeneralLedgerValues" Method="sp_Church_GeneralLedgerValues">
-    <Parameter Name="fromdate" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="todate" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="ThanksGiving" Parameter="thanksGiving" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
-    <Parameter Name="SundaySchool" Parameter="sundaySchool" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
-    <ElementType Name="sp_Church_GeneralLedgerValuesResult">
-      <Column Name="MonthlyOffer" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-      <Column Name="NewBuildingFund" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+  <Function Name="dbo.sp_Church_NameSearch" Method="sp_Church_NameSearch">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_Church_NameSearchResult">
+      <Column Name="MemberName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

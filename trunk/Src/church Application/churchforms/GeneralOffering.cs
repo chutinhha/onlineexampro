@@ -165,6 +165,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtCashamount.Text = "0";
                             obj1.Cash_Amount = 0;
                         }
                         if (checkBox1.Checked)
@@ -184,6 +185,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtChequeAmount.Text = "0";
                             obj1.Cheque_Amount = 0;
                         }
                         obj.Offering_type = Convert.ToInt32(comboBox3.SelectedValue);
@@ -195,6 +197,9 @@ namespace churchforms
                         long aa = (from a in churchDB.Church_AmountDetails select a.Amount_Id).Max();
                         obj.FK_Amountid = aa;
                         churchDB.Church_GeneralOfferingDetails.InsertOnSubmit(obj);
+                        churchDB.SubmitChanges();
+                        var amount = (from a in churchDB.Church_OpeningBalanceDetails where a.Account_type == 1 select a).FirstOrDefault();
+                        amount.Opening_Bal_Cash = amount.Opening_Bal_Cash + Convert.ToDecimal(txtCashamount.Text) + Convert.ToDecimal(txtChequeAmount.Text);
                         churchDB.SubmitChanges();
                         MessageBox.Show("Save Successfully!");
                     }

@@ -33,5 +33,11 @@ namespace churchforms
             Income_and_Expenditure_general obj = new Income_and_Expenditure_general();
             obj.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GeneralLedgerValues obj = new GeneralLedgerValues();
+            obj.ShowDialog();
+        }
     }
 }

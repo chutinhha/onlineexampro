@@ -120,6 +120,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtCashamount.Text = "0";
                             obj.Cash_Amount = 0;
                         }
                         if (checkBox1.Checked)
@@ -139,6 +140,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtChequeAmount.Text = "0";
                             obj.Cheque_Amount = 0;
                         }
                         obj.Payment_Date = Convert.ToDateTime(dateTimePicker1.Text);
@@ -151,6 +153,9 @@ namespace churchforms
                         mun.Towards = textBox3.Text;
                         mun.FK_Amountid = aa;
                         churchDB.Church_HouseVisitDetails.InsertOnSubmit(mun);
+                        churchDB.SubmitChanges();
+                        var amount = (from a in churchDB.Church_OpeningBalanceDetails where a.Account_type == 1 select a).FirstOrDefault();
+                        amount.Opening_Bal_Cash = amount.Opening_Bal_Cash + Convert.ToDecimal(txtCashamount.Text) + Convert.ToDecimal(txtChequeAmount.Text);
                         churchDB.SubmitChanges();
                         MessageBox.Show("Submit Successfully");
                         emptyfield();

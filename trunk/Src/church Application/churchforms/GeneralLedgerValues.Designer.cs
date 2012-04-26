@@ -34,24 +34,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblSundayAuction = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.lblFixedDep = new System.Windows.Forms.Label();
-            this.lblInterestReceived = new System.Windows.Forms.Label();
-            this.lblRewHouseVisit = new System.Windows.Forms.Label();
-            this.lblBirthDay = new System.Windows.Forms.Label();
-            this.lblSundaySchool = new System.Windows.Forms.Label();
-            this.lblSundayOff = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblNewBuildFund = new System.Windows.Forms.Label();
-            this.lblThanksGiving = new System.Windows.Forms.Label();
-            this.lblHarv = new System.Windows.Forms.Label();
-            this.lblMonthlySubs = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -92,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 36);
+            this.label4.Location = new System.Drawing.Point(53, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 15);
             this.label4.TabIndex = 30;
@@ -100,24 +102,26 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblSundayAuction);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.lblFixedDep);
-            this.groupBox1.Controls.Add(this.lblInterestReceived);
-            this.groupBox1.Controls.Add(this.lblRewHouseVisit);
-            this.groupBox1.Controls.Add(this.lblBirthDay);
-            this.groupBox1.Controls.Add(this.lblSundaySchool);
-            this.groupBox1.Controls.Add(this.lblSundayOff);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblNewBuildFund);
-            this.groupBox1.Controls.Add(this.lblThanksGiving);
-            this.groupBox1.Controls.Add(this.lblHarv);
-            this.groupBox1.Controls.Add(this.lblMonthlySubs);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label24);
@@ -126,18 +130,37 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox1.Location = new System.Drawing.Point(146, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 402);
+            this.groupBox1.Size = new System.Drawing.Size(378, 453);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ledger Values";
             // 
-            // lblSundayAuction
+            // label22
             // 
-            this.lblSundayAuction.AutoSize = true;
-            this.lblSundayAuction.Location = new System.Drawing.Point(258, 113);
-            this.lblSundayAuction.Name = "lblSundayAuction";
-            this.lblSundayAuction.Size = new System.Drawing.Size(0, 15);
-            this.lblSundayAuction.TabIndex = 64;
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(258, 392);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(0, 15);
+            this.label22.TabIndex = 66;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(53, 392);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 15);
+            this.label23.TabIndex = 65;
+            this.label23.Text = "Others:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(258, 113);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(0, 15);
+            this.label21.TabIndex = 64;
             // 
             // label20
             // 
@@ -148,59 +171,59 @@
             this.label20.TabIndex = 63;
             this.label20.Text = "Sunday Auction:";
             // 
-            // lblFixedDep
+            // label19
             // 
-            this.lblFixedDep.AutoSize = true;
-            this.lblFixedDep.ForeColor = System.Drawing.Color.Black;
-            this.lblFixedDep.Location = new System.Drawing.Point(258, 360);
-            this.lblFixedDep.Name = "lblFixedDep";
-            this.lblFixedDep.Size = new System.Drawing.Size(0, 15);
-            this.lblFixedDep.TabIndex = 62;
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(258, 360);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(0, 15);
+            this.label19.TabIndex = 62;
             // 
-            // lblInterestReceived
+            // label17
             // 
-            this.lblInterestReceived.AutoSize = true;
-            this.lblInterestReceived.ForeColor = System.Drawing.Color.Black;
-            this.lblInterestReceived.Location = new System.Drawing.Point(258, 329);
-            this.lblInterestReceived.Name = "lblInterestReceived";
-            this.lblInterestReceived.Size = new System.Drawing.Size(0, 15);
-            this.lblInterestReceived.TabIndex = 61;
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(258, 329);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 15);
+            this.label17.TabIndex = 61;
             // 
-            // lblRewHouseVisit
+            // label16
             // 
-            this.lblRewHouseVisit.AutoSize = true;
-            this.lblRewHouseVisit.ForeColor = System.Drawing.Color.Black;
-            this.lblRewHouseVisit.Location = new System.Drawing.Point(258, 298);
-            this.lblRewHouseVisit.Name = "lblRewHouseVisit";
-            this.lblRewHouseVisit.Size = new System.Drawing.Size(0, 15);
-            this.lblRewHouseVisit.TabIndex = 60;
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(258, 298);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(0, 15);
+            this.label16.TabIndex = 60;
             // 
-            // lblBirthDay
+            // label15
             // 
-            this.lblBirthDay.AutoSize = true;
-            this.lblBirthDay.ForeColor = System.Drawing.Color.Black;
-            this.lblBirthDay.Location = new System.Drawing.Point(259, 267);
-            this.lblBirthDay.Name = "lblBirthDay";
-            this.lblBirthDay.Size = new System.Drawing.Size(0, 15);
-            this.lblBirthDay.TabIndex = 59;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(259, 267);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(0, 15);
+            this.label15.TabIndex = 59;
             // 
-            // lblSundaySchool
+            // label14
             // 
-            this.lblSundaySchool.AutoSize = true;
-            this.lblSundaySchool.ForeColor = System.Drawing.Color.Black;
-            this.lblSundaySchool.Location = new System.Drawing.Point(259, 239);
-            this.lblSundaySchool.Name = "lblSundaySchool";
-            this.lblSundaySchool.Size = new System.Drawing.Size(0, 15);
-            this.lblSundaySchool.TabIndex = 58;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(259, 239);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 15);
+            this.label14.TabIndex = 58;
             // 
-            // lblSundayOff
+            // label13
             // 
-            this.lblSundayOff.AutoSize = true;
-            this.lblSundayOff.ForeColor = System.Drawing.Color.Black;
-            this.lblSundayOff.Location = new System.Drawing.Point(259, 210);
-            this.lblSundayOff.Name = "lblSundayOff";
-            this.lblSundayOff.Size = new System.Drawing.Size(0, 15);
-            this.lblSundayOff.TabIndex = 57;
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(259, 210);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 15);
+            this.label13.TabIndex = 57;
             // 
             // label12
             // 
@@ -256,41 +279,41 @@
             this.label7.TabIndex = 51;
             this.label7.Text = "Sunday Offering:";
             // 
-            // lblNewBuildFund
+            // label18
             // 
-            this.lblNewBuildFund.AutoSize = true;
-            this.lblNewBuildFund.ForeColor = System.Drawing.Color.Black;
-            this.lblNewBuildFund.Location = new System.Drawing.Point(258, 178);
-            this.lblNewBuildFund.Name = "lblNewBuildFund";
-            this.lblNewBuildFund.Size = new System.Drawing.Size(0, 15);
-            this.lblNewBuildFund.TabIndex = 50;
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(258, 178);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 15);
+            this.label18.TabIndex = 50;
             // 
-            // lblThanksGiving
+            // label3
             // 
-            this.lblThanksGiving.AutoSize = true;
-            this.lblThanksGiving.ForeColor = System.Drawing.Color.Black;
-            this.lblThanksGiving.Location = new System.Drawing.Point(258, 147);
-            this.lblThanksGiving.Name = "lblThanksGiving";
-            this.lblThanksGiving.Size = new System.Drawing.Size(0, 15);
-            this.lblThanksGiving.TabIndex = 49;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(258, 147);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.TabIndex = 49;
             // 
-            // lblHarv
+            // label2
             // 
-            this.lblHarv.AutoSize = true;
-            this.lblHarv.ForeColor = System.Drawing.Color.Black;
-            this.lblHarv.Location = new System.Drawing.Point(259, 79);
-            this.lblHarv.Name = "lblHarv";
-            this.lblHarv.Size = new System.Drawing.Size(0, 15);
-            this.lblHarv.TabIndex = 48;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(258, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.TabIndex = 48;
             // 
-            // lblMonthlySubs
+            // label1
             // 
-            this.lblMonthlySubs.AutoSize = true;
-            this.lblMonthlySubs.ForeColor = System.Drawing.Color.Black;
-            this.lblMonthlySubs.Location = new System.Drawing.Point(258, 38);
-            this.lblMonthlySubs.Name = "lblMonthlySubs";
-            this.lblMonthlySubs.Size = new System.Drawing.Size(0, 15);
-            this.lblMonthlySubs.TabIndex = 47;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(258, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 15);
+            this.label1.TabIndex = 47;
             // 
             // groupBox3
             // 
@@ -378,10 +401,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblNewBuildFund;
-        private System.Windows.Forms.Label lblThanksGiving;
-        private System.Windows.Forms.Label lblHarv;
-        private System.Windows.Forms.Label lblMonthlySubs;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
@@ -394,13 +417,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblFixedDep;
-        private System.Windows.Forms.Label lblInterestReceived;
-        private System.Windows.Forms.Label lblRewHouseVisit;
-        private System.Windows.Forms.Label lblBirthDay;
-        private System.Windows.Forms.Label lblSundaySchool;
-        private System.Windows.Forms.Label lblSundayOff;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label lblSundayAuction;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

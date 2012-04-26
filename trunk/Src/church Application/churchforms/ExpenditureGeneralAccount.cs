@@ -34,6 +34,8 @@ namespace churchforms
                 comboBox1.DisplayMember = "Expenditure_Name";
                 comboBox1.ValueMember = "Expenditure_id";
             }
+            comboBox2.Text = "THE LAKSHMI VILAS BANK LTD";
+            txtBranch.Text = "Kovaipudur";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,7 +131,6 @@ namespace churchforms
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 using (ChurchApplicationDataContext chruchDB = new ChurchApplicationDataContext())
@@ -151,6 +152,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtCashamount.Text = "0";
                             obj.Cash_Amount = 0;
                         }
                         if (checkBox1.Checked)
@@ -171,6 +173,7 @@ namespace churchforms
                         }
                         else
                         {
+                            txtChequeAmount.Text = "0";
                             obj.Cheque_Amount = 0;
                         }
                         obj.Towards = textBox1.Text;
@@ -178,9 +181,19 @@ namespace churchforms
                         obj.ExpenditureType = Convert.ToInt32(comboBox1.SelectedValue);
                         obj.Formid = 5;
                         obj.Register_Date = DateTime.Now;
-                        
                         chruchDB.Church_ExpenditureAmount_Details.InsertOnSubmit(obj);
                         chruchDB.SubmitChanges();
+                        var amount = (from a in chruchDB.Church_OpeningBalanceDetails where a.Account_type == 1 select a).FirstOrDefault();
+                        if (txtCashamount.Text!="0")
+                        {
+                            amount.Opening_Bal_Cash = amount.Opening_Bal_Cash - Convert.ToDecimal(txtCashamount.Text);
+                            chruchDB.SubmitChanges();
+                        }
+                        else
+                        {
+                            amount.Opening_Bal_Account = amount.Opening_Bal_Account - Convert.ToDecimal(txtChequeAmount.Text);
+                            chruchDB.SubmitChanges();
+                        }
                         MessageBox.Show("Submit Successfully!");
                         emptyfield();
                     }
@@ -202,7 +215,6 @@ namespace churchforms
         {
             textBox1.Text = string.Empty;
             txtCashamount.Text = string.Empty;
-            txtBranch.Text = string.Empty;
             txtChequeAmount.Text = string.Empty;
             txtChequeno.Text = string.Empty;
         }
