@@ -675,19 +675,33 @@ namespace churchforms
             {
                 try
                 {
-                    var name = (from a in obj.Church_MemberDetails where a.MemberId == Convert.ToInt64(comboBox1.SelectedValue) select a).FirstOrDefault();
-                    if (name != null)
+                    if (comboBox1.SelectedIndex != -1)
                     {
-                        textBox1.Text = Convert.ToString(name.CardNo);
-                        label2.Text = name.MemberName;
-                        label3.Text = Convert.ToString(name.Mobile);
-                        string[] Address = name.Address.Split(',');
-                        label26.Text = Address[0] + ",";
-                        label27.Text = Address[1] + ".";
-                    }
-                    else
-                    {
-                        label31.Text = "It's not valid Card No!";
+                        Int64 ff = 0;
+                        try
+                        {
+                            ff = Convert.ToInt64(comboBox1.SelectedValue);
+
+                            var name = (from a in obj.Church_MemberDetails where a.MemberId == ff select a).FirstOrDefault();
+                            if (name != null)
+                            {
+                                textBox1.Text = Convert.ToString(name.CardNo);
+                                label2.Text = name.MemberName;
+                                label3.Text = Convert.ToString(name.Mobile);
+                                string[] Address = name.Address.Split(',');
+                                label26.Text = Address[0] + ",";
+                                label27.Text = Address[1] + ".";
+                            }
+
+                            else
+                            {
+                                label31.Text = "It's not valid Card No!";
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            return;
+                        }
                     }
                 }
 
@@ -701,13 +715,14 @@ namespace churchforms
 
         private void comboBox1_TextUpdate(object sender, EventArgs e)
         {
-            //using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
-            //{
-            //    //MessageBox.Show(comboBox1.Text);
-            //    var name = churchDB.sp_Church_NameSearch(comboBox1.Text);
-            //    comboBox1.DataSource = name;
+            using (ChurchApplicationDataContext churchDB = new ChurchApplicationDataContext())
+            {
+                //MessageBox.Show(comboBox1.Text);
+                var name = churchDB.Church_MemberDetails.Where(a => a.MemberName.Contains(comboBox1.Text));
+                //churchDB.sp_Church_NameSearch(comboBox1.Text);
+                comboBox1.DataSource = name;
 
-            //}
+            }
             ////SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=ChurchApplication;Integrated Security=True");
             ////con.Open();
             ////SqlCommand cmd = new SqlCommand("sp_Church_NameSearch", con);
