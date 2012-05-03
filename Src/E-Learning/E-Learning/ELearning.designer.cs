@@ -69,6 +69,12 @@ namespace E_Learning
     partial void InserttblQuestionTitle(tblQuestionTitle instance);
     partial void UpdatetblQuestionTitle(tblQuestionTitle instance);
     partial void DeletetblQuestionTitle(tblQuestionTitle instance);
+    partial void InserttblAssignDetail(tblAssignDetail instance);
+    partial void UpdatetblAssignDetail(tblAssignDetail instance);
+    partial void DeletetblAssignDetail(tblAssignDetail instance);
+    partial void InserttblTitleCount(tblTitleCount instance);
+    partial void UpdatetblTitleCount(tblTitleCount instance);
+    partial void DeletetblTitleCount(tblTitleCount instance);
     #endregion
 		
 		public ELearningDataContext() : 
@@ -202,6 +208,22 @@ namespace E_Learning
 			get
 			{
 				return this.GetTable<tblQuestionTitle>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblAssignDetail> tblAssignDetails
+		{
+			get
+			{
+				return this.GetTable<tblAssignDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblTitleCount> tblTitleCounts
+		{
+			get
+			{
+				return this.GetTable<tblTitleCount>();
 			}
 		}
 		
@@ -469,6 +491,62 @@ namespace E_Learning
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), questionTitle, original_QuestionTitleId, questionTitleId);
 			return ((ISingleResult<sp_tblQuestionTitleNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblAssignDetailNewDeleteCommand")]
+		public int sp_tblAssignDetailNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblAssignDetailNewInsertCommand")]
+		public ISingleResult<sp_tblAssignDetailNewInsertCommandResult> sp_tblAssignDetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDuration", DbType="DateTime")] System.Nullable<System.DateTime> timeDuration, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeLeft", DbType="DateTime")] System.Nullable<System.DateTime> timeLeft)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), timeDuration, timeLeft);
+			return ((ISingleResult<sp_tblAssignDetailNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblAssignDetailNewSelectCommand")]
+		public ISingleResult<sp_tblAssignDetailNewSelectCommandResult> sp_tblAssignDetailNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblAssignDetailNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblAssignDetailNewUpdateCommand")]
+		public ISingleResult<sp_tblAssignDetailNewUpdateCommandResult> sp_tblAssignDetailNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeDuration", DbType="DateTime")] System.Nullable<System.DateTime> timeDuration, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeLeft", DbType="DateTime")] System.Nullable<System.DateTime> timeLeft, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), timeDuration, timeLeft, original_Id, id);
+			return ((ISingleResult<sp_tblAssignDetailNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblTitleCountNewUpdateCommand")]
+		public ISingleResult<sp_tblTitleCountNewUpdateCommandResult> sp_tblTitleCountNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fk_TitleId", DbType="BigInt")] System.Nullable<long> fk_TitleId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fk_AssignId", DbType="BigInt")] System.Nullable<long> fk_AssignId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fk_TitleId, count, fk_AssignId, original_Id, id);
+			return ((ISingleResult<sp_tblTitleCountNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblTitleCountNewSelectCommand")]
+		public ISingleResult<sp_tblTitleCountNewSelectCommandResult> sp_tblTitleCountNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblTitleCountNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblTitleCountNewInsertCommand")]
+		public ISingleResult<sp_tblTitleCountNewInsertCommandResult> sp_tblTitleCountNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fk_TitleId", DbType="BigInt")] System.Nullable<long> fk_TitleId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fk_AssignId", DbType="BigInt")] System.Nullable<long> fk_AssignId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fk_TitleId, count, fk_AssignId);
+			return ((ISingleResult<sp_tblTitleCountNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblTitleCountNewDeleteCommand")]
+		public int sp_tblTitleCountNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -3012,6 +3090,8 @@ namespace E_Learning
 		
 		private EntitySet<tblQuestion> _tblQuestions;
 		
+		private EntitySet<tblTitleCount> _tblTitleCounts;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3025,6 +3105,7 @@ namespace E_Learning
 		public tblQuestionTitle()
 		{
 			this._tblQuestions = new EntitySet<tblQuestion>(new Action<tblQuestion>(this.attach_tblQuestions), new Action<tblQuestion>(this.detach_tblQuestions));
+			this._tblTitleCounts = new EntitySet<tblTitleCount>(new Action<tblTitleCount>(this.attach_tblTitleCounts), new Action<tblTitleCount>(this.detach_tblTitleCounts));
 			OnCreated();
 		}
 		
@@ -3081,6 +3162,19 @@ namespace E_Learning
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblQuestionTitle_tblTitleCount", Storage="_tblTitleCounts", ThisKey="QuestionTitleId", OtherKey="Fk_TitleId")]
+		public EntitySet<tblTitleCount> tblTitleCounts
+		{
+			get
+			{
+				return this._tblTitleCounts;
+			}
+			set
+			{
+				this._tblTitleCounts.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3111,6 +3205,372 @@ namespace E_Learning
 		{
 			this.SendPropertyChanging();
 			entity.tblQuestionTitle = null;
+		}
+		
+		private void attach_tblTitleCounts(tblTitleCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblQuestionTitle = this;
+		}
+		
+		private void detach_tblTitleCounts(tblTitleCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblQuestionTitle = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAssignDetail")]
+	public partial class tblAssignDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		private EntitySet<tblTitleCount> _tblTitleCounts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnTimeDurationChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeDurationChanged();
+    partial void OnTimeLeftChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeLeftChanged();
+    #endregion
+		
+		public tblAssignDetail()
+		{
+			this._tblTitleCounts = new EntitySet<tblTitleCount>(new Action<tblTitleCount>(this.attach_tblTitleCounts), new Action<tblTitleCount>(this.detach_tblTitleCounts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this.OnTimeDurationChanging(value);
+					this.SendPropertyChanging();
+					this._TimeDuration = value;
+					this.SendPropertyChanged("TimeDuration");
+					this.OnTimeDurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this.OnTimeLeftChanging(value);
+					this.SendPropertyChanging();
+					this._TimeLeft = value;
+					this.SendPropertyChanged("TimeLeft");
+					this.OnTimeLeftChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblAssignDetail_tblTitleCount", Storage="_tblTitleCounts", ThisKey="Id", OtherKey="Fk_AssignId")]
+		public EntitySet<tblTitleCount> tblTitleCounts
+		{
+			get
+			{
+				return this._tblTitleCounts;
+			}
+			set
+			{
+				this._tblTitleCounts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblTitleCounts(tblTitleCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblAssignDetail = this;
+		}
+		
+		private void detach_tblTitleCounts(tblTitleCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblAssignDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblTitleCount")]
+	public partial class tblTitleCount : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<long> _Fk_TitleId;
+		
+		private System.Nullable<int> _count;
+		
+		private System.Nullable<long> _Fk_AssignId;
+		
+		private EntityRef<tblAssignDetail> _tblAssignDetail;
+		
+		private EntityRef<tblQuestionTitle> _tblQuestionTitle;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnFk_TitleIdChanging(System.Nullable<long> value);
+    partial void OnFk_TitleIdChanged();
+    partial void OncountChanging(System.Nullable<int> value);
+    partial void OncountChanged();
+    partial void OnFk_AssignIdChanging(System.Nullable<long> value);
+    partial void OnFk_AssignIdChanged();
+    #endregion
+		
+		public tblTitleCount()
+		{
+			this._tblAssignDetail = default(EntityRef<tblAssignDetail>);
+			this._tblQuestionTitle = default(EntityRef<tblQuestionTitle>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_TitleId", DbType="BigInt")]
+		public System.Nullable<long> Fk_TitleId
+		{
+			get
+			{
+				return this._Fk_TitleId;
+			}
+			set
+			{
+				if ((this._Fk_TitleId != value))
+				{
+					if (this._tblQuestionTitle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFk_TitleIdChanging(value);
+					this.SendPropertyChanging();
+					this._Fk_TitleId = value;
+					this.SendPropertyChanged("Fk_TitleId");
+					this.OnFk_TitleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
+		public System.Nullable<int> count
+		{
+			get
+			{
+				return this._count;
+			}
+			set
+			{
+				if ((this._count != value))
+				{
+					this.OncountChanging(value);
+					this.SendPropertyChanging();
+					this._count = value;
+					this.SendPropertyChanged("count");
+					this.OncountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_AssignId", DbType="BigInt")]
+		public System.Nullable<long> Fk_AssignId
+		{
+			get
+			{
+				return this._Fk_AssignId;
+			}
+			set
+			{
+				if ((this._Fk_AssignId != value))
+				{
+					if (this._tblAssignDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFk_AssignIdChanging(value);
+					this.SendPropertyChanging();
+					this._Fk_AssignId = value;
+					this.SendPropertyChanged("Fk_AssignId");
+					this.OnFk_AssignIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblAssignDetail_tblTitleCount", Storage="_tblAssignDetail", ThisKey="Fk_AssignId", OtherKey="Id", IsForeignKey=true)]
+		public tblAssignDetail tblAssignDetail
+		{
+			get
+			{
+				return this._tblAssignDetail.Entity;
+			}
+			set
+			{
+				tblAssignDetail previousValue = this._tblAssignDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._tblAssignDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblAssignDetail.Entity = null;
+						previousValue.tblTitleCounts.Remove(this);
+					}
+					this._tblAssignDetail.Entity = value;
+					if ((value != null))
+					{
+						value.tblTitleCounts.Add(this);
+						this._Fk_AssignId = value.Id;
+					}
+					else
+					{
+						this._Fk_AssignId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblAssignDetail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblQuestionTitle_tblTitleCount", Storage="_tblQuestionTitle", ThisKey="Fk_TitleId", OtherKey="QuestionTitleId", IsForeignKey=true)]
+		public tblQuestionTitle tblQuestionTitle
+		{
+			get
+			{
+				return this._tblQuestionTitle.Entity;
+			}
+			set
+			{
+				tblQuestionTitle previousValue = this._tblQuestionTitle.Entity;
+				if (((previousValue != value) 
+							|| (this._tblQuestionTitle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblQuestionTitle.Entity = null;
+						previousValue.tblTitleCounts.Remove(this);
+					}
+					this._tblQuestionTitle.Entity = value;
+					if ((value != null))
+					{
+						value.tblTitleCounts.Add(this);
+						this._Fk_TitleId = value.QuestionTitleId;
+					}
+					else
+					{
+						this._Fk_TitleId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblQuestionTitle");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -5771,6 +6231,432 @@ namespace E_Learning
 				if ((this._QuestionTitle != value))
 				{
 					this._QuestionTitle = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblAssignDetailNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_tblAssignDetailNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblAssignDetailNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_tblAssignDetailNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblAssignDetailNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<System.DateTime> _TimeDuration;
+		
+		private System.Nullable<System.DateTime> _TimeLeft;
+		
+		public sp_tblAssignDetailNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeDuration", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeDuration
+		{
+			get
+			{
+				return this._TimeDuration;
+			}
+			set
+			{
+				if ((this._TimeDuration != value))
+				{
+					this._TimeDuration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLeft", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLeft
+		{
+			get
+			{
+				return this._TimeLeft;
+			}
+			set
+			{
+				if ((this._TimeLeft != value))
+				{
+					this._TimeLeft = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblTitleCountNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _Fk_TitleId;
+		
+		private System.Nullable<int> _count;
+		
+		private System.Nullable<long> _Fk_AssignId;
+		
+		public sp_tblTitleCountNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_TitleId", DbType="BigInt")]
+		public System.Nullable<long> Fk_TitleId
+		{
+			get
+			{
+				return this._Fk_TitleId;
+			}
+			set
+			{
+				if ((this._Fk_TitleId != value))
+				{
+					this._Fk_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
+		public System.Nullable<int> count
+		{
+			get
+			{
+				return this._count;
+			}
+			set
+			{
+				if ((this._count != value))
+				{
+					this._count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_AssignId", DbType="BigInt")]
+		public System.Nullable<long> Fk_AssignId
+		{
+			get
+			{
+				return this._Fk_AssignId;
+			}
+			set
+			{
+				if ((this._Fk_AssignId != value))
+				{
+					this._Fk_AssignId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblTitleCountNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _Fk_TitleId;
+		
+		private System.Nullable<int> _count;
+		
+		private System.Nullable<long> _Fk_AssignId;
+		
+		public sp_tblTitleCountNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_TitleId", DbType="BigInt")]
+		public System.Nullable<long> Fk_TitleId
+		{
+			get
+			{
+				return this._Fk_TitleId;
+			}
+			set
+			{
+				if ((this._Fk_TitleId != value))
+				{
+					this._Fk_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
+		public System.Nullable<int> count
+		{
+			get
+			{
+				return this._count;
+			}
+			set
+			{
+				if ((this._count != value))
+				{
+					this._count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_AssignId", DbType="BigInt")]
+		public System.Nullable<long> Fk_AssignId
+		{
+			get
+			{
+				return this._Fk_AssignId;
+			}
+			set
+			{
+				if ((this._Fk_AssignId != value))
+				{
+					this._Fk_AssignId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblTitleCountNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private System.Nullable<long> _Fk_TitleId;
+		
+		private System.Nullable<int> _count;
+		
+		private System.Nullable<long> _Fk_AssignId;
+		
+		public sp_tblTitleCountNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_TitleId", DbType="BigInt")]
+		public System.Nullable<long> Fk_TitleId
+		{
+			get
+			{
+				return this._Fk_TitleId;
+			}
+			set
+			{
+				if ((this._Fk_TitleId != value))
+				{
+					this._Fk_TitleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count", DbType="Int")]
+		public System.Nullable<int> count
+		{
+			get
+			{
+				return this._count;
+			}
+			set
+			{
+				if ((this._count != value))
+				{
+					this._count = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fk_AssignId", DbType="BigInt")]
+		public System.Nullable<long> Fk_AssignId
+		{
+			get
+			{
+				return this._Fk_AssignId;
+			}
+			set
+			{
+				if ((this._Fk_AssignId != value))
+				{
+					this._Fk_AssignId = value;
 				}
 			}
 		}

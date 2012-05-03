@@ -23,11 +23,7 @@
             <td>
                 <uc2:ucQuestionPosting ID="ucQuestionPosting1" runat="server" />
             </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
+        </tr>       
     </table>
     </form>
 </body>

@@ -10,3 +10,8 @@ D:\E-learn repository\E-Learning\E-Learning\bin\E-Learning.pdb
 D:\E-learn repository\E-Learning\E-Learning\obj\Debug\ResolveAssemblyReference.cache
 D:\E-learn repository\E-Learning\E-Learning\obj\Debug\E-Learning.dll
 D:\E-learn repository\E-Learning\E-Learning\obj\Debug\E-Learning.pdb
+D:\E-Learn\bin\E-Learning.dll
+D:\E-Learn\bin\E-Learning.pdb
+D:\E-Learn\obj\Debug\ResolveAssemblyReference.cache
+D:\E-Learn\obj\Debug\E-Learning.dll
+D:\E-Learn\obj\Debug\E-Learning.pdb
