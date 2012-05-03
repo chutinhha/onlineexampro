@@ -14,18 +14,32 @@ namespace E_Learning
         {
             if (!IsPostBack)
             {
+                var dd = ElearningHelper.Context.tblAssignDetails.OrderByDescending(a => a.Id).Take(1);
+                foreach (var item in dd)
+                {
+                    var ff = ElearningHelper.Context.tblTitleCounts.Where(a => a.Fk_AssignId == item.Id);
+                    Dictionary<long, int> dic = new Dictionary<long, int>();
+                    foreach (var item1 in ff)
+                    {
+                        dic.Add(item1.Fk_TitleId.Value, item1.count.Value);
+                    }
+                    Session["cat"] = dic;
+                    Session["timeDuration"] = item.TimeDuration;
+                    Session["TimeLeft"] = item.TimeLeft;
+                }
                 BindGrid();
             }
         }
         protected void Timer1_Tick(object sender, EventArgs e)
         {
+            //System.Diagnostics.Debugger.Launch();
             DateTime dt = (DateTime)Session["timeDuration"];
             DateTime dt1 = (DateTime)Session["TimeLeft"];
             TimeSpan sp = dt.Subtract(dt1);
             if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
             {
                 Complete_Click(sender, new EventArgs());
-                Response.Redirect("result.aspx");
+                //Response.Redirect("result.aspx");
             }
             else
             {
@@ -113,8 +127,8 @@ namespace E_Learning
                 long aa = Convert.ToInt64(GridView1.DataKeys[item.RowIndex].Values[0]);
                 var ss = ElearningHelper.Context.tblAnswers.Where(a => a.FK_QuestionId == aa);
                 rdl.DataSource = ss;
-                rdl.DataTextField = "OptionName";
-                rdl.DataValueField = "OptionId";
+                rdl.DataTextField = "Answer";
+                rdl.DataValueField = "Id";
                 rdl.DataBind();
             }
         }
@@ -165,7 +179,7 @@ namespace E_Learning
                 }
             }
             Session["result"] = mar;
-            Response.Redirect("result.aspx");
+            //Response.Redirect("result.aspx");
         }
     }
 }

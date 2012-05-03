@@ -15,14 +15,14 @@
     <form id="form1" runat="server">
     <div>
     
-        <table align="center" width="900">
+        <table align="center" width="900px">
             <tr>
-                <td align="center" width="900">
+                <td align="center" width="900px">
                     <uc2:ucAdminheadertemplate ID="ucAdminheadertemplate1" runat="server" />
                 </td>
             </tr>
             <tr>
-                <td align="center" width="900">
+                <td align="center" width="900px">
                     <uc1:ucAssignmentsStaff ID="ucAssignmentsStaff1" runat="server" />
                 </td>
             </tr>

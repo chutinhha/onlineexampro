@@ -7,14 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace E_Learning
 {
-    public partial class Forums : System.Web.UI.Page
+    public partial class ucAssignTime : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] == null)
-            {
-                Response.Redirect("HomeNew.aspx");
-            }            
-        }       
+        }
     }
 }

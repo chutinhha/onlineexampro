@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <table align="center" width="900" cellpadding="0" cellspacing="0" border="0">
+    <table align="center" width="900px">
         <tr>
             <td>
                 <uc1:Adminheadertemplate ID="Adminheadertemplate1" runat="server" />

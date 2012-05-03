@@ -12,7 +12,7 @@
             <table width="500px" align="center" style="border: thin groove #008080">
                 <tr>
                     <td height="30px" align="left" width="100px">
-                        Catagory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                        Category &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                     </td>
                     <td align="left">
                         <asp:DropDownList Width="140px" ID="ddlCatagory" runat="server" AutoPostBack="True"

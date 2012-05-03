@@ -65,6 +65,13 @@ namespace E_Learning
             }
         }
 
-        
+        protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "View")
+            {
+                System.Diagnostics.Process.Start(Server.MapPath(ElearningHelper.Context.tblAssignments.Single(a => a.Id == Convert.ToInt64(e.CommandArgument)).FilePath));
+            }
+        }
+    
     }
 }

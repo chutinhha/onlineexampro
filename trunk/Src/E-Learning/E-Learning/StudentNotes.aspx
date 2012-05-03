@@ -17,7 +17,7 @@
             </td>
         </tr>
         <tr>
-        <td>
+        <td align="center">
         
             <uc1:ucStudentNote ID="ucStudentNote1" runat="server" />
         

@@ -12,8 +12,8 @@
                     horizontalside="Right" horizontaloffset="300" verticaloffset="180"></cc1:alwaysvisiblecontrolextender>--%>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <%--<asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
-                        </asp:Timer>--%>
+                        <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
+                        </asp:Timer>
                         <table>
                             <tr>
                                 <td style="color: #000000">

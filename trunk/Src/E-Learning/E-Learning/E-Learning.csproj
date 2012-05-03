@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminAssignTime.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="adminstyle.css" />
     <Content Include="AssignmentsPage.aspx" />
@@ -84,6 +85,7 @@
     <Content Include="fileupload.aspx" />
     <Content Include="StudentNotes.aspx" />
     <Content Include="StudentTest.aspx" />
+    <Content Include="ucAssignTime.ascx" />
     <Content Include="ucfilesview.ascx" />
     <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
@@ -148,6 +150,13 @@
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAssignTime.aspx.cs">
+      <DependentUpon>AdminAssignTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAssignTime.aspx.designer.cs">
+      <DependentUpon>AdminAssignTime.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +209,13 @@
     </Compile>
     <Compile Include="StudentTest.aspx.designer.cs">
       <DependentUpon>StudentTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucAssignTime.ascx.cs">
+      <DependentUpon>ucAssignTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucAssignTime.ascx.designer.cs">
+      <DependentUpon>ucAssignTime.ascx</DependentUpon>
     </Compile>
     <Compile Include="ucfilesview.ascx.cs">
       <DependentUpon>ucfilesview.ascx</DependentUpon>

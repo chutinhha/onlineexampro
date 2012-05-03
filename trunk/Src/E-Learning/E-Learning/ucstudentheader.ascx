@@ -14,7 +14,8 @@
                     <li class="file"><a href="StudentHome.aspx">Home</a></li>
                     <li class="file"><a href="StudentForum.aspx">Forums</a></li>
                     <li class="file"><a href="StudentAssignment.aspx">Assignments</a></li>
-                    <li class="file"><a href="StudentTest.aspx">Test</a></li>
+                    <li class="file"><a href="StudentTest.aspx">Test</a></li>   
+                    <li class="file"><a href="StudentNotes.aspx">Notes</a></li>                    
                 </ul>
             </div>
         </td>
