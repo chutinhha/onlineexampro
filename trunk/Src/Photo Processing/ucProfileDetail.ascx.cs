@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Home : System.Web.UI.Page
+public partial class ucProfileDetail : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
-    protected void btnProfile_Click(object sender, EventArgs e)
+    protected void ibtnUpdate_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("My Profile.aspx");
+        Response.Redirect("UpdateProfile.aspx");
     }
 }

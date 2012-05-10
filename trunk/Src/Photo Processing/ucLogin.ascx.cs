@@ -33,7 +33,8 @@ public partial class ucLogin : System.Web.UI.UserControl
                    
 
                     Session["username"] = checkAcivation.Full_Name;
-                    Response.Redirect("");
+                    Session["email"]=checkAcivation.Email;
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
