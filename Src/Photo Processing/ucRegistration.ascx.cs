@@ -14,7 +14,6 @@ public partial class ucRegistration : System.Web.UI.UserControl
         {
             txtEmail.Focus();
             cbsubscription.Checked = true;
-
         }
     }
     protected void btnRegister_Click(object sender, EventArgs e)
@@ -30,10 +29,11 @@ public partial class ucRegistration : System.Web.UI.UserControl
             }
             using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
             {
+                string path = "~/Images/Profile/default_person.jpg";
                 var counter = from b in dataDB.Photo_CustomerRegistrationDetails where b.Email == txtEmail.Text select b;
                 if (counter.Count() == 0)
                 {
-                    Photo_CustomerRegistrationDetailBL obj = new Photo_CustomerRegistrationDetailBL(0, txtEmail.Text, txtPassword.Text, 0, null, txtFullName.Text, 1, 0, a, a, DateTime.Now, DateTime.Now, DateTime.MaxValue, 0, 0);
+                    Photo_CustomerRegistrationDetailBL obj = new Photo_CustomerRegistrationDetailBL(0, txtEmail.Text, txtPassword.Text, 0, path, txtFullName.Text, 1, 0, a, a, DateTime.Now, DateTime.Now, DateTime.MaxValue, 0, 0);
                     if (obj.Insert())
                     {
                         EncryptedQueryString args = new EncryptedQueryString();

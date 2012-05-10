@@ -9,6 +9,7 @@ public partial class Clientside : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+       
     //    ContentPlaceHolder ph = (ContentPlaceHolder)Page.Master.FindControl("ContentPlaceHolder1");
     //foreach ( Control c in Page.Controls) {
         
