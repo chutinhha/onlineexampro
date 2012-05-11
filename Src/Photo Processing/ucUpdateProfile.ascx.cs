@@ -11,8 +11,6 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
-
-
             using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
             {
                 var emailsub = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Session["email"] select a).FirstOrDefault();
