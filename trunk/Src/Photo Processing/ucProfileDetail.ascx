@@ -9,7 +9,7 @@
                         Name:
                     </td>
                     <td>
-                        <asp:Label ID="lbName" runat="server"></asp:Label>
+                        <%=ViewState["Name"]%>
                     </td>
                 </tr>
                 <tr>
@@ -22,7 +22,7 @@
                         Date of Birth:
                     </td>
                     <td>
-                        <asp:Label ID="lbDOB" runat="server"></asp:Label>
+                        <%=ViewState["DOB"]%>
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@
                         Mobile:
                     </td>
                     <td>
-                        <asp:Label ID="lbMobile" runat="server"></asp:Label>
+                        <%=ViewState["Mobile"]%>
                     </td>
                 </tr>
                 <tr>
@@ -48,7 +48,7 @@
                         Email:
                     </td>
                     <td>
-                        <asp:Label ID="lbEmail" runat="server"></asp:Label>
+                        <%= ViewState["Email"]%>
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@
                         Last Login:
                     </td>
                     <td>
-                        <asp:Label ID="lbLastlogin" runat="server"></asp:Label>
+                        <%=ViewState["Last login"]%>
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +74,7 @@
                         Country:
                     </td>
                     <td>
-                        <asp:Label ID="lbCountry" runat="server"></asp:Label>
+                        <%=ViewState["Country"]%>
                     </td>
                 </tr>
             </table>
@@ -91,8 +91,8 @@
     </tr>
     <tr>
         <td colspan="2" align="right">
-            <asp:ImageButton ID="ibtnUpdate" runat="server" 
-                ImageUrl="~/Images/updateButton.png" onclick="ibtnUpdate_Click" />
+            <asp:ImageButton ID="ibtnUpdate" runat="server" ImageUrl="~/Images/updateButton.png"
+                OnClick="ibtnUpdate_Click" />
         </td>
     </tr>
 </table>
