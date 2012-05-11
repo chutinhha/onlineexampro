@@ -34,7 +34,12 @@ public partial class ucLogin : System.Web.UI.UserControl
 
                     Session["username"] = checkAcivation.Full_Name;
                     Session["email"]=checkAcivation.Email;
+                    var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == checkAcivation.Customer_id select a).FirstOrDefault();
+                    lastlogin.Last_Login = DateTime.Now;
+                    dataDB.SubmitChanges();
                     Response.Redirect("Home.aspx");
+                   
+
                 }
                 else
                 {

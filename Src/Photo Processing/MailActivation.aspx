@@ -12,8 +12,9 @@
         </tr>
         <tr>
             <td style="font-family: Calibri; color: #008000; font-weight: bold; font-size: 20px">
-                Your Account activated successfully!
+                <asp:Label ID="lbResponse" runat="server"></asp:Label>
             </td>
+            
         </tr>
     </table>
 </asp:Content>

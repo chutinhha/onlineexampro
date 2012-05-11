@@ -79,11 +79,11 @@
                 </tr>
             </table>
         </td>
-        <td align="center">
+        <td align="center" width="150px">
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td>
-                        <asp:Image ID="Image1" runat="server" Width="150px" Height="150" />
+                        <asp:Image ID="Image1" runat="server" Width="100%" Height="150" />
                     </td>
                 </tr>
             </table>
