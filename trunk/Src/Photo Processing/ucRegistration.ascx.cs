@@ -33,7 +33,7 @@ public partial class ucRegistration : System.Web.UI.UserControl
                 var counter = from b in dataDB.Photo_CustomerRegistrationDetails where b.Email == txtEmail.Text select b;
                 if (counter.Count() == 0)
                 {
-                    Photo_CustomerRegistrationDetailBL obj = new Photo_CustomerRegistrationDetailBL(0, txtEmail.Text, txtPassword.Text, 0, path, txtFullName.Text, 1, 0, a, a, DateTime.Now, DateTime.Now, DateTime.MaxValue, 0, 0);
+                    Photo_CustomerRegistrationDetailBL obj = new Photo_CustomerRegistrationDetailBL(0, txtEmail.Text, txtPassword.Text, 0, path, txtFullName.Text, 1, 0, a, a, DateTime.Now, DateTime.MaxValue, DateTime.MaxValue, 0, 0);
                     if (obj.Insert())
                     {
                         EncryptedQueryString args = new EncryptedQueryString();

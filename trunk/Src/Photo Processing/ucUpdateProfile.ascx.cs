@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 public partial class ucUpdateProfile : System.Web.UI.UserControl
 {
@@ -32,10 +33,12 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
          {
              var UpdateRegDetail = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Session["email"] select a).FirstOrDefault();
              if (fuProfileImage.HasFile)
-             {
+            {
                  if (Request.ContentLength < 2097152)
                  {
                      string filename = fuProfileImage.FileName;
+
+
                      string[] a = filename.Split('.');
                      if (a[1] == "gif" || a[1] == "png" || a[1] == "jpg")
                      {
@@ -54,7 +57,7 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
                      lbResponse.Text = "File size should be less then 2mb!";
 
                  }
-             }
+            }
              UpdateRegDetail.Mobile = Convert.ToInt64(txtMobile.Text);
              UpdateRegDetail.DOB = Convert.ToDateTime(txtDOB.Text);
              UpdateRegDetail.Country = 1;
@@ -68,5 +71,5 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
          }
     }
 
-  
+
 }

@@ -37,6 +37,7 @@ public partial class ForgetPassword : System.Web.UI.Page
                 msg.Priority = MailPriority.High;
                 MailSender ms = new MailSender();
                 ms.SendMailUsingGmail(msg);
+                lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006600");
                 lbResponse.Text = "Password Link sent to your Mail Id!";
             }
             else
