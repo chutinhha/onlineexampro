@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<ImageData>
+  <ImageData>
+    <Id>1</Id>
+    <ImageName>Sunset.jpg</ImageName>
+    <ImagePath>D:\Websites\WebSite2\Uploads\Sunset.jpg</ImagePath>
+    <ImageDescription />
+    <Date>2012-05-16T13:01:48.9375+05:30</Date>
+  </ImageData>
+  <ImageData>
+    <Id>1</Id>
+    <ImageName>Sunset.jpg</ImageName>
+    <ImagePath>D:\Websites\WebSite2\Uploads\Sunset.jpg</ImagePath>
+    <ImageDescription>hgfh</ImageDescription>
+    <Date>5/16/2012 1:02:36 PM</Date>
+  </ImageData>
+  <ImageData>
+    <Id>2</Id>
+    <ImageName>Winter.jpg</ImageName>
+    <ImagePath>D:\Websites\WebSite2\Uploads\Winter.jpg</ImagePath>
+    <ImageDescription>jhg</ImageDescription>
+    <Date>5/16/2012 1:03:35 PM</Date>
+  </ImageData>
+</ImageData>
