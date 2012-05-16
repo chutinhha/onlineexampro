@@ -13,11 +13,11 @@ using System.Web.UI;
 public partial class _Default : System.Web.UI.Page
 {
     private string ffmpegPath =
-        @"C:\Documents and Settings\Majestic 056\My Documents\Downloads\ffmpeg-git-01fcbdf-win32-static\ffmpeg-git-01fcbdf-win32-static\bin\ffmpeg.exe";
+        @"D:\ffmpeg-git-01fcbdf-win32-static\ffmpeg-git-01fcbdf-win32-static\bin\ffmpeg.exe";
 
-    private string videoFilename = @"C:\Wildlife.wmv";
-    private string imageFilename = @"C:\test.jpg";
-    private string workingDirectory = @"C:\";
+    private string videoFilename = @"D:\Eati.swf";
+    private string imageFilename = @"D:\test.jpg";
+    private string workingDirectory = @"D:\";
     private int timeout = 10000;
     private TimeSpan captureTime = new TimeSpan(0, 0, 1);
 
@@ -49,7 +49,7 @@ public partial class _Default : System.Web.UI.Page
         Image playbutton;
         try
         {
-            playbutton = Image.FromFile("C:\\pl.jpg");
+            playbutton = Image.FromFile("D:\\pl.jpg");
         }
         catch (Exception ex)
         {
@@ -59,7 +59,7 @@ public partial class _Default : System.Web.UI.Page
         Image frame;
         try
         {
-            frame = Image.FromFile("C:\\test.jpg");
+            frame = Image.FromFile("D:\\test.jpg");
         }
         catch (Exception ex)
         {
@@ -68,21 +68,21 @@ public partial class _Default : System.Web.UI.Page
 
         using (frame)
         {
-            using (var bitmap = new Bitmap(320, 240))
+            using (var bitmap = new Bitmap(240, 260))
             {
                 using (var canvas = Graphics.FromImage(bitmap))
                 {
                     canvas.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     canvas.DrawImage(frame, new Rectangle(0, 0, frame.Height, frame.Width),
-                                     new Rectangle(0, 0, 320, 240), GraphicsUnit.Pixel);
-                    canvas.DrawImage(playbutton, (bitmap.Width/2) - (248/2 + 5),
-                                     (bitmap.Height/2) - (203/2 + 5));
+                                     new Rectangle(0, 0, 240, 260), GraphicsUnit.Pixel);
+                    canvas.DrawImage(playbutton, (bitmap.Width/1) - (248/2 + 5),
+                                     (bitmap.Height/1) - (253/2 + 5));
                     canvas.Save();
                 }
                 try
                 {
                     bitmap.MakeTransparent();
-                    bitmap.Save("C:\\sample.jpg", ImageFormat.Jpeg);
+                    bitmap.Save("D:\\sample.jpg", ImageFormat.Jpeg);
                 }
                 catch (Exception ex)
                 {
