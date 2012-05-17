@@ -1,22 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
 
 <%@ Register Src="ucServiceList.ascx" TagName="ucServiceList" TagPrefix="uc1" %>
+<%@ Register Src="ucImgaeSlider.ascx" TagName="ucImgaeSlider" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
-        function PrintContent()
-{
-var DocumentContainer = document.getElementById(‘divPrint’);
-var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
-WindowObject.document.writeln(DocumentContainer.innerHTML);
-WindowObject.document.close();
-WindowObject.focus();
-WindowObject.print();
-WindowObject.close();
-}
+        function PrintContent() {
+            var DocumentContainer = document.getElementById('divPrint');
+            var WindowObject = window.open('', 'PrintWindow', 'width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+            WindowObject.document.writeln(DocumentContainer.innerHTML);
+            WindowObject.document.close();
+            WindowObject.focus();
+            WindowObject.print();
+            WindowObject.close();
+        }
     </script>
 </head>
 <body style="background-color: #333300">
@@ -28,11 +28,7 @@ WindowObject.close();
                     <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>
+           
             <tr>
                 <td align="center">
                     <table cellpadding="0" cellspacing="0" width="100%">
@@ -41,7 +37,7 @@ WindowObject.close();
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <td align="center">
-                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/coda-slider.png" Height="250px" />
+                                            <uc2:ucImgaeSlider ID="ucImgaeSlider1" runat="server" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -155,7 +151,7 @@ WindowObject.close();
             <tr>
                 <td>
                     <asp:DataList ID="dlServiceList" runat="server" RepeatColumns="4" CellPadding="5"
-                        CellSpacing="5" onload="dlServiceList_Load">
+                        CellSpacing="5" OnLoad="dlServiceList_Load">
                         <ItemTemplate>
                             <uc1:ucServiceList ID="ucServiceList1" runat="server" />
                         </ItemTemplate>
