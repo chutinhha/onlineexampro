@@ -10,10 +10,10 @@ public partial class Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string scr=Server.MapPath("ServiceListHeading.xml");
+        string scr = Server.MapPath("ServiceListHeading.xml");
         if (!IsPostBack)
         {
-           DataSet ds = new DataSet();
+            DataSet ds = new DataSet();
             ds.ReadXml(scr);
             dlServiceList.DataSource = ds;
             dlServiceList.DataBind();

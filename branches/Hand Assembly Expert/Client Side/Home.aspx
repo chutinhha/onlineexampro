@@ -27,7 +27,8 @@
                 <td align="center" style="background-color: #CCCCCC">
                     <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
                 </td>
-            </tr>
+
+            </tr>  
             <tr>
                 <td align="center">
                     <table cellpadding="0" cellspacing="0" width="100%">

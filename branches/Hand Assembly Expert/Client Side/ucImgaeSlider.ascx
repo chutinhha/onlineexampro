@@ -29,7 +29,7 @@
             $navthumb.eq(curclicked).parent().addClass("active-thumb");
             $(".stripNav ul li a").eq(curclicked).trigger('click');
             curclicked++;
-            if (6 == curclicked)
+            if (7 == curclicked)
                 curclicked = 0;
 
         }, 3000);
