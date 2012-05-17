@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
+using System.Data.SqlClient;
 
 public partial class Admin : System.Web.UI.Page
 {
@@ -30,6 +31,8 @@ public partial class Admin : System.Web.UI.Page
 
         DataSet ds = new DataSet();
         ds.ReadXml(sr);
+        DataTable td = ds.Tables[0];
+        
         if (ds.Tables.Count != 0)
         {
             ddlServiceHead.DataSource = ds;
