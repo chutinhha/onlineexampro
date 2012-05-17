@@ -27,8 +27,7 @@
                 <td align="center" style="background-color: #CCCCCC">
                     <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
                 </td>
-
-            </tr>  
+            </tr>
             <tr>
                 <td align="center">
                     <table cellpadding="0" cellspacing="0" width="100%">
@@ -148,6 +147,31 @@
             <tr class="Heading">
                 <td>
                     Service List:
+                    <%System.Data.DataSet ds = new System.Data.DataSet();
+                      ds.ReadXml(Server.MapPath("~/ServiceListHeading.xml"));
+                      System.Data.DataSet ds1 = new System.Data.DataSet();
+                      ds1.ReadXml(Server.MapPath("~/ServiceListSubHeading.xml"));
+                      foreach (System.Data.DataTable item in ds.Tables)
+                      {
+                          foreach (System.Data.DataRow item1 in item.Rows)
+                          {
+                    %>
+                    
+                        <%=item1[1].ToString()%>:<br />
+                    <%
+System.Data.DataRow[] dr = ds1.Tables[0].Select("fk_Servicehead_id=" + item1[0]);
+if (dr.Length != 0)
+{
+    foreach (System.Data.DataRow item3 in dr)
+    {
+                    %>
+                    ==><%=item3[1].ToString()%><br />
+                    <%
+
+}
+}
+                          }
+                      } %>
                 </td>
             </tr>
             <tr>

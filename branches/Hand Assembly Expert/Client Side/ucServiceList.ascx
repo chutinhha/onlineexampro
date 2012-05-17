@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucServiceList.ascx.cs"
     Inherits="ucServiceList" %>
-<table cellpadding="0" cellspacing="0" width="326.66px">
+<%--<table cellpadding="0" cellspacing="0" width="326.66px">
     <tr>
         <td>
             <table width="200px" height="150px">
@@ -22,4 +22,27 @@
             </table>
         </td>
     </tr>
-</table>
+</table>--%>
+<asp:DataList runat="server" ID="das">
+    <ItemTemplate>
+        <table>
+            <tr>
+                <td align="left" style="font-weight: bold">
+                    <%# Eval("Servicehead_title")%>
+                    :
+                </td>
+            </tr>
+            <tr>
+            <td>
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                <asp:TemplateField>
+                
+                </asp:TemplateField>
+                </Columns>
+                </asp:GridView>
+            </td>
+            </tr>
+        </table>
+    </ItemTemplate>
+</asp:DataList>
