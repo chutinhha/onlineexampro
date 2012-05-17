@@ -31,7 +31,6 @@ public partial class Admin : System.Web.UI.Page
 
         DataSet ds = new DataSet();
         ds.ReadXml(sr);
-        DataTable td = ds.Tables[0];
         
         if (ds.Tables.Count != 0)
         {
