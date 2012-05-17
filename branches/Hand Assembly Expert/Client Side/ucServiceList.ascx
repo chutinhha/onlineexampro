@@ -23,7 +23,8 @@
         </td>
     </tr>
 </table>--%>
-<asp:DataList runat="server" ID="das">
+<asp:DataList runat="server" ID="das" DataKeyField="Servicehead_id" DataMember="Servicehead_id"
+    OnItemDataBound="das_ItemDataBound">
     <ItemTemplate>
         <table>
             <tr>
@@ -33,15 +34,17 @@
                 </td>
             </tr>
             <tr>
-            <td>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                <asp:TemplateField>
-                
-                </asp:TemplateField>
-                </Columns>
-                </asp:GridView>
-            </td>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <%# Eval("ServiceSubTitle_Content")%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
             </tr>
         </table>
     </ItemTemplate>
