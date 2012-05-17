@@ -123,7 +123,7 @@ blockquote
 }
 #movers-row
 {
-    margin: -43px 0 0 62px;
+    margin: -52px 0 0 62px;
 }
 #movers-row div
 {
@@ -159,7 +159,7 @@ blockquote
 }
 .active-thumb
 {
-    background: transparent url(images/icon-uparrowsmallwhite.png) top center no-repeat;
+    background:  url(images/icon-uparrowsmallwhite.png) no-repeat center top;
 }
 
 

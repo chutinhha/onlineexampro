@@ -21,23 +21,24 @@
 </head>
 <body style="background-color: #333300">
     <form id="form1" runat="server">
-    <div id="divPrint">
+    <div id="divPrint" align="center">
         <table cellpadding="0" cellspacing="0" width="980px" align="center" style="background-color: #FFFFFF">
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
                     <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
                 </td>
             </tr>
-           
             <tr>
                 <td align="center">
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <td width="50%" align="center">
+                            <td width="50%" align="center" valign="top">
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
-                                        <td align="center">
-                                            <uc2:ucImgaeSlider ID="ucImgaeSlider1" runat="server" />
+                                        <td valign="top">
+                                            <div>
+                                                <uc2:ucImgaeSlider ID="ucImgaeSlider1" runat="server" />
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
