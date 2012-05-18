@@ -9,8 +9,7 @@
 <body style="background-color: #333300">
     <form id="form1" runat="server">
     <div>
-        <table cellpadding="0" cellspacing="0" width="980px" align="center" 
-            style="background-color: #FFFFFF">
+        <table cellpadding="0" cellspacing="0" width="980px" align="center" style="background-color: #FFFFFF">
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
                     <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
@@ -23,7 +22,7 @@
             </tr>
             <tr>
                 <td class="Title">
-                    Add logo & Images & Videos:
+                    Add logo &amp; Images:
                 </td>
             </tr>
             <tr>
@@ -39,7 +38,12 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choose Category:
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlCategory" runat="server" Width="150px">
+                                <asp:DropDownList ID="ddlCategory" runat="server" Width="150px" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged"
+                                    AutoPostBack="True">
+                                    <asp:ListItem Value="1">Site Logo</asp:ListItem>
+                                    <asp:ListItem Value="2">Slider Images</asp:ListItem>
+                                    <asp:ListItem Value="3">Customer Logo</asp:ListItem>
+                                    <asp:ListItem Value="4">Video Thumbnail</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -57,6 +61,15 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="SubTitle">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lbVidUrl" runat="server" Text="Video Url:" Visible="False"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtUrl" runat="server" Visible="false"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2">
                                 <br />
                             </td>
@@ -65,7 +78,34 @@
                             <td colspan="2">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnSubmitUrl" runat="server" Text="Submit" />
+                                <asp:Button ID="btnSubmitUrl" runat="server" Text="Submit" OnClick="btnSubmitUrl_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td class="Title">
+                    Enter Video Url:
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <table>
+                        <tr>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtVideoUrl" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:Button ID="btnVideoUrl" runat="server" Text="Submit" OnClick="btnVideoUrl_Click" />
                             </td>
                         </tr>
                     </table>
@@ -133,8 +173,7 @@
                             <td colspan="2">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnSubmitTitle" runat="server" Text="Submit" 
-                                    onclick="btnSubmitTitle_Click" />
+                                <asp:Button ID="btnSubmitTitle" runat="server" Text="Submit" OnClick="btnSubmitTitle_Click" />
                             </td>
                         </tr>
                     </table>

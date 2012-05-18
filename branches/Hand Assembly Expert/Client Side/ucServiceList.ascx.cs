@@ -27,7 +27,7 @@ public partial class ucServiceList : System.Web.UI.UserControl
             int id = Convert.ToInt32(das.DataKeys[item.ItemIndex]);
             DataList gvr = (DataList)das.Items[item.ItemIndex].FindControl("DataList1");
             DataSet ds1 = new DataSet();
-            ds1.ReadXml(Server.MapPath("~/ServiceListSubHeading.xml"));            
+            ds1.ReadXml(Server.MapPath("~/ServiceListSubHeading.xml"));
             DataTable dt = new DataTable();
             dt.Columns.Add("ServiceSubTitle_Content");
             foreach (DataRow item1 in ds1.Tables[0].Rows)

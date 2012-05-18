@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-public partial class ucVideoSlide : System.Web.UI.UserControl
+public partial class ucVideoSlider : System.Web.UI.UserControl
 {
     public FileInfo[] Files
     {

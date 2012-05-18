@@ -1,9 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucImgaeSlider.ascx.cs"
     Inherits="ucImgaeSlider" %>
-<%foreach (System.IO.FileInfo item in Files)
-  {
-%>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
 <script type="text/javascript" src="js/jquery-easing-1.3.pack.js"></script>
 <script type="text/javascript" src="js/jquery-easing-compatibility.1.2.pack.js"></script>
@@ -29,7 +26,7 @@
             $navthumb.eq(curclicked).parent().addClass("active-thumb");
             $(".stripNav ul li a").eq(curclicked).trigger('click');
             curclicked++;
-            if (7 == curclicked)
+            if (6 == curclicked)
                 curclicked = 0;
 
         }, 3000);
@@ -56,6 +53,9 @@
     <div class="slider-wrap">
         <div id="main-photo-slider" class="csw">
             <div class="panelContainer">
+                <%foreach (System.IO.FileInfo item in Files)
+                  {
+                %>
                 <div class="panel">
                     <div class="wrapper">
                         <img src='uploads/<%=item.Name %>' alt='<%=item.Name %>' />

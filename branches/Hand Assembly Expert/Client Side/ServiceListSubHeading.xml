@@ -17,12 +17,12 @@
   </ServiceSubTitle>
   <ServiceSubTitle>
     <ServiceSubTitle_id>4</ServiceSubTitle_id>
-    <ServiceSubTitle_Content>4” Print Capabilities	</ServiceSubTitle_Content>
+    <ServiceSubTitle_Content>4” Print Capabilities</ServiceSubTitle_Content>
     <fk_Servicehead_id>2</fk_Servicehead_id>
   </ServiceSubTitle>
   <ServiceSubTitle>
     <ServiceSubTitle_id>5</ServiceSubTitle_id>
-    <ServiceSubTitle_Content>2-20’ long Conveyors </ServiceSubTitle_Content>
+    <ServiceSubTitle_Content>2-20’ long Conveyors</ServiceSubTitle_Content>
     <fk_Servicehead_id>3</fk_Servicehead_id>
   </ServiceSubTitle>
   <ServiceSubTitle>
@@ -82,7 +82,7 @@
   </ServiceSubTitle>
   <ServiceSubTitle>
     <ServiceSubTitle_id>17</ServiceSubTitle_id>
-    <ServiceSubTitle_Content>2 high speed Inline Systems </ServiceSubTitle_Content>
+    <ServiceSubTitle_Content>2 high speed Inline Systems</ServiceSubTitle_Content>
     <fk_Servicehead_id>7</fk_Servicehead_id>
   </ServiceSubTitle>
   <ServiceSubTitle>
@@ -97,7 +97,7 @@
   </ServiceSubTitle>
   <ServiceSubTitle>
     <ServiceSubTitle_id>20</ServiceSubTitle_id>
-    <ServiceSubTitle_Content>1-12’ Inline Bagging and Sealing </ServiceSubTitle_Content>
+    <ServiceSubTitle_Content>1-12’ Inline Bagging and Sealing</ServiceSubTitle_Content>
     <fk_Servicehead_id>9</fk_Servicehead_id>
   </ServiceSubTitle>
   <ServiceSubTitle>

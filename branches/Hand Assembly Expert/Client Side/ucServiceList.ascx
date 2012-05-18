@@ -1,56 +1,36 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucServiceList.ascx.cs"
     Inherits="ucServiceList" %>
-<link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
-<%--<table cellpadding="0" cellspacing="0" width="326.66px">
+<table cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td>
-            <table width="200px" height="150px">
-                <tr>
-                    <td class="SubHeading">
-                        <asp:Label ID="lbHeading" runat="server" Text='<%#Eval("Servicehead_title") %>'></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="subHeadingcontent">
-                        &nbsp;&nbsp;4 High Speed Tippers(for various product<br />
-                        &nbsp;&nbsp;application)
-                        <br />
-                        &nbsp;&nbsp;Inline folding
-                        <br />
-                        &nbsp;&nbsp;Inline clip sealing<br />
-                    </td>
-                </tr>
-            </table>
+            <asp:DataList runat="server" ID="das" DataKeyField="Servicehead_id" OnItemDataBound="das_ItemDataBound"
+                RepeatColumns="3"  CssClass="gfhhg" CellPadding="10" CellSpacing="10">
+                <ItemTemplate>
+                    <table cellpadding="0" cellspacing="0" width="300px">
+                        <tr>
+                            <td class="SubHeading">
+                                <%# Eval("Servicehead_title")%>
+                                :
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="100px" valign="top">
+                                <asp:DataList ID="DataList1" runat="server">
+                                    <ItemTemplate>
+                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td class="subHeadingcontent">
+                                                    <%# Eval("ServiceSubTitle_Content")%>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:DataList>
         </td>
     </tr>
-</table>--%>
-<asp:DataList runat="server" ID="das" DataKeyField="Servicehead_id" 
-    OnItemDataBound="das_ItemDataBound" RepeatColumns="3" CssClass="gfhhg" 
-    CellPadding="10" CellSpacing="10">
-    <ItemStyle VerticalAlign="Top" />
-    <ItemTemplate>
-        <table>
-            <tr>
-                <td class="Heading" valign="top">
-                    <%# Eval("Servicehead_title")%>
-                    :
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:DataList ID="DataList1" runat="server">
-                        <ItemTemplate>
-                            <table>
-                                <tr>
-                                    <td class="subHeadingcontent" valign="top">
-                                    <%# Eval("ServiceSubTitle_Content")%>
-                                    </td>
-                                </tr>
-                            </table>
-                        </ItemTemplate>
-                    </asp:DataList>
-                </td>
-            </tr>
-        </table>
-    </ItemTemplate>
-</asp:DataList>
+</table>

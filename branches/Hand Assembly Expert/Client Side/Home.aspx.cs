@@ -5,23 +5,39 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 public partial class Home : System.Web.UI.Page
 {
+    public FileInfo[] logo
+    {
+        get
+        {
+            if (ViewState["logo"] != null)
+            {
+                return (FileInfo[])ViewState["logo"];
+            }
+            else
+            {
+                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/Site Logo/"));
+                FileInfo[] fil = dr.GetFiles("*.jpg");
+                ViewState["logo"] = fil;
+                return fil;
+            }
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
-        string scr = Server.MapPath("ServiceListHeading.xml");
         if (!IsPostBack)
         {
-            DataSet ds = new DataSet();
-            ds.ReadXml(scr);
-            dlServiceList.DataSource = ds;
-            dlServiceList.DataBind();
+            string path = Server.MapPath("Site Logo");
+            string[] filePaths = Directory.GetFiles(path);
         }
     }
 
     protected void dlServiceList_Load(object sender, EventArgs e)
     {
+                    
 
     }
 }
