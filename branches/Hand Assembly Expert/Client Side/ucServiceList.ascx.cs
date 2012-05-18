@@ -28,11 +28,19 @@ public partial class ucServiceList : System.Web.UI.UserControl
         foreach (DataListItem item in das.Items)
         {
             int id = Convert.ToInt32(das.DataKeys[item.ItemIndex]);
-            GridView gvr = (GridView)das.Items[item.ItemIndex].FindControl("GridView1");
+            DataList gvr = (DataList)das.Items[item.ItemIndex].FindControl("DataList1");
             DataSet ds1 = new DataSet();
             ds1.ReadXml(Server.MapPath("~/ServiceListSubHeading.xml"));
             DataRow[] dr = ds1.Tables[0].Select("fk_Servicehead_id=" + id);
-            gvr.DataSource = dr;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ServiceSubTitle_Content");
+            foreach (DataRow item1 in dr)
+            {
+                DataRow drr = dt.NewRow();
+                drr[0] = item1[1];
+                dt.Rows.Add(drr);
+            }
+            gvr.DataSource = dt;
             gvr.DataBind();
         }
     }
