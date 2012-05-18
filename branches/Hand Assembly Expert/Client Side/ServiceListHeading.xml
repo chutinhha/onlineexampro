@@ -6,42 +6,46 @@
   </ServiceHead>
   <ServiceHead>
     <Servicehead_id>2</Servicehead_id>
-    <Servicehead_title>Shrink Wrapping</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>3</Servicehead_id>
-    <Servicehead_title>Bagging</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>4</Servicehead_id>
     <Servicehead_title>Ink Jetting</Servicehead_title>
   </ServiceHead>
   <ServiceHead>
-    <Servicehead_id>5</Servicehead_id>
-    <Servicehead_title>Labeling</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>6</Servicehead_id>
-    <Servicehead_title>Plastic and Paper Banding</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>7</Servicehead_id>
+    <Servicehead_id>3</Servicehead_id>
     <Servicehead_title>Hand Assembly / Kitting</Servicehead_title>
   </ServiceHead>
   <ServiceHead>
-    <Servicehead_id>8</Servicehead_id>
-    <Servicehead_title>Clip Sealing / Wafer Seal</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>9</Servicehead_id>
-    <Servicehead_title>Cutting</Servicehead_title>
-  </ServiceHead>
-  <ServiceHead>
-    <Servicehead_id>10</Servicehead_id>
+    <Servicehead_id>4</Servicehead_id>
     <Servicehead_title>Warehousing</Servicehead_title>
   </ServiceHead>
   <ServiceHead>
-    <Servicehead_id>11</Servicehead_id>
+    <Servicehead_id>5</Servicehead_id>
+    <Servicehead_title>Shrink Wrapping</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>6</Servicehead_id>
+    <Servicehead_title>Labeling</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>7</Servicehead_id>
+    <Servicehead_title> Clip Sealing / Wafer Seal</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>8</Servicehead_id>
     <Servicehead_title>Pick and Pack</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>9</Servicehead_id>
+    <Servicehead_title>Bagging</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>10</Servicehead_id>
+    <Servicehead_title>Plastic and Paper Banding</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>11</Servicehead_id>
+    <Servicehead_title>Cutting</Servicehead_title>
+  </ServiceHead>
+  <ServiceHead>
+    <Servicehead_id>12</Servicehead_id>
+    <Servicehead_title>Drilling</Servicehead_title>
   </ServiceHead>
 </DocumentElement>
