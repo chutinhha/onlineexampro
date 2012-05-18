@@ -27,10 +27,11 @@
 <asp:DataList runat="server" ID="das" DataKeyField="Servicehead_id" 
     OnItemDataBound="das_ItemDataBound" RepeatColumns="3" CssClass="gfhhg" 
     CellPadding="10" CellSpacing="10">
+    <ItemStyle VerticalAlign="Top" />
     <ItemTemplate>
         <table>
             <tr>
-                <td class="Heading">
+                <td class="Heading" valign="top">
                     <%# Eval("Servicehead_title")%>
                     :
                 </td>
@@ -41,7 +42,7 @@
                         <ItemTemplate>
                             <table>
                                 <tr>
-                                    <td class="subHeadingcontent">
+                                    <td class="subHeadingcontent" valign="top">
                                     <%# Eval("ServiceSubTitle_Content")%>
                                     </td>
                                 </tr>
