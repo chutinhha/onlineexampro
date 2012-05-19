@@ -59,7 +59,7 @@ WindowObject.close();
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="center" style="background-color: #CCCCCC">
                     <table>
                         <tr>
                             <td>
