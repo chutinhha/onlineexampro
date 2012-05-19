@@ -11,7 +11,7 @@ body
 #gallery
 {
     position: relative;
-    width: 686px;
+    width: 510px;
     margin: 40px auto;
     padding: 10px;
     border: 6px solid #fff;
@@ -27,7 +27,7 @@ body
 #image
 {
     position: relative;
-    width: 672px;
+    width: 500px;
     height: 375px;
     padding: 5px;
     border: 2px solid #666;
@@ -43,7 +43,7 @@ body
 {
     margin-top: 10px;
     padding: 5px 0;
-    width: 682px;
+    width: 500px;
     height: 100px;
     border: 2px solid #666;
     background: #FFF;
@@ -53,7 +53,7 @@ body
     position: relative;
     overflow: hidden;
     height: 100px;
-    width: 682px;
+    width: 500px;
 }
 #thumbs
 {
