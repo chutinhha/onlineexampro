@@ -6,7 +6,7 @@
 body
 {
     font: 12px Verdana, Arial, Helvetica, sans-serif;
-    background: #666 url(images/bg.gif);
+    background: #666 url(../images/bg.gif);
 }
 #gallery
 {
@@ -85,7 +85,7 @@ body
 #previmg
 {
     left: 0;
-    background: url(images/left.gif) left center no-repeat;
+    background: url('../images/left.gif') no-repeat left center;
     border-left: 5px solid #FFF;
 }
 #previmg:hover
@@ -96,7 +96,7 @@ body
 #nextimg
 {
     right: 0;
-    background: url(images/right.gif) right center no-repeat;
+    background: url('../images/right.gif') right center no-repeat;
     border-right: 5px solid #FFF;
 }
 #nextimg:hover

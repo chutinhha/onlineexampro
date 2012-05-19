@@ -1,29 +1,36 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
 
-<%@ Register Src="~/ucImgaeSlider.ascx" TagName="ucImgaeSlider" TagPrefix="uc2" %>
+<%@ Register Src="~/ucImageSlider.ascx" TagName="ucImgaeSlider" TagPrefix="uc2" %>
 <%@ Register Src="ucServiceList.ascx" TagName="ucServiceList" TagPrefix="uc1" %>
 <%@ Register Src="ucVideoSlider.ascx" TagName="ucVideoSlider" TagPrefix="uc3" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/style.css" rel="stylesheet" type="text/css" />
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
-        function printDiv() {
-            window.print();
-        }
+        function PrintContent()
+{
+var DocumentContainer = document.getElementById(‘divPrint’);
+var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+WindowObject.document.writeln(DocumentContainer.innerHTML);
+WindowObject.document.close();
+WindowObject.focus();
+WindowObject.print();
+WindowObject.close();
+}
     </script>
 </head>
 <body style="background-color: #333300">
     <form id="form1" runat="server">
     <div id="divPrint" align="center">
-        <table cellpadding="0" cellspacing="0" width="980px" align="center" style="background-color: #FFFFFF">
+        <table cellpadding="0" cellspacing="0" width="1000px" align="center" style="background-color: #FFFFFF">
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
                     <div>
                         <%--<img src='~/Site Logo/<%=logo[0].Name %>' class="nav-thumb" alt="temp-thumb" height="250px" />--%>
-                        <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
+                        <asp:Image ID="Logo" runat="server" ImageUrl="~/SiteLogo/Logo.png" Height="250px" />
                     </div>
                 </td>
             </tr>
@@ -34,20 +41,12 @@
             </tr>
             <tr>
                 <td align="center">
-                    <table cellpadding="0" cellspacing="0" width="100%">
+                    <table cellpadding="0" cellspacing="0">
                         <tr>
-                            <td width="50%" align="center">
-                                <table cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                <uc2:ucImgaeSlider ID="ucImgaeSlider1" runat="server" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td valign="top">
+                                <uc2:ucImgaeSlider ID="ucImgaeSlider1" runat="server" />
                             </td>
-                            <td width="50%" align="center">
+                            <td valign="top">
                                 <uc3:ucVideoSlider ID="ucVideoSlider1" runat="server" />
                             </td>
                         </tr>
@@ -66,7 +65,7 @@
                             <td>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
-                            <td id="dd">
+                            <td>
                                 <uc1:ucServiceList ID="ucServiceList1" runat="server" />
                             </td>
                         </tr>
@@ -83,13 +82,12 @@
                     <table>
                         <tr>
                             <td>
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/goto_blog_button.jpg"
+                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/goto_blog_button.jpg"
                                     Width="157px" Height="69px" />
                                 &nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <input id="Button1" type="button" onclick="printDiv()" value="button" />
-                                <asp:ImageButton ID="Image3" ImageUrl="~/Image/Print.jpg" runat="server" OnClick="Image3_Click" />&nbsp;&nbsp;&nbsp;
+                                <asp:ImageButton ID="Image3" ImageUrl="~/Images/Print.jpg" runat="server" />&nbsp;&nbsp;&nbsp;
                             </td>
                         </tr>
                     </table>
@@ -119,22 +117,28 @@
             </tr>
             <tr>
                 <td style="background-color: #CCCCCC">
-                    <table cellpadding="0" cellspacing="0" width="100%">
+                    <table cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
-                                <asp:Image ID="Image4" runat="server" Width="196px" Height="200px" ImageUrl="~/Image/customer-promise-logo.jpg" />
+                                <br />
                             </td>
+                        </tr>
+                        <tr>
                             <td>
-                                <asp:Image ID="Image5" runat="server" Width="196px" Height="200px" ImageUrl="~/Image/customer-promise-logo.jpg" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
-                            <td>
-                                <asp:Image ID="Image6" runat="server" Width="196px" Height="200px" ImageUrl="~/Image/customer-promise-logo.jpg" />
+                            <%for (int i = 0; i < logo.Length; i++)
+                              {
+                            %>
+                            <td width="110px">
+                                <img width="100px" height="70px" src="CustomerLogo/<%=logo[i].Name %>" alt="<%=logo[i].Name %>" />
                             </td>
+                            <% 
+                              } %>
+                        </tr>
+                        <tr>
                             <td>
-                                <asp:Image ID="Image7" runat="server" Width="196px" Height="200px" ImageUrl="~/Image/customer-promise-logo.jpg" />
-                            </td>
-                            <td>
-                                <asp:Image ID="Image8" runat="server" Width="196px" Height="200px" ImageUrl="~/Image/customer-promise-logo.jpg" />
+                                <br />
                             </td>
                         </tr>
                     </table>
@@ -145,7 +149,8 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <td class="subHeadingcontent">
-                                &nbsp; All rights reserved &copy; 2012
+                                &nbsp; All rights reserved &copy;
+                                <%=DateTime.Now.Year %>
                             </td>
                             <td class="subHeadingcontent">
                                 No. of visitors:1000
@@ -154,7 +159,7 @@
                                 <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
                             </td>
                             <td align="left" class="subHeadingcontent">
-                                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Image/Search.png" />
+                                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/Search.png" />
                             </td>
                         </tr>
                     </table>

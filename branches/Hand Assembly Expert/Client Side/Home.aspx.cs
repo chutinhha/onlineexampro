@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.IO;
-using System.Drawing;
 
 public partial class Home : System.Web.UI.Page
 {
@@ -20,8 +19,8 @@ public partial class Home : System.Web.UI.Page
             }
             else
             {
-                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/Site Logo/"));
-                FileInfo[] fil = dr.GetFiles("*.jpg");
+                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/CustomerLogo/"));
+                FileInfo[] fil = dr.GetFiles();
                 ViewState["logo"] = fil;
                 return fil;
             }
@@ -31,15 +30,14 @@ public partial class Home : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            string path = Server.MapPath("Site Logo");
-            string[] filePaths = Directory.GetFiles(path);
+            //    string path = Server.MapPath("Site Logo");
+            //    string[] filePaths = Directory.GetFiles(path);
         }
     }
 
     protected void dlServiceList_Load(object sender, EventArgs e)
     {
-    }
-    protected void Image3_Click(object sender, ImageClickEventArgs e)
-    {
+
+
     }
 }

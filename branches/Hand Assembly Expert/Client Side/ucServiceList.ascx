@@ -4,7 +4,7 @@
     <tr>
         <td>
             <asp:DataList runat="server" ID="das" DataKeyField="Servicehead_id" OnItemDataBound="das_ItemDataBound"
-                RepeatColumns="3" CssClass="gfhhg" CellPadding="10" CellSpacing="10">
+                RepeatColumns="3"  CssClass="gfhhg" CellPadding="10" CellSpacing="10">
                 <ItemTemplate>
                     <table cellpadding="0" cellspacing="0" width="300px">
                         <tr>

@@ -6,21 +6,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-public partial class ucVideoSlider : System.Web.UI.UserControl
+public partial class ucImageSlider : System.Web.UI.UserControl
 {
-    public FileInfo[] Videos
+    public FileInfo[] Files
     {
         get
         {
-            if (ViewState["Videos"] != null)
+            if (ViewState["Files"] != null)
             {
-                return (FileInfo[])ViewState["Videos"];
+                return (FileInfo[])ViewState["Files"];
             }
             else
             {
-                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/VideoThumbnails/"));
+                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/Uploads/"));
                 FileInfo[] fil = dr.GetFiles("*.jpg");
-                ViewState["Videos"] = fil;
+                ViewState["Files"] = fil;
                 return fil;
             }
         }

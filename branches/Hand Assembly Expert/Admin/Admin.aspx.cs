@@ -185,8 +185,8 @@ public partial class Admin : System.Web.UI.Page
             {
                 count = count + 1;
             }
-            string upload = "Uploads\\tempphoto-" + count + extension;
-            string thumbnail = "Uploads\\thumbs\\tempphoto-" + count + extension;
+            string upload = "Uploads\\" + count + extension;
+            string thumbnail = "Uploads\\thumbs\\" + count + extension;
             fuContent.SaveAs(Server.MapPath(upload));
             fuContent.SaveAs(Server.MapPath(thumbnail));
         }
@@ -228,7 +228,7 @@ public partial class Admin : System.Web.UI.Page
             else
             {
                 DataRow dr = ds.Tables[0].NewRow();
-                if (ds.Tables[0].Compute("Max(Servicehead_id)", "") == null)
+                if (ds.Tables[0].Compute("Max(VideoUrl_id)", "") == null)
                 {
                     a = 0;
                 }
