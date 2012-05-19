@@ -10,16 +10,9 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
-        function PrintContent()
-{
-var DocumentContainer = document.getElementById(‘divPrint’);
-var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
-WindowObject.document.writeln(DocumentContainer.innerHTML);
-WindowObject.document.close();
-WindowObject.focus();
-WindowObject.print();
-WindowObject.close();
-}
+        function printDiv() {
+            window.print();
+        }
     </script>
 </head>
 <body style="background-color: #333300">
@@ -29,10 +22,8 @@ WindowObject.close();
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
                     <div>
-                        
                         <%--<img src='~/Site Logo/<%=logo[0].Name %>' class="nav-thumb" alt="temp-thumb" height="250px" />--%>
                         <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
-                        
                     </div>
                 </td>
             </tr>
@@ -75,7 +66,7 @@ WindowObject.close();
                             <td>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td id="dd">
                                 <uc1:ucServiceList ID="ucServiceList1" runat="server" />
                             </td>
                         </tr>
@@ -97,7 +88,8 @@ WindowObject.close();
                                 &nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <asp:ImageButton ID="Image3" ImageUrl="~/Image/Print.jpg" runat="server" />&nbsp;&nbsp;&nbsp;
+                                <input id="Button1" type="button" onclick="printDiv()" value="button" />
+                                <asp:ImageButton ID="Image3" ImageUrl="~/Image/Print.jpg" runat="server" OnClick="Image3_Click" />&nbsp;&nbsp;&nbsp;
                             </td>
                         </tr>
                     </table>

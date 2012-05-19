@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <%
-  } %>
+                    } %>
             </div>
         </div>
         <a href="#1" class="cross-link active-thumb">
@@ -80,7 +80,7 @@
                         width="50px" height="50px" /></a></div>
             <%} %>
             <%
-              } %>
+                } %>
         </div>
     </div>
 </div>

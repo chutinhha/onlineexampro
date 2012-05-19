@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.IO;
+using System.Drawing;
 
 public partial class Home : System.Web.UI.Page
 {
@@ -37,7 +38,8 @@ public partial class Home : System.Web.UI.Page
 
     protected void dlServiceList_Load(object sender, EventArgs e)
     {
-                    
-
+    }
+    protected void Image3_Click(object sender, ImageClickEventArgs e)
+    {
     }
 }
