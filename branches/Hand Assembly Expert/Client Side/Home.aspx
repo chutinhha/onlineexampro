@@ -10,16 +10,16 @@
     <link href="Style/style.css" rel="stylesheet" type="text/css" />
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
-        function PrintContent()
-{
-var DocumentContainer = document.getElementById(‘divPrint’);
-var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
-WindowObject.document.writeln(DocumentContainer.innerHTML);
-WindowObject.document.close();
-WindowObject.focus();
-WindowObject.print();
-WindowObject.close();
-}
+        function PrintContent() {
+            //var DocumentContainer = document.getElementById(‘divPrint’);
+            //var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+            //WindowObject.document.writeln(DocumentContainer.innerHTML);
+            //WindowObject.document.close();
+            //WindowObject.focus();
+            //WindowObject.print();
+            //WindowObject.close();
+            window.print();
+        }
     </script>
 </head>
 <body style="background-color: #333300">
@@ -87,7 +87,8 @@ WindowObject.close();
                                 &nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <asp:ImageButton ID="Image3" ImageUrl="~/Images/Print.jpg" runat="server" />&nbsp;&nbsp;&nbsp;
+                                <a href="javascript:window.print()">
+                                    <img src="images/Print.jpg" alt="print"></a>&nbsp;&nbsp;&nbsp;
                             </td>
                         </tr>
                     </table>
