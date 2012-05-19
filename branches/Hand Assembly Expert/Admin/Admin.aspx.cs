@@ -145,46 +145,6 @@ public partial class Admin : System.Web.UI.Page
             ds.WriteXml(st);
         }
     }
-    protected void btnVideoUrl_Click(object sender, EventArgs e)
-    {
-        string url = txtVideoUrl.Text;
-        string[] p = url.Split('?');
-        string[] q = p[1].Split('&');
-        string[] r = q[0].Split('=');
-        string id = r[1];
-        StringBuilder strbuilder = new StringBuilder();
-        strbuilder.Append("http://www.youtube.com/v/");
-        strbuilder.Append(id);
-        strbuilder.Append("?version=3&feature=player_detailpage");
-        url = strbuilder.ToString();
-        int a;
-        DataSet ds = new DataSet();
-        ds.ReadXml(videourl);
-        if (ds.Tables.Count <= 0)
-        {
-            DataTable tb = new DataTable("VideoUrl");
-            tb.Columns.Add("VideoUrl_id", Type.GetType("System.Int32"));
-            tb.Columns.Add("Video_Url", Type.GetType("System.String"));
-            DataRow dr = tb.NewRow();
-            dr[0] = 1;
-            dr[1] = Convert.ToString(url);
-            tb.Rows.Add(dr);
-            tb.WriteXml(videourl);
-        }
-        else
-        {
-            DataRow dr = ds.Tables[0].NewRow();
-            if (ds.Tables[0].Compute("Max(Servicehead_id)", "") == null)
-            {
-                a = 0;
-            }
-            a = ds.Tables[0].Rows.Count + 1;
-            dr[0] = a;
-            dr[1] = Convert.ToString(url);
-            ds.Tables[0].Rows.Add(dr);
-            ds.WriteXml(videourl);
-        }
-    }
     protected void btnSubmitUrl_Click(object sender, EventArgs e)
     {
         if (Convert.ToInt32(ddlCategory.SelectedValue) == 1)
@@ -192,12 +152,12 @@ public partial class Admin : System.Web.UI.Page
             //int newWidth, newHeight;
             //newHeight = 523;
             //newHeight = 250;
-            string path = Server.MapPath("Site Logo");
+            string path = Server.MapPath("SiteLogo");
             string[] filePaths = Directory.GetFiles(path);
             foreach (string filePath in filePaths)
                 File.Delete(filePath);
             string extension = Path.GetExtension(fuContent.PostedFile.FileName);
-            string upload = "Site Logo\\Logo" + extension;
+            string upload = "SiteLogo\\Logo" + extension;
             fuContent.SaveAs(Server.MapPath(upload));
             //Bitmap newImage = new Bitmap(newWidth, newHeight);
             //using (Graphics gr = Graphics.FromImage(newImage))
@@ -209,17 +169,76 @@ public partial class Admin : System.Web.UI.Page
             //}
 
         }
-        else if (true)
+        else if (Convert.ToInt32(ddlCategory.SelectedValue) == 2)
         {
-
+            int count = 0;
+            string path = Server.MapPath("Uploads");
+            string[] filePaths = Directory.GetFiles(path);
+            foreach (string filePath in filePaths)
+                count = count + 1;
+            string extension = Path.GetExtension(fuContent.PostedFile.FileName);
+            if (count==0)
+            {
+                count = 1;
+            }
+            else
+            {
+                count = count + 1;
+            }
+            string upload = "Uploads\\tempphoto-" + count + extension;
+            string thumbnail = "Uploads\\thumbs\\tempphoto-" + count + extension;
+            fuContent.SaveAs(Server.MapPath(upload));
+            fuContent.SaveAs(Server.MapPath(thumbnail));
         }
-        else if (true)
+        else if (Convert.ToInt32(ddlCategory.SelectedValue) == 3)
         {
-
+            string upload = "CustomerLogo\\" + fuContent.FileName;
+            fuContent.SaveAs(Server.MapPath(upload));
         }
-        else if (true)
+        else if (Convert.ToInt32(ddlCategory.SelectedValue) == 4)
         {
-
+            string url = txtUrl.Text;
+            string[] p = url.Split('?');
+            string[] q = p[1].Split('&');
+            string[] r = q[0].Split('=');
+            string id = r[1];
+            StringBuilder strbuilder = new StringBuilder();
+            strbuilder.Append("http://www.youtube.com/v/");
+            strbuilder.Append(id);
+            strbuilder.Append("?version=3&feature=player_detailpage");
+            url = strbuilder.ToString();
+            string thumpnail = "~/VideoThumbnails/" + fuContent.FileName;
+            fuContent.SaveAs(Server.MapPath(thumpnail));
+            int a;
+            DataSet ds = new DataSet();
+            ds.ReadXml(videourl);
+            if (ds.Tables.Count <= 0)
+            {
+                DataTable tb = new DataTable("VideoUrl");
+                tb.Columns.Add("VideoUrl_id", Type.GetType("System.Int32"));
+                tb.Columns.Add("VideoThumbnailUrl", Type.GetType("System.String"));
+                tb.Columns.Add("Video_Url", Type.GetType("System.String"));
+                DataRow dr = tb.NewRow();
+                dr[0] = 1;
+                dr[1] = thumpnail;
+                dr[2] = Convert.ToString(url);
+                tb.Rows.Add(dr);
+                tb.WriteXml(videourl);
+            }
+            else
+            {
+                DataRow dr = ds.Tables[0].NewRow();
+                if (ds.Tables[0].Compute("Max(Servicehead_id)", "") == null)
+                {
+                    a = 0;
+                }
+                a = ds.Tables[0].Rows.Count + 1;
+                dr[0] = a;
+                dr[1] = thumpnail;
+                dr[2] = Convert.ToString(url);
+                ds.Tables[0].Rows.Add(dr);
+                ds.WriteXml(videourl);
+            }
         }
     }
     protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)

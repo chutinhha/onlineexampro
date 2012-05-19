@@ -12,7 +12,7 @@
         <table cellpadding="0" cellspacing="0" width="980px" align="center" style="background-color: #FFFFFF">
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
-                    <asp:Image ID="Logo" runat="server" ImageUrl="~/Image/Logo.png" Height="250px" />
+                    <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/Logo.png" Height="250px" />
                 </td>
             </tr>
             <tr>
@@ -79,33 +79,6 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Button ID="btnSubmitUrl" runat="server" Text="Submit" OnClick="btnSubmitUrl_Click" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td class="Title">
-                    Enter Video Url:
-                </td>
-            </tr>
-            <tr>
-                <td align="left">
-                    <table>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtVideoUrl" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:Button ID="btnVideoUrl" runat="server" Text="Submit" OnClick="btnVideoUrl_Click" />
                             </td>
                         </tr>
                     </table>
