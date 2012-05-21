@@ -19,6 +19,16 @@
                 mywindow.focus();
                 mywindow.print();
             }
+
+            else {
+                var mywindow1 = window.open('', 'PrintPreview', 'width=750,height=500,top=25,left=25,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+                mywindow1.document.write(printdata.innerHTML);
+                mywindow1.document.close();
+                mywindow1.focus();
+                //mywindow1.moveTo(300, 200);
+                mywindow1.print();
+                mywindow1.close();
+            }
         }
     </script>
     <%--    <script language="javascript" type="text/javascript">
