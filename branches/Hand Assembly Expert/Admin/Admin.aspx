@@ -124,50 +124,66 @@
                 <td align="left">
                     <table>
                         <tr>
-                            <td class="SubTitle">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add or Choose Service Title:
-                            </td>
                             <td>
                                 <table>
                                     <tr>
+                                        <td class="SubTitle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add or Choose Service Title:
+                                        </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlServiceHead" runat="server" Width="150px" AutoPostBack="True"
-                                                OnSelectedIndexChanged="ddlServiceHead_SelectedIndexChanged">
-                                            </asp:DropDownList>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlServiceHead" runat="server" Width="150px" AutoPostBack="True"
+                                                            OnSelectedIndexChanged="ddlServiceHead_SelectedIndexChanged">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                    <td height="25px">
+                                                        <asp:TextBox ID="txtTitle" runat="server" Visible="False"></asp:TextBox>
+                                                    </td>
+                                                    <td height="25px">
+                                                        <asp:Button ID="btnAdd" runat="server" Text="ADD" Visible="False" OnClick="btnAdd_Click" />
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </td>
-                                        <td height="25px">
-                                            <asp:TextBox ID="txtTitle" runat="server" Visible="False"></asp:TextBox>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <br />
                                         </td>
-                                        <td height="25px">
-                                            <asp:Button ID="btnAdd" runat="server" Text="ADD" Visible="False" OnClick="btnAdd_Click" />
+                                    </tr>
+                                    <tr>
+                                        <td class="SubTitle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add Sub Title:
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtSubtitle" runat="server"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button ID="btnSubmitTitle" runat="server" Text="Submit" OnClick="btnSubmitTitle_Click" />
                                         </td>
                                     </tr>
                                 </table>
                             </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="SubTitle">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add Sub Title:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtSubtitle" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnSubmitTitle" runat="server" Text="Submit" OnClick="btnSubmitTitle_Click" />
+                            <td valign="top">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:GridView ID="gvServiceList" runat="server">
+                                            </asp:GridView>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     </table>

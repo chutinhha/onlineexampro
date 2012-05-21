@@ -182,23 +182,15 @@ public partial class Admin : System.Web.UI.Page
                 //}
                 break;
             case "2":
-                //  path = Server.MapPath("Uploads");
-                // int count = Directory.GetFiles(path).Count();
+                path = Server.MapPath("Uploads");
+                int count = Directory.GetFiles(path).Count();
                 //filePaths = Directory.GetFiles(path);
                 //foreach (string filePath in filePaths)
                 //    count = count + 1;
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                // count = count + 1;
-                //if (count == 0)
-                //{
-                //    count = 1;
-                //}
-                //else
-                //{
-                //    count = count + 1;
-                //}
-                upload = "Uploads\\" + fileName + extension;
-                string thumbnail = "Uploads\\thumbs\\" + fileName + extension;
+                count = count + 1;
+                upload = "Uploads\\" + count + extension;
+                string thumbnail = "Uploads\\thumbs\\" + count + extension;
                 fuContent.SaveAs(Server.MapPath(upload));
                 fuContent.SaveAs(Server.MapPath(thumbnail));
                 break;
@@ -218,11 +210,13 @@ public partial class Admin : System.Web.UI.Page
                 strbuilder.Append("?version=3&feature=player_detailpage");
                 url = strbuilder.ToString();
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                string thumpnail = "~/VideoThumbnails/" + fileName + extension;
-                fuContent.SaveAs(Server.MapPath(thumpnail));
-                int a;
+                
                 DataSet ds = new DataSet();
                 ds.ReadXml(videourl);
+                int a;
+                a = ds.Tables[0].Rows.Count + 1;
+                string thumpnail = "~/VideoThumbnails/" + a + extension;
+                fuContent.SaveAs(Server.MapPath(thumpnail));
                 if (ds.Tables.Count <= 0)
                 {
                     DataTable tb = new DataTable("VideoUrl");
@@ -230,7 +224,7 @@ public partial class Admin : System.Web.UI.Page
                     tb.Columns.Add("VideoThumbnailUrl", Type.GetType("System.String"));
                     tb.Columns.Add("Video_Url", Type.GetType("System.String"));
                     DataRow dr = tb.NewRow();
-                    dr[0] = fileName;
+                    dr[0] = a;
                     dr[1] = thumpnail;
                     dr[2] = Convert.ToString(url);
                     tb.Rows.Add(dr);
@@ -243,8 +237,8 @@ public partial class Admin : System.Web.UI.Page
                     //{
                     //    a = 0;
                     //}
-                    // a = ds.Tables[0].Rows.Count + 1;
-                    dr[0] = fileName;
+                    a = ds.Tables[0].Rows.Count + 1;
+                    dr[0] = a;
                     dr[1] = thumpnail;
                     dr[2] = Convert.ToString(url);
                     ds.Tables[0].Rows.Add(dr);
