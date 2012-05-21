@@ -1,7 +1,58 @@
 <?xml version="1.0" standalone="yes"?>
 <DocumentElement>
   <VideoUrl>
-    <VideoUrl_id>1</VideoUrl_id>
-    <Video_Url>http://www.youtube.com/v/EfPdqs5F7-Q?version=3&amp;feature=player_detailpage</Video_Url>
+    <VideoUrl_id>930992ed77e544a180940250ff05a4b2</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/930992ed77e544a180940250ff05a4b2.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/z5NRbklfGr4?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>93ab585e4dbb49d38eca40df0541b8ee</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/93ab585e4dbb49d38eca40df0541b8ee.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/Y-5jRZ9ItG8?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>f8a08abab7904a4cb6fb121ed35c23a7</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/f8a08abab7904a4cb6fb121ed35c23a7.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/S-x1usoA3BA?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>3e2eb39ae7344b7fabd207ce17ffac20</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/3e2eb39ae7344b7fabd207ce17ffac20.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/gF9i0OgAW7E?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>1bb0929bd2a94fda9a3c86e2e8404286</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/1bb0929bd2a94fda9a3c86e2e8404286.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/BO3N6VdYCjY?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>e31edc3d85884008912ad7e68e1039bc</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/e31edc3d85884008912ad7e68e1039bc.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/_NcwxiTr4N0?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>654ef0315fd848989b22f37accc3d2b7</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/654ef0315fd848989b22f37accc3d2b7.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/fQEHtvNsfKE?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>8ca1f8a9755d4af686204f868d007e98</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/8ca1f8a9755d4af686204f868d007e98.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/TzzGPfVx32M?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>d0ebbb7867854b30976926111b76434a</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/d0ebbb7867854b30976926111b76434a.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/Wt6WSLQf7OE?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>788ffcd1e651423e80bd5a5642921abe</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/788ffcd1e651423e80bd5a5642921abe.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/CkZME51wcKY?version=3&amp;feature=player_detailpage</Video_Url>
+  </VideoUrl>
+  <VideoUrl>
+    <VideoUrl_id>ff5fcf4554fc49c19cbf9e9b0801db45</VideoUrl_id>
+    <VideoThumbnailUrl>~/VideoThumbnails/ff5fcf4554fc49c19cbf9e9b0801db45.jpg</VideoThumbnailUrl>
+    <Video_Url>http://www.youtube.com/v/z4bJEqoCAuI?version=3&amp;feature=player_detailpage</Video_Url>
   </VideoUrl>
 </DocumentElement>

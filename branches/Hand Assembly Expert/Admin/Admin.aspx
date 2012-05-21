@@ -34,51 +34,72 @@
                 <td align="left">
                     <table>
                         <tr>
-                            <td class="SubTitle">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choose Category:
+                            <td width="50%">
+                                <table>
+                                    <tr>
+                                        <td class="SubTitle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choose Category:
+                                        </td>
+                                        <td>
+                                            <asp:DropDownList ID="ddlCategory" runat="server" Width="150px" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged"
+                                                AutoPostBack="True">
+                                                <asp:ListItem Value="1">Site Logo</asp:ListItem>
+                                                <asp:ListItem Value="2">Slider Images</asp:ListItem>
+                                                <asp:ListItem Value="3">Customer Logo</asp:ListItem>
+                                                <asp:ListItem Value="4">Video Thumbnail</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" height="25px">
+                                            <asp:Label ID="lbDetail" runat="server" ForeColor="#666633" Font-Bold="False"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="SubTitle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Upload:
+                                        </td>
+                                        <td>
+                                            <asp:FileUpload ID="fuContent" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="SubTitle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Label ID="lbVidUrl" runat="server" Text="Video Url:" Visible="False"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtUrl" runat="server" Visible="false"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button ID="btnSubmitUrl" runat="server" Text="Submit" OnClick="btnSubmitUrl_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
-                            <td>
-                                <asp:DropDownList ID="ddlCategory" runat="server" Width="150px" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged"
-                                    AutoPostBack="True">
-                                    <asp:ListItem Value="1">Site Logo</asp:ListItem>
-                                    <asp:ListItem Value="2">Slider Images</asp:ListItem>
-                                    <asp:ListItem Value="3">Customer Logo</asp:ListItem>
-                                    <asp:ListItem Value="4">Video Thumbnail</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="SubTitle">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Upload:
-                            </td>
-                            <td>
-                                <asp:FileUpload ID="fuContent" runat="server" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="SubTitle">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Label ID="lbVidUrl" runat="server" Text="Video Url:" Visible="False"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtUrl" runat="server" Visible="false"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnSubmitUrl" runat="server" Text="Submit" OnClick="btnSubmitUrl_Click" />
+                            <td valign="top" width="50%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:GridView ID="gvImageSlider" runat="server" AutoGenerateColumns="False">
+                                                <Columns>
+                                                    <asp:BoundField />
+                                                    <asp:ImageField DataImageUrlField="">
+                                                    </asp:ImageField>
+                                                </Columns>
+                                            </asp:GridView>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     </table>

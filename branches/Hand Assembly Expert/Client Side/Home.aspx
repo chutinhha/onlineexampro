@@ -31,20 +31,6 @@
             }
         }
     </script>
-    <%--    <script language="javascript" type="text/javascript">
-        function CallPrint(strid) {
-            var prtContent = document.getElementById(strid);
-            var WinPrint =
-window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status=0');
-            WinPrint.document.write(prtContent.innerHTML);
-            WinPrint.document.close();
-            WinPrint.focus();
-            WinPrint.print();
-            WinPrint.close();
-            prtContent.innerHTML = strOldOne;
-        }
-
-    </script>--%>
 </head>
 <body style="background-color: #333300">
     <form id="form1" runat="server">
@@ -57,7 +43,7 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
                         <%for (int i = 0; i < Sitelogo.Length; i++)
                           {
                         %>
-                        <img src="SiteLogo/<%=Sitelogo[i].Name %>" height="250px" alt="<%=Sitelogo[i].Name %>" />
+                        <img src="SiteLogo/<%=Sitelogo[i].Name %>" height="250px" width="650px" alt="<%=Sitelogo[i].Name %>" />
                         <%} %>
                     </div>
                 </td>
@@ -118,7 +104,6 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
                             </td>
                             <td>
                                 <asp:ImageButton ID="btnPrint" runat="server" ImageUrl="~/images/Print.jpg" OnClientClick="javascript:PrintContent();" />
-                                <input id="Button1" type="button" onclick="javascript:PrintContent();" value="button" />
                             </td>
                         </tr>
                     </table>
@@ -165,7 +150,7 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
                                 <img width="100px" height="70px" src="CustomerLogo/<%=logo[i].Name %>" alt="<%=logo[i].Name %>" />
                             </td>
                             <% 
-                                } %>
+                              } %>
                         </tr>
                         <tr>
                             <td>

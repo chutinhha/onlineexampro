@@ -26,8 +26,14 @@ public partial class Admin : System.Web.UI.Page
                 createServiceHeadingxml();
             }
             BindDropDown();
+            BindGridForSliderImage();
         }
 
+    }
+
+    private void BindGridForSliderImage()
+    {
+        string[] filePaths = Directory.GetFiles(Server.MapPath("Uploads"));
     }
 
     private void BindDropDown()
@@ -44,7 +50,7 @@ public partial class Admin : System.Web.UI.Page
         }
         ddlServiceHead.Items.Add("other");
         ddlServiceHead.Items.Insert(0, new ListItem("-Select-"));
-
+        lbDetail.Text = "Upload Image With the dimension of 650 X 250!";
 
     }
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -160,7 +166,7 @@ public partial class Admin : System.Web.UI.Page
                 //newHeight = 250;
                 path = Server.MapPath("SiteLogo");
                 filePaths = Directory.GetFiles(path);
-                
+
                 foreach (string filePath in filePaths)
                     File.Delete(filePath);
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
@@ -176,13 +182,13 @@ public partial class Admin : System.Web.UI.Page
                 //}
                 break;
             case "2":
-                path = Server.MapPath("Uploads");
-                int count = Directory.GetFiles(path).Count();
+                //  path = Server.MapPath("Uploads");
+                // int count = Directory.GetFiles(path).Count();
                 //filePaths = Directory.GetFiles(path);
                 //foreach (string filePath in filePaths)
                 //    count = count + 1;
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                count = count + 1;
+                // count = count + 1;
                 //if (count == 0)
                 //{
                 //    count = 1;
@@ -211,7 +217,8 @@ public partial class Admin : System.Web.UI.Page
                 strbuilder.Append(id);
                 strbuilder.Append("?version=3&feature=player_detailpage");
                 url = strbuilder.ToString();
-                string thumpnail = "~/VideoThumbnails/" + fuContent.FileName;
+                extension = Path.GetExtension(fuContent.PostedFile.FileName);
+                string thumpnail = "~/VideoThumbnails/" + fileName + extension;
                 fuContent.SaveAs(Server.MapPath(thumpnail));
                 int a;
                 DataSet ds = new DataSet();
@@ -219,11 +226,11 @@ public partial class Admin : System.Web.UI.Page
                 if (ds.Tables.Count <= 0)
                 {
                     DataTable tb = new DataTable("VideoUrl");
-                    tb.Columns.Add("VideoUrl_id", Type.GetType("System.Int32"));
+                    tb.Columns.Add("VideoUrl_id", Type.GetType("System.String"));
                     tb.Columns.Add("VideoThumbnailUrl", Type.GetType("System.String"));
                     tb.Columns.Add("Video_Url", Type.GetType("System.String"));
                     DataRow dr = tb.NewRow();
-                    dr[0] = 1;
+                    dr[0] = fileName;
                     dr[1] = thumpnail;
                     dr[2] = Convert.ToString(url);
                     tb.Rows.Add(dr);
@@ -232,12 +239,12 @@ public partial class Admin : System.Web.UI.Page
                 else
                 {
                     DataRow dr = ds.Tables[0].NewRow();
-                    if (ds.Tables[0].Compute("Max(VideoUrl_id)", "") == null)
-                    {
-                        a = 0;
-                    }
-                    a = ds.Tables[0].Rows.Count + 1;
-                    dr[0] = a;
+                    //if (ds.Tables[0].Compute("Max(VideoUrl_id)", "") == null)
+                    //{
+                    //    a = 0;
+                    //}
+                    // a = ds.Tables[0].Rows.Count + 1;
+                    dr[0] = fileName;
                     dr[1] = thumpnail;
                     dr[2] = Convert.ToString(url);
                     ds.Tables[0].Rows.Add(dr);
@@ -250,13 +257,26 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ddlCategory.SelectedValue == "4")
+        if (Convert.ToInt32(ddlCategory.SelectedValue) == 4)
         {
+            lbDetail.Text = string.Empty;
             txtUrl.Visible = true;
             lbVidUrl.Visible = true;
         }
         else
         {
+            if (Convert.ToInt32(ddlCategory.SelectedValue) == 1)
+            {
+                lbDetail.Text = "Upload Image With the dimension of 650 X 250!";
+            }
+            else if (Convert.ToInt32(ddlCategory.SelectedValue) == 2)
+            {
+                lbDetail.Text = "Upload Image With the dimension of 500 X 375!";
+            }
+            else if (Convert.ToInt32(ddlCategory.SelectedValue) == 3)
+            {
+                lbDetail.Text = "Upload Image With the dimension of 100 X 70!";
+            }
             txtUrl.Visible = false;
             lbVidUrl.Visible = false;
         }
