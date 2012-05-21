@@ -22,12 +22,3 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    var imgid = 'image';
-    var imgdir = 'VideoThumbnails';
-    var imgext = '.jpg';
-    var thumbid = 'thumbs';
-    var auto = true;
-    var autodelay = 3;
-</script>
-<script type="text/javascript" src="js/slide.js"></script>
