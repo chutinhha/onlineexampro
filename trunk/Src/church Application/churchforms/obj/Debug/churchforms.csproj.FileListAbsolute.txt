@@ -38,3 +38,6 @@ D:\church Application\churchforms\obj\Debug\ResGen.write.1.tlog
 D:\church Application\churchforms\obj\Debug\churchforms.TrustInfo.xml
 D:\church Application\churchforms\obj\Debug\churchforms.exe.manifest
 D:\church Application\churchforms\obj\Debug\churchforms.application
+D:\Websites\Main\trunk\Src\church Application\churchforms\bin\Debug\churchforms.exe.config
+D:\Websites\Main\trunk\Src\church Application\churchforms\obj\Debug\churchforms.exe
+D:\Websites\Main\trunk\Src\church Application\churchforms\obj\Debug\churchforms.pdb
