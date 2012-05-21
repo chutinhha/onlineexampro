@@ -11,26 +11,44 @@
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
         function PrintContent() {
-            //var DocumentContainer = document.getElementById(‘divPrint’);
-            //var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
-            //WindowObject.document.writeln(DocumentContainer.innerHTML);
-            //WindowObject.document.close();
-            //WindowObject.focus();
-            //WindowObject.print();
-            //WindowObject.close();
+            var DocumentContainer = document.getElementById(‘divPrint’);
+            var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+            WindowObject.document.writeln(DocumentContainer.innerHTML);
+            WindowObject.document.close();
+            WindowObject.focus();
+            WindowObject.print();
+            WindowObject.close();
             window.print();
         }
     </script>
+    <%--    <script language="javascript" type="text/javascript">
+        function CallPrint(strid) {
+            var prtContent = document.getElementById(strid);
+            var WinPrint =
+window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+            prtContent.innerHTML = strOldOne;
+        }
+
+    </script>--%>
 </head>
 <body style="background-color: #333300">
     <form id="form1" runat="server">
-    <div id="divPrint" align="center">
+    <div align="center">
         <table cellpadding="0" cellspacing="0" width="1000px" align="center" style="background-color: #FFFFFF">
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
                     <div>
                         <%--<img src='~/Site Logo/<%=logo[0].Name %>' class="nav-thumb" alt="temp-thumb" height="250px" />--%>
-                        <asp:Image ID="Logo" runat="server" ImageUrl="~/SiteLogo/Logo.png" Height="250px" />
+                        <%for (int i = 0; i < Sitelogo.Length; i++)
+                          {
+                        %>
+                        <img src="SiteLogo/<%=Sitelogo[i].Name %>" height="250px" alt="<%=Sitelogo[i].Name %>" />
+                        <%} %>
                     </div>
                 </td>
             </tr>
@@ -60,16 +78,18 @@
             </tr>
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
-                    <table>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </td>
-                            <td>
-                                <uc1:ucServiceList ID="ucServiceList1" runat="server" />
-                            </td>
-                        </tr>
-                    </table>
+                    <div id="divPrint">
+                        <table>
+                            <tr>
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                    <uc1:ucServiceList ID="ucServiceList1" runat="server" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -87,6 +107,8 @@
                                 &nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
+                                <%--<asp:ImageButton ID="btnPrint" runat="server" ImageUrl="~/images/Print.jpg" 
+                                onclick="javascript:CallPrint('divPrint');" />--%>
                                 <a href="javascript:window.print()">
                                     <img src="images/Print.jpg" alt="print"></a>&nbsp;&nbsp;&nbsp;
                             </td>

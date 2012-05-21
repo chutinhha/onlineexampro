@@ -26,6 +26,23 @@ public partial class Home : System.Web.UI.Page
             }
         }
     }
+    public FileInfo[] Sitelogo
+    {
+        get
+        {
+            if (ViewState["Sitelogo"] != null)
+            {
+                return (FileInfo[])ViewState["Sitelogo"];
+            }
+            else
+            {
+                DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/SiteLogo/"));
+                FileInfo[] fil = dr.GetFiles();
+                ViewState["Sitelogo"] = fil;
+                return fil;
+            }
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -40,5 +57,9 @@ public partial class Home : System.Web.UI.Page
 
 
     }
-   
+
+    protected void btnPrint_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }
