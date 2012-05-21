@@ -13,13 +13,11 @@
         function PrintContent() {
             var printdata = document.getElementById("<%= divPrint.ClientID%>");
             if (/Opera[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
-
                 var mywindow = window.open('', 'PrintPreview', 'width=750,top=25,left=25,toolbars=no,scrollbars=yes,status=no,resizable=yes');
                 mywindow.document.write(printdata.innerHTML);
                 mywindow.focus();
                 mywindow.print();
             }
-
             else {
                 var mywindow1 = window.open('', 'PrintPreview', 'width=750,height=500,top=25,left=25,toolbars=no,scrollbars=yes,status=no,resizable=yes');
                 mywindow1.document.write(printdata.innerHTML);
