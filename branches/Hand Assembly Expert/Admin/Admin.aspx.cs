@@ -151,7 +151,7 @@ public partial class Admin : System.Web.UI.Page
         string[] filePaths;
         string extension;
         string upload;
-        string fileName = Guid.NewGuid().ToString();
+        string fileName = Guid.NewGuid().ToString("N");
         switch (ddlCategory.SelectedValue)
         {
             case "1":
@@ -160,6 +160,7 @@ public partial class Admin : System.Web.UI.Page
                 //newHeight = 250;
                 path = Server.MapPath("SiteLogo");
                 filePaths = Directory.GetFiles(path);
+                
                 foreach (string filePath in filePaths)
                     File.Delete(filePath);
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
@@ -175,22 +176,23 @@ public partial class Admin : System.Web.UI.Page
                 //}
                 break;
             case "2":
-                int count = 0;
                 path = Server.MapPath("Uploads");
-                filePaths = Directory.GetFiles(path);
-                foreach (string filePath in filePaths)
-                    count = count + 1;
+                int count = Directory.GetFiles(path).Count();
+                //filePaths = Directory.GetFiles(path);
+                //foreach (string filePath in filePaths)
+                //    count = count + 1;
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                if (count == 0)
-                {
-                    count = 1;
-                }
-                else
-                {
-                    count = count + 1;
-                }
-                upload = "Uploads\\" + count + extension;
-                string thumbnail = "Uploads\\thumbs\\" + count + extension;
+                count = count + 1;
+                //if (count == 0)
+                //{
+                //    count = 1;
+                //}
+                //else
+                //{
+                //    count = count + 1;
+                //}
+                upload = "Uploads\\" + fileName + extension;
+                string thumbnail = "Uploads\\thumbs\\" + fileName + extension;
                 fuContent.SaveAs(Server.MapPath(upload));
                 fuContent.SaveAs(Server.MapPath(thumbnail));
                 break;

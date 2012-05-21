@@ -11,14 +11,14 @@
     <link href="Style/HomeStyle.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript">
         function PrintContent() {
-            var DocumentContainer = document.getElementById(‘divPrint’);
-            var WindowObject = window.open('', 'PrintWindow','width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes');
-            WindowObject.document.writeln(DocumentContainer.innerHTML);
-            WindowObject.document.close();
-            WindowObject.focus();
-            WindowObject.print();
-            WindowObject.close();
-            window.print();
+            var printdata = document.getElementById("<%= divPrint.ClientID%>");
+            if (/Opera[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
+
+                var mywindow = window.open('', 'PrintPreview', 'width=750,top=25,left=25,toolbars=no,scrollbars=yes,status=no,resizable=yes');
+                mywindow.document.write(printdata.innerHTML);
+                mywindow.focus();
+                mywindow.print();
+            }
         }
     </script>
     <%--    <script language="javascript" type="text/javascript">
@@ -78,7 +78,7 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
             </tr>
             <tr>
                 <td align="center" style="background-color: #CCCCCC">
-                    <div id="divPrint">
+                    <div id="divPrint" runat="server">
                         <table>
                             <tr>
                                 <td>
@@ -107,10 +107,8 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
                                 &nbsp;&nbsp;&nbsp;
                             </td>
                             <td>
-                                <%--<asp:ImageButton ID="btnPrint" runat="server" ImageUrl="~/images/Print.jpg" 
-                                onclick="javascript:CallPrint('divPrint');" />--%>
-                                <a href="javascript:window.print()">
-                                    <img src="images/Print.jpg" alt="print"></a>&nbsp;&nbsp;&nbsp;
+                                <asp:ImageButton ID="btnPrint" runat="server" ImageUrl="~/images/Print.jpg" OnClientClick="javascript:PrintContent();" />
+                                <input id="Button1" type="button" onclick="javascript:PrintContent();" value="button" />
                             </td>
                         </tr>
                     </table>
@@ -157,7 +155,7 @@ window.open('', '', 'letf=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status
                                 <img width="100px" height="70px" src="CustomerLogo/<%=logo[i].Name %>" alt="<%=logo[i].Name %>" />
                             </td>
                             <% 
-                              } %>
+                                } %>
                         </tr>
                         <tr>
                             <td>
