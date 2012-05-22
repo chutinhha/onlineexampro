@@ -33,7 +33,11 @@ public partial class Admin : System.Web.UI.Page
 
     private void BindGridForSliderImage()
     {
-        string[] filePaths = Directory.GetFiles(Server.MapPath("Uploads"));
+
+        DirectoryInfo obj = new DirectoryInfo(Server.MapPath("Uploads"));
+        gvImageSlider.DataSource = obj.GetFiles();
+        gvImageSlider.DataBind();
+
     }
 
     private void BindDropDown()
@@ -210,7 +214,7 @@ public partial class Admin : System.Web.UI.Page
                 strbuilder.Append("?version=3&feature=player_detailpage");
                 url = strbuilder.ToString();
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                
+
                 DataSet ds = new DataSet();
                 ds.ReadXml(videourl);
                 int a;
@@ -274,5 +278,9 @@ public partial class Admin : System.Web.UI.Page
             txtUrl.Visible = false;
             lbVidUrl.Visible = false;
         }
+    }
+    protected void gvImageSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+
     }
 }
