@@ -10,6 +10,7 @@ var slideShow = function () {
             len = t.length; tar = [];
             for (i = 0; i < len; i++) {
                 var id = t[i].value; tar[i] = id;
+                PageMethods.GetURL(id, success);
                 t[i].onclick = new Function("slideShow.getimg('" + id + "')");
                 if (i == 0) { this.getimg(id) }
             }
@@ -38,19 +39,20 @@ var slideShow = function () {
             if (auto) { clearTimeout(ia.timer) }
             if (ci != null) {
                 var ts, tsl, x;
-                ts = ia.getElementsByTagName('img'); tsl = ts.length; x = 0;
+                ts = ia.getElementsByTagName('iframe'); tsl = ts.length; x = 0;
                 for (x; x < tsl; x++) {
                     if (ci.id != id) { var o = ts[x]; clearInterval(o.timer); o.timer = setInterval(function () { slideShow.fdout(o) }, fs) }
                 }
             }
             if (!document.getElementById(id)) {
-                var i = document.createElement('img');
+                var i = document.createElement('iframe');
                 ia.appendChild(i);
                 i.id = id; i.av = 0; i.style.opacity = 0;
                 i.style.filter = 'alpha(opacity=0)';
-                i.src = imgdir + '/' + id + imgext;
-            } else {
-                i = document.getElementById(id); clearInterval(i.timer);                
+                i.src = srcc;
+            }
+            else {
+                i = document.getElementById(id); clearInterval(i.timer);
             }
             i.timer = setInterval(function () { slideShow.fdin(i) }, fs);
         },
@@ -115,3 +117,6 @@ var slideShow = function () {
 } ();
 
 window.onload = function () { slideShow.init(); slideShow.lim() };
+function success(result) {
+    srcc = result;
+}
