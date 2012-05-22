@@ -33,11 +33,9 @@ public partial class Admin : System.Web.UI.Page
 
     private void BindGridForSliderImage()
     {
-
         DirectoryInfo obj = new DirectoryInfo(Server.MapPath("Uploads"));
         gvImageSlider.DataSource = obj.GetFiles();
         gvImageSlider.DataBind();
-
     }
 
     private void BindDropDown()
@@ -281,6 +279,8 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void gvImageSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
+        System.Web.UI.WebControls.Image img = (System.Web.UI.WebControls.Image)gvImageSlider.Rows[e.RowIndex].FindControl("Image1");
+        File.Delete(Server.MapPath(img.ImageUrl));
+        BindGridForSliderImage();
     }
 }
