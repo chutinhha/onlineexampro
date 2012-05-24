@@ -28,12 +28,11 @@ public partial class Admin : System.Web.UI.Page
             BindDropDown();
             BindGrid_ServiceList();
         }
-
     }
 
     private void BindGrid_ServiceList()
     {
-        String path = Server.MapPath("ServiceListHeading.xml");
+        String path = "//192.168.10.149/Client/ServiceListHeading.xml";
         DataSet ds = new DataSet();
         ds.ReadXml(path);
         gvServiceList.DataSource = ds;
@@ -49,16 +48,13 @@ public partial class Admin : System.Web.UI.Page
 
     private void BindGridForSliderImage()
     {
-
-        DirectoryInfo obj = new DirectoryInfo(Server.MapPath("Uploads"));
+        DirectoryInfo obj = new DirectoryInfo("//192.168.10.149/Client/Uploads/");
         gvImageSlider.DataSource = obj.GetFiles();
         gvImageSlider.DataBind();
-
     }
 
     private void BindDropDown()
     {
-
         DataSet ds = new DataSet();
         ds.ReadXml(sr);
         if (ds.Tables.Count != 0)
@@ -71,7 +67,6 @@ public partial class Admin : System.Web.UI.Page
         ddlServiceHead.Items.Add("other");
         ddlServiceHead.Items.Insert(0, new ListItem("-Select-"));
         lbDetail.Text = "Upload Image With the dimension of 650 X 250!";
-
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -331,8 +326,8 @@ public partial class Admin : System.Web.UI.Page
 
     protected void gvServiceList_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        String path = Server.MapPath("//192.168.10.149/Client/ServiceListHeading.xml");
-        String path1 = Server.MapPath("//192.168.10.149/Client/ServiceListSubHeading.xml");
+        String path = "//192.168.10.149/Client/ServiceListHeading.xml";
+        String path1 = "//192.168.10.149/Client/ServiceListSubHeading.xml";
         DataSet ds = new DataSet();
         int a = Convert.ToInt32(gvServiceList.DataKeys[e.RowIndex].Values[0]);
         ds.ReadXml(path);
@@ -374,5 +369,17 @@ public partial class Admin : System.Web.UI.Page
         ds1.WriteXml(path1);
         GridView1.DataSource = ds1;
         GridView1.DataBind();
+    }
+    protected void gvServiceList_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        String path1 = "//192.168.10.149/Client/ServiceListSubHeading.xml";
+        foreach (GridViewRow item in gvServiceList.Rows)
+        {
+            GridView GridView1 = (GridView)item.FindControl("GridView1");
+            DataSet ds1 = new DataSet();
+            ds1.ReadXml(path1);
+            GridView1.DataSource = ds1;
+            GridView1.DataBind();
+        }
     }
 }
