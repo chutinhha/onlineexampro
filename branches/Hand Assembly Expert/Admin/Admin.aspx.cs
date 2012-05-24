@@ -202,17 +202,18 @@ public partial class Admin : System.Web.UI.Page
                 //}
                 break;
             case "2":
-                path = Server.MapPath("Uploads");
+                path = "//192.168.10.149/Client/Uploads/";
                 int count = Directory.GetFiles(path).Count();
                 //filePaths = Directory.GetFiles(path);
                 //foreach (string filePath in filePaths)
                 //    count = count + 1;
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
                 count = count + 1;
-                upload = "Uploads\\" + count + extension;
-                string thumbnail = "Uploads\\thumbs\\" + count + extension;
-                fuContent.SaveAs(Server.MapPath(upload));
-                fuContent.SaveAs(Server.MapPath(thumbnail));
+                //upload = "Uploads\\" + count + extension;
+                upload = "//192.168.10.149/Client/Uploads/" + count + extension;
+                string thumbnail = "//192.168.10.149/Client/Uploads/thumbs/" + count + extension;
+                fuContent.SaveAs(upload);
+                fuContent.SaveAs(thumbnail);
                 break;
             case "3":
                 upload = "CustomerLogo\\" + fuContent.FileName;
