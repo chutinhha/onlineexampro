@@ -331,14 +331,48 @@ public partial class Admin : System.Web.UI.Page
 
     protected void gvServiceList_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        String path = Server.MapPath("ServiceListHeading.xml");
+        String path = Server.MapPath("//192.168.10.149/Client/ServiceListHeading.xml");
+        String path1 = Server.MapPath("//192.168.10.149/Client/ServiceListSubHeading.xml");
         DataSet ds = new DataSet();
-        string a = gvServiceList.DataKeys[e.RowIndex].Values.ToString();
+        int a = Convert.ToInt32(gvServiceList.DataKeys[e.RowIndex].Values[0]);
         ds.ReadXml(path);
-        ds.Tables[0].Rows.RemoveAt(e.RowIndex);
+        foreach (DataRow item in ds.Tables[0].Rows)
+        {
+            if (Convert.ToInt32(item["Servicehead_id"]) == a)
+            {
+                DataSet ds1 = new DataSet();
+                ds1.ReadXml(path1);
+                foreach (DataRow item1 in ds1.Tables[0].Rows)
+                {
+                    if (Convert.ToInt32(item1["fk_Servicehead_id"]) == a)
+                    {
+                        ds1.Tables[0].Rows.Remove(item1);
+                    }
+                }
+                ds1.WriteXml(path1);
+                ds.Tables[0].Rows.Remove(item);
+            }
+        }
         ds.WriteXml(path);
         gvServiceList.DataSource = ds;
         gvServiceList.DataBind();
     }
-
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        String path1 = Server.MapPath("//192.168.10.149/Client/ServiceListSubHeading.xml");
+        GridView GridView1 = (GridView)sender;
+        int a = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+        DataSet ds1 = new DataSet();
+        ds1.ReadXml(path1);
+        foreach (DataRow item1 in ds1.Tables[0].Rows)
+        {
+            if (Convert.ToInt32(item1["ServiceSubTitle_id"]) == a)
+            {
+                ds1.Tables[0].Rows.Remove(item1);
+            }
+        }
+        ds1.WriteXml(path1);
+        GridView1.DataSource = ds1;
+        GridView1.DataBind();
+    }
 }
