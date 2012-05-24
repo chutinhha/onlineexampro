@@ -50,27 +50,19 @@ var slideShow = function () {
                 i.style.filter = 'alpha(opacity=0)';
                 i.src = imgdir + '/' + id + imgext;
             } else {
-                i = document.getElementById(id); clearInterval(i.timer);                
+                i = document.getElementById(id); clearInterval(i.timer);
             }
             i.timer = setInterval(function () { slideShow.fdin(i) }, fs);
         },
         nav: function (d) {
             var c = 0;
-            for (key in tar) {
-                if (tar[key] == ci.id) {
-                    c = key
-                }
-            }
+            for (key in tar) { if (tar[key] == ci.id) { c = key } }
             if (tar[parseInt(c) + d]) {
                 this.getimg(tar[parseInt(c) + d]);
-            }
-            else {
+            } else {
                 if (d == 1) {
                     this.getimg(tar[0]);
-                }
-                else {
-                    this.getimg(tar[tarl - 1])
-                }
+                } else { this.getimg(tar[tarl - 1]) }
             }
         },
         auto: function () { ia.timer = setInterval(function () { slideShow.nav(1) }, autodelay * 1000) },

@@ -11,10 +11,10 @@
                 <%for (int i = 0; i < Files.Length; i++)
                   {
                 %>
-                <li value='<%=i+1 %>'>
+                <li value="<%=Files[i].Name %>">
                     <img src="Uploads/thumbs/<%=Files[i].Name %>" width="179" height="100" alt="" /></li>
                 <%
-                    } %>
+                  } %>
             </ul>
         </div>
     </div>

@@ -26,16 +26,34 @@ public partial class Admin : System.Web.UI.Page
                 createServiceHeadingxml();
             }
             BindDropDown();
-            BindGridForSliderImage();
+            BindGrid_ServiceList();
         }
 
     }
 
+    private void BindGrid_ServiceList()
+    {
+        String path = Server.MapPath("ServiceListHeading.xml");
+        DataSet ds = new DataSet();
+        ds.ReadXml(path);
+        gvServiceList.DataSource = ds;
+        gvServiceList.DataBind();
+    }
+
+    private void BindGridForCustomerLogo()
+    {
+        DirectoryInfo obj = new DirectoryInfo(Server.MapPath("CustomerLogo"));
+        gvCustomerLogo.DataSource = obj.GetFiles();
+        gvCustomerLogo.DataBind();
+    }
+
     private void BindGridForSliderImage()
     {
+
         DirectoryInfo obj = new DirectoryInfo(Server.MapPath("Uploads"));
         gvImageSlider.DataSource = obj.GetFiles();
         gvImageSlider.DataBind();
+
     }
 
     private void BindDropDown()
@@ -253,34 +271,73 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (Convert.ToInt32(ddlCategory.SelectedValue) == 4)
+        switch (Convert.ToInt32(ddlCategory.SelectedValue))
         {
-            lbDetail.Text = string.Empty;
-            txtUrl.Visible = true;
-            lbVidUrl.Visible = true;
-        }
-        else
-        {
-            if (Convert.ToInt32(ddlCategory.SelectedValue) == 1)
-            {
+            case 1:
+                gvImageSlider.Visible = false;
+                gvVideoSlider.Visible = false;
+                gvCustomerLogo.Visible = false;
                 lbDetail.Text = "Upload Image With the dimension of 650 X 250!";
-            }
-            else if (Convert.ToInt32(ddlCategory.SelectedValue) == 2)
-            {
+                txtUrl.Visible = false;
+                lbVidUrl.Visible = false;
+
+                break;
+            case 2:
+                gvVideoSlider.Visible = false;
+                gvImageSlider.Visible = true;
+                gvCustomerLogo.Visible = false;
+                BindGridForSliderImage();
                 lbDetail.Text = "Upload Image With the dimension of 500 X 375!";
-            }
-            else if (Convert.ToInt32(ddlCategory.SelectedValue) == 3)
-            {
+                txtUrl.Visible = false;
+                lbVidUrl.Visible = false;
+                break;
+            case 3:
+                gvVideoSlider.Visible = false;
+                gvCustomerLogo.Visible = true;
+                gvImageSlider.Visible = false;
+                BindGridForCustomerLogo();
                 lbDetail.Text = "Upload Image With the dimension of 100 X 70!";
-            }
-            txtUrl.Visible = false;
-            lbVidUrl.Visible = false;
+                txtUrl.Visible = false;
+                lbVidUrl.Visible = false;
+                break;
+            case 4:
+                gvVideoSlider.Visible = true;
+                gvImageSlider.Visible = false;
+                gvCustomerLogo.Visible = false;
+                lbDetail.Text = string.Empty;
+                txtUrl.Visible = true;
+                lbVidUrl.Visible = true;
+                DataSet ds = new DataSet();
+                ds.ReadXml(Server.MapPath("VideoUrl.xml"));
+                gvVideoSlider.DataSource = ds.Tables[0];
+                gvVideoSlider.DataBind();
+                break;
+            default:
+                break;
         }
+
     }
-    protected void gvImageSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    protected void gvVideoSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        System.Web.UI.WebControls.Image img = (System.Web.UI.WebControls.Image)gvImageSlider.Rows[e.RowIndex].FindControl("Image1");
-        File.Delete(Server.MapPath(img.ImageUrl));
-        BindGridForSliderImage();
+        string path = Server.MapPath("VideoUrl.xml");
+        DataSet ds = new DataSet();
+        ds.ReadXml(path);
+        ds.Tables[0].Rows.RemoveAt(e.RowIndex);
+        ds.WriteXml(path);
+        gvVideoSlider.DataSource = ds;
+        gvVideoSlider.DataBind();
     }
+
+    protected void gvServiceList_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        String path = Server.MapPath("ServiceListHeading.xml");
+        DataSet ds = new DataSet();
+        string a = gvServiceList.DataKeys[e.RowIndex].Values.ToString();
+        ds.ReadXml(path);
+        ds.Tables[0].Rows.RemoveAt(e.RowIndex);
+        ds.WriteXml(path);
+        gvServiceList.DataSource = ds;
+        gvServiceList.DataBind();
+    }
+
 }

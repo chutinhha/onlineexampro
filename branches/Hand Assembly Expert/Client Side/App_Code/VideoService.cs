@@ -20,7 +20,6 @@ public class VideoService : System.Web.Services.WebService {
         //InitializeComponent(); 
     }
 
-    
     [WebMethod]
     public string GetURL(string id)
     {
@@ -36,4 +35,5 @@ public class VideoService : System.Web.Services.WebService {
         }
         return url;
     }
+    
 }
