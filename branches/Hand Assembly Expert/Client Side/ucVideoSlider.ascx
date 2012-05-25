@@ -4,7 +4,7 @@
     <div id="image" align="center">
         <a href="javascript:slideShow.nav(-1)" class="imgnav " id="previmg"></a><a href="javascript:slideShow.nav(1)"
             class="imgnav " id="nextimg"></a>
-        <iframe width="440px" height="380px" frameborder="0" src="http://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage"
+        <iframe width="440px" height="380px" id="1" frameborder="0" src="http://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage"
             allowfullscreen=""></iframe>
     </div>
     <div id="thumbwrapper">
@@ -22,3 +22,12 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    var imgid1 = 'image';
+    var imgdir1 = 'VideoThumbnails';
+    var imgext1 = '.jpg';
+    var thumbid1 = 'thumbs';
+    var auto1 = true;
+    var autodelay1 = 3;
+</script>
+<script type="text/javascript" src="js/Videoslide.js"></script>

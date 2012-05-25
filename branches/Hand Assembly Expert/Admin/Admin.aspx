@@ -98,7 +98,7 @@
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Slider Image">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"Uploads/"+Eval("Name")%>' Width="50px"
+                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"http://192.168.10.149/Client/Uploads/"+Eval("Name")%>' Width="50px"
                                                                 Height="50px" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
