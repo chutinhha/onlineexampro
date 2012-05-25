@@ -1,92 +1,92 @@
-var slideShow = function () {
-    var bxs, bxe, fxs, fxe, ys, ye, ta, ia, ie, st, ss, ft, fs, xp, yp, ci, t, tar, tarl;
-    ta = document.getElementById(thumbid1); ia = document.getElementById(imgid1);
-    t = ta.getElementsByTagName('li'); ie = document.all ? true : false;
-    st = 3; ss = 3; ft = 10; fs = 5; xp, yp = 0;
+var slideShow1 = function () {
+    var bxs1, bxe1, fxs1, fxe1, ys1, ye1, ta1, ia1, ie1, st1, ss1, ft1, fs1, xp1, yp1, ci1, t1, tar1, tarl1;
+    ta1 = document.getElementById(thumbid1); ia1 = document.getElementById(imgid1);
+    t1 = ta1.getElementsByTagName('li'); ie1 = document.all ? true : false;
+    st1 = 3; ss1 = 3; ft1 = 10; fs1 = 5; xp1, yp1 = 0;
     return {
         init: function () {
             debugger;
-            document.onmousemove = this.pos; window.onresize = function () { setTimeout("slideShow.lim()", 500) };
-            ys = this.toppos(ta); ye = ys + ta.offsetHeight;
-            len = t.length; tar = [];
-            for (i = 0; i < len; i++) {
-                var id = t[i].value; tar[i] = id;
-                t[i].onclick = new Function("slideShow.getimg('" + id + "')");
+            document.onmousemove = this.pos; window.onresize = function () { setTimeout("slideShow1.lim()", 500) };
+            ys1 = this.toppos(ta1); ye1 = ys1 + ta1.offsetHeight;
+            len1 = t1.length; tar1 = [];
+            for (i = 0; i < len1; i++) {
+                var id = t[i].value; tar1[i] = id;
+                t1[i].onclick = new Function("slideShow1.getimg('" + id + "')");
                 if (i == 0) { this.getimg(id) }
             }
-            tarl = tar.length;
+            tarl1 = tar1.length;
         },
-        scrl: function (d) {
-            clearInterval(ta.timer);
-            var l = (d == -1) ? 0 : (t[tarl - 1].offsetLeft - (ta.parentNode.offsetWidth - t[tarl - 1].offsetWidth) + 10)
-            ta.timer = setInterval(function () { slideShow.mv(d, l) }, st);
+        scrl: function (d1) {
+            clearInterval(ta1.timer);
+            var l = (d1 == -1) ? 0 : (t1[tarl1 - 1].offsetLeft - (ta1.parentNode.offsetWidth - t1[tarl1 - 1].offsetWidth) + 10)
+            ta1.timer = setInterval(function () { slideShow1.mv(d, l) }, st1);
         },
         mv: function (d, l) {
-            ta.style.left = ta.style.left || '0px';
-            var left = ta.style.left.replace('px', '');
+            ta1.style.left = ta1.style.left || '0px';
+            var left = ta1.style.left.replace('px', '');
             if (d == 1) {
-                if (l - Math.abs(left) <= ss) {
-                    this.cncl(ta.id); ta.style.left = '-' + l + 'px';
-                } else { ta.style.left = left - ss + 'px' }
+                if (l - Math.abs(left) <= ss1) {
+                    this.cncl(ta1.id); ta1.style.left = '-' + l + 'px';
+                } else { ta1.style.left = left - ss1 + 'px' }
             } else {
-                if (Math.abs(left) - l <= ss) {
-                    this.cncl(ta.id); ta.style.left = l + 'px';
-                } else { ta.style.left = parseInt(left) + ss + 'px' }
+                if (Math.abs(left) - l <= ss1) {
+                    this.cncl(ta1.id); ta1.style.left = l + 'px';
+                } else { ta1.style.left = parseInt(left) + ss1 + 'px' }
             }
         },
-        cncl: function () { clearTimeout(ta.timer) },
+        cncl: function () { clearTimeout(ta1.timer) },
         getimg: function (id) {
-            if (auto1) { clearTimeout(ia.timer) }
-            if (ci != null) {
-                var ts, tsl, x;
-                ts = ia.getElementsByTagName('iframe'); tsl = ts.length; x = 0;
+            if (auto1) { clearTimeout(ia1.timer) }
+            if (ci1 != null) {
+                var ts1, tsl1, x1;
+                ts1 = ia1.getElementsByTagName('iframe'); tsl1 = ts1.length; x1 = 0;
                 for (x; x < tsl; x++) {
-                    if (ci.id != id) { var o = ts[x]; clearInterval(o.timer); o.timer = setInterval(function () { slideShow.fdout(o) }, fs) }
+                    if (ci1.id != id) { var o = ts1[x]; clearInterval(o.timer); o.timer = setInterval(function () { slideShow1.fdout(o) }, fs1) }
                 }
             }
             if (!document.getElementById(id)) {
                 var i = document.createElement('iframe');
-                ia.appendChild(i);
+                ia1.appendChild(i);
                 i.id = id; i.av = 0; i.style.opacity = 0;
                 i.style.filter = 'alpha(opacity=0)';
             } else {
                 i = document.getElementById(id); clearInterval(i.timer);
             }
-            i.timer = setInterval(function () { slideShow.fdin(i) }, fs);
+            i.timer = setInterval(function () { slideShow1.fdin(i) }, fs1);
         },
         nav: function (d) {
             var c = 0;
-            for (key in tar) { if (tar[key] == ci.id) { c = key } }
-            if (tar[parseInt(c) + d]) {
-                this.getimg(tar[parseInt(c) + d]);
+            for (key in tar) { if (tar1[key] == ci1.id) { c = key } }
+            if (tar1[parseInt(c) + d]) {
+                this.getimg(tar1[parseInt(c) + d]);
             } else {
                 if (d == 1) {
-                    this.getimg(tar[0]);
-                } else { this.getimg(tar[tarl - 1]) }
+                    this.getimg(tar1[0]);
+                } else { this.getimg(tar1[tarl1 - 1]) }
             }
         },
-        auto1: function () { ia.timer = setInterval(function () { slideShow.nav(1) }, autodelay1 * 1000) },
+        auto1: function () { ia1.timer = setInterval(function () { slideShow1.nav(1) }, autodelay1 * 1000) },
         fdin: function (i) {
-            if (i.complete) { i.av = i.av + fs; i.style.opacity = i.av / 100; i.style.filter = 'alpha(opacity=' + i.av + ')' }
-            if (i.av >= 100) { if (auto1) { this.auto1() }; clearInterval(i.timer); ci = i }
+            if (i.complete) { i.av = i.av + fs1; i.style.opacity = i.av / 100; i.style.filter = 'alpha(opacity=' + i.av + ')' }
+            if (i.av >= 100) { if (auto1) { this.auto1() }; clearInterval(i.timer); ci1 = i }
         },
         fdout: function (i) {
-            i.av = i.av - fs; i.style.opacity = i.av / 100;
+            i.av = i.av - fs1; i.style.opacity = i.av / 100;
             i.style.filter = 'alpha(opacity=' + i.av + ')';
             if (i.av <= 0) { clearInterval(i.timer); if (i.parentNode) { i.parentNode.removeChild(i) } }
         },
         lim: function () {
-            var taw, taa, len; taw = ta.parentNode.offsetWidth; taa = taw / 4;
-            bxs = slideShow.leftpos(ta); bxe = bxs + taa; fxe = bxs + taw; fxs = fxe - taa;
+            var taw, taa, len; taw = ta1.parentNode.offsetWidth; taa = taw / 4;
+            bxs1 = slideShow1.leftpos(ta1); bxe = bxs + taa; fxe = bxs + taw; fxs = fxe - taa;
         },
         pos: function (e) {
-            xp = ie ? event.clientX + document.documentElement.scrollLeft : e.pageX;
-            yp = ie ? event.clientY + document.documentElement.scrollTop : e.pageY;
-            if (xp > bxs && xp < bxe && yp > ys && yp < ye) {
-                slideShow.scrl(-1);
-            } else if (xp > fxs && xp < fxe && yp > ys && yp < ye) {
-                slideShow.scrl(1);
-            } else { slideShow.cncl() }
+            xp1 = ie ? event.clientX + document.documentElement.scrollLeft : e.pageX;
+            yp1 = ie ? event.clientY + document.documentElement.scrollTop : e.pageY;
+            if (xp1 > bxs && xp1 < bxe && yp1 > ys1 && yp1 < ye1) {
+                slideShow1.scrl(-1);
+            } else if (xp1 > fxs && xp1 < fxe && yp1 > ys1 && yp1 < ye1) {
+                slideShow1.scrl(1);
+            } else { slideShow1.cncl() }
         },
         leftpos: function (t) {
             var l = 0;
@@ -102,8 +102,8 @@ var slideShow = function () {
             } else if (t.y) { p += t.y }
             return p;
         },
-        stop: function () { clearInterval(ia.timer) }
+        stop: function () { clearInterval(ia1.timer) }
     };
 } ();
 
-window.onload = function () { slideShow.init(); slideShow.lim() };
+window.onload = function () { slideShow1.init(); slideShow1.lim() };
