@@ -10,16 +10,18 @@ var slideShow1 = function () {
             ys1 = this.toppos(ta1); ye1 = ys1 + ta1.offsetHeight;
             len1 = t1.length; tar1 = [];
             for (i = 0; i < len1; i++) {
-                var id = t[i].value; tar1[i] = id;
-                t1[i].onclick = new Function("slideShow1.getimg('" + id + "')");
-                if (i == 0) { this.getimg(id) }
+                var id = t1[i].value; tar1[i] = id;
+                //t1[i].onclick = new Function("slideShow1.getimg('" + id + "')");
+                if (i == 0) {
+                    //this.getimg(id) 
+                }
             }
             tarl1 = tar1.length;
         },
         scrl: function (d1) {
             clearInterval(ta1.timer);
             var l = (d1 == -1) ? 0 : (t1[tarl1 - 1].offsetLeft - (ta1.parentNode.offsetWidth - t1[tarl1 - 1].offsetWidth) + 10)
-            ta1.timer = setInterval(function () { slideShow1.mv(d, l) }, st1);
+            ta1.timer = setInterval(function () { slideShow1.mv(d1, l) }, st1);
         },
         mv: function (d, l) {
             ta1.style.left = ta1.style.left || '0px';
@@ -58,11 +60,12 @@ var slideShow1 = function () {
             var c = 0;
             for (key in tar) { if (tar1[key] == ci1.id) { c = key } }
             if (tar1[parseInt(c) + d]) {
-                this.getimg(tar1[parseInt(c) + d]);
+                //this.getimg(tar1[parseInt(c) + d]);
             } else {
                 if (d == 1) {
-                    this.getimg(tar1[0]);
-                } else { this.getimg(tar1[tarl1 - 1]) }
+                    //this.getimg(tar1[0]);
+                } else { //this.getimg(tar1[tarl1 - 1]) 
+                }
             }
         },
         auto1: function () { ia1.timer = setInterval(function () { slideShow1.nav(1) }, autodelay1 * 1000) },
@@ -76,15 +79,15 @@ var slideShow1 = function () {
             if (i.av <= 0) { clearInterval(i.timer); if (i.parentNode) { i.parentNode.removeChild(i) } }
         },
         lim: function () {
-            var taw, taa, len; taw = ta1.parentNode.offsetWidth; taa = taw / 4;
-            bxs1 = slideShow1.leftpos(ta1); bxe = bxs + taa; fxe = bxs + taw; fxs = fxe - taa;
+            var taw1, taa1, len1; taw1 = ta1.parentNode.offsetWidth; taa1 = taw1 / 4;
+            bxs1 = slideShow1.leftpos(ta1); bxe1 = bxs1 + taa1; fxe1 = bxs1 + taw1; fxs1 = fxe1 - taa1;
         },
         pos: function (e) {
-            xp1 = ie ? event.clientX + document.documentElement.scrollLeft : e.pageX;
-            yp1 = ie ? event.clientY + document.documentElement.scrollTop : e.pageY;
-            if (xp1 > bxs && xp1 < bxe && yp1 > ys1 && yp1 < ye1) {
+            xp1 = ie1 ? event.clientX + document.documentElement.scrollLeft : e.pageX;
+            yp1 = ie1 ? event.clientY + document.documentElement.scrollTop : e.pageY;
+            if (xp1 > bxs1 && xp1 < bxe1 && yp1 > ys1 && yp1 < ye1) {
                 slideShow1.scrl(-1);
-            } else if (xp1 > fxs && xp1 < fxe && yp1 > ys1 && yp1 < ye1) {
+            } else if (xp1 > fxs1 && xp1 < fxe1 && yp1 > ys1 && yp1 < ye1) {
                 slideShow1.scrl(1);
             } else { slideShow1.cncl() }
         },

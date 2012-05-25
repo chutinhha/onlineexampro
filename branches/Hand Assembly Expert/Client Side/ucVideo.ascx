@@ -1,13 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucVideo.ascx.cs" Inherits="ucVideo" %>
-<div id="gallery">
-    <div id="image" align="center">
-        <iframe width="440px" height="380px" id="vid" src="https://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage">
+<div id="gallery1">
+    <div id="image1" align="center">
+        <iframe width="440px" height="380px" id="vid" allowfullscreen="" frameborder="0" src="https://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage">
         </iframe>
     </div>
-    <div id="thumbwrapper">
-        <div id="thumbarea">
-            <ul id="thumbs" style="left: 0px;">
-                <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+    <div id="thumbwrapper1">
+        <div id="thumbarea1">
+            <ul id="thumbs1" style="left: 0px;">
                 <%for (int i = 0; i < Videos.Length; i++)
                   {%>
                 <li value="<%=Videos[i].Name %>">
@@ -33,3 +32,12 @@
         ifrm.src = r;
     }
 </script>
+<script type="text/javascript">
+    var imgid1 = 'image1';
+    var imgdir1 = 'VideoThumbnails';
+    var imgext1 = '.jpg';
+    var thumbid1 = 'thumbs1';
+    var auto1 = true;
+    var autodelay1 = 3;
+</script>
+<script type="text/javascript" src="js/Videoslide.js"></script>

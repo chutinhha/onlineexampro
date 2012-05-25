@@ -28,22 +28,6 @@ public partial class ucVideo : System.Web.UI.UserControl
             }
         }
     }
-    [WebMethod]
-    public string GetURL(string id)
-    {
-        string url = string.Empty;
-        string[] aa = id.Split('.');
-        DataSet ds = new DataSet();
-        ds.ReadXml(Server.MapPath("~/VideoUrl.xml"));
-        foreach (DataRow item in ds.Tables[0].Rows)
-        {
-            if (item[0].ToString() == aa[aa.Length - 2])
-            {
-                url = item[2].ToString();
-            }
-        }
-        return url;
-    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
