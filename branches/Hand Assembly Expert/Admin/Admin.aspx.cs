@@ -10,15 +10,18 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using ServiceReference1;
 
 public partial class Admin : System.Web.UI.Page
 {
-    public string sr, st, videourl;
+    public string sr, st, videourl, localpath;
     protected void Page_Load(object sender, EventArgs e)
     {
-        sr = Server.MapPath("ServiceListHeading.xml");
-        st = Server.MapPath("ServiceListSubHeading.xml");
-        videourl = Server.MapPath("VideoUrl.xml");
+        FolderAcceeSoapClient aa = new FolderAcceeSoapClient();
+        localpath = aa.GetLocalPath();
+        sr = localpath + "\\ServiceListHeading.xml";
+        st = localpath + "\\ServiceListSubHeading.xml";
+        videourl = localpath + "\\Client/VideoUrl.xml";
         if (!IsPostBack)
         {
             if (File.Exists(sr) != true)
@@ -32,7 +35,7 @@ public partial class Admin : System.Web.UI.Page
 
     private void BindGrid_ServiceList()
     {
-        String path = "//192.168.10.149/Client/ServiceListHeading.xml";
+        String path = localpath + "\\ServiceListHeading.xml";
         DataSet ds = new DataSet();
         ds.ReadXml(path);
         gvServiceList.DataSource = ds;
@@ -41,14 +44,14 @@ public partial class Admin : System.Web.UI.Page
 
     private void BindGridForCustomerLogo()
     {
-        DirectoryInfo obj = new DirectoryInfo(Server.MapPath("CustomerLogo"));
+        DirectoryInfo obj = new DirectoryInfo(localpath + "\\CustomerLogo\\");
         gvCustomerLogo.DataSource = obj.GetFiles();
         gvCustomerLogo.DataBind();
     }
 
     private void BindGridForSliderImage()
     {
-        DirectoryInfo obj = new DirectoryInfo("//192.168.10.149/Client/Uploads/");
+        DirectoryInfo obj = new DirectoryInfo(localpath + "\\Uploads\\");
         gvImageSlider.DataSource = obj.GetFiles();
         gvImageSlider.DataBind();
     }
@@ -105,19 +108,19 @@ public partial class Admin : System.Web.UI.Page
         DataTable tb = new DataTable("ServiceHead");
         //tb.Columns.Add("Servicehead_id", Type.GetType("System.Int32"));
         //tb.Columns.Add("Servicehead_title", Type.GetType("System.String"));
-        String sr = Server.MapPath("ServiceListHeading.xml");
+        String sr = localpath + "\\ServiceListHeading.xml";
         tb.WriteXml(sr);
         DataTable tb1 = new DataTable("ServiceSubTitle");
         //tb1.Columns.Add("ServiceSubTitle_id", Type.GetType("System.Int32"));
         //tb1.Columns.Add("ServiceSubTitle_Content", Type.GetType("System.String"));
         //tb1.Columns.Add("fk_Servicehead_id", Type.GetType("System.Int32"));
-        String st = Server.MapPath("ServiceListSubHeading.xml");
+        String st = localpath + "\\ServiceListSubHeading.xml";
         tb1.WriteXml(st);
         DataTable tb2 = new DataTable("ServiceSubTitle");
         //tb1.Columns.Add("ServiceSubTitle_id", Type.GetType("System.Int32"));
         //tb1.Columns.Add("ServiceSubTitle_Content", Type.GetType("System.String"));
         //tb1.Columns.Add("fk_Servicehead_id", Type.GetType("System.Int32"));
-        String vu = Server.MapPath("VideoUrl.xml");
+        String vu = localpath + "\\VideoUrl.xml";
         tb2.WriteXml(vu);
     }
     protected void ddlServiceHead_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,14 +182,14 @@ public partial class Admin : System.Web.UI.Page
                 //int newWidth, newHeight;
                 //newHeight = 523;
                 //newHeight = 250;
-                path = Server.MapPath("SiteLogo");
+                path = localpath + "\\SiteLogo\\";
                 filePaths = Directory.GetFiles(path);
 
                 foreach (string filePath in filePaths)
                     File.Delete(filePath);
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-                upload = "SiteLogo\\Logo" + extension;
-                fuContent.SaveAs(Server.MapPath(upload));
+                upload = localpath + "\\SiteLogo\\Logo" + extension;
+                fuContent.SaveAs(upload);
                 //Bitmap newImage = new Bitmap(newWidth, newHeight);
                 //using (Graphics gr = Graphics.FromImage(newImage))
                 //{
@@ -197,7 +200,7 @@ public partial class Admin : System.Web.UI.Page
                 //}
                 break;
             case "2":
-                path = "//192.168.10.149/Client/Uploads/";
+                path = localpath + "\\Uploads\\";
                 int count = Directory.GetFiles(path).Count();
                 //filePaths = Directory.GetFiles(path);
                 //foreach (string filePath in filePaths)
@@ -205,14 +208,14 @@ public partial class Admin : System.Web.UI.Page
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
                 count = count + 1;
                 //upload = "Uploads\\" + count + extension;
-                upload = "//192.168.10.149/Client/Uploads/" + count + extension;
-                string thumbnail = "//192.168.10.149/Client/Uploads/thumbs/" + count + extension;
+                upload = localpath + "\\Uploads\\" + count + extension;
+                string thumbnail = localpath + "\\Uploads\\thumbs\\" + count + extension;
                 fuContent.SaveAs(upload);
                 fuContent.SaveAs(thumbnail);
                 break;
             case "3":
-                upload = "CustomerLogo\\" + fuContent.FileName;
-                fuContent.SaveAs(Server.MapPath(upload));
+                upload = localpath + "\\CustomerLogo\\" + fuContent.FileName;
+                fuContent.SaveAs(upload);
                 break;
             case "4":
                 string url = txtUrl.Text;
@@ -231,8 +234,8 @@ public partial class Admin : System.Web.UI.Page
                 ds.ReadXml(videourl);
                 int a;
                 a = ds.Tables[0].Rows.Count + 1;
-                string thumpnail = "~/VideoThumbnails/" + a + extension;
-                fuContent.SaveAs(Server.MapPath(thumpnail));
+                string thumpnail = localpath + "\\VideoThumbnails\\" + a + extension;
+                fuContent.SaveAs(thumpnail);
                 if (ds.Tables.Count <= 0)
                 {
                     DataTable tb = new DataTable("VideoUrl");
@@ -315,7 +318,7 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void gvVideoSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        string path = Server.MapPath("VideoUrl.xml");
+        string path = localpath + "\\VideoUrl.xml";
         DataSet ds = new DataSet();
         ds.ReadXml(path);
         ds.Tables[0].Rows.RemoveAt(e.RowIndex);
@@ -326,8 +329,8 @@ public partial class Admin : System.Web.UI.Page
 
     protected void gvServiceList_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        String path = "//192.168.10.149/Client/ServiceListHeading.xml";
-        String path1 = "//192.168.10.149/Client/ServiceListSubHeading.xml";
+        String path = localpath + "\\ServiceListHeading.xml";
+        String path1 = localpath + "\\ServiceListSubHeading.xml";
         DataSet ds = new DataSet();
         int a = Convert.ToInt32(gvServiceList.DataKeys[e.RowIndex].Values[0]);
         ds.ReadXml(path);
@@ -354,7 +357,7 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        String path1 = Server.MapPath("//192.168.10.149/Client/ServiceListSubHeading.xml");
+        String path1 = localpath + "\\ServiceListSubHeading.xml";
         GridView GridView1 = (GridView)sender;
         int a = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
         DataSet ds1 = new DataSet();
@@ -372,7 +375,7 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void gvServiceList_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        String path1 = "//192.168.10.149/Client/ServiceListSubHeading.xml";
+        String path1 = localpath + "\\ServiceListSubHeading.xml";
         foreach (GridViewRow item in gvServiceList.Rows)
         {
             GridView GridView1 = (GridView)item.FindControl("GridView1");
