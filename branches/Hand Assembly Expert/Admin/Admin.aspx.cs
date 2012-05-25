@@ -52,7 +52,7 @@ public partial class Admin : System.Web.UI.Page
     private void BindGridForSliderImage()
     {
         DirectoryInfo obj = new DirectoryInfo(localpath + "\\Uploads\\");
-        gvImageSlider.DataSource = obj.GetFiles();
+        gvImageSlider.DataSource = obj.GetFiles("*.jpg");
         gvImageSlider.DataBind();
     }
 
@@ -168,6 +168,7 @@ public partial class Admin : System.Web.UI.Page
             ds.Tables[0].Rows.Add(dr);
             ds.WriteXml(st);
         }
+        BindGrid_ServiceList();
     }
     protected void btnSubmitUrl_Click(object sender, EventArgs e)
     {
@@ -212,6 +213,7 @@ public partial class Admin : System.Web.UI.Page
                 string thumbnail = localpath + "\\Uploads\\thumbs\\" + count + extension;
                 fuContent.SaveAs(upload);
                 fuContent.SaveAs(thumbnail);
+                BindGridForSliderImage();
                 break;
             case "3":
                 upload = localpath + "\\CustomerLogo\\" + fuContent.FileName;
@@ -334,26 +336,28 @@ public partial class Admin : System.Web.UI.Page
         DataSet ds = new DataSet();
         int a = Convert.ToInt32(gvServiceList.DataKeys[e.RowIndex].Values[0]);
         ds.ReadXml(path);
-        foreach (DataRow item in ds.Tables[0].Rows)
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
         {
-            if (Convert.ToInt32(item["Servicehead_id"]) == a)
+            if (Convert.ToInt32(ds.Tables[0].Rows[i]["Servicehead_id"]) == a)
             {
                 DataSet ds1 = new DataSet();
                 ds1.ReadXml(path1);
-                foreach (DataRow item1 in ds1.Tables[0].Rows)
+                for (int j = 0; j < ds1.Tables[0].Rows.Count; j++)
                 {
-                    if (Convert.ToInt32(item1["fk_Servicehead_id"]) == a)
+                    if (Convert.ToInt32(ds1.Tables[0].Rows[j]["fk_Servicehead_id"]) == a)
                     {
-                        ds1.Tables[0].Rows.Remove(item1);
+                        ds1.Tables[0].Rows.Remove(ds1.Tables[0].Rows[j]);
                     }
                 }
                 ds1.WriteXml(path1);
-                ds.Tables[0].Rows.Remove(item);
+                ds.Tables[0].Rows.Remove(ds.Tables[0].Rows[i]);
             }
         }
         ds.WriteXml(path);
-        gvServiceList.DataSource = ds;
-        gvServiceList.DataBind();
+        //gvServiceList.DataSource = ds;
+        //gvServiceList.DataBind();
+        BindGrid_ServiceList();
+        BindDropDown();
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
@@ -367,11 +371,13 @@ public partial class Admin : System.Web.UI.Page
             if (Convert.ToInt32(item1["ServiceSubTitle_id"]) == a)
             {
                 ds1.Tables[0].Rows.Remove(item1);
+                break;
             }
         }
         ds1.WriteXml(path1);
-        GridView1.DataSource = ds1;
-        GridView1.DataBind();
+        //GridView1.DataSource = ds1;
+        //GridView1.DataBind();
+        BindGrid_ServiceList();
     }
     protected void gvServiceList_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -381,7 +387,23 @@ public partial class Admin : System.Web.UI.Page
             GridView GridView1 = (GridView)item.FindControl("GridView1");
             DataSet ds1 = new DataSet();
             ds1.ReadXml(path1);
-            GridView1.DataSource = ds1;
+            DataTable dtt = new DataTable();
+            dtt.Columns.Add("ServiceSubTitle_id");
+            dtt.Columns.Add("ServiceSubTitle_Content");
+            dtt.Columns.Add("fk_Servicehead_id");
+            int id = Convert.ToInt32(gvServiceList.DataKeys[item.RowIndex].Values[0]);
+            foreach (DataRow dr in ds1.Tables[0].Rows)
+            {
+                DataRow drr = dtt.NewRow();
+                if (Convert.ToInt32(dr["fk_Servicehead_id"]) == id)
+                {
+                    drr["ServiceSubTitle_id"] = dr["ServiceSubTitle_id"];
+                    drr["ServiceSubTitle_Content"] = dr["ServiceSubTitle_Content"];
+                    drr["fk_Servicehead_id"] = dr["fk_Servicehead_id"];
+                    dtt.Rows.Add(drr);
+                }
+            }
+            GridView1.DataSource = dtt;
             GridView1.DataBind();
         }
     }
