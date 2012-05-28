@@ -1,5 +1,0 @@
-E:\Visual studio\CountryStateCity\obj\Debug\ResolveAssemblyReference.cache
-E:\Visual studio\CountryStateCity\bin\CountryStateCity.dll
-E:\Visual studio\CountryStateCity\bin\CountryStateCity.pdb
-E:\Visual studio\CountryStateCity\obj\Debug\CountryStateCity.dll
-E:\Visual studio\CountryStateCity\obj\Debug\CountryStateCity.pdb
