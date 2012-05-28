@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="wbqxjgRfEORC9gc5GO1LUsYQ4l8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="dHU1hLvYhv4gkx/o91Jf2Eh7K7k=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="FolderAcceeSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="FolderAcceeSoap" contract="ServiceReference1.FolderAcceeSoap" bindingType="basicHttpBinding" address="http://192.168.10.149/Client/FolderAccee.asmx" bindingConfiguration="FolderAcceeSoap">
+    <endpoint name="FolderAcceeSoap" contract="ServiceReference1.FolderAcceeSoap" bindingType="basicHttpBinding" address="http://localhost:49291/Client Side/FolderAccee.asmx" bindingConfiguration="FolderAcceeSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://192.168.10.149/Client/FolderAccee.asmx</serializedValue>
+          <serializedValue>http://localhost:49291/Client%20Side/FolderAccee.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

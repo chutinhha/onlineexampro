@@ -21,7 +21,7 @@ public partial class Admin : System.Web.UI.Page
         localpath = aa.GetLocalPath();
         sr = localpath + "\\ServiceListHeading.xml";
         st = localpath + "\\ServiceListSubHeading.xml";
-        videourl = localpath + "\\Client/VideoUrl.xml";
+        videourl = localpath + "\\VideoUrl.xml";
         if (!IsPostBack)
         {
             if (File.Exists(sr) != true)
@@ -38,8 +38,12 @@ public partial class Admin : System.Web.UI.Page
         String path = localpath + "\\ServiceListHeading.xml";
         DataSet ds = new DataSet();
         ds.ReadXml(path);
-        gvServiceList.DataSource = ds;
-        gvServiceList.DataBind();
+        if (ds.Tables.Count != 0)
+        {
+            gvServiceList.DataSource = ds;
+            gvServiceList.DataBind();
+        }
+
     }
 
     private void BindGridForCustomerLogo()
@@ -94,7 +98,7 @@ public partial class Admin : System.Web.UI.Page
             {
                 a = 0;
             }
-            a = ds.Tables[0].Rows.Count + 1;
+            a = Convert.ToInt32(ds.Tables[0].Rows[ds.Tables[0].Rows.Count - 1].ItemArray[0].ToString()) + 1;
             dr[0] = a;
             dr[1] = Convert.ToString(txtTitle.Text);
             ds.Tables[0].Rows.Add(dr);
@@ -161,7 +165,7 @@ public partial class Admin : System.Web.UI.Page
             {
                 a = 0;
             }
-            a = ds.Tables[0].Rows.Count + 1;
+            a = Convert.ToInt32(ds.Tables[0].Rows[ds.Tables[0].Rows.Count - 1].ItemArray[0].ToString()) + 1;
             dr[0] = a;
             dr[1] = Convert.ToString(txtSubtitle.Text);
             dr[2] = Convert.ToInt32(ddlServiceHead.SelectedValue);
@@ -185,7 +189,6 @@ public partial class Admin : System.Web.UI.Page
                 //newHeight = 250;
                 path = localpath + "\\SiteLogo\\";
                 filePaths = Directory.GetFiles(path);
-
                 foreach (string filePath in filePaths)
                     File.Delete(filePath);
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
@@ -218,6 +221,7 @@ public partial class Admin : System.Web.UI.Page
             case "3":
                 upload = localpath + "\\CustomerLogo\\" + fuContent.FileName;
                 fuContent.SaveAs(upload);
+                BindGridForCustomerLogo();
                 break;
             case "4":
                 string url = txtUrl.Text;
@@ -231,12 +235,16 @@ public partial class Admin : System.Web.UI.Page
                 strbuilder.Append("?version=3&feature=player_detailpage");
                 url = strbuilder.ToString();
                 extension = Path.GetExtension(fuContent.PostedFile.FileName);
-
                 DataSet ds = new DataSet();
                 ds.ReadXml(videourl);
-                int a;
-                a = ds.Tables[0].Rows.Count + 1;
+                int a = 1;
+                if (ds.Tables.Count != 0)
+                {
+                    a = Convert.ToInt32(ds.Tables[0].Rows[ds.Tables[0].Rows.Count - 1].ItemArray[0].ToString()) + 1;
+
+                }
                 string thumpnail = localpath + "\\VideoThumbnails\\" + a + extension;
+                string xmlurl = "~/VideoThumbnails/" + a + extension;
                 fuContent.SaveAs(thumpnail);
                 if (ds.Tables.Count <= 0)
                 {
@@ -246,7 +254,7 @@ public partial class Admin : System.Web.UI.Page
                     tb.Columns.Add("Video_Url", Type.GetType("System.String"));
                     DataRow dr = tb.NewRow();
                     dr[0] = a;
-                    dr[1] = thumpnail;
+                    dr[1] = xmlurl;
                     dr[2] = Convert.ToString(url);
                     tb.Rows.Add(dr);
                     tb.WriteXml(videourl);
@@ -258,13 +266,16 @@ public partial class Admin : System.Web.UI.Page
                     //{
                     //    a = 0;
                     //}
-                    a = ds.Tables[0].Rows.Count + 1;
+
+
+                    //  a = ds.Tables[0].Rows.Count + 1;
                     dr[0] = a;
-                    dr[1] = thumpnail;
+                    dr[1] = xmlurl;
                     dr[2] = Convert.ToString(url);
                     ds.Tables[0].Rows.Add(dr);
                     ds.WriteXml(videourl);
                 }
+                BindGridForVideoThumbnail();
                 break;
             default:
                 break;
@@ -308,15 +319,24 @@ public partial class Admin : System.Web.UI.Page
                 lbDetail.Text = string.Empty;
                 txtUrl.Visible = true;
                 lbVidUrl.Visible = true;
-                DataSet ds = new DataSet();
-                ds.ReadXml(Server.MapPath("VideoUrl.xml"));
-                gvVideoSlider.DataSource = ds.Tables[0];
-                gvVideoSlider.DataBind();
+                BindGridForVideoThumbnail();
+
                 break;
             default:
                 break;
         }
 
+    }
+
+    private void BindGridForVideoThumbnail()
+    {
+        DataSet ds = new DataSet();
+        ds.ReadXml(localpath + "VideoUrl.xml");
+        if (ds.Tables.Count != 0)
+        {
+            gvVideoSlider.DataSource = ds.Tables[0];
+            gvVideoSlider.DataBind();
+        }
     }
     protected void gvVideoSlider_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
@@ -358,6 +378,7 @@ public partial class Admin : System.Web.UI.Page
         //gvServiceList.DataBind();
         BindGrid_ServiceList();
         BindDropDown();
+        BindGrid_ServiceList();
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {

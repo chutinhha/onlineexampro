@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucVideo.ascx.cs" Inherits="ucVideo" %>
 <div id="gallery1">
     <div id="image1" align="center">
-        <iframe width="440px" height="380px" id="vid" allowfullscreen="" frameborder="0" src="https://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage">
+        <iframe width="500px" height="380px" id="vid" allowfullscreen="" frameborder="0" src="https://www.youtube.com/v/BO3N6VdYCjY?version=3&feature=player_detailpage">
         </iframe>
     </div>
     <div id="thumbwrapper1">

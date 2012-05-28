@@ -52,14 +52,7 @@ public partial class Home : System.Web.UI.Page
         }
     }
 
-    protected void dlServiceList_Load(object sender, EventArgs e)
-    {
 
 
-    }
 
-    protected void btnPrint_Click(object sender, ImageClickEventArgs e)
-    {
-
-    }
 }

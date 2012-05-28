@@ -20,8 +20,12 @@ public partial class ucServiceList : System.Web.UI.UserControl
     {
         DataSet ds = new DataSet();
         ds.ReadXml(Server.MapPath("~/ServiceListHeading.xml"));
-        das.DataSource = ds.Tables[0];
-        das.DataBind();
+        if (ds.Tables.Count != 0)
+        {
+            das.DataSource = ds.Tables[0];
+            das.DataBind();
+        }
+
         foreach (DataListItem item in das.Items)
         {
             int id = Convert.ToInt32(das.DataKeys[item.ItemIndex]);
@@ -45,6 +49,6 @@ public partial class ucServiceList : System.Web.UI.UserControl
     }
     protected void das_ItemDataBound(object sender, DataListItemEventArgs e)
     {
-        
+
     }
 }

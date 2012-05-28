@@ -52,10 +52,10 @@
   </wsdl:binding>
   <wsdl:service name="FolderAccee">
     <wsdl:port name="FolderAcceeSoap" binding="tns:FolderAcceeSoap">
-      <soap:address location="http://192.168.10.149/Client/FolderAccee.asmx" />
+      <soap:address location="http://localhost:49291/Client%20Side/FolderAccee.asmx" />
     </wsdl:port>
     <wsdl:port name="FolderAcceeSoap12" binding="tns:FolderAcceeSoap12">
-      <soap12:address location="http://192.168.10.149/Client/FolderAccee.asmx" />
+      <soap12:address location="http://localhost:49291/Client%20Side/FolderAccee.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
