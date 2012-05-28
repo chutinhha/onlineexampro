@@ -12,23 +12,36 @@ public partial class ucLogin : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
-
-            var userid = "";
-            var password = "";
-            HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
-            if (cookie1 != null)
+            if (Session["username"] == null)
             {
-                userid = cookie1.Values["Userid"];
-                password = cookie1.Values["Password"];
-                var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
-                if (userid == aa.Email && password == aa.Password)
+                var userid = "";
+                var password = "";
+                HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
+                if (cookie1 != null)
                 {
-                    Response.Redirect("Home.aspx");
+                    userid = cookie1.Values["Userid"];
+                    password = cookie1.Values["Password"];
+                    using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
+                    {
+                        var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
+                        if (userid == aa.Email && password == aa.Password)
+                        {
+                            Session["username"] = aa.Full_Name;
+                            Session["email"] = aa.Email;
+                            var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == aa.Customer_id select a).FirstOrDefault();
+                            lastlogin.Last_Login = DateTime.Now;
+                            dataDB.SubmitChanges();
+                            Response.Redirect("UploadPhoto.aspx");
+                            //Response.Redirect("Home.aspx");
+                        }
+                    }
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
                 }
             }
         }
-
-
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
@@ -56,15 +69,12 @@ public partial class ucLogin : System.Web.UI.UserControl
                         cookie.Expires.AddDays(1);
                         Response.Cookies.Add(cookie);
                     }
-
                     Session["username"] = checkAcivation.Full_Name;
                     Session["email"] = checkAcivation.Email;
                     var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == checkAcivation.Customer_id select a).FirstOrDefault();
                     lastlogin.Last_Login = DateTime.Now;
                     dataDB.SubmitChanges();
                     Response.Redirect("UploadPhoto.aspx");
-
-
                 }
                 else
                 {
@@ -77,7 +87,5 @@ public partial class ucLogin : System.Web.UI.UserControl
                 lbResponse.Text = "Invalid Login!";
             }
         }
-
     }
-
 }
