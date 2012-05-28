@@ -1,0 +1,26 @@
+﻿.header
+{
+    font-family: Calibri;
+    font-size: 18px;
+    color: #000000;
+    background-image: url('../Images/bg.jpg');
+}
+.content
+{
+    background-color: #FFFF99;
+    color: #000000;
+    font-family: Calibri;
+    font-size: 17px;
+}
+.OnSelectHeader
+{
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+.OnSelectHeader:hover
+{
+    background-color: #CCFFCC;
+    color: #000000;
+    font-size: 18px;
+}
