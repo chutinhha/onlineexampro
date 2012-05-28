@@ -31,12 +31,21 @@ namespace E_Learning {
         protected global::E_Learning.ucstudentheader ucstudentheader1;
         
         /// <summary>
-        /// ucTest1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::E_Learning.ucTest ucTest1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// ucView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E_Learning.ucView ucView1;
     }
 }

@@ -83,9 +83,10 @@
     <Content Include="bannerimages\Untitled-1 copy.jpg" />
     <Content Include="enrollment.aspx" />
     <Content Include="fileupload.aspx" />
+    <Content Include="mm.css" />
+    <Content Include="Result.aspx" />
     <Content Include="StudentNotes.aspx" />
     <Content Include="StudentTest.aspx" />
-    <Content Include="ucAssignTime.ascx" />
     <Content Include="ucfilesview.ascx" />
     <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
@@ -132,10 +133,12 @@
     <Content Include="ucHeader.ascx" />
     <Content Include="ucQuestionPosting.ascx" />
     <Content Include="ucStudentAssignment.ascx" />
+    <Content Include="ucStudentDetails.ascx" />
     <Content Include="ucstudentheader.ascx" />
     <Content Include="ucStudentNote.ascx" />
     <Content Include="ucTest.ascx" />
     <Content Include="ucView.ascx" />
+    <Content Include="UploadedFiles\Wildlife.wmv" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -147,7 +150,6 @@
     </Content>
     <Content Include="ucAdminheadertemplate.ascx" />
     <Content Include="StudentAssignment.aspx" />
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAssignTime.aspx.cs">
@@ -196,6 +198,13 @@
     <Compile Include="fileupload.aspx.designer.cs">
       <DependentUpon>fileupload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Result.aspx.cs">
+      <DependentUpon>Result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Result.aspx.designer.cs">
+      <DependentUpon>Result.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudentNotes.aspx.cs">
       <DependentUpon>StudentNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -209,13 +218,6 @@
     </Compile>
     <Compile Include="StudentTest.aspx.designer.cs">
       <DependentUpon>StudentTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ucAssignTime.ascx.cs">
-      <DependentUpon>ucAssignTime.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ucAssignTime.ascx.designer.cs">
-      <DependentUpon>ucAssignTime.ascx</DependentUpon>
     </Compile>
     <Compile Include="ucfilesview.ascx.cs">
       <DependentUpon>ucfilesview.ascx</DependentUpon>
@@ -309,6 +311,13 @@
     <Compile Include="ucStudentAssignment.ascx.designer.cs">
       <DependentUpon>ucStudentAssignment.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ucStudentDetails.ascx.cs">
+      <DependentUpon>ucStudentDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucStudentDetails.ascx.designer.cs">
+      <DependentUpon>ucStudentDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ucstudentheader.ascx.cs">
       <DependentUpon>ucstudentheader.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,13 +353,6 @@
     <Compile Include="ucView.ascx.designer.cs">
       <DependentUpon>ucView.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
@@ -380,7 +382,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StudentDocs\" />
-    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

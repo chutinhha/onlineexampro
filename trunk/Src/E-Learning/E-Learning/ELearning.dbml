@@ -79,6 +79,7 @@
       <Association Name="tblLogin_tblForumAnswer" Member="tblForumAnswers" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumAnswer" />
       <Association Name="tblLogin_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumQuestion" />
       <Association Name="tblLogin_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_StaffId" Type="tblNote" />
+      <Association Name="tblLogin_tblResult" Member="tblResults" ThisKey="Id" OtherKey="FK_UserId" Type="tblResult" />
       <Association Name="tblRole_tblLogin" Member="tblRole" ThisKey="FK_RoleId" OtherKey="Id" Type="tblRole" IsForeignKey="true" />
     </Type>
   </Table>
@@ -130,6 +131,7 @@
       <Column Name="QuestionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="tblQuestionTitle_tblQuestion" Member="tblQuestions" ThisKey="QuestionTitleId" OtherKey="Fk_QuestionTitle" Type="tblQuestion" />
       <Association Name="tblQuestionTitle_tblTitleCount" Member="tblTitleCounts" ThisKey="QuestionTitleId" OtherKey="Fk_TitleId" Type="tblTitleCount" />
+      <Association Name="tblQuestionTitle_tblResultMark" Member="tblResultMarks" ThisKey="QuestionTitleId" OtherKey="FK_CateId" Type="tblResultMark" />
     </Type>
   </Table>
   <Table Name="dbo.tblAssignDetail" Member="tblAssignDetails">
@@ -148,6 +150,25 @@
       <Column Name="Fk_AssignId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="tblAssignDetail_tblTitleCount" Member="tblAssignDetail" ThisKey="Fk_AssignId" OtherKey="Id" Type="tblAssignDetail" IsForeignKey="true" />
       <Association Name="tblQuestionTitle_tblTitleCount" Member="tblQuestionTitle" ThisKey="Fk_TitleId" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblResult" Member="tblResults">
+    <Type Name="tblResult">
+      <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblResult_tblResultMark" Member="tblResultMarks" ThisKey="ResultId" OtherKey="FK_ResultId" Type="tblResultMark" />
+      <Association Name="tblLogin_tblResult" Member="tblLogin" ThisKey="FK_UserId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblResultMarks" Member="tblResultMarks">
+    <Type Name="tblResultMark">
+      <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblQuestionTitle_tblResultMark" Member="tblQuestionTitle" ThisKey="FK_CateId" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
+      <Association Name="tblResult_tblResultMark" Member="tblResult" ThisKey="FK_ResultId" OtherKey="ResultId" Type="tblResult" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.sp_tblLoginNewDeleteCommand" Method="sp_tblLoginNewDeleteCommand">
@@ -584,5 +605,72 @@
   <Function Name="dbo.sp_tblTitleCountNewDeleteCommand" Method="sp_tblTitleCountNewDeleteCommand">
     <Parameter Name="Original_Id" Parameter="original_Id" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblResultMarksNewDeleteCommand" Method="sp_tblResultMarksNewDeleteCommand">
+    <Parameter Name="Original_MarkId" Parameter="original_MarkId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblResultMarksNewInsertCommand" Method="sp_tblResultMarksNewInsertCommand">
+    <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_ResultId" Parameter="fK_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblResultMarksNewInsertCommandResult">
+      <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblResultMarksNewSelectCommand" Method="sp_tblResultMarksNewSelectCommand">
+    <ElementType Name="sp_tblResultMarksNewSelectCommandResult">
+      <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblResultMarksNewUpdateCommand" Method="sp_tblResultMarksNewUpdateCommand">
+    <Parameter Name="Mark" Parameter="mark" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_ResultId" Parameter="fK_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FK_CateId" Parameter="fK_CateId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_MarkId" Parameter="original_MarkId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="MarkId" Parameter="markId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblResultMarksNewUpdateCommandResult">
+      <Column Name="MarkId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Mark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ResultId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblResultNewDeleteCommand" Method="sp_tblResultNewDeleteCommand">
+    <Parameter Name="Original_ResultId" Parameter="original_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblResultNewInsertCommand" Method="sp_tblResultNewInsertCommand">
+    <Parameter Name="TotalMark" Parameter="totalMark" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_UserId" Parameter="fK_UserId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblResultNewInsertCommandResult">
+      <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblResultNewSelectCommand" Method="sp_tblResultNewSelectCommand">
+    <ElementType Name="sp_tblResultNewSelectCommandResult">
+      <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblResultNewUpdateCommand" Method="sp_tblResultNewUpdateCommand">
+    <Parameter Name="TotalMark" Parameter="totalMark" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FK_UserId" Parameter="fK_UserId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_ResultId" Parameter="original_ResultId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ResultId" Parameter="resultId" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_tblResultNewUpdateCommandResult">
+      <Column Name="ResultId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TotalMark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_UserId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

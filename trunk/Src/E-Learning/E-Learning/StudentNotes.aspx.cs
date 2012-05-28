@@ -11,7 +11,10 @@ namespace E_Learning
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("HomeNew.aspx");
+            }
         }
     }
 }

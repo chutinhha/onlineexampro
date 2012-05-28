@@ -21,6 +21,7 @@ namespace E_Learning
                 foreach (var item in aa)
                 {
                     Session["Role"] = item.FK_RoleId;
+                    Session["UserId"] = item.Id;
                 }
                 Session["UserName"] = txtUserName.Text;
                 if (Convert.ToInt32(Session["Role"]) == 3)
