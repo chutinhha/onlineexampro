@@ -40,6 +40,10 @@ namespace E_Learning
                         };
                 GridView2.DataSource = d;
                 GridView2.DataBind();
+                Response.ContentType = "application/ms-excel";
+                Response.AddHeader("Content-Disposition", "inline;filename=ExcelRPT.xls");
+
+
 
             }
         }
