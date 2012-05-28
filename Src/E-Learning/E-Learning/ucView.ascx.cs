@@ -23,9 +23,12 @@ namespace E_Learning
                     {
                         dic.Add(item1.Fk_TitleId.Value, item1.count.Value);
                     }
-                    Session["cat"] = dic;
-                    Session["timeDuration"] = item.TimeDuration;
-                    Session["TimeLeft"] = item.TimeLeft;
+                    if (Session["cat"] == null)
+                        Session["cat"] = dic;
+                    if (Session["timeDuration"] == null)
+                        Session["timeDuration"] = item.TimeDuration;
+                    if (Session["TimeLeft"] == null)
+                        Session["TimeLeft"] = item.TimeLeft;
                 }
                 BindGrid();
             }
@@ -39,7 +42,7 @@ namespace E_Learning
             if (sp.Seconds <= 0 && sp.Minutes <= 0 && sp.Hours <= 0)
             {
                 Complete_Click(sender, new EventArgs());
-                //Response.Redirect("result.aspx");
+                Response.Redirect("Result.aspx");
             }
             else
             {
@@ -179,7 +182,7 @@ namespace E_Learning
                 }
             }
             Session["result"] = mar;
-            //Response.Redirect("result.aspx");
+            Response.Redirect("Result.aspx");
         }
     }
 }

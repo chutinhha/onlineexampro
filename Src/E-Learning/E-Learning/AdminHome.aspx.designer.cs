@@ -29,5 +29,14 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::E_Learning.WebUserControl1 Adminheadertemplate1;
+        
+        /// <summary>
+        /// ucStudentDetails1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E_Learning.ucStudentDetails ucStudentDetails1;
     }
 }

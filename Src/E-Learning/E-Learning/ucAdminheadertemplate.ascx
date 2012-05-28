@@ -12,12 +12,13 @@
             <div>
                 
                 <ul class="menu red">
-                    <li class="home"><a href="AdminHome.aspx">Home</a></li>
-                    <li class="forum"><a href="Forums.aspx">Forums</a></li>
+                    <li class="file"><a href="AdminHome.aspx">Home</a></li>
+                    <li class="file"><a href="Forums.aspx">Forums</a></li>
                     <li class="file"><a href="fileupload.aspx">Upload a File</a></li>
                     <li class="file"><a href="AssignmentsPage.aspx">Assignments</a></li>
-                    <li class="enrollment"><a href="enrollment.aspx">Enrollment Form</a></li>
-                    <li class="test"><a href="testgen.aspx">Test Generation</a></li>
+                    <li class="file"><a href="enrollment.aspx">Enrollment Form</a></li>
+                    <li class="file"><a href="testgen.aspx">Test Generation</a></li>
+                    <li class="file"><a href="AdminAssignTime.aspx">Assign the Test</a></li>
                 </ul>
                
             </div>

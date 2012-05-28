@@ -49,12 +49,12 @@ namespace E_Learning
             {
                 string filepath = ElearningHelper.Context.tblFiles.Single(a => a.FK_TitleId == Convert.ToInt64(ddlNotesTitle.SelectedValue)).FilePath;
                 string[] ff = filepath.Split('.');
-                if (ff[ff.Length - 1] == "wmv")
+                //if (ff[ff.Length - 1] == "wmv")
                 {
-                    Session["filepath"] = filepath.Replace("~","..");
+                    Session["filepath"] = filepath.Replace("~", "..");
                     Response.Redirect("test.aspx");
                 }
-                else
+                //else
                 {
 
                 }

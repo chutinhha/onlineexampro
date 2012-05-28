@@ -75,6 +75,12 @@ namespace E_Learning
     partial void InserttblTitleCount(tblTitleCount instance);
     partial void UpdatetblTitleCount(tblTitleCount instance);
     partial void DeletetblTitleCount(tblTitleCount instance);
+    partial void InserttblResult(tblResult instance);
+    partial void UpdatetblResult(tblResult instance);
+    partial void DeletetblResult(tblResult instance);
+    partial void InserttblResultMark(tblResultMark instance);
+    partial void UpdatetblResultMark(tblResultMark instance);
+    partial void DeletetblResultMark(tblResultMark instance);
     #endregion
 		
 		public ELearningDataContext() : 
@@ -224,6 +230,22 @@ namespace E_Learning
 			get
 			{
 				return this.GetTable<tblTitleCount>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblResult> tblResults
+		{
+			get
+			{
+				return this.GetTable<tblResult>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblResultMark> tblResultMarks
+		{
+			get
+			{
+				return this.GetTable<tblResultMark>();
 			}
 		}
 		
@@ -547,6 +569,62 @@ namespace E_Learning
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultMarksNewDeleteCommand")]
+		public int sp_tblResultMarksNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_MarkId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultMarksNewInsertCommand")]
+		public ISingleResult<sp_tblResultMarksNewInsertCommandResult> sp_tblResultMarksNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_CateId", DbType="BigInt")] System.Nullable<long> fK_CateId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_ResultId, fK_CateId);
+			return ((ISingleResult<sp_tblResultMarksNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultMarksNewSelectCommand")]
+		public ISingleResult<sp_tblResultMarksNewSelectCommandResult> sp_tblResultMarksNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblResultMarksNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultMarksNewUpdateCommand")]
+		public ISingleResult<sp_tblResultMarksNewUpdateCommandResult> sp_tblResultMarksNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mark", DbType="Int")] System.Nullable<int> mark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_ResultId", DbType="BigInt")] System.Nullable<long> fK_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_CateId", DbType="BigInt")] System.Nullable<long> fK_CateId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_MarkId", DbType="BigInt")] System.Nullable<long> original_MarkId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MarkId", DbType="BigInt")] System.Nullable<long> markId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mark, fK_ResultId, fK_CateId, original_MarkId, markId);
+			return ((ISingleResult<sp_tblResultMarksNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultNewDeleteCommand")]
+		public int sp_tblResultNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_ResultId);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultNewInsertCommand")]
+		public ISingleResult<sp_tblResultNewInsertCommandResult> sp_tblResultNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalMark", DbType="Int")] System.Nullable<int> totalMark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), totalMark, fK_UserId);
+			return ((ISingleResult<sp_tblResultNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultNewSelectCommand")]
+		public ISingleResult<sp_tblResultNewSelectCommandResult> sp_tblResultNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblResultNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblResultNewUpdateCommand")]
+		public ISingleResult<sp_tblResultNewUpdateCommandResult> sp_tblResultNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalMark", DbType="Int")] System.Nullable<int> totalMark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_UserId", DbType="BigInt")] System.Nullable<long> fK_UserId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_ResultId", DbType="BigInt")] System.Nullable<long> original_ResultId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ResultId", DbType="BigInt")] System.Nullable<long> resultId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), totalMark, fK_UserId, original_ResultId, resultId);
+			return ((ISingleResult<sp_tblResultNewUpdateCommandResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1835,6 +1913,8 @@ namespace E_Learning
 		
 		private EntitySet<tblNote> _tblNotes;
 		
+		private EntitySet<tblResult> _tblResults;
+		
 		private EntityRef<tblRole> _tblRole;
 		
     #region Extensibility Method Definitions
@@ -1873,6 +1953,7 @@ namespace E_Learning
 			this._tblForumAnswers = new EntitySet<tblForumAnswer>(new Action<tblForumAnswer>(this.attach_tblForumAnswers), new Action<tblForumAnswer>(this.detach_tblForumAnswers));
 			this._tblForumQuestions = new EntitySet<tblForumQuestion>(new Action<tblForumQuestion>(this.attach_tblForumQuestions), new Action<tblForumQuestion>(this.detach_tblForumQuestions));
 			this._tblNotes = new EntitySet<tblNote>(new Action<tblNote>(this.attach_tblNotes), new Action<tblNote>(this.detach_tblNotes));
+			this._tblResults = new EntitySet<tblResult>(new Action<tblResult>(this.attach_tblResults), new Action<tblResult>(this.detach_tblResults));
 			this._tblRole = default(EntityRef<tblRole>);
 			OnCreated();
 		}
@@ -2173,6 +2254,19 @@ namespace E_Learning
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblResult", Storage="_tblResults", ThisKey="Id", OtherKey="FK_UserId")]
+		public EntitySet<tblResult> tblResults
+		{
+			get
+			{
+				return this._tblResults;
+			}
+			set
+			{
+				this._tblResults.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRole_tblLogin", Storage="_tblRole", ThisKey="FK_RoleId", OtherKey="Id", IsForeignKey=true)]
 		public tblRole tblRole
 		{
@@ -2270,6 +2364,18 @@ namespace E_Learning
 		}
 		
 		private void detach_tblNotes(tblNote entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = null;
+		}
+		
+		private void attach_tblResults(tblResult entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = this;
+		}
+		
+		private void detach_tblResults(tblResult entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblLogin = null;
@@ -3092,6 +3198,8 @@ namespace E_Learning
 		
 		private EntitySet<tblTitleCount> _tblTitleCounts;
 		
+		private EntitySet<tblResultMark> _tblResultMarks;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3106,6 +3214,7 @@ namespace E_Learning
 		{
 			this._tblQuestions = new EntitySet<tblQuestion>(new Action<tblQuestion>(this.attach_tblQuestions), new Action<tblQuestion>(this.detach_tblQuestions));
 			this._tblTitleCounts = new EntitySet<tblTitleCount>(new Action<tblTitleCount>(this.attach_tblTitleCounts), new Action<tblTitleCount>(this.detach_tblTitleCounts));
+			this._tblResultMarks = new EntitySet<tblResultMark>(new Action<tblResultMark>(this.attach_tblResultMarks), new Action<tblResultMark>(this.detach_tblResultMarks));
 			OnCreated();
 		}
 		
@@ -3175,6 +3284,19 @@ namespace E_Learning
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblQuestionTitle_tblResultMark", Storage="_tblResultMarks", ThisKey="QuestionTitleId", OtherKey="FK_CateId")]
+		public EntitySet<tblResultMark> tblResultMarks
+		{
+			get
+			{
+				return this._tblResultMarks;
+			}
+			set
+			{
+				this._tblResultMarks.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3214,6 +3336,18 @@ namespace E_Learning
 		}
 		
 		private void detach_tblTitleCounts(tblTitleCount entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblQuestionTitle = null;
+		}
+		
+		private void attach_tblResultMarks(tblResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblQuestionTitle = this;
+		}
+		
+		private void detach_tblResultMarks(tblResultMark entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblQuestionTitle = null;
@@ -3549,6 +3683,401 @@ namespace E_Learning
 						this._Fk_TitleId = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("tblQuestionTitle");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblResult")]
+	public partial class tblResult : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ResultId;
+		
+		private System.Nullable<int> _TotalMark;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		private EntitySet<tblResultMark> _tblResultMarks;
+		
+		private EntityRef<tblLogin> _tblLogin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnResultIdChanging(long value);
+    partial void OnResultIdChanged();
+    partial void OnTotalMarkChanging(System.Nullable<int> value);
+    partial void OnTotalMarkChanged();
+    partial void OnFK_UserIdChanging(System.Nullable<long> value);
+    partial void OnFK_UserIdChanged();
+    #endregion
+		
+		public tblResult()
+		{
+			this._tblResultMarks = new EntitySet<tblResultMark>(new Action<tblResultMark>(this.attach_tblResultMarks), new Action<tblResultMark>(this.detach_tblResultMarks));
+			this._tblLogin = default(EntityRef<tblLogin>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ResultId
+		{
+			get
+			{
+				return this._ResultId;
+			}
+			set
+			{
+				if ((this._ResultId != value))
+				{
+					this.OnResultIdChanging(value);
+					this.SendPropertyChanging();
+					this._ResultId = value;
+					this.SendPropertyChanged("ResultId");
+					this.OnResultIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalMark", DbType="Int")]
+		public System.Nullable<int> TotalMark
+		{
+			get
+			{
+				return this._TotalMark;
+			}
+			set
+			{
+				if ((this._TotalMark != value))
+				{
+					this.OnTotalMarkChanging(value);
+					this.SendPropertyChanging();
+					this._TotalMark = value;
+					this.SendPropertyChanged("TotalMark");
+					this.OnTotalMarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
+		{
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					if (this._tblLogin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_UserIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_UserId = value;
+					this.SendPropertyChanged("FK_UserId");
+					this.OnFK_UserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblResult_tblResultMark", Storage="_tblResultMarks", ThisKey="ResultId", OtherKey="FK_ResultId")]
+		public EntitySet<tblResultMark> tblResultMarks
+		{
+			get
+			{
+				return this._tblResultMarks;
+			}
+			set
+			{
+				this._tblResultMarks.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblResult", Storage="_tblLogin", ThisKey="FK_UserId", OtherKey="Id", IsForeignKey=true)]
+		public tblLogin tblLogin
+		{
+			get
+			{
+				return this._tblLogin.Entity;
+			}
+			set
+			{
+				tblLogin previousValue = this._tblLogin.Entity;
+				if (((previousValue != value) 
+							|| (this._tblLogin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblLogin.Entity = null;
+						previousValue.tblResults.Remove(this);
+					}
+					this._tblLogin.Entity = value;
+					if ((value != null))
+					{
+						value.tblResults.Add(this);
+						this._FK_UserId = value.Id;
+					}
+					else
+					{
+						this._FK_UserId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblLogin");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblResultMarks(tblResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblResult = this;
+		}
+		
+		private void detach_tblResultMarks(tblResultMark entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblResult = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblResultMarks")]
+	public partial class tblResultMark : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		private EntityRef<tblQuestionTitle> _tblQuestionTitle;
+		
+		private EntityRef<tblResult> _tblResult;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMarkIdChanging(long value);
+    partial void OnMarkIdChanged();
+    partial void OnMarkChanging(System.Nullable<int> value);
+    partial void OnMarkChanged();
+    partial void OnFK_ResultIdChanging(System.Nullable<long> value);
+    partial void OnFK_ResultIdChanged();
+    partial void OnFK_CateIdChanging(System.Nullable<long> value);
+    partial void OnFK_CateIdChanged();
+    #endregion
+		
+		public tblResultMark()
+		{
+			this._tblQuestionTitle = default(EntityRef<tblQuestionTitle>);
+			this._tblResult = default(EntityRef<tblResult>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long MarkId
+		{
+			get
+			{
+				return this._MarkId;
+			}
+			set
+			{
+				if ((this._MarkId != value))
+				{
+					this.OnMarkIdChanging(value);
+					this.SendPropertyChanging();
+					this._MarkId = value;
+					this.SendPropertyChanged("MarkId");
+					this.OnMarkIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
+		{
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this.OnMarkChanging(value);
+					this.SendPropertyChanging();
+					this._Mark = value;
+					this.SendPropertyChanged("Mark");
+					this.OnMarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
+				{
+					if (this._tblResult.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_ResultIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_ResultId = value;
+					this.SendPropertyChanged("FK_ResultId");
+					this.OnFK_ResultIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					if (this._tblQuestionTitle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_CateIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_CateId = value;
+					this.SendPropertyChanged("FK_CateId");
+					this.OnFK_CateIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblQuestionTitle_tblResultMark", Storage="_tblQuestionTitle", ThisKey="FK_CateId", OtherKey="QuestionTitleId", IsForeignKey=true)]
+		public tblQuestionTitle tblQuestionTitle
+		{
+			get
+			{
+				return this._tblQuestionTitle.Entity;
+			}
+			set
+			{
+				tblQuestionTitle previousValue = this._tblQuestionTitle.Entity;
+				if (((previousValue != value) 
+							|| (this._tblQuestionTitle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblQuestionTitle.Entity = null;
+						previousValue.tblResultMarks.Remove(this);
+					}
+					this._tblQuestionTitle.Entity = value;
+					if ((value != null))
+					{
+						value.tblResultMarks.Add(this);
+						this._FK_CateId = value.QuestionTitleId;
+					}
+					else
+					{
+						this._FK_CateId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblQuestionTitle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblResult_tblResultMark", Storage="_tblResult", ThisKey="FK_ResultId", OtherKey="ResultId", IsForeignKey=true, DeleteRule="CASCADE")]
+		public tblResult tblResult
+		{
+			get
+			{
+				return this._tblResult.Entity;
+			}
+			set
+			{
+				tblResult previousValue = this._tblResult.Entity;
+				if (((previousValue != value) 
+							|| (this._tblResult.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblResult.Entity = null;
+						previousValue.tblResultMarks.Remove(this);
+					}
+					this._tblResult.Entity = value;
+					if ((value != null))
+					{
+						value.tblResultMarks.Add(this);
+						this._FK_ResultId = value.ResultId;
+					}
+					else
+					{
+						this._FK_ResultId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblResult");
 				}
 			}
 		}
@@ -6657,6 +7186,432 @@ namespace E_Learning
 				if ((this._Fk_AssignId != value))
 				{
 					this._Fk_AssignId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultMarksNewInsertCommandResult
+	{
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		public sp_tblResultMarksNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
+		{
+			get
+			{
+				return this._MarkId;
+			}
+			set
+			{
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
+		{
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultMarksNewSelectCommandResult
+	{
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		public sp_tblResultMarksNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
+		{
+			get
+			{
+				return this._MarkId;
+			}
+			set
+			{
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
+		{
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultMarksNewUpdateCommandResult
+	{
+		
+		private long _MarkId;
+		
+		private System.Nullable<int> _Mark;
+		
+		private System.Nullable<long> _FK_ResultId;
+		
+		private System.Nullable<long> _FK_CateId;
+		
+		public sp_tblResultMarksNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarkId", DbType="BigInt NOT NULL")]
+		public long MarkId
+		{
+			get
+			{
+				return this._MarkId;
+			}
+			set
+			{
+				if ((this._MarkId != value))
+				{
+					this._MarkId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mark", DbType="Int")]
+		public System.Nullable<int> Mark
+		{
+			get
+			{
+				return this._Mark;
+			}
+			set
+			{
+				if ((this._Mark != value))
+				{
+					this._Mark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_ResultId", DbType="BigInt")]
+		public System.Nullable<long> FK_ResultId
+		{
+			get
+			{
+				return this._FK_ResultId;
+			}
+			set
+			{
+				if ((this._FK_ResultId != value))
+				{
+					this._FK_ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_CateId", DbType="BigInt")]
+		public System.Nullable<long> FK_CateId
+		{
+			get
+			{
+				return this._FK_CateId;
+			}
+			set
+			{
+				if ((this._FK_CateId != value))
+				{
+					this._FK_CateId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultNewInsertCommandResult
+	{
+		
+		private long _ResultId;
+		
+		private System.Nullable<int> _TotalMark;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		public sp_tblResultNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
+		{
+			get
+			{
+				return this._ResultId;
+			}
+			set
+			{
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalMark", DbType="Int")]
+		public System.Nullable<int> TotalMark
+		{
+			get
+			{
+				return this._TotalMark;
+			}
+			set
+			{
+				if ((this._TotalMark != value))
+				{
+					this._TotalMark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
+		{
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultNewSelectCommandResult
+	{
+		
+		private long _ResultId;
+		
+		private System.Nullable<int> _TotalMark;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		public sp_tblResultNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
+		{
+			get
+			{
+				return this._ResultId;
+			}
+			set
+			{
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalMark", DbType="Int")]
+		public System.Nullable<int> TotalMark
+		{
+			get
+			{
+				return this._TotalMark;
+			}
+			set
+			{
+				if ((this._TotalMark != value))
+				{
+					this._TotalMark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
+		{
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblResultNewUpdateCommandResult
+	{
+		
+		private long _ResultId;
+		
+		private System.Nullable<int> _TotalMark;
+		
+		private System.Nullable<long> _FK_UserId;
+		
+		public sp_tblResultNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultId", DbType="BigInt NOT NULL")]
+		public long ResultId
+		{
+			get
+			{
+				return this._ResultId;
+			}
+			set
+			{
+				if ((this._ResultId != value))
+				{
+					this._ResultId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalMark", DbType="Int")]
+		public System.Nullable<int> TotalMark
+		{
+			get
+			{
+				return this._TotalMark;
+			}
+			set
+			{
+				if ((this._TotalMark != value))
+				{
+					this._TotalMark = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_UserId", DbType="BigInt")]
+		public System.Nullable<long> FK_UserId
+		{
+			get
+			{
+				return this._FK_UserId;
+			}
+			set
+			{
+				if ((this._FK_UserId != value))
+				{
+					this._FK_UserId = value;
 				}
 			}
 		}

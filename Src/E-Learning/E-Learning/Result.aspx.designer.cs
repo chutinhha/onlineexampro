@@ -10,33 +10,24 @@
 namespace E_Learning {
     
     
-    public partial class ucStudentNote {
+    public partial class Result {
         
         /// <summary>
-        /// ddlNotesSubject control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNotesSubject;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddlNotesTitle control.
+        /// PlaceHolder1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNotesTitle;
-        
-        /// <summary>
-        /// BtnView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnView;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
     }
 }
