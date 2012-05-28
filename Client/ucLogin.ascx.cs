@@ -10,7 +10,7 @@ public partial class ucLogin : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["username"] == "")
+        if (Session["username"] == "" || Session["username"]==null)
         {
             var userid = "";
             var password = "";
@@ -62,7 +62,7 @@ public partial class ucLogin : System.Web.UI.UserControl
                         HttpCookie cookie = new HttpCookie("PhotoProcessing");
                         cookie.Values["Userid"] = txtEmail.Text;
                         cookie.Values["Password"] = txtPassword.Text;
-                        cookie.Expires.AddDays(1);
+                        cookie.Expires = DateTime.Now.AddDays(1);
                         Response.Cookies.Add(cookie);
                     }
 
