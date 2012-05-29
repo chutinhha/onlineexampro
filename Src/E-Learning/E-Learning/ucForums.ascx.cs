@@ -44,6 +44,10 @@ namespace E_Learning
             ddlCategory.DataTextField = "CategoryName";
             ddlCategory.DataValueField = "Id";
             ddlCategory.DataBind();
+            DropDownList1.DataSource = ElearningHelper.Context.tblCategories.Select(a => a);
+            DropDownList1.DataTextField = "CategoryName";
+            DropDownList1.DataValueField = "Id";
+            DropDownList1.DataBind();
         }
 
         protected void btnPost_Click(object sender, EventArgs e)
@@ -137,7 +141,23 @@ namespace E_Learning
                 gvr.DataSource = obj;
                 gvr.DataBind();
             }
+        }
 
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var obj = from a in ElearningHelper.Context.tblForumQuestions
+                      where a.FK_CategoryId == Convert.ToInt64(DropDownList1.SelectedValue)
+                      select new
+                      {
+                          Question = a.Question,
+                          Name = a.tblLogin.Name,
+                          RollNumber = a.tblLogin.RollNumber,
+                          Date = a.Date,
+                          Id = a.Id
+                      };
+            GridView1.DataSource = obj;
+            GridView1.DataBind();
+            BindSecGrid();
         }
     }
 }

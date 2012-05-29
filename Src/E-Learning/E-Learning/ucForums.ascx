@@ -2,8 +2,6 @@
 <%@ Register src="ucstudentheader.ascx" tagname="ucstudentheader" tagprefix="uc1" %>
 <table width="900" align="center">
         <tr>
-            </tr>
-        <tr>
             <td>
                 <table>
                     <tr>
@@ -45,6 +43,13 @@
                                     </td>
                                 </tr>
                             </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" 
+                                onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+                            </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>

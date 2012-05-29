@@ -18,6 +18,16 @@ namespace E_Learning
             if (!IsPostBack)
             {
                 BindDropDown();
+                DropDownList1.Items.Add("-Select-");
+                for (int i = DateTime.Now.Year; i < DateTime.Now.Year + 4; i++)
+                {
+                    DropDownList1.Items.Add(i.ToString());
+                }
+                DropDownList2.DataSource = from a in ElearningHelper.Context.tblCourses select a;
+                DropDownList2.DataTextField = "CourseName";
+                DropDownList2.DataValueField = "Id";
+                DropDownList2.DataBind();
+                DropDownList2.Items.Insert(0,"-Select-");
             }
         }
 
@@ -52,8 +62,19 @@ namespace E_Learning
             {
                 password += pas[rd.Next(10)];
             }
-            ElearningHelper.Context.sp_tblLoginNewInsertCommand(txtRollNumber.Text, txtName.Text, password, txtYear.Text, txtDepartment.Text, txtEMailId.Text, DateTime.Now, DateTime.Now, Convert.ToInt64(ddlRoll.SelectedValue), txtAddress.Text, Convert.ToInt64(txtPostalCode.Text));
-            
+            var st = ElearningHelper.Context.sp_tblLoginNewInsertCommand(txtRollNumber.Text, txtName.Text, password, txtYear.Text, txtDepartment.Text, txtEMailId.Text, DateTime.Now, DateTime.Now, Convert.ToInt64(ddlRoll.SelectedValue), txtAddress.Text, Convert.ToInt64(txtPostalCode.Text));
+            foreach (var item in st)
+            {
+                using (var obj = new ELearningDataContext())
+                {
+                    var aa = new tblStuCourse();
+                    aa.FK_Course = Convert.ToInt64(DropDownList2.SelectedValue);
+                    aa.FK_StudentId = item.Id;
+                    aa.Year = Convert.ToInt32(DropDownList1.SelectedItem.Text);
+                    obj.tblStuCourses.InsertOnSubmit(aa);
+                    obj.SubmitChanges();
+                }
+            }
         }
 
         protected void ddlRoll_SelectedIndexChanged(object sender, EventArgs e)

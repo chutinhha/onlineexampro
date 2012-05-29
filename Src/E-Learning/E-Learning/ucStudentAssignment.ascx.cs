@@ -18,6 +18,18 @@ namespace E_Learning
             if (!IsPostBack)
             {
                 BindDropDown();
+                BindGrid();
+            }
+        }
+
+        private void BindGrid()
+        {
+            long f = ElearningHelper.Context.tblLogins.Single(a => a.RollNumber == Convert.ToString(Session["UserName"])).Id;
+            var aa = from a in ElearningHelper.Context.tblAssignments where a.FK_StudentId == f select a;
+            //if (aa.Count() > 0)
+            {
+                GridView1.DataSource = aa;
+                GridView1.DataBind();
             }
         }
         private void BindDropDown()
@@ -37,6 +49,14 @@ namespace E_Learning
             }
             long f = ElearningHelper.Context.tblLogins.Single(a => a.RollNumber == Convert.ToString(Session["UserName"])).Id;
             ElearningHelper.Context.sp_tblAssignmentsNewInsertCommand(path, Convert.ToInt64(ddlStaff.SelectedValue), txtTopic.Text, Convert.ToInt32(txtAssignNum.Text), DateTime.Now, f, false);
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "View")
+            {
+                System.Diagnostics.Process.Start(Server.MapPath(ElearningHelper.Context.tblAssignments.Single(a => a.Id == Convert.ToInt64(e.CommandArgument)).FilePath));
+            }
         }
     }
 }

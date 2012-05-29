@@ -80,6 +80,7 @@
       <Association Name="tblLogin_tblForumQuestion" Member="tblForumQuestions" ThisKey="Id" OtherKey="FK_UserId" Type="tblForumQuestion" />
       <Association Name="tblLogin_tblNote" Member="tblNotes" ThisKey="Id" OtherKey="FK_StaffId" Type="tblNote" />
       <Association Name="tblLogin_tblResult" Member="tblResults" ThisKey="Id" OtherKey="FK_UserId" Type="tblResult" />
+      <Association Name="tblLogin_tblStuCourse" Member="tblStuCourses" ThisKey="Id" OtherKey="FK_StudentId" Type="tblStuCourse" />
       <Association Name="tblRole_tblLogin" Member="tblRole" ThisKey="FK_RoleId" OtherKey="Id" Type="tblRole" IsForeignKey="true" />
     </Type>
   </Table>
@@ -169,6 +170,23 @@
       <Column Name="FK_CateId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="tblQuestionTitle_tblResultMark" Member="tblQuestionTitle" ThisKey="FK_CateId" OtherKey="QuestionTitleId" Type="tblQuestionTitle" IsForeignKey="true" />
       <Association Name="tblResult_tblResultMark" Member="tblResult" ThisKey="FK_ResultId" OtherKey="ResultId" Type="tblResult" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCourses" Member="tblCourses">
+    <Type Name="tblCourse">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="tblCourse_tblStuCourse" Member="tblStuCourses" ThisKey="Id" OtherKey="FK_Course" Type="tblStuCourse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStuCourse" Member="tblStuCourses">
+    <Type Name="tblStuCourse">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_Course" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FK_StudentId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="tblCourse_tblStuCourse" Member="tblCourse" ThisKey="FK_Course" OtherKey="Id" Type="tblCourse" IsForeignKey="true" />
+      <Association Name="tblLogin_tblStuCourse" Member="tblLogin" ThisKey="FK_StudentId" OtherKey="Id" Type="tblLogin" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_tblLoginNewDeleteCommand" Method="sp_tblLoginNewDeleteCommand">

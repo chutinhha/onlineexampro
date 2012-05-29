@@ -87,6 +87,7 @@
     <Content Include="Result.aspx" />
     <Content Include="StudentNotes.aspx" />
     <Content Include="StudentTest.aspx" />
+    <Content Include="ucAddCourses.ascx" />
     <Content Include="ucfilesview.ascx" />
     <Content Include="ucForums.ascx" />
     <Content Include="Forums.aspx" />
@@ -131,6 +132,7 @@
     <Content Include="testgen.aspx" />
     <Content Include="ucAssignmentsStaff.ascx" />
     <Content Include="ucHeader.ascx" />
+    <Content Include="ucLoginOut.ascx" />
     <Content Include="ucQuestionPosting.ascx" />
     <Content Include="ucStudentAssignment.ascx" />
     <Content Include="ucStudentDetails.ascx" />
@@ -219,6 +221,13 @@
     <Compile Include="StudentTest.aspx.designer.cs">
       <DependentUpon>StudentTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ucAddCourses.ascx.cs">
+      <DependentUpon>ucAddCourses.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucAddCourses.ascx.designer.cs">
+      <DependentUpon>ucAddCourses.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ucfilesview.ascx.cs">
       <DependentUpon>ucfilesview.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -296,6 +305,13 @@
     </Compile>
     <Compile Include="ucAdminheadertemplate.ascx.designer.cs">
       <DependentUpon>ucAdminheadertemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ucLoginOut.ascx.cs">
+      <DependentUpon>ucLoginOut.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucLoginOut.ascx.designer.cs">
+      <DependentUpon>ucLoginOut.ascx</DependentUpon>
     </Compile>
     <Compile Include="ucQuestionPosting.ascx.cs">
       <DependentUpon>ucQuestionPosting.ascx</DependentUpon>
