@@ -1,7 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Forums.aspx.cs" Inherits="E_Learning.Forums" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true"
+    CodeBehind="Forums.aspx.cs" Inherits="E_Learning.Forums" %>
 
 <%@ Register Src="ucAdminheadertemplate.ascx" TagName="Adminheadertemplate" TagPrefix="uc1" %>
-<%@ Register src="ucForums.ascx" tagname="ucForums" tagprefix="uc2" %>
+<%@ Register Src="ucForums.ascx" TagName="ucForums" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -19,7 +20,7 @@
         <tr>
             <td>
                 <uc2:ucForums ID="ucForums1" runat="server" />
-                </td>
+            </td>
         </tr>
     </table>
     </form>

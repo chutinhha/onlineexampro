@@ -16,5 +16,9 @@ namespace E_Learning
                 Response.Redirect("HomeNew.aspx");
             }
         }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
     }
 }

@@ -129,6 +129,22 @@
                         </tr>
                         <tr>
                             <td style="font-family: georgia, serif; font-size: 13px;">
+                                Year</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList1" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: georgia, serif; font-size: 13px;">
+                                Course</td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList2" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family: georgia, serif; font-size: 13px;">
                                 &nbsp;</td>
                             <td>
                                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" 

@@ -81,6 +81,12 @@ namespace E_Learning
     partial void InserttblResultMark(tblResultMark instance);
     partial void UpdatetblResultMark(tblResultMark instance);
     partial void DeletetblResultMark(tblResultMark instance);
+    partial void InserttblCourse(tblCourse instance);
+    partial void UpdatetblCourse(tblCourse instance);
+    partial void DeletetblCourse(tblCourse instance);
+    partial void InserttblStuCourse(tblStuCourse instance);
+    partial void UpdatetblStuCourse(tblStuCourse instance);
+    partial void DeletetblStuCourse(tblStuCourse instance);
     #endregion
 		
 		public ELearningDataContext() : 
@@ -246,6 +252,22 @@ namespace E_Learning
 			get
 			{
 				return this.GetTable<tblResultMark>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblCourse> tblCourses
+		{
+			get
+			{
+				return this.GetTable<tblCourse>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblStuCourse> tblStuCourses
+		{
+			get
+			{
+				return this.GetTable<tblStuCourse>();
 			}
 		}
 		
@@ -1915,6 +1937,8 @@ namespace E_Learning
 		
 		private EntitySet<tblResult> _tblResults;
 		
+		private EntitySet<tblStuCourse> _tblStuCourses;
+		
 		private EntityRef<tblRole> _tblRole;
 		
     #region Extensibility Method Definitions
@@ -1954,6 +1978,7 @@ namespace E_Learning
 			this._tblForumQuestions = new EntitySet<tblForumQuestion>(new Action<tblForumQuestion>(this.attach_tblForumQuestions), new Action<tblForumQuestion>(this.detach_tblForumQuestions));
 			this._tblNotes = new EntitySet<tblNote>(new Action<tblNote>(this.attach_tblNotes), new Action<tblNote>(this.detach_tblNotes));
 			this._tblResults = new EntitySet<tblResult>(new Action<tblResult>(this.attach_tblResults), new Action<tblResult>(this.detach_tblResults));
+			this._tblStuCourses = new EntitySet<tblStuCourse>(new Action<tblStuCourse>(this.attach_tblStuCourses), new Action<tblStuCourse>(this.detach_tblStuCourses));
 			this._tblRole = default(EntityRef<tblRole>);
 			OnCreated();
 		}
@@ -2267,6 +2292,19 @@ namespace E_Learning
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblStuCourse", Storage="_tblStuCourses", ThisKey="Id", OtherKey="FK_StudentId")]
+		public EntitySet<tblStuCourse> tblStuCourses
+		{
+			get
+			{
+				return this._tblStuCourses;
+			}
+			set
+			{
+				this._tblStuCourses.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblRole_tblLogin", Storage="_tblRole", ThisKey="FK_RoleId", OtherKey="Id", IsForeignKey=true)]
 		public tblRole tblRole
 		{
@@ -2376,6 +2414,18 @@ namespace E_Learning
 		}
 		
 		private void detach_tblResults(tblResult entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = null;
+		}
+		
+		private void attach_tblStuCourses(tblStuCourse entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogin = this;
+		}
+		
+		private void detach_tblStuCourses(tblStuCourse entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblLogin = null;
@@ -4078,6 +4128,336 @@ namespace E_Learning
 						this._FK_ResultId = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("tblResult");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblCourses")]
+	public partial class tblCourse : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private string _CourseName;
+		
+		private EntitySet<tblStuCourse> _tblStuCourses;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnCourseNameChanging(string value);
+    partial void OnCourseNameChanged();
+    #endregion
+		
+		public tblCourse()
+		{
+			this._tblStuCourses = new EntitySet<tblStuCourse>(new Action<tblStuCourse>(this.attach_tblStuCourses), new Action<tblStuCourse>(this.detach_tblStuCourses));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CourseName", DbType="NVarChar(500)")]
+		public string CourseName
+		{
+			get
+			{
+				return this._CourseName;
+			}
+			set
+			{
+				if ((this._CourseName != value))
+				{
+					this.OnCourseNameChanging(value);
+					this.SendPropertyChanging();
+					this._CourseName = value;
+					this.SendPropertyChanged("CourseName");
+					this.OnCourseNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCourse_tblStuCourse", Storage="_tblStuCourses", ThisKey="Id", OtherKey="FK_Course")]
+		public EntitySet<tblStuCourse> tblStuCourses
+		{
+			get
+			{
+				return this._tblStuCourses;
+			}
+			set
+			{
+				this._tblStuCourses.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblStuCourses(tblStuCourse entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCourse = this;
+		}
+		
+		private void detach_tblStuCourses(tblStuCourse entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblCourse = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblStuCourse")]
+	public partial class tblStuCourse : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private System.Nullable<int> _Year;
+		
+		private System.Nullable<long> _FK_Course;
+		
+		private System.Nullable<long> _FK_StudentId;
+		
+		private EntityRef<tblCourse> _tblCourse;
+		
+		private EntityRef<tblLogin> _tblLogin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnYearChanging(System.Nullable<int> value);
+    partial void OnYearChanged();
+    partial void OnFK_CourseChanging(System.Nullable<long> value);
+    partial void OnFK_CourseChanged();
+    partial void OnFK_StudentIdChanging(System.Nullable<long> value);
+    partial void OnFK_StudentIdChanged();
+    #endregion
+		
+		public tblStuCourse()
+		{
+			this._tblCourse = default(EntityRef<tblCourse>);
+			this._tblLogin = default(EntityRef<tblLogin>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int")]
+		public System.Nullable<int> Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this.OnYearChanging(value);
+					this.SendPropertyChanging();
+					this._Year = value;
+					this.SendPropertyChanged("Year");
+					this.OnYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_Course", DbType="BigInt")]
+		public System.Nullable<long> FK_Course
+		{
+			get
+			{
+				return this._FK_Course;
+			}
+			set
+			{
+				if ((this._FK_Course != value))
+				{
+					if (this._tblCourse.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_CourseChanging(value);
+					this.SendPropertyChanging();
+					this._FK_Course = value;
+					this.SendPropertyChanged("FK_Course");
+					this.OnFK_CourseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_StudentId", DbType="BigInt")]
+		public System.Nullable<long> FK_StudentId
+		{
+			get
+			{
+				return this._FK_StudentId;
+			}
+			set
+			{
+				if ((this._FK_StudentId != value))
+				{
+					if (this._tblLogin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_StudentIdChanging(value);
+					this.SendPropertyChanging();
+					this._FK_StudentId = value;
+					this.SendPropertyChanged("FK_StudentId");
+					this.OnFK_StudentIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblCourse_tblStuCourse", Storage="_tblCourse", ThisKey="FK_Course", OtherKey="Id", IsForeignKey=true)]
+		public tblCourse tblCourse
+		{
+			get
+			{
+				return this._tblCourse.Entity;
+			}
+			set
+			{
+				tblCourse previousValue = this._tblCourse.Entity;
+				if (((previousValue != value) 
+							|| (this._tblCourse.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblCourse.Entity = null;
+						previousValue.tblStuCourses.Remove(this);
+					}
+					this._tblCourse.Entity = value;
+					if ((value != null))
+					{
+						value.tblStuCourses.Add(this);
+						this._FK_Course = value.Id;
+					}
+					else
+					{
+						this._FK_Course = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblCourse");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogin_tblStuCourse", Storage="_tblLogin", ThisKey="FK_StudentId", OtherKey="Id", IsForeignKey=true)]
+		public tblLogin tblLogin
+		{
+			get
+			{
+				return this._tblLogin.Entity;
+			}
+			set
+			{
+				tblLogin previousValue = this._tblLogin.Entity;
+				if (((previousValue != value) 
+							|| (this._tblLogin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblLogin.Entity = null;
+						previousValue.tblStuCourses.Remove(this);
+					}
+					this._tblLogin.Entity = value;
+					if ((value != null))
+					{
+						value.tblStuCourses.Add(this);
+						this._FK_StudentId = value.Id;
+					}
+					else
+					{
+						this._FK_StudentId = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tblLogin");
 				}
 			}
 		}

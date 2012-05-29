@@ -31,6 +31,15 @@ namespace E_Learning {
         protected global::E_Learning.WebUserControl1 Adminheadertemplate1;
         
         /// <summary>
+        /// ucLoginOut1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E_Learning.ucLoginOut ucLoginOut1;
+        
+        /// <summary>
         /// ucStudentDetails1 control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace E_Learning {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::E_Learning.ucStudentDetails ucStudentDetails1;
+        
+        /// <summary>
+        /// ucAddCourses1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E_Learning.ucAddCourses ucAddCourses1;
     }
 }
