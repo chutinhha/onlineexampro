@@ -34,10 +34,7 @@ public partial class ucLogin : System.Web.UI.UserControl
                     }
                 }
             }
-           
         }
-
-
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
@@ -65,15 +62,12 @@ public partial class ucLogin : System.Web.UI.UserControl
                         cookie.Expires = DateTime.Now.AddDays(1);
                         Response.Cookies.Add(cookie);
                     }
-
                     Session["username"] = checkAcivation.Full_Name;
                     Session["email"] = checkAcivation.Email;
                     var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == checkAcivation.Customer_id select a).FirstOrDefault();
                     lastlogin.Last_Login = DateTime.Now;
                     dataDB.SubmitChanges();
                     Response.Redirect("UploadPhoto.aspx");
-
-
                 }
                 else
                 {
@@ -86,7 +80,5 @@ public partial class ucLogin : System.Web.UI.UserControl
                 lbResponse.Text = "Invalid Login!";
             }
         }
-
     }
-
 }

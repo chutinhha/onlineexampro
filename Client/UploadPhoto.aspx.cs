@@ -11,4 +11,17 @@ public partial class UploadPhoto : System.Web.UI.Page
     {
 
     }
+    protected void fuPhotoUpload_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
+    {
+        if (fuPhotoUpload.HasFile)
+        {
+            string fileName = fuPhotoUpload.FileName;
+            string filepath = "~/Uploads/" + fileName;
+            if (CheckBox1.Checked)
+            {
+                filepath = "~/Uploads/Adult/" + fileName;
+            }
+            fuPhotoUpload.SaveAs(Server.MapPath(filepath));
+        }
+    }
 }
