@@ -9,7 +9,6 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         string user = Convert.ToString(Session["username"]);
         if (user == "")
         {
@@ -25,8 +24,6 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
             lbtnLogout.Visible = true;
             lbuser.Text = Convert.ToString(Session["username"]);
         }
-
-
     }
     protected void lbtnLogout_Click(object sender, EventArgs e)
     {
@@ -52,5 +49,4 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
     {
         mdlRegistration.Hide();
     }
-
 }

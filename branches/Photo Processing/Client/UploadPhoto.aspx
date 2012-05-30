@@ -17,13 +17,24 @@
         </tr>
         <tr>
             <td>
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td>
-                            <cc1:AsyncFileUpload ID="fuPhotoUpload" runat="server" />
-                        </td>
-                    </tr>
-                </table>
+                <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:View ID="View1" runat="server">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Text="Adult Content" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <cc1:AsyncFileUpload ID="fuPhotoUpload" runat="server" OnUploadedComplete="fuPhotoUpload_UploadedComplete" />
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                    </asp:View>
+                </asp:MultiView>
             </td>
         </tr>
     </table>
