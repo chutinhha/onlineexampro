@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
+
 public partial class ucUpdateProfile : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)

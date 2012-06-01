@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Text;
+
 public partial class ucRegistration : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
