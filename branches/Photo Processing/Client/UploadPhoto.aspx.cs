@@ -24,4 +24,8 @@ public partial class UploadPhoto : System.Web.UI.Page
             fuPhotoUpload.SaveAs(Server.MapPath(filepath));
         }
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Services.aspx");
+    }
 }
