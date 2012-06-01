@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Text;
 
+
 public partial class ForgetPassword : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
