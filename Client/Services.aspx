@@ -2,7 +2,6 @@
     CodeFile="Services.aspx.cs" Inherits="Services" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link href="Style/AccordionStyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="js/jquery.ui.all.css">
     <script src="js/jquery-1.7.2.js"></script>
     <script src="js/jquery.ui.core.js"></script>
@@ -35,6 +34,11 @@
             $("#accordion h3 input").eq(0).attr("checked", "checked");
         });
     </script>
+    <script type="text/javascript">
+        function test() {
+            alert("testset");
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="100%">
@@ -50,48 +54,66 @@
         </tr>
         <tr>
             <td>
-                <table cellpadding="0" cellspacing="0">
+                <table>
                     <tr>
                         <td>
-                            <div id="accordion">
-                                <%var aa = PhotoProcessingHelper.Context.Photo_PlanDetails.Select(a => a);
-                                  int i = 0, j = 0;
-                                  foreach (var item in aa)
-                                  { %>
-                                <h3>
-                                    <% RadioButton1.Text = item.Plan_Name;
-                                       RadioButton1.Attributes.Add("onclick", "setChecked(this)");
-                                    %>
-                                    <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
-                                    <input id="hiddenCatId" type="hidden" />
-                                </h3>
-                                <div>
-                                    <table>
-                                        <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == item.Plan_id);
-                                          foreach (var item1 in bb)
-                                          {
-                                              CheckBox1.Text = item1.Category_name;
-                                              CheckBox1.ID = "chk" + j.ToString();
-                                              CheckBox1.InputAttributes["name"] = "chk";
-                                        %>
-                                        <tr>
-                                            <td>
-                                                <asp:CheckBox ID="CheckBox1" runat="server" />
-                                            </td>
-                                        </tr>
-                                        <%
-                      j++;
-                  }
-                  i++;
-                                        %>
-                                    </table>
-                                </div>
-                                <%
-          }%>
-                            </div>
+                        </td>
+                        <td>
+                            <table cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div id="accordion">
+                                            <%var aa = PhotoProcessingHelper.Context.Photo_PlanDetails.Select(a => a);
+                                              int i = 0, j = 0;
+                                              foreach (var item in aa)
+                                              { %>
+                                            <h3>
+                                                <% RadioButton1.Text = item.Plan_Name;
+                                                   RadioButton1.Attributes.Add("onclick", "setChecked(this)");
+                                                %>
+                                                <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
+                                                <input id="hiddenCatId" type="hidden" />
+                                            </h3>
+                                            <div>
+                                                <table>
+                                                    <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == item.Plan_id);
+                                                      foreach (var item1 in bb)
+                                                      {
+                                                          CheckBox1.Text = item1.Category_name;
+                                                          CheckBox1.ID = "chk" + j.ToString();
+                                                          CheckBox1.InputAttributes["name"] = "chk";
+                                                    %>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                                                        </td>
+                                                    </tr>
+                                                    <%
+                                                          j++;
+                                                      }
+                                                      i++;
+                                                    %>
+                                                </table>
+                                            </div>
+                                            <%
+                                              }%>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
+            </td>
+        </tr>
+        <tr align="right">
+            <td>
+                Total : <span id="totalAmount"></span>
+            </td>
+        </tr>
+        <tr align="right">
+            <td>
+                <asp:Button ID="Button1" runat="server" Text="Add to Cart" />
             </td>
         </tr>
     </table>
