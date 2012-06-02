@@ -9,7 +9,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
     <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
     </cc1:ToolkitScriptManager>
     <div>

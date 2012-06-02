@@ -3,6 +3,7 @@
 
 <%@ Register Src="ucSideMenu.ascx" TagName="ucSideMenu" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="js/jquery.ui.all.css">
     <script src="js/jquery-1.7.2.js"></script>
     <script src="js/jquery.ui.core.js"></script>
@@ -93,71 +94,93 @@
                 <table>
                     <tr>
                         <td>
-                            <ul style="list-style-type: none; padding: 0px; margin: 0px 0px 14px 0px; overflow: hidden;">
-                                <li>1. UPLOAD PHOTOS</li>
-                                <li style="font-weight: bold; color: White; background: #89BC23">2. CHOOSE LEVEL OF
-                                    SERVICE</li>
-                                <li>3. ORDER SUMMARY</li>
-                                <li>4. CONFIRM ORDER</li>
-                                <li>5. CHOOSE PAYMENT METHOD </li>
-                            </ul>
+                            <table cellpadding="0" cellspacing="5" width="100%">
+                                <tr>
+                                    <td>
+                                        <div id="t1" class="otherbackcolor" style="">
+                                            1. UPLOAD PHOTOS
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div id="t2" class="currentbackcolor">
+                                            2. CHOOSE LEVEL OF SERVICE
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div id="t3" class="otherbackcolor">
+                                            3. ORDER SUMMARY
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div id="t4" class="otherbackcolor">
+                                            4. CONFIRM ORDER
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div id="t5" class="otherbackcolor">
+                                            5. CHOOSE PAYMENT METHOD
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                     <tr>
                         <td style="font-family: Calibri; color: #000000; font-weight: bold; font-size: 24px">
                             Services:
                         </td>
-                        <tr>
-                            <td align="left">
-                                <div id="accordion">
-                                    <%var aa = PhotoProcessingHelper.Context.Photo_PlanDetails.Select(a => a);
-                                      int i = 0, j = 0;
-                                      foreach (var item in aa)
-                                      { %>
-                                    <h3>
-                                        <% RadioButton1.Text = item.Plan_Name;
-                                           RadioButton1.Attributes.Add("onclick", "setChecked(this)");
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <div id="accordion">
+                                <%var aa = PhotoProcessingHelper.Context.Photo_PlanDetails.Select(a => a);
+                                  int i = 0, j = 0;
+                                  foreach (var item in aa)
+                                  { %>
+                                <h3>
+                                    <% RadioButton1.Text = item.Plan_Name;
+                                       RadioButton1.Attributes.Add("onclick", "setChecked(this)");
+                                    %>
+                                    <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
+                                    <input id="hiddenCatId" type="hidden" />
+                                    <asp:HiddenField ID="hidAccordionIndex" runat="server" Value="0" />
+                                </h3>
+                                <div>
+                                    <table>
+                                        <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == item.Plan_id);
+                                          foreach (var item1 in bb)
+                                          {
+                                              CheckBox1.Text = item1.Category_name;
+                                              CheckBox1.ID = "chk" + j.ToString();
+                                              CheckBox1.InputAttributes["name"] = "chk";
                                         %>
-                                        <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
-                                        <input id="hiddenCatId" type="hidden" />
-                                        <asp:HiddenField ID="hidAccordionIndex" runat="server" Value="0" />
-                                    </h3>
-                                    <div>
-                                        <table>
-                                            <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == item.Plan_id);
-                                              foreach (var item1 in bb)
-                                              {
-                                                  CheckBox1.Text = item1.Category_name;
-                                                  CheckBox1.ID = "chk" + j.ToString();
-                                                  CheckBox1.InputAttributes["name"] = "chk";
-                                            %>
-                                            <tr>
-                                                <td>
-                                                    <asp:CheckBox ID="CheckBox1" runat="server" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                                  j++;
-                                              }
-                                              i++;
-                                            %>
-                                        </table>
-                                    </div>
-                                    <%
-                                      }%>
+                                        <tr>
+                                            <td>
+                                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <%
+                                              j++;
+                                          }
+                                          i++;
+                                        %>
+                                    </table>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr align="right">
-                            <td>
-                                Total : <span id="totalAmount"></span>
-                            </td>
-                        </tr>
-                        <tr align="right">
-                            <td>
-                                <asp:Button ID="Button1" runat="server" Text="Add to Cart" />
-                            </td>
-                        </tr>
+                                <%
+                                  }%>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr align="right">
+                        <td>
+                            Total : <span id="totalAmount">$ 0.00</span>
+                        </td>
+                    </tr>
+                    <tr align="right">
+                        <td>
+                            <asp:Button ID="Button1" runat="server" Text="Add to Cart" 
+                                onclick="Button1_Click" />
+                        </td>
                     </tr>
                 </table>
             </td>

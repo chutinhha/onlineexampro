@@ -12,4 +12,20 @@ public partial class Services : System.Web.UI.Page
     {
        
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        foreach (Control item in Page.Controls)
+        {
+            if (item.HasControls())
+            {
+                foreach (Control item1 in item.Controls)
+                {
+                    if (item1 is CheckBox)
+                    {
+
+                    }
+                }
+            }
+        }
+    }
 }
