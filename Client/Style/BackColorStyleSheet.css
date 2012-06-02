@@ -1,8 +1,68 @@
 ﻿.currentbackcolor
 {
-    background-color: #999966;
+    padding: 0 5px 0 5px;
+    font: normal 12px Arial, Helvetica, sans-serif;
+    background-color: #33CC33;
+    height: 30px;
+    line-height: 30px;
+    border-right: 2px solid white;
 }
 .otherbackcolor
 {
-    background-color: White;
+    padding: 0 5px 0 5px;
+    font: normal 12px arial;
+    background-color: #FFCCFF;
+    height: 30px;
+    line-height: 30px;
+    border-right: 2px solid white;
+}
+#accordion
+{
+    font: normal 12px arial;
+    width: 430px;
+}
+ul.list4
+{
+    margin: 0 10px;
+}
+ul.list4 li
+{
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #000;
+}
+ul.list4 li table td
+{
+    vertical-align: top;
+}
+ul.list4 li table td.pic
+{
+    background: #f6f6f6;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 0;
+}
+ul.list4 li table td.indent
+{
+    padding-left: 10px;
+}
+ul.list4 li table td p
+{
+    margin-top: 6px;
+}
+h3.title
+{
+    font: normal 18px "Trebuchet MS" , Arial, Helvetica, sans-serif;
+    color: #89bc23;
+    padding-left: 22px;
+    line-height: 39px;
+    margin-right: 34px;
+}
+.bullet
+{
+    background: url(../images/arrow_.png) 6px 11px no-repeat;
+    display: block;
+    padding-left: 20px;
+    padding-top: 5px;
 }

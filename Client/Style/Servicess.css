@@ -1,8 +1,10 @@
-﻿body {
+﻿body
+{
 }
 .view1
 {
     color: #FF6600;
     font-size: 15px;
     font-family: Calibri;
+    border: 1px solid #808080;
 }
