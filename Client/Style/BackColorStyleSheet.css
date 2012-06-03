@@ -66,3 +66,162 @@ h3.title
     padding-left: 20px;
     padding-top: 5px;
 }
+
+/*footer*/
+
+.footer_bg_1
+{
+    background-image: url(../images/footer_bg_main.jpg);
+    background-repeat: repeat-x;
+    background-position: right top;
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    bottom: 0px;
+    width: 100%;
+    background-color: #252525;
+    padding-top: 10px;
+}
+.footer_bg_1 A
+{
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer_bg_1 A:Hover
+{
+    height: 59px;
+    color: #666;
+    font-size: 12px;
+    text-decoration: underline;
+}
+.menu_footer
+{
+    padding: 0px 0px 0px 2px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin: 0px;
+    width: 220px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 15px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+
+.menu_footer li
+{
+    padding: 10px 30px 5px 0px;
+    color: #ffffff;
+    font-size: 13px;
+    list-style: none;
+    margin: 0px 0px 0px 0px;
+    height: 15px;
+    text-decoration: none;
+    font-weight: normal;
+    border-bottom: 1px solid #666666;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.menu_footer li a
+{
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.menu_footer li a:hover
+{
+    text-decoration: none;
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+.menu_footer1
+{
+    padding: 10px 0px 0px 10px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin: 0px;
+    width: 180px;
+    text-align: left;
+    height: 120px;
+    font-size: 16px;
+    line-height: 15px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+.menu_footer1 a
+{
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    padding: 10px 30px 5px 10px;
+}
+.menu_footer1 a:hover
+{
+    text-decoration: none;
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+}
+.menu_footerimg
+{
+    padding-top: 10px;
+    height: 50px;
+    text-align: right;
+    width: 120px;
+    padding-right: 0px;
+}
+.menu_footerimg2
+{
+    float: left;
+    width: 50px;
+}
+.menu_footer2
+{
+    padding: 68px 0px 0px 0px;
+    color: #ffffff;
+    float: right;
+    font-size: 14px;
+    list-style: none;
+    margin: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-weight: normal;
+    height: 20px;
+    text-align: left;
+    cursor: pointer;
+}
+.footer_adrs
+{
+    padding: 15px 0px 0px 10px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin-left: 0px;
+    width: 375px;
+    text-align: left;
+    height: 140px;
+    font-size: 12px;
+    line-height: 12px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+
+/* end footer*/

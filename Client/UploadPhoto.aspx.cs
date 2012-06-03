@@ -28,6 +28,10 @@ public partial class UploadPhoto : System.Web.UI.Page
                 string ur = Request.Url.AbsoluteUri;
                 ur = ur.Substring(0, ur.LastIndexOf('/') + 1);
                 var output = string.Format("{0}Uploads/{1}", ur, fileName);
+                if (CheckBox1.Checked)
+                {
+                    output = string.Format("{0}Uploads/Adult/{1}", ur, fileName);
+                }
                 fuPhotoUpload.SaveAs(Server.MapPath(filepath));
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "image", "top.$get(\"imgPreview\").src='" + output + "';top.$get(\"tbpreview\").style.display='block'", true);
                 //Button1.Visible = true;
