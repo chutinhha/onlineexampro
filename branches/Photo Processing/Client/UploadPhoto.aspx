@@ -7,6 +7,9 @@
     <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    Upload Photos
+    <hr />
+    <br />
     <table style="border: 1px solid #FF00FF" cellpadding="5" cellspacing="5" width="100%"
         border="0">
         <tr>
@@ -15,7 +18,12 @@
             </td>
             <td align="left" valign="top" width="85%">
                 <div class="view1">
-                    <table cellpadding="5" cellspacing="5">
+                    <table cellpadding="0" style="padding-left: 10px" cellspacing="0">
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <table cellpadding="0" cellspacing="5" width="100%">
@@ -50,13 +58,28 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="font-family: Calibri; color: #000000; font-weight: bold; font-size: 24px">
                                 Upload Photo:
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <asp:CheckBox ID="CheckBox1" runat="server" Text="Adult Content" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +90,17 @@
                         </tr>
                         <tr>
                             <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 (JPEG, GIF, JPG, PNG type images are allowed.) Maximum File Size: 8MB
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
                             </td>
                         </tr>
                     </table>
@@ -79,8 +112,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="color: #FF0066">
                                 Please click on Next button
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
                             </td>
                         </tr>
                         <tr>
@@ -88,9 +131,19 @@
                                 <asp:Button ID="Button1" runat="server" Text="Next" OnClick="Button1_Click" />
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </td>
         </tr>
     </table>
+    <br />
+    <hr />
+    <br />
+    <br />
+    <br />
 </asp:Content>

@@ -22,13 +22,18 @@
         }
 
         function endRequestHandler(sender, args) {
-
+            var arr = new Array();
+            $('input[type=checkbox]').each(function () {
+                arr.push(this.checked);
+            });
+            alert(arr);
             $(function () {
                 //alert(document.getElementById("hiddenCatId").value);
                 var ind = document.getElementById('<%=hidAccordionIndex.ClientID %>');
-                var dd = ind.value.split(',');
-                var ass = dd[0];
-                $("#accordion").accordion({ active: parseInt(ass) });
+                //                alert(ind.value);
+                //                var dd = ind.value.split(',');
+                //                var ass = dd[0];
+                $("#accordion").accordion({ active: parseInt(ind.value) });
             });
             var setChecked = function (oThis) {
                 setTimeout(function () {
@@ -52,6 +57,7 @@
                 //$("#accordion h3 input").css("margin-left", "50px");
                 $("#accordion h3 input").eq(0).attr("checked", "checked");
             });
+
         }
 
 
@@ -142,8 +148,6 @@
                                        RadioButton1.Attributes.Add("onclick", "setChecked(this)");
                                     %>
                                     <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
-                                    <input id="hiddenCatId" type="hidden" />
-                                    <asp:HiddenField ID="hidAccordionIndex" runat="server" Value="0" />
                                 </h3>
                                 <div>
                                     <table>
@@ -151,7 +155,7 @@
                                           foreach (var item1 in bb)
                                           {
                                               CheckBox1.Text = item1.Category_name;
-                                              CheckBox1.ID = "chk" + j.ToString();
+                                              CheckBox1.ID = "chk_" + item1.SubCategory_id.ToString();
                                               CheckBox1.InputAttributes["name"] = "chk";
                                         %>
                                         <tr>
@@ -168,6 +172,8 @@
                                 </div>
                                 <%
                                   }%>
+                                <input id="hiddenCatId" type="hidden" />
+                                <asp:HiddenField ID="hidAccordionIndex" runat="server" Value="0" />
                             </div>
                         </td>
                     </tr>
@@ -178,8 +184,8 @@
                     </tr>
                     <tr align="right">
                         <td>
-                            <asp:Button ID="Button1" runat="server" Text="Add to Cart" 
-                                onclick="Button1_Click" />
+                            <input id="Button2" type="button" onclick="hh();" value="button" /><asp:Button ID="Button1"
+                                runat="server" Text="Add to Cart" OnClientClick="hh();" OnClick="Button1_Click" />
                         </td>
                     </tr>
                 </table>
