@@ -17,6 +17,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
+            <td colspan="2">
+                My Order History
+                <hr />
+                <br />
+            </td>
+        </tr>
+        <tr>
             <td valign="top" width="15%">
                 <uc1:ucSideMenu ID="ucSideMenu1" runat="server" />
             </td>
@@ -114,6 +121,11 @@
                         </td>
                     </tr>
                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
             </td>
         </tr>
     </table>

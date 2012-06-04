@@ -4,15 +4,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table cellpadding="0" cellspacing="0" width="400px">
+    <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td colspan="2">
+            Forget Password
                 <hr />
                 <br />
             </td>
         </tr>
         <tr>
-            <td>
+            <td width="150px">
                 Email Address:
             </td>
             <td>
@@ -25,8 +26,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center">
-                <asp:Button ID="btnforget" runat="server" Text="Submit" OnClick="btnforget_Click" />
+            <td colspan="2" align="left">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnforget" runat="server" Text="Submit" OnClick="btnforget_Click" />
                 <hr />
             </td>
         </tr>
