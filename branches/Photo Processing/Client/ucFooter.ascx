@@ -79,21 +79,29 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td valign="top">
-                                <div class="menu_footer1">
-                                    Payment Methods
-                                    <img src="Images/paypal.png" alt="PayPal" />
+                            <td valign="top" align="center">
+                                <div class="menu_footer1" align="center">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center">
+                                                Payment Methods
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="Images/paypal.png" alt="PayPal" />
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td align="right" colspan="2">
+                            <td style="padding: 20px;" align="center" colspan="6">
                                 Copyright ©
                                 <%=DateTime.Now.Year %>
-                                Photo Processing. All Rights Reserved.
-                            </td>
-                            <td style="padding: 20px;" align="left" colspan="3">
-                                <a href="mailto:info@photoprocessing.com" target="_blank">www.photoprocessing.com</a>
+                                Photo Processing. All Rights Reserved. <a href="mailto:info@photoprocessing.com"
+                                    target="_blank">www.photoprocessing.com</a>
                             </td>
                         </tr>
                     </tbody>

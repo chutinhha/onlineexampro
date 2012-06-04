@@ -45,6 +45,17 @@ public partial class UploadPhoto : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         string filePath = Convert.ToString(Session["filePath"]);
+       // if (fuPhotoUpload.HasFile)
+       // {
+            var ss = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).FirstOrDefault();
+            using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
+            {
+                Photo_OrderSummaryDetail obj = new Photo_OrderSummaryDetail();
+                obj.ImageUrl = filePath;
+                obj.fkCustomer_id = Convert.ToInt64(ss.Customer_id);
+                dataDB.Photo_OrderSummaryDetails.InsertOnSubmit(obj);
+            }
+      //  }
         Response.Redirect("Services.aspx");
     }
 }
