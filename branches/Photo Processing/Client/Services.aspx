@@ -85,6 +85,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    Choose Service
+    <hr />
+    <br />
     <table style="border: 1px solid #FF00FF" cellpadding="5" cellspacing="5" width="100%"
         border="0">
         <tr>
@@ -188,17 +191,20 @@
             </td>
         </tr>
     </table>
+    <br />
+    <hr />
+    <br />
+    <br />
+    <br />
     <script>
         $("#Button2").click(function () {
-            //            var selected = [];
-            //            $('#accordion input:checkbox').each(function () {
-            //                var isChecked = $(this).attr('checked');
-            //                if (isChecked == "checked") {
-            //                    selected.push($(this).attr('id'));
-            //                }
-            //            });
-            var selected = $('#accordion input:checkbox[checked=checked]');
-            alert(selected);
+            var selected = [];
+            $('#accordion input:checkbox').each(function () {
+                var isChecked = $(this).attr('checked');
+                if (isChecked == "checked") {
+                    selected.push($(this).attr('id'));
+                }
+            });
             AssignCart.Test(selected.join(','), success);
         });
         function success(r) {
