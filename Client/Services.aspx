@@ -22,11 +22,6 @@
         }
 
         function endRequestHandler(sender, args) {
-            var arr = new Array();
-            $('input[type=checkbox]').each(function () {
-                arr.push(this.checked);
-            });
-            alert(arr);
             $(function () {
                 //alert(document.getElementById("hiddenCatId").value);
                 var ind = document.getElementById('<%=hidAccordionIndex.ClientID %>');
@@ -184,6 +179,7 @@
                     </tr>
                     <tr align="right">
                         <td>
+                            <span id="log"></span>
                             <input id="Button2" type="button" onclick="hh();" value="button" /><asp:Button ID="Button1"
                                 runat="server" Text="Add to Cart" OnClientClick="hh();" OnClick="Button1_Click" />
                         </td>
@@ -192,4 +188,26 @@
             </td>
         </tr>
     </table>
+    <script>
+        $("#Button2").click(function () {
+            //            var selected = [];
+            //            $('#accordion input:checkbox').each(function () {
+            //                var isChecked = $(this).attr('checked');
+            //                if (isChecked == "checked") {
+            //                    selected.push($(this).attr('id'));
+            //                }
+            //            });
+            var selected = $('#accordion input:checkbox[checked=checked]');
+            alert(selected);
+            AssignCart.Test(selected.join(','), success);
+        });
+        function success(r) {
+            alert(r);
+        }
+    </script>
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/AssignCart.asmx" />
+        </Services>
+    </cc1:ToolkitScriptManager>
 </asp:Content>

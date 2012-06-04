@@ -7,7 +7,7 @@
                 <table border="0" cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
-                            <td colspan="2">
+                            <td valign="top">
                                 <div class="menu_footer">
                                     <ul>
                                         Services
@@ -22,6 +22,8 @@
                                         <li><a href="#">Photo Restoration</a></li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td valign="top">
                                 <div class="menu_footer">
                                     <ul>
                                         Examples
@@ -39,6 +41,8 @@
                                         <li><a href="#">Portraiture Photography</a></li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td valign="top">
                                 <div class="menu_footer">
                                     <ul>
                                         Useful Stuff
@@ -51,6 +55,8 @@
                                         <li><a href="#">Satisfaction Guarantee</a></li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td valign="top">
                                 <div class="menu_footer">
                                     <ul>
                                         Contact Us
@@ -60,6 +66,8 @@
                                         <li><a href="#">Facebook</a></li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td valign="top">
                                 <div class="menu_footer">
                                     <ul>
                                         Resources
@@ -70,6 +78,8 @@
                                         <li><a href="#">Latest News </a></li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td valign="top">
                                 <div class="menu_footer1">
                                     Payment Methods
                                     <img src="Images/Untitled-4.png" alt="PayPal" />
@@ -77,12 +87,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td align="right">
+                            <td align="right" colspan="2">
                                 Copyright ©
                                 <%=DateTime.Now.Year %>
                                 Photo Processing. All Rights Reserved.
                             </td>
-                            <td style="padding: 20px;" align="left">
+                            <td style="padding: 20px;" align="left" colspan="3">
                                 <a href="mailto:info@photoprocessing.com" target="_blank">www.photoprocessing.com</a>
                             </td>
                         </tr>
