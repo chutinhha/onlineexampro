@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PhotoProcessing" Class="AdminPhotoProcessingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=PhotoProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PhotoProcessingConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PhotoProcessing" Class="PhotoProcessingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=PhotoProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Biz_OutSource_To_IndiaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Photo_Billing_Address" Member="Photo_Billing_Addresses">
     <Type Name="Photo_Billing_Address">
       <Column Name="Billing_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -22,7 +22,7 @@
       <Column Name="Old_Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Date_of_change" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="Photo_CustomerRegistrationDetail_Photo_Change_Password_log" Member="Photo_CustomerRegistrationDetail" ThisKey="FkCustomer_id" OtherKey="Customer_id" Type="Photo_CustomerRegistrationDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Photo_CustomerRegistrationDetail_Photo_Change_Password_log" Member="Photo_CustomerRegistrationDetail" ThisKey="FkCustomer_id" OtherKey="Customer_id" Type="Photo_CustomerRegistrationDetail" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Photo_CountryDetail" Member="Photo_CountryDetails">
@@ -42,7 +42,7 @@
   </Table>
   <Table Name="dbo.Photo_CustomerRegistrationDetail" Member="Photo_CustomerRegistrationDetails">
     <Type Name="Photo_CustomerRegistrationDetail">
-      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
@@ -61,6 +61,7 @@
       <Association Name="Photo_CustomerRegistrationDetail_Photo_Change_Password_log" Member="Photo_Change_Password_logs" ThisKey="Customer_id" OtherKey="FkCustomer_id" Type="Photo_Change_Password_log" />
       <Association Name="Photo_CustomerRegistrationDetail_Photo_OrderDetail" Member="Photo_OrderDetails" ThisKey="Customer_id" OtherKey="FkCustomer_id" Type="Photo_OrderDetail" />
       <Association Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail" Member="Photo_Promo_codeDetails" ThisKey="Customer_id" OtherKey="FkCustomer_id" Type="Photo_Promo_codeDetail" />
+      <Association Name="Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail" Member="Photo_OrderSummaryDetails" ThisKey="Customer_id" OtherKey="fkCustomer_id" Type="Photo_OrderSummaryDetail" />
     </Type>
   </Table>
   <Table Name="dbo.Photo_OrderDetail" Member="Photo_OrderDetails">
@@ -110,6 +111,7 @@
       <Column Name="Rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Association Name="Photo_PlanDetail_Photo_OrderDetail" Member="Photo_OrderDetails" ThisKey="Plan_id" OtherKey="FkPlan_id" Type="Photo_OrderDetail" />
       <Association Name="Photo_PlanDetail_Photo_SubCatagoryDetail" Member="Photo_SubCatagoryDetails" ThisKey="Plan_id" OtherKey="FkPlan_id" Type="Photo_SubCatagoryDetail" />
+      <Association Name="Photo_PlanDetail_Photo_OrderSummaryDetail" Member="Photo_OrderSummaryDetails" ThisKey="Plan_id" OtherKey="fkPlan_id" Type="Photo_OrderSummaryDetail" />
     </Type>
   </Table>
   <Table Name="dbo.Photo_Promo_codeDetail" Member="Photo_Promo_codeDetails">
@@ -118,7 +120,7 @@
       <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Promo_Discount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail" Member="Photo_CustomerRegistrationDetail" ThisKey="FkCustomer_id" OtherKey="Customer_id" Type="Photo_CustomerRegistrationDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail" Member="Photo_CustomerRegistrationDetail" ThisKey="FkCustomer_id" OtherKey="Customer_id" Type="Photo_CustomerRegistrationDetail" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Photo_RemarksDetail" Member="Photo_RemarksDetails">
@@ -158,6 +160,17 @@
       <Column Name="Category_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Photo_PlanDetail_Photo_SubCatagoryDetail" Member="Photo_PlanDetail" ThisKey="FkPlan_id" OtherKey="Plan_id" Type="Photo_PlanDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Photo_OrderSummaryDetail" Member="Photo_OrderSummaryDetails">
+    <Type Name="Photo_OrderSummaryDetail">
+      <Column Name="OrderSummary_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EditOption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail" Member="Photo_CustomerRegistrationDetail" ThisKey="fkCustomer_id" OtherKey="Customer_id" Type="Photo_CustomerRegistrationDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Photo_PlanDetail_Photo_OrderSummaryDetail" Member="Photo_PlanDetail" ThisKey="fkPlan_id" OtherKey="Plan_id" Type="Photo_PlanDetail" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Photo_Billing_AddressNewDeleteCommand" Method="sp_Photo_Billing_AddressNewDeleteCommand">
@@ -293,134 +306,9 @@
       <Column Name="Status_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewDeleteCommand" Method="sp_Photo_CustomerRegistrationDetailNewDeleteCommand">
-    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int64" DbType="BigInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewInsertCommand" Method="sp_Photo_CustomerRegistrationDetailNewInsertCommand">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Last_Login" Parameter="last_Login" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Current_Status" Parameter="current_Status" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Profile_Image" Parameter="profile_Image" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Full_Name" Parameter="full_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ActivationStatus_Mobile" Parameter="activationStatus_Mobile" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SMS_Subs" Parameter="sMS_Subs" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewInsertCommandResult">
-      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewSelectCommand" Method="sp_Photo_CustomerRegistrationDetailNewSelectCommand">
-    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewSelectCommandResult">
-      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewUpdateCommand" Method="sp_Photo_CustomerRegistrationDetailNewUpdateCommand">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Last_Login" Parameter="last_Login" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Current_Status" Parameter="current_Status" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Profile_Image" Parameter="profile_Image" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Full_Name" Parameter="full_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ActivationStatus_Mobile" Parameter="activationStatus_Mobile" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SMS_Subs" Parameter="sMS_Subs" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Customer_id" Parameter="customer_id" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult">
-      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_Photo_OrderDetailNewDeleteCommand" Method="sp_Photo_OrderDetailNewDeleteCommand">
     <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_Photo_OrderDetailNewInsertCommand" Method="sp_Photo_OrderDetailNewInsertCommand">
-    <Parameter Name="FkCustomer_id" Parameter="fkCustomer_id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Image_name" Parameter="image_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Input_Image_URL" Parameter="input_Image_URL" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Edit_Options" Parameter="edit_Options" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Complaint_Towards" Parameter="complaint_Towards" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="FkPlan_id" Parameter="fkPlan_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ordered_date" Parameter="ordered_date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="DeliveredDate_SoftCopy" Parameter="deliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Process_Status" Parameter="process_Status" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="FkCustomer_Status" Parameter="fkCustomer_Status" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Output_Image_URL" Parameter="output_Image_URL" Type="System.String" DbType="NVarChar(200)" />
-    <ElementType Name="sp_Photo_OrderDetailNewInsertCommandResult">
-      <Column Name="Order_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Image_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Input_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Edit_Options" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Complaint_Towards" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ordered_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Process_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="FkCustomer_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Output_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </ElementType>
   </Function>
   <Function Name="dbo.sp_Photo_OrderDetailNewSelectCommand" Method="sp_Photo_OrderDetailNewSelectCommand">
     <ElementType Name="sp_Photo_OrderDetailNewSelectCommandResult">
@@ -433,37 +321,7 @@
       <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Ordered_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Process_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="FkCustomer_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Output_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_Photo_OrderDetailNewUpdateCommand" Method="sp_Photo_OrderDetailNewUpdateCommand">
-    <Parameter Name="FkCustomer_id" Parameter="fkCustomer_id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Image_name" Parameter="image_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Input_Image_URL" Parameter="input_Image_URL" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Edit_Options" Parameter="edit_Options" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Complaint_Towards" Parameter="complaint_Towards" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="FkPlan_id" Parameter="fkPlan_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Ordered_date" Parameter="ordered_date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="DeliveredDate_SoftCopy" Parameter="deliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Process_Status" Parameter="process_Status" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="FkCustomer_Status" Parameter="fkCustomer_Status" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Output_Image_URL" Parameter="output_Image_URL" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Order_id" Parameter="order_id" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_Photo_OrderDetailNewUpdateCommandResult">
-      <Column Name="Order_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Image_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Input_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Edit_Options" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Complaint_Towards" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ordered_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FkPromo_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Process_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="FkCustomer_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -561,10 +419,6 @@
       <Column Name="Rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_Photo_Promo_codeDetailNewDeleteCommand" Method="sp_Photo_Promo_codeDetailNewDeleteCommand">
-    <Parameter Name="Original_Promo_code_id" Parameter="original_Promo_code_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_Photo_PlanDetailNewUpdateCommand" Method="sp_Photo_PlanDetailNewUpdateCommand">
     <Parameter Name="Plan_Name" Parameter="plan_Name" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Rate" Parameter="rate" Type="System.Decimal" DbType="Decimal(18,2)" />
@@ -575,6 +429,10 @@
       <Column Name="Plan_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Rate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_Promo_codeDetailNewDeleteCommand" Method="sp_Photo_Promo_codeDetailNewDeleteCommand">
+    <Parameter Name="Original_Promo_code_id" Parameter="original_Promo_code_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_Photo_Promo_codeDetailNewInsertCommand" Method="sp_Photo_Promo_codeDetailNewInsertCommand">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(50)" />
@@ -734,6 +592,162 @@
       <Column Name="SubCategory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Category_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_OrderDetailNewInsertCommand" Method="sp_Photo_OrderDetailNewInsertCommand">
+    <Parameter Name="FkCustomer_id" Parameter="fkCustomer_id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Image_name" Parameter="image_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Input_Image_URL" Parameter="input_Image_URL" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Edit_Options" Parameter="edit_Options" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Complaint_Towards" Parameter="complaint_Towards" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FkPlan_id" Parameter="fkPlan_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ordered_date" Parameter="ordered_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DeliveredDate_SoftCopy" Parameter="deliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Process_Status" Parameter="process_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="FkCustomer_Status" Parameter="fkCustomer_Status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Output_Image_URL" Parameter="output_Image_URL" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="sp_Photo_OrderDetailNewInsertCommandResult">
+      <Column Name="Order_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Image_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Input_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Edit_Options" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Complaint_Towards" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ordered_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Process_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="FkCustomer_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Output_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_OrderDetailNewUpdateCommand" Method="sp_Photo_OrderDetailNewUpdateCommand">
+    <Parameter Name="FkCustomer_id" Parameter="fkCustomer_id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Image_name" Parameter="image_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Input_Image_URL" Parameter="input_Image_URL" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Edit_Options" Parameter="edit_Options" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Complaint_Towards" Parameter="complaint_Towards" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FkPlan_id" Parameter="fkPlan_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ordered_date" Parameter="ordered_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DeliveredDate_SoftCopy" Parameter="deliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Process_Status" Parameter="process_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="FkCustomer_Status" Parameter="fkCustomer_Status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Output_Image_URL" Parameter="output_Image_URL" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Order_id" Parameter="order_id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_Photo_OrderDetailNewUpdateCommandResult">
+      <Column Name="Order_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FkCustomer_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Image_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Input_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Edit_Options" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Complaint_Towards" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FkPlan_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ordered_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveredDate_SoftCopy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Process_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="FkCustomer_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Output_Image_URL" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewDeleteCommand" Method="sp_Photo_CustomerRegistrationDetailNewDeleteCommand">
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewInsertCommand" Method="sp_Photo_CustomerRegistrationDetailNewInsertCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_Login" Parameter="last_Login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Current_Status" Parameter="current_Status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Profile_Image" Parameter="profile_Image" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Full_Name" Parameter="full_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Mobile" Parameter="activationStatus_Mobile" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SMS_Subs" Parameter="sMS_Subs" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewInsertCommandResult">
+      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewSelectCommand" Method="sp_Photo_CustomerRegistrationDetailNewSelectCommand">
+    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewSelectCommandResult">
+      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Photo_CustomerRegistrationDetailNewUpdateCommand" Method="sp_Photo_CustomerRegistrationDetailNewUpdateCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_Login" Parameter="last_Login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Current_Status" Parameter="current_Status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Profile_Image" Parameter="profile_Image" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Full_Name" Parameter="full_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Mobile" Parameter="activationStatus_Mobile" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SMS_Subs" Parameter="sMS_Subs" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Customer_id" Parameter="customer_id" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult">
+      <Column Name="Customer_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_Login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Current_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profile_Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Full_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mobile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SMS_Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

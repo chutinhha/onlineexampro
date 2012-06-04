@@ -2,19 +2,21 @@
 {
     padding: 0 5px 0 5px;
     font: normal 12px Arial, Helvetica, sans-serif;
-    background-color: #33CC33;
+    background-color: #333333;
     height: 30px;
     line-height: 30px;
     border-right: 2px solid white;
+    color: #FFFFFF;
 }
 .otherbackcolor
 {
     padding: 0 5px 0 5px;
     font: normal 12px arial;
-    background-color: #FFCCFF;
+    background-color: #808080;
     height: 30px;
     line-height: 30px;
     border-right: 2px solid white;
+    color: #FFFFFF;
 }
 #accordion
 {
@@ -225,3 +227,29 @@ h3.title
 }
 
 /* end footer*/
+
+
+.flyOutDiv
+{
+    display: none;
+    width: 600px;
+    z-index: inherit;
+    opacity: 0;
+    filter: (progid:DXImageTransform.Microsoft.Alpha(opacity=0));
+    font-size: 14px;
+    border: solid 1px #CCCCCC;
+    background-color: #FFFFFF;
+    padding: 5px;
+}
+
+.flyOutDivCloseX
+{
+    background-color: #666666;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border: outset thin #FFFFFF;
+    padding: 5px;
+}
+

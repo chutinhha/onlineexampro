@@ -38,7 +38,7 @@
                                         <li><a href="#">Cars & Vehicle</a></li>
                                         <li><a href="#">Vacation</a></li>
                                         <li><a href="#">Weight Reduction</a></li>
-                                        <li><a href="#">Portraiture Photography</a></li>
+                                        <li><a href="#">Photography</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -82,7 +82,7 @@
                             <td valign="top">
                                 <div class="menu_footer1">
                                     Payment Methods
-                                    <img src="Images/Untitled-4.png" alt="PayPal" />
+                                    <img src="Images/paypal.png" alt="PayPal" />
                                 </div>
                             </td>
                         </tr>

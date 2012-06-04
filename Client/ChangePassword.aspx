@@ -1,15 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientside.master" AutoEventWireup="true"
     CodeFile="ChangePassword.aspx.cs" Inherits="ChangePassword" %>
 
-<%@ Register src="ucChangePassword.ascx" tagname="ucChangePassword" tagprefix="uc1" %>
-
+<%@ Register Src="ucChangePassword.ascx" TagName="ucChangePassword" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table>
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td>
+                Change Password
+                <hr />
+                <br />
+            </td>
+        </tr>
         <tr>
             <td>
                 <uc1:ucChangePassword ID="ucChangePassword1" runat="server" />
+                <hr />
             </td>
         </tr>
     </table>

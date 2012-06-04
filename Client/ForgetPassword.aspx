@@ -6,7 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="400px">
         <tr>
-            <td>
+            <td colspan="2">
+                <hr />
                 <br />
             </td>
         </tr>
@@ -20,13 +21,13 @@
         </tr>
         <tr>
             <td colspan="2" height="25px">
-                <asp:Label ID="lbResponse" runat="server" Font-Bold="True" Font-Names="Calibri" 
-                    ForeColor="#006600"></asp:Label>
+                <asp:Label ID="lbResponse" runat="server" Font-Bold="True" Font-Names="Calibri" ForeColor="#006600"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" align="center">
                 <asp:Button ID="btnforget" runat="server" Text="Submit" OnClick="btnforget_Click" />
+                <hr />
             </td>
         </tr>
     </table>
