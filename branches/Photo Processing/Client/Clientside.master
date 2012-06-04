@@ -12,8 +12,7 @@
 </head>
 <body>
     <form id="form2" runat="server">
-    <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
-    </cc1:ToolkitScriptManager>
+    
     <div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
