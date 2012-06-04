@@ -9,7 +9,7 @@ public partial class UploadPhoto : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+       
     }
     protected void fuPhotoUpload_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)
     {
@@ -44,9 +44,9 @@ public partial class UploadPhoto : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string filePath = Convert.ToString(Session["filePath"]);
-       // if (fuPhotoUpload.HasFile)
-       // {
+        if (Session["filePath"] != null)
+        {
+            string filePath = Convert.ToString(Session["filePath"]);
             var ss = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).FirstOrDefault();
             using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
             {
@@ -56,7 +56,7 @@ public partial class UploadPhoto : System.Web.UI.Page
                 dataDB.Photo_OrderSummaryDetails.InsertOnSubmit(obj);
                 dataDB.SubmitChanges();
             }
-      //  }
-        Response.Redirect("Services.aspx");
+            Response.Redirect("Services.aspx");
+        }
     }
 }

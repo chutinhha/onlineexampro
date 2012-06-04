@@ -15,6 +15,8 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
+    </cc1:ToolkitScriptManager>
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td colspan="2">
@@ -95,24 +97,32 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:ListView ID="ListView1" runat="server">
+                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id">
                                 <ItemTemplate>
                                     <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #00FFCC">
                                         <tr>
                                             <td class="pic">
-                                                <img src="" alt="image" style="width: 130px; height: 97px">
+                                                <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="image"
+                                                    Width="130" Height="97" />
                                             </td>
                                             <td style="padding-left: 10px" valign="middle">
                                                 &nbsp;
                                             </td>
                                             <td class="indent">
                                                 <h3 class="title">
-                                                    &nbsp;Bronze Service</h3>
+                                                    &nbsp;<%# Eval("Plane_Name") %></h3>
                                                 <p class="bullet">
-                                                    Color Correction</p>
+                                                    <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == Convert.ToInt32(Eval("fkPlan_id")));
+                                                      foreach (var item1 in bb)
+                                                      {
+                                                    %>
+                                                    <%=item1.Category_name %>
+                                                    <%
+                                                      }%>
+                                                </p>
                                             </td>
                                             <td align="center">
-                                                <a href="#" onclick="removefromcart(1813,1429,'del','order')">Remove</a>
+                                                <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
                                             </td>
                                         </tr>
                                     </table>

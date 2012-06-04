@@ -7,6 +7,11 @@
     <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/AssignCart.asmx" />
+        </Services>
+    </cc1:ToolkitScriptManager>
     Upload Photos
     <hr />
     <br />
@@ -81,8 +86,7 @@
                                         </td>
                                         <td>
                                             <asp:LinkButton ID="lnkBtnColHelp" runat="server" Text="...?" OnClientClick="return false;"
-                                                BackColor="#999966" Font-Underline="False" Font-Bold="True" 
-                                                ForeColor="Black" />
+                                                BackColor="#999966" Font-Underline="False" Font-Bold="True" ForeColor="Black" />
                                         </td>
                                         <td>
                                             <div id="moveMe" class="flyOutDiv">
