@@ -12,11 +12,6 @@
 </head>
 <body>
     <form id="form2" runat="server">
-    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
-        <Services>
-            <asp:ServiceReference Path="~/AssignCart.asmx" />
-        </Services>
-    </cc1:ToolkitScriptManager>
     <div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -33,7 +28,6 @@
                                 <tr>
                                     <td>
                                         <asp:Image ID="Image1" runat="server" Width="980px" ImageUrl="~/Images/WebsiteBanner9.jpg" />
-                                        
                                     </td>
                                 </tr>
                                 <tr>

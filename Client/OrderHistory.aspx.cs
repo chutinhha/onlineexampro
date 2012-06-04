@@ -12,5 +12,23 @@ public partial class OrderHistory : System.Web.UI.Page
     {
         //var ss = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Select(a => a);
         //ComboBox1.DataBind();
+        if (!IsPostBack)
+        {
+            BindData();
+        }
+    }
+
+    private void BindData()
+    {
+        ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
+                               select
+                                   new
+                                   {
+                                       Id = a.OrderSummary_id,
+                                       ImageUrl = a.ImageUrl,
+                                       Plane_Name = a.Photo_PlanDetail.Plan_Name,
+                                       fkPlan_id = a.fkPlan_id
+                                   };
+        ListView1.DataBind();
     }
 }

@@ -11,45 +11,32 @@ using System.Data;
 [WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
- [System.Web.Script.Services.ScriptService]
-public class AssignCart : System.Web.Services.WebService {
+[System.Web.Script.Services.ScriptService]
+public class AssignCart : System.Web.Services.WebService
+{
 
-    public AssignCart () {
-
+    public AssignCart()
+    {
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
-
     [WebMethod]
     public bool Test(string ar)
     {
-        DataTable dt;
-        if (Session["tbl"] == null)
+        try
         {
-            dt = GenerateTable();
+            using (var obj = new PhotoProcessingDataContext())
+            {
+                var tb = obj.Photo_OrderSummaryDetails.OrderByDescending(a => a.OrderSummary_id).First();
+                tb.EditOption = ar;
+                tb.fkPlan_id = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.First(a => a.FkPlan_id == Convert.ToInt64(ar.Split(',').GetValue(0))).FkPlan_id;
+                obj.SubmitChanges();
+            }
+            return true;
         }
-        else
+        catch (Exception ex)
         {
-            dt = (DataTable)Session["tbl"];
+            return false;
         }
-        string[] ids = ar.Split(',');
-        foreach (string item in ids)
-        {
-            string[] idValue = item.Split('_');
-            string orgId = idValue[idValue.Length - 1];
-            DataRow dr = dt.NewRow();
-
-        }        
-        return true;
     }
-
-    private DataTable GenerateTable()
-    {
-        DataTable dt = new DataTable();
-        dt.Columns.Add("Id");
-        dt.Columns.Add("FilePath");
-        dt.Columns.Add("Price");
-        return dt;
-    }
-    
 }

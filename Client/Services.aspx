@@ -202,7 +202,9 @@
             $('#accordion input:checkbox').each(function () {
                 var isChecked = $(this).attr('checked');
                 if (isChecked == "checked") {
-                    selected.push($(this).attr('id'));
+                    var id = $(this).attr('id');
+                    var a = id.split('_');
+                    selected.push(a[a.length - 1]);
                 }
             });
             AssignCart.Test(selected.join(','), success);
@@ -211,4 +213,9 @@
             alert(r);
         }
     </script>
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/AssignCart.asmx" />
+        </Services>
+    </cc1:ToolkitScriptManager>
 </asp:Content>
