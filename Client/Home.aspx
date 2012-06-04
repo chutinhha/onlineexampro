@@ -6,24 +6,40 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
     </cc1:ToolkitScriptManager>
+    Home
+    <hr />
+    <br />
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td>
-                Home
-                <hr />
-                <br />
+                <div>
+                    <h1>
+                        Welcome to Photo Processing</h1>
+                    <div>
+                        <p>
+                            We retouch online all your photographs by hand to an exceptionally high standard.</p>
+                        <p>
+                            Upload your photos and select which level of service you require.</p>
+                        <p>
+                            We guarantee complete satisfaction with every image we do for you.</p>
+                    </div>
+                </div>
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Button ID="btnProfile" runat="server" Text="Profile" OnClick="btnProfile_Click" />
-            </td>
+        <td>
+        
+            &nbsp;</td>
         </tr>
         <tr>
             <td>
-                <asp:Button ID="btnChangePwd" runat="server" Text="Change Password" OnClick="btnChangePwd_Click" />
-                <hr />
+                <a href="#">Choose a service</a> <a href="#">Get Started</a>
             </td>
         </tr>
     </table>
+    <br />
+    <hr />
+    <br />
+    <br />
+    <br />
 </asp:Content>

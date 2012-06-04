@@ -7,6 +7,7 @@
 <head runat="server">
     <title></title>
     <link href="Style/Common.css" rel="stylesheet" type="text/css" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -49,13 +50,11 @@
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="UpdateProgress1" AssociatedUpdatePanelID="UpdatePanel1" runat="server">
             <ProgressTemplate>
-                <div>
-                    <div>
-                        &nbsp;
-                        <img src="images/ajax-loader.gif" style="top: 8px; position: absolute; height: 169px;
-                            width: 169px; z-index: 1; left: 594px;" />
-                    </div>
-                </div>
+                <asp:Panel ID="Panel1" CssClass="overlay" runat="server">
+                    <asp:Panel ID="Panel2" CssClass="loader" runat="server">
+                        <img src="Images/ajax-loader.gif" />
+                    </asp:Panel>
+                </asp:Panel>
             </ProgressTemplate>
         </asp:UpdateProgress>
     </div>
