@@ -13,6 +13,7 @@ public partial class Home : System.Web.UI.Page
     }
     protected void btnProfile_Click(object sender, EventArgs e)
     {
+        System.Threading.Thread.Sleep(5000);
         Response.Redirect("My Profile.aspx");
     }
     protected void btnChangePwd_Click(object sender, EventArgs e)
