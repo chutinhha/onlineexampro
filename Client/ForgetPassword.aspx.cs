@@ -25,7 +25,7 @@ public partial class ForgetPassword : System.Web.UI.Page
                 var getval = counter.FirstOrDefault();
                 EncryptedQueryString args = new EncryptedQueryString();
                 args["arg1"] = txtEmail.Text;
-                string url = string.Format("http://localhost:49195/Photo%20Processing/ResetPassword.aspx?args={0}", args.ToString());
+                string url = string.Format("http://localhost:49280/Photo%20Processing/ResetPassword.aspx?args={0}", args.ToString());
                 String email = txtEmail.Text;
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress("iconstechnologies@gmail.com");
