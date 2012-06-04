@@ -211,9 +211,4 @@
             alert(r);
         }
     </script>
-    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
-        <Services>
-            <asp:ServiceReference Path="~/AssignCart.asmx" />
-        </Services>
-    </cc1:ToolkitScriptManager>
 </asp:Content>

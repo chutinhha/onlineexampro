@@ -13,7 +13,8 @@
         <table cellpadding="0" cellspacing="0" width="980px" align="center">
             <tr>
                 <td align="center">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/game-website-banner30.gif" Width="980px" Height="200px" />
+                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/game-website-banner30.gif" Width="980px" Height="200px" />
+         
                 </td>
             </tr>
             <tr>

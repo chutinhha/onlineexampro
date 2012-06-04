@@ -4,14 +4,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td colspan="2">
+                Reset PassWord
+                <hr />
                 <br />
             </td>
         </tr>
         <tr>
-            <td>
+            <td width="175px">
                 New Password:
             </td>
             <td>
@@ -38,8 +40,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:Button ID="btnReset" runat="server" Text="Reset" 
-                    onclick="btnReset_Click" />
+                <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click" />
+                <hr />
             </td>
         </tr>
     </table>
