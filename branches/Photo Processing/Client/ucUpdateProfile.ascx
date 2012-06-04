@@ -21,6 +21,8 @@
         <td>
             <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
         </td>
+        <cc1:CalendarExtender ID="sdsd" runat="server" TargetControlID="txtDOB">
+        </cc1:CalendarExtender>
     </tr>
     <tr>
         <td colspan="2">

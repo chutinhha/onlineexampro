@@ -39,7 +39,7 @@ public partial class ucRegistration : System.Web.UI.UserControl
                     {
                         EncryptedQueryString args = new EncryptedQueryString();
                         args["arg1"] = txtEmail.Text;
-                        string url = string.Format("http://localhost:49280/Photo%20Processing/MailActivation.aspx?args={0}", args.ToString());
+                        string url = string.Format("http://localhost:50275/Client/MailActivation.aspx?args={0}", args.ToString());
                         String email = txtEmail.Text;
                         MailMessage msg = new MailMessage();
                         msg.From = new MailAddress("iconstechnologies@gmail.com");

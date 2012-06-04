@@ -54,6 +54,7 @@ public partial class UploadPhoto : System.Web.UI.Page
                 obj.ImageUrl = filePath;
                 obj.fkCustomer_id = Convert.ToInt64(ss.Customer_id);
                 dataDB.Photo_OrderSummaryDetails.InsertOnSubmit(obj);
+                dataDB.SubmitChanges();
             }
       //  }
         Response.Redirect("Services.aspx");

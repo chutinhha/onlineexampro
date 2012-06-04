@@ -28,9 +28,13 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
     protected void lbtnLogout_Click(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies.Get("PhotoProcessing");
-        cookie.Expires = DateTime.Now.AddDays(-1d);
-        Response.Cookies.Add(cookie);
+        if (cookie != null)
+        {
+            cookie.Expires = DateTime.Now.AddDays(-1d);
+            Response.Cookies.Add(cookie);
+        }
         Session["username"] = "";
+        Session["email"] = "";
         Response.Redirect("Home.aspx");
     }
     protected void regis_Click(object sender, EventArgs e)
