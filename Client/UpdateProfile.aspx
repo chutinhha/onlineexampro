@@ -5,9 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table cellpadding="0" cellspacing="0" width="600px">
+    <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
-            <td>
+            <td colspan="2">
                 Profile Detail
                 <hr />
                 <br />
@@ -15,7 +15,14 @@
         </tr>
         <tr>
             <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td align="left">
                 <uc1:ucUpdateProfile ID="ucUpdateProfile" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <hr />
             </td>
         </tr>
