@@ -5,8 +5,7 @@
     background-color: whiteSmoke;
 }
 
-/*loading*/
-
+/*loading
 
 
 .loadingBackground
@@ -62,3 +61,4 @@
     position: absolute;
     margin-top: expression((document.body.scrollHeight / 4) + (0 - parseInt(this.offsetParent.clientHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop)) + 'px');
 }
+*/

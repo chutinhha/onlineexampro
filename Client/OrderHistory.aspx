@@ -96,32 +96,33 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id">
+                        <td align="left">
+                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" 
+                                OnItemDataBound="ListView1_ItemDataBound"
+                                onitemcommand="ListView1_ItemCommand">
                                 <ItemTemplate>
-                                    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #00FFCC">
+                                    <table cellpadding="0" cellspacing="0" style="background-color: #00FFCC" border="0"
+                                        width="980px">
                                         <tr>
                                             <td class="pic">
                                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="image"
                                                     Width="130" Height="97" />
                                             </td>
-                                            <td style="padding-left: 10px" valign="middle">
-                                                &nbsp;
-                                            </td>
                                             <td class="indent">
                                                 <h3 class="title">
-                                                    &nbsp;<%# Eval("Plane_Name") %></h3>
-                                                <p class="bullet">
-                                                    <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == Convert.ToInt32(Eval("fkPlan_id")));
-                                                      foreach (var item1 in bb)
-                                                      {
-                                                    %>
-                                                    <%=item1.Category_name %>
-                                                    <%
-                                                      }%>
-                                                </p>
+                                                    <%# Eval("Plane_Name") %></h3>
+                                                <asp:GridView ID="GridView1" DataKeyNames="SubCategory_id" runat="server" ShowHeader="False"
+                                                    AutoGenerateColumns="False" CellPadding="0" BorderWidth="0" GridLines="None">
+                                                    <Columns>
+                                                        <asp:TemplateField ShowHeader="False" ItemStyle-CssClass="bullet">
+                                                            <ItemTemplate>
+                                                                <%# Eval("Category_name")%>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
                                             </td>
-                                            <td align="center">
+                                            <td align="left" style="padding-right: 10px;width:70px">
                                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
                                             </td>
                                         </tr>

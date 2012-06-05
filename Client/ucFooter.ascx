@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucFooter.ascx.cs" Inherits="ucFooter" %>
-<link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
 <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="bottom">
     <tbody>
         <tr>
