@@ -2,6 +2,7 @@
     CodeFile="Home.aspx.cs" Inherits="Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
@@ -42,4 +43,5 @@
     <br />
     <br />
     <br />
+    
 </asp:Content>
