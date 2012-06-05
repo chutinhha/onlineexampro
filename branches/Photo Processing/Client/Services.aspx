@@ -23,11 +23,7 @@
 
         function endRequestHandler(sender, args) {
             $(function () {
-                //alert(document.getElementById("hiddenCatId").value);
                 var ind = document.getElementById('<%=hidAccordionIndex.ClientID %>');
-                //                alert(ind.value);
-                //                var dd = ind.value.split(',');
-                //                var ass = dd[0];
                 $("#accordion").accordion({ active: parseInt(ind.value) });
             });
             var setChecked = function (oThis) {
@@ -49,7 +45,6 @@
                         setChecked($("input", ui.newHeader));
                     }
                 });
-                //$("#accordion h3 input").css("margin-left", "50px");
                 $("#accordion h3 input").eq(0).attr("checked", "checked");
             });
 
@@ -79,7 +74,6 @@
                     setChecked($("input", ui.newHeader));
                 }
             });
-            //$("#accordion h3 input").css("margin-left", "50px");
             $("#accordion h3 input").eq(0).attr("checked", "checked");
         });
     </script>
@@ -182,9 +176,7 @@
                     </tr>
                     <tr align="right">
                         <td>
-                            <span id="log"></span>
-                            <input id="Button2" type="button" onclick="hh();" value="button" /><asp:Button ID="Button1"
-                                runat="server" Text="Add to Cart" OnClientClick="hh();" OnClick="Button1_Click" />
+                            <input id="Button2" type="button" value="Add to Cart" />
                         </td>
                     </tr>
                 </table>

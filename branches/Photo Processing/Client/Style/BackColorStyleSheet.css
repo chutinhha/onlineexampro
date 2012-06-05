@@ -58,8 +58,17 @@ h3.title
     font: normal 18px "Trebuchet MS" , Arial, Helvetica, sans-serif;
     color: #89bc23;
     padding-left: 22px;
-    line-height: 39px;
     margin-right: 34px;
+}
+.pic
+{
+    vertical-align: top;
+    padding: 10px;
+}
+.indent
+{
+    padding-left: 10px;
+    width:780px;
 }
 .bullet
 {
