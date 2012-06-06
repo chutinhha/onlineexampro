@@ -17,14 +17,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
     </cc1:ToolkitScriptManager>
+    My Order History
+    <hr />
+    <br />
     <table cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-            <td colspan="2">
-                My Order History
-                <hr />
-                <br />
-            </td>
-        </tr>
         <tr>
             <td valign="top" width="15%">
                 <uc1:ucSideMenu ID="ucSideMenu1" runat="server" />
@@ -92,17 +88,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="border-bottom-style: dotted; border-bottom-width: 1px">
-                        </td>
-                    </tr>
-                    <tr>
                         <td align="left">
-                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" 
-                                OnItemDataBound="ListView1_ItemDataBound"
-                                onitemcommand="ListView1_ItemCommand">
+                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemDataBound="ListView1_ItemDataBound"
+                                OnItemCommand="ListView1_ItemCommand">
                                 <ItemTemplate>
-                                    <table cellpadding="0" cellspacing="0" style="background-color: #00FFCC" border="0"
-                                        width="980px">
+                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #00FFCC"
+                                        border="0">
                                         <tr>
                                             <td class="pic">
                                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="image"
@@ -122,7 +113,7 @@
                                                     </Columns>
                                                 </asp:GridView>
                                             </td>
-                                            <td align="left" style="padding-right: 10px;width:70px">
+                                            <td align="left" style="padding-right: 10px;">
                                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
                                             </td>
                                         </tr>
@@ -131,13 +122,30 @@
                             </asp:ListView>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <table width="770">
+                                <tr>
+                                    <td align="left">
+                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" 
+                                            PostBackUrl="~/UploadPhoto.aspx" />
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td align="right">
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
                 </table>
             </td>
         </tr>
-        <tr>
-            <td colspan="2">
-                <hr />
-            </td>
-        </tr>
     </table>
+    <br />
+    <hr />
+    <br />
+    <br />
+    <br />
 </asp:Content>

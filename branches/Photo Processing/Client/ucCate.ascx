@@ -5,18 +5,17 @@
     <tr>
         <td>
             <div>
+                <input id="Hidden1" type="hidden" />
                 <ul id="accordion">
                     <%var aa = PhotoProcessingHelper.Context.Photo_PlanDetails.Select(a => a);
                       int i = 0, j = 0;
                       foreach (var item in aa)
                       { %>
-                    <li>
-                        <% RadioButton1.Text = item.Plan_Name;
-                           RadioButton1.Attributes.Add("onclick", "setChecked(this)");
-                        %>
-                        <asp:RadioButton ID="RadioButton1" GroupName="a" runat="server" />
+                    <li id="limenu<%=i.ToString() %>">
+                        <input id="Radio1<%=i.ToString() %>" onclick="rd(this.id);" name="a" type="radio" />
+                        <%=item.Plan_Name %>
                     </li>
-                    <ul style="display: none;">
+                    <ul style="display: none;" id="ulmenu<%=i.ToString() %>">
                         <%var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == item.Plan_id);
                           foreach (var item1 in bb)
                           {
@@ -24,11 +23,13 @@
                               CheckBox1.ID = "chk_" + item1.SubCategory_id.ToString();
                               //CheckBox1.InputAttributes["name"] = "chk";
                         %>
-                        <li><a href="#">
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
-                        </a></li>
+                        <li id="liitem<%=j.ToString() %>">
+                            <asp:CheckBox ID="CheckBox1" runat="server" CssClass="chkCate" />
+                            <%--<input id="Checkbox1" type="checkbox" />
+                            <%=item1.Category_name %>--%>
+                        </li>
                         <%
-                              j++;
+j++;
                           }
                           i++;
               
@@ -50,14 +51,10 @@
         </td>
     </tr>
 </table>
-<cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
-    <Services>
-        <asp:ServiceReference Path="~/AssignCart.asmx" />
-    </Services>
-</cc1:ToolkitScriptManager>
+
 <script>
     $("#Button2").click(function () {
-        var selected = [];
+        var selected = [];        
         $('#accordion input:checkbox').each(function () {
             var isChecked = $(this).attr('checked');
             if (isChecked == "checked") {
@@ -73,14 +70,22 @@
     }
 </script>
 <script>
+    function rd(a) {
+        if ($("#Hidden1").attr("value") != a) {
+            $("#Hidden1").attr("value", a);
+            $('#accordion input:checkbox').attr('checked', false);
+        }
+    }
+    $("#accordion input:checkbox").change(function () {
+        if ($('#accordion input:radio[checked=checked]').parent().next().attr('id') != $(this).parent().parent().parent().attr('id')) {
+            $(this).attr('checked', false);
+        }
+    });
     $("#accordion > li").click(function () {
-
         if (false == $(this).next().is(':visible')) {
             $('#accordion > ul').slideUp(300);
         }
         $(this).next().slideToggle(300);
     });
-
     $('#accordion > ul:eq(0)').show();
-
 </script>

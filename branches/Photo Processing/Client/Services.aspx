@@ -75,6 +75,11 @@
     </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/AssignCart.asmx" />
+        </Services>
+    </cc1:ToolkitScriptManager>
     Choose Service
     <hr />
     <br />
@@ -166,7 +171,7 @@
                             <uc2:ucCate ID="ucCate1" runat="server" />
                         </td>
                     </tr>
-                   <%-- <tr align="right">
+                    <%-- <tr align="right">
                         <td>
                             Total : <span id="totalAmount">$ 0.00</span>
                         </td>

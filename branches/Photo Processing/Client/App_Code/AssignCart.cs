@@ -29,7 +29,7 @@ public class AssignCart : System.Web.Services.WebService
             {
                 var tb = obj.Photo_OrderSummaryDetails.OrderByDescending(a => a.OrderSummary_id).First();
                 tb.EditOption = ar;
-                tb.fkPlan_id = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.First(a => a.FkPlan_id == Convert.ToInt64(ar.Split(',').GetValue(0))).FkPlan_id;
+                tb.fkPlan_id = obj.Photo_SubCatagoryDetails.FirstOrDefault(a => a.SubCategory_id == Convert.ToInt64(ar.Split(',').GetValue(0))).FkPlan_id;
                 obj.SubmitChanges();
             }
             return true;
