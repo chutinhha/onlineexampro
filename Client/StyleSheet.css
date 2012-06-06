@@ -34,12 +34,15 @@ body, input
     background-color: #FFFFFF;
     padding: 0px 0px 0px 7px;
 }
-
+.chkCate
+{
+    color: #0099CC;
+}
+/*
 #accordion a
 {
     text-decoration: none;
 }
-/*
 #accordion a:hover
 {
     text-decoration: underline;
