@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="js/jquery.blockUI.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
@@ -121,6 +122,11 @@
                                     }
                                 }
                             </script>
+                            <div id="pp" class="overlay" style="display: none">
+                                <div class="loader">
+                                    <img src="Images/ajax-loader.gif" alt="Loading..." />
+                                </div>
+                            </div>
                             <div id="contents">
                             </div>
                         </td>
@@ -133,6 +139,11 @@
                                         var a = $("#Text1").val();
                                         AssignCart.CheckCoopnCode(a, success1);
                                     });
+                                    $('#Button4').click(function () {
+                                        alert("Loading..");
+                                        $.blockUI({ message: $('#pp') });
+                                        setTimeout($.unblockUI, 2000);
+                                    });
                                 });
                                 function success1(r) {
                                     if (r) {
@@ -141,13 +152,13 @@
                                         $("#err").show();
                                     }
                                 }
+
                             </script>
                             Your Coupon Code:
                             <input id="Text1" type="text" />
-                            <input id="Button3" type="button" value="Submit" />
-                            <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button4_Click" />
+                            <input id="Button3" type="button" value="Submit" /><input id="Button4" type="button"
+                                value="test" />
                             <br />
-                            <input id="Button5" onclick="CancelAsyncPostBack()" type="button" value="button" />
                             <span id="err" style="color: #FF0000; display: none">Please enter valid coupon code.
                             </span>
                         </td>

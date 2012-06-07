@@ -91,6 +91,7 @@ public class AssignCart : System.Web.Services.WebService
     [WebMethod]
     public bool CheckCoopnCode(string a)
     {
+        System.Threading.Thread.Sleep(5000);
         if (a.Length == 1)
         {
             return false;
