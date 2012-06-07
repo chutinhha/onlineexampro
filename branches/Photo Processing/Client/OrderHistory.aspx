@@ -5,14 +5,6 @@
 <%--<%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">
-        var divSelected = null;
-        function SelectOrUnSelect(x) {
-            if (divSelected != null) divSelected.className = 'otherbackcolor';
-            divSelected = document.getElementById(x);
-            document.getElementById(x).className = 'currentbackcolor';
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
@@ -57,28 +49,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <%--<tr>
-                        <td colspan="5">
-                            <br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" onclick="SelectOrUnSelect('t1');">Upload</a>
-                        </td>
-                        <td>
-                            <a href="#" onclick="SelectOrUnSelect('t2');">Services</a>
-                        </td>
-                        <td>
-                            <a href="#" onclick="SelectOrUnSelect('t3');">Summery</a>
-                        </td>
-                        <td>
-                            <a href="#" onclick="SelectOrUnSelect('t4');">Confirm</a>
-                        </td>
-                        <td>
-                            <a href="#" onclick="SelectOrUnSelect('t5');">Payment</a>
-                        </td>
-                    </tr>--%>
                             </table>
                         </td>
                     </tr>
@@ -91,6 +61,23 @@
                         <td align="left">
                             <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemDataBound="ListView1_ItemDataBound"
                                 OnItemCommand="ListView1_ItemCommand">
+                                <LayoutTemplate>
+                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #00FFCC"
+                                        border="0">
+                                        <tr style="color: #000000; font-weight: bold; font-size: 20px">
+                                            <th class="pic">
+                                                Image
+                                            </th>
+                                            <th class="indent">
+                                                Services
+                                            </th>
+                                            <th align="left" style="padding-right: 10px;">
+                                                Remove
+                                            </th>
+                                        </tr>
+                                    </table>
+                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </LayoutTemplate>
                                 <ItemTemplate>
                                     <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #00FFCC"
                                         border="0">
@@ -127,13 +114,12 @@
                             <table width="770">
                                 <tr>
                                     <td align="left">
-                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" 
-                                            PostBackUrl="~/UploadPhoto.aspx" />
+                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" PostBackUrl="~/UploadPhoto.aspx" />
                                     </td>
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" PostBackUrl="~/ConfirmOrder.aspx" />
                                     </td>
                                 </tr>
                             </table>
