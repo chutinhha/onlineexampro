@@ -52,8 +52,4 @@ public partial class ConfirmOrder : System.Web.UI.Page
             BindData();
         }
     }
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-        System.Threading.Thread.Sleep(5000);
-    }
 }
