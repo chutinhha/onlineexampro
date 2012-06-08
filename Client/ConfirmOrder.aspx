@@ -38,12 +38,12 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div id="t3" class="currentbackcolor">
+                                        <div id="t3" class="otherbackcolor">
                                             3. ORDER SUMMARY
                                         </div>
                                     </td>
                                     <td>
-                                        <div id="t4" class="otherbackcolor">
+                                        <div id="t4" class="currentbackcolor">
                                             4. CONFIRM ORDER
                                         </div>
                                     </td>
@@ -184,7 +184,8 @@
                             <table width="770">
                                 <tr>
                                     <td align="left">
-                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" PostBackUrl="~/UploadPhoto.aspx" />
+                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" 
+                                            PostBackUrl="~/UploadPhoto.aspx" onclick="Button1_Click" />
                                     </td>
                                     <td>
                                     </td>

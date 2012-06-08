@@ -47,23 +47,23 @@ ul.list4 li table td.pic
 }
 ul.list4 li table td.indent
 {
-    padding-left: 10px;
+    padding-left: 5px;
 }
 ul.list4 li table td p
 {
     margin-top: 6px;
 }
-h3.title
+.title
 {
     font: normal 18px "Trebuchet MS" , Arial, Helvetica, sans-serif;
     color: #89bc23;
-    padding-left: 22px;
+    padding-left: 10px;
     margin-right: 34px;
 }
 .pic
 {
     vertical-align: top;
-    padding: 10px;
+    padding: 5px;
 }
 .indent
 {

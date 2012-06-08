@@ -27,6 +27,8 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
     }
     protected void lbtnLogout_Click(object sender, EventArgs e)
     {
+
+        System.Threading.Thread.Sleep(10000);
         HttpCookie cookie = Request.Cookies.Get("PhotoProcessing");
         if (cookie != null)
         {
