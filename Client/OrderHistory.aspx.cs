@@ -12,32 +12,33 @@ public partial class OrderHistory : System.Web.UI.Page
     private string filePath;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["username"] == "" || Session["username"] == null)
+        
+        if (!IsPostBack)
         {
-            var userid = "";
-            var password = "";
-            HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
-            if (cookie1 != null)
+            if (Session["username"] == "" || Session["username"] == null)
             {
-                userid = cookie1.Values["Userid"];
-                password = cookie1.Values["Password"];
-                using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
+                var userid = "";
+                var password = "";
+                HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
+                if (cookie1 != null)
                 {
-                    var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
-                    if (userid == aa.Email && password == aa.Password)
+                    userid = cookie1.Values["Userid"];
+                    password = cookie1.Values["Password"];
+                    using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
                     {
-                        Session["username"] = aa.Full_Name;
-                        Session["email"] = aa.Email;
-                        var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == aa.Customer_id select a).FirstOrDefault();
-                        lastlogin.Last_Login = DateTime.Now;
-                        dataDB.SubmitChanges();
-                        //Response.Redirect("Home.aspx");
+                        var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
+                        if (userid == aa.Email && password == aa.Password)
+                        {
+                            Session["username"] = aa.Full_Name;
+                            Session["email"] = aa.Email;
+                            var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == aa.Customer_id select a).FirstOrDefault();
+                            lastlogin.Last_Login = DateTime.Now;
+                            dataDB.SubmitChanges();
+                            //Response.Redirect("Home.aspx");
+                        }
                     }
                 }
             }
-        }
-        if (!IsPostBack)
-        {
             BindData();
         }
     }

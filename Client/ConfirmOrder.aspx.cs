@@ -13,22 +13,48 @@ public partial class ConfirmOrder : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            //BindData();
+            if (Session["username"] == "" || Session["username"] == null)
+            {
+                var userid = "";
+                var password = "";
+                HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
+                if (cookie1 != null)
+                {
+                    userid = cookie1.Values["Userid"];
+                    password = cookie1.Values["Password"];
+                    using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
+                    {
+                        var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
+                        if (userid == aa.Email && password == aa.Password)
+                        {
+                            Session["username"] = aa.Full_Name;
+                            Session["email"] = aa.Email;
+                            var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == aa.Customer_id select a).FirstOrDefault();
+                            lastlogin.Last_Login = DateTime.Now;
+                            dataDB.SubmitChanges();
+                            //Response.Redirect("Home.aspx");
+                        }
+                    }
+                }
+            }
+            BindData();
         }
     }
 
     private void BindData()
     {
-        //ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
-        //                       select
-        //                           new
-        //                           {
-        //                               Id = a.OrderSummary_id,
-        //                               ImageUrl = a.ImageUrl,
-        //                               Plane_Name = a.Photo_PlanDetail.Plan_Name,
-        //                               fkPlan_id = a.fkPlan_id
-        //                           };
-        //ListView1.DataBind();
+        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).First();
+        ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
+                               where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
+                               select
+                                   new
+                                   {
+                                       Id = a.OrderSummary_id,
+                                       ImageUrl = a.ImageUrl,
+                                       Plane_Name = a.Photo_PlanDetail.Plan_Name,
+                                       fkPlan_id = a.Photo_PlanDetail.Rate
+                                   };
+        ListView1.DataBind();
     }
     protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
@@ -51,9 +77,5 @@ public partial class ConfirmOrder : System.Web.UI.Page
             }
             BindData();
         }
-    }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-
     }
 }
