@@ -5,6 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
+    </cc1:ToolkitScriptManager>
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td colspan="2">

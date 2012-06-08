@@ -102,7 +102,10 @@
                                             }
                                             a += "<tr><td colspan='2' align='right'>Total Amount :</td><td align='left'>" + t + "</td></tr>";
                                             a += "";
-                                            a += "</table>"
+                                            a += "</table>";
+                                            $("#contents").remove('.loader');
+                                            $("#contents").removeClass('overlay');
+                                            $("#contents").empty();
                                             $("#gt").append("Grand Total : $" + t);
                                             $("#contents").append(a);
                                         }
@@ -127,7 +130,10 @@
                                     <img src="Images/ajax-loader.gif" alt="Loading..." />
                                 </div>
                             </div>
-                            <div id="contents">
+                            <div id="contents" class="overlay">
+                                <div class="loader">
+                                    <img src="Images/ajax-loader.gif" alt="Loading..." />
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -138,11 +144,6 @@
                                     $("#Button3").click(function () {
                                         var a = $("#Text1").val();
                                         AssignCart.CheckCoopnCode(a, success1);
-                                    });
-                                    $('#Button4').click(function () {
-                                        alert("Loading..");
-                                        $.blockUI({ message: $('#pp') });
-                                        setTimeout($.unblockUI, 2000);
                                     });
                                 });
                                 function success1(r) {
