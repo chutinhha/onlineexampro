@@ -5,8 +5,9 @@
     <link href="Style/BackColorStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <cc1:ToolkitScriptManager ID="sdfsd" runat="server">
-    </cc1:ToolkitScriptManager>
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+            
+        </cc1:ToolkitScriptManager>
     Home
     <hr />
     <br />
@@ -21,16 +22,16 @@
                             We retouch online all your photographs by hand to an exceptionally high standard.</p>
                         <p>
                             Upload your photos and select which level of service you require.</p>
-                        <p>
+                        <p style="height: 19px">
                             We guarantee complete satisfaction with every image we do for you.</p>
                     </div>
                 </div>
             </td>
         </tr>
         <tr>
-        <td>
-        
-            &nbsp;</td>
+            <td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td>
@@ -43,5 +44,4 @@
     <br />
     <br />
     <br />
-    
 </asp:Content>

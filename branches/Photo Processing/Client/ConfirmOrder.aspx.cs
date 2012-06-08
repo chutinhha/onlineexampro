@@ -52,4 +52,8 @@ public partial class ConfirmOrder : System.Web.UI.Page
             BindData();
         }
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

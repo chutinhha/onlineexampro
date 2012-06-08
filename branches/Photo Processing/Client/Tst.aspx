@@ -16,7 +16,7 @@
             </div>
         </div>
         <input id="Button1" type="button" value="button" />
-        <script>
+        <script language="javascript" type="text/javascript">
             $(document).ready(function () {
                 $('#Button1').click(function () {
                     $.blockUI({ message: $('#pp') });

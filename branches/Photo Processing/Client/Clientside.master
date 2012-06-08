@@ -15,7 +15,7 @@
     <div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <table width="100%" cellpadding="0" cellspacing="0" style="background-image: url('/Client/Images/line.png');
+                <table width="100%" cellpadding="0" cellspacing="0" style="background-image: url('Images/line.png');
                     background-repeat: repeat-x;">
                     <tr>
                         <td>
@@ -49,9 +49,11 @@
         </asp:UpdatePanel>
         <asp:UpdateProgress ID="UpdateProgress1" AssociatedUpdatePanelID="UpdatePanel1" runat="server">
             <ProgressTemplate>
-                <asp:Panel ID="Panel1" CssClass="overlay" runat="server">
-                    <asp:Panel ID="Panel2" CssClass="loader" runat="server">
-                        <img src="Images/ajax-loader.gif" />
+                <asp:Panel ID="fds" runat="server" CssClass="overlay">
+                    <asp:Panel ID="sdfd" runat="server" CssClass="loader">
+                        &nbsp;
+                        <img src="images/ajax-loader.gif" style="top: -183px; position: relative; height: 169px;
+                            width: 169px; z-index: inherit; left: 99px;"  alt="Loading..."/>
                     </asp:Panel>
                 </asp:Panel>
             </ProgressTemplate>

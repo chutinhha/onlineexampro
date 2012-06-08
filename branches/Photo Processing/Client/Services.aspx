@@ -76,10 +76,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
-        <Services>
-            <asp:ServiceReference Path="~/AssignCart.asmx" />
-        </Services>
-    </cc1:ToolkitScriptManager>
+            <Services>
+                <asp:ServiceReference Path="~/AssignCart.asmx" />
+            </Services>
+        </cc1:ToolkitScriptManager>
     Choose Service
     <hr />
     <br />
@@ -190,4 +190,25 @@
     <br />
     <br />
     <br />
+<%--<<<<<<< .mine
+    <script>
+        $("#Button2").click(function () {
+            var selected = [];
+            $('#accordion input:checkbox').each(function () {
+                var isChecked = $(this).attr('checked');
+                if (isChecked == "checked") {
+                    var id = $(this).attr('id');
+                    var a = id.split('_');
+                    selected.push(a[a.length - 1]);
+                }
+            });
+            AssignCart.Test(selected.join(','), success);
+        });
+        function success(r) {
+            alert(r);
+        }
+    </script>
+ 
+=======
+>>>>>>> .r191--%>
 </asp:Content>

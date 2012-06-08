@@ -6,7 +6,8 @@
             Profile Image:
         </td>
         <td>
-            <asp:FileUpload ID="fuProfileImage" runat="server" />
+            <cc1:AsyncFileUpload id="fuProfileImage" runat="server" 
+                onuploadedcomplete="fuProfileImage_UploadedComplete" />
         </td>
     </tr>
     <tr>

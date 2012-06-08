@@ -26,7 +26,7 @@ public partial class ucProfileDetail : System.Web.UI.UserControl
                 ViewState["Country"] = item.Country;
                 ViewState["Image"] = item.Profile_Image;
             }
-            if (lastLogin==Convert.ToString(DateTime.MaxValue))
+            if (lastLogin == Convert.ToString(DateTime.MaxValue))
             {
                 ViewState["Last login"] = "";
             }
@@ -44,7 +44,9 @@ public partial class ucProfileDetail : System.Web.UI.UserControl
             }
             else
             {
-                ViewState["DOB"] = DOB;
+                string[] a = DOB.Split(' ');
+
+                ViewState["DOB"] = a[0];
             }
             Image1.ImageUrl = Convert.ToString(ViewState["Image"]);
         }

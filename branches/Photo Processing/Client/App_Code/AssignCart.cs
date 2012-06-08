@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data;
-using System.IO;
 
 /// <summary>
 /// Summary description for AssignCart
@@ -40,65 +39,5 @@ public class AssignCart : System.Web.Services.WebService
             return false;
         }
     }
-
-    [WebMethod]
-    public Array GetData()
-    {
-        var aa = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
-                 select new
-                     {
-                         Id = a.OrderSummary_id,
-                         ImageUrl = a.ImageUrl.Remove(0, 2),
-                         Plane_Name = a.Photo_PlanDetail.Plan_Name,
-                         fkPlan_id = a.fkPlan_id,
-                         Price = a.Photo_PlanDetail.Rate
-                     };
-        return aa.ToArray();
-    }
-    private string filePath;
-    [WebMethod]
-    public bool Remove(string idVal)
-    {
-        return false;
-        try
-        {
-            long id = Convert.ToInt64(idVal);
-            using (var obj = new PhotoProcessingDataContext())
-            {
-                var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == id);
-                if (string.IsNullOrEmpty(aa.ImageUrl))
-                {
-                    filePath = Server.MapPath(aa.ImageUrl);
-                    if (File.Exists(filePath))
-                    {
-                        File.Delete(filePath);
-                    }
-                }
-                obj.Photo_OrderSummaryDetails.DeleteOnSubmit(aa);
-                if (obj.GetChangeSet().Deletes.Count > 0)
-                {
-                    obj.SubmitChanges();
-                }
-            }
-            return true;
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-       
-    }
-    [WebMethod]
-    public bool CheckCoopnCode(string a)
-    {
-        System.Threading.Thread.Sleep(5000);
-        if (a.Length == 1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
+   
 }
