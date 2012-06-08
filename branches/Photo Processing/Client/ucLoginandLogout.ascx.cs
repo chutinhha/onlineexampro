@@ -10,7 +10,7 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         string user = Convert.ToString(Session["username"]);
-        if (user == "")
+        if (string.IsNullOrEmpty(user))
         {
             lbuser.Text = "Guest";
             login4.Visible = true;
