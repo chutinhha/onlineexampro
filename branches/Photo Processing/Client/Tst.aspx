@@ -15,16 +15,16 @@
                 <img src="Images/ajax-loader.gif" alt="Loading..." />
             </div>
         </div>
-        <input id="Button1" type="button" value="button" />
-        <script language="javascript" type="text/javascript">
-            $(document).ready(function () {
-                $('#Button1').click(function () {
-                    $.blockUI({ message: $('#pp') });
-                    setTimeout($.unblockUI, 2000);
-                });
-            });
-        </script>
-    </div>
+        <input id="Button1" type="button" value="button" /><asp:Button ID="Button2" runat="server"
+            Text="Button" />
+        &nbsp;<script language="javascript" type="text/javascript">
+                  $(document).ready(function () {
+                      $('#Button1').click(function () {
+                          $.blockUI({ message: $('#pp') });
+                          setTimeout($.unblockUI, 10000);
+                      });
+                  });
+        </script></div>
     </form>
 </body>
 </html>

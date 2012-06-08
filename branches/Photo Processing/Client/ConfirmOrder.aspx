@@ -58,32 +58,57 @@
                     </tr>
                     <tr>
                         <td style="font-family: Calibri; color: #000000; font-weight: bold; font-size: 24px">
-                            My Order History:
+                            Confirm Order:
                         </td>
                     </tr>
                     <tr>
                         <td align="left">
-                            <%--<asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemCommand="ListView1_ItemCommand">
+                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemCommand="ListView1_ItemCommand">
+                                <LayoutTemplate>
+                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #E9E9E9"
+                                        border="0">
+                                        <tr style="color: #000000; font-weight: bold; font-size: 20px">
+                                            <th class="pic">
+                                                Image
+                                            </th>
+                                            <th>
+                                            </th>
+                                            <th class="indent">
+                                                Services
+                                            </th>
+                                            <th>
+                                                &nbsp; &nbsp;
+                                            </th>
+                                            <th align="left" style="padding-right: 5px;">
+                                                Price
+                                            </th>
+                                        </tr>
+                                    </table>
+                                    <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                </LayoutTemplate>
                                 <ItemTemplate>
-                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #00FFCC"
+                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #E9E9E9"
                                         border="0">
                                         <tr>
-                                            <td class="pic">
+                                            <td class="pic" width="250px">
                                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="image"
                                                     Width="130" Height="97" />
                                             </td>
-                                            <td class="indent">
+                                            <td class="indent" width="200px" valign="top">
                                                 <%# Eval("Plane_Name") %>
                                                 <br />
                                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
                                             </td>
-                                            <td align="left" style="padding-right: 10px;">
-                                                 <%# Eval("Price") %>
+                                            <td width="150px" valign="top">
+                                                <asp:CheckBox ID="chkPhysicalCopy" runat="server" Text="physical Copy" />
+                                            </td>
+                                            <td align="left" style="padding-right: 10px;" width="150px" valign="top">
+                                                <%# Eval("fkPlan_id")%>
                                             </td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
-                            </asp:ListView>--%>
+                            </asp:ListView>
                             <script>
                                 document.body.onload = Bind();
                                 function Bind() {
@@ -185,8 +210,7 @@
                             <table width="770">
                                 <tr>
                                     <td align="left">
-                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" 
-                                            PostBackUrl="~/UploadPhoto.aspx" onclick="Button1_Click" />
+                                        <asp:Button ID="Button1" runat="server" Text="Upload Another" PostBackUrl="~/UploadPhoto.aspx" />
                                     </td>
                                     <td>
                                     </td>
