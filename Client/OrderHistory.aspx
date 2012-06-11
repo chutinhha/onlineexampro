@@ -129,7 +129,7 @@
                                                     <Columns>
                                                         <asp:TemplateField ShowHeader="False" ItemStyle-CssClass="bullet">
                                                             <ItemTemplate>
-                                                                <%# Eval("sub_title")%>
+                                                                <%# Eval("Category_name")%>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                     </Columns>
@@ -154,7 +154,7 @@
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" PostBackUrl="~/ConfirmOrder.aspx" />
                                     </td>
                                 </tr>
                             </table>
