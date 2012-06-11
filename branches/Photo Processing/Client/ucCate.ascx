@@ -29,7 +29,7 @@
                             <%=item1.Category_name %>--%>
                         </li>
                         <%
-j++;
+                              j++;
                           }
                           i++;
               
@@ -51,10 +51,11 @@ j++;
         </td>
     </tr>
 </table>
-
 <script language="javascript">
     $("#Button2").click(function () {
-        var selected = [];        
+        $(this).attr('value', 'Loading...');
+        $(this).attr('disabled', 'disabled');
+        var selected = [];
         $('#accordion input:checkbox').each(function () {
             var isChecked = $(this).attr('checked');
             if (isChecked == "checked") {
@@ -66,7 +67,15 @@ j++;
         AssignCart.Test(selected.join(','), success);
     });
     function success(r) {
+<<<<<<< .mine
+        if (r) {
+            window.location.replace("OrderHistory.aspx");
+        } else {
+        alert("Server Error...!!!");
+        }
+=======
         alert(r);
+>>>>>>> .r198
     }
 </script>
 <script language="javascript">
