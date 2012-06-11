@@ -67,15 +67,11 @@
         AssignCart.Test(selected.join(','), success);
     });
     function success(r) {
-<<<<<<< .mine
         if (r) {
             window.location.replace("OrderHistory.aspx");
         } else {
         alert("Server Error...!!!");
         }
-=======
-        alert(r);
->>>>>>> .r198
     }
 </script>
 <script language="javascript">

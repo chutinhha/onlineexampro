@@ -109,7 +109,7 @@
                                     </table>
                                 </ItemTemplate>
                             </asp:ListView>
-                            <script>
+                           <%-- <script>
                                 document.body.onload = Bind();
                                 function Bind() {
                                     $.ajax({
@@ -159,7 +159,7 @@
                                 <div class="loader">
                                     <img src="Images/ajax-loader.gif" alt="Loading..." />
                                 </div>
-                            </div>
+                            </div>--%>
                         </td>
                     </tr>
                     <tr>
@@ -215,7 +215,8 @@
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" 
+                                            PostBackUrl="~/Payment.aspx" />
                                     </td>
                                 </tr>
                             </table>
