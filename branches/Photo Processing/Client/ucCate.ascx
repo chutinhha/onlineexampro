@@ -12,7 +12,7 @@
                       foreach (var item in aa)
                       { %>
                     <li id="limenu<%=i.ToString() %>">
-                        <input id="Radio1<%=i.ToString() %>" onclick="rd(this.id);" name="a" type="radio" />
+                        <input id="Radio1_<%=item.Plan_id.ToString() %>" onclick="rd(this.id);" name="a" type="radio" />
                         <%=item.Plan_Name %>
                     </li>
                     <ul style="display: none;" id="ulmenu<%=i.ToString() %>">
@@ -79,6 +79,14 @@
         if ($("#Hidden1").attr("value") != a) {
             $("#Hidden1").attr("value", a);
             $('#accordion input:checkbox').attr('checked', false);
+            AssignCart.GetPrice(a, successPrice);
+        }
+    }
+    function successPrice(r) {
+        if (r) {
+            document.getElementById('totalAmount').innerHTML = "$ " + r;
+        } else {
+            alert("Server Error...!!!");
         }
     }
     $("#accordion input:checkbox").change(function () {
