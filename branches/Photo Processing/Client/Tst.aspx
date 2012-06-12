@@ -34,6 +34,31 @@
     <div id="Div1" style="display: none">
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     </div>
+    <br />
+    <div>
+        <a href="#">
+            <img src="Images/smugmug.png" alt="smugmug" />
+        </a><a href="#">
+            <img src="Images/picasa.gif" alt="picasa" />
+        </a><a href="#">
+            <img src="Images/flickr.gif" id="IMG1" onclick="return IMG1_onclick()" alt="flickr" />
+        </a><a href="#">
+            <img src="Images/adorama.gif" alt="adorama" id="IMG3" />
+        </a>
+    </div>
+    <br />
+    <embed id="ImageUploader1" type="application/x-java-applet;version=1.4" codebase="../"
+        code="com.aurigma.imageuploader.ImageUploader.class" archive="ImageUploader5.jar"
+        width="450" height="300" scriptable="true" mayscript="true" pluginspage="https://java.sun.com/products/plugin/index.html#download"
+        cache_archive="ImageUploader5.jar" cache_version="5.1.10.0" folderpaneheight="150"
+        treepanewidth="150" filemask="*.jpeg;*.jpg;*.jpe;*.gif;*.bmp;*.tif;*.png" buttonsendtext="Upload"
+        showdescriptions="false" treepaneheight="200" panelayout="TwoPanes" showdebugwindow="true"
+        allowrotate="false" backgroundcolor="#8cbc4e" licensekey="71050-10000-B03D7-508AB-8F24F;72050-10000-D12EF-D3978-A8CBF"
+        uploadthumbnail1fitmode="Fit" uploadthumbnail1width="40" uploadthumbnail1height="40"
+        uploadthumbnail1jpegquality="40" thumbnailhorizontalspacing="5" thumbnailheight="5"
+        thumbnailverticalspacing="5" previewthumbnailsize="70" autorecovermaxtriescount="5"
+        autorecovertimeout="5000" action="Multiupload.aspx" maxfilesize="15728640" afteruploadlistener="uploadFinished"
+        beforeuploadlistener="ImageUploader1_BeforeUpload">
     </form>
 </body>
 </html>
