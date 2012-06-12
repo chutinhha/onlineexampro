@@ -98,4 +98,10 @@ public class AssignCart : System.Web.Services.WebService
             return true;
         }
     }
+    [WebMethod]
+    public decimal GetPrice(string id)
+    {
+        string[] rd = id.Split('_');
+        return PhotoProcessingHelper.Context.Photo_PlanDetails.Single(a => a.Plan_id == Convert.ToInt32(rd[rd.Length - 1])).Rate.Value;
+    }
 }

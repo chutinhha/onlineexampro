@@ -72,11 +72,14 @@ public partial class OrderHistory : System.Web.UI.Page
         {
             long id = Convert.ToInt64(ListView1.DataKeys[e.Item.DataItemIndex].Values[0]);
             var se = PhotoProcessingHelper.Context.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == id);
-            string[] ids = se.EditOption.Split(',');
-            var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == se.fkPlan_id && ids.Contains(a.SubCategory_id.ToString()));
-            GridView gvr = (GridView)e.Item.FindControl("GridView1");
-            gvr.DataSource = bb;
-            gvr.DataBind();
+            if (!string.IsNullOrEmpty(se.EditOption))
+            {
+                string[] ids = se.EditOption.Split(',');
+                var bb = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Where(a => a.FkPlan_id == se.fkPlan_id && ids.Contains(a.SubCategory_id.ToString()));
+                GridView gvr = (GridView)e.Item.FindControl("GridView1");
+                gvr.DataSource = bb;
+                gvr.DataBind();
+            }
             //var ss = PhotoProcessingHelper.Context.Photo_OrderSummaryDetails.Where(a => a.OrderSummary_id == id).Select(a => a).FirstOrDefault();
             //Dictionary<int, string> subCatagory = (Dictionary<int, string>)ViewState["subCatagory"];
             //DataTable dt = new DataTable();
