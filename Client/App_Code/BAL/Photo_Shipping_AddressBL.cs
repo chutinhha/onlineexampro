@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class Photo_Shipping_AddressBL:Photo_Shipping_AddressProperties,IPhotoProcessing
 {
-    public Photo_Shipping_AddressBL(long shipping_id, string ship_Name, string ship_Address, int ship_zipcode, int ship_Country, int ship_State, string ship_City, string ship_Mail, long ship_Phone, long ship_Mobile)
+    public Photo_Shipping_AddressBL(long shipping_id, string ship_Name, string ship_Address, int ship_zipcode, int ship_Country, int ship_State, string ship_City, string ship_Mail,  long ship_Mobile)
 	{
         this.Ship_Address = ship_Address;
         this.Ship_City = ship_City;
@@ -16,12 +16,11 @@ public class Photo_Shipping_AddressBL:Photo_Shipping_AddressProperties,IPhotoPro
         this.Ship_Mail = ship_Mail;
         this.Ship_Mobile = ship_Mobile;
         this.Ship_Name = ship_Name;
-        this.Ship_Phone = ship_Phone;
         this.Ship_State = ship_State;
         this.Ship_zipcode = ship_zipcode;
         this.Shipping_id = shipping_id;
 	}
-    public Photo_Shipping_AddressBL( string ship_Name, string ship_Address, int ship_zipcode, int ship_Country, int ship_State, string ship_City, string ship_Mail, long ship_Phone, long ship_Mobile)
+    public Photo_Shipping_AddressBL( string ship_Name, string ship_Address, int ship_zipcode, int ship_Country, int ship_State, string ship_City, string ship_Mail,  long ship_Mobile)
     {
         this.Ship_Address = ship_Address;
         this.Ship_City = ship_City;
@@ -29,7 +28,6 @@ public class Photo_Shipping_AddressBL:Photo_Shipping_AddressProperties,IPhotoPro
         this.Ship_Mail = ship_Mail;
         this.Ship_Mobile = ship_Mobile;
         this.Ship_Name = ship_Name;
-        this.Ship_Phone = ship_Phone;
         this.Ship_State = ship_State;
         this.Ship_zipcode = ship_zipcode;
     }

@@ -7,7 +7,7 @@ using System.Web;
 /// </summary>
 public abstract class Photo_Billing_AddressProperties
 {
-    private long billing_id, bill_Phone, bill_Mobile;
+    private long billing_id, bill_Mobile;
 
     public long Bill_Mobile
     {
@@ -15,11 +15,7 @@ public abstract class Photo_Billing_AddressProperties
         set { bill_Mobile = value; }
     }
 
-    public long Bill_Phone
-    {
-        get { return bill_Phone; }
-        set { bill_Phone = value; }
-    }
+
 
     public long Billing_id
     {
