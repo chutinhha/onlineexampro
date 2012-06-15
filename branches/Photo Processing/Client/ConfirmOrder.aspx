@@ -13,7 +13,7 @@
             <asp:ServiceReference Path="~/AssignCart.asmx" />
         </Services>
     </cc1:ToolkitScriptManager>
-    My Order History
+    Confirm Order:
     <hr />
     <br />
     <table cellpadding="0" cellspacing="0" width="100%">
@@ -43,12 +43,12 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div id="t4" class="currentbackcolor">
+                                        <div id="t4" class="otherbackcolor">
                                             4. CONFIRM ORDER
                                         </div>
                                     </td>
                                     <td>
-                                        <div id="t5" class="otherbackcolor">
+                                        <div id="t5" class="currentbackcolor">
                                             5. CHOOSE PAYMENT METHOD
                                         </div>
                                     </td>
@@ -62,7 +62,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="left">
+                        <td align="left" colspan="2">
                             <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemCommand="ListView1_ItemCommand">
                                 <LayoutTemplate>
                                     <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #E9E9E9"
@@ -100,16 +100,18 @@
                                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
                                             </td>
                                             <td width="150px" valign="top">
-                                                <asp:CheckBox ID="chkPhysicalCopy" runat="server" Text="physical Copy" />
+                                                <asp:CheckBox ID="chkPhysicalCopy" runat="server" Text="physical Copy" OnCheckedChanged="chkPhysicalCopy_CheckedChanged"
+                                                    AutoPostBack="True" />
                                             </td>
                                             <td align="left" style="padding-right: 10px;" width="150px" valign="top">
-                                                <%# Eval("fkPlan_id")%>
+                                                <asp:Label ID="lbRate" runat="server" Text=' <%# Eval("fkPlan_id")%>'></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
-                                </ItemTemplate>                                
+                                </ItemTemplate>
                             </asp:ListView>
-                           <%-- <script>
+                            <%-- <script>
+
                                 document.body.onload = Bind();
                                 function Bind() {
                                     $.ajax({
@@ -149,8 +151,8 @@
                                         alert("Server Error...!!!");
                                     }
                                 }
-                            </script>
-                            <div id="pp" class="overlay" style="display: none">
+                            </script>--%>
+                            <%-- <div id="pp" class="overlay" style="display: none">
                                 <div class="loader">
                                     <img src="Images/ajax-loader.gif" alt="Loading..." />
                                 </div>
@@ -163,8 +165,22 @@
                         </td>
                     </tr>
                     <tr>
+                        <td align="right">
+                            <table>
+                                <tr>
+                                    <td align="right">
+                                        Total:
+                                    </td>
+                                    <td width="100px">
+                                        <asp:Label ID="lbTotal" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2" align="right">
-                            <script>
+                            <%--<script>
                                 $(document).ready(function () {
                                     $("#Button3").click(function () {
                                         var a = $("#Text1").val();
@@ -179,7 +195,7 @@
                                     }
                                 }
 
-                            </script>
+                            </script>--%>
                             Your Coupon Code:
                             <input id="Text1" type="text" />
                             <input id="Button3" type="button" value="Submit" /><input id="Button4" type="button"
@@ -215,8 +231,7 @@
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" 
-                                            PostBackUrl="~/Payment.aspx" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" PostBackUrl="~/Payment.aspx" />
                                     </td>
                                 </tr>
                             </table>

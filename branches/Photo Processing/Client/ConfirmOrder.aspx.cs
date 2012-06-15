@@ -37,7 +37,11 @@ public partial class ConfirmOrder : System.Web.UI.Page
                     }
                 }
             }
-            BindData();
+            if (Session["username"] != null)
+            {
+                BindData();
+            }
+
         }
     }
 
@@ -77,5 +81,19 @@ public partial class ConfirmOrder : System.Web.UI.Page
             }
             BindData();
         }
+    }
+
+
+
+    protected void chkPhysicalCopy_CheckedChanged(object sender, EventArgs e)
+    {
+        //ContentPlaceHolder cph = (ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1");
+        //ListView lv = (ListView)cph.FindControl("ListView1");
+        //CheckBox chk = (CheckBox)lv.FindControl("chkPhysicalCopy");
+        //if (chk.Checked)
+        //{
+        ClientScript.RegisterStartupScript(this.Page.GetType(), "",
+"window.open('Address.aspx','Graph','height=400,width=500');", true);
+        //}
     }
 }

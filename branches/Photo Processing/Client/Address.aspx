@@ -2,6 +2,30 @@
     CodeFile="Address.aspx.cs" Inherits="Address" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script language="javascript" type="text/javascript">
+        function showHelloWorld() {
+
+            if (document.getElementById('<%=CheckBox1.ClientID%>').checked == true) {
+                document.getElementById('<%=TextBox5.ClientID%>').value = document.getElementById('<%=TextBox1.ClientID%>').value;
+                document.getElementById('<%=TextBox8.ClientID%>').value = document.getElementById('<%=TextBox2.ClientID%>').value;
+                document.getElementById('<%=TextBox9.ClientID%>').value = document.getElementById('<%=TextBox3.ClientID%>').value;
+                document.getElementById('<%=TextBox10.ClientID%>').value = document.getElementById('<%=TextBox4.ClientID%>').value;
+                document.getElementById('<%=TextBox11.ClientID%>').value = document.getElementById('<%=TextBox7.ClientID%>').value;
+                document.getElementById('<%=TextBox12.ClientID%>').value = document.getElementById('<%=TextBox6.ClientID%>').value;
+
+                // document.getElementById('<%=TextBox5.ClientID%>').Text = name;
+            }
+            else {
+                document.getElementById('<%=TextBox5.ClientID%>').value = "";
+                document.getElementById('<%=TextBox8.ClientID%>').value = "";
+                document.getElementById('<%=TextBox9.ClientID%>').value = "";
+                document.getElementById('<%=TextBox10.ClientID%>').value = "";
+                document.getElementById('<%=TextBox11.ClientID%>').value = "";
+                document.getElementById('<%=TextBox12.ClientID%>').value = "";
+            }
+
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
@@ -9,6 +33,7 @@
     <table cellpadding="0" cellspacing="0" width="750px">
         <tr>
             <td colspan="2">
+                Hard Copy Details:
             </td>
         </tr>
         <tr>
@@ -151,7 +176,8 @@
                                                     Country
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="autocomplete" Width="150px" runat="server"></asp:TextBox>
+                                                    <asp:DropDownList ID="DropDownList3" Width="155px" runat="server">
+                                                    </asp:DropDownList>
                                                 </td>
                                             </tr>
                                         </table>
@@ -210,7 +236,8 @@
                                         Billing Address
                                     </td>
                                     <td align="right">
-                                        <asp:CheckBox ID="CheckBox1" runat="server" />(Billing same as Shipping)
+                                        <asp:CheckBox ID="CheckBox1" runat="server" OnClick="javascript:showHelloWorld()" />(Billing
+                                        same as Shipping)
                                     </td>
                                 </tr>
                                 <tr>
@@ -386,7 +413,8 @@
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <asp:Button ID="Button1" runat="server" Text="Save&Use this address" />
+                <asp:Button ID="Button1" runat="server" Text="Save&Use this address" 
+                    onclick="Button1_Click" />
             </td>
         </tr>
     </table>

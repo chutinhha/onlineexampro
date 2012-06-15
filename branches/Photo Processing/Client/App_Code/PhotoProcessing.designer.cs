@@ -47,6 +47,9 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
   partial void InsertPhoto_OrderDetail(Photo_OrderDetail instance);
   partial void UpdatePhoto_OrderDetail(Photo_OrderDetail instance);
   partial void DeletePhoto_OrderDetail(Photo_OrderDetail instance);
+  partial void InsertPhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
+  partial void UpdatePhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
+  partial void DeletePhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
   partial void InsertPhoto_PhysicalCopyDetail(Photo_PhysicalCopyDetail instance);
   partial void UpdatePhoto_PhysicalCopyDetail(Photo_PhysicalCopyDetail instance);
   partial void DeletePhoto_PhysicalCopyDetail(Photo_PhysicalCopyDetail instance);
@@ -68,9 +71,6 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
   partial void InsertPhoto_SubCatagoryDetail(Photo_SubCatagoryDetail instance);
   partial void UpdatePhoto_SubCatagoryDetail(Photo_SubCatagoryDetail instance);
   partial void DeletePhoto_SubCatagoryDetail(Photo_SubCatagoryDetail instance);
-  partial void InsertPhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
-  partial void UpdatePhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
-  partial void DeletePhoto_OrderSummaryDetail(Photo_OrderSummaryDetail instance);
   #endregion
 	
 	public PhotoProcessingDataContext() : 
@@ -151,6 +151,14 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<Photo_OrderSummaryDetail> Photo_OrderSummaryDetails
+	{
+		get
+		{
+			return this.GetTable<Photo_OrderSummaryDetail>();
+		}
+	}
+	
 	public System.Data.Linq.Table<Photo_PhysicalCopyDetail> Photo_PhysicalCopyDetails
 	{
 		get
@@ -207,14 +215,6 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<Photo_OrderSummaryDetail> Photo_OrderSummaryDetails
-	{
-		get
-		{
-			return this.GetTable<Photo_OrderSummaryDetail>();
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Billing_AddressNewDeleteCommand")]
 	public int sp_Photo_Billing_AddressNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Billing_id", DbType="BigInt")] System.Nullable<long> original_Billing_id)
 	{
@@ -223,9 +223,9 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Billing_AddressNewInsertCommand")]
-	public ISingleResult<sp_Photo_Billing_AddressNewInsertCommandResult> sp_Photo_Billing_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Name", DbType="NVarChar(50)")] string bill_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Address", DbType="NVarChar(50)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_zipcode", DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Country", DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_State", DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_City", DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mail", DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Phone", DbType="BigInt")] System.Nullable<long> bill_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mobile", DbType="BigInt")] System.Nullable<long> bill_Mobile)
+	public ISingleResult<sp_Photo_Billing_AddressNewInsertCommandResult> sp_Photo_Billing_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Name", DbType="NVarChar(50)")] string bill_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Address", DbType="NVarChar(50)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_zipcode", DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Country", DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_State", DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_City", DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mail", DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mobile", DbType="BigInt")] System.Nullable<long> bill_Mobile)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bill_Name, bill_Address, bill_zipcode, bill_Country, bill_State, bill_City, bill_Mail, bill_Phone, bill_Mobile);
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bill_Name, bill_Address, bill_zipcode, bill_Country, bill_State, bill_City, bill_Mail, bill_Mobile);
 		return ((ISingleResult<sp_Photo_Billing_AddressNewInsertCommandResult>)(result.ReturnValue));
 	}
 	
@@ -237,9 +237,9 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Billing_AddressNewUpdateCommand")]
-	public ISingleResult<sp_Photo_Billing_AddressNewUpdateCommandResult> sp_Photo_Billing_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Name", DbType="NVarChar(50)")] string bill_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Address", DbType="NVarChar(50)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_zipcode", DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Country", DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_State", DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_City", DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mail", DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Phone", DbType="BigInt")] System.Nullable<long> bill_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mobile", DbType="BigInt")] System.Nullable<long> bill_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Billing_id", DbType="BigInt")] System.Nullable<long> original_Billing_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Billing_id", DbType="BigInt")] System.Nullable<long> billing_id)
+	public ISingleResult<sp_Photo_Billing_AddressNewUpdateCommandResult> sp_Photo_Billing_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Name", DbType="NVarChar(50)")] string bill_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Address", DbType="NVarChar(50)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_zipcode", DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Country", DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_State", DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_City", DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mail", DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bill_Mobile", DbType="BigInt")] System.Nullable<long> bill_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Billing_id", DbType="BigInt")] System.Nullable<long> original_Billing_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Billing_id", DbType="BigInt")] System.Nullable<long> billing_id)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bill_Name, bill_Address, bill_zipcode, bill_Country, bill_State, bill_City, bill_Mail, bill_Phone, bill_Mobile, original_Billing_id, billing_id);
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bill_Name, bill_Address, bill_zipcode, bill_Country, bill_State, bill_City, bill_Mail, bill_Mobile, original_Billing_id, billing_id);
 		return ((ISingleResult<sp_Photo_Billing_AddressNewUpdateCommandResult>)(result.ReturnValue));
 	}
 	
@@ -271,11 +271,11 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 		return ((ISingleResult<sp_Photo_Change_Password_logNewUpdateCommandResult>)(result.ReturnValue));
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewDeleteCommand")]
-	public int sp_Photo_Customer_StatusNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Status_id", DbType="Int")] System.Nullable<int> original_Status_id)
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewSelectCommand")]
+	public ISingleResult<sp_Photo_Customer_StatusNewSelectCommandResult> sp_Photo_Customer_StatusNewSelectCommand()
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Status_id);
-		return ((int)(result.ReturnValue));
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<sp_Photo_Customer_StatusNewSelectCommandResult>)(result.ReturnValue));
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewInsertCommand")]
@@ -285,11 +285,11 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 		return ((ISingleResult<sp_Photo_Customer_StatusNewInsertCommandResult>)(result.ReturnValue));
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewSelectCommand")]
-	public ISingleResult<sp_Photo_Customer_StatusNewSelectCommandResult> sp_Photo_Customer_StatusNewSelectCommand()
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewDeleteCommand")]
+	public int sp_Photo_Customer_StatusNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Status_id", DbType="Int")] System.Nullable<int> original_Status_id)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_Photo_Customer_StatusNewSelectCommandResult>)(result.ReturnValue));
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Status_id);
+		return ((int)(result.ReturnValue));
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Customer_StatusNewUpdateCommand")]
@@ -297,6 +297,58 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status_name, original_Status_id, status_id);
 		return ((ISingleResult<sp_Photo_Customer_StatusNewUpdateCommandResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewDeleteCommand")]
+	public int sp_Photo_CustomerRegistrationDetailNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Customer_id", DbType="BigInt")] System.Nullable<long> original_Customer_id)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Customer_id);
+		return ((int)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewInsertCommand")]
+	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewInsertCommandResult> sp_Photo_CustomerRegistrationDetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Country", DbType="Int")] System.Nullable<int> country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reg_Date", DbType="DateTime")] System.Nullable<System.DateTime> reg_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Login", DbType="DateTime")] System.Nullable<System.DateTime> last_Login, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Error_count", DbType="Int")] System.Nullable<int> error_count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Current_Status", DbType="Int")] System.Nullable<int> current_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Profile_Image", DbType="NVarChar(50)")] string profile_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Full_Name", DbType="NVarChar(50)")] string full_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="DateTime")] System.Nullable<System.DateTime> dOB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mail", DbType="Int")] System.Nullable<int> activationStatus_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mobile", DbType="Int")] System.Nullable<int> activationStatus_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email_Subs", DbType="Int")] System.Nullable<int> email_Subs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SMS_Subs", DbType="Int")] System.Nullable<int> sMS_Subs)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, mobile, country, reg_Date, last_Login, error_count, current_Status, profile_Image, full_Name, dOB, activationStatus_Mail, activationStatus_Mobile, email_Subs, sMS_Subs);
+		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewInsertCommandResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewSelectCommand")]
+	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewSelectCommandResult> sp_Photo_CustomerRegistrationDetailNewSelectCommand()
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewSelectCommandResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewUpdateCommand")]
+	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult> sp_Photo_CustomerRegistrationDetailNewUpdateCommand(
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Country", DbType="Int")] System.Nullable<int> country, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reg_Date", DbType="DateTime")] System.Nullable<System.DateTime> reg_Date, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Login", DbType="DateTime")] System.Nullable<System.DateTime> last_Login, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Error_count", DbType="Int")] System.Nullable<int> error_count, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Current_Status", DbType="Int")] System.Nullable<int> current_Status, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Profile_Image", DbType="NVarChar(50)")] string profile_Image, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Full_Name", DbType="NVarChar(50)")] string full_Name, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="DateTime")] System.Nullable<System.DateTime> dOB, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mail", DbType="Int")] System.Nullable<int> activationStatus_Mail, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mobile", DbType="Int")] System.Nullable<int> activationStatus_Mobile, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email_Subs", DbType="Int")] System.Nullable<int> email_Subs, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SMS_Subs", DbType="Int")] System.Nullable<int> sMS_Subs, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Customer_id", DbType="BigInt")] System.Nullable<long> original_Customer_id, 
+				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Customer_id", DbType="BigInt")] System.Nullable<long> customer_id)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, mobile, country, reg_Date, last_Login, error_count, current_Status, profile_Image, full_Name, dOB, activationStatus_Mail, activationStatus_Mobile, email_Subs, sMS_Subs, original_Customer_id, customer_id);
+		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_OrderDetailNewInsertCommand")]
+	public ISingleResult<sp_Photo_OrderDetailNewInsertCommandResult> sp_Photo_OrderDetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_id", DbType="BigInt")] System.Nullable<long> fkCustomer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image_name", DbType="NVarChar(50)")] string image_name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Input_Image_URL", DbType="NVarChar(200)")] string input_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edit_Options", DbType="NVarChar(100)")] string edit_Options, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Complaint_Towards", DbType="NVarChar(500)")] string complaint_Towards, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkPlan_id", DbType="Int")] System.Nullable<int> fkPlan_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordered_date", DbType="DateTime")] System.Nullable<System.DateTime> ordered_date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveredDate_SoftCopy", DbType="DateTime")] System.Nullable<System.DateTime> deliveredDate_SoftCopy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Process_Status", DbType="NVarChar(100)")] string process_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total_Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> total_Amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_Status", DbType="Int")] System.Nullable<int> fkCustomer_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Output_Image_URL", DbType="NVarChar(200)")] string output_Image_URL)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fkCustomer_id, image_name, input_Image_URL, edit_Options, complaint_Towards, fkPlan_id, ordered_date, deliveredDate_SoftCopy, process_Status, total_Amount, fkCustomer_Status, output_Image_URL);
+		return ((ISingleResult<sp_Photo_OrderDetailNewInsertCommandResult>)(result.ReturnValue));
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_OrderDetailNewDeleteCommand")]
@@ -311,6 +363,13 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	{
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 		return ((ISingleResult<sp_Photo_OrderDetailNewSelectCommandResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_OrderDetailNewUpdateCommand")]
+	public ISingleResult<sp_Photo_OrderDetailNewUpdateCommandResult> sp_Photo_OrderDetailNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_id", DbType="BigInt")] System.Nullable<long> fkCustomer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image_name", DbType="NVarChar(50)")] string image_name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Input_Image_URL", DbType="NVarChar(200)")] string input_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edit_Options", DbType="NVarChar(100)")] string edit_Options, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Complaint_Towards", DbType="NVarChar(500)")] string complaint_Towards, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkPlan_id", DbType="Int")] System.Nullable<int> fkPlan_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordered_date", DbType="DateTime")] System.Nullable<System.DateTime> ordered_date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveredDate_SoftCopy", DbType="DateTime")] System.Nullable<System.DateTime> deliveredDate_SoftCopy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Process_Status", DbType="NVarChar(100)")] string process_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total_Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> total_Amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_Status", DbType="Int")] System.Nullable<int> fkCustomer_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Output_Image_URL", DbType="NVarChar(200)")] string output_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Order_id", DbType="BigInt")] System.Nullable<long> original_Order_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_id", DbType="BigInt")] System.Nullable<long> order_id)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fkCustomer_id, image_name, input_Image_URL, edit_Options, complaint_Towards, fkPlan_id, ordered_date, deliveredDate_SoftCopy, process_Status, total_Amount, fkCustomer_Status, output_Image_URL, original_Order_id, order_id);
+		return ((ISingleResult<sp_Photo_OrderDetailNewUpdateCommandResult>)(result.ReturnValue));
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_PhysicalCopyDetailNewDeleteCommand")]
@@ -433,9 +492,9 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Shipping_AddressNewInsertCommand")]
-	public ISingleResult<sp_Photo_Shipping_AddressNewInsertCommandResult> sp_Photo_Shipping_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Name", DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Address", DbType="NVarChar(50)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_zipcode", DbType="Int")] System.Nullable<int> ship_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Country", DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_State", DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_City", DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mail", DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Phone", DbType="BigInt")] System.Nullable<long> ship_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mobile", DbType="BigInt")] System.Nullable<long> ship_Mobile)
+	public ISingleResult<sp_Photo_Shipping_AddressNewInsertCommandResult> sp_Photo_Shipping_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Name", DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Address", DbType="NVarChar(50)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_zipcode", DbType="Int")] System.Nullable<int> ship_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Country", DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_State", DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_City", DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mail", DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mobile", DbType="BigInt")] System.Nullable<long> ship_Mobile)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_zipcode, ship_Country, ship_State, ship_City, ship_Mail, ship_Phone, ship_Mobile);
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_zipcode, ship_Country, ship_State, ship_City, ship_Mail, ship_Mobile);
 		return ((ISingleResult<sp_Photo_Shipping_AddressNewInsertCommandResult>)(result.ReturnValue));
 	}
 	
@@ -447,9 +506,9 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 	}
 	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_Shipping_AddressNewUpdateCommand")]
-	public ISingleResult<sp_Photo_Shipping_AddressNewUpdateCommandResult> sp_Photo_Shipping_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Name", DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Address", DbType="NVarChar(50)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_zipcode", DbType="Int")] System.Nullable<int> ship_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Country", DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_State", DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_City", DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mail", DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Phone", DbType="BigInt")] System.Nullable<long> ship_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mobile", DbType="BigInt")] System.Nullable<long> ship_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="BigInt")] System.Nullable<long> original_Shipping_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shipping_id", DbType="BigInt")] System.Nullable<long> shipping_id)
+	public ISingleResult<sp_Photo_Shipping_AddressNewUpdateCommandResult> sp_Photo_Shipping_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Name", DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Address", DbType="NVarChar(50)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_zipcode", DbType="Int")] System.Nullable<int> ship_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Country", DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_State", DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_City", DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mail", DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ship_Mobile", DbType="BigInt")] System.Nullable<long> ship_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="BigInt")] System.Nullable<long> original_Shipping_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shipping_id", DbType="BigInt")] System.Nullable<long> shipping_id)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_zipcode, ship_Country, ship_State, ship_City, ship_Mail, ship_Phone, ship_Mobile, original_Shipping_id, shipping_id);
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_zipcode, ship_Country, ship_State, ship_City, ship_Mail, ship_Mobile, original_Shipping_id, shipping_id);
 		return ((ISingleResult<sp_Photo_Shipping_AddressNewUpdateCommandResult>)(result.ReturnValue));
 	}
 	
@@ -480,65 +539,6 @@ public partial class PhotoProcessingDataContext : System.Data.Linq.DataContext
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category_name, fkPlan_id, original_SubCategory_id, subCategory_id);
 		return ((ISingleResult<sp_Photo_SubCatagoryDetailNewUpdateCommandResult>)(result.ReturnValue));
 	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_OrderDetailNewInsertCommand")]
-	public ISingleResult<sp_Photo_OrderDetailNewInsertCommandResult> sp_Photo_OrderDetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_id", DbType="BigInt")] System.Nullable<long> fkCustomer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image_name", DbType="NVarChar(50)")] string image_name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Input_Image_URL", DbType="NVarChar(200)")] string input_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edit_Options", DbType="NVarChar(100)")] string edit_Options, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Complaint_Towards", DbType="NVarChar(500)")] string complaint_Towards, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkPlan_id", DbType="Int")] System.Nullable<int> fkPlan_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordered_date", DbType="DateTime")] System.Nullable<System.DateTime> ordered_date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveredDate_SoftCopy", DbType="DateTime")] System.Nullable<System.DateTime> deliveredDate_SoftCopy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Process_Status", DbType="NVarChar(100)")] string process_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total_Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> total_Amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_Status", DbType="Int")] System.Nullable<int> fkCustomer_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Output_Image_URL", DbType="NVarChar(200)")] string output_Image_URL)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fkCustomer_id, image_name, input_Image_URL, edit_Options, complaint_Towards, fkPlan_id, ordered_date, deliveredDate_SoftCopy, process_Status, total_Amount, fkCustomer_Status, output_Image_URL);
-		return ((ISingleResult<sp_Photo_OrderDetailNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_OrderDetailNewUpdateCommand")]
-	public ISingleResult<sp_Photo_OrderDetailNewUpdateCommandResult> sp_Photo_OrderDetailNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_id", DbType="BigInt")] System.Nullable<long> fkCustomer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image_name", DbType="NVarChar(50)")] string image_name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Input_Image_URL", DbType="NVarChar(200)")] string input_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edit_Options", DbType="NVarChar(100)")] string edit_Options, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Complaint_Towards", DbType="NVarChar(500)")] string complaint_Towards, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkPlan_id", DbType="Int")] System.Nullable<int> fkPlan_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ordered_date", DbType="DateTime")] System.Nullable<System.DateTime> ordered_date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeliveredDate_SoftCopy", DbType="DateTime")] System.Nullable<System.DateTime> deliveredDate_SoftCopy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Process_Status", DbType="NVarChar(100)")] string process_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total_Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> total_Amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FkCustomer_Status", DbType="Int")] System.Nullable<int> fkCustomer_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Output_Image_URL", DbType="NVarChar(200)")] string output_Image_URL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Order_id", DbType="BigInt")] System.Nullable<long> original_Order_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_id", DbType="BigInt")] System.Nullable<long> order_id)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fkCustomer_id, image_name, input_Image_URL, edit_Options, complaint_Towards, fkPlan_id, ordered_date, deliveredDate_SoftCopy, process_Status, total_Amount, fkCustomer_Status, output_Image_URL, original_Order_id, order_id);
-		return ((ISingleResult<sp_Photo_OrderDetailNewUpdateCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewDeleteCommand")]
-	public int sp_Photo_CustomerRegistrationDetailNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Customer_id", DbType="BigInt")] System.Nullable<long> original_Customer_id)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Customer_id);
-		return ((int)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewInsertCommand")]
-	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewInsertCommandResult> sp_Photo_CustomerRegistrationDetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Country", DbType="Int")] System.Nullable<int> country, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reg_Date", DbType="DateTime")] System.Nullable<System.DateTime> reg_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Login", DbType="DateTime")] System.Nullable<System.DateTime> last_Login, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Error_count", DbType="Int")] System.Nullable<int> error_count, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Current_Status", DbType="Int")] System.Nullable<int> current_Status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Profile_Image", DbType="NVarChar(50)")] string profile_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Full_Name", DbType="NVarChar(50)")] string full_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="DateTime")] System.Nullable<System.DateTime> dOB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mail", DbType="Int")] System.Nullable<int> activationStatus_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mobile", DbType="Int")] System.Nullable<int> activationStatus_Mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email_Subs", DbType="Int")] System.Nullable<int> email_Subs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SMS_Subs", DbType="Int")] System.Nullable<int> sMS_Subs)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, mobile, country, reg_Date, last_Login, error_count, current_Status, profile_Image, full_Name, dOB, activationStatus_Mail, activationStatus_Mobile, email_Subs, sMS_Subs);
-		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewInsertCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewSelectCommand")]
-	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewSelectCommandResult> sp_Photo_CustomerRegistrationDetailNewSelectCommand()
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewSelectCommandResult>)(result.ReturnValue));
-	}
-	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Photo_CustomerRegistrationDetailNewUpdateCommand")]
-	public ISingleResult<sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult> sp_Photo_CustomerRegistrationDetailNewUpdateCommand(
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="BigInt")] System.Nullable<long> mobile, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Country", DbType="Int")] System.Nullable<int> country, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reg_Date", DbType="DateTime")] System.Nullable<System.DateTime> reg_Date, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Last_Login", DbType="DateTime")] System.Nullable<System.DateTime> last_Login, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Error_count", DbType="Int")] System.Nullable<int> error_count, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Current_Status", DbType="Int")] System.Nullable<int> current_Status, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Profile_Image", DbType="NVarChar(50)")] string profile_Image, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Full_Name", DbType="NVarChar(50)")] string full_Name, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="DateTime")] System.Nullable<System.DateTime> dOB, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mail", DbType="Int")] System.Nullable<int> activationStatus_Mail, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ActivationStatus_Mobile", DbType="Int")] System.Nullable<int> activationStatus_Mobile, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email_Subs", DbType="Int")] System.Nullable<int> email_Subs, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SMS_Subs", DbType="Int")] System.Nullable<int> sMS_Subs, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Customer_id", DbType="BigInt")] System.Nullable<long> original_Customer_id, 
-				[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Customer_id", DbType="BigInt")] System.Nullable<long> customer_id)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, mobile, country, reg_Date, last_Login, error_count, current_Status, profile_Image, full_Name, dOB, activationStatus_Mail, activationStatus_Mobile, email_Subs, sMS_Subs, original_Customer_id, customer_id);
-		return ((ISingleResult<sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult>)(result.ReturnValue));
-	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Photo_Billing_Address")]
@@ -562,8 +562,6 @@ public partial class Photo_Billing_Address : INotifyPropertyChanging, INotifyPro
 	private string _Bill_City;
 	
 	private string _Bill_Mail;
-	
-	private System.Nullable<long> _Bill_Phone;
 	
 	private System.Nullable<long> _Bill_Mobile;
 	
@@ -589,8 +587,6 @@ public partial class Photo_Billing_Address : INotifyPropertyChanging, INotifyPro
     partial void OnBill_CityChanged();
     partial void OnBill_MailChanging(string value);
     partial void OnBill_MailChanged();
-    partial void OnBill_PhoneChanging(System.Nullable<long> value);
-    partial void OnBill_PhoneChanged();
     partial void OnBill_MobileChanging(System.Nullable<long> value);
     partial void OnBill_MobileChanged();
     #endregion
@@ -757,26 +753,6 @@ public partial class Photo_Billing_Address : INotifyPropertyChanging, INotifyPro
 				this._Bill_Mail = value;
 				this.SendPropertyChanged("Bill_Mail");
 				this.OnBill_MailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Phone", DbType="BigInt")]
-	public System.Nullable<long> Bill_Phone
-	{
-		get
-		{
-			return this._Bill_Phone;
-		}
-		set
-		{
-			if ((this._Bill_Phone != value))
-			{
-				this.OnBill_PhoneChanging(value);
-				this.SendPropertyChanging();
-				this._Bill_Phone = value;
-				this.SendPropertyChanged("Bill_Phone");
-				this.OnBill_PhoneChanged();
 			}
 		}
 	}
@@ -991,7 +967,7 @@ public partial class Photo_Change_Password_log : INotifyPropertyChanging, INotif
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Change_Password_log", Storage="_Photo_CustomerRegistrationDetail", ThisKey="FkCustomer_id", OtherKey="Customer_id", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Change_Password_log", Storage="_Photo_CustomerRegistrationDetail", ThisKey="FkCustomer_id", OtherKey="Customer_id", IsForeignKey=true, DeleteRule="CASCADE")]
 	public Photo_CustomerRegistrationDetail Photo_CustomerRegistrationDetail
 	{
 		get
@@ -1340,9 +1316,9 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 	
 	private EntitySet<Photo_OrderDetail> _Photo_OrderDetails;
 	
-	private EntitySet<Photo_Promo_codeDetail> _Photo_Promo_codeDetails;
-	
 	private EntitySet<Photo_OrderSummaryDetail> _Photo_OrderSummaryDetails;
+	
+	private EntitySet<Photo_Promo_codeDetail> _Photo_Promo_codeDetails;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1386,12 +1362,12 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 	{
 		this._Photo_Change_Password_logs = new EntitySet<Photo_Change_Password_log>(new Action<Photo_Change_Password_log>(this.attach_Photo_Change_Password_logs), new Action<Photo_Change_Password_log>(this.detach_Photo_Change_Password_logs));
 		this._Photo_OrderDetails = new EntitySet<Photo_OrderDetail>(new Action<Photo_OrderDetail>(this.attach_Photo_OrderDetails), new Action<Photo_OrderDetail>(this.detach_Photo_OrderDetails));
-		this._Photo_Promo_codeDetails = new EntitySet<Photo_Promo_codeDetail>(new Action<Photo_Promo_codeDetail>(this.attach_Photo_Promo_codeDetails), new Action<Photo_Promo_codeDetail>(this.detach_Photo_Promo_codeDetails));
 		this._Photo_OrderSummaryDetails = new EntitySet<Photo_OrderSummaryDetail>(new Action<Photo_OrderSummaryDetail>(this.attach_Photo_OrderSummaryDetails), new Action<Photo_OrderSummaryDetail>(this.detach_Photo_OrderSummaryDetails));
+		this._Photo_Promo_codeDetails = new EntitySet<Photo_Promo_codeDetail>(new Action<Photo_Promo_codeDetail>(this.attach_Photo_Promo_codeDetails), new Action<Photo_Promo_codeDetail>(this.detach_Photo_Promo_codeDetails));
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 	public long Customer_id
 	{
 		get
@@ -1737,19 +1713,6 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail", Storage="_Photo_Promo_codeDetails", ThisKey="Customer_id", OtherKey="FkCustomer_id")]
-	public EntitySet<Photo_Promo_codeDetail> Photo_Promo_codeDetails
-	{
-		get
-		{
-			return this._Photo_Promo_codeDetails;
-		}
-		set
-		{
-			this._Photo_Promo_codeDetails.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail", Storage="_Photo_OrderSummaryDetails", ThisKey="Customer_id", OtherKey="fkCustomer_id")]
 	public EntitySet<Photo_OrderSummaryDetail> Photo_OrderSummaryDetails
 	{
@@ -1760,6 +1723,19 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 		set
 		{
 			this._Photo_OrderSummaryDetails.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail", Storage="_Photo_Promo_codeDetails", ThisKey="Customer_id", OtherKey="FkCustomer_id")]
+	public EntitySet<Photo_Promo_codeDetail> Photo_Promo_codeDetails
+	{
+		get
+		{
+			return this._Photo_Promo_codeDetails;
+		}
+		set
+		{
+			this._Photo_Promo_codeDetails.Assign(value);
 		}
 	}
 	
@@ -1807,18 +1783,6 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 		entity.Photo_CustomerRegistrationDetail = null;
 	}
 	
-	private void attach_Photo_Promo_codeDetails(Photo_Promo_codeDetail entity)
-	{
-		this.SendPropertyChanging();
-		entity.Photo_CustomerRegistrationDetail = this;
-	}
-	
-	private void detach_Photo_Promo_codeDetails(Photo_Promo_codeDetail entity)
-	{
-		this.SendPropertyChanging();
-		entity.Photo_CustomerRegistrationDetail = null;
-	}
-	
 	private void attach_Photo_OrderSummaryDetails(Photo_OrderSummaryDetail entity)
 	{
 		this.SendPropertyChanging();
@@ -1826,6 +1790,18 @@ public partial class Photo_CustomerRegistrationDetail : INotifyPropertyChanging,
 	}
 	
 	private void detach_Photo_OrderSummaryDetails(Photo_OrderSummaryDetail entity)
+	{
+		this.SendPropertyChanging();
+		entity.Photo_CustomerRegistrationDetail = null;
+	}
+	
+	private void attach_Photo_Promo_codeDetails(Photo_Promo_codeDetail entity)
+	{
+		this.SendPropertyChanging();
+		entity.Photo_CustomerRegistrationDetail = this;
+	}
+	
+	private void detach_Photo_Promo_codeDetails(Photo_Promo_codeDetail entity)
 	{
 		this.SendPropertyChanging();
 		entity.Photo_CustomerRegistrationDetail = null;
@@ -2361,6 +2337,246 @@ public partial class Photo_OrderDetail : INotifyPropertyChanging, INotifyPropert
 	}
 }
 
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Photo_OrderSummaryDetail")]
+public partial class Photo_OrderSummaryDetail : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _OrderSummary_id;
+	
+	private string _ImageUrl;
+	
+	private string _EditOption;
+	
+	private System.Nullable<int> _fkPlan_id;
+	
+	private System.Nullable<long> _fkCustomer_id;
+	
+	private EntityRef<Photo_CustomerRegistrationDetail> _Photo_CustomerRegistrationDetail;
+	
+	private EntityRef<Photo_PlanDetail> _Photo_PlanDetail;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOrderSummary_idChanging(int value);
+    partial void OnOrderSummary_idChanged();
+    partial void OnImageUrlChanging(string value);
+    partial void OnImageUrlChanged();
+    partial void OnEditOptionChanging(string value);
+    partial void OnEditOptionChanged();
+    partial void OnfkPlan_idChanging(System.Nullable<int> value);
+    partial void OnfkPlan_idChanged();
+    partial void OnfkCustomer_idChanging(System.Nullable<long> value);
+    partial void OnfkCustomer_idChanged();
+    #endregion
+	
+	public Photo_OrderSummaryDetail()
+	{
+		this._Photo_CustomerRegistrationDetail = default(EntityRef<Photo_CustomerRegistrationDetail>);
+		this._Photo_PlanDetail = default(EntityRef<Photo_PlanDetail>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderSummary_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int OrderSummary_id
+	{
+		get
+		{
+			return this._OrderSummary_id;
+		}
+		set
+		{
+			if ((this._OrderSummary_id != value))
+			{
+				this.OnOrderSummary_idChanging(value);
+				this.SendPropertyChanging();
+				this._OrderSummary_id = value;
+				this.SendPropertyChanged("OrderSummary_id");
+				this.OnOrderSummary_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(100)")]
+	public string ImageUrl
+	{
+		get
+		{
+			return this._ImageUrl;
+		}
+		set
+		{
+			if ((this._ImageUrl != value))
+			{
+				this.OnImageUrlChanging(value);
+				this.SendPropertyChanging();
+				this._ImageUrl = value;
+				this.SendPropertyChanged("ImageUrl");
+				this.OnImageUrlChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EditOption", DbType="NVarChar(50)")]
+	public string EditOption
+	{
+		get
+		{
+			return this._EditOption;
+		}
+		set
+		{
+			if ((this._EditOption != value))
+			{
+				this.OnEditOptionChanging(value);
+				this.SendPropertyChanging();
+				this._EditOption = value;
+				this.SendPropertyChanged("EditOption");
+				this.OnEditOptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkPlan_id", DbType="Int")]
+	public System.Nullable<int> fkPlan_id
+	{
+		get
+		{
+			return this._fkPlan_id;
+		}
+		set
+		{
+			if ((this._fkPlan_id != value))
+			{
+				if (this._Photo_PlanDetail.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnfkPlan_idChanging(value);
+				this.SendPropertyChanging();
+				this._fkPlan_id = value;
+				this.SendPropertyChanged("fkPlan_id");
+				this.OnfkPlan_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCustomer_id", DbType="BigInt")]
+	public System.Nullable<long> fkCustomer_id
+	{
+		get
+		{
+			return this._fkCustomer_id;
+		}
+		set
+		{
+			if ((this._fkCustomer_id != value))
+			{
+				if (this._Photo_CustomerRegistrationDetail.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnfkCustomer_idChanging(value);
+				this.SendPropertyChanging();
+				this._fkCustomer_id = value;
+				this.SendPropertyChanged("fkCustomer_id");
+				this.OnfkCustomer_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail", Storage="_Photo_CustomerRegistrationDetail", ThisKey="fkCustomer_id", OtherKey="Customer_id", IsForeignKey=true, DeleteRule="CASCADE")]
+	public Photo_CustomerRegistrationDetail Photo_CustomerRegistrationDetail
+	{
+		get
+		{
+			return this._Photo_CustomerRegistrationDetail.Entity;
+		}
+		set
+		{
+			Photo_CustomerRegistrationDetail previousValue = this._Photo_CustomerRegistrationDetail.Entity;
+			if (((previousValue != value) 
+						|| (this._Photo_CustomerRegistrationDetail.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Photo_CustomerRegistrationDetail.Entity = null;
+					previousValue.Photo_OrderSummaryDetails.Remove(this);
+				}
+				this._Photo_CustomerRegistrationDetail.Entity = value;
+				if ((value != null))
+				{
+					value.Photo_OrderSummaryDetails.Add(this);
+					this._fkCustomer_id = value.Customer_id;
+				}
+				else
+				{
+					this._fkCustomer_id = default(Nullable<long>);
+				}
+				this.SendPropertyChanged("Photo_CustomerRegistrationDetail");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_PlanDetail_Photo_OrderSummaryDetail", Storage="_Photo_PlanDetail", ThisKey="fkPlan_id", OtherKey="Plan_id", IsForeignKey=true)]
+	public Photo_PlanDetail Photo_PlanDetail
+	{
+		get
+		{
+			return this._Photo_PlanDetail.Entity;
+		}
+		set
+		{
+			Photo_PlanDetail previousValue = this._Photo_PlanDetail.Entity;
+			if (((previousValue != value) 
+						|| (this._Photo_PlanDetail.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Photo_PlanDetail.Entity = null;
+					previousValue.Photo_OrderSummaryDetails.Remove(this);
+				}
+				this._Photo_PlanDetail.Entity = value;
+				if ((value != null))
+				{
+					value.Photo_OrderSummaryDetails.Add(this);
+					this._fkPlan_id = value.Plan_id;
+				}
+				else
+				{
+					this._fkPlan_id = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Photo_PlanDetail");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Photo_PhysicalCopyDetail")]
 public partial class Photo_PhysicalCopyDetail : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -2800,9 +3016,9 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 	
 	private EntitySet<Photo_OrderDetail> _Photo_OrderDetails;
 	
-	private EntitySet<Photo_SubCatagoryDetail> _Photo_SubCatagoryDetails;
-	
 	private EntitySet<Photo_OrderSummaryDetail> _Photo_OrderSummaryDetails;
+	
+	private EntitySet<Photo_SubCatagoryDetail> _Photo_SubCatagoryDetails;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2819,8 +3035,8 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 	public Photo_PlanDetail()
 	{
 		this._Photo_OrderDetails = new EntitySet<Photo_OrderDetail>(new Action<Photo_OrderDetail>(this.attach_Photo_OrderDetails), new Action<Photo_OrderDetail>(this.detach_Photo_OrderDetails));
-		this._Photo_SubCatagoryDetails = new EntitySet<Photo_SubCatagoryDetail>(new Action<Photo_SubCatagoryDetail>(this.attach_Photo_SubCatagoryDetails), new Action<Photo_SubCatagoryDetail>(this.detach_Photo_SubCatagoryDetails));
 		this._Photo_OrderSummaryDetails = new EntitySet<Photo_OrderSummaryDetail>(new Action<Photo_OrderSummaryDetail>(this.attach_Photo_OrderSummaryDetails), new Action<Photo_OrderSummaryDetail>(this.detach_Photo_OrderSummaryDetails));
+		this._Photo_SubCatagoryDetails = new EntitySet<Photo_SubCatagoryDetail>(new Action<Photo_SubCatagoryDetail>(this.attach_Photo_SubCatagoryDetails), new Action<Photo_SubCatagoryDetail>(this.detach_Photo_SubCatagoryDetails));
 		OnCreated();
 	}
 	
@@ -2897,19 +3113,6 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_PlanDetail_Photo_SubCatagoryDetail", Storage="_Photo_SubCatagoryDetails", ThisKey="Plan_id", OtherKey="FkPlan_id")]
-	public EntitySet<Photo_SubCatagoryDetail> Photo_SubCatagoryDetails
-	{
-		get
-		{
-			return this._Photo_SubCatagoryDetails;
-		}
-		set
-		{
-			this._Photo_SubCatagoryDetails.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_PlanDetail_Photo_OrderSummaryDetail", Storage="_Photo_OrderSummaryDetails", ThisKey="Plan_id", OtherKey="fkPlan_id")]
 	public EntitySet<Photo_OrderSummaryDetail> Photo_OrderSummaryDetails
 	{
@@ -2920,6 +3123,19 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 		set
 		{
 			this._Photo_OrderSummaryDetails.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_PlanDetail_Photo_SubCatagoryDetail", Storage="_Photo_SubCatagoryDetails", ThisKey="Plan_id", OtherKey="FkPlan_id")]
+	public EntitySet<Photo_SubCatagoryDetail> Photo_SubCatagoryDetails
+	{
+		get
+		{
+			return this._Photo_SubCatagoryDetails;
+		}
+		set
+		{
+			this._Photo_SubCatagoryDetails.Assign(value);
 		}
 	}
 	
@@ -2955,18 +3171,6 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 		entity.Photo_PlanDetail = null;
 	}
 	
-	private void attach_Photo_SubCatagoryDetails(Photo_SubCatagoryDetail entity)
-	{
-		this.SendPropertyChanging();
-		entity.Photo_PlanDetail = this;
-	}
-	
-	private void detach_Photo_SubCatagoryDetails(Photo_SubCatagoryDetail entity)
-	{
-		this.SendPropertyChanging();
-		entity.Photo_PlanDetail = null;
-	}
-	
 	private void attach_Photo_OrderSummaryDetails(Photo_OrderSummaryDetail entity)
 	{
 		this.SendPropertyChanging();
@@ -2974,6 +3178,18 @@ public partial class Photo_PlanDetail : INotifyPropertyChanging, INotifyProperty
 	}
 	
 	private void detach_Photo_OrderSummaryDetails(Photo_OrderSummaryDetail entity)
+	{
+		this.SendPropertyChanging();
+		entity.Photo_PlanDetail = null;
+	}
+	
+	private void attach_Photo_SubCatagoryDetails(Photo_SubCatagoryDetail entity)
+	{
+		this.SendPropertyChanging();
+		entity.Photo_PlanDetail = this;
+	}
+	
+	private void detach_Photo_SubCatagoryDetails(Photo_SubCatagoryDetail entity)
 	{
 		this.SendPropertyChanging();
 		entity.Photo_PlanDetail = null;
@@ -3100,7 +3316,7 @@ public partial class Photo_Promo_codeDetail : INotifyPropertyChanging, INotifyPr
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail", Storage="_Photo_CustomerRegistrationDetail", ThisKey="FkCustomer_id", OtherKey="Customer_id", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_Promo_codeDetail", Storage="_Photo_CustomerRegistrationDetail", ThisKey="FkCustomer_id", OtherKey="Customer_id", IsForeignKey=true, DeleteRule="CASCADE")]
 	public Photo_CustomerRegistrationDetail Photo_CustomerRegistrationDetail
 	{
 		get
@@ -3328,8 +3544,6 @@ public partial class Photo_Shipping_Address : INotifyPropertyChanging, INotifyPr
 	
 	private string _Ship_Mail;
 	
-	private System.Nullable<long> _Ship_Phone;
-	
 	private System.Nullable<long> _Ship_Mobile;
 	
 	private EntitySet<Photo_PhysicalCopyDetail> _Photo_PhysicalCopyDetails;
@@ -3354,8 +3568,6 @@ public partial class Photo_Shipping_Address : INotifyPropertyChanging, INotifyPr
     partial void OnShip_CityChanged();
     partial void OnShip_MailChanging(string value);
     partial void OnShip_MailChanged();
-    partial void OnShip_PhoneChanging(System.Nullable<long> value);
-    partial void OnShip_PhoneChanged();
     partial void OnShip_MobileChanging(System.Nullable<long> value);
     partial void OnShip_MobileChanged();
     #endregion
@@ -3522,26 +3734,6 @@ public partial class Photo_Shipping_Address : INotifyPropertyChanging, INotifyPr
 				this._Ship_Mail = value;
 				this.SendPropertyChanged("Ship_Mail");
 				this.OnShip_MailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Phone", DbType="BigInt")]
-	public System.Nullable<long> Ship_Phone
-	{
-		get
-		{
-			return this._Ship_Phone;
-		}
-		set
-		{
-			if ((this._Ship_Phone != value))
-			{
-				this.OnShip_PhoneChanging(value);
-				this.SendPropertyChanging();
-				this._Ship_Phone = value;
-				this.SendPropertyChanged("Ship_Phone");
-				this.OnShip_PhoneChanged();
 			}
 		}
 	}
@@ -3914,246 +4106,6 @@ public partial class Photo_SubCatagoryDetail : INotifyPropertyChanging, INotifyP
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Photo_OrderSummaryDetail")]
-public partial class Photo_OrderSummaryDetail : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _OrderSummary_id;
-	
-	private string _ImageUrl;
-	
-	private string _EditOption;
-	
-	private System.Nullable<int> _fkPlan_id;
-	
-	private System.Nullable<long> _fkCustomer_id;
-	
-	private EntityRef<Photo_CustomerRegistrationDetail> _Photo_CustomerRegistrationDetail;
-	
-	private EntityRef<Photo_PlanDetail> _Photo_PlanDetail;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOrderSummary_idChanging(int value);
-    partial void OnOrderSummary_idChanged();
-    partial void OnImageUrlChanging(string value);
-    partial void OnImageUrlChanged();
-    partial void OnEditOptionChanging(string value);
-    partial void OnEditOptionChanged();
-    partial void OnfkPlan_idChanging(System.Nullable<int> value);
-    partial void OnfkPlan_idChanged();
-    partial void OnfkCustomer_idChanging(System.Nullable<long> value);
-    partial void OnfkCustomer_idChanged();
-    #endregion
-	
-	public Photo_OrderSummaryDetail()
-	{
-		this._Photo_CustomerRegistrationDetail = default(EntityRef<Photo_CustomerRegistrationDetail>);
-		this._Photo_PlanDetail = default(EntityRef<Photo_PlanDetail>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderSummary_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int OrderSummary_id
-	{
-		get
-		{
-			return this._OrderSummary_id;
-		}
-		set
-		{
-			if ((this._OrderSummary_id != value))
-			{
-				this.OnOrderSummary_idChanging(value);
-				this.SendPropertyChanging();
-				this._OrderSummary_id = value;
-				this.SendPropertyChanged("OrderSummary_id");
-				this.OnOrderSummary_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(100)")]
-	public string ImageUrl
-	{
-		get
-		{
-			return this._ImageUrl;
-		}
-		set
-		{
-			if ((this._ImageUrl != value))
-			{
-				this.OnImageUrlChanging(value);
-				this.SendPropertyChanging();
-				this._ImageUrl = value;
-				this.SendPropertyChanged("ImageUrl");
-				this.OnImageUrlChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EditOption", DbType="NVarChar(50)")]
-	public string EditOption
-	{
-		get
-		{
-			return this._EditOption;
-		}
-		set
-		{
-			if ((this._EditOption != value))
-			{
-				this.OnEditOptionChanging(value);
-				this.SendPropertyChanging();
-				this._EditOption = value;
-				this.SendPropertyChanged("EditOption");
-				this.OnEditOptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkPlan_id", DbType="Int")]
-	public System.Nullable<int> fkPlan_id
-	{
-		get
-		{
-			return this._fkPlan_id;
-		}
-		set
-		{
-			if ((this._fkPlan_id != value))
-			{
-				if (this._Photo_PlanDetail.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnfkPlan_idChanging(value);
-				this.SendPropertyChanging();
-				this._fkPlan_id = value;
-				this.SendPropertyChanged("fkPlan_id");
-				this.OnfkPlan_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCustomer_id", DbType="BigInt")]
-	public System.Nullable<long> fkCustomer_id
-	{
-		get
-		{
-			return this._fkCustomer_id;
-		}
-		set
-		{
-			if ((this._fkCustomer_id != value))
-			{
-				if (this._Photo_CustomerRegistrationDetail.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.OnfkCustomer_idChanging(value);
-				this.SendPropertyChanging();
-				this._fkCustomer_id = value;
-				this.SendPropertyChanged("fkCustomer_id");
-				this.OnfkCustomer_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail", Storage="_Photo_CustomerRegistrationDetail", ThisKey="fkCustomer_id", OtherKey="Customer_id", IsForeignKey=true, DeleteRule="CASCADE")]
-	public Photo_CustomerRegistrationDetail Photo_CustomerRegistrationDetail
-	{
-		get
-		{
-			return this._Photo_CustomerRegistrationDetail.Entity;
-		}
-		set
-		{
-			Photo_CustomerRegistrationDetail previousValue = this._Photo_CustomerRegistrationDetail.Entity;
-			if (((previousValue != value) 
-						|| (this._Photo_CustomerRegistrationDetail.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Photo_CustomerRegistrationDetail.Entity = null;
-					previousValue.Photo_OrderSummaryDetails.Remove(this);
-				}
-				this._Photo_CustomerRegistrationDetail.Entity = value;
-				if ((value != null))
-				{
-					value.Photo_OrderSummaryDetails.Add(this);
-					this._fkCustomer_id = value.Customer_id;
-				}
-				else
-				{
-					this._fkCustomer_id = default(Nullable<long>);
-				}
-				this.SendPropertyChanged("Photo_CustomerRegistrationDetail");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Photo_PlanDetail_Photo_OrderSummaryDetail", Storage="_Photo_PlanDetail", ThisKey="fkPlan_id", OtherKey="Plan_id", IsForeignKey=true)]
-	public Photo_PlanDetail Photo_PlanDetail
-	{
-		get
-		{
-			return this._Photo_PlanDetail.Entity;
-		}
-		set
-		{
-			Photo_PlanDetail previousValue = this._Photo_PlanDetail.Entity;
-			if (((previousValue != value) 
-						|| (this._Photo_PlanDetail.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._Photo_PlanDetail.Entity = null;
-					previousValue.Photo_OrderSummaryDetails.Remove(this);
-				}
-				this._Photo_PlanDetail.Entity = value;
-				if ((value != null))
-				{
-					value.Photo_OrderSummaryDetails.Add(this);
-					this._fkPlan_id = value.Plan_id;
-				}
-				else
-				{
-					this._fkPlan_id = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("Photo_PlanDetail");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
 public partial class sp_Photo_Billing_AddressNewInsertCommandResult
 {
 	
@@ -4172,8 +4124,6 @@ public partial class sp_Photo_Billing_AddressNewInsertCommandResult
 	private string _Bill_City;
 	
 	private string _Bill_Mail;
-	
-	private System.Nullable<long> _Bill_Phone;
 	
 	private System.Nullable<long> _Bill_Mobile;
 	
@@ -4309,22 +4259,6 @@ public partial class sp_Photo_Billing_AddressNewInsertCommandResult
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Phone", DbType="BigInt")]
-	public System.Nullable<long> Bill_Phone
-	{
-		get
-		{
-			return this._Bill_Phone;
-		}
-		set
-		{
-			if ((this._Bill_Phone != value))
-			{
-				this._Bill_Phone = value;
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Mobile", DbType="BigInt")]
 	public System.Nullable<long> Bill_Mobile
 	{
@@ -4360,8 +4294,6 @@ public partial class sp_Photo_Billing_AddressNewSelectCommandResult
 	private string _Bill_City;
 	
 	private string _Bill_Mail;
-	
-	private System.Nullable<long> _Bill_Phone;
 	
 	private System.Nullable<long> _Bill_Mobile;
 	
@@ -4497,22 +4429,6 @@ public partial class sp_Photo_Billing_AddressNewSelectCommandResult
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Phone", DbType="BigInt")]
-	public System.Nullable<long> Bill_Phone
-	{
-		get
-		{
-			return this._Bill_Phone;
-		}
-		set
-		{
-			if ((this._Bill_Phone != value))
-			{
-				this._Bill_Phone = value;
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Mobile", DbType="BigInt")]
 	public System.Nullable<long> Bill_Mobile
 	{
@@ -4548,8 +4464,6 @@ public partial class sp_Photo_Billing_AddressNewUpdateCommandResult
 	private string _Bill_City;
 	
 	private string _Bill_Mail;
-	
-	private System.Nullable<long> _Bill_Phone;
 	
 	private System.Nullable<long> _Bill_Mobile;
 	
@@ -4681,22 +4595,6 @@ public partial class sp_Photo_Billing_AddressNewUpdateCommandResult
 			if ((this._Bill_Mail != value))
 			{
 				this._Bill_Mail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Phone", DbType="BigInt")]
-	public System.Nullable<long> Bill_Phone
-	{
-		get
-		{
-			return this._Bill_Phone;
-		}
-		set
-		{
-			if ((this._Bill_Phone != value))
-			{
-				this._Bill_Phone = value;
 			}
 		}
 	}
@@ -5012,14 +4910,14 @@ public partial class sp_Photo_Change_Password_logNewUpdateCommandResult
 	}
 }
 
-public partial class sp_Photo_Customer_StatusNewInsertCommandResult
+public partial class sp_Photo_Customer_StatusNewSelectCommandResult
 {
 	
 	private int _Status_id;
 	
 	private string _Status_name;
 	
-	public sp_Photo_Customer_StatusNewInsertCommandResult()
+	public sp_Photo_Customer_StatusNewSelectCommandResult()
 	{
 	}
 	
@@ -5056,14 +4954,14 @@ public partial class sp_Photo_Customer_StatusNewInsertCommandResult
 	}
 }
 
-public partial class sp_Photo_Customer_StatusNewSelectCommandResult
+public partial class sp_Photo_Customer_StatusNewInsertCommandResult
 {
 	
 	private int _Status_id;
 	
 	private string _Status_name;
 	
-	public sp_Photo_Customer_StatusNewSelectCommandResult()
+	public sp_Photo_Customer_StatusNewInsertCommandResult()
 	{
 	}
 	
@@ -5144,7 +5042,895 @@ public partial class sp_Photo_Customer_StatusNewUpdateCommandResult
 	}
 }
 
-public partial class sp_Photo_OrderDetailNewSelectCommandResult
+public partial class sp_Photo_CustomerRegistrationDetailNewInsertCommandResult
+{
+	
+	private long _Customer_id;
+	
+	private string _Email;
+	
+	private string _Password;
+	
+	private System.Nullable<long> _Mobile;
+	
+	private System.Nullable<int> _Country;
+	
+	private System.Nullable<System.DateTime> _Reg_Date;
+	
+	private System.Nullable<System.DateTime> _Last_Login;
+	
+	private System.Nullable<int> _Error_count;
+	
+	private System.Nullable<int> _Current_Status;
+	
+	private string _Profile_Image;
+	
+	private string _Full_Name;
+	
+	private System.Nullable<System.DateTime> _DOB;
+	
+	private System.Nullable<int> _ActivationStatus_Mail;
+	
+	private System.Nullable<int> _ActivationStatus_Mobile;
+	
+	private System.Nullable<int> _Email_Subs;
+	
+	private System.Nullable<int> _SMS_Subs;
+	
+	public sp_Photo_CustomerRegistrationDetailNewInsertCommandResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
+	public long Customer_id
+	{
+		get
+		{
+			return this._Customer_id;
+		}
+		set
+		{
+			if ((this._Customer_id != value))
+			{
+				this._Customer_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+	public string Email
+	{
+		get
+		{
+			return this._Email;
+		}
+		set
+		{
+			if ((this._Email != value))
+			{
+				this._Email = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+	public string Password
+	{
+		get
+		{
+			return this._Password;
+		}
+		set
+		{
+			if ((this._Password != value))
+			{
+				this._Password = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+	public System.Nullable<long> Mobile
+	{
+		get
+		{
+			return this._Mobile;
+		}
+		set
+		{
+			if ((this._Mobile != value))
+			{
+				this._Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
+	public System.Nullable<int> Country
+	{
+		get
+		{
+			return this._Country;
+		}
+		set
+		{
+			if ((this._Country != value))
+			{
+				this._Country = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Reg_Date
+	{
+		get
+		{
+			return this._Reg_Date;
+		}
+		set
+		{
+			if ((this._Reg_Date != value))
+			{
+				this._Reg_Date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Last_Login
+	{
+		get
+		{
+			return this._Last_Login;
+		}
+		set
+		{
+			if ((this._Last_Login != value))
+			{
+				this._Last_Login = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
+	public System.Nullable<int> Error_count
+	{
+		get
+		{
+			return this._Error_count;
+		}
+		set
+		{
+			if ((this._Error_count != value))
+			{
+				this._Error_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
+	public System.Nullable<int> Current_Status
+	{
+		get
+		{
+			return this._Current_Status;
+		}
+		set
+		{
+			if ((this._Current_Status != value))
+			{
+				this._Current_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
+	public string Profile_Image
+	{
+		get
+		{
+			return this._Profile_Image;
+		}
+		set
+		{
+			if ((this._Profile_Image != value))
+			{
+				this._Profile_Image = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
+	public string Full_Name
+	{
+		get
+		{
+			return this._Full_Name;
+		}
+		set
+		{
+			if ((this._Full_Name != value))
+			{
+				this._Full_Name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
+	public System.Nullable<System.DateTime> DOB
+	{
+		get
+		{
+			return this._DOB;
+		}
+		set
+		{
+			if ((this._DOB != value))
+			{
+				this._DOB = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mail
+	{
+		get
+		{
+			return this._ActivationStatus_Mail;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mail != value))
+			{
+				this._ActivationStatus_Mail = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mobile
+	{
+		get
+		{
+			return this._ActivationStatus_Mobile;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mobile != value))
+			{
+				this._ActivationStatus_Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
+	public System.Nullable<int> Email_Subs
+	{
+		get
+		{
+			return this._Email_Subs;
+		}
+		set
+		{
+			if ((this._Email_Subs != value))
+			{
+				this._Email_Subs = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
+	public System.Nullable<int> SMS_Subs
+	{
+		get
+		{
+			return this._SMS_Subs;
+		}
+		set
+		{
+			if ((this._SMS_Subs != value))
+			{
+				this._SMS_Subs = value;
+			}
+		}
+	}
+}
+
+public partial class sp_Photo_CustomerRegistrationDetailNewSelectCommandResult
+{
+	
+	private long _Customer_id;
+	
+	private string _Email;
+	
+	private string _Password;
+	
+	private System.Nullable<long> _Mobile;
+	
+	private System.Nullable<int> _Country;
+	
+	private System.Nullable<System.DateTime> _Reg_Date;
+	
+	private System.Nullable<System.DateTime> _Last_Login;
+	
+	private System.Nullable<int> _Error_count;
+	
+	private System.Nullable<int> _Current_Status;
+	
+	private string _Profile_Image;
+	
+	private string _Full_Name;
+	
+	private System.Nullable<System.DateTime> _DOB;
+	
+	private System.Nullable<int> _ActivationStatus_Mail;
+	
+	private System.Nullable<int> _ActivationStatus_Mobile;
+	
+	private System.Nullable<int> _Email_Subs;
+	
+	private System.Nullable<int> _SMS_Subs;
+	
+	public sp_Photo_CustomerRegistrationDetailNewSelectCommandResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
+	public long Customer_id
+	{
+		get
+		{
+			return this._Customer_id;
+		}
+		set
+		{
+			if ((this._Customer_id != value))
+			{
+				this._Customer_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+	public string Email
+	{
+		get
+		{
+			return this._Email;
+		}
+		set
+		{
+			if ((this._Email != value))
+			{
+				this._Email = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+	public string Password
+	{
+		get
+		{
+			return this._Password;
+		}
+		set
+		{
+			if ((this._Password != value))
+			{
+				this._Password = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+	public System.Nullable<long> Mobile
+	{
+		get
+		{
+			return this._Mobile;
+		}
+		set
+		{
+			if ((this._Mobile != value))
+			{
+				this._Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
+	public System.Nullable<int> Country
+	{
+		get
+		{
+			return this._Country;
+		}
+		set
+		{
+			if ((this._Country != value))
+			{
+				this._Country = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Reg_Date
+	{
+		get
+		{
+			return this._Reg_Date;
+		}
+		set
+		{
+			if ((this._Reg_Date != value))
+			{
+				this._Reg_Date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Last_Login
+	{
+		get
+		{
+			return this._Last_Login;
+		}
+		set
+		{
+			if ((this._Last_Login != value))
+			{
+				this._Last_Login = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
+	public System.Nullable<int> Error_count
+	{
+		get
+		{
+			return this._Error_count;
+		}
+		set
+		{
+			if ((this._Error_count != value))
+			{
+				this._Error_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
+	public System.Nullable<int> Current_Status
+	{
+		get
+		{
+			return this._Current_Status;
+		}
+		set
+		{
+			if ((this._Current_Status != value))
+			{
+				this._Current_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
+	public string Profile_Image
+	{
+		get
+		{
+			return this._Profile_Image;
+		}
+		set
+		{
+			if ((this._Profile_Image != value))
+			{
+				this._Profile_Image = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
+	public string Full_Name
+	{
+		get
+		{
+			return this._Full_Name;
+		}
+		set
+		{
+			if ((this._Full_Name != value))
+			{
+				this._Full_Name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
+	public System.Nullable<System.DateTime> DOB
+	{
+		get
+		{
+			return this._DOB;
+		}
+		set
+		{
+			if ((this._DOB != value))
+			{
+				this._DOB = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mail
+	{
+		get
+		{
+			return this._ActivationStatus_Mail;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mail != value))
+			{
+				this._ActivationStatus_Mail = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mobile
+	{
+		get
+		{
+			return this._ActivationStatus_Mobile;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mobile != value))
+			{
+				this._ActivationStatus_Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
+	public System.Nullable<int> Email_Subs
+	{
+		get
+		{
+			return this._Email_Subs;
+		}
+		set
+		{
+			if ((this._Email_Subs != value))
+			{
+				this._Email_Subs = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
+	public System.Nullable<int> SMS_Subs
+	{
+		get
+		{
+			return this._SMS_Subs;
+		}
+		set
+		{
+			if ((this._SMS_Subs != value))
+			{
+				this._SMS_Subs = value;
+			}
+		}
+	}
+}
+
+public partial class sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult
+{
+	
+	private long _Customer_id;
+	
+	private string _Email;
+	
+	private string _Password;
+	
+	private System.Nullable<long> _Mobile;
+	
+	private System.Nullable<int> _Country;
+	
+	private System.Nullable<System.DateTime> _Reg_Date;
+	
+	private System.Nullable<System.DateTime> _Last_Login;
+	
+	private System.Nullable<int> _Error_count;
+	
+	private System.Nullable<int> _Current_Status;
+	
+	private string _Profile_Image;
+	
+	private string _Full_Name;
+	
+	private System.Nullable<System.DateTime> _DOB;
+	
+	private System.Nullable<int> _ActivationStatus_Mail;
+	
+	private System.Nullable<int> _ActivationStatus_Mobile;
+	
+	private System.Nullable<int> _Email_Subs;
+	
+	private System.Nullable<int> _SMS_Subs;
+	
+	public sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
+	public long Customer_id
+	{
+		get
+		{
+			return this._Customer_id;
+		}
+		set
+		{
+			if ((this._Customer_id != value))
+			{
+				this._Customer_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+	public string Email
+	{
+		get
+		{
+			return this._Email;
+		}
+		set
+		{
+			if ((this._Email != value))
+			{
+				this._Email = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+	public string Password
+	{
+		get
+		{
+			return this._Password;
+		}
+		set
+		{
+			if ((this._Password != value))
+			{
+				this._Password = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+	public System.Nullable<long> Mobile
+	{
+		get
+		{
+			return this._Mobile;
+		}
+		set
+		{
+			if ((this._Mobile != value))
+			{
+				this._Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
+	public System.Nullable<int> Country
+	{
+		get
+		{
+			return this._Country;
+		}
+		set
+		{
+			if ((this._Country != value))
+			{
+				this._Country = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Reg_Date
+	{
+		get
+		{
+			return this._Reg_Date;
+		}
+		set
+		{
+			if ((this._Reg_Date != value))
+			{
+				this._Reg_Date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Last_Login
+	{
+		get
+		{
+			return this._Last_Login;
+		}
+		set
+		{
+			if ((this._Last_Login != value))
+			{
+				this._Last_Login = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
+	public System.Nullable<int> Error_count
+	{
+		get
+		{
+			return this._Error_count;
+		}
+		set
+		{
+			if ((this._Error_count != value))
+			{
+				this._Error_count = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
+	public System.Nullable<int> Current_Status
+	{
+		get
+		{
+			return this._Current_Status;
+		}
+		set
+		{
+			if ((this._Current_Status != value))
+			{
+				this._Current_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
+	public string Profile_Image
+	{
+		get
+		{
+			return this._Profile_Image;
+		}
+		set
+		{
+			if ((this._Profile_Image != value))
+			{
+				this._Profile_Image = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
+	public string Full_Name
+	{
+		get
+		{
+			return this._Full_Name;
+		}
+		set
+		{
+			if ((this._Full_Name != value))
+			{
+				this._Full_Name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
+	public System.Nullable<System.DateTime> DOB
+	{
+		get
+		{
+			return this._DOB;
+		}
+		set
+		{
+			if ((this._DOB != value))
+			{
+				this._DOB = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mail
+	{
+		get
+		{
+			return this._ActivationStatus_Mail;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mail != value))
+			{
+				this._ActivationStatus_Mail = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
+	public System.Nullable<int> ActivationStatus_Mobile
+	{
+		get
+		{
+			return this._ActivationStatus_Mobile;
+		}
+		set
+		{
+			if ((this._ActivationStatus_Mobile != value))
+			{
+				this._ActivationStatus_Mobile = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
+	public System.Nullable<int> Email_Subs
+	{
+		get
+		{
+			return this._Email_Subs;
+		}
+		set
+		{
+			if ((this._Email_Subs != value))
+			{
+				this._Email_Subs = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
+	public System.Nullable<int> SMS_Subs
+	{
+		get
+		{
+			return this._SMS_Subs;
+		}
+		set
+		{
+			if ((this._SMS_Subs != value))
+			{
+				this._SMS_Subs = value;
+			}
+		}
+	}
+}
+
+public partial class sp_Photo_OrderDetailNewInsertCommandResult
 {
 	
 	private long _Order_id;
@@ -5165,7 +5951,247 @@ public partial class sp_Photo_OrderDetailNewSelectCommandResult
 	
 	private System.Nullable<System.DateTime> _DeliveredDate_SoftCopy;
 	
-	private System.Nullable<int> _FkPromo_Code;
+	private string _Process_Status;
+	
+	private System.Nullable<decimal> _Total_Amount;
+	
+	private System.Nullable<int> _FkCustomer_Status;
+	
+	private string _Output_Image_URL;
+	
+	public sp_Photo_OrderDetailNewInsertCommandResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", DbType="BigInt NOT NULL")]
+	public long Order_id
+	{
+		get
+		{
+			return this._Order_id;
+		}
+		set
+		{
+			if ((this._Order_id != value))
+			{
+				this._Order_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_id", DbType="BigInt")]
+	public System.Nullable<long> FkCustomer_id
+	{
+		get
+		{
+			return this._FkCustomer_id;
+		}
+		set
+		{
+			if ((this._FkCustomer_id != value))
+			{
+				this._FkCustomer_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_name", DbType="NVarChar(50)")]
+	public string Image_name
+	{
+		get
+		{
+			return this._Image_name;
+		}
+		set
+		{
+			if ((this._Image_name != value))
+			{
+				this._Image_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Input_Image_URL", DbType="NVarChar(200)")]
+	public string Input_Image_URL
+	{
+		get
+		{
+			return this._Input_Image_URL;
+		}
+		set
+		{
+			if ((this._Input_Image_URL != value))
+			{
+				this._Input_Image_URL = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edit_Options", DbType="NVarChar(100)")]
+	public string Edit_Options
+	{
+		get
+		{
+			return this._Edit_Options;
+		}
+		set
+		{
+			if ((this._Edit_Options != value))
+			{
+				this._Edit_Options = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complaint_Towards", DbType="NVarChar(500)")]
+	public string Complaint_Towards
+	{
+		get
+		{
+			return this._Complaint_Towards;
+		}
+		set
+		{
+			if ((this._Complaint_Towards != value))
+			{
+				this._Complaint_Towards = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkPlan_id", DbType="Int")]
+	public System.Nullable<int> FkPlan_id
+	{
+		get
+		{
+			return this._FkPlan_id;
+		}
+		set
+		{
+			if ((this._FkPlan_id != value))
+			{
+				this._FkPlan_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordered_date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Ordered_date
+	{
+		get
+		{
+			return this._Ordered_date;
+		}
+		set
+		{
+			if ((this._Ordered_date != value))
+			{
+				this._Ordered_date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveredDate_SoftCopy", DbType="DateTime")]
+	public System.Nullable<System.DateTime> DeliveredDate_SoftCopy
+	{
+		get
+		{
+			return this._DeliveredDate_SoftCopy;
+		}
+		set
+		{
+			if ((this._DeliveredDate_SoftCopy != value))
+			{
+				this._DeliveredDate_SoftCopy = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Process_Status", DbType="NVarChar(100)")]
+	public string Process_Status
+	{
+		get
+		{
+			return this._Process_Status;
+		}
+		set
+		{
+			if ((this._Process_Status != value))
+			{
+				this._Process_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Decimal(18,2)")]
+	public System.Nullable<decimal> Total_Amount
+	{
+		get
+		{
+			return this._Total_Amount;
+		}
+		set
+		{
+			if ((this._Total_Amount != value))
+			{
+				this._Total_Amount = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_Status", DbType="Int")]
+	public System.Nullable<int> FkCustomer_Status
+	{
+		get
+		{
+			return this._FkCustomer_Status;
+		}
+		set
+		{
+			if ((this._FkCustomer_Status != value))
+			{
+				this._FkCustomer_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Output_Image_URL", DbType="NVarChar(200)")]
+	public string Output_Image_URL
+	{
+		get
+		{
+			return this._Output_Image_URL;
+		}
+		set
+		{
+			if ((this._Output_Image_URL != value))
+			{
+				this._Output_Image_URL = value;
+			}
+		}
+	}
+}
+
+public partial class sp_Photo_OrderDetailNewSelectCommandResult
+{
+	
+	private long _Order_id;
+	
+	private System.Nullable<long> _FkCustomer_id;
+	
+	private string _Image_name;
+	
+	private string _Input_Image_URL;
+	
+	private string _Edit_Options;
+	
+	private string _Complaint_Towards;
+	
+	private System.Nullable<int> _FkPlan_id;
+	
+	private System.Nullable<System.DateTime> _Ordered_date;
+	
+	private System.Nullable<System.DateTime> _DeliveredDate_SoftCopy;
 	
 	private string _Process_Status;
 	
@@ -5323,18 +6349,244 @@ public partial class sp_Photo_OrderDetailNewSelectCommandResult
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkPromo_Code", DbType="Int")]
-	public System.Nullable<int> FkPromo_Code
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Process_Status", DbType="NVarChar(100)")]
+	public string Process_Status
 	{
 		get
 		{
-			return this._FkPromo_Code;
+			return this._Process_Status;
 		}
 		set
 		{
-			if ((this._FkPromo_Code != value))
+			if ((this._Process_Status != value))
 			{
-				this._FkPromo_Code = value;
+				this._Process_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Decimal(18,2)")]
+	public System.Nullable<decimal> Total_Amount
+	{
+		get
+		{
+			return this._Total_Amount;
+		}
+		set
+		{
+			if ((this._Total_Amount != value))
+			{
+				this._Total_Amount = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_Status", DbType="Int")]
+	public System.Nullable<int> FkCustomer_Status
+	{
+		get
+		{
+			return this._FkCustomer_Status;
+		}
+		set
+		{
+			if ((this._FkCustomer_Status != value))
+			{
+				this._FkCustomer_Status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Output_Image_URL", DbType="NVarChar(200)")]
+	public string Output_Image_URL
+	{
+		get
+		{
+			return this._Output_Image_URL;
+		}
+		set
+		{
+			if ((this._Output_Image_URL != value))
+			{
+				this._Output_Image_URL = value;
+			}
+		}
+	}
+}
+
+public partial class sp_Photo_OrderDetailNewUpdateCommandResult
+{
+	
+	private long _Order_id;
+	
+	private System.Nullable<long> _FkCustomer_id;
+	
+	private string _Image_name;
+	
+	private string _Input_Image_URL;
+	
+	private string _Edit_Options;
+	
+	private string _Complaint_Towards;
+	
+	private System.Nullable<int> _FkPlan_id;
+	
+	private System.Nullable<System.DateTime> _Ordered_date;
+	
+	private System.Nullable<System.DateTime> _DeliveredDate_SoftCopy;
+	
+	private string _Process_Status;
+	
+	private System.Nullable<decimal> _Total_Amount;
+	
+	private System.Nullable<int> _FkCustomer_Status;
+	
+	private string _Output_Image_URL;
+	
+	public sp_Photo_OrderDetailNewUpdateCommandResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", DbType="BigInt NOT NULL")]
+	public long Order_id
+	{
+		get
+		{
+			return this._Order_id;
+		}
+		set
+		{
+			if ((this._Order_id != value))
+			{
+				this._Order_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_id", DbType="BigInt")]
+	public System.Nullable<long> FkCustomer_id
+	{
+		get
+		{
+			return this._FkCustomer_id;
+		}
+		set
+		{
+			if ((this._FkCustomer_id != value))
+			{
+				this._FkCustomer_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_name", DbType="NVarChar(50)")]
+	public string Image_name
+	{
+		get
+		{
+			return this._Image_name;
+		}
+		set
+		{
+			if ((this._Image_name != value))
+			{
+				this._Image_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Input_Image_URL", DbType="NVarChar(200)")]
+	public string Input_Image_URL
+	{
+		get
+		{
+			return this._Input_Image_URL;
+		}
+		set
+		{
+			if ((this._Input_Image_URL != value))
+			{
+				this._Input_Image_URL = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edit_Options", DbType="NVarChar(100)")]
+	public string Edit_Options
+	{
+		get
+		{
+			return this._Edit_Options;
+		}
+		set
+		{
+			if ((this._Edit_Options != value))
+			{
+				this._Edit_Options = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complaint_Towards", DbType="NVarChar(500)")]
+	public string Complaint_Towards
+	{
+		get
+		{
+			return this._Complaint_Towards;
+		}
+		set
+		{
+			if ((this._Complaint_Towards != value))
+			{
+				this._Complaint_Towards = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkPlan_id", DbType="Int")]
+	public System.Nullable<int> FkPlan_id
+	{
+		get
+		{
+			return this._FkPlan_id;
+		}
+		set
+		{
+			if ((this._FkPlan_id != value))
+			{
+				this._FkPlan_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordered_date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> Ordered_date
+	{
+		get
+		{
+			return this._Ordered_date;
+		}
+		set
+		{
+			if ((this._Ordered_date != value))
+			{
+				this._Ordered_date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveredDate_SoftCopy", DbType="DateTime")]
+	public System.Nullable<System.DateTime> DeliveredDate_SoftCopy
+	{
+		get
+		{
+			return this._DeliveredDate_SoftCopy;
+		}
+		set
+		{
+			if ((this._DeliveredDate_SoftCopy != value))
+			{
+				this._DeliveredDate_SoftCopy = value;
 			}
 		}
 	}
@@ -6653,8 +7905,6 @@ public partial class sp_Photo_Shipping_AddressNewInsertCommandResult
 	
 	private string _Ship_Mail;
 	
-	private System.Nullable<long> _Ship_Phone;
-	
 	private System.Nullable<long> _Ship_Mobile;
 	
 	public sp_Photo_Shipping_AddressNewInsertCommandResult()
@@ -6789,22 +8039,6 @@ public partial class sp_Photo_Shipping_AddressNewInsertCommandResult
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Phone", DbType="BigInt")]
-	public System.Nullable<long> Ship_Phone
-	{
-		get
-		{
-			return this._Ship_Phone;
-		}
-		set
-		{
-			if ((this._Ship_Phone != value))
-			{
-				this._Ship_Phone = value;
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Mobile", DbType="BigInt")]
 	public System.Nullable<long> Ship_Mobile
 	{
@@ -6840,8 +8074,6 @@ public partial class sp_Photo_Shipping_AddressNewSelectCommandResult
 	private string _Ship_City;
 	
 	private string _Ship_Mail;
-	
-	private System.Nullable<long> _Ship_Phone;
 	
 	private System.Nullable<long> _Ship_Mobile;
 	
@@ -6977,22 +8209,6 @@ public partial class sp_Photo_Shipping_AddressNewSelectCommandResult
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Phone", DbType="BigInt")]
-	public System.Nullable<long> Ship_Phone
-	{
-		get
-		{
-			return this._Ship_Phone;
-		}
-		set
-		{
-			if ((this._Ship_Phone != value))
-			{
-				this._Ship_Phone = value;
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Mobile", DbType="BigInt")]
 	public System.Nullable<long> Ship_Mobile
 	{
@@ -7028,8 +8244,6 @@ public partial class sp_Photo_Shipping_AddressNewUpdateCommandResult
 	private string _Ship_City;
 	
 	private string _Ship_Mail;
-	
-	private System.Nullable<long> _Ship_Phone;
 	
 	private System.Nullable<long> _Ship_Mobile;
 	
@@ -7161,22 +8375,6 @@ public partial class sp_Photo_Shipping_AddressNewUpdateCommandResult
 			if ((this._Ship_Mail != value))
 			{
 				this._Ship_Mail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ship_Phone", DbType="BigInt")]
-	public System.Nullable<long> Ship_Phone
-	{
-		get
-		{
-			return this._Ship_Phone;
-		}
-		set
-		{
-			if ((this._Ship_Phone != value))
-			{
-				this._Ship_Phone = value;
 			}
 		}
 	}
@@ -7379,1378 +8577,6 @@ public partial class sp_Photo_SubCatagoryDetailNewUpdateCommandResult
 			if ((this._FkPlan_id != value))
 			{
 				this._FkPlan_id = value;
-			}
-		}
-	}
-}
-
-public partial class sp_Photo_OrderDetailNewInsertCommandResult
-{
-	
-	private long _Order_id;
-	
-	private System.Nullable<long> _FkCustomer_id;
-	
-	private string _Image_name;
-	
-	private string _Input_Image_URL;
-	
-	private string _Edit_Options;
-	
-	private string _Complaint_Towards;
-	
-	private System.Nullable<int> _FkPlan_id;
-	
-	private System.Nullable<System.DateTime> _Ordered_date;
-	
-	private System.Nullable<System.DateTime> _DeliveredDate_SoftCopy;
-	
-	private string _Process_Status;
-	
-	private System.Nullable<decimal> _Total_Amount;
-	
-	private System.Nullable<int> _FkCustomer_Status;
-	
-	private string _Output_Image_URL;
-	
-	public sp_Photo_OrderDetailNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", DbType="BigInt NOT NULL")]
-	public long Order_id
-	{
-		get
-		{
-			return this._Order_id;
-		}
-		set
-		{
-			if ((this._Order_id != value))
-			{
-				this._Order_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_id", DbType="BigInt")]
-	public System.Nullable<long> FkCustomer_id
-	{
-		get
-		{
-			return this._FkCustomer_id;
-		}
-		set
-		{
-			if ((this._FkCustomer_id != value))
-			{
-				this._FkCustomer_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_name", DbType="NVarChar(50)")]
-	public string Image_name
-	{
-		get
-		{
-			return this._Image_name;
-		}
-		set
-		{
-			if ((this._Image_name != value))
-			{
-				this._Image_name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Input_Image_URL", DbType="NVarChar(200)")]
-	public string Input_Image_URL
-	{
-		get
-		{
-			return this._Input_Image_URL;
-		}
-		set
-		{
-			if ((this._Input_Image_URL != value))
-			{
-				this._Input_Image_URL = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edit_Options", DbType="NVarChar(100)")]
-	public string Edit_Options
-	{
-		get
-		{
-			return this._Edit_Options;
-		}
-		set
-		{
-			if ((this._Edit_Options != value))
-			{
-				this._Edit_Options = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complaint_Towards", DbType="NVarChar(500)")]
-	public string Complaint_Towards
-	{
-		get
-		{
-			return this._Complaint_Towards;
-		}
-		set
-		{
-			if ((this._Complaint_Towards != value))
-			{
-				this._Complaint_Towards = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkPlan_id", DbType="Int")]
-	public System.Nullable<int> FkPlan_id
-	{
-		get
-		{
-			return this._FkPlan_id;
-		}
-		set
-		{
-			if ((this._FkPlan_id != value))
-			{
-				this._FkPlan_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordered_date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Ordered_date
-	{
-		get
-		{
-			return this._Ordered_date;
-		}
-		set
-		{
-			if ((this._Ordered_date != value))
-			{
-				this._Ordered_date = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveredDate_SoftCopy", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DeliveredDate_SoftCopy
-	{
-		get
-		{
-			return this._DeliveredDate_SoftCopy;
-		}
-		set
-		{
-			if ((this._DeliveredDate_SoftCopy != value))
-			{
-				this._DeliveredDate_SoftCopy = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Process_Status", DbType="NVarChar(100)")]
-	public string Process_Status
-	{
-		get
-		{
-			return this._Process_Status;
-		}
-		set
-		{
-			if ((this._Process_Status != value))
-			{
-				this._Process_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Decimal(18,2)")]
-	public System.Nullable<decimal> Total_Amount
-	{
-		get
-		{
-			return this._Total_Amount;
-		}
-		set
-		{
-			if ((this._Total_Amount != value))
-			{
-				this._Total_Amount = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_Status", DbType="Int")]
-	public System.Nullable<int> FkCustomer_Status
-	{
-		get
-		{
-			return this._FkCustomer_Status;
-		}
-		set
-		{
-			if ((this._FkCustomer_Status != value))
-			{
-				this._FkCustomer_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Output_Image_URL", DbType="NVarChar(200)")]
-	public string Output_Image_URL
-	{
-		get
-		{
-			return this._Output_Image_URL;
-		}
-		set
-		{
-			if ((this._Output_Image_URL != value))
-			{
-				this._Output_Image_URL = value;
-			}
-		}
-	}
-}
-
-public partial class sp_Photo_OrderDetailNewUpdateCommandResult
-{
-	
-	private long _Order_id;
-	
-	private System.Nullable<long> _FkCustomer_id;
-	
-	private string _Image_name;
-	
-	private string _Input_Image_URL;
-	
-	private string _Edit_Options;
-	
-	private string _Complaint_Towards;
-	
-	private System.Nullable<int> _FkPlan_id;
-	
-	private System.Nullable<System.DateTime> _Ordered_date;
-	
-	private System.Nullable<System.DateTime> _DeliveredDate_SoftCopy;
-	
-	private string _Process_Status;
-	
-	private System.Nullable<decimal> _Total_Amount;
-	
-	private System.Nullable<int> _FkCustomer_Status;
-	
-	private string _Output_Image_URL;
-	
-	public sp_Photo_OrderDetailNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", DbType="BigInt NOT NULL")]
-	public long Order_id
-	{
-		get
-		{
-			return this._Order_id;
-		}
-		set
-		{
-			if ((this._Order_id != value))
-			{
-				this._Order_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_id", DbType="BigInt")]
-	public System.Nullable<long> FkCustomer_id
-	{
-		get
-		{
-			return this._FkCustomer_id;
-		}
-		set
-		{
-			if ((this._FkCustomer_id != value))
-			{
-				this._FkCustomer_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_name", DbType="NVarChar(50)")]
-	public string Image_name
-	{
-		get
-		{
-			return this._Image_name;
-		}
-		set
-		{
-			if ((this._Image_name != value))
-			{
-				this._Image_name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Input_Image_URL", DbType="NVarChar(200)")]
-	public string Input_Image_URL
-	{
-		get
-		{
-			return this._Input_Image_URL;
-		}
-		set
-		{
-			if ((this._Input_Image_URL != value))
-			{
-				this._Input_Image_URL = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edit_Options", DbType="NVarChar(100)")]
-	public string Edit_Options
-	{
-		get
-		{
-			return this._Edit_Options;
-		}
-		set
-		{
-			if ((this._Edit_Options != value))
-			{
-				this._Edit_Options = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complaint_Towards", DbType="NVarChar(500)")]
-	public string Complaint_Towards
-	{
-		get
-		{
-			return this._Complaint_Towards;
-		}
-		set
-		{
-			if ((this._Complaint_Towards != value))
-			{
-				this._Complaint_Towards = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkPlan_id", DbType="Int")]
-	public System.Nullable<int> FkPlan_id
-	{
-		get
-		{
-			return this._FkPlan_id;
-		}
-		set
-		{
-			if ((this._FkPlan_id != value))
-			{
-				this._FkPlan_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordered_date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Ordered_date
-	{
-		get
-		{
-			return this._Ordered_date;
-		}
-		set
-		{
-			if ((this._Ordered_date != value))
-			{
-				this._Ordered_date = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveredDate_SoftCopy", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DeliveredDate_SoftCopy
-	{
-		get
-		{
-			return this._DeliveredDate_SoftCopy;
-		}
-		set
-		{
-			if ((this._DeliveredDate_SoftCopy != value))
-			{
-				this._DeliveredDate_SoftCopy = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Process_Status", DbType="NVarChar(100)")]
-	public string Process_Status
-	{
-		get
-		{
-			return this._Process_Status;
-		}
-		set
-		{
-			if ((this._Process_Status != value))
-			{
-				this._Process_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Decimal(18,2)")]
-	public System.Nullable<decimal> Total_Amount
-	{
-		get
-		{
-			return this._Total_Amount;
-		}
-		set
-		{
-			if ((this._Total_Amount != value))
-			{
-				this._Total_Amount = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCustomer_Status", DbType="Int")]
-	public System.Nullable<int> FkCustomer_Status
-	{
-		get
-		{
-			return this._FkCustomer_Status;
-		}
-		set
-		{
-			if ((this._FkCustomer_Status != value))
-			{
-				this._FkCustomer_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Output_Image_URL", DbType="NVarChar(200)")]
-	public string Output_Image_URL
-	{
-		get
-		{
-			return this._Output_Image_URL;
-		}
-		set
-		{
-			if ((this._Output_Image_URL != value))
-			{
-				this._Output_Image_URL = value;
-			}
-		}
-	}
-}
-
-public partial class sp_Photo_CustomerRegistrationDetailNewInsertCommandResult
-{
-	
-	private long _Customer_id;
-	
-	private string _Email;
-	
-	private string _Password;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private System.Nullable<int> _Country;
-	
-	private System.Nullable<System.DateTime> _Reg_Date;
-	
-	private System.Nullable<System.DateTime> _Last_Login;
-	
-	private System.Nullable<int> _Error_count;
-	
-	private System.Nullable<int> _Current_Status;
-	
-	private string _Profile_Image;
-	
-	private string _Full_Name;
-	
-	private System.Nullable<System.DateTime> _DOB;
-	
-	private System.Nullable<int> _ActivationStatus_Mail;
-	
-	private System.Nullable<int> _ActivationStatus_Mobile;
-	
-	private System.Nullable<int> _Email_Subs;
-	
-	private System.Nullable<int> _SMS_Subs;
-	
-	public sp_Photo_CustomerRegistrationDetailNewInsertCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
-	public long Customer_id
-	{
-		get
-		{
-			return this._Customer_id;
-		}
-		set
-		{
-			if ((this._Customer_id != value))
-			{
-				this._Customer_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
-	public string Email
-	{
-		get
-		{
-			return this._Email;
-		}
-		set
-		{
-			if ((this._Email != value))
-			{
-				this._Email = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-	public string Password
-	{
-		get
-		{
-			return this._Password;
-		}
-		set
-		{
-			if ((this._Password != value))
-			{
-				this._Password = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
-		{
-			return this._Mobile;
-		}
-		set
-		{
-			if ((this._Mobile != value))
-			{
-				this._Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
-	public System.Nullable<int> Country
-	{
-		get
-		{
-			return this._Country;
-		}
-		set
-		{
-			if ((this._Country != value))
-			{
-				this._Country = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Reg_Date
-	{
-		get
-		{
-			return this._Reg_Date;
-		}
-		set
-		{
-			if ((this._Reg_Date != value))
-			{
-				this._Reg_Date = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Last_Login
-	{
-		get
-		{
-			return this._Last_Login;
-		}
-		set
-		{
-			if ((this._Last_Login != value))
-			{
-				this._Last_Login = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
-	public System.Nullable<int> Error_count
-	{
-		get
-		{
-			return this._Error_count;
-		}
-		set
-		{
-			if ((this._Error_count != value))
-			{
-				this._Error_count = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
-	public System.Nullable<int> Current_Status
-	{
-		get
-		{
-			return this._Current_Status;
-		}
-		set
-		{
-			if ((this._Current_Status != value))
-			{
-				this._Current_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
-	public string Profile_Image
-	{
-		get
-		{
-			return this._Profile_Image;
-		}
-		set
-		{
-			if ((this._Profile_Image != value))
-			{
-				this._Profile_Image = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
-	public string Full_Name
-	{
-		get
-		{
-			return this._Full_Name;
-		}
-		set
-		{
-			if ((this._Full_Name != value))
-			{
-				this._Full_Name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DOB
-	{
-		get
-		{
-			return this._DOB;
-		}
-		set
-		{
-			if ((this._DOB != value))
-			{
-				this._DOB = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mail
-	{
-		get
-		{
-			return this._ActivationStatus_Mail;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mail != value))
-			{
-				this._ActivationStatus_Mail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mobile
-	{
-		get
-		{
-			return this._ActivationStatus_Mobile;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mobile != value))
-			{
-				this._ActivationStatus_Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
-	public System.Nullable<int> Email_Subs
-	{
-		get
-		{
-			return this._Email_Subs;
-		}
-		set
-		{
-			if ((this._Email_Subs != value))
-			{
-				this._Email_Subs = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
-	public System.Nullable<int> SMS_Subs
-	{
-		get
-		{
-			return this._SMS_Subs;
-		}
-		set
-		{
-			if ((this._SMS_Subs != value))
-			{
-				this._SMS_Subs = value;
-			}
-		}
-	}
-}
-
-public partial class sp_Photo_CustomerRegistrationDetailNewSelectCommandResult
-{
-	
-	private long _Customer_id;
-	
-	private string _Email;
-	
-	private string _Password;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private System.Nullable<int> _Country;
-	
-	private System.Nullable<System.DateTime> _Reg_Date;
-	
-	private System.Nullable<System.DateTime> _Last_Login;
-	
-	private System.Nullable<int> _Error_count;
-	
-	private System.Nullable<int> _Current_Status;
-	
-	private string _Profile_Image;
-	
-	private string _Full_Name;
-	
-	private System.Nullable<System.DateTime> _DOB;
-	
-	private System.Nullable<int> _ActivationStatus_Mail;
-	
-	private System.Nullable<int> _ActivationStatus_Mobile;
-	
-	private System.Nullable<int> _Email_Subs;
-	
-	private System.Nullable<int> _SMS_Subs;
-	
-	public sp_Photo_CustomerRegistrationDetailNewSelectCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
-	public long Customer_id
-	{
-		get
-		{
-			return this._Customer_id;
-		}
-		set
-		{
-			if ((this._Customer_id != value))
-			{
-				this._Customer_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
-	public string Email
-	{
-		get
-		{
-			return this._Email;
-		}
-		set
-		{
-			if ((this._Email != value))
-			{
-				this._Email = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-	public string Password
-	{
-		get
-		{
-			return this._Password;
-		}
-		set
-		{
-			if ((this._Password != value))
-			{
-				this._Password = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
-		{
-			return this._Mobile;
-		}
-		set
-		{
-			if ((this._Mobile != value))
-			{
-				this._Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
-	public System.Nullable<int> Country
-	{
-		get
-		{
-			return this._Country;
-		}
-		set
-		{
-			if ((this._Country != value))
-			{
-				this._Country = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Reg_Date
-	{
-		get
-		{
-			return this._Reg_Date;
-		}
-		set
-		{
-			if ((this._Reg_Date != value))
-			{
-				this._Reg_Date = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Last_Login
-	{
-		get
-		{
-			return this._Last_Login;
-		}
-		set
-		{
-			if ((this._Last_Login != value))
-			{
-				this._Last_Login = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
-	public System.Nullable<int> Error_count
-	{
-		get
-		{
-			return this._Error_count;
-		}
-		set
-		{
-			if ((this._Error_count != value))
-			{
-				this._Error_count = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
-	public System.Nullable<int> Current_Status
-	{
-		get
-		{
-			return this._Current_Status;
-		}
-		set
-		{
-			if ((this._Current_Status != value))
-			{
-				this._Current_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
-	public string Profile_Image
-	{
-		get
-		{
-			return this._Profile_Image;
-		}
-		set
-		{
-			if ((this._Profile_Image != value))
-			{
-				this._Profile_Image = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
-	public string Full_Name
-	{
-		get
-		{
-			return this._Full_Name;
-		}
-		set
-		{
-			if ((this._Full_Name != value))
-			{
-				this._Full_Name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DOB
-	{
-		get
-		{
-			return this._DOB;
-		}
-		set
-		{
-			if ((this._DOB != value))
-			{
-				this._DOB = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mail
-	{
-		get
-		{
-			return this._ActivationStatus_Mail;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mail != value))
-			{
-				this._ActivationStatus_Mail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mobile
-	{
-		get
-		{
-			return this._ActivationStatus_Mobile;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mobile != value))
-			{
-				this._ActivationStatus_Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
-	public System.Nullable<int> Email_Subs
-	{
-		get
-		{
-			return this._Email_Subs;
-		}
-		set
-		{
-			if ((this._Email_Subs != value))
-			{
-				this._Email_Subs = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
-	public System.Nullable<int> SMS_Subs
-	{
-		get
-		{
-			return this._SMS_Subs;
-		}
-		set
-		{
-			if ((this._SMS_Subs != value))
-			{
-				this._SMS_Subs = value;
-			}
-		}
-	}
-}
-
-public partial class sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult
-{
-	
-	private long _Customer_id;
-	
-	private string _Email;
-	
-	private string _Password;
-	
-	private System.Nullable<long> _Mobile;
-	
-	private System.Nullable<int> _Country;
-	
-	private System.Nullable<System.DateTime> _Reg_Date;
-	
-	private System.Nullable<System.DateTime> _Last_Login;
-	
-	private System.Nullable<int> _Error_count;
-	
-	private System.Nullable<int> _Current_Status;
-	
-	private string _Profile_Image;
-	
-	private string _Full_Name;
-	
-	private System.Nullable<System.DateTime> _DOB;
-	
-	private System.Nullable<int> _ActivationStatus_Mail;
-	
-	private System.Nullable<int> _ActivationStatus_Mobile;
-	
-	private System.Nullable<int> _Email_Subs;
-	
-	private System.Nullable<int> _SMS_Subs;
-	
-	public sp_Photo_CustomerRegistrationDetailNewUpdateCommandResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="BigInt NOT NULL")]
-	public long Customer_id
-	{
-		get
-		{
-			return this._Customer_id;
-		}
-		set
-		{
-			if ((this._Customer_id != value))
-			{
-				this._Customer_id = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
-	public string Email
-	{
-		get
-		{
-			return this._Email;
-		}
-		set
-		{
-			if ((this._Email != value))
-			{
-				this._Email = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-	public string Password
-	{
-		get
-		{
-			return this._Password;
-		}
-		set
-		{
-			if ((this._Password != value))
-			{
-				this._Password = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-	public System.Nullable<long> Mobile
-	{
-		get
-		{
-			return this._Mobile;
-		}
-		set
-		{
-			if ((this._Mobile != value))
-			{
-				this._Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
-	public System.Nullable<int> Country
-	{
-		get
-		{
-			return this._Country;
-		}
-		set
-		{
-			if ((this._Country != value))
-			{
-				this._Country = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Reg_Date
-	{
-		get
-		{
-			return this._Reg_Date;
-		}
-		set
-		{
-			if ((this._Reg_Date != value))
-			{
-				this._Reg_Date = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Login", DbType="DateTime")]
-	public System.Nullable<System.DateTime> Last_Login
-	{
-		get
-		{
-			return this._Last_Login;
-		}
-		set
-		{
-			if ((this._Last_Login != value))
-			{
-				this._Last_Login = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
-	public System.Nullable<int> Error_count
-	{
-		get
-		{
-			return this._Error_count;
-		}
-		set
-		{
-			if ((this._Error_count != value))
-			{
-				this._Error_count = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Current_Status", DbType="Int")]
-	public System.Nullable<int> Current_Status
-	{
-		get
-		{
-			return this._Current_Status;
-		}
-		set
-		{
-			if ((this._Current_Status != value))
-			{
-				this._Current_Status = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_Image", DbType="NVarChar(50)")]
-	public string Profile_Image
-	{
-		get
-		{
-			return this._Profile_Image;
-		}
-		set
-		{
-			if ((this._Profile_Image != value))
-			{
-				this._Profile_Image = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Full_Name", DbType="NVarChar(50)")]
-	public string Full_Name
-	{
-		get
-		{
-			return this._Full_Name;
-		}
-		set
-		{
-			if ((this._Full_Name != value))
-			{
-				this._Full_Name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DOB
-	{
-		get
-		{
-			return this._DOB;
-		}
-		set
-		{
-			if ((this._DOB != value))
-			{
-				this._DOB = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mail
-	{
-		get
-		{
-			return this._ActivationStatus_Mail;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mail != value))
-			{
-				this._ActivationStatus_Mail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mobile", DbType="Int")]
-	public System.Nullable<int> ActivationStatus_Mobile
-	{
-		get
-		{
-			return this._ActivationStatus_Mobile;
-		}
-		set
-		{
-			if ((this._ActivationStatus_Mobile != value))
-			{
-				this._ActivationStatus_Mobile = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="Int")]
-	public System.Nullable<int> Email_Subs
-	{
-		get
-		{
-			return this._Email_Subs;
-		}
-		set
-		{
-			if ((this._Email_Subs != value))
-			{
-				this._Email_Subs = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SMS_Subs", DbType="Int")]
-	public System.Nullable<int> SMS_Subs
-	{
-		get
-		{
-			return this._SMS_Subs;
-		}
-		set
-		{
-			if ((this._SMS_Subs != value))
-			{
-				this._SMS_Subs = value;
 			}
 		}
 	}

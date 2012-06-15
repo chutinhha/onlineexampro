@@ -7,7 +7,7 @@ using System.Web;
 /// </summary>
 public abstract class Photo_Shipping_AddressProperties
 {
-    private Int64 shipping_id, ship_Phone, ship_Mobile;
+    private Int64 shipping_id, ship_Mobile;
 
     public Int64 Ship_Mobile
     {
@@ -15,11 +15,7 @@ public abstract class Photo_Shipping_AddressProperties
         set { ship_Mobile = value; }
     }
 
-    public Int64 Ship_Phone
-    {
-        get { return ship_Phone; }
-        set { ship_Phone = value; }
-    }
+   
 
     public Int64 Shipping_id
     {
