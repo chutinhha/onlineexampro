@@ -9,7 +9,7 @@
     <script src="js/ie6.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">    
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td>
