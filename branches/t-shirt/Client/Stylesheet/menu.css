@@ -102,7 +102,9 @@ color: rgb(218,219,222);
 
 div#menu li
 {
-    background: url('../images/main-delimiter.png') no-repeat 98% 4px;
+    background: url('../images/main-delimiter.png') no-repeat 100% 4px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 div#menu li.last { background: none; }
 
