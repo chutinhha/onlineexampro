@@ -22,6 +22,7 @@
         <br />
         <br />
         <script>
+            buildContent(form1);
             function buildContent(json) {
                 for (var i = 0; i < json.Groups.length; i++) {
                     document.write('<h3><font color="#8cca1e"><a id="' + json.Groups[i].Name + '">' + json.Groups[i].Name + '</a></font></h3>');

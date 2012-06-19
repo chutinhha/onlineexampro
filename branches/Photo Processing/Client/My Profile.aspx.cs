@@ -9,11 +9,14 @@ public partial class My_Profile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string user = Convert.ToString(Session["username"]);
+        if (string.IsNullOrEmpty(user))
+        {
+            Response.Redirect("Home.aspx");
+        }
         if (Session["email"] == null)
         {
             Response.Redirect("Home.aspx");
         }
-
     }
-
 }

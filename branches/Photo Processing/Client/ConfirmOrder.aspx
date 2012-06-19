@@ -63,55 +63,58 @@
                     </tr>
                     <tr>
                         <td align="left" colspan="2">
-                            <asp:ListView ID="ListView1" runat="server" DataKeyNames="Id" OnItemCommand="ListView1_ItemCommand">
-                                <LayoutTemplate>
-                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #E9E9E9"
-                                        border="0">
-                                        <tr style="color: #000000; font-weight: bold; font-size: 20px">
-                                            <th class="pic">
-                                                Image
-                                            </th>
-                                            <th>
-                                            </th>
-                                            <th class="indent">
-                                                Services
-                                            </th>
-                                            <th>
-                                                &nbsp; &nbsp;
-                                            </th>
-                                            <th align="left" style="padding-right: 5px;">
-                                                Price
-                                            </th>
-                                        </tr>
-                                    </table>
-                                    <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
-                                </LayoutTemplate>
-                                <ItemTemplate>
-                                    <table cellpadding="10" width="770px" cellspacing="10" style="background-color: #E9E9E9"
-                                        border="0">
-                                        <tr>
-                                            <td class="pic" width="250px">
+                            <asp:GridView ID="GridView1" DataKeyNames="Id" runat="server" AutoGenerateColumns="False"
+                                Width="770px" OnRowCommand="GridView1_RowCommand" CellPadding="4" ForeColor="#333333"
+                                GridLines="None">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Image">
+                                        <ItemTemplate>
+                                            <div class="pic" style="width: 250px">
                                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="image"
                                                     Width="130" Height="97" />
-                                            </td>
-                                            <td class="indent" width="200px" valign="top">
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Services">
+                                        <ItemTemplate>
+                                            <div style="width: 200px" class="indent">
                                                 <%# Eval("Plane_Name") %>
                                                 <br />
                                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandName="Remove" CommandArgument='<%# Eval("Id") %>'>Remove</asp:LinkButton>
-                                            </td>
-                                            <td width="150px" valign="top">
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                   <%-- <asp:TemplateField ItemStyle-Width="150px" ItemStyle-VerticalAlign="Top">
+                                        <ItemTemplate>
+                                            <div>
                                                 <asp:CheckBox ID="chkPhysicalCopy" runat="server" Text="physical Copy" OnCheckedChanged="chkPhysicalCopy_CheckedChanged"
                                                     AutoPostBack="True" />
-                                            </td>
-                                            <td align="left" style="padding-right: 10px;" width="150px" valign="top">
+                                            </div>
+                                        </ItemTemplate>
+                                        <ItemStyle VerticalAlign="Top" Width="150px"></ItemStyle>
+                                    </asp:TemplateField>--%>
+                                    <asp:TemplateField HeaderText="Price" ItemStyle-HorizontalAlign="Left" ItemStyle-VerticalAlign="Top"
+                                        ItemStyle-Width="150px">
+                                        <ItemTemplate>
+                                            <div>
                                                 <asp:Label ID="lbRate" runat="server" Text=' <%# Eval("fkPlan_id")%>'></asp:Label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </ItemTemplate>
-                            </asp:ListView>
+                                            </div>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="150px"></ItemStyle>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                <SortedDescendingHeaderStyle BackColor="#820000" />
+                            </asp:GridView>
                             <%-- <script>
-
                                 document.body.onload = Bind();
                                 function Bind() {
                                     $.ajax({
@@ -180,7 +183,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="right">
-                            <%--<script>
+                            <script>
                                 $(document).ready(function () {
                                     $("#Button3").click(function () {
                                         var a = $("#Text1").val();
@@ -195,11 +198,11 @@
                                     }
                                 }
 
-                            </script>--%>
+                            </script>
                             Your Coupon Code:
                             <input id="Text1" type="text" />
-                            <input id="Button3" type="button" value="Submit" /><input id="Button4" type="button"
-                                value="test" />
+                            <input id="Button3" type="button" value="Submit" />
+                            <input id="Button4" type="button" value="test" />
                             <br />
                             <span id="err" style="color: #FF0000; display: none">Please enter valid coupon code.
                             </span>
@@ -231,7 +234,8 @@
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" PostBackUrl="~/Payment.aspx" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" 
+                                            PostBackUrl="~/Payment.aspx" />
                                     </td>
                                 </tr>
                             </table>

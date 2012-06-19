@@ -48,7 +48,7 @@
             </div>
         </td>
         <td>
-            <table cellpadding="2px">
+            <table cellpadding="2px" style="color: #FFFFFF">
                 <tr>
                     <td>
                         Welcome,&nbsp;
