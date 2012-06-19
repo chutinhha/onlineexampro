@@ -13,8 +13,7 @@ public partial class UploadPhoto : System.Web.UI.Page
         string user = Convert.ToString(Session["username"]);
         if (string.IsNullOrEmpty(user))
         {
-            ModalPopupExtender md = (ModalPopupExtender)((UserControl)Page.Master.FindControl("ucLoginandLogout")).FindControl("mdlLogin");
-            md.Show();
+            Response.Redirect("Home.aspx");
         }
     }
     protected void fuPhotoUpload_UploadedComplete(object sender, AjaxControlToolkit.AsyncFileUploadEventArgs e)

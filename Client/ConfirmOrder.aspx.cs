@@ -11,6 +11,11 @@ public partial class ConfirmOrder : System.Web.UI.Page
     private string filePath;
     protected void Page_Load(object sender, EventArgs e)
     {
+        string user = Convert.ToString(Session["username"]);
+        if (string.IsNullOrEmpty(user))
+        {
+            Response.Redirect("Home.aspx");
+        }
         if (!IsPostBack)
         {
             if (Session["username"] == "" || Session["username"] == null)
@@ -48,7 +53,7 @@ public partial class ConfirmOrder : System.Web.UI.Page
     private void BindData()
     {
         var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).First();
-        ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
+        GridView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
                                where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
                                select
                                    new
@@ -58,9 +63,9 @@ public partial class ConfirmOrder : System.Web.UI.Page
                                        Plane_Name = a.Photo_PlanDetail.Plan_Name,
                                        fkPlan_id = a.Photo_PlanDetail.Rate
                                    };
-        ListView1.DataBind();
+        GridView1.DataBind();
     }
-    protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Remove")
         {
@@ -92,8 +97,7 @@ public partial class ConfirmOrder : System.Web.UI.Page
         //CheckBox chk = (CheckBox)lv.FindControl("chkPhysicalCopy");
         //if (chk.Checked)
         //{
-        ClientScript.RegisterStartupScript(this.Page.GetType(), "",
-"window.open('Address.aspx','Graph','height=400,width=500');", true);
+        ClientScript.RegisterStartupScript(this.Page.GetType(), "", "window.open('Address.aspx','Graph','height=400,width=500');", true);
         //}
     }
 }

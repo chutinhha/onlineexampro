@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
+
 /// <summary>
 /// Summary description for Photo_CustomerRegistrationDetailBL
 /// </summary>
@@ -69,5 +70,5 @@ public class Photo_CustomerRegistrationDetailBL:Photo_CustomerRegistrationDetail
     public bool Delete()
     {
         return Photo_CustomerRegistrationDetailDL.Delete(this);
-    }
+    }    
 }

@@ -1,0 +1,49 @@
+alter proc sp_check_user
+@Email nvarchar(100),
+@Password nvarchar(100),
+@Name nvarchar(100) output,
+@Result bit output
+as
+IF EXISTS(SELECT 1 FROM Photo_CustomerRegistrationDetail 
+where Email=@Email and Password=@Password)
+BEGIN
+SELECT @Name=Email+'|'+Full_Name FROM Photo_CustomerRegistrationDetail
+where Email=@Email and Password=@Password
+IF EXISTS(SELECT 1 FROM Photo_CustomerRegistrationDetail 
+where Email=@Email and Password=@Password and ActivationStatus_Mail=1)
+BEGIN
+update Photo_CustomerRegistrationDetail set Last_Login=GETDATE()
+where Email=@Email and Password=@Password
+set @Result=1
+END
+else
+begin
+set @Result=0
+end
+END
+ELSE
+BEGIN
+SELECT @Name=NULL
+END
+
+
+SELECT * FROM Photo_CustomerRegistrationDetail where ActivationStatus_Mail=0
+
+
+alter proc sp_check_mail_status
+@Email nvarchar(100),
+@Password nvarchar(100),
+@Result bit output
+as
+IF EXISTS(SELECT 1 FROM Photo_CustomerRegistrationDetail 
+where Email=@Email and Password=@Password and ActivationStatus_Mail=1)
+BEGIN
+set @Result=1
+END
+ELSE
+BEGIN
+set @Result=0
+END
+
+
+sp_check_mail_status 'antiprohibition.id@gmail.com','12345',5
