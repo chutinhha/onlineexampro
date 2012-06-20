@@ -13,11 +13,13 @@
 </head>
 <body style="background-image: url('images/Background.jpg'); background-repeat: repeat">
     <form id="form1" runat="server">
+    <cc1:ToolkitScriptManager ID="sfsf" runat="server">
+    </cc1:ToolkitScriptManager>
     <div>
         <table width="1000px" align="center" style="background-color: #666666;" class="round">
             <tr>
                 <td height="152px" style="background-image: url('images/title.png'); background-repeat: repeat-x">
-                    <img alt="logo" src="images/new logo copy.png" />
+                    <img alt="logo" src="images/new logo copy1.jpg" />
                 </td>
             </tr>
             <tr>
@@ -161,7 +163,6 @@
             </tr>
         </table>
     </div>
-    </form>    
-   
+    </form>
 </body>
 </html>
