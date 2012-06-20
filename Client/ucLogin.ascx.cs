@@ -7,93 +7,64 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 
 
-public partial class ucLogin : System.Web.UI.UserControl
+public partial class ucLogin : BasePageUserControl
 {
     private bool? isValid;
     private string assignValue;
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
-        if (cookie1 != null)
+        if (!IsPostBack)
         {
-            CheckUser(cookie1.Values["Userid"], cookie1.Values["Password"], ref isValid);
-            if (!string.IsNullOrEmpty(assignValue))
+            if (string.IsNullOrEmpty(Email[0]))
             {
-                if (isValid.Value)
-                {
-                    SessionValue = assignValue;
-                    Response.Redirect("UploadPhoto.aspx");
-                }
+                Call(true);
             }
         }
     }
-
-    public bool IsValid(string va)
+    public void Call(bool falg)
     {
-        if (string.IsNullOrEmpty(va))
+        HttpCookie cookie;
+        cookie = Request.Cookies.Get("PhotoProcessing");
+        if (falg)
         {
-            return false;
+            if (cookie == null)
+                return;
+            CheckUser(cookie.Values["Userid"], cookie.Values["Password"], ref isValid);
+        }
+        else
+            CheckUser(txtEmail.Text, txtPassword.Text, ref isValid);
+        if (!string.IsNullOrEmpty(assignValue))
+        {
+            if (isValid.Value)
+            {
+                if (cbRememberMe.Checked && cookie != null)
+                {
+                    cookie = new HttpCookie("PhotoProcessing");
+                    cookie.Values["Email"] = txtEmail.Text;
+                    cookie.Values["Password"] = txtPassword.Text;
+                    cookie.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(cookie);
+                }
+                SessionValue = assignValue;
+                Response.Redirect("UploadPhoto.aspx");
+            }
+            else
+            {
+                lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006600");
+                lbResponse.Text = "We had sent mail to your Email Id Verify it..!";
+            }
         }
         else
         {
-            SessionValue = va;
-            return true;
+            lbResponse.Text = "Invalid Login!";
         }
     }
-
-    public string SessionValue
-    {
-        set
-        {
-            Session["Email"] = value;
-        }
-    }
-
     public void CheckUser(string email, string password, ref bool? isValid)
     {
         PhotoProcessingHelper.Context.sp_check_user(email, password, ref assignValue, ref isValid);
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        System.Diagnostics.Debugger.Launch();
-        CheckUser(txtEmail.Text, txtPassword.Text, ref isValid);
-        if (!string.IsNullOrEmpty(assignValue))
-        {
-            if (isValid.Value)
-            {
-                SessionValue = assignValue;
-                Response.Redirect("UploadPhoto.aspx");
-            }
-        }
-        using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
-        {
-            var counter = from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == txtEmail.Text && a.Password == txtPassword.Text select a;
-            if (counter.Count() == 1)
-            {
-                var checkAcivation = counter.FirstOrDefault();
-                if (checkAcivation.ActivationStatus_Mail == 1)
-                {
-                    if (cbRememberMe.Checked)
-                    {
-                        HttpCookie cookie = new HttpCookie("PhotoProcessing");
-                        cookie.Values["Email"] = txtEmail.Text;
-                        cookie.Values["Password"] = txtPassword.Text;
-                        cookie.Expires = DateTime.Now.AddDays(1);
-                        Response.Cookies.Add(cookie);
-                    }
-
-                    Response.Redirect("UploadPhoto.aspx");
-                }
-                else
-                {
-                    lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006600");
-                    lbResponse.Text = "We had sent mail to your Email Id Verify it..!";
-                }
-            }
-            else
-            {
-                lbResponse.Text = "Invalid Login!";
-            }
-        }
+        Call(false);
     }
 }

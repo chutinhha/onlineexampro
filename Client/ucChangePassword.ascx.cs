@@ -16,7 +16,7 @@ public partial class ucChangePassword : System.Web.UI.UserControl
         try
         {
             Int64 customerID;
-            var PasswordChange = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).FirstOrDefault();
+            var PasswordChange = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["Email"]).Split('|').GetValue(0).ToString()).Select(a => a).FirstOrDefault();
             if (PasswordChange.Password != txtOldPassword.Text)
             {
                 txtOldPassword.Focus();

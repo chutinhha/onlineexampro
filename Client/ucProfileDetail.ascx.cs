@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ucProfileDetail : System.Web.UI.UserControl
+public partial class ucProfileDetail : BasePageUserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,7 +13,7 @@ public partial class ucProfileDetail : System.Web.UI.UserControl
         {
             string DOB = "";
             string lastLogin = "";
-            var detail = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"]));
+            var detail = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Email[0]);
             foreach (var item in detail)
             {
                 ViewState["Name"] = item.Full_Name;
