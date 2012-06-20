@@ -1,0 +1,62 @@
+﻿.productHeadingfont
+{
+    font-family: Calibri;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+}
+.productDetailfont
+{
+    font-family: Calibri;
+    font-size: 14px;
+    color: #999999;
+}
+/*Modal Popup*/
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+.modalPopup {
+	
+	
+	
+	border-color:Gray;
+	padding:3px;
+	width:360px;
+	
+	
+	
+	-moz-border-radius: 25px;
+-webkit-border-radius: 25px;
+border-radius: 25px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 15px #000000;
+-webkit-box-shadow: 0px 0px 15px #000000;
+box-shadow: 0px 0px 15px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#e9cfff', endColorstr = '#ffffff');
+/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+/*Element must have a height (not auto)*/
+/*All filters must be placed together*/
+-ms-filter: "progid: DXImageTransform.Microsoft.gradient(startColorstr = '#e9cfff', endColorstr = '#ffffff')";
+/*Element must have a height (not auto)*/
+/*All filters must be placed together*/
+background-image: -moz-linear-gradient(top, #e9cfff, #ffffff);
+background-image: -ms-linear-gradient(top, #e9cfff, #ffffff);
+background-image: -o-linear-gradient(top, #e9cfff, #ffffff);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#e9cfff), to(#ffffff));
+background-image: -webkit-linear-gradient(top, #e9cfff, #ffffff);
+background-image: linear-gradient(top, #e9cfff, #ffffff);
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
+/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
+
+}
+
+.modalPopup p {
+    padding: 5px;
+}
