@@ -5,12 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ucLoginandLogout : System.Web.UI.UserControl
+public partial class ucLoginandLogout : BasePageUserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             lbuser.Text = "Guest";
             login4.Visible = true;
@@ -22,21 +21,21 @@ public partial class ucLoginandLogout : System.Web.UI.UserControl
             login4.Visible = false;
             regis.Visible = false;
             lbtnLogout.Visible = true;
-            lbuser.Text = Convert.ToString(Session["username"]);
+            lbuser.Text = Convert.ToString(Email[1]);
         }
     }
     protected void lbtnLogout_Click(object sender, EventArgs e)
     {
-
-        System.Threading.Thread.Sleep(10000);
         HttpCookie cookie = Request.Cookies.Get("PhotoProcessing");
         if (cookie != null)
         {
             cookie.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(cookie);
         }
-        Session["username"] = "";
-        Session["email"] = "";
+        Session["Email"] = "";
+        Session["Email"] = null;
+        Session.Abandon();
+        Session.Clear();
         Response.Redirect("Home.aspx");
     }
     protected void regis_Click(object sender, EventArgs e)

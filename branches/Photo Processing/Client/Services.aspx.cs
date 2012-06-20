@@ -6,12 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit;
 
-public partial class Services : System.Web.UI.Page
+public partial class Services : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             Response.Redirect("Home.aspx");
         }

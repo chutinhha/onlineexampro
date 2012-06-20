@@ -7,19 +7,17 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Data;
 
-public partial class OrderHistory : System.Web.UI.Page
+public partial class OrderHistory : BasePage
 {
     private string filePath;
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             Response.Redirect("Home.aspx");
         }
         if (!IsPostBack)
         {
-            
             BindData();
         }
     }
@@ -33,23 +31,18 @@ public partial class OrderHistory : System.Web.UI.Page
             subtitledetail.Add(item.SubCategory_id, item.Category_name);
         }
         ViewState["subCatagory"] = subtitledetail;
-        if (Session["email"] != "")
-        {
-            var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).First();
-            ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
-                                   where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
-                                   select
-                                       new
-                                       {
-                                           Id = a.OrderSummary_id,
-                                           ImageUrl = a.ImageUrl,
-                                           Plane_Name = a.Photo_PlanDetail.Plan_Name,
-                                           fkPlan_id = a.fkPlan_id
-                                       };
-            ListView1.DataBind();
-        }
-
-
+        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).First();
+        ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
+                               where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
+                               select
+                                   new
+                                   {
+                                       Id = a.OrderSummary_id,
+                                       ImageUrl = a.ImageUrl,
+                                       Plane_Name = a.Photo_PlanDetail.Plan_Name,
+                                       fkPlan_id = a.fkPlan_id
+                                   };
+        ListView1.DataBind();
     }
     protected void ListView1_ItemDataBound(object sender, ListViewItemEventArgs e)
     {

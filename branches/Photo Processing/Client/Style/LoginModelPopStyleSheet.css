@@ -51,3 +51,9 @@
     -webkit-background-clip: padding-box;
     background-clip: padding-box; /*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/ /*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
 }
+.validdation
+{
+    color: #FF0000;
+    font-style: italic;
+    font-size: 12px;
+}

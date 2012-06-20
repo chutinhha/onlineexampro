@@ -6,12 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit;
 
-public partial class UploadPhoto : System.Web.UI.Page
+public partial class UploadPhoto : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             Response.Redirect("Home.aspx");
         }
@@ -52,7 +51,7 @@ public partial class UploadPhoto : System.Web.UI.Page
         if (Session["filePath"] != null)
         {
             string filePath = Convert.ToString(Session["filePath"]);
-            var ss = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).FirstOrDefault();
+            var ss = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).FirstOrDefault();
             using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
             {
                 Photo_OrderSummaryDetail obj = new Photo_OrderSummaryDetail();

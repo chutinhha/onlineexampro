@@ -6,53 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-public partial class ConfirmOrder : System.Web.UI.Page
+public partial class ConfirmOrder : BasePage
 {
     private string filePath;
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             Response.Redirect("Home.aspx");
         }
         if (!IsPostBack)
         {
-            if (Session["username"] == "" || Session["username"] == null)
-            {
-                var userid = "";
-                var password = "";
-                HttpCookie cookie1 = Request.Cookies.Get("PhotoProcessing");
-                if (cookie1 != null)
-                {
-                    userid = cookie1.Values["Userid"];
-                    password = cookie1.Values["Password"];
-                    using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
-                    {
-                        var aa = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(userid)).Select(a => a).FirstOrDefault();
-                        if (userid == aa.Email && password == aa.Password)
-                        {
-                            Session["username"] = aa.Full_Name;
-                            Session["email"] = aa.Email;
-                            var lastlogin = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Customer_id == aa.Customer_id select a).FirstOrDefault();
-                            lastlogin.Last_Login = DateTime.Now;
-                            dataDB.SubmitChanges();
-                            //Response.Redirect("Home.aspx");
-                        }
-                    }
-                }
-            }
-            if (Session["username"] != null)
-            {
-                BindData();
-            }
-
+            BindData();
         }
     }
-
     private void BindData()
     {
-        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == Convert.ToString(Session["email"])).Select(a => a).First();
+        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).First();
         GridView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
                                where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
                                select

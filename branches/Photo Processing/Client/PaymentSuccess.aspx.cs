@@ -9,12 +9,11 @@ using System.Net;
 using System.IO;
 using LepiPele.PayPal.PDT;
 
-public partial class PaymentSuccess : System.Web.UI.Page
+public partial class PaymentSuccess : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string user = Convert.ToString(Session["username"]);
-        if (string.IsNullOrEmpty(user))
+        if (HasSessionValue)
         {
             Response.Redirect("Home.aspx");
         }

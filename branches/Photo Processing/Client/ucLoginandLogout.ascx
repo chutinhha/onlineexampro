@@ -3,6 +3,7 @@
 <link href="Style/LoginModelPopStyleSheet.css" rel="stylesheet" type="text/css" />
 <%@ Register Src="~/ucLogin.ascx" TagName="Login1" TagPrefix="uc1" %>
 <%@ Register Src="~/ucRegistration.ascx" TagName="Registration1" TagPrefix="uc1" %>
+
 <table>
     <tr>
         <td>
@@ -48,7 +49,7 @@
             </div>
         </td>
         <td>
-            <table cellpadding="2px" style="color: #FFFFFF">
+            <table cellpadding="2px" bgcolor="#00FF99">
                 <tr>
                     <td>
                         Welcome,&nbsp;

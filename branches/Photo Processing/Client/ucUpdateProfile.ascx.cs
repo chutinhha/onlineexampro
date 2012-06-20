@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 
 
-public partial class ucUpdateProfile : System.Web.UI.UserControl
+public partial class ucUpdateProfile : BasePageUserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,7 +15,7 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
         {
             using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
             {
-                var emailsub = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Session["email"] select a).FirstOrDefault();
+                var emailsub = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Email[0] select a).FirstOrDefault();
                 if (emailsub.Email_Subs == 1)
                 {
                     cbEmailPrefer.Checked = true;
@@ -32,7 +32,7 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
         System.Threading.Thread.Sleep(5000);
         using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
         {
-            var UpdateRegDetail = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Session["email"] select a).FirstOrDefault();
+            var UpdateRegDetail = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Email[0] select a).FirstOrDefault();
             if (Request.ContentLength < 2097152)
             {
                 string filePath;
@@ -79,7 +79,7 @@ public partial class ucUpdateProfile : System.Web.UI.UserControl
     {
         using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
         {
-            var UpdateRegDetail = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Session["email"] select a).FirstOrDefault();
+            var UpdateRegDetail = (from a in dataDB.Photo_CustomerRegistrationDetails where a.Email == Email[0] select a).FirstOrDefault();
             string filepath = "~/Images/Profile/" + UpdateRegDetail.Customer_id + fuProfileImage.FileName;
             fuProfileImage.SaveAs(Server.MapPath(filepath));
             Session["ProfileImage"] = filepath;

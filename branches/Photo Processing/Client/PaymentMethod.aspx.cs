@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class PaymentMethod : System.Web.UI.Page
+public partial class PaymentMethod : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (HasSessionValue)
+        {
+            Response.Redirect("Home.aspx");
+        }
     }
 }

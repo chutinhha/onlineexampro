@@ -8,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     Upload Photos
-     <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
-            <Services>
-                <asp:ServiceReference Path="~/AssignCart.asmx" />
-            </Services>
-        </cc1:ToolkitScriptManager>
+    <cc1:ToolkitScriptManager ID="sdfsd" EnablePageMethods="true" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/AssignCart.asmx" />
+        </Services>
+    </cc1:ToolkitScriptManager>
     <hr />
     <br />
     <table style="border: 1px solid #808080" cellpadding="5" cellspacing="5" width="100%"
