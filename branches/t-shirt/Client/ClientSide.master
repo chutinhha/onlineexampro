@@ -7,6 +7,11 @@
     <link href="Stylesheet/StyleSheet.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/menu.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        $(window)._load(function () {
+            $("#form1").next().css("display", "none");
+        });
+    </script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
