@@ -202,6 +202,7 @@
                             Your Coupon Code:
                             <input id="Text1" type="text" />
                             <input id="Button3" type="button" value="Submit" />
+                            <input id="Hidden1" value="<%# SessionValue[0] %>" type="hidden" />
                             <br />
                             <span id="err" style="color: #FF0000; display: none">Please enter valid coupon code.
                             </span>
