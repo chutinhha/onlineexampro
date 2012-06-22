@@ -85,7 +85,7 @@
                                             </div>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                   <%-- <asp:TemplateField ItemStyle-Width="150px" ItemStyle-VerticalAlign="Top">
+                                    <%-- <asp:TemplateField ItemStyle-Width="150px" ItemStyle-VerticalAlign="Top">
                                         <ItemTemplate>
                                             <div>
                                                 <asp:CheckBox ID="chkPhysicalCopy" runat="server" Text="physical Copy" OnCheckedChanged="chkPhysicalCopy_CheckedChanged"
@@ -191,7 +191,7 @@
                                     });
                                 });
                                 function success1(r) {
-                                    if (r) {
+                                    if (r != null) {
                                         $("#err").hide();
                                     } else {
                                         $("#err").show();
@@ -202,7 +202,6 @@
                             Your Coupon Code:
                             <input id="Text1" type="text" />
                             <input id="Button3" type="button" value="Submit" />
-                            <input id="Button4" type="button" value="test" />
                             <br />
                             <span id="err" style="color: #FF0000; display: none">Please enter valid coupon code.
                             </span>
@@ -234,8 +233,7 @@
                                     <td>
                                     </td>
                                     <td align="right">
-                                        <asp:Button ID="Button2" runat="server" Text="Confirm" 
-                                            PostBackUrl="~/Payment.aspx" />
+                                        <asp:Button ID="Button2" runat="server" Text="Confirm" PostBackUrl="~/Payment.aspx" />
                                     </td>
                                 </tr>
                             </table>

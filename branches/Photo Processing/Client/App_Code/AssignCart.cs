@@ -1,11 +1,14 @@
-﻿using System;
+﻿#region Name Spaces
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data;
 using System.IO;
+#endregion
 
+#region Class AssignCart
 /// <summary>
 /// Summary description for AssignCart
 /// </summary>
@@ -16,11 +19,30 @@ using System.IO;
 public class AssignCart : System.Web.Services.WebService
 {
 
+    #region Constructors
     public AssignCart()
     {
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
+    #endregion
+
+    #region Fields
+    /// <summary>
+    /// strores the saved file path's
+    /// </summary>
+    private string filePath;
+    #endregion
+
+    #region Insert Selected Services
+    /// <summary>
+    /// Save The Options from Services Page
+    /// </summary>
+    /// <param name="ar">
+    /// Gets the list of SubCategory_id's seperated by comma
+    /// </param>
+    /// <returns></returns>
+    
     [WebMethod]
     public bool Test(string ar)
     {
@@ -40,6 +62,13 @@ public class AssignCart : System.Web.Services.WebService
             return false;
         }
     }
+    #endregion
+
+    #region Get Cart Items
+    /// <summary>
+    /// returns the cart items as collection
+    /// </summary>
+    /// <returns></returns>
     [WebMethod]
     public Array GetData()
     {
@@ -54,29 +83,32 @@ public class AssignCart : System.Web.Services.WebService
                      };
         return aa.ToArray();
     }
-    private string filePath;
+    #endregion
+
+    #region Removing Cart Items
+    /// <summary>
+    /// returns result when deleting the cart items if it deleted.
+    /// </summary>
+    /// <param name="idVal">
+    /// OrderSummary_id
+    /// </param>
+    /// <returns></returns>
     [WebMethod]
     public bool Remove(string idVal)
     {
         try
         {
-            long id = Convert.ToInt64(idVal);
             using (var obj = new PhotoProcessingDataContext())
             {
-                var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == id);
-                if (string.IsNullOrEmpty(aa.ImageUrl))
+                var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == Convert.ToInt64(idVal));
+                if (!string.IsNullOrEmpty(aa.ImageUrl))
                 {
                     filePath = Server.MapPath(aa.ImageUrl);
                     if (File.Exists(filePath))
-                    {
                         File.Delete(filePath);
-                    }
                 }
                 obj.Photo_OrderSummaryDetails.DeleteOnSubmit(aa);
-                if (obj.GetChangeSet().Deletes.Count > 0)
-                {
-                    obj.SubmitChanges();
-                }
+                obj.SubmitChanges();
             }
             return true;
         }
@@ -84,24 +116,47 @@ public class AssignCart : System.Web.Services.WebService
         {
             return false;
         }
-       
     }
+    #endregion
+
+    #region Checking Coopn Code
+    /// <summary>
+    /// returns the dicount amount when the coopn code is correct
+    /// </summary>
+    /// <param name="a">
+    /// Coopn code entered by user
+    /// </param>
+    /// <returns></returns>
+    
     [WebMethod]
-    public bool CheckCoopnCode(string a)
+    public string CheckCoopnCode(string a)
     {
         if (a.Length == 1)
         {
-            return false;
+            return "30";
         }
         else
         {
-            return true;
+            return null;
         }
     }
+    #endregion
+
+    #region Getting Price of Service
+    /// <summary>
+    /// returns the price when selecting service name
+    /// </summary>
+    /// <param name="id">
+    /// radio button id from ucCate.ascx.its like rdl_(Plan_id).(example: rdl_10)
+    /// </param>
+    /// <returns></returns>
     [WebMethod]
     public decimal GetPrice(string id)
     {
         string[] rd = id.Split('_');
         return PhotoProcessingHelper.Context.Photo_PlanDetails.Single(a => a.Plan_id == Convert.ToInt32(rd[rd.Length - 1])).Rate.Value;
     }
+    #endregion
+
 }
+#endregion
