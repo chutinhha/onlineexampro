@@ -24,7 +24,7 @@
     <input type="hidden" name="notify_url" value="http://localhost:1544/Client/LatestOrder.aspx" />
     <input type="hidden" name="upload" value="1" />
     <input type="hidden" name="address_override" value="0" />
-    <%var t = PhotoProcessingHelper.Context.Photo_OrderSummaryDetails.Where(a => a.Photo_CustomerRegistrationDetail.Email == Convert.ToString(Session["email"]));
+    <%var t = PhotoProcessingHelper.Context.Photo_OrderSummaryDetails.Where(a => a.Photo_CustomerRegistrationDetail.Email == SessionValue[0]);
       int i = 1;
       foreach (var item in t)
       {

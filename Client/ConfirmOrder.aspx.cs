@@ -20,13 +20,13 @@ public partial class ConfirmOrder : BasePage
             BindData();
         }
     }
+
     private void BindData()
     {
-        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).First();
+        //var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).First();
         GridView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
-                               where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
-                               select
-                                   new
+                               where a.fkCustomer_id == Convert.ToInt32(SessionValue[2])
+                               select new
                                    {
                                        Id = a.OrderSummary_id,
                                        ImageUrl = a.ImageUrl,
@@ -35,21 +35,19 @@ public partial class ConfirmOrder : BasePage
                                    };
         GridView1.DataBind();
     }
+
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Remove")
         {
-            long id = Convert.ToInt64(e.CommandArgument);
             using (var obj = new PhotoProcessingDataContext())
             {
-                var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == id);
-                if (string.IsNullOrEmpty(aa.ImageUrl))
+                var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == Convert.ToInt64(e.CommandArgument));
+                if (!string.IsNullOrEmpty(aa.ImageUrl))
                 {
                     filePath = Server.MapPath(aa.ImageUrl);
                     if (File.Exists(filePath))
-                    {
                         File.Delete(filePath);
-                    }
                 }
                 obj.Photo_OrderSummaryDetails.DeleteOnSubmit(aa);
                 obj.SubmitChanges();
@@ -57,8 +55,6 @@ public partial class ConfirmOrder : BasePage
             BindData();
         }
     }
-
-
 
     protected void chkPhysicalCopy_CheckedChanged(object sender, EventArgs e)
     {

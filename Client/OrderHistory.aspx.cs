@@ -24,18 +24,16 @@ public partial class OrderHistory : BasePage
 
     private void BindData()
     {
-        var subtitle = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Select(a => a);
-        Dictionary<int, string> subtitledetail = new Dictionary<int, string>();
-        foreach (var item in subtitle)
-        {
-            subtitledetail.Add(item.SubCategory_id, item.Category_name);
-        }
-        ViewState["subCatagory"] = subtitledetail;
-        var cus = PhotoProcessingHelper.Context.Photo_CustomerRegistrationDetails.Where(a => a.Email == SessionValue[0]).Select(a => a).First();
+        //var subtitle = PhotoProcessingHelper.Context.Photo_SubCatagoryDetails.Select(a => a);
+        //Dictionary<int, string> subtitledetail = new Dictionary<int, string>();
+        //foreach (var item in subtitle)
+        //{
+        //    subtitledetail.Add(item.SubCategory_id, item.Category_name);
+        //}
+        //ViewState["subCatagory"] = subtitledetail;
         ListView1.DataSource = from a in PhotoProcessingHelper.Context.Photo_OrderSummaryDetails
-                               where a.fkCustomer_id == Convert.ToInt32(cus.Customer_id)
-                               select
-                                   new
+                               where a.fkCustomer_id == Convert.ToInt32(SessionValue[2])
+                               select new
                                    {
                                        Id = a.OrderSummary_id,
                                        ImageUrl = a.ImageUrl,
@@ -95,13 +93,11 @@ public partial class OrderHistory : BasePage
             using (var obj = new PhotoProcessingDataContext())
             {
                 var aa = obj.Photo_OrderSummaryDetails.Single(a => a.OrderSummary_id == id);
-                if (string.IsNullOrEmpty(aa.ImageUrl))
+                if (!string.IsNullOrEmpty(aa.ImageUrl))
                 {
                     filePath = Server.MapPath(aa.ImageUrl);
                     if (File.Exists(filePath))
-                    {
                         File.Delete(filePath);
-                    }
                 }
                 obj.Photo_OrderSummaryDetails.DeleteOnSubmit(aa);
                 obj.SubmitChanges();
