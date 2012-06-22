@@ -100,14 +100,14 @@
         <classShapeMoniker Id="b7a2b2f8-b7e4-40fe-839b-4a96f9c496de" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 7.25); (1.75 : 5.782900390625); (6.5 : 5.782900390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 7.25); (1.75 : 5.782900390625); (6.04166666666667 : 5.782900390625 : JumpStart); (6.20833333333333 : 5.782900390625 : JumpEnd); (6.5 : 5.782900390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PhotoProcessingDataContext/Photo_CustomerRegistrationDetail/Photo_CustomerRegistrationDetail_Photo_OrderDetail" />
       <nodes>
         <classShapeMoniker Id="a2a9058f-e659-4af8-98e6-dda95656d019" />
         <classShapeMoniker Id="b7a2b2f8-b7e4-40fe-839b-4a96f9c496de" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.10179768880208); (6.5 : 9.10179768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 9.10179768880208); (6.04166666666667 : 9.10179768880208 : JumpStart); (6.20833333333333 : 9.10179768880208 : JumpEnd); (6.5 : 9.10179768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PhotoProcessingDataContext/Photo_CustomerRegistrationDetail/Photo_CustomerRegistrationDetail_Photo_OrderSummaryDetail" />
       <nodes>
         <classShapeMoniker Id="a2a9058f-e659-4af8-98e6-dda95656d019" />
