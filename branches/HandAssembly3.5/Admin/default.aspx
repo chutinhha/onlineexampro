@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="Admin" Debug="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="Admin"
+    Debug="true" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -95,7 +96,7 @@
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Slider Image">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"http://192.168.10.149/Client/Uploads/"+Eval("Name")%>'
+                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"http://localhost:8080/Uploads/"+Eval("Name")%>'
                                                                 Width="50px" Height="50px" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
@@ -106,7 +107,7 @@
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Customer Logo">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image2" runat="server" ImageUrl='<%#"CustomerLogo/"+Eval("Name") %>'
+                                                            <asp:Image ID="Image2" runat="server" ImageUrl='<%#"http://localhost:8080/CustomerLogo/"+Eval("Name") %>'
                                                                 Width="50px" Height="50px" /></ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
@@ -121,8 +122,8 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Thumbnails">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("VideoThumbnailUrl")%>' Width="50px"
-                                                                Height="50px" />
+                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"http://localhost:8080"+Eval("VideoThumbnailUrl")%>'
+                                                                Width="50px" Height="50px" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

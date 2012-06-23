@@ -11,14 +11,14 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using ServiceReference1;
-using ServiceReference2;
+
 public partial class Admin : System.Web.UI.Page
 {
     public string sr, st, videourl, localpath;
     protected void Page_Load(object sender, EventArgs e)
     {
         FolderAcceeSoapClient aa = new FolderAcceeSoapClient();
-       localpath = aa.GetLocalPath();
+        localpath = aa.GetLocalPath();
         sr = localpath + "\\ServiceListHeading.xml";
         st = localpath + "\\ServiceListSubHeading.xml";
         videourl = localpath + "\\VideoUrl.xml";
@@ -332,6 +332,10 @@ public partial class Admin : System.Web.UI.Page
     {
         DataSet ds = new DataSet();
         ds.ReadXml(localpath + "VideoUrl.xml");
+        foreach (DataRow item in ds.Tables[0].Rows)
+        {
+            item[1] = item[1].ToString().Replace('~', '/');
+        }
         if (ds.Tables.Count != 0)
         {
             gvVideoSlider.DataSource = ds.Tables[0];
