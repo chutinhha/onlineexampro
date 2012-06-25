@@ -115,7 +115,7 @@
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Slider Image">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"http://www.humbervale.com/Uploads/"+Eval("Name")%>'
+                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#"~/Uploads/"+Eval("Name")%>'
                                                                 Width="50px" Height="50px" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
@@ -126,7 +126,7 @@
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Customer Logo">
                                                         <ItemTemplate>
-                                                            <asp:Image ID="Image2" runat="server" ImageUrl='<%#"http://www.humbervale.com/CustomerLogo/"+Eval("Name") %>'
+                                                            <asp:Image ID="Image2" runat="server" ImageUrl='<%#"~/CustomerLogo/"+Eval("Name") %>'
                                                                 Width="50px" Height="50px" /></ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

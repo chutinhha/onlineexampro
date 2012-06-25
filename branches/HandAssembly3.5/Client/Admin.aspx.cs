@@ -538,7 +538,6 @@ public partial class Admin : System.Web.UI.Page
     }
     protected void gvCustomerLogo_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
         System.Web.UI.WebControls.Image img = (System.Web.UI.WebControls.Image)gvCustomerLogo.Rows[e.RowIndex].FindControl("Image2");
         string[] a = img.ImageUrl.Split('/');
         string path = Server.MapPath("~/CustomerLogo/") + a[1];
