@@ -127,16 +127,36 @@
                                             WHAT'S NEW...
                                         </td>
                                         <td>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                             <td>
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/goto_blog_button.jpg"
+                                
+                                 
+                            <table id="hgfg" runat="server">
+                                <tr>
+                                <td><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/goto_blog_button.jpg"
                                     Width="157px" Height="69px" />
-                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;</td>
+                                    <td>
+                                        <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/images/face.gif" AlternateText="face book" />
+                                    </td>
+                               
+                                    <td>
+                                        <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/images/twitter.gif"
+                                            AlternateText="twitter" />
+                                    </td>
+                                
+                                    <td>
+                                        <asp:ImageButton ID="ImageButton6" runat="server" ImageUrl="~/images/in.gif" AlternateText="Linkedin" />
+                                    </td>
+                                </tr>
+                            </table>
+                        
                             </td>
+
                         </tr>
                     </table>
                 </td>

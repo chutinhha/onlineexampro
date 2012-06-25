@@ -28,7 +28,7 @@ public class VideoService : System.Web.Services.WebService
         string[] aa = id.Split('.');
         string url = string.Empty;
         DataSet ds = new DataSet();
-        ds.ReadXml(Server.MapPath("~/VideoUrl.xml"));
+        ds.ReadXml(Server.MapPath("~/DB/VideoUrl.xml"));
         foreach (DataRow item in ds.Tables[0].Rows)
         {
             string va = aa[aa.Length - 2];

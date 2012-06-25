@@ -19,7 +19,7 @@ public partial class ucServiceList : System.Web.UI.UserControl
     private void BindGrid()
     {
         DataSet ds = new DataSet();
-        ds.ReadXml(Server.MapPath("~/ServiceListHeading.xml"));
+        ds.ReadXml(Server.MapPath("~/DB/ServiceListHeading.xml"));
         if (ds.Tables.Count != 0)
         {
             das.DataSource = ds.Tables[0];
@@ -31,7 +31,7 @@ public partial class ucServiceList : System.Web.UI.UserControl
             int id = Convert.ToInt32(das.DataKeys[item.ItemIndex]);
             DataList gvr = (DataList)das.Items[item.ItemIndex].FindControl("DataList1");
             DataSet ds1 = new DataSet();
-            ds1.ReadXml(Server.MapPath("~/ServiceListSubHeading.xml"));
+            ds1.ReadXml(Server.MapPath("~/DB/ServiceListSubHeading.xml"));
             DataTable dt = new DataTable();
             dt.Columns.Add("ServiceSubTitle_Content");
             foreach (DataRow item1 in ds1.Tables[0].Rows)

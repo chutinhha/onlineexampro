@@ -30,6 +30,14 @@ public partial class ucVideo : System.Web.UI.UserControl
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            DataSet ds = new DataSet();
+            ds.ReadXml(Server.MapPath("~/DB/VideoUrl.xml"));
+            if (ds.Tables.Count != 0)
+            {
+                ViewState["defaultVideo"] = ds.Tables[0].Rows[0][2];
+            }
+        }
     }
 }
