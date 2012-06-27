@@ -22,7 +22,7 @@ namespace DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="eCommerce")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Tshirt")]
 	public partial class eCommerceDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -39,9 +39,6 @@ namespace DAL
     partial void Insertecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
     partial void Updateecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
     partial void Deleteecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
-    partial void Insertecommerce_Customer_registration(ecommerce_Customer_registration instance);
-    partial void Updateecommerce_Customer_registration(ecommerce_Customer_registration instance);
-    partial void Deleteecommerce_Customer_registration(ecommerce_Customer_registration instance);
     partial void Insertecommerce_Order(ecommerce_Order instance);
     partial void Updateecommerce_Order(ecommerce_Order instance);
     partial void Deleteecommerce_Order(ecommerce_Order instance);
@@ -54,7 +51,16 @@ namespace DAL
     partial void Insertecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
     partial void Updateecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
     partial void Deleteecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
+    partial void Insertecommerce_Customer_registration(ecommerce_Customer_registration instance);
+    partial void Updateecommerce_Customer_registration(ecommerce_Customer_registration instance);
+    partial void Deleteecommerce_Customer_registration(ecommerce_Customer_registration instance);
     #endregion
+		
+		public eCommerceDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["icon"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public eCommerceDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -104,14 +110,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ecommerce_Customer_registration> ecommerce_Customer_registrations
-		{
-			get
-			{
-				return this.GetTable<ecommerce_Customer_registration>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ecommerce_Order> ecommerce_Orders
 		{
 			get
@@ -141,6 +139,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<ecommerce_Shipping_Address>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ecommerce_Customer_registration> ecommerce_Customer_registrations
+		{
+			get
+			{
+				return this.GetTable<ecommerce_Customer_registration>();
 			}
 		}
 		
@@ -980,488 +986,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Customer_registration")]
-	public partial class ecommerce_Customer_registration : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Customer_id;
-		
-		private string _Email;
-		
-		private string _Password;
-		
-		private System.Nullable<long> _Mobile;
-		
-		private string _City;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private System.Nullable<System.DateTime> _Last_login;
-		
-		private System.Nullable<int> _Error_count;
-		
-		private string _Cus_Status;
-		
-		private string _Profile_image;
-		
-		private string _First_name;
-		
-		private string _Last_name;
-		
-		private string _DOB;
-		
-		private string _Email_Subs;
-		
-		private string _Sms_Subs;
-		
-		private EntitySet<ecommerce_Change_pwd_log> _ecommerce_Change_pwd_logs;
-		
-		private EntitySet<ecommerce_Order> _ecommerce_Orders;
-		
-		private EntitySet<ecommerce_Promocode> _ecommerce_Promocodes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCustomer_idChanging(int value);
-    partial void OnCustomer_idChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnMobileChanging(System.Nullable<long> value);
-    partial void OnMobileChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    partial void OnLast_loginChanging(System.Nullable<System.DateTime> value);
-    partial void OnLast_loginChanged();
-    partial void OnError_countChanging(System.Nullable<int> value);
-    partial void OnError_countChanged();
-    partial void OnCus_StatusChanging(string value);
-    partial void OnCus_StatusChanged();
-    partial void OnProfile_imageChanging(string value);
-    partial void OnProfile_imageChanged();
-    partial void OnFirst_nameChanging(string value);
-    partial void OnFirst_nameChanged();
-    partial void OnLast_nameChanging(string value);
-    partial void OnLast_nameChanged();
-    partial void OnDOBChanging(string value);
-    partial void OnDOBChanged();
-    partial void OnEmail_SubsChanging(string value);
-    partial void OnEmail_SubsChanged();
-    partial void OnSms_SubsChanging(string value);
-    partial void OnSms_SubsChanged();
-    #endregion
-		
-		public ecommerce_Customer_registration()
-		{
-			this._ecommerce_Change_pwd_logs = new EntitySet<ecommerce_Change_pwd_log>(new Action<ecommerce_Change_pwd_log>(this.attach_ecommerce_Change_pwd_logs), new Action<ecommerce_Change_pwd_log>(this.detach_ecommerce_Change_pwd_logs));
-			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
-			this._ecommerce_Promocodes = new EntitySet<ecommerce_Promocode>(new Action<ecommerce_Promocode>(this.attach_ecommerce_Promocodes), new Action<ecommerce_Promocode>(this.detach_ecommerce_Promocodes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Customer_id
-		{
-			get
-			{
-				return this._Customer_id;
-			}
-			set
-			{
-				if ((this._Customer_id != value))
-				{
-					this.OnCustomer_idChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_id = value;
-					this.SendPropertyChanged("Customer_id");
-					this.OnCustomer_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
-		public System.Nullable<long> Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this.OnMobileChanging(value);
-					this.SendPropertyChanging();
-					this._Mobile = value;
-					this.SendPropertyChanged("Mobile");
-					this.OnMobileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_login", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Last_login
-		{
-			get
-			{
-				return this._Last_login;
-			}
-			set
-			{
-				if ((this._Last_login != value))
-				{
-					this.OnLast_loginChanging(value);
-					this.SendPropertyChanging();
-					this._Last_login = value;
-					this.SendPropertyChanged("Last_login");
-					this.OnLast_loginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
-		public System.Nullable<int> Error_count
-		{
-			get
-			{
-				return this._Error_count;
-			}
-			set
-			{
-				if ((this._Error_count != value))
-				{
-					this.OnError_countChanging(value);
-					this.SendPropertyChanging();
-					this._Error_count = value;
-					this.SendPropertyChanged("Error_count");
-					this.OnError_countChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cus_Status", DbType="NVarChar(100)")]
-		public string Cus_Status
-		{
-			get
-			{
-				return this._Cus_Status;
-			}
-			set
-			{
-				if ((this._Cus_Status != value))
-				{
-					this.OnCus_StatusChanging(value);
-					this.SendPropertyChanging();
-					this._Cus_Status = value;
-					this.SendPropertyChanged("Cus_Status");
-					this.OnCus_StatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_image", DbType="NVarChar(100)")]
-		public string Profile_image
-		{
-			get
-			{
-				return this._Profile_image;
-			}
-			set
-			{
-				if ((this._Profile_image != value))
-				{
-					this.OnProfile_imageChanging(value);
-					this.SendPropertyChanging();
-					this._Profile_image = value;
-					this.SendPropertyChanged("Profile_image");
-					this.OnProfile_imageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_name", DbType="NVarChar(100)")]
-		public string First_name
-		{
-			get
-			{
-				return this._First_name;
-			}
-			set
-			{
-				if ((this._First_name != value))
-				{
-					this.OnFirst_nameChanging(value);
-					this.SendPropertyChanging();
-					this._First_name = value;
-					this.SendPropertyChanged("First_name");
-					this.OnFirst_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_name", DbType="NVarChar(50)")]
-		public string Last_name
-		{
-			get
-			{
-				return this._Last_name;
-			}
-			set
-			{
-				if ((this._Last_name != value))
-				{
-					this.OnLast_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Last_name = value;
-					this.SendPropertyChanged("Last_name");
-					this.OnLast_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="NVarChar(50)")]
-		public string DOB
-		{
-			get
-			{
-				return this._DOB;
-			}
-			set
-			{
-				if ((this._DOB != value))
-				{
-					this.OnDOBChanging(value);
-					this.SendPropertyChanging();
-					this._DOB = value;
-					this.SendPropertyChanged("DOB");
-					this.OnDOBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="NVarChar(50)")]
-		public string Email_Subs
-		{
-			get
-			{
-				return this._Email_Subs;
-			}
-			set
-			{
-				if ((this._Email_Subs != value))
-				{
-					this.OnEmail_SubsChanging(value);
-					this.SendPropertyChanging();
-					this._Email_Subs = value;
-					this.SendPropertyChanged("Email_Subs");
-					this.OnEmail_SubsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sms_Subs", DbType="NVarChar(50)")]
-		public string Sms_Subs
-		{
-			get
-			{
-				return this._Sms_Subs;
-			}
-			set
-			{
-				if ((this._Sms_Subs != value))
-				{
-					this.OnSms_SubsChanging(value);
-					this.SendPropertyChanging();
-					this._Sms_Subs = value;
-					this.SendPropertyChanged("Sms_Subs");
-					this.OnSms_SubsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log", Storage="_ecommerce_Change_pwd_logs", ThisKey="Customer_id", OtherKey="Customer_id")]
-		public EntitySet<ecommerce_Change_pwd_log> ecommerce_Change_pwd_logs
-		{
-			get
-			{
-				return this._ecommerce_Change_pwd_logs;
-			}
-			set
-			{
-				this._ecommerce_Change_pwd_logs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Customer_id", OtherKey="Customer_id")]
-		public EntitySet<ecommerce_Order> ecommerce_Orders
-		{
-			get
-			{
-				return this._ecommerce_Orders;
-			}
-			set
-			{
-				this._ecommerce_Orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Promocode", Storage="_ecommerce_Promocodes", ThisKey="Customer_id", OtherKey="Customer_id")]
-		public EntitySet<ecommerce_Promocode> ecommerce_Promocodes
-		{
-			get
-			{
-				return this._ecommerce_Promocodes;
-			}
-			set
-			{
-				this._ecommerce_Promocodes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ecommerce_Change_pwd_logs(ecommerce_Change_pwd_log entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = this;
-		}
-		
-		private void detach_ecommerce_Change_pwd_logs(ecommerce_Change_pwd_log entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = null;
-		}
-		
-		private void attach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = this;
-		}
-		
-		private void detach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = null;
-		}
-		
-		private void attach_ecommerce_Promocodes(ecommerce_Promocode entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = this;
-		}
-		
-		private void detach_ecommerce_Promocodes(ecommerce_Promocode entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Customer_registration = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Orders")]
 	public partial class ecommerce_Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1496,13 +1020,13 @@ namespace DAL
 		
 		private EntityRef<ecommerce_Billing_Address> _ecommerce_Billing_Address;
 		
-		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
-		
 		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
 		
 		private EntityRef<ecommerce_Promocode> _ecommerce_Promocode;
 		
 		private EntityRef<ecommerce_Shipping_Address> _ecommerce_Shipping_Address;
+		
+		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1539,10 +1063,10 @@ namespace DAL
 		public ecommerce_Order()
 		{
 			this._ecommerce_Billing_Address = default(EntityRef<ecommerce_Billing_Address>);
-			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
 			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
 			this._ecommerce_Promocode = default(EntityRef<ecommerce_Promocode>);
 			this._ecommerce_Shipping_Address = default(EntityRef<ecommerce_Shipping_Address>);
+			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
 			OnCreated();
 		}
 		
@@ -1860,40 +1384,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
-		public ecommerce_Customer_registration ecommerce_Customer_registration
-		{
-			get
-			{
-				return this._ecommerce_Customer_registration.Entity;
-			}
-			set
-			{
-				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Customer_registration.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Customer_registration.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Customer_id = value.Customer_id;
-					}
-					else
-					{
-						this._Customer_id = default(int);
-					}
-					this.SendPropertyChanged("ecommerce_Customer_registration");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Order", Storage="_ecommerce_Productdetail", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
 		public ecommerce_Productdetail ecommerce_Productdetail
 		{
@@ -1992,6 +1482,40 @@ namespace DAL
 						this._Shipping_id = default(int);
 					}
 					this.SendPropertyChanged("ecommerce_Shipping_Address");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
+		public ecommerce_Customer_registration ecommerce_Customer_registration
+		{
+			get
+			{
+				return this._ecommerce_Customer_registration.Entity;
+			}
+			set
+			{
+				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Customer_registration.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Customer_registration.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Customer_id = value.Customer_id;
+					}
+					else
+					{
+						this._Customer_id = default(int);
+					}
+					this.SendPropertyChanged("ecommerce_Customer_registration");
 				}
 			}
 		}
@@ -2942,6 +2466,536 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.ecommerce_Shipping_Address = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Customer_registration")]
+	public partial class ecommerce_Customer_registration : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Customer_id;
+		
+		private string _Email;
+		
+		private string _Password;
+		
+		private System.Nullable<long> _Mobile;
+		
+		private System.Nullable<int> _Country;
+		
+		private System.Nullable<System.DateTime> _Reg_Date;
+		
+		private System.Nullable<System.DateTime> _Last_login;
+		
+		private System.Nullable<int> _Error_count;
+		
+		private string _Cus_Status;
+		
+		private string _Profile_image;
+		
+		private string _First_name;
+		
+		private string _Last_name;
+		
+		private string _DOB;
+		
+		private System.Nullable<int> _ActivationStatus_Mail;
+		
+		private System.Nullable<int> _ActivationStatus_Sms;
+		
+		private string _Email_Subs;
+		
+		private string _Sms_Subs;
+		
+		private EntitySet<ecommerce_Change_pwd_log> _ecommerce_Change_pwd_logs;
+		
+		private EntitySet<ecommerce_Order> _ecommerce_Orders;
+		
+		private EntitySet<ecommerce_Promocode> _ecommerce_Promocodes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomer_idChanging(int value);
+    partial void OnCustomer_idChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnMobileChanging(System.Nullable<long> value);
+    partial void OnMobileChanged();
+    partial void OnCountryChanging(System.Nullable<int> value);
+    partial void OnCountryChanged();
+    partial void OnReg_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnReg_DateChanged();
+    partial void OnLast_loginChanging(System.Nullable<System.DateTime> value);
+    partial void OnLast_loginChanged();
+    partial void OnError_countChanging(System.Nullable<int> value);
+    partial void OnError_countChanged();
+    partial void OnCus_StatusChanging(string value);
+    partial void OnCus_StatusChanged();
+    partial void OnProfile_imageChanging(string value);
+    partial void OnProfile_imageChanged();
+    partial void OnFirst_nameChanging(string value);
+    partial void OnFirst_nameChanged();
+    partial void OnLast_nameChanging(string value);
+    partial void OnLast_nameChanged();
+    partial void OnDOBChanging(string value);
+    partial void OnDOBChanged();
+    partial void OnActivationStatus_MailChanging(System.Nullable<int> value);
+    partial void OnActivationStatus_MailChanged();
+    partial void OnActivationStatus_SmsChanging(System.Nullable<int> value);
+    partial void OnActivationStatus_SmsChanged();
+    partial void OnEmail_SubsChanging(string value);
+    partial void OnEmail_SubsChanged();
+    partial void OnSms_SubsChanging(string value);
+    partial void OnSms_SubsChanged();
+    #endregion
+		
+		public ecommerce_Customer_registration()
+		{
+			this._ecommerce_Change_pwd_logs = new EntitySet<ecommerce_Change_pwd_log>(new Action<ecommerce_Change_pwd_log>(this.attach_ecommerce_Change_pwd_logs), new Action<ecommerce_Change_pwd_log>(this.detach_ecommerce_Change_pwd_logs));
+			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
+			this._ecommerce_Promocodes = new EntitySet<ecommerce_Promocode>(new Action<ecommerce_Promocode>(this.attach_ecommerce_Promocodes), new Action<ecommerce_Promocode>(this.detach_ecommerce_Promocodes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Customer_id
+		{
+			get
+			{
+				return this._Customer_id;
+			}
+			set
+			{
+				if ((this._Customer_id != value))
+				{
+					this.OnCustomer_idChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_id = value;
+					this.SendPropertyChanged("Customer_id");
+					this.OnCustomer_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="BigInt")]
+		public System.Nullable<long> Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
+					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="Int")]
+		public System.Nullable<int> Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reg_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Reg_Date
+		{
+			get
+			{
+				return this._Reg_Date;
+			}
+			set
+			{
+				if ((this._Reg_Date != value))
+				{
+					this.OnReg_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Reg_Date = value;
+					this.SendPropertyChanged("Reg_Date");
+					this.OnReg_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_login", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Last_login
+		{
+			get
+			{
+				return this._Last_login;
+			}
+			set
+			{
+				if ((this._Last_login != value))
+				{
+					this.OnLast_loginChanging(value);
+					this.SendPropertyChanging();
+					this._Last_login = value;
+					this.SendPropertyChanged("Last_login");
+					this.OnLast_loginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error_count", DbType="Int")]
+		public System.Nullable<int> Error_count
+		{
+			get
+			{
+				return this._Error_count;
+			}
+			set
+			{
+				if ((this._Error_count != value))
+				{
+					this.OnError_countChanging(value);
+					this.SendPropertyChanging();
+					this._Error_count = value;
+					this.SendPropertyChanged("Error_count");
+					this.OnError_countChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cus_Status", DbType="NVarChar(100)")]
+		public string Cus_Status
+		{
+			get
+			{
+				return this._Cus_Status;
+			}
+			set
+			{
+				if ((this._Cus_Status != value))
+				{
+					this.OnCus_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Cus_Status = value;
+					this.SendPropertyChanged("Cus_Status");
+					this.OnCus_StatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Profile_image", DbType="NVarChar(100)")]
+		public string Profile_image
+		{
+			get
+			{
+				return this._Profile_image;
+			}
+			set
+			{
+				if ((this._Profile_image != value))
+				{
+					this.OnProfile_imageChanging(value);
+					this.SendPropertyChanging();
+					this._Profile_image = value;
+					this.SendPropertyChanged("Profile_image");
+					this.OnProfile_imageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_name", DbType="NVarChar(100)")]
+		public string First_name
+		{
+			get
+			{
+				return this._First_name;
+			}
+			set
+			{
+				if ((this._First_name != value))
+				{
+					this.OnFirst_nameChanging(value);
+					this.SendPropertyChanging();
+					this._First_name = value;
+					this.SendPropertyChanged("First_name");
+					this.OnFirst_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_name", DbType="NVarChar(50)")]
+		public string Last_name
+		{
+			get
+			{
+				return this._Last_name;
+			}
+			set
+			{
+				if ((this._Last_name != value))
+				{
+					this.OnLast_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Last_name = value;
+					this.SendPropertyChanged("Last_name");
+					this.OnLast_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="NVarChar(50)")]
+		public string DOB
+		{
+			get
+			{
+				return this._DOB;
+			}
+			set
+			{
+				if ((this._DOB != value))
+				{
+					this.OnDOBChanging(value);
+					this.SendPropertyChanging();
+					this._DOB = value;
+					this.SendPropertyChanged("DOB");
+					this.OnDOBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Mail", DbType="Int")]
+		public System.Nullable<int> ActivationStatus_Mail
+		{
+			get
+			{
+				return this._ActivationStatus_Mail;
+			}
+			set
+			{
+				if ((this._ActivationStatus_Mail != value))
+				{
+					this.OnActivationStatus_MailChanging(value);
+					this.SendPropertyChanging();
+					this._ActivationStatus_Mail = value;
+					this.SendPropertyChanged("ActivationStatus_Mail");
+					this.OnActivationStatus_MailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivationStatus_Sms", DbType="Int")]
+		public System.Nullable<int> ActivationStatus_Sms
+		{
+			get
+			{
+				return this._ActivationStatus_Sms;
+			}
+			set
+			{
+				if ((this._ActivationStatus_Sms != value))
+				{
+					this.OnActivationStatus_SmsChanging(value);
+					this.SendPropertyChanging();
+					this._ActivationStatus_Sms = value;
+					this.SendPropertyChanged("ActivationStatus_Sms");
+					this.OnActivationStatus_SmsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email_Subs", DbType="NVarChar(50)")]
+		public string Email_Subs
+		{
+			get
+			{
+				return this._Email_Subs;
+			}
+			set
+			{
+				if ((this._Email_Subs != value))
+				{
+					this.OnEmail_SubsChanging(value);
+					this.SendPropertyChanging();
+					this._Email_Subs = value;
+					this.SendPropertyChanged("Email_Subs");
+					this.OnEmail_SubsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sms_Subs", DbType="NVarChar(50)")]
+		public string Sms_Subs
+		{
+			get
+			{
+				return this._Sms_Subs;
+			}
+			set
+			{
+				if ((this._Sms_Subs != value))
+				{
+					this.OnSms_SubsChanging(value);
+					this.SendPropertyChanging();
+					this._Sms_Subs = value;
+					this.SendPropertyChanged("Sms_Subs");
+					this.OnSms_SubsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log", Storage="_ecommerce_Change_pwd_logs", ThisKey="Customer_id", OtherKey="Customer_id")]
+		public EntitySet<ecommerce_Change_pwd_log> ecommerce_Change_pwd_logs
+		{
+			get
+			{
+				return this._ecommerce_Change_pwd_logs;
+			}
+			set
+			{
+				this._ecommerce_Change_pwd_logs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Customer_id", OtherKey="Customer_id")]
+		public EntitySet<ecommerce_Order> ecommerce_Orders
+		{
+			get
+			{
+				return this._ecommerce_Orders;
+			}
+			set
+			{
+				this._ecommerce_Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Promocode", Storage="_ecommerce_Promocodes", ThisKey="Customer_id", OtherKey="Customer_id")]
+		public EntitySet<ecommerce_Promocode> ecommerce_Promocodes
+		{
+			get
+			{
+				return this._ecommerce_Promocodes;
+			}
+			set
+			{
+				this._ecommerce_Promocodes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_Change_pwd_logs(ecommerce_Change_pwd_log entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = this;
+		}
+		
+		private void detach_ecommerce_Change_pwd_logs(ecommerce_Change_pwd_log entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = null;
+		}
+		
+		private void attach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = this;
+		}
+		
+		private void detach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = null;
+		}
+		
+		private void attach_ecommerce_Promocodes(ecommerce_Promocode entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = this;
+		}
+		
+		private void detach_ecommerce_Promocodes(ecommerce_Promocode entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Customer_registration = null;
 		}
 	}
 	

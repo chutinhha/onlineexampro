@@ -6,12 +6,12 @@
 }
 .menu
 {
-    -moz-box-shadow: 0px 0px 10px 5px #221818;
-    -webkit-box-shadow: 0px 0px 10px 5px #221818;
-    box-shadow: 0px 0px 10px 5px #221818;
+    -moz-box-shadow: 0px 0px 5px 5px #2E2E2E;
+    -webkit-box-shadow: 0px 0px 5px 5px #2E2E2E;
+    box-shadow: 0px 0px 5px 5px #2E2E2E;
     -moz-border-radius: 7px;
--webkit-border-radius: 7px;
-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
 }
 
 

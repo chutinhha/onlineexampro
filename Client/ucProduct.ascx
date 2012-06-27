@@ -3,13 +3,13 @@
 <cc1:RoundedCornersExtender ID="acr" TargetControlID="Panel1" runat="server" Corners="All"
     Radius="15">
 </cc1:RoundedCornersExtender>
-<asp:Panel ID="Panel1" runat="server" Width="350px" BackColor="#ECECFF">
+<asp:Panel ID="Panel1" runat="server" Width="350px" BackColor="#333333">
     <table cellpadding="2" cellspacing="2" width="350">
         <tr class="productHeadingfont">
             <td>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="lbtnProductname" runat="server" Text='<%# Eval("Product_name") %>'
-                    Font-Underline="False" ForeColor="#333333"></asp:LinkButton><asp:Image ID="Image1"
+                    Font-Underline="False" ForeColor="#CCCCCC"></asp:LinkButton><asp:Image ID="Image1"
                         runat="server" ImageUrl="~/images/line1.jpg" Width="310px" Height="1px" />
             </td>
         </tr>
@@ -28,7 +28,7 @@
                                     <td valign="top" style="text-align: justify" height="105px">
                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Label ID="lbDescription" runat="server" Text='<%#Eval("Short_Description") %>'
-                                            Font-Names="Calibri" Font-Size="13px" ForeColor="Gray"></asp:Label>
+                                            Font-Names="Calibri" Font-Size="13px" ForeColor="#CCCCCC"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
@@ -75,9 +75,8 @@
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <asp:LinkButton ID="lkbBuynow" CommandArgument='<%#Eval("Product_id")%>' 
-                                            runat="server" Text="Buy Now" Font-Underline="True"
-                                            ForeColor="#990000" onclick="lkbBuynow_Click"></asp:LinkButton>
+                                        <asp:LinkButton CssClass="buynow" ID="lkbBuynow" CommandArgument='<%#Eval("Product_id")%>'
+                                            runat="server" Text="Buy Now" OnClick="lkbBuynow_Click"></asp:LinkButton>
                                     </td>
                                 </tr>
                             </table>

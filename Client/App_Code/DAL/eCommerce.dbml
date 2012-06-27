@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="eCommerce" Class="eCommerceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Tshirt" Class="eCommerceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="icon" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ecommerce_Billing_Address" Member="ecommerce_Billing_Addresses">
     <Type Name="ecommerce_Billing_Address">
       <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -30,28 +31,6 @@
       <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ecommerce_Customer_registration" Member="ecommerce_Customer_registrations">
-    <Type Name="ecommerce_Customer_registration">
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Change_pwd_logs" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Change_pwd_log" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Order" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Promocode" />
-    </Type>
-  </Table>
   <Table Name="dbo.ecommerce_Orders" Member="ecommerce_Orders">
     <Type Name="ecommerce_Order">
       <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -68,10 +47,10 @@
       <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Total_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_Billing_Address_ecommerce_Order" Member="ecommerce_Billing_Address" ThisKey="Billing_id" OtherKey="billing_id" Type="ecommerce_Billing_Address" IsForeignKey="true" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
       <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Productdetail" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" />
       <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Promocode" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Promocode" IsForeignKey="true" />
       <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Shipping_Address" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Shipping_Address" IsForeignKey="true" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ecommerce_Productdetail" Member="ecommerce_Productdetails">
@@ -116,6 +95,30 @@
       <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Customer_registration" Member="ecommerce_Customer_registrations">
+    <Type Name="ecommerce_Customer_registration">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Change_pwd_logs" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Change_pwd_log" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Order" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Promocode" />
     </Type>
   </Table>
   <Function Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand" Method="sp_ecommerce_Billing_AddressNewDeleteCommand">

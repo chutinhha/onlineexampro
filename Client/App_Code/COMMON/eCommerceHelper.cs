@@ -23,7 +23,7 @@ public class eCommerceHelper
         {
             if (HttpContext.Current.Items.Contains(key) == false)
             {
-                var obj = new eCommerceDataContext(@"Data Source=iconstech\SQLEXPRESS;Initial Catalog=eCommerce;Integrated Security=True");
+                var obj = new eCommerceDataContext(@"Data Source=iconstech\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True");
                 HttpContext.Current.Items.Add(key, obj);
                 return obj;
             }
