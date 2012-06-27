@@ -1,0 +1,10 @@
+Control panel URL: https://cp.abtinfo.net:8443
+
+Reseller Login: icontech
+Password: icon@3456*
+
+
+
+FTP Server: bizoutsourcetoindia.com or 118.91.232.74
+FTP user: bizoutsource
+Password: biz@1234***

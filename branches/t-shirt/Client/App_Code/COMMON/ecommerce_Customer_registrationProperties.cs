@@ -8,7 +8,25 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_Customer_registrationProperties
 {
-    private int customer_id, error_count;
+    private int customer_id, error_count, country, activationStatus_Mail, activationStatus_Sms;
+
+    public int ActivationStatus_Sms
+    {
+        get { return activationStatus_Sms; }
+        set { activationStatus_Sms = value; }
+    }
+
+    public int ActivationStatus_Mail
+    {
+        get { return activationStatus_Mail; }
+        set { activationStatus_Mail = value; }
+    }
+
+    public int Country
+    {
+        get { return country; }
+        set { country = value; }
+    }
 
     public int Error_count
     {
@@ -28,7 +46,13 @@ public abstract class ecommerce_Customer_registrationProperties
         get { return mobile; }
         set { mobile = value; }
     }
-    private DateTime date, last_login;
+    private DateTime reg_Date, last_login;
+
+    public DateTime Reg_Date
+    {
+        get { return reg_Date; }
+        set { reg_Date = value; }
+    }
 
     public DateTime Last_login
     {
@@ -36,12 +60,8 @@ public abstract class ecommerce_Customer_registrationProperties
         set { last_login = value; }
     }
 
-    public DateTime Date
-    {
-        get { return date; }
-        set { date = value; }
-    }
-    private string email, password, city, cus_Status, profile_image, first_name, last_name, dOB, email_Subs, sms_Subs;
+    
+    private string email, password,  cus_Status, profile_image, first_name, last_name, dOB, email_Subs, sms_Subs;
 
     public string Sms_Subs
     {
@@ -83,12 +103,6 @@ public abstract class ecommerce_Customer_registrationProperties
     {
         get { return cus_Status; }
         set { cus_Status = value; }
-    }
-
-    public string City
-    {
-        get { return city; }
-        set { city = value; }
     }
 
     public string Password
