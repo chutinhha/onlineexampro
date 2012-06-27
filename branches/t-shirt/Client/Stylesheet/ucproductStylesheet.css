@@ -3,13 +3,13 @@
     font-family: Calibri;
     font-size: 14px;
     font-weight: bold;
-    color: #333333;
+    color: #999999;
 }
 .productDetailfont
 {
     font-family: Calibri;
     font-size: 14px;
-    color: #999999;
+    color: #FFFFFF;
 }
 /*Modal Popup*/
 .modalBackground {
@@ -59,4 +59,13 @@ background-clip: padding-box;
 
 .modalPopup p {
     padding: 5px;
+}
+.buynow
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.buynow:hover
+{
+    color: #339933;
 }

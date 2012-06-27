@@ -27,6 +27,15 @@ public partial class ucImageSlider : System.Web.UI.UserControl
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            DirectoryInfo dr = new DirectoryInfo(Server.MapPath("~/Uploads/"));
+            FileInfo[] fil = dr.GetFiles("*.jpg");
+            foreach (var item in fil)
+            {
+                ViewState["file"] = Server.MapPath("~/Uploads/") + item.Name;
+                break;
+            }
+        }
     }
 }

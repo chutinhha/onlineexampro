@@ -530,8 +530,8 @@ public partial class Admin : System.Web.UI.Page
     {
         System.Web.UI.WebControls.Image img = (System.Web.UI.WebControls.Image)gvImageSlider.Rows[e.RowIndex].FindControl("Image1");
         string[] a = img.ImageUrl.Split('/');
-        string path = Server.MapPath("~/Uploads/" + a[1]);
-        string path1 = Server.MapPath("~/Uploads/thumbs/") + a[1];
+        string path = Server.MapPath("~/Uploads/" + a[4]);
+        string path1 = Server.MapPath("~/Uploads/thumbs/") + a[4];
         File.Delete(path);
         File.Delete(path1);
         BindGridForSliderImage();
@@ -540,7 +540,7 @@ public partial class Admin : System.Web.UI.Page
     {
         System.Web.UI.WebControls.Image img = (System.Web.UI.WebControls.Image)gvCustomerLogo.Rows[e.RowIndex].FindControl("Image2");
         string[] a = img.ImageUrl.Split('/');
-        string path = Server.MapPath("~/CustomerLogo/") + a[1];
+        string path = Server.MapPath("~/CustomerLogo/") + a[4];
         File.Delete(path);
         BindGridForCustomerLogo();
     }
