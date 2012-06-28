@@ -1,23 +1,24 @@
 ﻿.PageHead
 {
     font-family: Calibri;
-    font-size: 24px;
+    font-size: 20px;
     color: #000000;
     font-weight: bold;
 }
 .pageback
 {
-    background-color: #C9C9C9;
+    
 }
 .pagesubtitle
 {
-    font-size: 18px;
+    font-size: 17px;
     font-family: calibri;
-    color: #000000;
+    color: #CCCCCC;
     font-weight: bold;
 }
 .pagecontent
 {
     font-family: calibri;
     font-size: 14px;
+    color: #FFFFFF;
 }

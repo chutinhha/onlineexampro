@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucRegistration.ascx.cs"
     Inherits="ucRegistration" %>
-
+<link href="Stylesheet/LoginModelPopStyleSheet.css" rel="stylesheet" type="text/css" />
     <table width="510px">
         <tr>
             <td>

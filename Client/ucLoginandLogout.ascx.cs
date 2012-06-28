@@ -26,7 +26,7 @@ public partial class ucLoginandLogout : BasePageUserControl
     }
     protected void lbtnLogout_Click(object sender, EventArgs e)
     {
-        HttpCookie cookie = Request.Cookies.Get("PhotoProcessing");
+        HttpCookie cookie = Request.Cookies.Get("Infiniti");
         if (cookie != null)
         {
             cookie.Expires = DateTime.Now.AddDays(-1d);
@@ -36,7 +36,7 @@ public partial class ucLoginandLogout : BasePageUserControl
         Session["Email"] = null;
         Session.Abandon();
         Session.Clear();
-        Response.Redirect("Home.aspx");
+        Response.Redirect("");
     }
     protected void regis_Click(object sender, EventArgs e)
     {

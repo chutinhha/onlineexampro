@@ -31,30 +31,6 @@
       <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ecommerce_Customer_registration" Member="ecommerce_Customer_registrations">
-    <Type Name="ecommerce_Customer_registration">
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Change_pwd_logs" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Change_pwd_log" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Order" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Promocode" />
-    </Type>
-  </Table>
   <Table Name="dbo.ecommerce_Orders" Member="ecommerce_Orders">
     <Type Name="ecommerce_Order">
       <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -71,10 +47,10 @@
       <Column Name="Shipping_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Total_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_Billing_Address_ecommerce_Order" Member="ecommerce_Billing_Address" ThisKey="Billing_id" OtherKey="billing_id" Type="ecommerce_Billing_Address" IsForeignKey="true" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
       <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Productdetail" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" />
       <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Promocode" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Promocode" IsForeignKey="true" />
       <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Shipping_Address" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Shipping_Address" IsForeignKey="true" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ecommerce_Productdetail" Member="ecommerce_Productdetails">
@@ -119,6 +95,30 @@
       <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Customer_registration" Member="ecommerce_Customer_registrations">
+    <Type Name="ecommerce_Customer_registration">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Change_pwd_logs" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Change_pwd_log" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Order" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Promocode" />
     </Type>
   </Table>
   <Function Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand" Method="sp_ecommerce_Billing_AddressNewDeleteCommand">
@@ -247,107 +247,6 @@
       <Column Name="old_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Customer_registrationNewDeleteCommand" Method="sp_ecommerce_Customer_registrationNewDeleteCommand">
-    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Customer_registrationNewInsertCommand" Method="sp_ecommerce_Customer_registrationNewInsertCommand">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DOB" Parameter="dOB" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="sp_ecommerce_Customer_registrationNewInsertCommandResult">
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Customer_registrationNewSelectCommand" Method="sp_ecommerce_Customer_registrationNewSelectCommand">
-    <ElementType Name="sp_ecommerce_Customer_registrationNewSelectCommandResult">
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Customer_registrationNewUpdateCommand" Method="sp_ecommerce_Customer_registrationNewUpdateCommand">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DOB" Parameter="dOB" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Customer_id" Parameter="customer_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_Customer_registrationNewUpdateCommandResult">
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_ecommerce_OrdersNewDeleteCommand" Method="sp_ecommerce_OrdersNewDeleteCommand">
@@ -614,10 +513,112 @@
       <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_check_user" Method="sp_check_user">
+  <Function Name="dbo.sp_check_user" Method="sp_check_user" IsComposable="true">
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
     <Parameter Name="Result" Parameter="result" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Customer_registrationNewDeleteCommand" Method="sp_ecommerce_Customer_registrationNewDeleteCommand">
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Customer_registrationNewSelectCommand" Method="sp_ecommerce_Customer_registrationNewSelectCommand">
+    <ElementType Name="sp_ecommerce_Customer_registrationNewSelectCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Customer_registrationNewInsertCommand" Method="sp_ecommerce_Customer_registrationNewInsertCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_ecommerce_Customer_registrationNewInsertCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Customer_registrationNewUpdateCommand" Method="sp_ecommerce_Customer_registrationNewUpdateCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Customer_id" Parameter="customer_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_Customer_registrationNewUpdateCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

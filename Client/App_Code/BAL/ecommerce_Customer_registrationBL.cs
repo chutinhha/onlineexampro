@@ -9,7 +9,7 @@ using System.Web;
 public class ecommerce_Customer_registrationBL:ecommerce_Customer_registrationProperties,IeCommerce
 {
 
-    public ecommerce_Customer_registrationBL(string email, string password, long mobile, int country, DateTime date, DateTime last_login, int error_count, string cus_Status, string profile_image, string first_name, string last_name, string dOB, int activationStatus_Mail, int activationStatus_Sms, string email_Subs, string sms_Subs)
+    public ecommerce_Customer_registrationBL(string email, string password, long mobile, int country, DateTime date, DateTime last_login, int error_count, string cus_Status, string profile_image, string first_name, string last_name, DateTime dOB, int activationStatus_Mail, int activationStatus_Sms, string email_Subs, string sms_Subs)
     {
         this.Email = email;
         this.Password = password;
@@ -29,7 +29,7 @@ public class ecommerce_Customer_registrationBL:ecommerce_Customer_registrationPr
         this.Sms_Subs = sms_Subs;
     }
 
-    public ecommerce_Customer_registrationBL(int customer_id, string email, string password, long mobile, int country, DateTime date, DateTime last_login, int error_count, string cus_Status, string profile_image, string first_name, string last_name, string dOB,int activationStatus_Mail, int activationStatus_Sms, string email_Subs, string sms_Subs)
+    public ecommerce_Customer_registrationBL(int customer_id, string email, string password, long mobile, int country, DateTime date, DateTime last_login, int error_count, string cus_Status, string profile_image, string first_name, string last_name, DateTime dOB,int activationStatus_Mail, int activationStatus_Sms, string email_Subs, string sms_Subs)
 	{
         this.Customer_id = customer_id;
         this.Email = email;

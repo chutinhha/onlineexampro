@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucLogin.ascx.cs" Inherits="ucLogin" %>
-<script src="js/jquery-1.7.2.js"></script>
-<link href="Style/LoginModelPopStyleSheet.css" rel="stylesheet" type="text/css" />
+<link href="Stylesheet/LoginModelPopStyleSheet.css" rel="stylesheet" type="text/css" />
 <table cellpadding="0" cellspacing="0">
     <tr>
         <td>

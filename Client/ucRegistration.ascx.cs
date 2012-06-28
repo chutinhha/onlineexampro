@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Text;
+using DAL;
 
 public partial class ucRegistration : System.Web.UI.UserControl
 {
@@ -23,23 +24,23 @@ public partial class ucRegistration : System.Web.UI.UserControl
         //System.Threading.Thread.Sleep(100000000);
         if (cbterms.Checked)
         {
-            int a = 0;
+            string a = "0";
             if (cbsubscription.Checked)
             {
-                a = 1;
+                a = "1";
             }
-            using (PhotoProcessingDataContext dataDB = new PhotoProcessingDataContext())
+            using (eCommerceDataContext dataDB = new eCommerceDataContext())
             {
                 string path = "~/Images/Profile/default_person.jpg";
-                var counter = from b in dataDB.Photo_CustomerRegistrationDetails where b.Email == txtEmail.Text select b;
+                var counter = from b in dataDB.ecommerce_Customer_registrations where b.Email == txtEmail.Text select b;
                 if (counter.Count() == 0)
                 {
-                    Photo_CustomerRegistrationDetailBL obj = new Photo_CustomerRegistrationDetailBL(0, txtEmail.Text, txtPassword.Text, 0, path, txtFullName.Text, 1, 0, a, a, DateTime.Now, DateTime.MaxValue, DateTime.MaxValue, 0, 0);
+                    ecommerce_Customer_registrationBL obj = new ecommerce_Customer_registrationBL(txtEmail.Text, txtPassword.Text, 0, 1, DateTime.Now, DateTime.MaxValue, 0, null, path, txtFullName.Text, null, DateTime.MaxValue, 0, 0, a, a);
                     if (obj.Insert())
                     {
                         EncryptedQueryString args = new EncryptedQueryString();
                         args["arg1"] = txtEmail.Text;
-                        string url = string.Format("http://localhost:50275/Client/MailActivation.aspx?args={0}", args.ToString());
+                        string url = string.Format("http://localhost:52373/Client/MailActivation.aspx?args={0}", args.ToString());
                         String email = txtEmail.Text;
                         MailMessage msg = new MailMessage();
                         msg.From = new MailAddress("iconstechnologies@gmail.com");

@@ -46,7 +46,7 @@ public partial class ucLogin : BasePageUserControl
                     Response.Cookies.Add(cookie);
                 }
                 SessionValue = assignValue;
-                Response.Redirect("#");
+                Response.Redirect("Home.aspx");
             }
             else
             {
