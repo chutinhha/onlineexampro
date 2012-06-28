@@ -46,7 +46,13 @@ public abstract class ecommerce_Customer_registrationProperties
         get { return mobile; }
         set { mobile = value; }
     }
-    private DateTime reg_Date, last_login;
+    private DateTime reg_Date, dOB, last_login;
+
+    public DateTime DOB
+    {
+        get { return dOB; }
+        set { dOB = value; }
+    }
 
     public DateTime Reg_Date
     {
@@ -61,7 +67,7 @@ public abstract class ecommerce_Customer_registrationProperties
     }
 
     
-    private string email, password,  cus_Status, profile_image, first_name, last_name, dOB, email_Subs, sms_Subs;
+    private string email, password,  cus_Status, profile_image, first_name, last_name,  email_Subs, sms_Subs;
 
     public string Sms_Subs
     {
@@ -75,11 +81,7 @@ public abstract class ecommerce_Customer_registrationProperties
         set { email_Subs = value; }
     }
 
-    public string DOB
-    {
-        get { return dOB; }
-        set { dOB = value; }
-    }
+    
 
     public string Last_name
     {
