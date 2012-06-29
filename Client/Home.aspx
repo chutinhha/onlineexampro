@@ -21,21 +21,6 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <table>
-                    <tr>
-                        <td>
-                            item in cart
-                            <%=Session["item"]%>
-                        </td>
-                        <td>
-                            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/MyCart.aspx">My Cart</asp:LinkButton>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
             <td align="right">
                 <asp:DataList ID="DataList1" runat="server" RepeatColumns="2" CellPadding="5" CellSpacing="5">
                     <ItemTemplate>

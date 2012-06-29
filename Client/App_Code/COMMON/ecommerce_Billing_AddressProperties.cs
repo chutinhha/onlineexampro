@@ -8,8 +8,20 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_Billing_AddressProperties
 {
-    private int billing_id, bill_zipcode;
-    private string bil_Name, bill_Address, bill_City, bill_State, bill_Country, bill_Mail;
+    private int billing_id, bill_State, bill_Country, bill_zipcode;
+
+    public int Bill_Country
+    {
+        get { return bill_Country; }
+        set { bill_Country = value; }
+    }
+
+    public int Bill_State
+    {
+        get { return bill_State; }
+        set { bill_State = value; }
+    }
+    private string bil_Name, bill_Address, bill_City,  bill_Mail;
     private long bill_Phone;
 
     public string Bill_Mail
@@ -18,17 +30,7 @@ public abstract class ecommerce_Billing_AddressProperties
         set { bill_Mail = value; }
     }
 
-    public string Bill_Country
-    {
-        get { return bill_Country; }
-        set { bill_Country = value; }
-    }
-
-    public string Bill_State
-    {
-        get { return bill_State; }
-        set { bill_State = value; }
-    }
+   
 
     public string Bill_City
     {

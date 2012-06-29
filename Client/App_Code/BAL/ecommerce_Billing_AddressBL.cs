@@ -9,7 +9,7 @@ using System.Web;
 public class ecommerce_Billing_AddressBL:ecommerce_Billing_AddressProperties,IeCommerce
 {
 
-    public ecommerce_Billing_AddressBL(string bil_Name, string bill_Address, int bill_zipcode, string bill_City, string bill_State, string bill_Country, string bill_Mail, long bill_Phone)
+    public ecommerce_Billing_AddressBL(string bil_Name, string bill_Address, int bill_zipcode, string bill_City, int bill_State, int bill_Country, string bill_Mail, long bill_Phone)
     {
         this.Bil_Name = bil_Name;
         this.Bill_Address = bill_Address;
@@ -22,7 +22,7 @@ public class ecommerce_Billing_AddressBL:ecommerce_Billing_AddressProperties,IeC
 
     }
     
-    public ecommerce_Billing_AddressBL(int billing_id, string bil_Name, string bill_Address, int bill_zipcode, string bill_City, string bill_State, string bill_Country, string bill_Mail, long bill_Phone)
+    public ecommerce_Billing_AddressBL(int billing_id, string bil_Name, string bill_Address, int bill_zipcode, string bill_City, int bill_State, int bill_Country, string bill_Mail, long bill_Phone)
 	{
         this.Billing_id = billing_id;
         this.Bil_Name = bil_Name;

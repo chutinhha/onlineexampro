@@ -32,7 +32,12 @@ public partial class ucProduct : System.Web.UI.UserControl
             {
                 TotalItems += item;
             }
+            //MasterPage mstr = this.Parent.Page.Master as MasterPage;
+            //UserControl uc = (UserControl)mstr.FindControl("ucLoginandLogout1");
+            //Label lb = (Label)uc.FindControl("cartdetail");
             Session["item"] = totalItems;
+            //lb.Text = Convert.ToString(Session["item"]);
+            
         }
     }
     protected void lkbBuynow_Click(object sender, EventArgs e)
