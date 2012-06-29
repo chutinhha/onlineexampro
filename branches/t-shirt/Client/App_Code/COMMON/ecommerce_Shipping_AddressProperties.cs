@@ -8,7 +8,19 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_Shipping_AddressProperties
 {
-    private int shipping_id, ship_Zipcode;
+    private int shipping_id, ship_State, ship_Country, ship_Zipcode;
+
+    public int Ship_Country
+    {
+        get { return ship_Country; }
+        set { ship_Country = value; }
+    }
+
+    public int Ship_State
+    {
+        get { return ship_State; }
+        set { ship_State = value; }
+    }
 
     public int Ship_Zipcode
     {
@@ -28,24 +40,12 @@ public abstract class ecommerce_Shipping_AddressProperties
         get { return ship_Phone; }
         set { ship_Phone = value; }
     }
-    private string ship_Name, ship_Address, ship_City, ship_State, ship_Country, ship_Mail;
+    private string ship_Name, ship_Address, ship_City, ship_Mail;
 
     public string Ship_Mail
     {
         get { return ship_Mail; }
         set { ship_Mail = value; }
-    }
-
-    public string Ship_Country
-    {
-        get { return ship_Country; }
-        set { ship_Country = value; }
-    }
-
-    public string Ship_State
-    {
-        get { return ship_State; }
-        set { ship_State = value; }
     }
 
     public string Ship_City

@@ -7,8 +7,8 @@
       <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="ecommerce_Billing_Address_ecommerce_Order" Member="ecommerce_Orders" ThisKey="billing_id" OtherKey="Billing_id" Type="ecommerce_Order" />
@@ -29,72 +29,6 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_Customer_registration_ecommerce_Change_pwd_log" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ecommerce_Orders" Member="ecommerce_Orders">
-    <Type Name="ecommerce_Order">
-      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Shipping_tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Order_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Promocode_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Order_status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Billing_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Shipping_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Total_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ecommerce_Billing_Address_ecommerce_Order" Member="ecommerce_Billing_Address" ThisKey="Billing_id" OtherKey="billing_id" Type="ecommerce_Billing_Address" IsForeignKey="true" />
-      <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Productdetail" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" />
-      <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Promocode" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Promocode" IsForeignKey="true" />
-      <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Shipping_Address" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Shipping_Address" IsForeignKey="true" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ecommerce_Productdetail" Member="ecommerce_Productdetails">
-    <Type Name="ecommerce_Productdetail">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Category" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Pro_Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="HaveOption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OptionContent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Order" />
-      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Category" ThisKey="Category" OtherKey="Category_id" Type="ecommerce_Category" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ecommerce_Promocode" Member="ecommerce_Promocodes">
-    <Type Name="ecommerce_Promocode">
-      <Column Name="Promocode_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Promo_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Order" />
-      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ecommerce_Shipping_Address" Member="ecommerce_Shipping_Addresses">
-    <Type Name="ecommerce_Shipping_Address">
-      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Order" />
     </Type>
   </Table>
   <Table Name="dbo.ecommerce_Customer_registration" Member="ecommerce_Customer_registrations">
@@ -121,67 +55,88 @@
       <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Promocode" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand" Method="sp_ecommerce_Billing_AddressNewDeleteCommand">
-    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Billing_AddressNewInsertCommand" Method="sp_ecommerce_Billing_AddressNewInsertCommand">
-    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_State" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Country" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_ecommerce_Billing_AddressNewInsertCommandResult">
-      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Billing_AddressNewSelectCommand" Method="sp_ecommerce_Billing_AddressNewSelectCommand">
-    <ElementType Name="sp_ecommerce_Billing_AddressNewSelectCommandResult">
-      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Billing_AddressNewUpdateCommand" Method="sp_ecommerce_Billing_AddressNewUpdateCommand">
-    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_State" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Country" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="billing_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_Billing_AddressNewUpdateCommandResult">
-      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
+  <Table Name="dbo.ecommerce_Orders" Member="ecommerce_Orders">
+    <Type Name="ecommerce_Order">
+      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Shipping_tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Promocode_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Billing_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ecommerce_Billing_Address_ecommerce_Order" Member="ecommerce_Billing_Address" ThisKey="Billing_id" OtherKey="billing_id" Type="ecommerce_Billing_Address" IsForeignKey="true" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Order" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
+      <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Productdetail" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" />
+      <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Shipping_Address" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Shipping_Address" IsForeignKey="true" />
+      <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Promocode" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Promocode" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Productdetail" Member="ecommerce_Productdetails">
+    <Type Name="ecommerce_Productdetail">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Category" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pro_Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HaveOption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OptionContent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="ecommerce_Productdetail_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Product_id" OtherKey="Product_id" Type="ecommerce_Order" />
+      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Category" ThisKey="Category" OtherKey="Category_id" Type="ecommerce_Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Shipping_Address" Member="ecommerce_Shipping_Addresses">
+    <Type Name="ecommerce_Shipping_Address">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="ecommerce_Shipping_Address_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Shipping_id" OtherKey="Shipping_id" Type="ecommerce_Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Promocode" Member="ecommerce_Promocodes">
+    <Type Name="ecommerce_Promocode">
+      <Column Name="Promocode_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Promo_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ecommerce_Promocode_ecommerce_Order" Member="ecommerce_Orders" ThisKey="Promocode_id" OtherKey="Promocode_id" Type="ecommerce_Order" />
+      <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Customer_registration" ThisKey="Customer_id" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_CountryDetail" Member="ecommerce_CountryDetails">
+    <Type Name="ecommerce_CountryDetail">
+      <Column Name="Country_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ecommerce_CountryDetail_ecommerce_StateDetail" Member="ecommerce_StateDetails" ThisKey="Country_id" OtherKey="FkCountry_id" Type="ecommerce_StateDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_StateDetail" Member="ecommerce_StateDetails">
+    <Type Name="ecommerce_StateDetail">
+      <Column Name="State_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="State_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FkCountry_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ecommerce_CountryDetail_ecommerce_StateDetail" Member="ecommerce_CountryDetail" ThisKey="FkCountry_id" OtherKey="Country_id" Type="ecommerce_CountryDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_ecommerce_CategoryNewDeleteCommand" Method="sp_ecommerce_CategoryNewDeleteCommand">
     <Parameter Name="Original_Category_id" Parameter="original_Category_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -452,74 +407,6 @@
       <Column Name="Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewDeleteCommand" Method="sp_ecommerce_Shipping_AddressNewDeleteCommand">
-    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewInsertCommand" Method="sp_ecommerce_Shipping_AddressNewInsertCommand">
-    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_State" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Country" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="sp_ecommerce_Shipping_AddressNewInsertCommandResult">
-      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewSelectCommand" Method="sp_ecommerce_Shipping_AddressNewSelectCommand">
-    <ElementType Name="sp_ecommerce_Shipping_AddressNewSelectCommandResult">
-      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewUpdateCommand" Method="sp_ecommerce_Shipping_AddressNewUpdateCommand">
-    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_State" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Country" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Shipping_id" Parameter="shipping_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_Shipping_AddressNewUpdateCommandResult">
-      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_check_user" Method="sp_check_user" IsComposable="true">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
-    <Parameter Name="Result" Parameter="result" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.sp_ecommerce_Customer_registrationNewDeleteCommand" Method="sp_ecommerce_Customer_registrationNewDeleteCommand">
     <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -619,6 +506,135 @@
       <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_check_user" Method="sp_check_user">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="Result" Parameter="result" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand" Method="sp_ecommerce_Billing_AddressNewDeleteCommand">
+    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Billing_AddressNewInsertCommand" Method="sp_ecommerce_Billing_AddressNewInsertCommand">
+    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_ecommerce_Billing_AddressNewInsertCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Billing_AddressNewSelectCommand" Method="sp_ecommerce_Billing_AddressNewSelectCommand">
+    <ElementType Name="sp_ecommerce_Billing_AddressNewSelectCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Billing_AddressNewUpdateCommand" Method="sp_ecommerce_Billing_AddressNewUpdateCommand">
+    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="billing_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_Billing_AddressNewUpdateCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewDeleteCommand" Method="sp_ecommerce_Shipping_AddressNewDeleteCommand">
+    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewInsertCommand" Method="sp_ecommerce_Shipping_AddressNewInsertCommand">
+    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="sp_ecommerce_Shipping_AddressNewInsertCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewSelectCommand" Method="sp_ecommerce_Shipping_AddressNewSelectCommand">
+    <ElementType Name="sp_ecommerce_Shipping_AddressNewSelectCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_Shipping_AddressNewUpdateCommand" Method="sp_ecommerce_Shipping_AddressNewUpdateCommand">
+    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Shipping_id" Parameter="shipping_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_Shipping_AddressNewUpdateCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

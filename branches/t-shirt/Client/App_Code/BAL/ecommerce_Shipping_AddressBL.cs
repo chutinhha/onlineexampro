@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class ecommerce_Shipping_AddressBL : ecommerce_Shipping_AddressProperties, IeCommerce
 {
-    public ecommerce_Shipping_AddressBL(int shipping_id, string ship_Name, string ship_Address, int ship_Zipcode, string ship_City, string ship_State, string ship_Country, string ship_Mail, long ship_Phone)
+    public ecommerce_Shipping_AddressBL(int shipping_id, string ship_Name, string ship_Address, int ship_Zipcode, string ship_City, int ship_State, int ship_Country, string ship_Mail, long ship_Phone)
     {
         this.Shipping_id = shipping_id;
         this.Ship_Name = ship_Name;
@@ -22,7 +22,7 @@ public class ecommerce_Shipping_AddressBL : ecommerce_Shipping_AddressProperties
 
     }
 
-    public ecommerce_Shipping_AddressBL(string ship_Name, string ship_Address, int ship_Zipcode, string ship_City, string ship_State, string ship_Country, string ship_Mail, long ship_Phone)
+    public ecommerce_Shipping_AddressBL(string ship_Name, string ship_Address, int ship_Zipcode, string ship_City, int ship_State, int ship_Country, string ship_Mail, long ship_Phone)
     {
 
         this.Ship_Name = ship_Name;
@@ -39,8 +39,6 @@ public class ecommerce_Shipping_AddressBL : ecommerce_Shipping_AddressProperties
     public ecommerce_Shipping_AddressBL(int shipping_id)
     {
         this.Shipping_id = shipping_id;
-
-
     }
 
 

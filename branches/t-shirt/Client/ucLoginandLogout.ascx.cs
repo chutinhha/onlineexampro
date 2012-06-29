@@ -9,6 +9,7 @@ public partial class ucLoginandLogout : BasePageUserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //lbcartdetail.Text = Convert.ToString(Session["item"]);
         if (HasSessionValue)
         {
             lbuser.Text = "Guest";

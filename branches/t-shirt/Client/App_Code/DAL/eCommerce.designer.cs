@@ -39,21 +39,27 @@ namespace DAL
     partial void Insertecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
     partial void Updateecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
     partial void Deleteecommerce_Change_pwd_log(ecommerce_Change_pwd_log instance);
+    partial void Insertecommerce_Customer_registration(ecommerce_Customer_registration instance);
+    partial void Updateecommerce_Customer_registration(ecommerce_Customer_registration instance);
+    partial void Deleteecommerce_Customer_registration(ecommerce_Customer_registration instance);
     partial void Insertecommerce_Order(ecommerce_Order instance);
     partial void Updateecommerce_Order(ecommerce_Order instance);
     partial void Deleteecommerce_Order(ecommerce_Order instance);
     partial void Insertecommerce_Productdetail(ecommerce_Productdetail instance);
     partial void Updateecommerce_Productdetail(ecommerce_Productdetail instance);
     partial void Deleteecommerce_Productdetail(ecommerce_Productdetail instance);
-    partial void Insertecommerce_Promocode(ecommerce_Promocode instance);
-    partial void Updateecommerce_Promocode(ecommerce_Promocode instance);
-    partial void Deleteecommerce_Promocode(ecommerce_Promocode instance);
     partial void Insertecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
     partial void Updateecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
     partial void Deleteecommerce_Shipping_Address(ecommerce_Shipping_Address instance);
-    partial void Insertecommerce_Customer_registration(ecommerce_Customer_registration instance);
-    partial void Updateecommerce_Customer_registration(ecommerce_Customer_registration instance);
-    partial void Deleteecommerce_Customer_registration(ecommerce_Customer_registration instance);
+    partial void Insertecommerce_Promocode(ecommerce_Promocode instance);
+    partial void Updateecommerce_Promocode(ecommerce_Promocode instance);
+    partial void Deleteecommerce_Promocode(ecommerce_Promocode instance);
+    partial void Insertecommerce_CountryDetail(ecommerce_CountryDetail instance);
+    partial void Updateecommerce_CountryDetail(ecommerce_CountryDetail instance);
+    partial void Deleteecommerce_CountryDetail(ecommerce_CountryDetail instance);
+    partial void Insertecommerce_StateDetail(ecommerce_StateDetail instance);
+    partial void Updateecommerce_StateDetail(ecommerce_StateDetail instance);
+    partial void Deleteecommerce_StateDetail(ecommerce_StateDetail instance);
     #endregion
 		
 		public eCommerceDataContext() : 
@@ -110,6 +116,14 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<ecommerce_Customer_registration> ecommerce_Customer_registrations
+		{
+			get
+			{
+				return this.GetTable<ecommerce_Customer_registration>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ecommerce_Order> ecommerce_Orders
 		{
 			get
@@ -126,14 +140,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ecommerce_Promocode> ecommerce_Promocodes
-		{
-			get
-			{
-				return this.GetTable<ecommerce_Promocode>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ecommerce_Shipping_Address> ecommerce_Shipping_Addresses
 		{
 			get
@@ -142,40 +148,28 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ecommerce_Customer_registration> ecommerce_Customer_registrations
+		public System.Data.Linq.Table<ecommerce_Promocode> ecommerce_Promocodes
 		{
 			get
 			{
-				return this.GetTable<ecommerce_Customer_registration>();
+				return this.GetTable<ecommerce_Promocode>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand")]
-		public int sp_ecommerce_Billing_AddressNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_billing_id", DbType="Int")] System.Nullable<int> original_billing_id)
+		public System.Data.Linq.Table<ecommerce_CountryDetail> ecommerce_CountryDetails
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_billing_id);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<ecommerce_CountryDetail>();
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewInsertCommand")]
-		public ISingleResult<sp_ecommerce_Billing_AddressNewInsertCommandResult> sp_ecommerce_Billing_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bil_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> bill_Phone)
+		public System.Data.Linq.Table<ecommerce_StateDetail> ecommerce_StateDetails
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bil_Name, bill_Address, bill_zipcode, bill_City, bill_State, bill_Country, bill_Mail, bill_Phone);
-			return ((ISingleResult<sp_ecommerce_Billing_AddressNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewSelectCommand")]
-		public ISingleResult<sp_ecommerce_Billing_AddressNewSelectCommandResult> sp_ecommerce_Billing_AddressNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ecommerce_Billing_AddressNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewUpdateCommand")]
-		public ISingleResult<sp_ecommerce_Billing_AddressNewUpdateCommandResult> sp_ecommerce_Billing_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bil_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> bill_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_billing_id", DbType="Int")] System.Nullable<int> original_billing_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billing_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bil_Name, bill_Address, bill_zipcode, bill_City, bill_State, bill_Country, bill_Mail, bill_Phone, original_billing_id, billing_id);
-			return ((ISingleResult<sp_ecommerce_Billing_AddressNewUpdateCommandResult>)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<ecommerce_StateDetail>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_CategoryNewDeleteCommand")]
@@ -318,43 +312,6 @@ namespace DAL
 			return ((ISingleResult<sp_ecommerce_PromocodeNewUpdateCommandResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewDeleteCommand")]
-		public int sp_ecommerce_Shipping_AddressNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="Int")] System.Nullable<int> original_Shipping_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Shipping_id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewInsertCommand")]
-		public ISingleResult<sp_ecommerce_Shipping_AddressNewInsertCommandResult> sp_ecommerce_Shipping_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> ship_Phone)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_Zipcode, ship_City, ship_State, ship_Country, ship_Mail, ship_Phone);
-			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewSelectCommand")]
-		public ISingleResult<sp_ecommerce_Shipping_AddressNewSelectCommandResult> sp_ecommerce_Shipping_AddressNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewUpdateCommand")]
-		public ISingleResult<sp_ecommerce_Shipping_AddressNewUpdateCommandResult> sp_ecommerce_Shipping_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> ship_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="Int")] System.Nullable<int> original_Shipping_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shipping_id", DbType="Int")] System.Nullable<int> shipping_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_Zipcode, ship_City, ship_State, ship_Country, ship_Mail, ship_Phone, original_Shipping_id, shipping_id);
-			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewUpdateCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_check_user", IsComposable=true)]
-		public object sp_check_user([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(100)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] ref string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Result", DbType="Bit")] ref System.Nullable<bool> result)
-		{
-			IExecuteResult result1 = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, name, result);
-			name = ((string)(result1.GetParameterValue(2)));
-			result = ((System.Nullable<bool>)(result1.GetParameterValue(3)));
-			return ((object)(result1.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Customer_registrationNewDeleteCommand")]
 		public int sp_ecommerce_Customer_registrationNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Customer_id", DbType="Int")] System.Nullable<int> original_Customer_id)
 		{
@@ -416,6 +373,71 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, mobile, country, reg_Date, last_login, error_count, cus_Status, profile_image, first_name, last_name, dOB, activationStatus_Mail, activationStatus_Sms, email_Subs, sms_Subs, original_Customer_id, customer_id);
 			return ((ISingleResult<sp_ecommerce_Customer_registrationNewUpdateCommandResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_check_user")]
+		public int sp_check_user([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(100)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(100)")] ref string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Result", DbType="Bit")] ref System.Nullable<bool> result)
+		{
+			IExecuteResult result1 = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, name, result);
+			name = ((string)(result1.GetParameterValue(2)));
+			result = ((System.Nullable<bool>)(result1.GetParameterValue(3)));
+			return ((int)(result1.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewDeleteCommand")]
+		public int sp_ecommerce_Billing_AddressNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_billing_id", DbType="Int")] System.Nullable<int> original_billing_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_billing_id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewInsertCommand")]
+		public ISingleResult<sp_ecommerce_Billing_AddressNewInsertCommandResult> sp_ecommerce_Billing_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bil_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> bill_Phone)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bil_Name, bill_Address, bill_zipcode, bill_City, bill_State, bill_Country, bill_Mail, bill_Phone);
+			return ((ISingleResult<sp_ecommerce_Billing_AddressNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewSelectCommand")]
+		public ISingleResult<sp_ecommerce_Billing_AddressNewSelectCommandResult> sp_ecommerce_Billing_AddressNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ecommerce_Billing_AddressNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Billing_AddressNewUpdateCommand")]
+		public ISingleResult<sp_ecommerce_Billing_AddressNewUpdateCommandResult> sp_ecommerce_Billing_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bil_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string bill_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bill_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string bill_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> bill_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_billing_id", DbType="Int")] System.Nullable<int> original_billing_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billing_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bil_Name, bill_Address, bill_zipcode, bill_City, bill_State, bill_Country, bill_Mail, bill_Phone, original_billing_id, billing_id);
+			return ((ISingleResult<sp_ecommerce_Billing_AddressNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewDeleteCommand")]
+		public int sp_ecommerce_Shipping_AddressNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="Int")] System.Nullable<int> original_Shipping_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Shipping_id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewInsertCommand")]
+		public ISingleResult<sp_ecommerce_Shipping_AddressNewInsertCommandResult> sp_ecommerce_Shipping_AddressNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> ship_Phone)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_Zipcode, ship_City, ship_State, ship_Country, ship_Mail, ship_Phone);
+			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewSelectCommand")]
+		public ISingleResult<sp_ecommerce_Shipping_AddressNewSelectCommandResult> sp_ecommerce_Shipping_AddressNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_Shipping_AddressNewUpdateCommand")]
+		public ISingleResult<sp_ecommerce_Shipping_AddressNewUpdateCommandResult> sp_ecommerce_Shipping_AddressNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(500)")] string ship_Address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Zipcode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_City, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_State, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ship_Country, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ship_Mail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="BigInt")] System.Nullable<long> ship_Phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Shipping_id", DbType="Int")] System.Nullable<int> original_Shipping_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shipping_id", DbType="Int")] System.Nullable<int> shipping_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ship_Name, ship_Address, ship_Zipcode, ship_City, ship_State, ship_Country, ship_Mail, ship_Phone, original_Shipping_id, shipping_id);
+			return ((ISingleResult<sp_ecommerce_Shipping_AddressNewUpdateCommandResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Billing_Address")]
@@ -434,9 +456,9 @@ namespace DAL
 		
 		private string _bill_City;
 		
-		private string _bill_State;
+		private System.Nullable<int> _bill_State;
 		
-		private string _bill_Country;
+		private System.Nullable<int> _bill_Country;
 		
 		private string _bill_Mail;
 		
@@ -458,9 +480,9 @@ namespace DAL
     partial void Onbill_zipcodeChanged();
     partial void Onbill_CityChanging(string value);
     partial void Onbill_CityChanged();
-    partial void Onbill_StateChanging(string value);
+    partial void Onbill_StateChanging(System.Nullable<int> value);
     partial void Onbill_StateChanged();
-    partial void Onbill_CountryChanging(string value);
+    partial void Onbill_CountryChanging(System.Nullable<int> value);
     partial void Onbill_CountryChanged();
     partial void Onbill_MailChanging(string value);
     partial void Onbill_MailChanged();
@@ -574,8 +596,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="NVarChar(50)")]
-		public string bill_State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="Int")]
+		public System.Nullable<int> bill_State
 		{
 			get
 			{
@@ -594,8 +616,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="NVarChar(50)")]
-		public string bill_Country
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="Int")]
+		public System.Nullable<int> bill_Country
 		{
 			get
 			{
@@ -1010,1489 +1032,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Orders")]
-	public partial class ecommerce_Order : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Order_id;
-		
-		private System.Nullable<int> _Customer_id;
-		
-		private System.Nullable<int> _Product_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private System.Nullable<System.DateTime> _Order_Date;
-		
-		private System.Nullable<int> _Shipping_tax;
-		
-		private System.Nullable<int> _Tax;
-		
-		private string _Order_Discount;
-		
-		private System.Nullable<int> _Promocode_id;
-		
-		private string _Order_status;
-		
-		private System.Nullable<int> _Billing_id;
-		
-		private System.Nullable<int> _Shipping_id;
-		
-		private System.Nullable<int> _Total_Amount;
-		
-		private EntityRef<ecommerce_Billing_Address> _ecommerce_Billing_Address;
-		
-		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
-		
-		private EntityRef<ecommerce_Promocode> _ecommerce_Promocode;
-		
-		private EntityRef<ecommerce_Shipping_Address> _ecommerce_Shipping_Address;
-		
-		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOrder_idChanging(int value);
-    partial void OnOrder_idChanged();
-    partial void OnCustomer_idChanging(System.Nullable<int> value);
-    partial void OnCustomer_idChanged();
-    partial void OnProduct_idChanging(System.Nullable<int> value);
-    partial void OnProduct_idChanged();
-    partial void OnQuantityChanging(System.Nullable<int> value);
-    partial void OnQuantityChanged();
-    partial void OnOrder_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnOrder_DateChanged();
-    partial void OnShipping_taxChanging(System.Nullable<int> value);
-    partial void OnShipping_taxChanged();
-    partial void OnTaxChanging(System.Nullable<int> value);
-    partial void OnTaxChanged();
-    partial void OnOrder_DiscountChanging(string value);
-    partial void OnOrder_DiscountChanged();
-    partial void OnPromocode_idChanging(System.Nullable<int> value);
-    partial void OnPromocode_idChanged();
-    partial void OnOrder_statusChanging(string value);
-    partial void OnOrder_statusChanged();
-    partial void OnBilling_idChanging(System.Nullable<int> value);
-    partial void OnBilling_idChanged();
-    partial void OnShipping_idChanging(System.Nullable<int> value);
-    partial void OnShipping_idChanged();
-    partial void OnTotal_AmountChanging(System.Nullable<int> value);
-    partial void OnTotal_AmountChanged();
-    #endregion
-		
-		public ecommerce_Order()
-		{
-			this._ecommerce_Billing_Address = default(EntityRef<ecommerce_Billing_Address>);
-			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
-			this._ecommerce_Promocode = default(EntityRef<ecommerce_Promocode>);
-			this._ecommerce_Shipping_Address = default(EntityRef<ecommerce_Shipping_Address>);
-			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Order_id
-		{
-			get
-			{
-				return this._Order_id;
-			}
-			set
-			{
-				if ((this._Order_id != value))
-				{
-					this.OnOrder_idChanging(value);
-					this.SendPropertyChanging();
-					this._Order_id = value;
-					this.SendPropertyChanged("Order_id");
-					this.OnOrder_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="Int")]
-		public System.Nullable<int> Customer_id
-		{
-			get
-			{
-				return this._Customer_id;
-			}
-			set
-			{
-				if ((this._Customer_id != value))
-				{
-					if (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCustomer_idChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_id = value;
-					this.SendPropertyChanged("Customer_id");
-					this.OnCustomer_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int")]
-		public System.Nullable<int> Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					if (this._ecommerce_Productdetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Order_Date
-		{
-			get
-			{
-				return this._Order_Date;
-			}
-			set
-			{
-				if ((this._Order_Date != value))
-				{
-					this.OnOrder_DateChanging(value);
-					this.SendPropertyChanging();
-					this._Order_Date = value;
-					this.SendPropertyChanged("Order_Date");
-					this.OnOrder_DateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_tax", DbType="Int")]
-		public System.Nullable<int> Shipping_tax
-		{
-			get
-			{
-				return this._Shipping_tax;
-			}
-			set
-			{
-				if ((this._Shipping_tax != value))
-				{
-					this.OnShipping_taxChanging(value);
-					this.SendPropertyChanging();
-					this._Shipping_tax = value;
-					this.SendPropertyChanged("Shipping_tax");
-					this.OnShipping_taxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tax", DbType="Int")]
-		public System.Nullable<int> Tax
-		{
-			get
-			{
-				return this._Tax;
-			}
-			set
-			{
-				if ((this._Tax != value))
-				{
-					this.OnTaxChanging(value);
-					this.SendPropertyChanging();
-					this._Tax = value;
-					this.SendPropertyChanged("Tax");
-					this.OnTaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_Discount", DbType="NVarChar(100)")]
-		public string Order_Discount
-		{
-			get
-			{
-				return this._Order_Discount;
-			}
-			set
-			{
-				if ((this._Order_Discount != value))
-				{
-					this.OnOrder_DiscountChanging(value);
-					this.SendPropertyChanging();
-					this._Order_Discount = value;
-					this.SendPropertyChanged("Order_Discount");
-					this.OnOrder_DiscountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promocode_id", DbType="Int")]
-		public System.Nullable<int> Promocode_id
-		{
-			get
-			{
-				return this._Promocode_id;
-			}
-			set
-			{
-				if ((this._Promocode_id != value))
-				{
-					if (this._ecommerce_Promocode.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPromocode_idChanging(value);
-					this.SendPropertyChanging();
-					this._Promocode_id = value;
-					this.SendPropertyChanged("Promocode_id");
-					this.OnPromocode_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_status", DbType="NVarChar(50)")]
-		public string Order_status
-		{
-			get
-			{
-				return this._Order_status;
-			}
-			set
-			{
-				if ((this._Order_status != value))
-				{
-					this.OnOrder_statusChanging(value);
-					this.SendPropertyChanging();
-					this._Order_status = value;
-					this.SendPropertyChanged("Order_status");
-					this.OnOrder_statusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Billing_id", DbType="Int")]
-		public System.Nullable<int> Billing_id
-		{
-			get
-			{
-				return this._Billing_id;
-			}
-			set
-			{
-				if ((this._Billing_id != value))
-				{
-					if (this._ecommerce_Billing_Address.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBilling_idChanging(value);
-					this.SendPropertyChanging();
-					this._Billing_id = value;
-					this.SendPropertyChanged("Billing_id");
-					this.OnBilling_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int")]
-		public System.Nullable<int> Shipping_id
-		{
-			get
-			{
-				return this._Shipping_id;
-			}
-			set
-			{
-				if ((this._Shipping_id != value))
-				{
-					if (this._ecommerce_Shipping_Address.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnShipping_idChanging(value);
-					this.SendPropertyChanging();
-					this._Shipping_id = value;
-					this.SendPropertyChanged("Shipping_id");
-					this.OnShipping_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Int")]
-		public System.Nullable<int> Total_Amount
-		{
-			get
-			{
-				return this._Total_Amount;
-			}
-			set
-			{
-				if ((this._Total_Amount != value))
-				{
-					this.OnTotal_AmountChanging(value);
-					this.SendPropertyChanging();
-					this._Total_Amount = value;
-					this.SendPropertyChanged("Total_Amount");
-					this.OnTotal_AmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Billing_Address_ecommerce_Order", Storage="_ecommerce_Billing_Address", ThisKey="Billing_id", OtherKey="billing_id", IsForeignKey=true)]
-		public ecommerce_Billing_Address ecommerce_Billing_Address
-		{
-			get
-			{
-				return this._ecommerce_Billing_Address.Entity;
-			}
-			set
-			{
-				ecommerce_Billing_Address previousValue = this._ecommerce_Billing_Address.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Billing_Address.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Billing_Address.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Billing_Address.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Billing_id = value.billing_id;
-					}
-					else
-					{
-						this._Billing_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Billing_Address");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Order", Storage="_ecommerce_Productdetail", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
-		public ecommerce_Productdetail ecommerce_Productdetail
-		{
-			get
-			{
-				return this._ecommerce_Productdetail.Entity;
-			}
-			set
-			{
-				ecommerce_Productdetail previousValue = this._ecommerce_Productdetail.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Productdetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Productdetail.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Productdetail.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Product_id = value.Product_id;
-					}
-					else
-					{
-						this._Product_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Productdetail");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Promocode_ecommerce_Order", Storage="_ecommerce_Promocode", ThisKey="Promocode_id", OtherKey="Promocode_id", IsForeignKey=true)]
-		public ecommerce_Promocode ecommerce_Promocode
-		{
-			get
-			{
-				return this._ecommerce_Promocode.Entity;
-			}
-			set
-			{
-				ecommerce_Promocode previousValue = this._ecommerce_Promocode.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Promocode.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Promocode.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Promocode.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Promocode_id = value.Promocode_id;
-					}
-					else
-					{
-						this._Promocode_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Promocode");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Shipping_Address_ecommerce_Order", Storage="_ecommerce_Shipping_Address", ThisKey="Shipping_id", OtherKey="Shipping_id", IsForeignKey=true)]
-		public ecommerce_Shipping_Address ecommerce_Shipping_Address
-		{
-			get
-			{
-				return this._ecommerce_Shipping_Address.Entity;
-			}
-			set
-			{
-				ecommerce_Shipping_Address previousValue = this._ecommerce_Shipping_Address.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Shipping_Address.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Shipping_Address.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Shipping_Address.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Shipping_id = value.Shipping_id;
-					}
-					else
-					{
-						this._Shipping_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Shipping_Address");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
-		public ecommerce_Customer_registration ecommerce_Customer_registration
-		{
-			get
-			{
-				return this._ecommerce_Customer_registration.Entity;
-			}
-			set
-			{
-				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Customer_registration.Entity = null;
-						previousValue.ecommerce_Orders.Remove(this);
-					}
-					this._ecommerce_Customer_registration.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Orders.Add(this);
-						this._Customer_id = value.Customer_id;
-					}
-					else
-					{
-						this._Customer_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Customer_registration");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Productdetail")]
-	public partial class ecommerce_Productdetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _Category;
-		
-		private System.Nullable<int> _Price;
-		
-		private string _Pro_Status;
-		
-		private string _Image;
-		
-		private string _Description;
-		
-		private string _Short_Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _Pro_Discount;
-		
-		private string _Company;
-		
-		private string _HaveOption;
-		
-		private string _OptionTitle;
-		
-		private string _OptionContent;
-		
-		private EntitySet<ecommerce_Order> _ecommerce_Orders;
-		
-		private EntityRef<ecommerce_Category> _ecommerce_Category;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProduct_idChanging(int value);
-    partial void OnProduct_idChanged();
-    partial void OnProduct_nameChanging(string value);
-    partial void OnProduct_nameChanged();
-    partial void OnCategoryChanging(System.Nullable<int> value);
-    partial void OnCategoryChanged();
-    partial void OnPriceChanging(System.Nullable<int> value);
-    partial void OnPriceChanged();
-    partial void OnPro_StatusChanging(string value);
-    partial void OnPro_StatusChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnShort_DescriptionChanging(string value);
-    partial void OnShort_DescriptionChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    partial void OnPro_DiscountChanging(string value);
-    partial void OnPro_DiscountChanged();
-    partial void OnCompanyChanging(string value);
-    partial void OnCompanyChanged();
-    partial void OnHaveOptionChanging(string value);
-    partial void OnHaveOptionChanged();
-    partial void OnOptionTitleChanging(string value);
-    partial void OnOptionTitleChanged();
-    partial void OnOptionContentChanging(string value);
-    partial void OnOptionContentChanged();
-    #endregion
-		
-		public ecommerce_Productdetail()
-		{
-			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
-			this._ecommerce_Category = default(EntityRef<ecommerce_Category>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this.OnProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._Product_id = value;
-					this.SendPropertyChanged("Product_id");
-					this.OnProduct_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this.OnProduct_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Product_name = value;
-					this.SendPropertyChanged("Product_name");
-					this.OnProduct_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="Int")]
-		public System.Nullable<int> Category
-		{
-			get
-			{
-				return this._Category;
-			}
-			set
-			{
-				if ((this._Category != value))
-				{
-					if (this._ecommerce_Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryChanging(value);
-					this.SendPropertyChanging();
-					this._Category = value;
-					this.SendPropertyChanged("Category");
-					this.OnCategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
-		public System.Nullable<int> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Status", DbType="NVarChar(50)")]
-		public string Pro_Status
-		{
-			get
-			{
-				return this._Pro_Status;
-			}
-			set
-			{
-				if ((this._Pro_Status != value))
-				{
-					this.OnPro_StatusChanging(value);
-					this.SendPropertyChanging();
-					this._Pro_Status = value;
-					this.SendPropertyChanged("Pro_Status");
-					this.OnPro_StatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
-		public string Short_Description
-		{
-			get
-			{
-				return this._Short_Description;
-			}
-			set
-			{
-				if ((this._Short_Description != value))
-				{
-					this.OnShort_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Short_Description = value;
-					this.SendPropertyChanged("Short_Description");
-					this.OnShort_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
-		public string Pro_Discount
-		{
-			get
-			{
-				return this._Pro_Discount;
-			}
-			set
-			{
-				if ((this._Pro_Discount != value))
-				{
-					this.OnPro_DiscountChanging(value);
-					this.SendPropertyChanging();
-					this._Pro_Discount = value;
-					this.SendPropertyChanged("Pro_Discount");
-					this.OnPro_DiscountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this.OnCompanyChanging(value);
-					this.SendPropertyChanging();
-					this._Company = value;
-					this.SendPropertyChanged("Company");
-					this.OnCompanyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HaveOption", DbType="NVarChar(50)")]
-		public string HaveOption
-		{
-			get
-			{
-				return this._HaveOption;
-			}
-			set
-			{
-				if ((this._HaveOption != value))
-				{
-					this.OnHaveOptionChanging(value);
-					this.SendPropertyChanging();
-					this._HaveOption = value;
-					this.SendPropertyChanged("HaveOption");
-					this.OnHaveOptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionTitle", DbType="NVarChar(50)")]
-		public string OptionTitle
-		{
-			get
-			{
-				return this._OptionTitle;
-			}
-			set
-			{
-				if ((this._OptionTitle != value))
-				{
-					this.OnOptionTitleChanging(value);
-					this.SendPropertyChanging();
-					this._OptionTitle = value;
-					this.SendPropertyChanged("OptionTitle");
-					this.OnOptionTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionContent", DbType="NVarChar(200)")]
-		public string OptionContent
-		{
-			get
-			{
-				return this._OptionContent;
-			}
-			set
-			{
-				if ((this._OptionContent != value))
-				{
-					this.OnOptionContentChanging(value);
-					this.SendPropertyChanging();
-					this._OptionContent = value;
-					this.SendPropertyChanged("OptionContent");
-					this.OnOptionContentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Product_id", OtherKey="Product_id")]
-		public EntitySet<ecommerce_Order> ecommerce_Orders
-		{
-			get
-			{
-				return this._ecommerce_Orders;
-			}
-			set
-			{
-				this._ecommerce_Orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Category_ecommerce_Productdetail", Storage="_ecommerce_Category", ThisKey="Category", OtherKey="Category_id", IsForeignKey=true)]
-		public ecommerce_Category ecommerce_Category
-		{
-			get
-			{
-				return this._ecommerce_Category.Entity;
-			}
-			set
-			{
-				ecommerce_Category previousValue = this._ecommerce_Category.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Category.Entity = null;
-						previousValue.ecommerce_Productdetails.Remove(this);
-					}
-					this._ecommerce_Category.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Productdetails.Add(this);
-						this._Category = value.Category_id;
-					}
-					else
-					{
-						this._Category = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Category");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Productdetail = this;
-		}
-		
-		private void detach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Productdetail = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Promocode")]
-	public partial class ecommerce_Promocode : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Promocode_id;
-		
-		private string _code;
-		
-		private string _Promo_Discount;
-		
-		private System.Nullable<int> _Customer_id;
-		
-		private EntitySet<ecommerce_Order> _ecommerce_Orders;
-		
-		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPromocode_idChanging(int value);
-    partial void OnPromocode_idChanged();
-    partial void OncodeChanging(string value);
-    partial void OncodeChanged();
-    partial void OnPromo_DiscountChanging(string value);
-    partial void OnPromo_DiscountChanged();
-    partial void OnCustomer_idChanging(System.Nullable<int> value);
-    partial void OnCustomer_idChanged();
-    #endregion
-		
-		public ecommerce_Promocode()
-		{
-			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
-			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promocode_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Promocode_id
-		{
-			get
-			{
-				return this._Promocode_id;
-			}
-			set
-			{
-				if ((this._Promocode_id != value))
-				{
-					this.OnPromocode_idChanging(value);
-					this.SendPropertyChanging();
-					this._Promocode_id = value;
-					this.SendPropertyChanged("Promocode_id");
-					this.OnPromocode_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="NVarChar(50)")]
-		public string code
-		{
-			get
-			{
-				return this._code;
-			}
-			set
-			{
-				if ((this._code != value))
-				{
-					this.OncodeChanging(value);
-					this.SendPropertyChanging();
-					this._code = value;
-					this.SendPropertyChanged("code");
-					this.OncodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promo_Discount", DbType="NVarChar(100)")]
-		public string Promo_Discount
-		{
-			get
-			{
-				return this._Promo_Discount;
-			}
-			set
-			{
-				if ((this._Promo_Discount != value))
-				{
-					this.OnPromo_DiscountChanging(value);
-					this.SendPropertyChanging();
-					this._Promo_Discount = value;
-					this.SendPropertyChanged("Promo_Discount");
-					this.OnPromo_DiscountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="Int")]
-		public System.Nullable<int> Customer_id
-		{
-			get
-			{
-				return this._Customer_id;
-			}
-			set
-			{
-				if ((this._Customer_id != value))
-				{
-					if (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCustomer_idChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_id = value;
-					this.SendPropertyChanged("Customer_id");
-					this.OnCustomer_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Promocode_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Promocode_id", OtherKey="Promocode_id")]
-		public EntitySet<ecommerce_Order> ecommerce_Orders
-		{
-			get
-			{
-				return this._ecommerce_Orders;
-			}
-			set
-			{
-				this._ecommerce_Orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Promocode", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
-		public ecommerce_Customer_registration ecommerce_Customer_registration
-		{
-			get
-			{
-				return this._ecommerce_Customer_registration.Entity;
-			}
-			set
-			{
-				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Customer_registration.Entity = null;
-						previousValue.ecommerce_Promocodes.Remove(this);
-					}
-					this._ecommerce_Customer_registration.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Promocodes.Add(this);
-						this._Customer_id = value.Customer_id;
-					}
-					else
-					{
-						this._Customer_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Customer_registration");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Promocode = this;
-		}
-		
-		private void detach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Promocode = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Shipping_Address")]
-	public partial class ecommerce_Shipping_Address : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Shipping_id;
-		
-		private string _ship_Name;
-		
-		private string _ship_Address;
-		
-		private System.Nullable<int> _ship_Zipcode;
-		
-		private string _ship_City;
-		
-		private string _ship_State;
-		
-		private string _ship_Country;
-		
-		private string _ship_Mail;
-		
-		private System.Nullable<long> _ship_Phone;
-		
-		private EntitySet<ecommerce_Order> _ecommerce_Orders;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnShipping_idChanging(int value);
-    partial void OnShipping_idChanged();
-    partial void Onship_NameChanging(string value);
-    partial void Onship_NameChanged();
-    partial void Onship_AddressChanging(string value);
-    partial void Onship_AddressChanged();
-    partial void Onship_ZipcodeChanging(System.Nullable<int> value);
-    partial void Onship_ZipcodeChanged();
-    partial void Onship_CityChanging(string value);
-    partial void Onship_CityChanged();
-    partial void Onship_StateChanging(string value);
-    partial void Onship_StateChanged();
-    partial void Onship_CountryChanging(string value);
-    partial void Onship_CountryChanged();
-    partial void Onship_MailChanging(string value);
-    partial void Onship_MailChanged();
-    partial void Onship_PhoneChanging(System.Nullable<long> value);
-    partial void Onship_PhoneChanged();
-    #endregion
-		
-		public ecommerce_Shipping_Address()
-		{
-			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Shipping_id
-		{
-			get
-			{
-				return this._Shipping_id;
-			}
-			set
-			{
-				if ((this._Shipping_id != value))
-				{
-					this.OnShipping_idChanging(value);
-					this.SendPropertyChanging();
-					this._Shipping_id = value;
-					this.SendPropertyChanged("Shipping_id");
-					this.OnShipping_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
-		public string ship_Name
-		{
-			get
-			{
-				return this._ship_Name;
-			}
-			set
-			{
-				if ((this._ship_Name != value))
-				{
-					this.Onship_NameChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Name = value;
-					this.SendPropertyChanged("ship_Name");
-					this.Onship_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
-		public string ship_Address
-		{
-			get
-			{
-				return this._ship_Address;
-			}
-			set
-			{
-				if ((this._ship_Address != value))
-				{
-					this.Onship_AddressChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Address = value;
-					this.SendPropertyChanged("ship_Address");
-					this.Onship_AddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
-		public System.Nullable<int> ship_Zipcode
-		{
-			get
-			{
-				return this._ship_Zipcode;
-			}
-			set
-			{
-				if ((this._ship_Zipcode != value))
-				{
-					this.Onship_ZipcodeChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Zipcode = value;
-					this.SendPropertyChanged("ship_Zipcode");
-					this.Onship_ZipcodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
-		public string ship_City
-		{
-			get
-			{
-				return this._ship_City;
-			}
-			set
-			{
-				if ((this._ship_City != value))
-				{
-					this.Onship_CityChanging(value);
-					this.SendPropertyChanging();
-					this._ship_City = value;
-					this.SendPropertyChanged("ship_City");
-					this.Onship_CityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="NVarChar(50)")]
-		public string ship_State
-		{
-			get
-			{
-				return this._ship_State;
-			}
-			set
-			{
-				if ((this._ship_State != value))
-				{
-					this.Onship_StateChanging(value);
-					this.SendPropertyChanging();
-					this._ship_State = value;
-					this.SendPropertyChanged("ship_State");
-					this.Onship_StateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="NVarChar(50)")]
-		public string ship_Country
-		{
-			get
-			{
-				return this._ship_Country;
-			}
-			set
-			{
-				if ((this._ship_Country != value))
-				{
-					this.Onship_CountryChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Country = value;
-					this.SendPropertyChanged("ship_Country");
-					this.Onship_CountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
-		public string ship_Mail
-		{
-			get
-			{
-				return this._ship_Mail;
-			}
-			set
-			{
-				if ((this._ship_Mail != value))
-				{
-					this.Onship_MailChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Mail = value;
-					this.SendPropertyChanged("ship_Mail");
-					this.Onship_MailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
-		public System.Nullable<long> ship_Phone
-		{
-			get
-			{
-				return this._ship_Phone;
-			}
-			set
-			{
-				if ((this._ship_Phone != value))
-				{
-					this.Onship_PhoneChanging(value);
-					this.SendPropertyChanging();
-					this._ship_Phone = value;
-					this.SendPropertyChanged("ship_Phone");
-					this.Onship_PhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Shipping_Address_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Shipping_id", OtherKey="Shipping_id")]
-		public EntitySet<ecommerce_Order> ecommerce_Orders
-		{
-			get
-			{
-				return this._ecommerce_Orders;
-			}
-			set
-			{
-				this._ecommerce_Orders.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Shipping_Address = this;
-		}
-		
-		private void detach_ecommerce_Orders(ecommerce_Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Shipping_Address = null;
 		}
 	}
 	
@@ -3026,512 +1565,1774 @@ namespace DAL
 		}
 	}
 	
-	public partial class sp_ecommerce_Billing_AddressNewInsertCommandResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Orders")]
+	public partial class ecommerce_Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private int _billing_id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _bil_Name;
+		private int _Order_id;
 		
-		private string _bill_Address;
+		private System.Nullable<int> _Customer_id;
 		
-		private System.Nullable<int> _bill_zipcode;
+		private System.Nullable<int> _Product_id;
 		
-		private string _bill_City;
+		private System.Nullable<int> _Quantity;
 		
-		private string _bill_State;
+		private System.Nullable<System.DateTime> _Order_Date;
 		
-		private string _bill_Country;
+		private System.Nullable<int> _Shipping_tax;
 		
-		private string _bill_Mail;
+		private System.Nullable<int> _Tax;
 		
-		private System.Nullable<long> _bill_Phone;
+		private string _Order_Discount;
 		
-		public sp_ecommerce_Billing_AddressNewInsertCommandResult()
+		private System.Nullable<int> _Promocode_id;
+		
+		private string _Order_status;
+		
+		private System.Nullable<int> _Billing_id;
+		
+		private System.Nullable<int> _Shipping_id;
+		
+		private System.Nullable<int> _Total_Amount;
+		
+		private EntityRef<ecommerce_Billing_Address> _ecommerce_Billing_Address;
+		
+		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
+		
+		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
+		
+		private EntityRef<ecommerce_Shipping_Address> _ecommerce_Shipping_Address;
+		
+		private EntityRef<ecommerce_Promocode> _ecommerce_Promocode;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOrder_idChanging(int value);
+    partial void OnOrder_idChanged();
+    partial void OnCustomer_idChanging(System.Nullable<int> value);
+    partial void OnCustomer_idChanged();
+    partial void OnProduct_idChanging(System.Nullable<int> value);
+    partial void OnProduct_idChanged();
+    partial void OnQuantityChanging(System.Nullable<int> value);
+    partial void OnQuantityChanged();
+    partial void OnOrder_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnOrder_DateChanged();
+    partial void OnShipping_taxChanging(System.Nullable<int> value);
+    partial void OnShipping_taxChanged();
+    partial void OnTaxChanging(System.Nullable<int> value);
+    partial void OnTaxChanged();
+    partial void OnOrder_DiscountChanging(string value);
+    partial void OnOrder_DiscountChanged();
+    partial void OnPromocode_idChanging(System.Nullable<int> value);
+    partial void OnPromocode_idChanged();
+    partial void OnOrder_statusChanging(string value);
+    partial void OnOrder_statusChanged();
+    partial void OnBilling_idChanging(System.Nullable<int> value);
+    partial void OnBilling_idChanged();
+    partial void OnShipping_idChanging(System.Nullable<int> value);
+    partial void OnShipping_idChanged();
+    partial void OnTotal_AmountChanging(System.Nullable<int> value);
+    partial void OnTotal_AmountChanged();
+    #endregion
+		
+		public ecommerce_Order()
 		{
+			this._ecommerce_Billing_Address = default(EntityRef<ecommerce_Billing_Address>);
+			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
+			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
+			this._ecommerce_Shipping_Address = default(EntityRef<ecommerce_Shipping_Address>);
+			this._ecommerce_Promocode = default(EntityRef<ecommerce_Promocode>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
-		public int billing_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Order_id
 		{
 			get
 			{
-				return this._billing_id;
+				return this._Order_id;
 			}
 			set
 			{
-				if ((this._billing_id != value))
+				if ((this._Order_id != value))
 				{
-					this._billing_id = value;
+					this.OnOrder_idChanging(value);
+					this.SendPropertyChanging();
+					this._Order_id = value;
+					this.SendPropertyChanged("Order_id");
+					this.OnOrder_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
-		public string bil_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="Int")]
+		public System.Nullable<int> Customer_id
 		{
 			get
 			{
-				return this._bil_Name;
+				return this._Customer_id;
 			}
 			set
 			{
-				if ((this._bil_Name != value))
+				if ((this._Customer_id != value))
 				{
-					this._bil_Name = value;
+					if (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCustomer_idChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_id = value;
+					this.SendPropertyChanged("Customer_id");
+					this.OnCustomer_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
-		public string bill_Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int")]
+		public System.Nullable<int> Product_id
 		{
 			get
 			{
-				return this._bill_Address;
+				return this._Product_id;
 			}
 			set
 			{
-				if ((this._bill_Address != value))
+				if ((this._Product_id != value))
 				{
-					this._bill_Address = value;
+					if (this._ecommerce_Productdetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProduct_idChanging(value);
+					this.SendPropertyChanging();
+					this._Product_id = value;
+					this.SendPropertyChanged("Product_id");
+					this.OnProduct_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
-		public System.Nullable<int> bill_zipcode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
 		{
 			get
 			{
-				return this._bill_zipcode;
+				return this._Quantity;
 			}
 			set
 			{
-				if ((this._bill_zipcode != value))
+				if ((this._Quantity != value))
 				{
-					this._bill_zipcode = value;
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
-		public string bill_City
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Order_Date
 		{
 			get
 			{
-				return this._bill_City;
+				return this._Order_Date;
 			}
 			set
 			{
-				if ((this._bill_City != value))
+				if ((this._Order_Date != value))
 				{
-					this._bill_City = value;
+					this.OnOrder_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Order_Date = value;
+					this.SendPropertyChanged("Order_Date");
+					this.OnOrder_DateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="NVarChar(50)")]
-		public string bill_State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_tax", DbType="Int")]
+		public System.Nullable<int> Shipping_tax
 		{
 			get
 			{
-				return this._bill_State;
+				return this._Shipping_tax;
 			}
 			set
 			{
-				if ((this._bill_State != value))
+				if ((this._Shipping_tax != value))
 				{
-					this._bill_State = value;
+					this.OnShipping_taxChanging(value);
+					this.SendPropertyChanging();
+					this._Shipping_tax = value;
+					this.SendPropertyChanged("Shipping_tax");
+					this.OnShipping_taxChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="NVarChar(50)")]
-		public string bill_Country
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tax", DbType="Int")]
+		public System.Nullable<int> Tax
 		{
 			get
 			{
-				return this._bill_Country;
+				return this._Tax;
 			}
 			set
 			{
-				if ((this._bill_Country != value))
+				if ((this._Tax != value))
 				{
-					this._bill_Country = value;
+					this.OnTaxChanging(value);
+					this.SendPropertyChanging();
+					this._Tax = value;
+					this.SendPropertyChanged("Tax");
+					this.OnTaxChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
-		public string bill_Mail
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_Discount", DbType="NVarChar(100)")]
+		public string Order_Discount
 		{
 			get
 			{
-				return this._bill_Mail;
+				return this._Order_Discount;
 			}
 			set
 			{
-				if ((this._bill_Mail != value))
+				if ((this._Order_Discount != value))
 				{
-					this._bill_Mail = value;
+					this.OnOrder_DiscountChanging(value);
+					this.SendPropertyChanging();
+					this._Order_Discount = value;
+					this.SendPropertyChanged("Order_Discount");
+					this.OnOrder_DiscountChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
-		public System.Nullable<long> bill_Phone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promocode_id", DbType="Int")]
+		public System.Nullable<int> Promocode_id
 		{
 			get
 			{
-				return this._bill_Phone;
+				return this._Promocode_id;
 			}
 			set
 			{
-				if ((this._bill_Phone != value))
+				if ((this._Promocode_id != value))
 				{
-					this._bill_Phone = value;
+					if (this._ecommerce_Promocode.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPromocode_idChanging(value);
+					this.SendPropertyChanging();
+					this._Promocode_id = value;
+					this.SendPropertyChanged("Promocode_id");
+					this.OnPromocode_idChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_status", DbType="NVarChar(50)")]
+		public string Order_status
+		{
+			get
+			{
+				return this._Order_status;
+			}
+			set
+			{
+				if ((this._Order_status != value))
+				{
+					this.OnOrder_statusChanging(value);
+					this.SendPropertyChanging();
+					this._Order_status = value;
+					this.SendPropertyChanged("Order_status");
+					this.OnOrder_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Billing_id", DbType="Int")]
+		public System.Nullable<int> Billing_id
+		{
+			get
+			{
+				return this._Billing_id;
+			}
+			set
+			{
+				if ((this._Billing_id != value))
+				{
+					if (this._ecommerce_Billing_Address.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBilling_idChanging(value);
+					this.SendPropertyChanging();
+					this._Billing_id = value;
+					this.SendPropertyChanged("Billing_id");
+					this.OnBilling_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int")]
+		public System.Nullable<int> Shipping_id
+		{
+			get
+			{
+				return this._Shipping_id;
+			}
+			set
+			{
+				if ((this._Shipping_id != value))
+				{
+					if (this._ecommerce_Shipping_Address.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnShipping_idChanging(value);
+					this.SendPropertyChanging();
+					this._Shipping_id = value;
+					this.SendPropertyChanged("Shipping_id");
+					this.OnShipping_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Amount", DbType="Int")]
+		public System.Nullable<int> Total_Amount
+		{
+			get
+			{
+				return this._Total_Amount;
+			}
+			set
+			{
+				if ((this._Total_Amount != value))
+				{
+					this.OnTotal_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._Total_Amount = value;
+					this.SendPropertyChanged("Total_Amount");
+					this.OnTotal_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Billing_Address_ecommerce_Order", Storage="_ecommerce_Billing_Address", ThisKey="Billing_id", OtherKey="billing_id", IsForeignKey=true)]
+		public ecommerce_Billing_Address ecommerce_Billing_Address
+		{
+			get
+			{
+				return this._ecommerce_Billing_Address.Entity;
+			}
+			set
+			{
+				ecommerce_Billing_Address previousValue = this._ecommerce_Billing_Address.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Billing_Address.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Billing_Address.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Billing_Address.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Billing_id = value.billing_id;
+					}
+					else
+					{
+						this._Billing_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Billing_Address");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Order", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
+		public ecommerce_Customer_registration ecommerce_Customer_registration
+		{
+			get
+			{
+				return this._ecommerce_Customer_registration.Entity;
+			}
+			set
+			{
+				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Customer_registration.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Customer_registration.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Customer_id = value.Customer_id;
+					}
+					else
+					{
+						this._Customer_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Customer_registration");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Order", Storage="_ecommerce_Productdetail", ThisKey="Product_id", OtherKey="Product_id", IsForeignKey=true)]
+		public ecommerce_Productdetail ecommerce_Productdetail
+		{
+			get
+			{
+				return this._ecommerce_Productdetail.Entity;
+			}
+			set
+			{
+				ecommerce_Productdetail previousValue = this._ecommerce_Productdetail.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Productdetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Productdetail.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Productdetail.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Product_id = value.Product_id;
+					}
+					else
+					{
+						this._Product_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Productdetail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Shipping_Address_ecommerce_Order", Storage="_ecommerce_Shipping_Address", ThisKey="Shipping_id", OtherKey="Shipping_id", IsForeignKey=true)]
+		public ecommerce_Shipping_Address ecommerce_Shipping_Address
+		{
+			get
+			{
+				return this._ecommerce_Shipping_Address.Entity;
+			}
+			set
+			{
+				ecommerce_Shipping_Address previousValue = this._ecommerce_Shipping_Address.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Shipping_Address.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Shipping_Address.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Shipping_Address.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Shipping_id = value.Shipping_id;
+					}
+					else
+					{
+						this._Shipping_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Shipping_Address");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Promocode_ecommerce_Order", Storage="_ecommerce_Promocode", ThisKey="Promocode_id", OtherKey="Promocode_id", IsForeignKey=true)]
+		public ecommerce_Promocode ecommerce_Promocode
+		{
+			get
+			{
+				return this._ecommerce_Promocode.Entity;
+			}
+			set
+			{
+				ecommerce_Promocode previousValue = this._ecommerce_Promocode.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Promocode.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Promocode.Entity = null;
+						previousValue.ecommerce_Orders.Remove(this);
+					}
+					this._ecommerce_Promocode.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Orders.Add(this);
+						this._Promocode_id = value.Promocode_id;
+					}
+					else
+					{
+						this._Promocode_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Promocode");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
-	public partial class sp_ecommerce_Billing_AddressNewSelectCommandResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Productdetail")]
+	public partial class ecommerce_Productdetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private int _billing_id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _bil_Name;
+		private int _Product_id;
 		
-		private string _bill_Address;
+		private string _Product_name;
 		
-		private System.Nullable<int> _bill_zipcode;
+		private System.Nullable<int> _Category;
 		
-		private string _bill_City;
+		private System.Nullable<int> _Price;
 		
-		private string _bill_State;
+		private string _Pro_Status;
 		
-		private string _bill_Country;
+		private string _Image;
 		
-		private string _bill_Mail;
+		private string _Description;
 		
-		private System.Nullable<long> _bill_Phone;
+		private string _Short_Description;
 		
-		public sp_ecommerce_Billing_AddressNewSelectCommandResult()
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Pro_Discount;
+		
+		private string _Company;
+		
+		private string _HaveOption;
+		
+		private string _OptionTitle;
+		
+		private string _OptionContent;
+		
+		private EntitySet<ecommerce_Order> _ecommerce_Orders;
+		
+		private EntityRef<ecommerce_Category> _ecommerce_Category;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProduct_idChanging(int value);
+    partial void OnProduct_idChanged();
+    partial void OnProduct_nameChanging(string value);
+    partial void OnProduct_nameChanged();
+    partial void OnCategoryChanging(System.Nullable<int> value);
+    partial void OnCategoryChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    partial void OnPro_StatusChanging(string value);
+    partial void OnPro_StatusChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnShort_DescriptionChanging(string value);
+    partial void OnShort_DescriptionChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    partial void OnPro_DiscountChanging(string value);
+    partial void OnPro_DiscountChanged();
+    partial void OnCompanyChanging(string value);
+    partial void OnCompanyChanged();
+    partial void OnHaveOptionChanging(string value);
+    partial void OnHaveOptionChanged();
+    partial void OnOptionTitleChanging(string value);
+    partial void OnOptionTitleChanged();
+    partial void OnOptionContentChanging(string value);
+    partial void OnOptionContentChanged();
+    #endregion
+		
+		public ecommerce_Productdetail()
 		{
+			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
+			this._ecommerce_Category = default(EntityRef<ecommerce_Category>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
-		public int billing_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Product_id
 		{
 			get
 			{
-				return this._billing_id;
+				return this._Product_id;
 			}
 			set
 			{
-				if ((this._billing_id != value))
+				if ((this._Product_id != value))
 				{
-					this._billing_id = value;
+					this.OnProduct_idChanging(value);
+					this.SendPropertyChanging();
+					this._Product_id = value;
+					this.SendPropertyChanged("Product_id");
+					this.OnProduct_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
-		public string bil_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
+		public string Product_name
 		{
 			get
 			{
-				return this._bil_Name;
+				return this._Product_name;
 			}
 			set
 			{
-				if ((this._bil_Name != value))
+				if ((this._Product_name != value))
 				{
-					this._bil_Name = value;
+					this.OnProduct_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Product_name = value;
+					this.SendPropertyChanged("Product_name");
+					this.OnProduct_nameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
-		public string bill_Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="Int")]
+		public System.Nullable<int> Category
 		{
 			get
 			{
-				return this._bill_Address;
+				return this._Category;
 			}
 			set
 			{
-				if ((this._bill_Address != value))
+				if ((this._Category != value))
 				{
-					this._bill_Address = value;
+					if (this._ecommerce_Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
-		public System.Nullable<int> bill_zipcode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
 		{
 			get
 			{
-				return this._bill_zipcode;
+				return this._Price;
 			}
 			set
 			{
-				if ((this._bill_zipcode != value))
+				if ((this._Price != value))
 				{
-					this._bill_zipcode = value;
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
-		public string bill_City
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Status", DbType="NVarChar(50)")]
+		public string Pro_Status
 		{
 			get
 			{
-				return this._bill_City;
+				return this._Pro_Status;
 			}
 			set
 			{
-				if ((this._bill_City != value))
+				if ((this._Pro_Status != value))
 				{
-					this._bill_City = value;
+					this.OnPro_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Pro_Status = value;
+					this.SendPropertyChanged("Pro_Status");
+					this.OnPro_StatusChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="NVarChar(50)")]
-		public string bill_State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
+		public string Image
 		{
 			get
 			{
-				return this._bill_State;
+				return this._Image;
 			}
 			set
 			{
-				if ((this._bill_State != value))
+				if ((this._Image != value))
 				{
-					this._bill_State = value;
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="NVarChar(50)")]
-		public string bill_Country
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
 		{
 			get
 			{
-				return this._bill_Country;
+				return this._Description;
 			}
 			set
 			{
-				if ((this._bill_Country != value))
+				if ((this._Description != value))
 				{
-					this._bill_Country = value;
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
-		public string bill_Mail
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
+		public string Short_Description
 		{
 			get
 			{
-				return this._bill_Mail;
+				return this._Short_Description;
 			}
 			set
 			{
-				if ((this._bill_Mail != value))
+				if ((this._Short_Description != value))
 				{
-					this._bill_Mail = value;
+					this.OnShort_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Short_Description = value;
+					this.SendPropertyChanged("Short_Description");
+					this.OnShort_DescriptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
-		public System.Nullable<long> bill_Phone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
 		{
 			get
 			{
-				return this._bill_Phone;
+				return this._Date;
 			}
 			set
 			{
-				if ((this._bill_Phone != value))
+				if ((this._Date != value))
 				{
-					this._bill_Phone = value;
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
+		public string Pro_Discount
+		{
+			get
+			{
+				return this._Pro_Discount;
+			}
+			set
+			{
+				if ((this._Pro_Discount != value))
+				{
+					this.OnPro_DiscountChanging(value);
+					this.SendPropertyChanging();
+					this._Pro_Discount = value;
+					this.SendPropertyChanged("Pro_Discount");
+					this.OnPro_DiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this.OnCompanyChanging(value);
+					this.SendPropertyChanging();
+					this._Company = value;
+					this.SendPropertyChanged("Company");
+					this.OnCompanyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HaveOption", DbType="NVarChar(50)")]
+		public string HaveOption
+		{
+			get
+			{
+				return this._HaveOption;
+			}
+			set
+			{
+				if ((this._HaveOption != value))
+				{
+					this.OnHaveOptionChanging(value);
+					this.SendPropertyChanging();
+					this._HaveOption = value;
+					this.SendPropertyChanged("HaveOption");
+					this.OnHaveOptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionTitle", DbType="NVarChar(50)")]
+		public string OptionTitle
+		{
+			get
+			{
+				return this._OptionTitle;
+			}
+			set
+			{
+				if ((this._OptionTitle != value))
+				{
+					this.OnOptionTitleChanging(value);
+					this.SendPropertyChanging();
+					this._OptionTitle = value;
+					this.SendPropertyChanged("OptionTitle");
+					this.OnOptionTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptionContent", DbType="NVarChar(200)")]
+		public string OptionContent
+		{
+			get
+			{
+				return this._OptionContent;
+			}
+			set
+			{
+				if ((this._OptionContent != value))
+				{
+					this.OnOptionContentChanging(value);
+					this.SendPropertyChanging();
+					this._OptionContent = value;
+					this.SendPropertyChanged("OptionContent");
+					this.OnOptionContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Product_id", OtherKey="Product_id")]
+		public EntitySet<ecommerce_Order> ecommerce_Orders
+		{
+			get
+			{
+				return this._ecommerce_Orders;
+			}
+			set
+			{
+				this._ecommerce_Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Category_ecommerce_Productdetail", Storage="_ecommerce_Category", ThisKey="Category", OtherKey="Category_id", IsForeignKey=true)]
+		public ecommerce_Category ecommerce_Category
+		{
+			get
+			{
+				return this._ecommerce_Category.Entity;
+			}
+			set
+			{
+				ecommerce_Category previousValue = this._ecommerce_Category.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Category.Entity = null;
+						previousValue.ecommerce_Productdetails.Remove(this);
+					}
+					this._ecommerce_Category.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Productdetails.Add(this);
+						this._Category = value.Category_id;
+					}
+					else
+					{
+						this._Category = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Category");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Productdetail = this;
+		}
+		
+		private void detach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Productdetail = null;
 		}
 	}
 	
-	public partial class sp_ecommerce_Billing_AddressNewUpdateCommandResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Shipping_Address")]
+	public partial class ecommerce_Shipping_Address : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private int _billing_id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _bil_Name;
+		private int _Shipping_id;
 		
-		private string _bill_Address;
+		private string _ship_Name;
 		
-		private System.Nullable<int> _bill_zipcode;
+		private string _ship_Address;
 		
-		private string _bill_City;
+		private System.Nullable<int> _ship_Zipcode;
 		
-		private string _bill_State;
+		private string _ship_City;
 		
-		private string _bill_Country;
+		private System.Nullable<int> _ship_State;
 		
-		private string _bill_Mail;
+		private System.Nullable<int> _ship_Country;
 		
-		private System.Nullable<long> _bill_Phone;
+		private string _ship_Mail;
 		
-		public sp_ecommerce_Billing_AddressNewUpdateCommandResult()
+		private System.Nullable<long> _ship_Phone;
+		
+		private EntitySet<ecommerce_Order> _ecommerce_Orders;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnShipping_idChanging(int value);
+    partial void OnShipping_idChanged();
+    partial void Onship_NameChanging(string value);
+    partial void Onship_NameChanged();
+    partial void Onship_AddressChanging(string value);
+    partial void Onship_AddressChanged();
+    partial void Onship_ZipcodeChanging(System.Nullable<int> value);
+    partial void Onship_ZipcodeChanged();
+    partial void Onship_CityChanging(string value);
+    partial void Onship_CityChanged();
+    partial void Onship_StateChanging(System.Nullable<int> value);
+    partial void Onship_StateChanged();
+    partial void Onship_CountryChanging(System.Nullable<int> value);
+    partial void Onship_CountryChanged();
+    partial void Onship_MailChanging(string value);
+    partial void Onship_MailChanged();
+    partial void Onship_PhoneChanging(System.Nullable<long> value);
+    partial void Onship_PhoneChanged();
+    #endregion
+		
+		public ecommerce_Shipping_Address()
 		{
+			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
-		public int billing_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Shipping_id
 		{
 			get
 			{
-				return this._billing_id;
+				return this._Shipping_id;
 			}
 			set
 			{
-				if ((this._billing_id != value))
+				if ((this._Shipping_id != value))
 				{
-					this._billing_id = value;
+					this.OnShipping_idChanging(value);
+					this.SendPropertyChanging();
+					this._Shipping_id = value;
+					this.SendPropertyChanged("Shipping_id");
+					this.OnShipping_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
-		public string bil_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
+		public string ship_Name
 		{
 			get
 			{
-				return this._bil_Name;
+				return this._ship_Name;
 			}
 			set
 			{
-				if ((this._bil_Name != value))
+				if ((this._ship_Name != value))
 				{
-					this._bil_Name = value;
+					this.Onship_NameChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Name = value;
+					this.SendPropertyChanged("ship_Name");
+					this.Onship_NameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
-		public string bill_Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
+		public string ship_Address
 		{
 			get
 			{
-				return this._bill_Address;
+				return this._ship_Address;
 			}
 			set
 			{
-				if ((this._bill_Address != value))
+				if ((this._ship_Address != value))
 				{
-					this._bill_Address = value;
+					this.Onship_AddressChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Address = value;
+					this.SendPropertyChanged("ship_Address");
+					this.Onship_AddressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
-		public System.Nullable<int> bill_zipcode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
+		public System.Nullable<int> ship_Zipcode
 		{
 			get
 			{
-				return this._bill_zipcode;
+				return this._ship_Zipcode;
 			}
 			set
 			{
-				if ((this._bill_zipcode != value))
+				if ((this._ship_Zipcode != value))
 				{
-					this._bill_zipcode = value;
+					this.Onship_ZipcodeChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Zipcode = value;
+					this.SendPropertyChanged("ship_Zipcode");
+					this.Onship_ZipcodeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
-		public string bill_City
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
+		public string ship_City
 		{
 			get
 			{
-				return this._bill_City;
+				return this._ship_City;
 			}
 			set
 			{
-				if ((this._bill_City != value))
+				if ((this._ship_City != value))
 				{
-					this._bill_City = value;
+					this.Onship_CityChanging(value);
+					this.SendPropertyChanging();
+					this._ship_City = value;
+					this.SendPropertyChanged("ship_City");
+					this.Onship_CityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="NVarChar(50)")]
-		public string bill_State
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="Int")]
+		public System.Nullable<int> ship_State
 		{
 			get
 			{
-				return this._bill_State;
+				return this._ship_State;
 			}
 			set
 			{
-				if ((this._bill_State != value))
+				if ((this._ship_State != value))
 				{
-					this._bill_State = value;
+					this.Onship_StateChanging(value);
+					this.SendPropertyChanging();
+					this._ship_State = value;
+					this.SendPropertyChanged("ship_State");
+					this.Onship_StateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="NVarChar(50)")]
-		public string bill_Country
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="Int")]
+		public System.Nullable<int> ship_Country
 		{
 			get
 			{
-				return this._bill_Country;
+				return this._ship_Country;
 			}
 			set
 			{
-				if ((this._bill_Country != value))
+				if ((this._ship_Country != value))
 				{
-					this._bill_Country = value;
+					this.Onship_CountryChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Country = value;
+					this.SendPropertyChanged("ship_Country");
+					this.Onship_CountryChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
-		public string bill_Mail
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
+		public string ship_Mail
 		{
 			get
 			{
-				return this._bill_Mail;
+				return this._ship_Mail;
 			}
 			set
 			{
-				if ((this._bill_Mail != value))
+				if ((this._ship_Mail != value))
 				{
-					this._bill_Mail = value;
+					this.Onship_MailChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Mail = value;
+					this.SendPropertyChanged("ship_Mail");
+					this.Onship_MailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
-		public System.Nullable<long> bill_Phone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
+		public System.Nullable<long> ship_Phone
 		{
 			get
 			{
-				return this._bill_Phone;
+				return this._ship_Phone;
 			}
 			set
 			{
-				if ((this._bill_Phone != value))
+				if ((this._ship_Phone != value))
 				{
-					this._bill_Phone = value;
+					this.Onship_PhoneChanging(value);
+					this.SendPropertyChanging();
+					this._ship_Phone = value;
+					this.SendPropertyChanged("ship_Phone");
+					this.Onship_PhoneChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Shipping_Address_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Shipping_id", OtherKey="Shipping_id")]
+		public EntitySet<ecommerce_Order> ecommerce_Orders
+		{
+			get
+			{
+				return this._ecommerce_Orders;
+			}
+			set
+			{
+				this._ecommerce_Orders.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Shipping_Address = this;
+		}
+		
+		private void detach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Shipping_Address = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Promocode")]
+	public partial class ecommerce_Promocode : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Promocode_id;
+		
+		private string _code;
+		
+		private string _Promo_Discount;
+		
+		private System.Nullable<int> _Customer_id;
+		
+		private EntitySet<ecommerce_Order> _ecommerce_Orders;
+		
+		private EntityRef<ecommerce_Customer_registration> _ecommerce_Customer_registration;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPromocode_idChanging(int value);
+    partial void OnPromocode_idChanged();
+    partial void OncodeChanging(string value);
+    partial void OncodeChanged();
+    partial void OnPromo_DiscountChanging(string value);
+    partial void OnPromo_DiscountChanged();
+    partial void OnCustomer_idChanging(System.Nullable<int> value);
+    partial void OnCustomer_idChanged();
+    #endregion
+		
+		public ecommerce_Promocode()
+		{
+			this._ecommerce_Orders = new EntitySet<ecommerce_Order>(new Action<ecommerce_Order>(this.attach_ecommerce_Orders), new Action<ecommerce_Order>(this.detach_ecommerce_Orders));
+			this._ecommerce_Customer_registration = default(EntityRef<ecommerce_Customer_registration>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promocode_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Promocode_id
+		{
+			get
+			{
+				return this._Promocode_id;
+			}
+			set
+			{
+				if ((this._Promocode_id != value))
+				{
+					this.OnPromocode_idChanging(value);
+					this.SendPropertyChanging();
+					this._Promocode_id = value;
+					this.SendPropertyChanged("Promocode_id");
+					this.OnPromocode_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="NVarChar(50)")]
+		public string code
+		{
+			get
+			{
+				return this._code;
+			}
+			set
+			{
+				if ((this._code != value))
+				{
+					this.OncodeChanging(value);
+					this.SendPropertyChanging();
+					this._code = value;
+					this.SendPropertyChanged("code");
+					this.OncodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Promo_Discount", DbType="NVarChar(100)")]
+		public string Promo_Discount
+		{
+			get
+			{
+				return this._Promo_Discount;
+			}
+			set
+			{
+				if ((this._Promo_Discount != value))
+				{
+					this.OnPromo_DiscountChanging(value);
+					this.SendPropertyChanging();
+					this._Promo_Discount = value;
+					this.SendPropertyChanged("Promo_Discount");
+					this.OnPromo_DiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_id", DbType="Int")]
+		public System.Nullable<int> Customer_id
+		{
+			get
+			{
+				return this._Customer_id;
+			}
+			set
+			{
+				if ((this._Customer_id != value))
+				{
+					if (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCustomer_idChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_id = value;
+					this.SendPropertyChanged("Customer_id");
+					this.OnCustomer_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Promocode_ecommerce_Order", Storage="_ecommerce_Orders", ThisKey="Promocode_id", OtherKey="Promocode_id")]
+		public EntitySet<ecommerce_Order> ecommerce_Orders
+		{
+			get
+			{
+				return this._ecommerce_Orders;
+			}
+			set
+			{
+				this._ecommerce_Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Customer_registration_ecommerce_Promocode", Storage="_ecommerce_Customer_registration", ThisKey="Customer_id", OtherKey="Customer_id", IsForeignKey=true)]
+		public ecommerce_Customer_registration ecommerce_Customer_registration
+		{
+			get
+			{
+				return this._ecommerce_Customer_registration.Entity;
+			}
+			set
+			{
+				ecommerce_Customer_registration previousValue = this._ecommerce_Customer_registration.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Customer_registration.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Customer_registration.Entity = null;
+						previousValue.ecommerce_Promocodes.Remove(this);
+					}
+					this._ecommerce_Customer_registration.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Promocodes.Add(this);
+						this._Customer_id = value.Customer_id;
+					}
+					else
+					{
+						this._Customer_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Customer_registration");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Promocode = this;
+		}
+		
+		private void detach_ecommerce_Orders(ecommerce_Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Promocode = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_CountryDetail")]
+	public partial class ecommerce_CountryDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Country_id;
+		
+		private string _Country_Name;
+		
+		private System.Nullable<int> _Country_Code;
+		
+		private EntitySet<ecommerce_StateDetail> _ecommerce_StateDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCountry_idChanging(int value);
+    partial void OnCountry_idChanged();
+    partial void OnCountry_NameChanging(string value);
+    partial void OnCountry_NameChanged();
+    partial void OnCountry_CodeChanging(System.Nullable<int> value);
+    partial void OnCountry_CodeChanged();
+    #endregion
+		
+		public ecommerce_CountryDetail()
+		{
+			this._ecommerce_StateDetails = new EntitySet<ecommerce_StateDetail>(new Action<ecommerce_StateDetail>(this.attach_ecommerce_StateDetails), new Action<ecommerce_StateDetail>(this.detach_ecommerce_StateDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Country_id
+		{
+			get
+			{
+				return this._Country_id;
+			}
+			set
+			{
+				if ((this._Country_id != value))
+				{
+					this.OnCountry_idChanging(value);
+					this.SendPropertyChanging();
+					this._Country_id = value;
+					this.SendPropertyChanged("Country_id");
+					this.OnCountry_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country_Name", DbType="NVarChar(50)")]
+		public string Country_Name
+		{
+			get
+			{
+				return this._Country_Name;
+			}
+			set
+			{
+				if ((this._Country_Name != value))
+				{
+					this.OnCountry_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Country_Name = value;
+					this.SendPropertyChanged("Country_Name");
+					this.OnCountry_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country_Code", DbType="Int")]
+		public System.Nullable<int> Country_Code
+		{
+			get
+			{
+				return this._Country_Code;
+			}
+			set
+			{
+				if ((this._Country_Code != value))
+				{
+					this.OnCountry_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Country_Code = value;
+					this.SendPropertyChanged("Country_Code");
+					this.OnCountry_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_CountryDetail_ecommerce_StateDetail", Storage="_ecommerce_StateDetails", ThisKey="Country_id", OtherKey="FkCountry_id")]
+		public EntitySet<ecommerce_StateDetail> ecommerce_StateDetails
+		{
+			get
+			{
+				return this._ecommerce_StateDetails;
+			}
+			set
+			{
+				this._ecommerce_StateDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_StateDetails(ecommerce_StateDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_CountryDetail = this;
+		}
+		
+		private void detach_ecommerce_StateDetails(ecommerce_StateDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_CountryDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_StateDetail")]
+	public partial class ecommerce_StateDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _State_id;
+		
+		private string _State_Name;
+		
+		private System.Nullable<int> _FkCountry_id;
+		
+		private EntityRef<ecommerce_CountryDetail> _ecommerce_CountryDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnState_idChanging(int value);
+    partial void OnState_idChanged();
+    partial void OnState_NameChanging(string value);
+    partial void OnState_NameChanged();
+    partial void OnFkCountry_idChanging(System.Nullable<int> value);
+    partial void OnFkCountry_idChanged();
+    #endregion
+		
+		public ecommerce_StateDetail()
+		{
+			this._ecommerce_CountryDetail = default(EntityRef<ecommerce_CountryDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int State_id
+		{
+			get
+			{
+				return this._State_id;
+			}
+			set
+			{
+				if ((this._State_id != value))
+				{
+					this.OnState_idChanging(value);
+					this.SendPropertyChanging();
+					this._State_id = value;
+					this.SendPropertyChanged("State_id");
+					this.OnState_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State_Name", DbType="NVarChar(50)")]
+		public string State_Name
+		{
+			get
+			{
+				return this._State_Name;
+			}
+			set
+			{
+				if ((this._State_Name != value))
+				{
+					this.OnState_NameChanging(value);
+					this.SendPropertyChanging();
+					this._State_Name = value;
+					this.SendPropertyChanged("State_Name");
+					this.OnState_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FkCountry_id", DbType="Int")]
+		public System.Nullable<int> FkCountry_id
+		{
+			get
+			{
+				return this._FkCountry_id;
+			}
+			set
+			{
+				if ((this._FkCountry_id != value))
+				{
+					if (this._ecommerce_CountryDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFkCountry_idChanging(value);
+					this.SendPropertyChanging();
+					this._FkCountry_id = value;
+					this.SendPropertyChanged("FkCountry_id");
+					this.OnFkCountry_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_CountryDetail_ecommerce_StateDetail", Storage="_ecommerce_CountryDetail", ThisKey="FkCountry_id", OtherKey="Country_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_CountryDetail ecommerce_CountryDetail
+		{
+			get
+			{
+				return this._ecommerce_CountryDetail.Entity;
+			}
+			set
+			{
+				ecommerce_CountryDetail previousValue = this._ecommerce_CountryDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_CountryDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_CountryDetail.Entity = null;
+						previousValue.ecommerce_StateDetails.Remove(this);
+					}
+					this._ecommerce_CountryDetail.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_StateDetails.Add(this);
+						this._FkCountry_id = value.Country_id;
+					}
+					else
+					{
+						this._FkCountry_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_CountryDetail");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -5708,516 +5509,6 @@ namespace DAL
 		}
 	}
 	
-	public partial class sp_ecommerce_Shipping_AddressNewInsertCommandResult
-	{
-		
-		private int _Shipping_id;
-		
-		private string _ship_Name;
-		
-		private string _ship_Address;
-		
-		private System.Nullable<int> _ship_Zipcode;
-		
-		private string _ship_City;
-		
-		private string _ship_State;
-		
-		private string _ship_Country;
-		
-		private string _ship_Mail;
-		
-		private System.Nullable<long> _ship_Phone;
-		
-		public sp_ecommerce_Shipping_AddressNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
-		public int Shipping_id
-		{
-			get
-			{
-				return this._Shipping_id;
-			}
-			set
-			{
-				if ((this._Shipping_id != value))
-				{
-					this._Shipping_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
-		public string ship_Name
-		{
-			get
-			{
-				return this._ship_Name;
-			}
-			set
-			{
-				if ((this._ship_Name != value))
-				{
-					this._ship_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
-		public string ship_Address
-		{
-			get
-			{
-				return this._ship_Address;
-			}
-			set
-			{
-				if ((this._ship_Address != value))
-				{
-					this._ship_Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
-		public System.Nullable<int> ship_Zipcode
-		{
-			get
-			{
-				return this._ship_Zipcode;
-			}
-			set
-			{
-				if ((this._ship_Zipcode != value))
-				{
-					this._ship_Zipcode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
-		public string ship_City
-		{
-			get
-			{
-				return this._ship_City;
-			}
-			set
-			{
-				if ((this._ship_City != value))
-				{
-					this._ship_City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="NVarChar(50)")]
-		public string ship_State
-		{
-			get
-			{
-				return this._ship_State;
-			}
-			set
-			{
-				if ((this._ship_State != value))
-				{
-					this._ship_State = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="NVarChar(50)")]
-		public string ship_Country
-		{
-			get
-			{
-				return this._ship_Country;
-			}
-			set
-			{
-				if ((this._ship_Country != value))
-				{
-					this._ship_Country = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
-		public string ship_Mail
-		{
-			get
-			{
-				return this._ship_Mail;
-			}
-			set
-			{
-				if ((this._ship_Mail != value))
-				{
-					this._ship_Mail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
-		public System.Nullable<long> ship_Phone
-		{
-			get
-			{
-				return this._ship_Phone;
-			}
-			set
-			{
-				if ((this._ship_Phone != value))
-				{
-					this._ship_Phone = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ecommerce_Shipping_AddressNewSelectCommandResult
-	{
-		
-		private int _Shipping_id;
-		
-		private string _ship_Name;
-		
-		private string _ship_Address;
-		
-		private System.Nullable<int> _ship_Zipcode;
-		
-		private string _ship_City;
-		
-		private string _ship_State;
-		
-		private string _ship_Country;
-		
-		private string _ship_Mail;
-		
-		private System.Nullable<long> _ship_Phone;
-		
-		public sp_ecommerce_Shipping_AddressNewSelectCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
-		public int Shipping_id
-		{
-			get
-			{
-				return this._Shipping_id;
-			}
-			set
-			{
-				if ((this._Shipping_id != value))
-				{
-					this._Shipping_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
-		public string ship_Name
-		{
-			get
-			{
-				return this._ship_Name;
-			}
-			set
-			{
-				if ((this._ship_Name != value))
-				{
-					this._ship_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
-		public string ship_Address
-		{
-			get
-			{
-				return this._ship_Address;
-			}
-			set
-			{
-				if ((this._ship_Address != value))
-				{
-					this._ship_Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
-		public System.Nullable<int> ship_Zipcode
-		{
-			get
-			{
-				return this._ship_Zipcode;
-			}
-			set
-			{
-				if ((this._ship_Zipcode != value))
-				{
-					this._ship_Zipcode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
-		public string ship_City
-		{
-			get
-			{
-				return this._ship_City;
-			}
-			set
-			{
-				if ((this._ship_City != value))
-				{
-					this._ship_City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="NVarChar(50)")]
-		public string ship_State
-		{
-			get
-			{
-				return this._ship_State;
-			}
-			set
-			{
-				if ((this._ship_State != value))
-				{
-					this._ship_State = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="NVarChar(50)")]
-		public string ship_Country
-		{
-			get
-			{
-				return this._ship_Country;
-			}
-			set
-			{
-				if ((this._ship_Country != value))
-				{
-					this._ship_Country = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
-		public string ship_Mail
-		{
-			get
-			{
-				return this._ship_Mail;
-			}
-			set
-			{
-				if ((this._ship_Mail != value))
-				{
-					this._ship_Mail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
-		public System.Nullable<long> ship_Phone
-		{
-			get
-			{
-				return this._ship_Phone;
-			}
-			set
-			{
-				if ((this._ship_Phone != value))
-				{
-					this._ship_Phone = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ecommerce_Shipping_AddressNewUpdateCommandResult
-	{
-		
-		private int _Shipping_id;
-		
-		private string _ship_Name;
-		
-		private string _ship_Address;
-		
-		private System.Nullable<int> _ship_Zipcode;
-		
-		private string _ship_City;
-		
-		private string _ship_State;
-		
-		private string _ship_Country;
-		
-		private string _ship_Mail;
-		
-		private System.Nullable<long> _ship_Phone;
-		
-		public sp_ecommerce_Shipping_AddressNewUpdateCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
-		public int Shipping_id
-		{
-			get
-			{
-				return this._Shipping_id;
-			}
-			set
-			{
-				if ((this._Shipping_id != value))
-				{
-					this._Shipping_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
-		public string ship_Name
-		{
-			get
-			{
-				return this._ship_Name;
-			}
-			set
-			{
-				if ((this._ship_Name != value))
-				{
-					this._ship_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
-		public string ship_Address
-		{
-			get
-			{
-				return this._ship_Address;
-			}
-			set
-			{
-				if ((this._ship_Address != value))
-				{
-					this._ship_Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
-		public System.Nullable<int> ship_Zipcode
-		{
-			get
-			{
-				return this._ship_Zipcode;
-			}
-			set
-			{
-				if ((this._ship_Zipcode != value))
-				{
-					this._ship_Zipcode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
-		public string ship_City
-		{
-			get
-			{
-				return this._ship_City;
-			}
-			set
-			{
-				if ((this._ship_City != value))
-				{
-					this._ship_City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="NVarChar(50)")]
-		public string ship_State
-		{
-			get
-			{
-				return this._ship_State;
-			}
-			set
-			{
-				if ((this._ship_State != value))
-				{
-					this._ship_State = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="NVarChar(50)")]
-		public string ship_Country
-		{
-			get
-			{
-				return this._ship_Country;
-			}
-			set
-			{
-				if ((this._ship_Country != value))
-				{
-					this._ship_Country = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
-		public string ship_Mail
-		{
-			get
-			{
-				return this._ship_Mail;
-			}
-			set
-			{
-				if ((this._ship_Mail != value))
-				{
-					this._ship_Mail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
-		public System.Nullable<long> ship_Phone
-		{
-			get
-			{
-				return this._ship_Phone;
-			}
-			set
-			{
-				if ((this._ship_Phone != value))
-				{
-					this._ship_Phone = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_ecommerce_Customer_registrationNewSelectCommandResult
 	{
 		
@@ -7155,6 +6446,1026 @@ namespace DAL
 				if ((this._Sms_Subs != value))
 				{
 					this._Sms_Subs = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Billing_AddressNewInsertCommandResult
+	{
+		
+		private int _billing_id;
+		
+		private string _bil_Name;
+		
+		private string _bill_Address;
+		
+		private System.Nullable<int> _bill_zipcode;
+		
+		private string _bill_City;
+		
+		private System.Nullable<int> _bill_State;
+		
+		private System.Nullable<int> _bill_Country;
+		
+		private string _bill_Mail;
+		
+		private System.Nullable<long> _bill_Phone;
+		
+		public sp_ecommerce_Billing_AddressNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
+		public int billing_id
+		{
+			get
+			{
+				return this._billing_id;
+			}
+			set
+			{
+				if ((this._billing_id != value))
+				{
+					this._billing_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
+		public string bil_Name
+		{
+			get
+			{
+				return this._bil_Name;
+			}
+			set
+			{
+				if ((this._bil_Name != value))
+				{
+					this._bil_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
+		public string bill_Address
+		{
+			get
+			{
+				return this._bill_Address;
+			}
+			set
+			{
+				if ((this._bill_Address != value))
+				{
+					this._bill_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
+		public System.Nullable<int> bill_zipcode
+		{
+			get
+			{
+				return this._bill_zipcode;
+			}
+			set
+			{
+				if ((this._bill_zipcode != value))
+				{
+					this._bill_zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
+		public string bill_City
+		{
+			get
+			{
+				return this._bill_City;
+			}
+			set
+			{
+				if ((this._bill_City != value))
+				{
+					this._bill_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="Int")]
+		public System.Nullable<int> bill_State
+		{
+			get
+			{
+				return this._bill_State;
+			}
+			set
+			{
+				if ((this._bill_State != value))
+				{
+					this._bill_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="Int")]
+		public System.Nullable<int> bill_Country
+		{
+			get
+			{
+				return this._bill_Country;
+			}
+			set
+			{
+				if ((this._bill_Country != value))
+				{
+					this._bill_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
+		public string bill_Mail
+		{
+			get
+			{
+				return this._bill_Mail;
+			}
+			set
+			{
+				if ((this._bill_Mail != value))
+				{
+					this._bill_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
+		public System.Nullable<long> bill_Phone
+		{
+			get
+			{
+				return this._bill_Phone;
+			}
+			set
+			{
+				if ((this._bill_Phone != value))
+				{
+					this._bill_Phone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Billing_AddressNewSelectCommandResult
+	{
+		
+		private int _billing_id;
+		
+		private string _bil_Name;
+		
+		private string _bill_Address;
+		
+		private System.Nullable<int> _bill_zipcode;
+		
+		private string _bill_City;
+		
+		private System.Nullable<int> _bill_State;
+		
+		private System.Nullable<int> _bill_Country;
+		
+		private string _bill_Mail;
+		
+		private System.Nullable<long> _bill_Phone;
+		
+		public sp_ecommerce_Billing_AddressNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
+		public int billing_id
+		{
+			get
+			{
+				return this._billing_id;
+			}
+			set
+			{
+				if ((this._billing_id != value))
+				{
+					this._billing_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
+		public string bil_Name
+		{
+			get
+			{
+				return this._bil_Name;
+			}
+			set
+			{
+				if ((this._bil_Name != value))
+				{
+					this._bil_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
+		public string bill_Address
+		{
+			get
+			{
+				return this._bill_Address;
+			}
+			set
+			{
+				if ((this._bill_Address != value))
+				{
+					this._bill_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
+		public System.Nullable<int> bill_zipcode
+		{
+			get
+			{
+				return this._bill_zipcode;
+			}
+			set
+			{
+				if ((this._bill_zipcode != value))
+				{
+					this._bill_zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
+		public string bill_City
+		{
+			get
+			{
+				return this._bill_City;
+			}
+			set
+			{
+				if ((this._bill_City != value))
+				{
+					this._bill_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="Int")]
+		public System.Nullable<int> bill_State
+		{
+			get
+			{
+				return this._bill_State;
+			}
+			set
+			{
+				if ((this._bill_State != value))
+				{
+					this._bill_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="Int")]
+		public System.Nullable<int> bill_Country
+		{
+			get
+			{
+				return this._bill_Country;
+			}
+			set
+			{
+				if ((this._bill_Country != value))
+				{
+					this._bill_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
+		public string bill_Mail
+		{
+			get
+			{
+				return this._bill_Mail;
+			}
+			set
+			{
+				if ((this._bill_Mail != value))
+				{
+					this._bill_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
+		public System.Nullable<long> bill_Phone
+		{
+			get
+			{
+				return this._bill_Phone;
+			}
+			set
+			{
+				if ((this._bill_Phone != value))
+				{
+					this._bill_Phone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Billing_AddressNewUpdateCommandResult
+	{
+		
+		private int _billing_id;
+		
+		private string _bil_Name;
+		
+		private string _bill_Address;
+		
+		private System.Nullable<int> _bill_zipcode;
+		
+		private string _bill_City;
+		
+		private System.Nullable<int> _bill_State;
+		
+		private System.Nullable<int> _bill_Country;
+		
+		private string _bill_Mail;
+		
+		private System.Nullable<long> _bill_Phone;
+		
+		public sp_ecommerce_Billing_AddressNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_billing_id", DbType="Int NOT NULL")]
+		public int billing_id
+		{
+			get
+			{
+				return this._billing_id;
+			}
+			set
+			{
+				if ((this._billing_id != value))
+				{
+					this._billing_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bil_Name", DbType="NVarChar(50)")]
+		public string bil_Name
+		{
+			get
+			{
+				return this._bil_Name;
+			}
+			set
+			{
+				if ((this._bil_Name != value))
+				{
+					this._bil_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Address", DbType="NVarChar(500)")]
+		public string bill_Address
+		{
+			get
+			{
+				return this._bill_Address;
+			}
+			set
+			{
+				if ((this._bill_Address != value))
+				{
+					this._bill_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_zipcode", DbType="Int")]
+		public System.Nullable<int> bill_zipcode
+		{
+			get
+			{
+				return this._bill_zipcode;
+			}
+			set
+			{
+				if ((this._bill_zipcode != value))
+				{
+					this._bill_zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_City", DbType="NVarChar(50)")]
+		public string bill_City
+		{
+			get
+			{
+				return this._bill_City;
+			}
+			set
+			{
+				if ((this._bill_City != value))
+				{
+					this._bill_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_State", DbType="Int")]
+		public System.Nullable<int> bill_State
+		{
+			get
+			{
+				return this._bill_State;
+			}
+			set
+			{
+				if ((this._bill_State != value))
+				{
+					this._bill_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Country", DbType="Int")]
+		public System.Nullable<int> bill_Country
+		{
+			get
+			{
+				return this._bill_Country;
+			}
+			set
+			{
+				if ((this._bill_Country != value))
+				{
+					this._bill_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Mail", DbType="NVarChar(50)")]
+		public string bill_Mail
+		{
+			get
+			{
+				return this._bill_Mail;
+			}
+			set
+			{
+				if ((this._bill_Mail != value))
+				{
+					this._bill_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bill_Phone", DbType="BigInt")]
+		public System.Nullable<long> bill_Phone
+		{
+			get
+			{
+				return this._bill_Phone;
+			}
+			set
+			{
+				if ((this._bill_Phone != value))
+				{
+					this._bill_Phone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Shipping_AddressNewInsertCommandResult
+	{
+		
+		private int _Shipping_id;
+		
+		private string _ship_Name;
+		
+		private string _ship_Address;
+		
+		private System.Nullable<int> _ship_Zipcode;
+		
+		private string _ship_City;
+		
+		private System.Nullable<int> _ship_State;
+		
+		private System.Nullable<int> _ship_Country;
+		
+		private string _ship_Mail;
+		
+		private System.Nullable<long> _ship_Phone;
+		
+		public sp_ecommerce_Shipping_AddressNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
+		public int Shipping_id
+		{
+			get
+			{
+				return this._Shipping_id;
+			}
+			set
+			{
+				if ((this._Shipping_id != value))
+				{
+					this._Shipping_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
+		public string ship_Name
+		{
+			get
+			{
+				return this._ship_Name;
+			}
+			set
+			{
+				if ((this._ship_Name != value))
+				{
+					this._ship_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
+		public string ship_Address
+		{
+			get
+			{
+				return this._ship_Address;
+			}
+			set
+			{
+				if ((this._ship_Address != value))
+				{
+					this._ship_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
+		public System.Nullable<int> ship_Zipcode
+		{
+			get
+			{
+				return this._ship_Zipcode;
+			}
+			set
+			{
+				if ((this._ship_Zipcode != value))
+				{
+					this._ship_Zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
+		public string ship_City
+		{
+			get
+			{
+				return this._ship_City;
+			}
+			set
+			{
+				if ((this._ship_City != value))
+				{
+					this._ship_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="Int")]
+		public System.Nullable<int> ship_State
+		{
+			get
+			{
+				return this._ship_State;
+			}
+			set
+			{
+				if ((this._ship_State != value))
+				{
+					this._ship_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="Int")]
+		public System.Nullable<int> ship_Country
+		{
+			get
+			{
+				return this._ship_Country;
+			}
+			set
+			{
+				if ((this._ship_Country != value))
+				{
+					this._ship_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
+		public string ship_Mail
+		{
+			get
+			{
+				return this._ship_Mail;
+			}
+			set
+			{
+				if ((this._ship_Mail != value))
+				{
+					this._ship_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
+		public System.Nullable<long> ship_Phone
+		{
+			get
+			{
+				return this._ship_Phone;
+			}
+			set
+			{
+				if ((this._ship_Phone != value))
+				{
+					this._ship_Phone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Shipping_AddressNewSelectCommandResult
+	{
+		
+		private int _Shipping_id;
+		
+		private string _ship_Name;
+		
+		private string _ship_Address;
+		
+		private System.Nullable<int> _ship_Zipcode;
+		
+		private string _ship_City;
+		
+		private System.Nullable<int> _ship_State;
+		
+		private System.Nullable<int> _ship_Country;
+		
+		private string _ship_Mail;
+		
+		private System.Nullable<long> _ship_Phone;
+		
+		public sp_ecommerce_Shipping_AddressNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
+		public int Shipping_id
+		{
+			get
+			{
+				return this._Shipping_id;
+			}
+			set
+			{
+				if ((this._Shipping_id != value))
+				{
+					this._Shipping_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
+		public string ship_Name
+		{
+			get
+			{
+				return this._ship_Name;
+			}
+			set
+			{
+				if ((this._ship_Name != value))
+				{
+					this._ship_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
+		public string ship_Address
+		{
+			get
+			{
+				return this._ship_Address;
+			}
+			set
+			{
+				if ((this._ship_Address != value))
+				{
+					this._ship_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
+		public System.Nullable<int> ship_Zipcode
+		{
+			get
+			{
+				return this._ship_Zipcode;
+			}
+			set
+			{
+				if ((this._ship_Zipcode != value))
+				{
+					this._ship_Zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
+		public string ship_City
+		{
+			get
+			{
+				return this._ship_City;
+			}
+			set
+			{
+				if ((this._ship_City != value))
+				{
+					this._ship_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="Int")]
+		public System.Nullable<int> ship_State
+		{
+			get
+			{
+				return this._ship_State;
+			}
+			set
+			{
+				if ((this._ship_State != value))
+				{
+					this._ship_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="Int")]
+		public System.Nullable<int> ship_Country
+		{
+			get
+			{
+				return this._ship_Country;
+			}
+			set
+			{
+				if ((this._ship_Country != value))
+				{
+					this._ship_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
+		public string ship_Mail
+		{
+			get
+			{
+				return this._ship_Mail;
+			}
+			set
+			{
+				if ((this._ship_Mail != value))
+				{
+					this._ship_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
+		public System.Nullable<long> ship_Phone
+		{
+			get
+			{
+				return this._ship_Phone;
+			}
+			set
+			{
+				if ((this._ship_Phone != value))
+				{
+					this._ship_Phone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_Shipping_AddressNewUpdateCommandResult
+	{
+		
+		private int _Shipping_id;
+		
+		private string _ship_Name;
+		
+		private string _ship_Address;
+		
+		private System.Nullable<int> _ship_Zipcode;
+		
+		private string _ship_City;
+		
+		private System.Nullable<int> _ship_State;
+		
+		private System.Nullable<int> _ship_Country;
+		
+		private string _ship_Mail;
+		
+		private System.Nullable<long> _ship_Phone;
+		
+		public sp_ecommerce_Shipping_AddressNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipping_id", DbType="Int NOT NULL")]
+		public int Shipping_id
+		{
+			get
+			{
+				return this._Shipping_id;
+			}
+			set
+			{
+				if ((this._Shipping_id != value))
+				{
+					this._Shipping_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Name", DbType="NVarChar(50)")]
+		public string ship_Name
+		{
+			get
+			{
+				return this._ship_Name;
+			}
+			set
+			{
+				if ((this._ship_Name != value))
+				{
+					this._ship_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Address", DbType="NVarChar(500)")]
+		public string ship_Address
+		{
+			get
+			{
+				return this._ship_Address;
+			}
+			set
+			{
+				if ((this._ship_Address != value))
+				{
+					this._ship_Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Zipcode", DbType="Int")]
+		public System.Nullable<int> ship_Zipcode
+		{
+			get
+			{
+				return this._ship_Zipcode;
+			}
+			set
+			{
+				if ((this._ship_Zipcode != value))
+				{
+					this._ship_Zipcode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_City", DbType="NVarChar(50)")]
+		public string ship_City
+		{
+			get
+			{
+				return this._ship_City;
+			}
+			set
+			{
+				if ((this._ship_City != value))
+				{
+					this._ship_City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_State", DbType="Int")]
+		public System.Nullable<int> ship_State
+		{
+			get
+			{
+				return this._ship_State;
+			}
+			set
+			{
+				if ((this._ship_State != value))
+				{
+					this._ship_State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Country", DbType="Int")]
+		public System.Nullable<int> ship_Country
+		{
+			get
+			{
+				return this._ship_Country;
+			}
+			set
+			{
+				if ((this._ship_Country != value))
+				{
+					this._ship_Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Mail", DbType="NVarChar(50)")]
+		public string ship_Mail
+		{
+			get
+			{
+				return this._ship_Mail;
+			}
+			set
+			{
+				if ((this._ship_Mail != value))
+				{
+					this._ship_Mail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ship_Phone", DbType="BigInt")]
+		public System.Nullable<long> ship_Phone
+		{
+			get
+			{
+				return this._ship_Phone;
+			}
+			set
+			{
+				if ((this._ship_Phone != value))
+				{
+					this._ship_Phone = value;
 				}
 			}
 		}

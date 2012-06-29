@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ClientSide.master.cs" Inherits="ClientSide" %>
 
-<%@ Register src="ucLoginandLogout.ascx" tagname="ucLoginandLogout" tagprefix="uc1" %>
-
+<%@ Register Src="ucLoginandLogout.ascx" TagName="ucLoginandLogout" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -26,11 +25,15 @@
         <table width="1000px" align="center" style="background-color: #666666;" class="round">
             <tr>
                 <td height="152px" style="background-image: url('images/title.png'); background-repeat: repeat-x">
-                    <table>
+                    <table align="left" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>
                                 <img alt="logo" src="images/logo.png" />
                             </td>
+                        </tr>
+                    </table>
+                    <table align="right" cellpadding="0" cellspacing="0">
+                        <tr>
                             <td>
                                 <uc1:ucLoginandLogout ID="ucLoginandLogout1" runat="server" />
                             </td>

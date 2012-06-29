@@ -63,6 +63,7 @@ public partial class MyCart : System.Web.UI.Page
         obj = (Dictionary<int, int>)Session["Cart"];
         obj.Remove(Convert.ToInt32(lnk.CommandArgument));
         Session["Cart"] = obj;
+        Session["item"] = obj.Count();
         BindGrid();
         calculateTotal();
     }
@@ -81,9 +82,12 @@ public partial class MyCart : System.Web.UI.Page
         int total = 0;
         foreach (GridViewRow item in GridView1.Rows)
         {
-            int lb=Convert.ToInt32(((Label)GridView1.Rows[item.RowIndex].FindControl("lbTotal")).Text);
+            int lb = Convert.ToInt32(((Label)GridView1.Rows[item.RowIndex].FindControl("lbTotal")).Text);
             total += lb;
         }
-        ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
+        //if (!string.IsNullOrEmpty(Convert.ToString(Session["Email"])))
+        //{
+            ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
+        //}
     }
 }
