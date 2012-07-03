@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DAL;
 
 public partial class ucDiscription : System.Web.UI.UserControl
 {
@@ -19,32 +20,59 @@ public partial class ucDiscription : System.Web.UI.UserControl
         {
             ViewState["productID"] = Convert.ToInt32(Request.QueryString["productID"]);
             var product = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ViewState["productID"])).Select(a => a).FirstOrDefault();
+            var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"])).Select(a => a);
+            Dictionary<int, int> ColorSize = new Dictionary<int, int>();
+            foreach (var item in source)
+            {
+                ColorSize.Add(Convert.ToInt32(item.fkColor_id), Convert.ToInt32(item.fkSize_id));
+            }
             lbName.Text = Convert.ToString(product.Product_name);
-            lbPrice.Text = Convert.ToString(product.Price);
+            //lbPrice.Text = Convert.ToString(product.Price);
             imgProduct.ImageUrl = product.Image;
             lbDescription.Text = Convert.ToString(product.Description);
-            Bindcolor(product.OptionTitle);
-            Bindsize(product.OptionContent);
+            Bindcolor(ColorSize);
+            Bindsize(ColorSize);
             CalculateTotal();
         }
 
     }
 
-    private void Bindsize(string p)
+    private void Bindsize(Dictionary<int, int> ColorSize)
     {
-        List<string> size = new List<string>();
-        size = p.Split(',').ToList();
-        ddlSize.DataSource = size;
-        ddlSize.DataBind();
+        using (eCommerceDataContext dataDB = new eCommerceDataContext())
+        {
+            Dictionary<int, string> local = new Dictionary<int, string>();
+            foreach (var item in ColorSize)
+            {
+                string color = Convert.ToString((from a in dataDB.ecommerce_Sizes where a.Size_id == item.Value select a.Size_values).FirstOrDefault());
+                local.Add(item.Key, color);
+            }
+            ddlSize.DataSource = local;
+            ddlSize.DataTextField = "Value";
+            ddlSize.DataValueField = "Key";
+            ddlSize.DataBind();
+        }
     }
 
-    private void Bindcolor(string p)
+    private void Bindcolor(Dictionary<int, int> ColorSize)
     {
-        List<string> color = new List<string>();
-        color = p.Split(',').ToList();
-        ddlColor.DataSource = color;
-        ddlColor.DataBind();
+        using (eCommerceDataContext dataDB = new eCommerceDataContext())
+        {
+            Dictionary<int, string> local = new Dictionary<int, string>();
+            foreach (var item in ColorSize)
+            {
+                string color = Convert.ToString((from a in dataDB.ecommerce_Colors where a.Color_id == item.Key select a.Color).FirstOrDefault());
+                local.Add(item.Key, color);
+            }
+            ddlColor.DataSource = local;
+            ddlColor.DataTextField = "Value";
+            ddlColor.DataValueField = "Key";
+            ddlColor.DataBind();
+        }
+
     }
+
+   
     protected void imgBuyNow_Click(object sender, ImageClickEventArgs e)
     {
         Dictionary<int, int> obj = new Dictionary<int, int>();
