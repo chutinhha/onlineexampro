@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using DAL;
+using System.Configuration;
 
 /// <summary>
 /// Summary description for eCommerceHelper
@@ -23,7 +24,7 @@ public class eCommerceHelper
         {
             if (HttpContext.Current.Items.Contains(key) == false)
             {
-                var obj = new eCommerceDataContext(@"Data Source=iconstech\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True");
+                var obj = new eCommerceDataContext();
                 HttpContext.Current.Items.Add(key, obj);
                 return obj;
             }
@@ -39,7 +40,7 @@ public class eCommerceHelper
         {
             if (HttpContext.Current.Items.Contains(key) == false)
             {
-                SqlConnection obj = new SqlConnection("");
+                SqlConnection obj = new SqlConnection(ConfigurationManager.ConnectionStrings["InfinitiClothingConnectionString"].ConnectionString);
                 HttpContext.Current.Items.Add(key, obj);
                 return obj;
             }
