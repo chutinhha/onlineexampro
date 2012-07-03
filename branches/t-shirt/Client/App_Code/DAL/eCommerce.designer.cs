@@ -356,34 +356,6 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand")]
-		public ISingleResult<sp_ecommerce_ProductdetailNewUpdateCommandResult> sp_ecommerce_ProductdetailNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_name", DbType="NVarChar(50)")] string product_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkCategory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image", DbType="NVarChar(50)")] string image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Short_Description", DbType="NVarChar(200)")] string short_Description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pro_Discount", DbType="NVarChar(100)")] string pro_Discount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Company", DbType="NVarChar(100)")] string company, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Product_id", DbType="Int")] System.Nullable<int> original_Product_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_id", DbType="Int")] System.Nullable<int> product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_name, fkCategory, image, description, short_Description, date, pro_Discount, company, original_Product_id, product_id);
-			return ((ISingleResult<sp_ecommerce_ProductdetailNewUpdateCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand")]
-		public ISingleResult<sp_ecommerce_ProductdetailNewSelectCommandResult> sp_ecommerce_ProductdetailNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ecommerce_ProductdetailNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand")]
-		public ISingleResult<sp_ecommerce_ProductdetailNewInsertCommandResult> sp_ecommerce_ProductdetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_name", DbType="NVarChar(50)")] string product_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkCategory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image", DbType="NVarChar(50)")] string image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Short_Description", DbType="NVarChar(200)")] string short_Description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pro_Discount", DbType="NVarChar(100)")] string pro_Discount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Company", DbType="NVarChar(100)")] string company)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_name, fkCategory, image, description, short_Description, date, pro_Discount, company);
-			return ((ISingleResult<sp_ecommerce_ProductdetailNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand")]
-		public int sp_ecommerce_ProductdetailNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Product_id", DbType="Int")] System.Nullable<int> original_Product_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Product_id);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_OrdersNewUpdateCommand")]
 		public ISingleResult<sp_ecommerce_OrdersNewUpdateCommandResult> sp_ecommerce_OrdersNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkCustomer_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_Date", DbType="DateTime")] System.Nullable<System.DateTime> order_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Shipping_tax", DbType="Decimal(18,2)")] System.Nullable<decimal> shipping_tax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tax", DbType="Decimal(18,2)")] System.Nullable<decimal> tax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_status", DbType="NVarChar(50)")] string order_status, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkBilling_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkShipping_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Total_Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> total_Amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Order_id", DbType="Int")] System.Nullable<int> original_Order_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Order_id", DbType="Int")] System.Nullable<int> order_id)
 		{
@@ -649,6 +621,34 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Item_id);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand")]
+		public ISingleResult<sp_ecommerce_ProductdetailNewInsertCommandResult> sp_ecommerce_ProductdetailNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_name", DbType="NVarChar(50)")] string product_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkCategory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image", DbType="NVarChar(50)")] string image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Short_Description", DbType="NVarChar(200)")] string short_Description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pro_Discount", DbType="NVarChar(100)")] string pro_Discount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Company", DbType="NVarChar(100)")] string company)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_name, fkCategory, image, description, short_Description, date, pro_Discount, company);
+			return ((ISingleResult<sp_ecommerce_ProductdetailNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand")]
+		public int sp_ecommerce_ProductdetailNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Product_id", DbType="Int")] System.Nullable<int> original_Product_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Product_id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand")]
+		public ISingleResult<sp_ecommerce_ProductdetailNewSelectCommandResult> sp_ecommerce_ProductdetailNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ecommerce_ProductdetailNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand")]
+		public ISingleResult<sp_ecommerce_ProductdetailNewUpdateCommandResult> sp_ecommerce_ProductdetailNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_name", DbType="NVarChar(50)")] string product_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkCategory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image", DbType="NVarChar(50)")] string image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Short_Description", DbType="NVarChar(200)")] string short_Description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pro_Discount", DbType="NVarChar(100)")] string pro_Discount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Company", DbType="NVarChar(100)")] string company, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Product_id", DbType="Int")] System.Nullable<int> original_Product_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Product_id", DbType="Int")] System.Nullable<int> product_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_name, fkCategory, image, description, short_Description, date, pro_Discount, company, original_Product_id, product_id);
+			return ((ISingleResult<sp_ecommerce_ProductdetailNewUpdateCommandResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -5501,516 +5501,6 @@ namespace DAL
 		}
 	}
 	
-	public partial class sp_ecommerce_ProductdetailNewUpdateCommandResult
-	{
-		
-		private int _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _fkCategory;
-		
-		private string _Image;
-		
-		private string _Description;
-		
-		private string _Short_Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _Pro_Discount;
-		
-		private string _Company;
-		
-		public sp_ecommerce_ProductdetailNewUpdateCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
-		public System.Nullable<int> fkCategory
-		{
-			get
-			{
-				return this._fkCategory;
-			}
-			set
-			{
-				if ((this._fkCategory != value))
-				{
-					this._fkCategory = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
-		public string Short_Description
-		{
-			get
-			{
-				return this._Short_Description;
-			}
-			set
-			{
-				if ((this._Short_Description != value))
-				{
-					this._Short_Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
-		public string Pro_Discount
-		{
-			get
-			{
-				return this._Pro_Discount;
-			}
-			set
-			{
-				if ((this._Pro_Discount != value))
-				{
-					this._Pro_Discount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this._Company = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ecommerce_ProductdetailNewSelectCommandResult
-	{
-		
-		private int _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _fkCategory;
-		
-		private string _Image;
-		
-		private string _Description;
-		
-		private string _Short_Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _Pro_Discount;
-		
-		private string _Company;
-		
-		public sp_ecommerce_ProductdetailNewSelectCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
-		public System.Nullable<int> fkCategory
-		{
-			get
-			{
-				return this._fkCategory;
-			}
-			set
-			{
-				if ((this._fkCategory != value))
-				{
-					this._fkCategory = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
-		public string Short_Description
-		{
-			get
-			{
-				return this._Short_Description;
-			}
-			set
-			{
-				if ((this._Short_Description != value))
-				{
-					this._Short_Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
-		public string Pro_Discount
-		{
-			get
-			{
-				return this._Pro_Discount;
-			}
-			set
-			{
-				if ((this._Pro_Discount != value))
-				{
-					this._Pro_Discount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this._Company = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ecommerce_ProductdetailNewInsertCommandResult
-	{
-		
-		private int _Product_id;
-		
-		private string _Product_name;
-		
-		private System.Nullable<int> _fkCategory;
-		
-		private string _Image;
-		
-		private string _Description;
-		
-		private string _Short_Description;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-		private string _Pro_Discount;
-		
-		private string _Company;
-		
-		public sp_ecommerce_ProductdetailNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
-		public int Product_id
-		{
-			get
-			{
-				return this._Product_id;
-			}
-			set
-			{
-				if ((this._Product_id != value))
-				{
-					this._Product_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
-		public string Product_name
-		{
-			get
-			{
-				return this._Product_name;
-			}
-			set
-			{
-				if ((this._Product_name != value))
-				{
-					this._Product_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
-		public System.Nullable<int> fkCategory
-		{
-			get
-			{
-				return this._fkCategory;
-			}
-			set
-			{
-				if ((this._fkCategory != value))
-				{
-					this._fkCategory = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this._Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
-		public string Short_Description
-		{
-			get
-			{
-				return this._Short_Description;
-			}
-			set
-			{
-				if ((this._Short_Description != value))
-				{
-					this._Short_Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
-		public string Pro_Discount
-		{
-			get
-			{
-				return this._Pro_Discount;
-			}
-			set
-			{
-				if ((this._Pro_Discount != value))
-				{
-					this._Pro_Discount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this._Company = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_ecommerce_OrdersNewUpdateCommandResult
 	{
 		
@@ -9060,6 +8550,516 @@ namespace DAL
 				if ((this._fkOrder_id != value))
 				{
 					this._fkOrder_id = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_ProductdetailNewInsertCommandResult
+	{
+		
+		private int _Product_id;
+		
+		private string _Product_name;
+		
+		private System.Nullable<int> _fkCategory;
+		
+		private string _Image;
+		
+		private string _Description;
+		
+		private string _Short_Description;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Pro_Discount;
+		
+		private string _Company;
+		
+		public sp_ecommerce_ProductdetailNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
+		public int Product_id
+		{
+			get
+			{
+				return this._Product_id;
+			}
+			set
+			{
+				if ((this._Product_id != value))
+				{
+					this._Product_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
+		public string Product_name
+		{
+			get
+			{
+				return this._Product_name;
+			}
+			set
+			{
+				if ((this._Product_name != value))
+				{
+					this._Product_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
+		public System.Nullable<int> fkCategory
+		{
+			get
+			{
+				return this._fkCategory;
+			}
+			set
+			{
+				if ((this._fkCategory != value))
+				{
+					this._fkCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
+		public string Short_Description
+		{
+			get
+			{
+				return this._Short_Description;
+			}
+			set
+			{
+				if ((this._Short_Description != value))
+				{
+					this._Short_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
+		public string Pro_Discount
+		{
+			get
+			{
+				return this._Pro_Discount;
+			}
+			set
+			{
+				if ((this._Pro_Discount != value))
+				{
+					this._Pro_Discount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this._Company = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_ProductdetailNewSelectCommandResult
+	{
+		
+		private int _Product_id;
+		
+		private string _Product_name;
+		
+		private System.Nullable<int> _fkCategory;
+		
+		private string _Image;
+		
+		private string _Description;
+		
+		private string _Short_Description;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Pro_Discount;
+		
+		private string _Company;
+		
+		public sp_ecommerce_ProductdetailNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
+		public int Product_id
+		{
+			get
+			{
+				return this._Product_id;
+			}
+			set
+			{
+				if ((this._Product_id != value))
+				{
+					this._Product_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
+		public string Product_name
+		{
+			get
+			{
+				return this._Product_name;
+			}
+			set
+			{
+				if ((this._Product_name != value))
+				{
+					this._Product_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
+		public System.Nullable<int> fkCategory
+		{
+			get
+			{
+				return this._fkCategory;
+			}
+			set
+			{
+				if ((this._fkCategory != value))
+				{
+					this._fkCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
+		public string Short_Description
+		{
+			get
+			{
+				return this._Short_Description;
+			}
+			set
+			{
+				if ((this._Short_Description != value))
+				{
+					this._Short_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
+		public string Pro_Discount
+		{
+			get
+			{
+				return this._Pro_Discount;
+			}
+			set
+			{
+				if ((this._Pro_Discount != value))
+				{
+					this._Pro_Discount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this._Company = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_ProductdetailNewUpdateCommandResult
+	{
+		
+		private int _Product_id;
+		
+		private string _Product_name;
+		
+		private System.Nullable<int> _fkCategory;
+		
+		private string _Image;
+		
+		private string _Description;
+		
+		private string _Short_Description;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Pro_Discount;
+		
+		private string _Company;
+		
+		public sp_ecommerce_ProductdetailNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_id", DbType="Int NOT NULL")]
+		public int Product_id
+		{
+			get
+			{
+				return this._Product_id;
+			}
+			set
+			{
+				if ((this._Product_id != value))
+				{
+					this._Product_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_name", DbType="NVarChar(50)")]
+		public string Product_name
+		{
+			get
+			{
+				return this._Product_name;
+			}
+			set
+			{
+				if ((this._Product_name != value))
+				{
+					this._Product_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkCategory", DbType="Int")]
+		public System.Nullable<int> fkCategory
+		{
+			get
+			{
+				return this._fkCategory;
+			}
+			set
+			{
+				if ((this._fkCategory != value))
+				{
+					this._fkCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Short_Description", DbType="NVarChar(200)")]
+		public string Short_Description
+		{
+			get
+			{
+				return this._Short_Description;
+			}
+			set
+			{
+				if ((this._Short_Description != value))
+				{
+					this._Short_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro_Discount", DbType="NVarChar(100)")]
+		public string Pro_Discount
+		{
+			get
+			{
+				return this._Pro_Discount;
+			}
+			set
+			{
+				if ((this._Pro_Discount != value))
+				{
+					this._Pro_Discount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(100)")]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this._Company = value;
 				}
 			}
 		}
