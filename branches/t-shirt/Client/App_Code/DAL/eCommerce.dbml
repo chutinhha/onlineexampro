@@ -70,6 +70,17 @@
       <Association Name="ecommerce_Customer_registration_ecommerce_Promocode" Member="ecommerce_Promocodes" ThisKey="Customer_id" OtherKey="fkCustomer_id" Type="ecommerce_Promocode" />
     </Type>
   </Table>
+  <Table Name="dbo.ecommerce_OrderItemsDetail" Member="ecommerce_OrderItemsDetails">
+    <Type Name="ecommerce_OrderItemsDetail">
+      <Column Name="Item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Order_price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="fkStockid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ecommerce_Order_ecommerce_OrderItemsDetail" Member="ecommerce_Order" ThisKey="fkOrder_id" OtherKey="Order_id" Type="ecommerce_Order" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Table Name="dbo.ecommerce_Orders" Member="ecommerce_Orders">
     <Type Name="ecommerce_Order">
       <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -152,17 +163,6 @@
       <Association Name="ecommerce_Color_ecommerce_Stock" Member="ecommerce_Color" ThisKey="fkColor_id" OtherKey="Color_id" Type="ecommerce_Color" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="ecommerce_Productdetail_ecommerce_Stock" Member="ecommerce_Productdetail" ThisKey="fkProduct_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="ecommerce_Size_ecommerce_Stock" Member="ecommerce_Size" ThisKey="fkSize_id" OtherKey="Size_id" Type="ecommerce_Size" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ecommerce_OrderItemsDetail" Member="ecommerce_OrderItemsDetails">
-    <Type Name="ecommerce_OrderItemsDetail">
-      <Column Name="Item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Discount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Order_price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="fkStockid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ecommerce_Order_ecommerce_OrderItemsDetail" Member="ecommerce_Order" ThisKey="fkOrder_id" OtherKey="Order_id" Type="ecommerce_Order" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.sp_ecommerce_StockNewUpdateCommand" Method="sp_ecommerce_StockNewUpdateCommand">
