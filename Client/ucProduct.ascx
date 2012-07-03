@@ -76,7 +76,7 @@
                                 <tr>
                                     <td align="right">
                                         <asp:LinkButton CssClass="buynow" ID="lkbBuynow" CommandArgument='<%#Eval("Product_id")%>'
-                                            runat="server" Text="Buy Now" OnClick="lkbBuynow_Click"></asp:LinkButton>
+                                            runat="server" Text="View" OnClick="lkbBuynow_Click"></asp:LinkButton>
                                     </td>
                                 </tr>
                             </table>

@@ -8,38 +8,29 @@ using System.Web;
 /// </summary>
 public class ecommerce_ProductdetailBL:ecommerce_ProductdetailProperties,IeCommerce
 {
-    public ecommerce_ProductdetailBL(int product_id, string product_name, int category, int price, string pro_Status, string image, string description, string short_Description, DateTime date, string pro_Discount, string company, string haveOption, string optionTitle, string optionContent)
+    public ecommerce_ProductdetailBL(int product_id, string product_name, int fkCategory,  string image, string description, string short_Description, DateTime date, string pro_Discount, string company)
 	{
         this.Product_id = product_id;
         this.Product_name = product_name;
-        this.Category = category;
-        this.Price = price;
-        this.Pro_Status = pro_Status;
+        this.FkCategory = fkCategory;
         this.Image = image;
         this.Description = description;
         this.Short_Description = short_Description;
         this.Date = date;
         this.Pro_Discount = pro_Discount;
         this.Company = company;
-        this.HaveOption = haveOption;
-        this.OptionTitle = optionTitle;
-        this.OptionContent = optionContent;
+      
 	}
-    public ecommerce_ProductdetailBL(string product_name, int category, int price, string pro_Status, string image, string description, string short_Description, DateTime date, string pro_Discount, string company, string haveOption, string optionTitle, string optionContent)
+    public ecommerce_ProductdetailBL(string product_name, int fkCategory, string image, string description, string short_Description, DateTime date, string pro_Discount, string company)
     {
         this.Product_name = product_name;
-        this.Category = category;
-        this.Price = price;
-        this.Pro_Status = pro_Status;
+        this.FkCategory = FkCategory;
         this.Image = image;
         this.Description = description;
         this.Short_Description = short_Description;
         this.Date = date;
         this.Pro_Discount = pro_Discount;
         this.Company = company;
-        this.HaveOption = haveOption;
-        this.OptionTitle = optionTitle;
-        this.OptionContent = optionContent;
     }
     public ecommerce_ProductdetailBL(int product_id)
     {

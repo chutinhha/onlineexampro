@@ -15,7 +15,7 @@ public partial class Addproduct : System.Web.UI.Page
             clearcontrol();
         }
         createcontrol();
-        
+
     }
 
     private void clearcontrol()
@@ -24,11 +24,8 @@ public partial class Addproduct : System.Web.UI.Page
         txtProductname.Text = string.Empty;
         txtShortdescription.Text = string.Empty;
         txtDescription.Text = string.Empty;
-        txtPrice.Text = string.Empty;
         txtDiscount.Text = string.Empty;
         txtCompany.Text = string.Empty;
-        txtOptioncontent.Text = string.Empty;
-        txtOptiontitle.Text = string.Empty;
     }
 
     private void binddropdown()
@@ -58,40 +55,22 @@ public partial class Addproduct : System.Web.UI.Page
 
 
 
-  
+
     protected void btnPost_Click(object sender, EventArgs e)
     {
-        if(fuProductimage.HasFile)
+        if (fuProductimage.HasFile)
         {
-            string pathtoSavefile = "../ProductImage/"+fuProductimage.FileName;
             string path = "~/ProductImage/" + fuProductimage.FileName;
             fuProductimage.SaveAs(Server.MapPath(path));
-             int id = Convert.ToInt32(ddlCatagory.SelectedValue);
-             ecommerce_ProductdetailBL obj = new ecommerce_ProductdetailBL(txtProductname.Text,id,Convert.ToInt32(txtPrice.Text),ddlStatus.SelectedItem.Text,path,txtDescription.Text,txtShortdescription.Text,DateTime.Now,txtDiscount.Text,txtCompany.Text,ddlHaveoption.SelectedItem.Text,txtOptiontitle.Text,txtOptioncontent.Text);
-             if (obj.Insert())
-             {
-                 clearcontrol();
-             }
+            int id = Convert.ToInt32(ddlCatagory.SelectedValue);
+            ecommerce_ProductdetailBL obj = new ecommerce_ProductdetailBL(txtProductname.Text, id,path,txtDescription.Text,txtShortdescription.Text,DateTime.Now,txtDiscount.Text,txtCompany.Text);
+            if (obj.Insert())
+            {
+                clearcontrol();
+            }
         }
     }
-    protected void ddlHaveoption_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        if (ddlHaveoption.SelectedItem.Text == "no")
-        {
-            lbOptiontitle.Visible = false;
-            lbOptioncontent.Visible = false;
-            txtOptiontitle.Visible = false;
-            txtOptioncontent.Visible = false;
-        }
-        else
-        {
-            lbOptiontitle.Visible = true;
-            lbOptioncontent.Visible = true;
-            txtOptiontitle.Visible = true;
-            txtOptioncontent.Visible = true;
 
-        }
-    }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         ecommerce_CategoryBL obj = new ecommerce_CategoryBL(txtaddCatagory.Text);
@@ -100,4 +79,5 @@ public partial class Addproduct : System.Web.UI.Page
             binddropdown();
         }
     }
+   
 }
