@@ -10,5 +10,14 @@ infiniticlothing.com
 
 ftp://infiniticlothing.com
 
-user:infiniti
-pwd:infi@123
+user: infiniti
+pwd: infi@123
+
+
+DB details as follows:
+
+IP: 118.91.232.74(for infiniticlothing.com)
+
+User Name: infinusr
+
+Password: P@ss4!nf0
