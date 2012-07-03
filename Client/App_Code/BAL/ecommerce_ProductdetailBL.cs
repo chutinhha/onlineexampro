@@ -24,7 +24,7 @@ public class ecommerce_ProductdetailBL:ecommerce_ProductdetailProperties,IeComme
     public ecommerce_ProductdetailBL(string product_name, int fkCategory, string image, string description, string short_Description, DateTime date, string pro_Discount, string company)
     {
         this.Product_name = product_name;
-        this.FkCategory = FkCategory;
+        this.FkCategory = fkCategory;
         this.Image = image;
         this.Description = description;
         this.Short_Description = short_Description;

@@ -370,67 +370,6 @@
     <Parameter Name="Original_Promocode_id" Parameter="original_Promocode_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand" Method="sp_ecommerce_ProductdetailNewUpdateCommand">
-    <Parameter Name="Product_name" Parameter="product_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Product_id" Parameter="product_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_ProductdetailNewUpdateCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand" Method="sp_ecommerce_ProductdetailNewSelectCommand">
-    <ElementType Name="sp_ecommerce_ProductdetailNewSelectCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand" Method="sp_ecommerce_ProductdetailNewInsertCommand">
-    <Parameter Name="Product_name" Parameter="product_name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="sp_ecommerce_ProductdetailNewInsertCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand" Method="sp_ecommerce_ProductdetailNewDeleteCommand">
-    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.sp_ecommerce_OrdersNewUpdateCommand" Method="sp_ecommerce_OrdersNewUpdateCommand">
     <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
     <Parameter Name="Order_Date" Parameter="order_Date" Type="System.DateTime" DbType="DateTime" />
@@ -830,5 +769,66 @@
   <Function Name="dbo.sp_ecommerce_OrderItemsDetailNewDeleteCommand" Method="sp_ecommerce_OrderItemsDetailNewDeleteCommand">
     <Parameter Name="Original_Item_id" Parameter="original_Item_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand" Method="sp_ecommerce_ProductdetailNewInsertCommand">
+    <Parameter Name="Product_name" Parameter="product_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="sp_ecommerce_ProductdetailNewInsertCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand" Method="sp_ecommerce_ProductdetailNewDeleteCommand">
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand" Method="sp_ecommerce_ProductdetailNewSelectCommand">
+    <ElementType Name="sp_ecommerce_ProductdetailNewSelectCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand" Method="sp_ecommerce_ProductdetailNewUpdateCommand">
+    <Parameter Name="Product_name" Parameter="product_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Product_id" Parameter="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_ProductdetailNewUpdateCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

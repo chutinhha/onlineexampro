@@ -53,7 +53,7 @@
                                                     Status :
                                                 </td>
                                                 <td class="productDetailfont">
-                                                    <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Pro_Status") %>'></asp:Label>
+                                                   <%-- <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Pro_Status") %>'></asp:Label>--%>
                                                 </td>
                                             </tr>
                                         </table>

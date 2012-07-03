@@ -20,7 +20,6 @@ public partial class ucDiscription : System.Web.UI.UserControl
             ViewState["productID"] = Convert.ToInt32(Request.QueryString["productID"]);
             var product = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ViewState["productID"])).Select(a => a).FirstOrDefault();
             lbName.Text = Convert.ToString(product.Product_name);
-            lbStatus.Text = Convert.ToString(product.Pro_Status);
             lbPrice.Text = Convert.ToString(product.Price);
             imgProduct.ImageUrl = product.Image;
             lbDescription.Text = Convert.ToString(product.Description);
