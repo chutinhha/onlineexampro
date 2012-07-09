@@ -18,7 +18,9 @@ public partial class ucDiscription : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
-            ViewState["productID"] = Convert.ToInt32(Request.QueryString["productID"]);
+            string[] Query = Convert.ToString(Request.QueryString["productID"]).Split(';');
+            ViewState["productID"] = Query[0];
+            int colorid = Convert.ToInt32(Query[1]);
             var product = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ViewState["productID"])).Select(a => a).FirstOrDefault();
             var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"])).Select(a => a);
             Dictionary<int, int> ColorSize = new Dictionary<int, int>();
@@ -28,31 +30,58 @@ public partial class ucDiscription : System.Web.UI.UserControl
             }
             lbName.Text = Convert.ToString(product.Product_name);
             //lbPrice.Text = Convert.ToString(product.Price);
-            imgProduct.ImageUrl = product.Image;
             lbDescription.Text = Convert.ToString(product.Description);
             Bindcolor(ColorSize);
-            Bindsize(ColorSize);
+           // Bindsize(ColorSize);
+            Bindsize();
+            var condition = source.Where(a => a.fkColor_id == colorid).FirstOrDefault();
+            if (condition.Stock_Value == 0)
+            {
+                imgBuyNow.Enabled = false;
+                lbPrice.Text = Convert.ToString(condition.price);
+                lbStatus.Text = "Out of Sale!";
+                imgProduct.ImageUrl = condition.Stock_Image;
+                ddlColor.SelectedValue = colorid.ToString();
+            }
+            else
+            {
+                imgBuyNow.Enabled = true;
+                lbPrice.Text = Convert.ToString(condition.price);
+                lbStatus.Text = "On Sale!";
+                imgProduct.ImageUrl = condition.Stock_Image;
+                ddlColor.SelectedValue = colorid.ToString();
+            }
             CalculateTotal();
         }
 
     }
 
-    private void Bindsize(Dictionary<int, int> ColorSize)
+    private void Bindsize()
     {
-        using (eCommerceDataContext dataDB = new eCommerceDataContext())
+        var size = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a.fkSize_id).ToList();
+        foreach (var item in size)
         {
-            Dictionary<int, string> local = new Dictionary<int, string>();
-            foreach (var item in ColorSize)
-            {
-                string color = Convert.ToString((from a in dataDB.ecommerce_Sizes where a.Size_id == item.Value select a.Size_values).FirstOrDefault());
-                local.Add(item.Key, color);
-            }
-            ddlSize.DataSource = local;
-            ddlSize.DataTextField = "Value";
-            ddlSize.DataValueField = "Key";
-            ddlSize.DataBind();
+            string sizes = eCommerceHelper.Context.ecommerce_Sizes.Where(a=>a.Size_id==item.Value).Select(b=>b.Size_values).FirstOrDefault();
+            ddlSize.Items.Add(sizes);
         }
     }
+
+    //private void Bindsize(Dictionary<int, int> ColorSize)
+    //{
+    //    using (eCommerceDataContext dataDB = new eCommerceDataContext())
+    //    {
+    //        Dictionary<int, string> local = new Dictionary<int, string>();
+    //        foreach (var item in ColorSize)
+    //        {
+    //            string color = Convert.ToString((from a in dataDB.ecommerce_Sizes where a.Size_id == item.Value select a.Size_values).FirstOrDefault());
+    //            local.Add(item.Key, color);
+    //        }
+    //        ddlSize.DataSource = local;
+    //        ddlSize.DataTextField = "Value";
+    //        ddlSize.DataValueField = "Key";
+    //        ddlSize.DataBind();
+    //    }
+    //}
 
     private void Bindcolor(Dictionary<int, int> ColorSize)
     {
@@ -61,18 +90,20 @@ public partial class ucDiscription : System.Web.UI.UserControl
             Dictionary<int, string> local = new Dictionary<int, string>();
             foreach (var item in ColorSize)
             {
-                string color = Convert.ToString((from a in dataDB.ecommerce_Colors where a.Color_id == item.Key select a.Color).FirstOrDefault());
-                local.Add(item.Key, color);
+                if (!local.Keys.Contains(item.Key))
+                {
+                    string color = Convert.ToString((from a in dataDB.ecommerce_Colors where a.Color_id == item.Key select a.Color).FirstOrDefault());
+                    local.Add(item.Key, color);
+                }
             }
             ddlColor.DataSource = local;
             ddlColor.DataTextField = "Value";
             ddlColor.DataValueField = "Key";
             ddlColor.DataBind();
         }
-
     }
 
-   
+
     protected void imgBuyNow_Click(object sender, ImageClickEventArgs e)
     {
         Dictionary<int, int> obj = new Dictionary<int, int>();
@@ -119,4 +150,30 @@ public partial class ucDiscription : System.Web.UI.UserControl
 
         }
     }
+    protected void ddlColor_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"]) && a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a).FirstOrDefault();
+        if (source.Stock_Value == 0)
+        {
+            imgBuyNow.Enabled = false;
+            lbStatus.Text = "Out of sale!";
+            imgProduct.ImageUrl = source.Stock_Image;
+            lbPrice.Text = Convert.ToString(source.price);
+            ddlQuantity.Enabled = false;
+
+        }
+        else
+        {
+            for (int i = 1; i <= source.Stock_Value; i++)
+            {
+                ddlQuantity.Items.Add(Convert.ToString(i));
+            }
+            imgBuyNow.Enabled = true;
+            lbStatus.Text = "On sale!";
+            imgProduct.ImageUrl = source.Stock_Image;
+            lbPrice.Text = Convert.ToString(source.price);
+        }
+
+    }
+
 }

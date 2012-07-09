@@ -1,0 +1,261 @@
+﻿.currentbackcolor
+{
+    padding: 0 5px 0 5px;
+    font: normal 12px Arial, Helvetica, sans-serif;
+    background-color: #333333;
+    height: 30px;
+    line-height: 30px;
+    border-right: 2px solid white;
+    color: #FFFFFF;
+}
+.otherbackcolor
+{
+    padding: 0 5px 0 5px;
+    font: normal 12px arial;
+    background-color: #808080;
+    height: 30px;
+    line-height: 30px;
+    border-right: 2px solid white;
+    color: #FFFFFF;
+}
+#accordion
+{
+    font: normal 12px arial;
+    width: 430px;
+}
+ul.list4
+{
+    margin: 0 10px;
+}
+ul.list4 li
+{
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #000;
+}
+ul.list4 li table td
+{
+    vertical-align: top;
+}
+ul.list4 li table td.pic
+{
+    background: #f6f6f6;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 0;
+}
+ul.list4 li table td.indent
+{
+    padding-left: 5px;
+}
+ul.list4 li table td p
+{
+    margin-top: 6px;
+}
+.title
+{
+    font: normal 18px "Trebuchet MS" , Arial, Helvetica, sans-serif;
+    color: #89bc23;
+    padding-left: 10px;
+    margin-right: 34px;
+}
+.pic
+{
+    vertical-align: top;
+    padding: 5px;
+}
+.indent
+{
+    padding-left: 10px;
+}
+.bullet
+{
+    background: url(../images/arrow_.png) 6px 11px no-repeat;
+    display: block;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+/*footer*/
+
+.footer_bg_1
+{
+    background-image: url(../images/footer_bg_main.jpg);
+    background-repeat: repeat-x;
+    background-position: right top;
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    bottom: 0px;
+    width: 100%;
+    background-color: #252525;
+}
+.footer_bg_1 A
+{
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer_bg_1 A:Hover
+{
+    height: 59px;
+    color: #666;
+    font-size: 12px;
+    text-decoration: underline;
+}
+.menu_footer
+{
+    padding: 0px 0px 0px 2px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin: 0px;
+    width: 220px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 15px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+
+.menu_footer li
+{
+    padding: 10px 30px 5px 0px;
+    color: #ffffff;
+    font-size: 13px;
+    list-style: none;
+    margin: 0px 0px 0px 0px;
+    height: 15px;
+    text-decoration: none;
+    font-weight: normal;
+    border-bottom: 1px solid #666666;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.menu_footer li a
+{
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.menu_footer li a:hover
+{
+    text-decoration: none;
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+.menu_footer1
+{
+    padding: 10px 0px 0px 10px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin: 0px;
+    
+    text-align: left;
+    height: 120px;
+    font-size: 16px;
+    line-height: 15px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+.menu_footer1 a
+{
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    padding: 10px 30px 5px 10px;
+}
+.menu_footer1 a:hover
+{
+    text-decoration: none;
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+}
+.menu_footerimg
+{
+    padding-top: 10px;
+    height: 50px;
+    text-align: right;
+    width: 120px;
+    padding-right: 0px;
+}
+.menu_footerimg2
+{
+    float: left;
+    width: 50px;
+}
+.menu_footer2
+{
+    padding: 68px 0px 0px 0px;
+    color: #ffffff;
+    float: right;
+    font-size: 14px;
+    list-style: none;
+    margin: 0px 0px 0px 0px;
+    text-decoration: none;
+    font-weight: normal;
+    height: 20px;
+    text-align: left;
+    cursor: pointer;
+}
+.footer_adrs
+{
+    padding: 15px 0px 0px 10px;
+    float: left;
+    list-style: none;
+    color: #cccccc;
+    font-weight: normal;
+    margin-left: 0px;
+    width: 375px;
+    text-align: left;
+    height: 140px;
+    font-size: 12px;
+    line-height: 12px;
+    font-family: Lucida Sans Unicode;
+    text-decoration: none;
+}
+
+/* end footer*/
+
+
+.flyOutDiv
+{
+    display: none;
+    width: 600px;
+    z-index: inherit;
+    opacity: 0;
+    filter: (progid:DXImageTransform.Microsoft.Alpha(opacity=0));
+    font-size: 14px;
+    border: solid 1px #CCCCCC;
+    background-color: #FFFFFF;
+    padding: 5px;
+}
+
+.flyOutDivCloseX
+{
+    background-color: #666666;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border: outset thin #FFFFFF;
+    padding: 5px;
+}

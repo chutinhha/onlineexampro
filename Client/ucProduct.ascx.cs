@@ -23,6 +23,5 @@ public partial class ucProduct : System.Web.UI.UserControl
     {
         LinkButton lnk = (LinkButton)sender;
         Response.Redirect("Description.aspx?productID="+ lnk.CommandArgument);
-       
     }
 }
