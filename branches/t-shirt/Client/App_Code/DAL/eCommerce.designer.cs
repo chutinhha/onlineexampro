@@ -48,9 +48,6 @@ namespace DAL
     partial void Insertecommerce_Customer_registration(ecommerce_Customer_registration instance);
     partial void Updateecommerce_Customer_registration(ecommerce_Customer_registration instance);
     partial void Deleteecommerce_Customer_registration(ecommerce_Customer_registration instance);
-    partial void Insertecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
-    partial void Updateecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
-    partial void Deleteecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
     partial void Insertecommerce_Order(ecommerce_Order instance);
     partial void Updateecommerce_Order(ecommerce_Order instance);
     partial void Deleteecommerce_Order(ecommerce_Order instance);
@@ -72,6 +69,9 @@ namespace DAL
     partial void Insertecommerce_Stock(ecommerce_Stock instance);
     partial void Updateecommerce_Stock(ecommerce_Stock instance);
     partial void Deleteecommerce_Stock(ecommerce_Stock instance);
+    partial void Insertecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
+    partial void Updateecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
+    partial void Deleteecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
     #endregion
 		
 		public eCommerceDataContext() : 
@@ -152,14 +152,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
-		{
-			get
-			{
-				return this.GetTable<ecommerce_OrderItemsDetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ecommerce_Order> ecommerce_Orders
 		{
 			get
@@ -213,6 +205,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<ecommerce_Stock>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
+		{
+			get
+			{
+				return this.GetTable<ecommerce_OrderItemsDetail>();
 			}
 		}
 		
@@ -2029,229 +2029,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_OrderItemsDetail")]
-	public partial class ecommerce_OrderItemsDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Item_id;
-		
-		private System.Nullable<int> _Quantity;
-		
-		private string _Discount;
-		
-		private System.Nullable<decimal> _Order_price;
-		
-		private System.Nullable<int> _fkStockid;
-		
-		private System.Nullable<int> _fkOrder_id;
-		
-		private EntityRef<ecommerce_Order> _ecommerce_Order;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnItem_idChanging(int value);
-    partial void OnItem_idChanged();
-    partial void OnQuantityChanging(System.Nullable<int> value);
-    partial void OnQuantityChanged();
-    partial void OnDiscountChanging(string value);
-    partial void OnDiscountChanged();
-    partial void OnOrder_priceChanging(System.Nullable<decimal> value);
-    partial void OnOrder_priceChanged();
-    partial void OnfkStockidChanging(System.Nullable<int> value);
-    partial void OnfkStockidChanged();
-    partial void OnfkOrder_idChanging(System.Nullable<int> value);
-    partial void OnfkOrder_idChanged();
-    #endregion
-		
-		public ecommerce_OrderItemsDetail()
-		{
-			this._ecommerce_Order = default(EntityRef<ecommerce_Order>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Item_id
-		{
-			get
-			{
-				return this._Item_id;
-			}
-			set
-			{
-				if ((this._Item_id != value))
-				{
-					this.OnItem_idChanging(value);
-					this.SendPropertyChanging();
-					this._Item_id = value;
-					this.SendPropertyChanged("Item_id");
-					this.OnItem_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Discount", DbType="NVarChar(50)")]
-		public string Discount
-		{
-			get
-			{
-				return this._Discount;
-			}
-			set
-			{
-				if ((this._Discount != value))
-				{
-					this.OnDiscountChanging(value);
-					this.SendPropertyChanging();
-					this._Discount = value;
-					this.SendPropertyChanged("Discount");
-					this.OnDiscountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_price", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> Order_price
-		{
-			get
-			{
-				return this._Order_price;
-			}
-			set
-			{
-				if ((this._Order_price != value))
-				{
-					this.OnOrder_priceChanging(value);
-					this.SendPropertyChanging();
-					this._Order_price = value;
-					this.SendPropertyChanged("Order_price");
-					this.OnOrder_priceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkStockid", DbType="Int")]
-		public System.Nullable<int> fkStockid
-		{
-			get
-			{
-				return this._fkStockid;
-			}
-			set
-			{
-				if ((this._fkStockid != value))
-				{
-					this.OnfkStockidChanging(value);
-					this.SendPropertyChanging();
-					this._fkStockid = value;
-					this.SendPropertyChanged("fkStockid");
-					this.OnfkStockidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkOrder_id", DbType="Int")]
-		public System.Nullable<int> fkOrder_id
-		{
-			get
-			{
-				return this._fkOrder_id;
-			}
-			set
-			{
-				if ((this._fkOrder_id != value))
-				{
-					if (this._ecommerce_Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnfkOrder_idChanging(value);
-					this.SendPropertyChanging();
-					this._fkOrder_id = value;
-					this.SendPropertyChanged("fkOrder_id");
-					this.OnfkOrder_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Order_ecommerce_OrderItemsDetail", Storage="_ecommerce_Order", ThisKey="fkOrder_id", OtherKey="Order_id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public ecommerce_Order ecommerce_Order
-		{
-			get
-			{
-				return this._ecommerce_Order.Entity;
-			}
-			set
-			{
-				ecommerce_Order previousValue = this._ecommerce_Order.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Order.Entity = null;
-						previousValue.ecommerce_OrderItemsDetails.Remove(this);
-					}
-					this._ecommerce_Order.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_OrderItemsDetails.Add(this);
-						this._fkOrder_id = value.Order_id;
-					}
-					else
-					{
-						this._fkOrder_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Order");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Orders")]
 	public partial class ecommerce_Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3722,6 +3499,8 @@ namespace DAL
 		
 		private System.Nullable<int> _fkProduct_id;
 		
+		private EntitySet<ecommerce_OrderItemsDetail> _ecommerce_OrderItemsDetails;
+		
 		private EntityRef<ecommerce_Color> _ecommerce_Color;
 		
 		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
@@ -3750,6 +3529,7 @@ namespace DAL
 		
 		public ecommerce_Stock()
 		{
+			this._ecommerce_OrderItemsDetails = new EntitySet<ecommerce_OrderItemsDetail>(new Action<ecommerce_OrderItemsDetail>(this.attach_ecommerce_OrderItemsDetails), new Action<ecommerce_OrderItemsDetail>(this.detach_ecommerce_OrderItemsDetails));
 			this._ecommerce_Color = default(EntityRef<ecommerce_Color>);
 			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
 			this._ecommerce_Size = default(EntityRef<ecommerce_Size>);
@@ -3908,6 +3688,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Stock_ecommerce_OrderItemsDetail", Storage="_ecommerce_OrderItemsDetails", ThisKey="Stock_id", OtherKey="fkStockid")]
+		public EntitySet<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
+		{
+			get
+			{
+				return this._ecommerce_OrderItemsDetails;
+			}
+			set
+			{
+				this._ecommerce_OrderItemsDetails.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Color_ecommerce_Stock", Storage="_ecommerce_Color", ThisKey="fkColor_id", OtherKey="Color_id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public ecommerce_Color ecommerce_Color
 		{
@@ -4006,6 +3799,282 @@ namespace DAL
 						this._fkSize_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("ecommerce_Size");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Stock = this;
+		}
+		
+		private void detach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ecommerce_Stock = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_OrderItemsDetail")]
+	public partial class ecommerce_OrderItemsDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Item_id;
+		
+		private System.Nullable<int> _Quantity;
+		
+		private string _Discount;
+		
+		private System.Nullable<decimal> _Order_price;
+		
+		private System.Nullable<int> _fkStockid;
+		
+		private System.Nullable<int> _fkOrder_id;
+		
+		private EntityRef<ecommerce_Order> _ecommerce_Order;
+		
+		private EntityRef<ecommerce_Stock> _ecommerce_Stock;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnItem_idChanging(int value);
+    partial void OnItem_idChanged();
+    partial void OnQuantityChanging(System.Nullable<int> value);
+    partial void OnQuantityChanged();
+    partial void OnDiscountChanging(string value);
+    partial void OnDiscountChanged();
+    partial void OnOrder_priceChanging(System.Nullable<decimal> value);
+    partial void OnOrder_priceChanged();
+    partial void OnfkStockidChanging(System.Nullable<int> value);
+    partial void OnfkStockidChanged();
+    partial void OnfkOrder_idChanging(System.Nullable<int> value);
+    partial void OnfkOrder_idChanged();
+    #endregion
+		
+		public ecommerce_OrderItemsDetail()
+		{
+			this._ecommerce_Order = default(EntityRef<ecommerce_Order>);
+			this._ecommerce_Stock = default(EntityRef<ecommerce_Stock>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Item_id
+		{
+			get
+			{
+				return this._Item_id;
+			}
+			set
+			{
+				if ((this._Item_id != value))
+				{
+					this.OnItem_idChanging(value);
+					this.SendPropertyChanging();
+					this._Item_id = value;
+					this.SendPropertyChanged("Item_id");
+					this.OnItem_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Discount", DbType="NVarChar(50)")]
+		public string Discount
+		{
+			get
+			{
+				return this._Discount;
+			}
+			set
+			{
+				if ((this._Discount != value))
+				{
+					this.OnDiscountChanging(value);
+					this.SendPropertyChanging();
+					this._Discount = value;
+					this.SendPropertyChanged("Discount");
+					this.OnDiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Order_price
+		{
+			get
+			{
+				return this._Order_price;
+			}
+			set
+			{
+				if ((this._Order_price != value))
+				{
+					this.OnOrder_priceChanging(value);
+					this.SendPropertyChanging();
+					this._Order_price = value;
+					this.SendPropertyChanged("Order_price");
+					this.OnOrder_priceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkStockid", DbType="Int")]
+		public System.Nullable<int> fkStockid
+		{
+			get
+			{
+				return this._fkStockid;
+			}
+			set
+			{
+				if ((this._fkStockid != value))
+				{
+					if (this._ecommerce_Stock.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkStockidChanging(value);
+					this.SendPropertyChanging();
+					this._fkStockid = value;
+					this.SendPropertyChanged("fkStockid");
+					this.OnfkStockidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkOrder_id", DbType="Int")]
+		public System.Nullable<int> fkOrder_id
+		{
+			get
+			{
+				return this._fkOrder_id;
+			}
+			set
+			{
+				if ((this._fkOrder_id != value))
+				{
+					if (this._ecommerce_Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkOrder_idChanging(value);
+					this.SendPropertyChanging();
+					this._fkOrder_id = value;
+					this.SendPropertyChanged("fkOrder_id");
+					this.OnfkOrder_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Order_ecommerce_OrderItemsDetail", Storage="_ecommerce_Order", ThisKey="fkOrder_id", OtherKey="Order_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_Order ecommerce_Order
+		{
+			get
+			{
+				return this._ecommerce_Order.Entity;
+			}
+			set
+			{
+				ecommerce_Order previousValue = this._ecommerce_Order.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Order.Entity = null;
+						previousValue.ecommerce_OrderItemsDetails.Remove(this);
+					}
+					this._ecommerce_Order.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_OrderItemsDetails.Add(this);
+						this._fkOrder_id = value.Order_id;
+					}
+					else
+					{
+						this._fkOrder_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Stock_ecommerce_OrderItemsDetail", Storage="_ecommerce_Stock", ThisKey="fkStockid", OtherKey="Stock_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_Stock ecommerce_Stock
+		{
+			get
+			{
+				return this._ecommerce_Stock.Entity;
+			}
+			set
+			{
+				ecommerce_Stock previousValue = this._ecommerce_Stock.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Stock.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Stock.Entity = null;
+						previousValue.ecommerce_OrderItemsDetails.Remove(this);
+					}
+					this._ecommerce_Stock.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_OrderItemsDetails.Add(this);
+						this._fkStockid = value.Stock_id;
+					}
+					else
+					{
+						this._fkStockid = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Stock");
 				}
 			}
 		}

@@ -2,9 +2,8 @@
     CodeFile="Home.aspx.cs" Inherits="Home" %>
 
 <%@ Register Src="~/ucSlideShow.ascx" TagName="ucSlideShow" TagPrefix="uc1" %>
-<%@ Register Src="ucProduct.ascx" TagName="ucProduct" TagPrefix="uc2" %>
+<%@ Register Src="~/ucProduct.ascx" TagName="ucProduct" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="js/jquery1.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="100%">
