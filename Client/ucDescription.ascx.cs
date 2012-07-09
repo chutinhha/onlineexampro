@@ -26,13 +26,13 @@ public partial class ucDiscription : System.Web.UI.UserControl
             Dictionary<int, int> ColorSize = new Dictionary<int, int>();
             foreach (var item in source)
             {
-                ColorSize.Add(Convert.ToInt32(item.fkColor_id), Convert.ToInt32(item.fkSize_id));
+                ColorSize.Add(Convert.ToInt32(item.fkSize_id), Convert.ToInt32(item.fkColor_id));
             }
             lbName.Text = Convert.ToString(product.Product_name);
             //lbPrice.Text = Convert.ToString(product.Price);
             lbDescription.Text = Convert.ToString(product.Description);
             Bindcolor(ColorSize);
-           // Bindsize(ColorSize);
+            // Bindsize(ColorSize);
             Bindsize();
             var condition = source.Where(a => a.fkColor_id == colorid).FirstOrDefault();
             if (condition.Stock_Value == 0)
@@ -58,10 +58,11 @@ public partial class ucDiscription : System.Web.UI.UserControl
 
     private void Bindsize()
     {
+        ddlSize.Items.Clear();
         var size = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a.fkSize_id).ToList();
         foreach (var item in size)
         {
-            string sizes = eCommerceHelper.Context.ecommerce_Sizes.Where(a=>a.Size_id==item.Value).Select(b=>b.Size_values).FirstOrDefault();
+            string sizes = eCommerceHelper.Context.ecommerce_Sizes.Where(a => a.Size_id == item.Value).Select(b => b.Size_values).FirstOrDefault();
             ddlSize.Items.Add(sizes);
         }
     }
@@ -90,10 +91,10 @@ public partial class ucDiscription : System.Web.UI.UserControl
             Dictionary<int, string> local = new Dictionary<int, string>();
             foreach (var item in ColorSize)
             {
-                if (!local.Keys.Contains(item.Key))
+                if (!local.Keys.Contains(item.Value))
                 {
-                    string color = Convert.ToString((from a in dataDB.ecommerce_Colors where a.Color_id == item.Key select a.Color).FirstOrDefault());
-                    local.Add(item.Key, color);
+                    string color = Convert.ToString((from a in dataDB.ecommerce_Colors where a.Color_id == item.Value select a.Color).FirstOrDefault());
+                    local.Add(item.Value, color);
                 }
             }
             ddlColor.DataSource = local;
@@ -153,27 +154,29 @@ public partial class ucDiscription : System.Web.UI.UserControl
     protected void ddlColor_SelectedIndexChanged(object sender, EventArgs e)
     {
         var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"]) && a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a).FirstOrDefault();
+        Bindsize();
+        imgProduct.ImageUrl = source.Stock_Image;
+    }
+
+    protected void ddlSize_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"]) && a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue) && a.fkSize_id == Convert.ToInt32(ddlSize.SelectedIndex)).Select(a => a).FirstOrDefault();
         if (source.Stock_Value == 0)
         {
+            lbStatus.Text = "Out of Sale!";
             imgBuyNow.Enabled = false;
-            lbStatus.Text = "Out of sale!";
-            imgProduct.ImageUrl = source.Stock_Image;
             lbPrice.Text = Convert.ToString(source.price);
             ddlQuantity.Enabled = false;
-
         }
         else
         {
+            ddlQuantity.Enabled = true;
             for (int i = 1; i <= source.Stock_Value; i++)
             {
                 ddlQuantity.Items.Add(Convert.ToString(i));
             }
-            imgBuyNow.Enabled = true;
-            lbStatus.Text = "On sale!";
-            imgProduct.ImageUrl = source.Stock_Image;
             lbPrice.Text = Convert.ToString(source.price);
+            lbStatus.Text = "On Sale!";
         }
-
     }
-
 }
