@@ -52,7 +52,8 @@
                                                 Size:
                                             </td>
                                             <td>
-                                                <asp:DropDownList ID="ddlSize" Width="150px" runat="server">
+                                                <asp:DropDownList ID="ddlSize" Width="150px" runat="server" AutoPostBack="True" 
+                                                    onselectedindexchanged="ddlSize_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
