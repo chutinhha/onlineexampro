@@ -1,6 +1,8 @@
 
-
-
+.linkbutton:hover
+{
+    color: #000000;
+}
 a:link, a:visited
 {
     color: #fff;
