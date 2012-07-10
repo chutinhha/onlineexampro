@@ -166,13 +166,14 @@ public partial class Addproduct : System.Web.UI.Page
         {
             string path = "~/ProductImage/" + fuImage.FileName;
             fuImage.SaveAs(Server.MapPath(path));
-            ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), Convert.ToInt32(ddlProductlist.SelectedValue), Convert.ToDecimal(txtprice.Text), path);
+            var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ddlProductlist.SelectedValue)).Select(a => a.Pro_Discount).First();
+            decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
+            ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), Convert.ToInt32(ddlProductlist.SelectedValue), discount_Price, path, Convert.ToDecimal(txtprice.Text));
             if (obj.Insert())
             {
                 clear();
             }
         }
-
     }
 
     private void clear()

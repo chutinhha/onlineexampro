@@ -66,12 +66,12 @@ namespace DAL
     partial void Insertecommerce_StateDetail(ecommerce_StateDetail instance);
     partial void Updateecommerce_StateDetail(ecommerce_StateDetail instance);
     partial void Deleteecommerce_StateDetail(ecommerce_StateDetail instance);
-    partial void Insertecommerce_Stock(ecommerce_Stock instance);
-    partial void Updateecommerce_Stock(ecommerce_Stock instance);
-    partial void Deleteecommerce_Stock(ecommerce_Stock instance);
     partial void Insertecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
     partial void Updateecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
     partial void Deleteecommerce_OrderItemsDetail(ecommerce_OrderItemsDetail instance);
+    partial void Insertecommerce_Stock(ecommerce_Stock instance);
+    partial void Updateecommerce_Stock(ecommerce_Stock instance);
+    partial void Deleteecommerce_Stock(ecommerce_Stock instance);
     #endregion
 		
 		public eCommerceDataContext() : 
@@ -200,14 +200,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ecommerce_Stock> ecommerce_Stocks
-		{
-			get
-			{
-				return this.GetTable<ecommerce_Stock>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
 		{
 			get
@@ -216,32 +208,12 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewUpdateCommand")]
-		public ISingleResult<sp_ecommerce_StockNewUpdateCommandResult> sp_ecommerce_StockNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Value", DbType="Int")] System.Nullable<int> stock_Value, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Image", DbType="NVarChar(100)")] string stock_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkSize_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkColor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkProduct_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Stock_id", DbType="Int")] System.Nullable<int> original_Stock_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_id", DbType="Int")] System.Nullable<int> stock_id)
+		public System.Data.Linq.Table<ecommerce_Stock> ecommerce_Stocks
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), stock_Value, price, stock_Image, fkSize_id, fkColor_id, fkProduct_id, original_Stock_id, stock_id);
-			return ((ISingleResult<sp_ecommerce_StockNewUpdateCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewSelectCommand")]
-		public ISingleResult<sp_ecommerce_StockNewSelectCommandResult> sp_ecommerce_StockNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ecommerce_StockNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewInsertCommand")]
-		public ISingleResult<sp_ecommerce_StockNewInsertCommandResult> sp_ecommerce_StockNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Value", DbType="Int")] System.Nullable<int> stock_Value, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Image", DbType="NVarChar(100)")] string stock_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkSize_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkColor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkProduct_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), stock_Value, price, stock_Image, fkSize_id, fkColor_id, fkProduct_id);
-			return ((ISingleResult<sp_ecommerce_StockNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewDeleteCommand")]
-		public int sp_ecommerce_StockNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Stock_id", DbType="Int")] System.Nullable<int> original_Stock_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Stock_id);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<ecommerce_Stock>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StateDetailNewUpdateCommand")]
@@ -649,6 +621,34 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), product_name, fkCategory, image, description, short_Description, date, pro_Discount, company, original_Product_id, product_id);
 			return ((ISingleResult<sp_ecommerce_ProductdetailNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewDeleteCommand")]
+		public int sp_ecommerce_StockNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Stock_id", DbType="Int")] System.Nullable<int> original_Stock_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Stock_id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewInsertCommand")]
+		public ISingleResult<sp_ecommerce_StockNewInsertCommandResult> sp_ecommerce_StockNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Value", DbType="Int")] System.Nullable<int> stock_Value, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Image", DbType="NVarChar(100)")] string stock_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkSize_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkColor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkProduct_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Actual_Price", DbType="Decimal(18,2)")] System.Nullable<decimal> actual_Price)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), stock_Value, price, stock_Image, fkSize_id, fkColor_id, fkProduct_id, actual_Price);
+			return ((ISingleResult<sp_ecommerce_StockNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewSelectCommand")]
+		public ISingleResult<sp_ecommerce_StockNewSelectCommandResult> sp_ecommerce_StockNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ecommerce_StockNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ecommerce_StockNewUpdateCommand")]
+		public ISingleResult<sp_ecommerce_StockNewUpdateCommandResult> sp_ecommerce_StockNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Value", DbType="Int")] System.Nullable<int> stock_Value, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_Image", DbType="NVarChar(100)")] string stock_Image, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkSize_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkColor_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> fkProduct_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Actual_Price", DbType="Decimal(18,2)")] System.Nullable<decimal> actual_Price, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Stock_id", DbType="Int")] System.Nullable<int> original_Stock_id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stock_id", DbType="Int")] System.Nullable<int> stock_id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), stock_Value, price, stock_Image, fkSize_id, fkColor_id, fkProduct_id, actual_Price, original_Stock_id, stock_id);
+			return ((ISingleResult<sp_ecommerce_StockNewUpdateCommandResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3479,363 +3479,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Stock")]
-	public partial class ecommerce_Stock : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Stock_id;
-		
-		private System.Nullable<int> _Stock_Value;
-		
-		private System.Nullable<decimal> _price;
-		
-		private string _Stock_Image;
-		
-		private System.Nullable<int> _fkSize_id;
-		
-		private System.Nullable<int> _fkColor_id;
-		
-		private System.Nullable<int> _fkProduct_id;
-		
-		private EntitySet<ecommerce_OrderItemsDetail> _ecommerce_OrderItemsDetails;
-		
-		private EntityRef<ecommerce_Color> _ecommerce_Color;
-		
-		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
-		
-		private EntityRef<ecommerce_Size> _ecommerce_Size;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnStock_idChanging(int value);
-    partial void OnStock_idChanged();
-    partial void OnStock_ValueChanging(System.Nullable<int> value);
-    partial void OnStock_ValueChanged();
-    partial void OnpriceChanging(System.Nullable<decimal> value);
-    partial void OnpriceChanged();
-    partial void OnStock_ImageChanging(string value);
-    partial void OnStock_ImageChanged();
-    partial void OnfkSize_idChanging(System.Nullable<int> value);
-    partial void OnfkSize_idChanged();
-    partial void OnfkColor_idChanging(System.Nullable<int> value);
-    partial void OnfkColor_idChanged();
-    partial void OnfkProduct_idChanging(System.Nullable<int> value);
-    partial void OnfkProduct_idChanged();
-    #endregion
-		
-		public ecommerce_Stock()
-		{
-			this._ecommerce_OrderItemsDetails = new EntitySet<ecommerce_OrderItemsDetail>(new Action<ecommerce_OrderItemsDetail>(this.attach_ecommerce_OrderItemsDetails), new Action<ecommerce_OrderItemsDetail>(this.detach_ecommerce_OrderItemsDetails));
-			this._ecommerce_Color = default(EntityRef<ecommerce_Color>);
-			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
-			this._ecommerce_Size = default(EntityRef<ecommerce_Size>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Stock_id
-		{
-			get
-			{
-				return this._Stock_id;
-			}
-			set
-			{
-				if ((this._Stock_id != value))
-				{
-					this.OnStock_idChanging(value);
-					this.SendPropertyChanging();
-					this._Stock_id = value;
-					this.SendPropertyChanged("Stock_id");
-					this.OnStock_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
-		public System.Nullable<int> Stock_Value
-		{
-			get
-			{
-				return this._Stock_Value;
-			}
-			set
-			{
-				if ((this._Stock_Value != value))
-				{
-					this.OnStock_ValueChanging(value);
-					this.SendPropertyChanging();
-					this._Stock_Value = value;
-					this.SendPropertyChanged("Stock_Value");
-					this.OnStock_ValueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this.OnpriceChanging(value);
-					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
-		public string Stock_Image
-		{
-			get
-			{
-				return this._Stock_Image;
-			}
-			set
-			{
-				if ((this._Stock_Image != value))
-				{
-					this.OnStock_ImageChanging(value);
-					this.SendPropertyChanging();
-					this._Stock_Image = value;
-					this.SendPropertyChanged("Stock_Image");
-					this.OnStock_ImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
-		public System.Nullable<int> fkSize_id
-		{
-			get
-			{
-				return this._fkSize_id;
-			}
-			set
-			{
-				if ((this._fkSize_id != value))
-				{
-					if (this._ecommerce_Size.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnfkSize_idChanging(value);
-					this.SendPropertyChanging();
-					this._fkSize_id = value;
-					this.SendPropertyChanged("fkSize_id");
-					this.OnfkSize_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
-		public System.Nullable<int> fkColor_id
-		{
-			get
-			{
-				return this._fkColor_id;
-			}
-			set
-			{
-				if ((this._fkColor_id != value))
-				{
-					if (this._ecommerce_Color.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnfkColor_idChanging(value);
-					this.SendPropertyChanging();
-					this._fkColor_id = value;
-					this.SendPropertyChanged("fkColor_id");
-					this.OnfkColor_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
-		public System.Nullable<int> fkProduct_id
-		{
-			get
-			{
-				return this._fkProduct_id;
-			}
-			set
-			{
-				if ((this._fkProduct_id != value))
-				{
-					if (this._ecommerce_Productdetail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnfkProduct_idChanging(value);
-					this.SendPropertyChanging();
-					this._fkProduct_id = value;
-					this.SendPropertyChanged("fkProduct_id");
-					this.OnfkProduct_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Stock_ecommerce_OrderItemsDetail", Storage="_ecommerce_OrderItemsDetails", ThisKey="Stock_id", OtherKey="fkStockid")]
-		public EntitySet<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
-		{
-			get
-			{
-				return this._ecommerce_OrderItemsDetails;
-			}
-			set
-			{
-				this._ecommerce_OrderItemsDetails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Color_ecommerce_Stock", Storage="_ecommerce_Color", ThisKey="fkColor_id", OtherKey="Color_id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public ecommerce_Color ecommerce_Color
-		{
-			get
-			{
-				return this._ecommerce_Color.Entity;
-			}
-			set
-			{
-				ecommerce_Color previousValue = this._ecommerce_Color.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Color.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Color.Entity = null;
-						previousValue.ecommerce_Stocks.Remove(this);
-					}
-					this._ecommerce_Color.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Stocks.Add(this);
-						this._fkColor_id = value.Color_id;
-					}
-					else
-					{
-						this._fkColor_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Color");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Stock", Storage="_ecommerce_Productdetail", ThisKey="fkProduct_id", OtherKey="Product_id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public ecommerce_Productdetail ecommerce_Productdetail
-		{
-			get
-			{
-				return this._ecommerce_Productdetail.Entity;
-			}
-			set
-			{
-				ecommerce_Productdetail previousValue = this._ecommerce_Productdetail.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Productdetail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Productdetail.Entity = null;
-						previousValue.ecommerce_Stocks.Remove(this);
-					}
-					this._ecommerce_Productdetail.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Stocks.Add(this);
-						this._fkProduct_id = value.Product_id;
-					}
-					else
-					{
-						this._fkProduct_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Productdetail");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Size_ecommerce_Stock", Storage="_ecommerce_Size", ThisKey="fkSize_id", OtherKey="Size_id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public ecommerce_Size ecommerce_Size
-		{
-			get
-			{
-				return this._ecommerce_Size.Entity;
-			}
-			set
-			{
-				ecommerce_Size previousValue = this._ecommerce_Size.Entity;
-				if (((previousValue != value) 
-							|| (this._ecommerce_Size.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ecommerce_Size.Entity = null;
-						previousValue.ecommerce_Stocks.Remove(this);
-					}
-					this._ecommerce_Size.Entity = value;
-					if ((value != null))
-					{
-						value.ecommerce_Stocks.Add(this);
-						this._fkSize_id = value.Size_id;
-					}
-					else
-					{
-						this._fkSize_id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ecommerce_Size");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Stock = this;
-		}
-		
-		private void detach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.ecommerce_Stock = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_OrderItemsDetail")]
 	public partial class ecommerce_OrderItemsDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4100,8 +3743,11 @@ namespace DAL
 		}
 	}
 	
-	public partial class sp_ecommerce_StockNewUpdateCommandResult
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ecommerce_Stock")]
+	public partial class ecommerce_Stock : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Stock_id;
 		
@@ -4117,11 +3763,48 @@ namespace DAL
 		
 		private System.Nullable<int> _fkProduct_id;
 		
-		public sp_ecommerce_StockNewUpdateCommandResult()
+		private System.Nullable<decimal> _Actual_Price;
+		
+		private EntitySet<ecommerce_OrderItemsDetail> _ecommerce_OrderItemsDetails;
+		
+		private EntityRef<ecommerce_Color> _ecommerce_Color;
+		
+		private EntityRef<ecommerce_Productdetail> _ecommerce_Productdetail;
+		
+		private EntityRef<ecommerce_Size> _ecommerce_Size;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnStock_idChanging(int value);
+    partial void OnStock_idChanged();
+    partial void OnStock_ValueChanging(System.Nullable<int> value);
+    partial void OnStock_ValueChanged();
+    partial void OnpriceChanging(System.Nullable<decimal> value);
+    partial void OnpriceChanged();
+    partial void OnStock_ImageChanging(string value);
+    partial void OnStock_ImageChanged();
+    partial void OnfkSize_idChanging(System.Nullable<int> value);
+    partial void OnfkSize_idChanged();
+    partial void OnfkColor_idChanging(System.Nullable<int> value);
+    partial void OnfkColor_idChanged();
+    partial void OnfkProduct_idChanging(System.Nullable<int> value);
+    partial void OnfkProduct_idChanged();
+    partial void OnActual_PriceChanging(System.Nullable<decimal> value);
+    partial void OnActual_PriceChanged();
+    #endregion
+		
+		public ecommerce_Stock()
 		{
+			this._ecommerce_OrderItemsDetails = new EntitySet<ecommerce_OrderItemsDetail>(new Action<ecommerce_OrderItemsDetail>(this.attach_ecommerce_OrderItemsDetails), new Action<ecommerce_OrderItemsDetail>(this.detach_ecommerce_OrderItemsDetails));
+			this._ecommerce_Color = default(EntityRef<ecommerce_Color>);
+			this._ecommerce_Productdetail = default(EntityRef<ecommerce_Productdetail>);
+			this._ecommerce_Size = default(EntityRef<ecommerce_Size>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Stock_id
 		{
 			get
@@ -4132,7 +3815,11 @@ namespace DAL
 			{
 				if ((this._Stock_id != value))
 				{
+					this.OnStock_idChanging(value);
+					this.SendPropertyChanging();
 					this._Stock_id = value;
+					this.SendPropertyChanged("Stock_id");
+					this.OnStock_idChanged();
 				}
 			}
 		}
@@ -4148,7 +3835,11 @@ namespace DAL
 			{
 				if ((this._Stock_Value != value))
 				{
+					this.OnStock_ValueChanging(value);
+					this.SendPropertyChanging();
 					this._Stock_Value = value;
+					this.SendPropertyChanged("Stock_Value");
+					this.OnStock_ValueChanged();
 				}
 			}
 		}
@@ -4164,7 +3855,11 @@ namespace DAL
 			{
 				if ((this._price != value))
 				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
 					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
 				}
 			}
 		}
@@ -4180,7 +3875,11 @@ namespace DAL
 			{
 				if ((this._Stock_Image != value))
 				{
+					this.OnStock_ImageChanging(value);
+					this.SendPropertyChanging();
 					this._Stock_Image = value;
+					this.SendPropertyChanged("Stock_Image");
+					this.OnStock_ImageChanged();
 				}
 			}
 		}
@@ -4196,7 +3895,15 @@ namespace DAL
 			{
 				if ((this._fkSize_id != value))
 				{
+					if (this._ecommerce_Size.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkSize_idChanging(value);
+					this.SendPropertyChanging();
 					this._fkSize_id = value;
+					this.SendPropertyChanged("fkSize_id");
+					this.OnfkSize_idChanged();
 				}
 			}
 		}
@@ -4212,7 +3919,15 @@ namespace DAL
 			{
 				if ((this._fkColor_id != value))
 				{
+					if (this._ecommerce_Color.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkColor_idChanging(value);
+					this.SendPropertyChanging();
 					this._fkColor_id = value;
+					this.SendPropertyChanged("fkColor_id");
+					this.OnfkColor_idChanged();
 				}
 			}
 		}
@@ -4228,277 +3943,184 @@ namespace DAL
 			{
 				if ((this._fkProduct_id != value))
 				{
+					if (this._ecommerce_Productdetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnfkProduct_idChanging(value);
+					this.SendPropertyChanging();
 					this._fkProduct_id = value;
+					this.SendPropertyChanged("fkProduct_id");
+					this.OnfkProduct_idChanged();
 				}
 			}
 		}
-	}
-	
-	public partial class sp_ecommerce_StockNewSelectCommandResult
-	{
 		
-		private int _Stock_id;
-		
-		private System.Nullable<int> _Stock_Value;
-		
-		private System.Nullable<decimal> _price;
-		
-		private string _Stock_Image;
-		
-		private System.Nullable<int> _fkSize_id;
-		
-		private System.Nullable<int> _fkColor_id;
-		
-		private System.Nullable<int> _fkProduct_id;
-		
-		public sp_ecommerce_StockNewSelectCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
-		public int Stock_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Actual_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Actual_Price
 		{
 			get
 			{
-				return this._Stock_id;
+				return this._Actual_Price;
 			}
 			set
 			{
-				if ((this._Stock_id != value))
+				if ((this._Actual_Price != value))
 				{
-					this._Stock_id = value;
+					this.OnActual_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._Actual_Price = value;
+					this.SendPropertyChanged("Actual_Price");
+					this.OnActual_PriceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
-		public System.Nullable<int> Stock_Value
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Stock_ecommerce_OrderItemsDetail", Storage="_ecommerce_OrderItemsDetails", ThisKey="Stock_id", OtherKey="fkStockid")]
+		public EntitySet<ecommerce_OrderItemsDetail> ecommerce_OrderItemsDetails
 		{
 			get
 			{
-				return this._Stock_Value;
+				return this._ecommerce_OrderItemsDetails;
 			}
 			set
 			{
-				if ((this._Stock_Value != value))
-				{
-					this._Stock_Value = value;
-				}
+				this._ecommerce_OrderItemsDetails.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> price
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Color_ecommerce_Stock", Storage="_ecommerce_Color", ThisKey="fkColor_id", OtherKey="Color_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_Color ecommerce_Color
 		{
 			get
 			{
-				return this._price;
+				return this._ecommerce_Color.Entity;
 			}
 			set
 			{
-				if ((this._price != value))
+				ecommerce_Color previousValue = this._ecommerce_Color.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Color.HasLoadedOrAssignedValue == false)))
 				{
-					this._price = value;
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Color.Entity = null;
+						previousValue.ecommerce_Stocks.Remove(this);
+					}
+					this._ecommerce_Color.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Stocks.Add(this);
+						this._fkColor_id = value.Color_id;
+					}
+					else
+					{
+						this._fkColor_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Color");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
-		public string Stock_Image
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Productdetail_ecommerce_Stock", Storage="_ecommerce_Productdetail", ThisKey="fkProduct_id", OtherKey="Product_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_Productdetail ecommerce_Productdetail
 		{
 			get
 			{
-				return this._Stock_Image;
+				return this._ecommerce_Productdetail.Entity;
 			}
 			set
 			{
-				if ((this._Stock_Image != value))
+				ecommerce_Productdetail previousValue = this._ecommerce_Productdetail.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Productdetail.HasLoadedOrAssignedValue == false)))
 				{
-					this._Stock_Image = value;
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Productdetail.Entity = null;
+						previousValue.ecommerce_Stocks.Remove(this);
+					}
+					this._ecommerce_Productdetail.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Stocks.Add(this);
+						this._fkProduct_id = value.Product_id;
+					}
+					else
+					{
+						this._fkProduct_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Productdetail");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
-		public System.Nullable<int> fkSize_id
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ecommerce_Size_ecommerce_Stock", Storage="_ecommerce_Size", ThisKey="fkSize_id", OtherKey="Size_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ecommerce_Size ecommerce_Size
 		{
 			get
 			{
-				return this._fkSize_id;
+				return this._ecommerce_Size.Entity;
 			}
 			set
 			{
-				if ((this._fkSize_id != value))
+				ecommerce_Size previousValue = this._ecommerce_Size.Entity;
+				if (((previousValue != value) 
+							|| (this._ecommerce_Size.HasLoadedOrAssignedValue == false)))
 				{
-					this._fkSize_id = value;
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ecommerce_Size.Entity = null;
+						previousValue.ecommerce_Stocks.Remove(this);
+					}
+					this._ecommerce_Size.Entity = value;
+					if ((value != null))
+					{
+						value.ecommerce_Stocks.Add(this);
+						this._fkSize_id = value.Size_id;
+					}
+					else
+					{
+						this._fkSize_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ecommerce_Size");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
-		public System.Nullable<int> fkColor_id
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
 		{
-			get
+			if ((this.PropertyChanging != null))
 			{
-				return this._fkColor_id;
-			}
-			set
-			{
-				if ((this._fkColor_id != value))
-				{
-					this._fkColor_id = value;
-				}
+				this.PropertyChanging(this, emptyChangingEventArgs);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
-		public System.Nullable<int> fkProduct_id
+		protected virtual void SendPropertyChanged(String propertyName)
 		{
-			get
+			if ((this.PropertyChanged != null))
 			{
-				return this._fkProduct_id;
-			}
-			set
-			{
-				if ((this._fkProduct_id != value))
-				{
-					this._fkProduct_id = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ecommerce_StockNewInsertCommandResult
-	{
-		
-		private int _Stock_id;
-		
-		private System.Nullable<int> _Stock_Value;
-		
-		private System.Nullable<decimal> _price;
-		
-		private string _Stock_Image;
-		
-		private System.Nullable<int> _fkSize_id;
-		
-		private System.Nullable<int> _fkColor_id;
-		
-		private System.Nullable<int> _fkProduct_id;
-		
-		public sp_ecommerce_StockNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
-		public int Stock_id
-		{
-			get
-			{
-				return this._Stock_id;
-			}
-			set
-			{
-				if ((this._Stock_id != value))
-				{
-					this._Stock_id = value;
-				}
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
-		public System.Nullable<int> Stock_Value
+		private void attach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
 		{
-			get
-			{
-				return this._Stock_Value;
-			}
-			set
-			{
-				if ((this._Stock_Value != value))
-				{
-					this._Stock_Value = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.ecommerce_Stock = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> price
+		private void detach_ecommerce_OrderItemsDetails(ecommerce_OrderItemsDetail entity)
 		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this._price = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
-		public string Stock_Image
-		{
-			get
-			{
-				return this._Stock_Image;
-			}
-			set
-			{
-				if ((this._Stock_Image != value))
-				{
-					this._Stock_Image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
-		public System.Nullable<int> fkSize_id
-		{
-			get
-			{
-				return this._fkSize_id;
-			}
-			set
-			{
-				if ((this._fkSize_id != value))
-				{
-					this._fkSize_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
-		public System.Nullable<int> fkColor_id
-		{
-			get
-			{
-				return this._fkColor_id;
-			}
-			set
-			{
-				if ((this._fkColor_id != value))
-				{
-					this._fkColor_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
-		public System.Nullable<int> fkProduct_id
-		{
-			get
-			{
-				return this._fkProduct_id;
-			}
-			set
-			{
-				if ((this._fkProduct_id != value))
-				{
-					this._fkProduct_id = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.ecommerce_Stock = null;
 		}
 	}
 	
@@ -9129,6 +8751,462 @@ namespace DAL
 				if ((this._Company != value))
 				{
 					this._Company = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_StockNewInsertCommandResult
+	{
+		
+		private int _Stock_id;
+		
+		private System.Nullable<int> _Stock_Value;
+		
+		private System.Nullable<decimal> _price;
+		
+		private string _Stock_Image;
+		
+		private System.Nullable<int> _fkSize_id;
+		
+		private System.Nullable<int> _fkColor_id;
+		
+		private System.Nullable<int> _fkProduct_id;
+		
+		private System.Nullable<decimal> _Actual_Price;
+		
+		public sp_ecommerce_StockNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
+		public int Stock_id
+		{
+			get
+			{
+				return this._Stock_id;
+			}
+			set
+			{
+				if ((this._Stock_id != value))
+				{
+					this._Stock_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
+		public System.Nullable<int> Stock_Value
+		{
+			get
+			{
+				return this._Stock_Value;
+			}
+			set
+			{
+				if ((this._Stock_Value != value))
+				{
+					this._Stock_Value = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
+		public string Stock_Image
+		{
+			get
+			{
+				return this._Stock_Image;
+			}
+			set
+			{
+				if ((this._Stock_Image != value))
+				{
+					this._Stock_Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
+		public System.Nullable<int> fkSize_id
+		{
+			get
+			{
+				return this._fkSize_id;
+			}
+			set
+			{
+				if ((this._fkSize_id != value))
+				{
+					this._fkSize_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
+		public System.Nullable<int> fkColor_id
+		{
+			get
+			{
+				return this._fkColor_id;
+			}
+			set
+			{
+				if ((this._fkColor_id != value))
+				{
+					this._fkColor_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
+		public System.Nullable<int> fkProduct_id
+		{
+			get
+			{
+				return this._fkProduct_id;
+			}
+			set
+			{
+				if ((this._fkProduct_id != value))
+				{
+					this._fkProduct_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Actual_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Actual_Price
+		{
+			get
+			{
+				return this._Actual_Price;
+			}
+			set
+			{
+				if ((this._Actual_Price != value))
+				{
+					this._Actual_Price = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_StockNewSelectCommandResult
+	{
+		
+		private int _Stock_id;
+		
+		private System.Nullable<int> _Stock_Value;
+		
+		private System.Nullable<decimal> _price;
+		
+		private string _Stock_Image;
+		
+		private System.Nullable<int> _fkSize_id;
+		
+		private System.Nullable<int> _fkColor_id;
+		
+		private System.Nullable<int> _fkProduct_id;
+		
+		private System.Nullable<decimal> _Actual_Price;
+		
+		public sp_ecommerce_StockNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
+		public int Stock_id
+		{
+			get
+			{
+				return this._Stock_id;
+			}
+			set
+			{
+				if ((this._Stock_id != value))
+				{
+					this._Stock_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
+		public System.Nullable<int> Stock_Value
+		{
+			get
+			{
+				return this._Stock_Value;
+			}
+			set
+			{
+				if ((this._Stock_Value != value))
+				{
+					this._Stock_Value = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
+		public string Stock_Image
+		{
+			get
+			{
+				return this._Stock_Image;
+			}
+			set
+			{
+				if ((this._Stock_Image != value))
+				{
+					this._Stock_Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
+		public System.Nullable<int> fkSize_id
+		{
+			get
+			{
+				return this._fkSize_id;
+			}
+			set
+			{
+				if ((this._fkSize_id != value))
+				{
+					this._fkSize_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
+		public System.Nullable<int> fkColor_id
+		{
+			get
+			{
+				return this._fkColor_id;
+			}
+			set
+			{
+				if ((this._fkColor_id != value))
+				{
+					this._fkColor_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
+		public System.Nullable<int> fkProduct_id
+		{
+			get
+			{
+				return this._fkProduct_id;
+			}
+			set
+			{
+				if ((this._fkProduct_id != value))
+				{
+					this._fkProduct_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Actual_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Actual_Price
+		{
+			get
+			{
+				return this._Actual_Price;
+			}
+			set
+			{
+				if ((this._Actual_Price != value))
+				{
+					this._Actual_Price = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ecommerce_StockNewUpdateCommandResult
+	{
+		
+		private int _Stock_id;
+		
+		private System.Nullable<int> _Stock_Value;
+		
+		private System.Nullable<decimal> _price;
+		
+		private string _Stock_Image;
+		
+		private System.Nullable<int> _fkSize_id;
+		
+		private System.Nullable<int> _fkColor_id;
+		
+		private System.Nullable<int> _fkProduct_id;
+		
+		private System.Nullable<decimal> _Actual_Price;
+		
+		public sp_ecommerce_StockNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_id", DbType="Int NOT NULL")]
+		public int Stock_id
+		{
+			get
+			{
+				return this._Stock_id;
+			}
+			set
+			{
+				if ((this._Stock_id != value))
+				{
+					this._Stock_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Value", DbType="Int")]
+		public System.Nullable<int> Stock_Value
+		{
+			get
+			{
+				return this._Stock_Value;
+			}
+			set
+			{
+				if ((this._Stock_Value != value))
+				{
+					this._Stock_Value = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock_Image", DbType="NVarChar(100)")]
+		public string Stock_Image
+		{
+			get
+			{
+				return this._Stock_Image;
+			}
+			set
+			{
+				if ((this._Stock_Image != value))
+				{
+					this._Stock_Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkSize_id", DbType="Int")]
+		public System.Nullable<int> fkSize_id
+		{
+			get
+			{
+				return this._fkSize_id;
+			}
+			set
+			{
+				if ((this._fkSize_id != value))
+				{
+					this._fkSize_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkColor_id", DbType="Int")]
+		public System.Nullable<int> fkColor_id
+		{
+			get
+			{
+				return this._fkColor_id;
+			}
+			set
+			{
+				if ((this._fkColor_id != value))
+				{
+					this._fkColor_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fkProduct_id", DbType="Int")]
+		public System.Nullable<int> fkProduct_id
+		{
+			get
+			{
+				return this._fkProduct_id;
+			}
+			set
+			{
+				if ((this._fkProduct_id != value))
+				{
+					this._fkProduct_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Actual_Price", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Actual_Price
+		{
+			get
+			{
+				return this._Actual_Price;
+			}
+			set
+			{
+				if ((this._Actual_Price != value))
+				{
+					this._Actual_Price = value;
 				}
 			}
 		}

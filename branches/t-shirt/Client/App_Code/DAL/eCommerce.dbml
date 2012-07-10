@@ -140,21 +140,6 @@
       <Association Name="ecommerce_CountryDetail_ecommerce_StateDetail" Member="ecommerce_CountryDetail" ThisKey="FkCountry_id" OtherKey="Country_id" Type="ecommerce_CountryDetail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.ecommerce_Stock" Member="ecommerce_Stocks">
-    <Type Name="ecommerce_Stock">
-      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ecommerce_Stock_ecommerce_OrderItemsDetail" Member="ecommerce_OrderItemsDetails" ThisKey="Stock_id" OtherKey="fkStockid" Type="ecommerce_OrderItemsDetail" />
-      <Association Name="ecommerce_Color_ecommerce_Stock" Member="ecommerce_Color" ThisKey="fkColor_id" OtherKey="Color_id" Type="ecommerce_Color" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="ecommerce_Productdetail_ecommerce_Stock" Member="ecommerce_Productdetail" ThisKey="fkProduct_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="ecommerce_Size_ecommerce_Stock" Member="ecommerce_Size" ThisKey="fkSize_id" OtherKey="Size_id" Type="ecommerce_Size" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.ecommerce_OrderItemsDetail" Member="ecommerce_OrderItemsDetails">
     <Type Name="ecommerce_OrderItemsDetail">
       <Column Name="Item_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -167,57 +152,22 @@
       <Association Name="ecommerce_Stock_ecommerce_OrderItemsDetail" Member="ecommerce_Stock" ThisKey="fkStockid" OtherKey="Stock_id" Type="ecommerce_Stock" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Function Name="dbo.sp_ecommerce_StockNewUpdateCommand" Method="sp_ecommerce_StockNewUpdateCommand">
-    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
-    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="Stock_Image" Parameter="stock_Image" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_Stock_id" Parameter="original_Stock_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Stock_id" Parameter="stock_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_StockNewUpdateCommandResult">
-      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.ecommerce_Stock" Member="ecommerce_Stocks">
+    <Type Name="ecommerce_Stock">
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_StockNewSelectCommand" Method="sp_ecommerce_StockNewSelectCommand">
-    <ElementType Name="sp_ecommerce_StockNewSelectCommandResult">
-      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_StockNewInsertCommand" Method="sp_ecommerce_StockNewInsertCommand">
-    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
-    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="Stock_Image" Parameter="stock_Image" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_StockNewInsertCommandResult">
-      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_StockNewDeleteCommand" Method="sp_ecommerce_StockNewDeleteCommand">
-    <Parameter Name="Original_Stock_id" Parameter="original_Stock_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="ecommerce_Stock_ecommerce_OrderItemsDetail" Member="ecommerce_OrderItemsDetails" ThisKey="Stock_id" OtherKey="fkStockid" Type="ecommerce_OrderItemsDetail" />
+      <Association Name="ecommerce_Color_ecommerce_Stock" Member="ecommerce_Color" ThisKey="fkColor_id" OtherKey="Color_id" Type="ecommerce_Color" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="ecommerce_Productdetail_ecommerce_Stock" Member="ecommerce_Productdetail" ThisKey="fkProduct_id" OtherKey="Product_id" Type="ecommerce_Productdetail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="ecommerce_Size_ecommerce_Stock" Member="ecommerce_Size" ThisKey="fkSize_id" OtherKey="Size_id" Type="ecommerce_Size" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_ecommerce_StateDetailNewUpdateCommand" Method="sp_ecommerce_StateDetailNewUpdateCommand">
     <Parameter Name="State_Name" Parameter="state_Name" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="FkCountry_id" Parameter="fkCountry_id" Type="System.Int32" DbType="Int" />
@@ -831,6 +781,62 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Company" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_StockNewDeleteCommand" Method="sp_ecommerce_StockNewDeleteCommand">
+    <Parameter Name="Original_Stock_id" Parameter="original_Stock_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_StockNewInsertCommand" Method="sp_ecommerce_StockNewInsertCommand">
+    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Stock_Image" Parameter="stock_Image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Actual_Price" Parameter="actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="sp_ecommerce_StockNewInsertCommandResult">
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_StockNewSelectCommand" Method="sp_ecommerce_StockNewSelectCommand">
+    <ElementType Name="sp_ecommerce_StockNewSelectCommandResult">
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_StockNewUpdateCommand" Method="sp_ecommerce_StockNewUpdateCommand">
+    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Stock_Image" Parameter="stock_Image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Actual_Price" Parameter="actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Original_Stock_id" Parameter="original_Stock_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stock_id" Parameter="stock_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_StockNewUpdateCommandResult">
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

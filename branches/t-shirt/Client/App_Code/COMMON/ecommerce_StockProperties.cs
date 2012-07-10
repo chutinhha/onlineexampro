@@ -9,11 +9,13 @@ using System.Web;
 public abstract class ecommerce_StockProperties
 {
     private int stock_id, stock_Value, fkSize_id, fkColor_id, fkProduct_id;
-    private decimal price;
+    private decimal price, actual_Price;
     private string stock_Image;
-
-
-
+    public decimal Actual_Price
+    {
+        get { return actual_Price; }
+        set { actual_Price = value; }
+    }
     public string Stock_Image
     {
         get { return stock_Image; }
