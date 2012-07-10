@@ -23,9 +23,10 @@
                     <Columns>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                Remove</HeaderTemplate>
+                                Remove
+                            </HeaderTemplate>
                             <ItemTemplate>
-                                <table align="center">
+                                <table align="center" width="70px">
                                     <tr>
                                         <td>
                                             <asp:LinkButton ID="LinkButton1" Text="Remove" CommandArgument='<%# Eval("Id") %>'
@@ -37,7 +38,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Product">
                             <ItemTemplate>
-                                <table align="center">
+                                <table align="left">
                                     <tr>
                                         <td>
                                             <asp:Image ID="lbImage" Width="100px" Height="100px" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' />
@@ -65,8 +66,19 @@
                                 <table align="center">
                                     <tr>
                                         <td>
-                                            <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>' OnTextChanged="txtQuantity_TextChanged"
-                                                AutoPostBack="true"></asp:TextBox>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>' OnTextChanged="txtQuantity_TextChanged"
+                                                            AutoPostBack="true"></asp:TextBox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="lbavailable" runat="server" ForeColor="Red"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </td>
                                     </tr>
                                 </table>

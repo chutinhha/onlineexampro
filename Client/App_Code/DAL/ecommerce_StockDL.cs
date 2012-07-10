@@ -11,13 +11,13 @@ class ecommerce_StockDL
 
     internal static bool Insert(ecommerce_StockBL ecommerce_StockBL)
     {
-        eCommerceHelper.Context.sp_ecommerce_StockNewInsertCommand(ecommerce_StockBL.Stock_Value, ecommerce_StockBL.Price, ecommerce_StockBL.Stock_Image, ecommerce_StockBL.FkSize_id, ecommerce_StockBL.FkColor_id, ecommerce_StockBL.FkProduct_id);
+        eCommerceHelper.Context.sp_ecommerce_StockNewInsertCommand(ecommerce_StockBL.Stock_Value, ecommerce_StockBL.Price, ecommerce_StockBL.Stock_Image, ecommerce_StockBL.FkSize_id, ecommerce_StockBL.FkColor_id, ecommerce_StockBL.FkProduct_id,ecommerce_StockBL.Actual_Price);
         return true;
     }
 
     internal static bool Update(ecommerce_StockBL ecommerce_StockBL)
     {
-        eCommerceHelper.Context.sp_ecommerce_StockNewUpdateCommand(ecommerce_StockBL.Stock_Value, ecommerce_StockBL.Price, ecommerce_StockBL.Stock_Image, ecommerce_StockBL.FkSize_id, ecommerce_StockBL.FkColor_id, ecommerce_StockBL.FkProduct_id, ecommerce_StockBL.Stock_id, ecommerce_StockBL.Stock_id);
+        eCommerceHelper.Context.sp_ecommerce_StockNewUpdateCommand(ecommerce_StockBL.Stock_Value, ecommerce_StockBL.Price, ecommerce_StockBL.Stock_Image, ecommerce_StockBL.FkSize_id, ecommerce_StockBL.FkColor_id, ecommerce_StockBL.FkProduct_id,ecommerce_StockBL.Actual_Price, ecommerce_StockBL.Stock_id, ecommerce_StockBL.Stock_id);
         return true;
     }
 

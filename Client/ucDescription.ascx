@@ -36,25 +36,13 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <asp:Label ID="lbPrice" runat="server"></asp:Label>.Rs
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <br />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
                                     <table>
                                         <tr>
-                                            <td width="70px">
-                                                Size:
+                                            <td>
+                                                <asp:Label ID="lbPrice" runat="server"></asp:Label>.Rs
                                             </td>
                                             <td>
-                                                <asp:DropDownList ID="ddlSize" Width="150px" runat="server" AutoPostBack="True" 
-                                                    onselectedindexchanged="ddlSize_SelectedIndexChanged">
-                                                </asp:DropDownList>
+                                                <asp:Label ID="lbactual" runat="server" Font-Strikeout="True"></asp:Label>.Rs
                                             </td>
                                         </tr>
                                     </table>
@@ -75,6 +63,26 @@
                                             <td>
                                                 <asp:DropDownList ID="ddlColor" Width="150px" runat="server" AutoPostBack="True"
                                                     OnSelectedIndexChanged="ddlColor_SelectedIndexChanged">
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table>
+                                        <tr>
+                                            <td width="70px">
+                                                Size:
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="ddlSize" Width="150px" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSize_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>

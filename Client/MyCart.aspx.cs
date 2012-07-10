@@ -28,15 +28,15 @@ public partial class MyCart : System.Web.UI.Page
             foreach (var item in obj)
             {
                 DataRow dr = dt.NewRow();
-                var values = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == item.Key).Select(a => a);
+                var values = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.Stock_id == item.Key).Select(a => a);
                 foreach (var items in values)
                 {
                     dr["Id"] = item.Key;
-                    dr["ImageUrl"] = items.Image;
-                    dr["ProductName"] = items.Product_name;
-                    dr["Price"] = items.Price;
+                    dr["ImageUrl"] = items.Stock_Image;
+                    dr["ProductName"] = items.ecommerce_Productdetail.Product_name;
+                    dr["Price"] = items.price;
                     dr["Quantity"] = item.Value;
-                    dr["Total"] = item.Value * items.Price;
+                    dr["Total"] = item.Value * items.price;
                 }
                 dt.Rows.Add(dr);
             }
@@ -63,7 +63,12 @@ public partial class MyCart : System.Web.UI.Page
         obj = (Dictionary<int, int>)Session["Cart"];
         obj.Remove(Convert.ToInt32(lnk.CommandArgument));
         Session["Cart"] = obj;
-        Session["item"] = obj.Count();
+        var count = 0;
+        foreach (var item in obj)
+        {
+            count = item.Value + count;
+        }
+        Session["item"] = count;
         BindGrid();
         calculateTotal();
     }
@@ -72,22 +77,72 @@ public partial class MyCart : System.Web.UI.Page
         TextBox txt = (TextBox)sender;
         GridViewRow gr = (GridViewRow)(txt).Parent.Parent;
         int id = Convert.ToInt32(GridView1.DataKeys[gr.RowIndex].Values[0]);
-        int price = Convert.ToInt32(eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == id).Select(a => a.Price).FirstOrDefault());
-        ((Label)GridView1.Rows[gr.RowIndex].FindControl("lbTotal")).Text = Convert.ToString(Convert.ToInt32(txt.Text) * price);
-        calculateTotal();
+        var getStock = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.Stock_id == id).Select(a => a).FirstOrDefault();
+        // int price = Convert.ToInt32(eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.Stock_id == id).Select(a => a.price).FirstOrDefault());
+        if (Convert.ToInt32(txt.Text) > Convert.ToInt32(getStock.Stock_Value))
+        {
+            Dictionary<int, int> obj = new Dictionary<int, int>();
+            if (Session["Cart"] != null)
+            {
+                obj = (Dictionary<int, int>)Session["Cart"];
+            }
+            if (obj != null)
+            {
+                obj.Remove(Convert.ToInt32(id));
+                obj.Add(Convert.ToInt32(id), Convert.ToInt32(getStock.Stock_Value));
+            }
+            var count = 0;
+            foreach (var item in obj)
+            {
+                count = item.Value + count;
+            }
+            Session["item"] = count;
+            txt.Text = Convert.ToString(getStock.Stock_Value);
+            ((Label)GridView1.Rows[gr.RowIndex].FindControl("lbavailable")).Text = "only " + getStock.Stock_Value + " pieces available";
+            ((Label)GridView1.Rows[gr.RowIndex].FindControl("lbTotal")).Text = Convert.ToString(Convert.ToInt32(getStock.Stock_Value) * getStock.price);
+            calculateTotal();
+        }
+        else
+        {
+            Dictionary<int, int> obj = new Dictionary<int, int>();
+            if (Session["Cart"] != null)
+            {
+                obj = (Dictionary<int, int>)Session["Cart"];
+            }
+            if (obj != null)
+            {
+                obj.Remove(Convert.ToInt32(id));
+                obj.Add(Convert.ToInt32(id), Convert.ToInt32(txt.Text));
+            }
+            var count = 0;
+            foreach (var item in obj)
+            {
+                count = item.Value + count;
+            }
+            Session["item"] = count;
+            ((Label)GridView1.Rows[gr.RowIndex].FindControl("lbTotal")).Text = Convert.ToString(Convert.ToInt32(txt.Text) * getStock.price);
+            calculateTotal();
+        }
+
     }
+
+    private void calculateCart(int id, string p)
+    {
+
+    }
+
+
+
+
 
     private void calculateTotal()
     {
-        int total = 0;
+        decimal total = 0;
         foreach (GridViewRow item in GridView1.Rows)
         {
-            int lb = Convert.ToInt32(((Label)GridView1.Rows[item.RowIndex].FindControl("lbTotal")).Text);
+            decimal lb = Convert.ToDecimal(((Label)GridView1.Rows[item.RowIndex].FindControl("lbTotal")).Text);
             total += lb;
         }
-        //if (!string.IsNullOrEmpty(Convert.ToString(Session["Email"])))
-        //{
-            ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
-        //}
+        ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
     }
 }

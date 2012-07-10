@@ -41,6 +41,10 @@
                                                 <td class="productDetailfont">
                                                     <asp:Label ID="lbPrice" runat="server" Text='<%#Eval("Price") %>'></asp:Label>&nbsp;Rs.
                                                 </td>
+                                               
+                                                <td class="productDetailfont">
+                                                    <asp:Label ID="lbActual" runat="server" Text='<%# Eval("Actual") %>' Font-Strikeout="True"></asp:Label>&nbsp;Rs.
+                                                </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -53,7 +57,7 @@
                                                     Status :
                                                 </td>
                                                 <td class="productDetailfont">
-                                                   <%-- <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Pro_Status") %>'></asp:Label>--%>
+                                                    <%-- <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Pro_Status") %>'></asp:Label>--%>
                                                 </td>
                                             </tr>
                                         </table>
@@ -67,7 +71,7 @@
                                                     Offer&nbsp;&nbsp; :
                                                 </td>
                                                 <td class="productDetailfont">
-                                                    <asp:Label ID="lbOffer" runat="server" Text='<%#Eval("Pro_Discount") %>'></asp:Label>
+                                                    <asp:Label ID="lbOffer" runat="server" Text='<%#Eval("Pro_Discount") %>'></asp:Label>%
                                                 </td>
                                             </tr>
                                         </table>
