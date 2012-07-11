@@ -68,7 +68,7 @@ public partial class ucDiscription : System.Web.UI.UserControl
     private void Bindsize()
     {
         ddlSize.Items.Clear();
-        var size = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a.fkSize_id).ToList();
+        var size = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue) && a.fkProduct_id == Convert.ToInt32(ViewState["productID"])).Select(a => a.fkSize_id).ToList();
         Dictionary<int, string> sizes = new Dictionary<int, string>();
         foreach (var item in size)
         {

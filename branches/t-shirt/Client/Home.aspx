@@ -8,11 +8,32 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
-            <td>
+            <td colspan="3">
                 <uc1:ucSlideShow ID="ucSlideShow1" runat="server" />
             </td>
         </tr>
         <tr>
+            <td width="60px">
+                Catagory:&nbsp;
+            </td>
+            <td colspan="2">
+                <asp:DropDownList ID="ddlCatagory" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCatagory_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Brand:&nbsp;
+            </td>
+            <td valign="top">
+                <asp:DropDownList ID="ddlBrand" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
             <td align="right">
                 <asp:DataList ID="DataList1" runat="server" RepeatColumns="2" CellPadding="5" CellSpacing="5">
                     <ItemTemplate>
