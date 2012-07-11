@@ -102,7 +102,7 @@
                                                 Quantity:
                                             </td>
                                             <td>
-                                                <asp:DropDownList ID="ddlQuantity" Width="150px" runat="server">
+                                                <asp:DropDownList ID="ddlQuantity"  runat="server" size="2" >
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>

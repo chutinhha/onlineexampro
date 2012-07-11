@@ -162,17 +162,38 @@ public partial class Addproduct : System.Web.UI.Page
     }
     protected void txtSubmit_Click(object sender, EventArgs e)
     {
-        if (fuImage.HasFile)
+        string path = "~/ProductImage/" + fuImage.FileName;
+        var check = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ddlProductlist.SelectedValue) && a.fkColor_id == Convert.ToInt32(ddlColorlist.SelectedValue) && a.fkSize_id == Convert.ToInt32(ddlSizelist.SelectedValue)).Select(a => a);
+        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ddlProductlist.SelectedValue)).Select(a => a.Pro_Discount).First();
+        if (check.Count() == 0)
         {
-            string path = "~/ProductImage/" + fuImage.FileName;
-            fuImage.SaveAs(Server.MapPath(path));
-            var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ddlProductlist.SelectedValue)).Select(a => a.Pro_Discount).First();
-            decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
-            ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), Convert.ToInt32(ddlProductlist.SelectedValue), discount_Price, path, Convert.ToDecimal(txtprice.Text));
-            if (obj.Insert())
+            if (fuImage.HasFile)
             {
-                clear();
+                decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
+                fuImage.SaveAs(Server.MapPath(path));
+                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), Convert.ToInt32(ddlProductlist.SelectedValue), discount_Price, path, Convert.ToDecimal(txtprice.Text));
+                if (obj.Insert())
+                {
+                    clear();
+                }
             }
+        }
+        else
+        {
+            var Update = check.FirstOrDefault();
+            if (fuImage.HasFile)
+            {
+                fuImage.SaveAs(Server.MapPath(path));
+                Update.Stock_Image = path;
+            }
+            if (txtprice.Text != string.Empty)
+            {
+                decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
+                Update.Actual_Price = Convert.ToDecimal(txtprice.Text);
+                Update.price=discount_Price;
+            }
+            Update.Stock_Value = Convert.ToInt32(txtStock.Text);
+            eCommerceHelper.Context.SubmitChanges();
         }
     }
 
