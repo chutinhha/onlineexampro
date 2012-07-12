@@ -94,7 +94,7 @@
                                     <br />
                                 </td>
                             </tr>
-                            <tr>
+                          <%--  <tr>
                                 <td colspan="3">
                                     <table>
                                         <tr>
@@ -108,7 +108,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                            </tr>
+                            </tr>--%>
                             <tr>
                                 <td colspan="3">
                                     <br />

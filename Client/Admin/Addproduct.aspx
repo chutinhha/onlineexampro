@@ -21,8 +21,8 @@
                             Category:
                         </td>
                         <td width="150px">
-                            <asp:DropDownList Width="142px" ID="ddlCatagory" runat="server" 
-                                AutoPostBack="True" onselectedindexchanged="ddlCatagory_SelectedIndexChanged">
+                            <asp:DropDownList Width="142px" ID="ddlCatagory" runat="server" AutoPostBack="True"
+                                OnSelectedIndexChanged="ddlCatagory_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                         <td valign="top">
@@ -40,18 +40,7 @@
                     </tr>
                     <tr>
                         <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Prodect image:
-                        </td>
-                        <td colspan="2">
-                            <asp:FileUpload ID="fuProductimage" runat="server" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -98,28 +87,6 @@
                             <asp:TextBox ID="txtDiscount" runat="server"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Company:&nbsp;
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="left">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button
-                                ID="btnPost" runat="server" Text="Submit" OnClick="btnPost_Click" />
-                        </td>
-                    </tr>
                 </table>
             </td>
         </tr>
@@ -130,39 +97,7 @@
         </tr>
         <tr>
             <td>
-                <h3>
-                    Add Stock Detail:
-                </h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <table cellpadding="0" cellspacing="0" width="800px" align="center">
-                    <tr>
-                        <td>
-                            <br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td width="100px">
-                                        Product:
-                                    </td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlProductlist" runat="server">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br />
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             <table cellpadding="0" cellspacing="0" width="100%">
@@ -171,16 +106,14 @@
                                         Color:
                                     </td>
                                     <td width="100px">
-                                        <asp:DropDownList ID="ddlColorlist" runat="server" AutoPostBack="True" 
-                                            onselectedindexchanged="ddlColorlist_SelectedIndexChanged">
+                                        <asp:DropDownList ID="ddlColorlist" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlColorlist_SelectedIndexChanged">
                                         </asp:DropDownList>
                                     </td>
                                     <td width="130px">
                                         <asp:TextBox ID="txtColor" runat="server" Visible="false"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <asp:Button ID="btnColor" runat="server" Text="ADD" Visible="false" 
-                                            onclick="btnColor_Click" />
+                                        <asp:Button ID="btnColor" runat="server" Text="ADD" Visible="false" OnClick="btnColor_Click" />
                                     </td>
                                 </tr>
                             </table>
@@ -199,16 +132,14 @@
                                         Size:
                                     </td>
                                     <td width="100px">
-                                        <asp:DropDownList ID="ddlSizelist" runat="server" AutoPostBack="True" 
-                                            onselectedindexchanged="ddlSizelist_SelectedIndexChanged">
+                                        <asp:DropDownList ID="ddlSizelist" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSizelist_SelectedIndexChanged">
                                         </asp:DropDownList>
                                     </td>
                                     <td width="130px">
                                         <asp:TextBox ID="txtSize" runat="server" Visible="false"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <asp:Button ID="btnSize" runat="server" Text="ADD" Visible="false" 
-                                            onclick="btnSize_Click" />
+                                        <asp:Button ID="btnSize" runat="server" Text="ADD" Visible="false" OnClick="btnSize_Click" />
                                     </td>
                                 </tr>
                             </table>
@@ -279,8 +210,7 @@
                     <tr>
                         <td>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="txtSubmit" runat="server" Text="Submit" 
-                                onclick="txtSubmit_Click" />
+                            <asp:Button ID="txtSubmit" runat="server" Text="Submit" OnClick="txtSubmit_Click" />
                         </td>
                     </tr>
                 </table>
