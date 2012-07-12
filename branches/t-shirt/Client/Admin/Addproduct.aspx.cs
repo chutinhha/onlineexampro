@@ -91,6 +91,7 @@ public partial class Addproduct : System.Web.UI.Page
             {
                 clearcontrol();
             }
+            bindproduct();
         }
     }
 
