@@ -47,10 +47,10 @@ public partial class ucDiscription : System.Web.UI.UserControl
             }
             else
             {
-                for (int i = 1; i <= condition.Stock_Value; i++)
-                {
-                    ddlQuantity.Items.Add(i.ToString());
-                }
+                //for (int i = 1; i <= condition.Stock_Value; i++)
+                //{
+                //    ddlQuantity.Items.Add(i.ToString());
+                //}
                 imgBuyNow.Enabled = true;
                 lbPrice.Text = Convert.ToString(condition.price);
                 lbactual.Text = Convert.ToString(condition.Actual_Price);
@@ -131,17 +131,17 @@ public partial class ucDiscription : System.Web.UI.UserControl
         {
             if (!obj.Keys.Contains(stock_id))
             {
-                obj.Add(Convert.ToInt32(stock_id), Convert.ToInt32(ddlQuantity.SelectedItem.Text));
+                obj.Add(Convert.ToInt32(stock_id), 1);
             }
-            else
-            {
-                obj.Remove(Convert.ToInt32(stock_id));
-                obj.Add(Convert.ToInt32(stock_id), Convert.ToInt32(ddlQuantity.SelectedItem.Text));
-            }
+            //else
+            //{
+            //    obj.Remove(Convert.ToInt32(stock_id));
+            //    obj.Add(Convert.ToInt32(stock_id),1);
+            //}
         }
         else
         {
-            obj.Add(Convert.ToInt32(stock_id), Convert.ToInt32(ddlQuantity.SelectedItem.Text));
+            obj.Add(Convert.ToInt32(stock_id), 1);
         }
         Session["Cart"] = obj;
         CalculateTotal();
@@ -188,17 +188,17 @@ public partial class ucDiscription : System.Web.UI.UserControl
             imgBuyNow.Enabled = false;
             lbPrice.Text = Convert.ToString(source.price);
             lbactual.Text = Convert.ToString(source.Actual_Price);
-            ddlQuantity.Enabled = false;
+           // ddlQuantity.Enabled = false;
         }
         else
         {
-            ddlQuantity.Enabled = true;
+           // ddlQuantity.Enabled = true;
             imgBuyNow.Enabled = true;
-            ddlQuantity.Items.Clear();
-            for (int i = 1; i <= source.Stock_Value; i++)
-            {
-                ddlQuantity.Items.Add(Convert.ToString(i));
-            }
+            //ddlQuantity.Items.Clear();
+            //for (int i = 1; i <= source.Stock_Value; i++)
+            //{
+            //    ddlQuantity.Items.Add(Convert.ToString(i));
+            //}
             lbPrice.Text = Convert.ToString(source.price);
             lbactual.Text = Convert.ToString(source.Actual_Price);
             lbStatus.ForeColor = System.Drawing.Color.White;

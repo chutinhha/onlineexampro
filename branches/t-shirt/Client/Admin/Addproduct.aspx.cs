@@ -12,24 +12,27 @@ public partial class Addproduct : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+
             bindCatagory();
             bindColor();
             bindSize();
-            bindproduct();
-            clearcontrol();
+            addtocontrols();
+            // bindproduct();
+            // clearcontrol();
         }
 
     }
 
-    private void bindproduct()
+    private void addtocontrols()
     {
-        var product = eCommerceHelper.Context.ecommerce_Productdetails.Select(a => a);
-        ddlProductlist.DataSource = product;
-        ddlProductlist.DataTextField = "Product_name";
-        ddlProductlist.DataValueField = "Product_id";
-        ddlProductlist.DataBind();
-        ddlProductlist.Items.Insert(0, new ListItem("-select-", "0"));
+        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.fkCategory == Convert.ToInt32(ddlCatagory.SelectedValue)).Select(a => a).First();
+        txtProductname.Text = source.Product_name;
+        txtShortdescription.Text = source.Short_Description;
+        txtDescription.Text = source.Description;
+        txtDiscount.Text = source.Pro_Discount;
     }
+
+
 
     private void bindSize()
     {
@@ -55,12 +58,11 @@ public partial class Addproduct : System.Web.UI.Page
 
     private void clearcontrol()
     {
-        bindCatagory();
-        txtProductname.Text = string.Empty;
-        txtShortdescription.Text = string.Empty;
-        txtDescription.Text = string.Empty;
-        txtDiscount.Text = string.Empty;
-        txtCompany.Text = string.Empty;
+        //txtProductname.Text = string.Empty;
+        //txtShortdescription.Text = string.Empty;
+        //txtDescription.Text = string.Empty;
+        //txtDiscount.Text = string.Empty;
+        //  txtCompany.Text = string.Empty;
     }
 
     private void bindCatagory()
@@ -70,30 +72,10 @@ public partial class Addproduct : System.Web.UI.Page
         ddlCatagory.DataTextField = "Categories";
         ddlCatagory.DataValueField = "Category_id";
         ddlCatagory.DataBind();
-        ddlCatagory.Items.Add("others");
-        ddlCatagory.Items.Insert(0, new ListItem("-select-", "0"));
+        // ddlCatagory.Items.Add("others");
+        // ddlCatagory.Items.Insert(0, new ListItem("-select-", "0"));
     }
 
-
-
-
-
-
-    protected void btnPost_Click(object sender, EventArgs e)
-    {
-        if (fuProductimage.HasFile)
-        {
-            string path = "~/ProductImage/" + fuProductimage.FileName;
-            fuProductimage.SaveAs(Server.MapPath(path));
-            int id = Convert.ToInt32(ddlCatagory.SelectedValue);
-            ecommerce_ProductdetailBL obj = new ecommerce_ProductdetailBL(txtProductname.Text, id, path, txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, txtCompany.Text);
-            if (obj.Insert())
-            {
-                clearcontrol();
-            }
-            bindproduct();
-        }
-    }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -132,16 +114,7 @@ public partial class Addproduct : System.Web.UI.Page
     }
     protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ddlCatagory.SelectedItem.Text == "others")
-        {
-            txtaddCatagory.Visible = true;
-            btnAdd.Visible = true;
-        }
-        else
-        {
-            txtaddCatagory.Visible = false;
-            btnAdd.Visible = false;
-        }
+        addtocontrols();
     }
     protected void btnColor_Click(object sender, EventArgs e)
     {
@@ -163,39 +136,41 @@ public partial class Addproduct : System.Web.UI.Page
     }
     protected void txtSubmit_Click(object sender, EventArgs e)
     {
-        string path = "~/ProductImage/" + fuImage.FileName;
-        var check = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ddlProductlist.SelectedValue) && a.fkColor_id == Convert.ToInt32(ddlColorlist.SelectedValue) && a.fkSize_id == Convert.ToInt32(ddlSizelist.SelectedValue)).Select(a => a);
-        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Product_id == Convert.ToInt32(ddlProductlist.SelectedValue)).Select(a => a.Pro_Discount).First();
-        if (check.Count() == 0)
+        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.fkCategory == Convert.ToInt32(ddlCatagory.SelectedValue)).Select(a => a).First();
+        source.Product_name = txtProductname.Text;
+        source.Short_Description = txtShortdescription.Text;
+        source.Description = txtDescription.Text;
+        source.Pro_Discount = txtDiscount.Text;
+        ecommerce_Productdetail obj1 = new ecommerce_Productdetail();
+        obj1.Product_name = txtProductname.Text;
+        obj1.Short_Description = txtShortdescription.Text;
+        obj1.Description = txtDescription.Text;
+        obj1.Pro_Discount = txtDiscount.Text;
+        obj1.fkCategory = Convert.ToInt32(ddlCatagory.SelectedValue);
+        eCommerceHelper.Context.ecommerce_Productdetails.InsertOnSubmit(obj1);
+        eCommerceHelper.Context.SubmitChanges();
+
+
+        if (fuImage.HasFile)
         {
-            if (fuImage.HasFile)
+
+            string path = "~/ProductImage/" + fuImage.FileName;
+            fuImage.SaveAs(Server.MapPath(path));
+            decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(txtDiscount.Text)) / 100)));
+            int productid = eCommerceHelper.Context.ecommerce_Productdetails.Select(a => a.Product_id).Max();
+            if (ddlCatagory.SelectedValue == "1")
             {
-                decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
-                fuImage.SaveAs(Server.MapPath(path));
-                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), Convert.ToInt32(ddlProductlist.SelectedValue), discount_Price, path, Convert.ToDecimal(txtprice.Text));
-                if (obj.Insert())
-                {
-                    clear();
-                }
+                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), productid, discount_Price, path, Convert.ToDecimal(txtprice.Text));
+                obj.Insert();
             }
+            else
+            {
+                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), productid, discount_Price, path, Convert.ToDecimal(txtprice.Text));
+                obj.Insert();
+            }
+            clear();
         }
-        else
-        {
-            var Update = check.FirstOrDefault();
-            if (fuImage.HasFile)
-            {
-                fuImage.SaveAs(Server.MapPath(path));
-                Update.Stock_Image = path;
-            }
-            if (txtprice.Text != string.Empty)
-            {
-                decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(source)) / 100)));
-                Update.Actual_Price = Convert.ToDecimal(txtprice.Text);
-                Update.price=discount_Price;
-            }
-            Update.Stock_Value = Convert.ToInt32(txtStock.Text);
-            eCommerceHelper.Context.SubmitChanges();
-        }
+
     }
 
     private void clear()

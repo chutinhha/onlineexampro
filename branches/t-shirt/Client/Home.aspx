@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td valign="top">
-                Brand:&nbsp;
+               
             </td>
             <td valign="top">
                 <asp:DropDownList ID="ddlBrand" Visible="false" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
