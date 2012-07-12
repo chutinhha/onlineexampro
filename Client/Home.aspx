@@ -22,7 +22,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3">
                 <br />
             </td>
         </tr>
@@ -31,7 +31,7 @@
                 Brand:&nbsp;
             </td>
             <td valign="top">
-                <asp:DropDownList ID="ddlBrand" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlBrand" Visible="false" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
             <td align="right">
