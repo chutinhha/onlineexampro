@@ -28,10 +28,11 @@
         </tr>
         <tr>
             <td valign="top">
-               
+                Color:
             </td>
             <td valign="top">
-                <asp:DropDownList ID="ddlBrand" Visible="false" runat="server" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlBrand" runat="server" Width="150px" AutoPostBack="True"
+                    OnSelectedIndexChanged="ddlBrand_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
             <td align="right">
