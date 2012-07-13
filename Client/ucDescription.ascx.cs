@@ -42,7 +42,7 @@ public partial class ucDiscription : System.Web.UI.UserControl
                 lbactual.Text = Convert.ToString(condition.Actual_Price);
                 lbStatus.ForeColor = System.Drawing.Color.Brown;
                 lbStatus.Text = "Out of Sale!";
-                imgProduct.ImageUrl = condition.Stock_Image;
+                imgProduct.Src = condition.Stock_Image;
                 ddlColor.SelectedValue = colorid.ToString();
             }
             else
@@ -56,7 +56,7 @@ public partial class ucDiscription : System.Web.UI.UserControl
                 lbactual.Text = Convert.ToString(condition.Actual_Price);
                 lbStatus.ForeColor = System.Drawing.Color.White;
                 lbStatus.Text = "On Sale!";
-                imgProduct.ImageUrl = condition.Stock_Image;
+                imgProduct.Src = condition.Stock_Image;
                 ddlColor.SelectedValue = colorid.ToString();
             }
             Bindsize();
@@ -169,7 +169,7 @@ public partial class ucDiscription : System.Web.UI.UserControl
     {
         var source = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"]) && a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue)).Select(a => a).FirstOrDefault();
         Bindsize();
-        imgProduct.ImageUrl = source.Stock_Image;
+        imgProduct.Src = source.Stock_Image;
         getProductDetail();
     }
 
