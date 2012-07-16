@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PhotoProcessing" Class="PhotoProcessingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=maj-056\sqlexpress;Initial Catalog=PhotoProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Biz_OutSource_To_IndiaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=PhotoProcessing;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Biz_OutSource_To_IndiaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Photo_Billing_Address" Member="Photo_Billing_Addresses">
     <Type Name="Photo_Billing_Address">
       <Column Name="Billing_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
