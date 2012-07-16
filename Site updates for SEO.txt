@@ -1,0 +1,17 @@
+﻿All these changes have to fix as earlier as possible to get out of Google's hit.
+
+1. Canonical Issue- no .htaccess file. (tell them to use canonical relation- 301 permanent redirection code- to get rid of issues such as crawl error of with 'www.' and without 'www.')
+
+2. No valid sitemap- suggest them to upload sitemap.xml- .xml format and resubmit in webmaster. Google accepts 'xml' only at present. So it has sitemap error.
+
+3. No robots.txt file. Suggest them to upload it in webserver.
+
+4. Too many No-follow links in homepage. Reduce it.
+
+5. No valid/non-informative title tag @ http://i-constech.com/contact.aspx we need informative title, so Google'll consider it. Also, make no-follow for all footer links in the same page.
+
+6. No title tag for
+
+http://www.i-constech.com/Homecustomresult.aspx and this page s not required http://www.i-constech.com/Error.aspx?aspxerrorpath=/About.aspx
+
+7. Many duplicate meta descriptions found from webmaster. We should fix that too.
