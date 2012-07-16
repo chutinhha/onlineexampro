@@ -18,10 +18,10 @@
     <input type="hidden" name="last_name" value="" />
     <input type="hidden" name="photoid" value="2047,2054,2085" />
     <input type="hidden" name="currency" value="INR" />
-    <input type="hidden" name="business" value="karventhan@live.com" />
-    <input type="hidden" name="return" value="http://localhost:1544/Client/PaymentSuccess.aspx" />
-    <input type="hidden" name="cancel_return" value="http://localhost:1544/Client/Failure.aspx" />
-    <input type="hidden" name="notify_url" value="http://localhost:1544/Client/LatestOrder.aspx" />
+    <input type="hidden" name="business" value="Sangee_1339407386_biz@live.com" />
+    <input type="hidden" name="return" value="http://localhost:50275/Client/PaymentSuccess.aspx" />
+    <input type="hidden" name="cancel_return" value="http://localhost:50275/Client/Failure.aspx" />
+    <input type="hidden" name="notify_url" value="http://localhost:50275/Client/LatestOrder.aspx" />
     <input type="hidden" name="upload" value="1" />
     <input type="hidden" name="address_override" value="0" />
     <%var t = PhotoProcessingHelper.Context.Photo_OrderSummaryDetails.Where(a => a.Photo_CustomerRegistrationDetail.Email == SessionValue[0]);
