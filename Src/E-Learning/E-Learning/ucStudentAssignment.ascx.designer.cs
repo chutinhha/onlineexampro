@@ -85,6 +85,15 @@ namespace E_Learning {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqtxtAssignNo;
         
         /// <summary>
+        /// lblregister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblregister;
+        
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

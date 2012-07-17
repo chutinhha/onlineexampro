@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucstudentheader.ascx.cs"
     Inherits="E_Learning.ucstudentheader" %>
+<%@ Register src="ucLoginOut.ascx" tagname="ucLoginOut" tagprefix="uc1" %>
 <table align="center" width="900">
     <tr>
         <td style="background-image: url('bannerimages/clgbannner2.jpg')" height="250" width="900">
@@ -21,6 +22,13 @@
                     <li></li>
                 </ul>
             </div>
+        </td>
+</tr>
+<tr>
+        <td>
+        
+            <uc1:ucLoginOut ID="ucLoginOut1" runat="server" />
+        
         </td>
     </tr>
 </table>

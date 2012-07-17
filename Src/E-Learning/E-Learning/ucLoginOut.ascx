@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucLoginOut.ascx.cs" Inherits="E_Learning.ucLoginOut" %>
-<div>
+<div align="right" style="background-color: #FFFFFF">
 <%if (Session["UserName"]!=null)
   {
       %>

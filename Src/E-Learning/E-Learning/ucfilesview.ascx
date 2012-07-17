@@ -8,7 +8,8 @@
 <tr>
 <td>
 <div>
-<iframe id="sss" runat="server" frameborder="0" allowfullscreen="" height="750" width="500"></iframe>
+<iframe id="sss" runat="server" frameborder="0" allowfullscreen="" height="750" 
+        width="500" align="center"></iframe>
 </div>
 </td>
 <td>

@@ -66,6 +66,14 @@ namespace E_Learning
                 }
             }
             BindGrid();
+            lblregister.Text = "Posted";
+            emptyfield();
+        }
+
+        private void emptyfield()
+        {
+            txtCategoryName.Text = string.Empty;
+            txtForumQuestion.Text = string.Empty;
         }
         protected void btnAddCategory_Click(object sender, EventArgs e)
         {

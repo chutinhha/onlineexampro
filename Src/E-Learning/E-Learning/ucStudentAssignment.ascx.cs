@@ -49,6 +49,14 @@ namespace E_Learning
             }
             long f = ElearningHelper.Context.tblLogins.Single(a => a.RollNumber == Convert.ToString(Session["UserName"])).Id;
             ElearningHelper.Context.sp_tblAssignmentsNewInsertCommand(path, Convert.ToInt64(ddlStaff.SelectedValue), txtTopic.Text, Convert.ToInt32(txtAssignNum.Text), DateTime.Now, f, false);
+            lblregister.Text = "Assignment Posted";
+            emptyfield();
+        }
+
+        private void emptyfield()
+        {
+            txtAssignNum.Text = string.Empty;
+            txtTopic.Text = string.Empty;
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

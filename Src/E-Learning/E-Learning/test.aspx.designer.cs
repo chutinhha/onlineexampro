@@ -22,6 +22,15 @@ namespace E_Learning {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ucstudentheader1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::E_Learning.ucstudentheader ucstudentheader1;
+        
+        /// <summary>
         /// ucfilesview1 control.
         /// </summary>
         /// <remarks>

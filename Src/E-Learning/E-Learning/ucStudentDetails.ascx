@@ -21,14 +21,12 @@
     </tr>
     <tr>
         <td>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />
-        </td>
+            click here to get the report in word document</td>
         <td>
             &nbsp;
-        </td>
-        <td>
-            &nbsp;
-        </td>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" 
+                Text="Report" />
+        </td>        
     </tr>
     <tr>
         <td valign="top">
@@ -43,14 +41,8 @@
                         <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Test Results</asp:LinkButton>
                     </td>
                 </tr>
-                <tr>
-                    <td align="left">
-                        <asp:LinkButton ID="LinkButton3" runat="server" onclick="LinkButton3_Click1">Assignment Reports</asp:LinkButton>
-                    </td>
-                </tr>
+                
             </table>
-        </td>
-        <td colspan="2">
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                 <asp:View ID="View1" runat="server">
                     <asp:GridView ID="GridView1" runat="server">
@@ -61,11 +53,13 @@
                         ShowFooter="True">
                     </asp:GridView>
                 </asp:View>
-                <asp:View ID="View3" runat="server">
+                <%--<asp:View ID="View3" runat="server">
                     <asp:GridView ID="GridView3" runat="server">
                     </asp:GridView>
-                </asp:View>
+                </asp:View>--%>
             </asp:MultiView>
         </td>
+        <td colspan="2">
+            &nbsp;</td>
     </tr>
 </table>

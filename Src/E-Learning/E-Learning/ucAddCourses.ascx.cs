@@ -21,6 +21,12 @@ namespace E_Learning
         {
             GridView1.DataSource = from a in ElearningHelper.Context.tblCourses select a;
             GridView1.DataBind();
+           
+        }
+
+        private void emptyfield()
+        {
+            txtCourseName.Text = string.Empty;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -28,11 +34,14 @@ namespace E_Learning
             using (var obj = new ELearningDataContext())
             {
                 var aa = new tblCourse();
-                aa.CourseName = TextBox1.Text;
+                aa.CourseName = txtCourseName.Text;
                 obj.tblCourses.InsertOnSubmit(aa);
                 obj.SubmitChanges();
             }
             BindGrid();
+            lblAdd.Text = "Category Added";
+            emptyfield();
         }
+        
     }
 }

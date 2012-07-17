@@ -40,19 +40,20 @@ namespace E_Learning
                         };
                 GridView2.DataSource = d;
                 GridView2.DataBind();
-                var cc = from a in ElearningHelper.Context.tblLogins where a.RollNumber == TextBox1.Text select a;
-                foreach (var c in cc)
-                {
-                    var x = from a in ElearningHelper.Context.tblAssignments
-                            where a.FK_StudentId == c.Id
-                            select new
-                            {
-                                AssignmentNumber = a.AssignNum,
-                                SubmittedDate = a.Date
-                            };
-                }
-                GridView3.DataSource = cc;
-                GridView3.DataBind();
+                //    var cc = from a in ElearningHelper.Context.tblLogins where a.RollNumber == TextBox1.Text select a;
+                //    foreach (var c in cc)
+                //    {
+                //        var x = from a in ElearningHelper.Context.tblAssignments
+                //                where a.FK_StudentId == c.Id
+                //                select new
+                //                {
+                //                    AssignmentNumber = a.AssignNum,
+                //                    SubmittedDate = a.Date
+                //                };
+                //    }
+                //    GridView3.DataSource = cc;
+                //    GridView3.DataBind();
+                //}
             }
         }
 
@@ -86,11 +87,11 @@ namespace E_Learning
                 case 1:
                     GridView2.RenderControl(htmlWrite);
                     break;
-                case 2:
-                    GridView3.RenderControl(htmlWrite);
-                    break;
+                //case 2:
+                //    GridView3.RenderControl(htmlWrite);
+                //    break;
                 default:
-                    break;
+                    break; 
             }            
             Response.Write(stringWrite.ToString());
             Response.End();
@@ -105,9 +106,9 @@ namespace E_Learning
         {
             MultiView1.ActiveViewIndex = 1;
         }
-        protected void LinkButton3_Click1(object sender, EventArgs e)
-        {
-            MultiView1.ActiveViewIndex = 2;
-        }
+        //protected void LinkButton3_Click1(object sender, EventArgs e)
+        //{
+        //    MultiView1.ActiveViewIndex = 2;
+        //}
     }
 }

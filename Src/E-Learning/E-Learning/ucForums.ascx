@@ -36,22 +36,26 @@
                                 <tr>
                                     <td style="font-family: georgia, serif; font-size: 13px">
                                         &nbsp;
+                                        <asp:Label ID="lblregister" runat="server"></asp:Label>
                                     </td>
                                     <td style="font-family: georgia, serif; font-size: 13px">
                                         <asp:Button ID="btnPost" OnClick="btnPost_Click" runat="server" Text="Post" 
                                             ValidationGroup="valPost" Width="47px" />
                                     </td>
                                 </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
+                                <tr><td>
+                                    Select the category to view
+                    </td>
                         <td>
                             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" 
                                 onselectedindexchanged="DropDownList1_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                     </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
                     <tr>
                         <td>
                             <asp:GridView ID="GridView1" GridLines="None" DataKeyNames="Id" runat="server" AutoGenerateColumns="False"

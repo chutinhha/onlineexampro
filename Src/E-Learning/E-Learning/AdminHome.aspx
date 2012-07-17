@@ -12,26 +12,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <table align="center" width="900px">
+    <table align="center" width="900px" style="border-color: #FFFFFF">
         <tr>
             <td>
                 <uc1:Adminheadertemplate ID="Adminheadertemplate1" runat="server" />
             </td>
         </tr>
         <tr>
-            <td align="right">
-                
-                <uc4:ucLoginOut ID="ucLoginOut1" runat="server" />
-                
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
+            <td style="text-align: center; background-color: #66CCFF;" colspan="0" 
+                rowspan="1">
                 <uc2:ucStudentDetails ID="ucStudentDetails1" runat="server" />
             </td>
         </tr>
         <tr>
-            <td style="text-align: center">
+            <td style="text-align: center; background-color: #66CCFF;">
                 <uc3:ucAddCourses ID="ucAddCourses1" runat="server" />
             </td>
         </tr>
