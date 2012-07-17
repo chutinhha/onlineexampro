@@ -51,7 +51,11 @@
                                 Course & Year
                             </td>
                             <td>
-                                : <asp:TextBox ID="txtYear" runat="server"></asp:TextBox>
+                                : 
+                                <asp:DropDownList ID="DropDownList2" runat="server">
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="DropDownList1" runat="server">
+                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
@@ -129,23 +133,8 @@
                         </tr>
                         <tr>
                             <td style="font-family: georgia, serif; font-size: 13px;">
-                                Year</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList1" runat="server">
-                                </asp:DropDownList>
+                                <asp:Label ID="lblRegister" runat="server"></asp:Label>
                             </td>
-                        </tr>
-                        <tr>
-                            <td style="font-family: georgia, serif; font-size: 13px;">
-                                Course</td>
-                            <td>
-                                <asp:DropDownList ID="DropDownList2" runat="server">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="font-family: georgia, serif; font-size: 13px;">
-                                &nbsp;</td>
                             <td>
                                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" 
                                     Text="Register" ValidationGroup="reqRegister" />

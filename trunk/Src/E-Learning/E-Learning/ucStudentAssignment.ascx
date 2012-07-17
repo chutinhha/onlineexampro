@@ -45,6 +45,7 @@
     <tr>
         <td>
             &nbsp;
+            <asp:Label ID="lblregister" runat="server"></asp:Label>
         </td>
         <td>
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"

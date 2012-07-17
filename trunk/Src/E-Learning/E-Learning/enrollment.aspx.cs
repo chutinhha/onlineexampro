@@ -62,7 +62,7 @@ namespace E_Learning
             {
                 password += pas[rd.Next(10)];
             }
-            var st = ElearningHelper.Context.sp_tblLoginNewInsertCommand(txtRollNumber.Text, txtName.Text, password, txtYear.Text, txtDepartment.Text, txtEMailId.Text, DateTime.Now, DateTime.Now, Convert.ToInt64(ddlRoll.SelectedValue), txtAddress.Text, Convert.ToInt64(txtPostalCode.Text));
+            var st = ElearningHelper.Context.sp_tblLoginNewInsertCommand(txtRollNumber.Text, txtName.Text, password, DropDownList2.SelectedValue, txtDepartment.Text, txtEMailId.Text, DateTime.Now, DateTime.Now, Convert.ToInt64(ddlRoll.SelectedValue), txtAddress.Text, Convert.ToInt64(txtPostalCode.Text),Convert.ToInt64(DropDownList1.SelectedValue));
             foreach (var item in st)
             {
                 using (var obj = new ELearningDataContext())
@@ -75,8 +75,21 @@ namespace E_Learning
                     obj.SubmitChanges();
                 }
             }
+            lblRegister.Text = "Registered Successfully";
+            emptyfield();
         }
 
+        private void emptyfield()
+        {
+            txtAddress.Text = string.Empty;
+            txtDepartment.Text = string.Empty;
+            txtEMailId.Text = string.Empty;
+            txtMobileNumber.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtPostalCode.Text = string.Empty;
+            txtRollNumber.Text = string.Empty;
+            
+        }
         protected void ddlRoll_SelectedIndexChanged(object sender, EventArgs e)
         {
 

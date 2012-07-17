@@ -6,12 +6,13 @@
             Course Name
         </td>
         <td>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCourseName" runat="server"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
             &nbsp;
+            <asp:Label ID="lblAdd" runat="server"></asp:Label>
         </td>
         <td>
             <asp:Button ID="Button1" runat="server" Text="Add" onclick="Button1_Click" />

@@ -22,7 +22,7 @@ namespace E_Learning
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="elearn")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="E-Learning")]
 	public partial class ELearningDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -269,34 +269,6 @@ namespace E_Learning
 			{
 				return this.GetTable<tblStuCourse>();
 			}
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewDeleteCommand")]
-		public int sp_tblLoginNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewInsertCommand")]
-		public ISingleResult<sp_tblLoginNewInsertCommandResult> sp_tblLoginNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RollNumber", DbType="NVarChar(50)")] string rollNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Class", DbType="NVarChar(50)")] string @class, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Department", DbType="NVarChar(50)")] string department, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailID", DbType="NVarChar(50)")] string emailID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedDate", DbType="DateTime")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastLogin", DbType="DateTime")] System.Nullable<System.DateTime> lastLogin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_RoleId", DbType="BigInt")] System.Nullable<long> fK_RoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(150)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PostalCode", DbType="BigInt")] System.Nullable<long> postalCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rollNumber, name, password, @class, department, emailID, createdDate, lastLogin, fK_RoleId, address, postalCode);
-			return ((ISingleResult<sp_tblLoginNewInsertCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewSelectCommand")]
-		public ISingleResult<sp_tblLoginNewSelectCommandResult> sp_tblLoginNewSelectCommand()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_tblLoginNewSelectCommandResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewUpdateCommand")]
-		public ISingleResult<sp_tblLoginNewUpdateCommandResult> sp_tblLoginNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RollNumber", DbType="NVarChar(50)")] string rollNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Class", DbType="NVarChar(50)")] string @class, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Department", DbType="NVarChar(50)")] string department, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailID", DbType="NVarChar(50)")] string emailID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedDate", DbType="DateTime")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastLogin", DbType="DateTime")] System.Nullable<System.DateTime> lastLogin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_RoleId", DbType="BigInt")] System.Nullable<long> fK_RoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(150)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PostalCode", DbType="BigInt")] System.Nullable<long> postalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rollNumber, name, password, @class, department, emailID, createdDate, lastLogin, fK_RoleId, address, postalCode, id);
-			return ((ISingleResult<sp_tblLoginNewUpdateCommandResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblSubjectsNewDeleteCommand")]
@@ -647,6 +619,34 @@ namespace E_Learning
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), totalMark, fK_UserId, original_ResultId, resultId);
 			return ((ISingleResult<sp_tblResultNewUpdateCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewDeleteCommand")]
+		public int sp_tblLoginNewDeleteCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), original_Id);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewInsertCommand")]
+		public ISingleResult<sp_tblLoginNewInsertCommandResult> sp_tblLoginNewInsertCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RollNumber", DbType="NVarChar(50)")] string rollNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Class", DbType="NVarChar(50)")] string @class, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Department", DbType="NVarChar(50)")] string department, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailID", DbType="NVarChar(50)")] string emailID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedDate", DbType="DateTime")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastLogin", DbType="DateTime")] System.Nullable<System.DateTime> lastLogin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_RoleId", DbType="BigInt")] System.Nullable<long> fK_RoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(150)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PostalCode", DbType="BigInt")] System.Nullable<long> postalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year", DbType="BigInt")] System.Nullable<long> year)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rollNumber, name, password, @class, department, emailID, createdDate, lastLogin, fK_RoleId, address, postalCode, year);
+			return ((ISingleResult<sp_tblLoginNewInsertCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewSelectCommand")]
+		public ISingleResult<sp_tblLoginNewSelectCommandResult> sp_tblLoginNewSelectCommand()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_tblLoginNewSelectCommandResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblLoginNewUpdateCommand")]
+		public ISingleResult<sp_tblLoginNewUpdateCommandResult> sp_tblLoginNewUpdateCommand([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RollNumber", DbType="NVarChar(50)")] string rollNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Class", DbType="NVarChar(50)")] string @class, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Department", DbType="NVarChar(50)")] string department, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailID", DbType="NVarChar(50)")] string emailID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedDate", DbType="DateTime")] System.Nullable<System.DateTime> createdDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastLogin", DbType="DateTime")] System.Nullable<System.DateTime> lastLogin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FK_RoleId", DbType="BigInt")] System.Nullable<long> fK_RoleId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(150)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PostalCode", DbType="BigInt")] System.Nullable<long> postalCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year", DbType="BigInt")] System.Nullable<long> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Original_Id", DbType="BigInt")] System.Nullable<long> original_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="BigInt")] System.Nullable<long> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rollNumber, name, password, @class, department, emailID, createdDate, lastLogin, fK_RoleId, address, postalCode, year, original_Id, id);
+			return ((ISingleResult<sp_tblLoginNewUpdateCommandResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4483,678 +4483,6 @@ namespace E_Learning
 		}
 	}
 	
-	public partial class sp_tblLoginNewInsertCommandResult
-	{
-		
-		private long _Id;
-		
-		private string _RollNumber;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private string _Class;
-		
-		private string _Department;
-		
-		private string _EmailID;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<System.DateTime> _LastLogin;
-		
-		private System.Nullable<long> _FK_RoleId;
-		
-		private string _Address;
-		
-		private System.Nullable<long> _PostalCode;
-		
-		public sp_tblLoginNewInsertCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string RollNumber
-		{
-			get
-			{
-				return this._RollNumber;
-			}
-			set
-			{
-				if ((this._RollNumber != value))
-				{
-					this._RollNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this._Password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this._Class = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
-		public string Department
-		{
-			get
-			{
-				return this._Department;
-			}
-			set
-			{
-				if ((this._Department != value))
-				{
-					this._Department = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
-		public string EmailID
-		{
-			get
-			{
-				return this._EmailID;
-			}
-			set
-			{
-				if ((this._EmailID != value))
-				{
-					this._EmailID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this._CreatedDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastLogin
-		{
-			get
-			{
-				return this._LastLogin;
-			}
-			set
-			{
-				if ((this._LastLogin != value))
-				{
-					this._LastLogin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
-		public System.Nullable<long> FK_RoleId
-		{
-			get
-			{
-				return this._FK_RoleId;
-			}
-			set
-			{
-				if ((this._FK_RoleId != value))
-				{
-					this._FK_RoleId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
-		public System.Nullable<long> PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this._PostalCode = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_tblLoginNewSelectCommandResult
-	{
-		
-		private long _Id;
-		
-		private string _RollNumber;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private string _Class;
-		
-		private string _Department;
-		
-		private string _EmailID;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<System.DateTime> _LastLogin;
-		
-		private System.Nullable<long> _FK_RoleId;
-		
-		private string _Address;
-		
-		private System.Nullable<long> _PostalCode;
-		
-		public sp_tblLoginNewSelectCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string RollNumber
-		{
-			get
-			{
-				return this._RollNumber;
-			}
-			set
-			{
-				if ((this._RollNumber != value))
-				{
-					this._RollNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this._Password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this._Class = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
-		public string Department
-		{
-			get
-			{
-				return this._Department;
-			}
-			set
-			{
-				if ((this._Department != value))
-				{
-					this._Department = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
-		public string EmailID
-		{
-			get
-			{
-				return this._EmailID;
-			}
-			set
-			{
-				if ((this._EmailID != value))
-				{
-					this._EmailID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this._CreatedDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastLogin
-		{
-			get
-			{
-				return this._LastLogin;
-			}
-			set
-			{
-				if ((this._LastLogin != value))
-				{
-					this._LastLogin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
-		public System.Nullable<long> FK_RoleId
-		{
-			get
-			{
-				return this._FK_RoleId;
-			}
-			set
-			{
-				if ((this._FK_RoleId != value))
-				{
-					this._FK_RoleId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
-		public System.Nullable<long> PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this._PostalCode = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_tblLoginNewUpdateCommandResult
-	{
-		
-		private long _Id;
-		
-		private string _RollNumber;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private string _Class;
-		
-		private string _Department;
-		
-		private string _EmailID;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<System.DateTime> _LastLogin;
-		
-		private System.Nullable<long> _FK_RoleId;
-		
-		private string _Address;
-		
-		private System.Nullable<long> _PostalCode;
-		
-		public sp_tblLoginNewUpdateCommandResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string RollNumber
-		{
-			get
-			{
-				return this._RollNumber;
-			}
-			set
-			{
-				if ((this._RollNumber != value))
-				{
-					this._RollNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this._Password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this._Class = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
-		public string Department
-		{
-			get
-			{
-				return this._Department;
-			}
-			set
-			{
-				if ((this._Department != value))
-				{
-					this._Department = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
-		public string EmailID
-		{
-			get
-			{
-				return this._EmailID;
-			}
-			set
-			{
-				if ((this._EmailID != value))
-				{
-					this._EmailID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this._CreatedDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastLogin
-		{
-			get
-			{
-				return this._LastLogin;
-			}
-			set
-			{
-				if ((this._LastLogin != value))
-				{
-					this._LastLogin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
-		public System.Nullable<long> FK_RoleId
-		{
-			get
-			{
-				return this._FK_RoleId;
-			}
-			set
-			{
-				if ((this._FK_RoleId != value))
-				{
-					this._FK_RoleId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
-		public System.Nullable<long> PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this._PostalCode = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_tblSubjectsNewInsertCommandResult
 	{
 		
@@ -7992,6 +7320,732 @@ namespace E_Learning
 				if ((this._FK_UserId != value))
 				{
 					this._FK_UserId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblLoginNewInsertCommandResult
+	{
+		
+		private long _Id;
+		
+		private string _RollNumber;
+		
+		private string _Name;
+		
+		private string _Password;
+		
+		private string _Class;
+		
+		private string _Department;
+		
+		private string _EmailID;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastLogin;
+		
+		private System.Nullable<long> _FK_RoleId;
+		
+		private string _Address;
+		
+		private System.Nullable<long> _PostalCode;
+		
+		private System.Nullable<long> _Year;
+		
+		public sp_tblLoginNewInsertCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RollNumber
+		{
+			get
+			{
+				return this._RollNumber;
+			}
+			set
+			{
+				if ((this._RollNumber != value))
+				{
+					this._RollNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this._Class = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
+		public string EmailID
+		{
+			get
+			{
+				return this._EmailID;
+			}
+			set
+			{
+				if ((this._EmailID != value))
+				{
+					this._EmailID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLogin
+		{
+			get
+			{
+				return this._LastLogin;
+			}
+			set
+			{
+				if ((this._LastLogin != value))
+				{
+					this._LastLogin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
+		public System.Nullable<long> FK_RoleId
+		{
+			get
+			{
+				return this._FK_RoleId;
+			}
+			set
+			{
+				if ((this._FK_RoleId != value))
+				{
+					this._FK_RoleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
+		public System.Nullable<long> PostalCode
+		{
+			get
+			{
+				return this._PostalCode;
+			}
+			set
+			{
+				if ((this._PostalCode != value))
+				{
+					this._PostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="BigInt")]
+		public System.Nullable<long> Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this._Year = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblLoginNewSelectCommandResult
+	{
+		
+		private long _Id;
+		
+		private string _RollNumber;
+		
+		private string _Name;
+		
+		private string _Password;
+		
+		private string _Class;
+		
+		private string _Department;
+		
+		private string _EmailID;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastLogin;
+		
+		private System.Nullable<long> _FK_RoleId;
+		
+		private string _Address;
+		
+		private System.Nullable<long> _PostalCode;
+		
+		private System.Nullable<long> _Year;
+		
+		public sp_tblLoginNewSelectCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RollNumber
+		{
+			get
+			{
+				return this._RollNumber;
+			}
+			set
+			{
+				if ((this._RollNumber != value))
+				{
+					this._RollNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this._Class = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
+		public string EmailID
+		{
+			get
+			{
+				return this._EmailID;
+			}
+			set
+			{
+				if ((this._EmailID != value))
+				{
+					this._EmailID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLogin
+		{
+			get
+			{
+				return this._LastLogin;
+			}
+			set
+			{
+				if ((this._LastLogin != value))
+				{
+					this._LastLogin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
+		public System.Nullable<long> FK_RoleId
+		{
+			get
+			{
+				return this._FK_RoleId;
+			}
+			set
+			{
+				if ((this._FK_RoleId != value))
+				{
+					this._FK_RoleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
+		public System.Nullable<long> PostalCode
+		{
+			get
+			{
+				return this._PostalCode;
+			}
+			set
+			{
+				if ((this._PostalCode != value))
+				{
+					this._PostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="BigInt")]
+		public System.Nullable<long> Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this._Year = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblLoginNewUpdateCommandResult
+	{
+		
+		private long _Id;
+		
+		private string _RollNumber;
+		
+		private string _Name;
+		
+		private string _Password;
+		
+		private string _Class;
+		
+		private string _Department;
+		
+		private string _EmailID;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _LastLogin;
+		
+		private System.Nullable<long> _FK_RoleId;
+		
+		private string _Address;
+		
+		private System.Nullable<long> _PostalCode;
+		
+		private System.Nullable<long> _Year;
+		
+		public sp_tblLoginNewUpdateCommandResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL")]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RollNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RollNumber
+		{
+			get
+			{
+				return this._RollNumber;
+			}
+			set
+			{
+				if ((this._RollNumber != value))
+				{
+					this._RollNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50)")]
+		public string Class
+		{
+			get
+			{
+				return this._Class;
+			}
+			set
+			{
+				if ((this._Class != value))
+				{
+					this._Class = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50)")]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailID", DbType="NVarChar(50)")]
+		public string EmailID
+		{
+			get
+			{
+				return this._EmailID;
+			}
+			set
+			{
+				if ((this._EmailID != value))
+				{
+					this._EmailID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLogin
+		{
+			get
+			{
+				return this._LastLogin;
+			}
+			set
+			{
+				if ((this._LastLogin != value))
+				{
+					this._LastLogin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_RoleId", DbType="BigInt")]
+		public System.Nullable<long> FK_RoleId
+		{
+			get
+			{
+				return this._FK_RoleId;
+			}
+			set
+			{
+				if ((this._FK_RoleId != value))
+				{
+					this._FK_RoleId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(150)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="BigInt")]
+		public System.Nullable<long> PostalCode
+		{
+			get
+			{
+				return this._PostalCode;
+			}
+			set
+			{
+				if ((this._PostalCode != value))
+				{
+					this._PostalCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="BigInt")]
+		public System.Nullable<long> Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this._Year = value;
 				}
 			}
 		}
