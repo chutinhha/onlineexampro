@@ -21,8 +21,8 @@
                             Category:
                         </td>
                         <td width="150px">
-                            <asp:DropDownList Width="142px" ID="ddlCatagory" runat="server" AutoPostBack="True"
-                                OnSelectedIndexChanged="ddlCatagory_SelectedIndexChanged">
+                            <asp:DropDownList Width="142px" ID="ddlCatagory" runat="server" 
+                                AutoPostBack="True" onselectedindexchanged="ddlCatagory_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                         <td valign="top">
@@ -43,16 +43,31 @@
                             <br />
                         </td>
                     </tr>
-                    <tr>
+                    <tr id="subproduct" runat="server">
                         <td>
-                            Product Name:
+                            product Subtitle:
                         </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtProductname" runat="server"></asp:TextBox>
+                        <td>
+                            <asp:DropDownList ID="ddlProductSub" runat="server" 
+                                OnSelectedIndexChanged="ddlProductSub_SelectedIndexChanged" AutoPostBack="True">
+                            </asp:DropDownList>
+                        </td>
+                        <td valign="top">
+                            <table width="100%">
+                                <tr>
+                                    <td width="142px">
+                                        <asp:TextBox ID="txtProductsub" Width="142px" runat="server" Visible="false"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="btnaddsub" runat="server" Text="ADD" Visible="false" OnClick="btnaddsub_Click" />
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                     <tr>
-                        <td height="5px" colspan="3">
+                        <td colspan="3">
+                            <br />
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +75,8 @@
                             Short Description:
                         </td>
                         <td colspan="2">
-                            <asp:TextBox ID="txtShortdescription" runat="server" MaxLength="100" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="txtShortdescription" runat="server" MaxLength="50" 
+                                TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

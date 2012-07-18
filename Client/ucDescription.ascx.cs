@@ -28,12 +28,10 @@ public partial class ucDiscription : System.Web.UI.UserControl
             {
                 ColorSize.Add(Convert.ToInt32(item.fkColor_id));
             }
-            lbName.Text = Convert.ToString(product.Product_name);
             //lbPrice.Text = Convert.ToString(product.Price);
             lbDescription.Text = Convert.ToString(product.Description);
             Bindcolor(ColorSize);
             // Bindsize(ColorSize);
-
             var condition = source.Where(a => a.fkColor_id == colorid).FirstOrDefault();
             if (condition.Stock_Value == 0)
             {
@@ -121,7 +119,7 @@ public partial class ucDiscription : System.Web.UI.UserControl
 
     protected void imgBuyNow_Click(object sender, ImageClickEventArgs e)
     {
-        int stock_id = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkColor_id == Convert.ToInt32(ddlColor.SelectedValue) && a.fkSize_id == Convert.ToInt32(ddlSize.SelectedValue)).Select(a => a.Stock_id).FirstOrDefault();
+        int stock_id = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.fkProduct_id == Convert.ToInt32(ViewState["productID"]) && a.fkSize_id == Convert.ToInt32(ddlSize.SelectedValue)).Select(a => a.Stock_id).FirstOrDefault();
         Dictionary<int, int> obj = new Dictionary<int, int>();
         if (Session["Cart"] != null)
         {

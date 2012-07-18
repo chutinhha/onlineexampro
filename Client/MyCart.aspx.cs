@@ -33,7 +33,7 @@ public partial class MyCart : System.Web.UI.Page
                 {
                     dr["Id"] = item.Key;
                     dr["ImageUrl"] = items.Stock_Image;
-                    dr["ProductName"] = items.ecommerce_Productdetail.Product_name;
+                   // dr["ProductName"] = items.ecommerce_Productdetail.Product_name;
                     dr["Price"] = items.price;
                     dr["Quantity"] = item.Value;
                     dr["Total"] = item.Value * items.price;
@@ -76,6 +76,7 @@ public partial class MyCart : System.Web.UI.Page
     {
         TextBox txt = (TextBox)sender;
         GridViewRow gr = (GridViewRow)(txt).Parent.Parent;
+        ((Label)GridView1.Rows[gr.RowIndex].FindControl("lbavailable")).Text = "";
         int id = Convert.ToInt32(GridView1.DataKeys[gr.RowIndex].Values[0]);
         var getStock = eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.Stock_id == id).Select(a => a).FirstOrDefault();
         // int price = Convert.ToInt32(eCommerceHelper.Context.ecommerce_Stocks.Where(a => a.Stock_id == id).Select(a => a.price).FirstOrDefault());
@@ -143,6 +144,9 @@ public partial class MyCart : System.Web.UI.Page
             decimal lb = Convert.ToDecimal(((Label)GridView1.Rows[item.RowIndex].FindControl("lbTotal")).Text);
             total += lb;
         }
-        ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
+        if (Session["Cart"] != null && Session["Cart"] != "")
+        {
+            ((Label)GridView1.FooterRow.FindControl("lbGrantTotal")).Text = Convert.ToString(total);
+        }
     }
 }

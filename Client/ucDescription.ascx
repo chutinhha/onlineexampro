@@ -68,7 +68,7 @@
                     <td>
                         <table>
                             <tr>
-                                <td class='zoom' id='ex1'>
+                                <td class='zoom' id='ex1' style="border: thick outset #808080">
                                     <%-- <asp:Image ID="imgProduct" runat="server" Width="200px" Height="250px" />--%>
                                     <img id="imgProduct" runat="server" width='190' height='238' alt='Daisy on the Ohoopee' />
                                 </td>
