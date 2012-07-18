@@ -1,1 +1,0 @@
-Server=infiniticlothing.com;Database=InfinitiClothing;User ID=infinusr;Password=P@ss4!nf0;Trusted_Connection=False;

@@ -8,7 +8,13 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_Shipping_AddressProperties
 {
-    private int shipping_id, ship_State, ship_Country, ship_Zipcode;
+    private int shipping_id, ship_State, ship_Country, ship_Zipcode, fk_Customerid;
+
+    public int Fk_Customerid
+    {
+        get { return fk_Customerid; }
+        set { fk_Customerid = value; }
+    }
 
     public int Ship_Country
     {

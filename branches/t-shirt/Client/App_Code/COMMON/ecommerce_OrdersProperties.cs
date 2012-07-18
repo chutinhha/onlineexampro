@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_OrdersProperties
 {
-    private int order_id, fkCustomer_id, billing_id, shipping_id;
+    private int order_id, fkCustomer_id;
     private DateTime order_Date;
     private string order_status;
     private decimal shipping_tax, tax, total_Amount;
@@ -39,17 +39,7 @@ public abstract class ecommerce_OrdersProperties
         set { fkCustomer_id = value; }
     }
    
-    public int Shipping_id
-    {
-        get { return shipping_id; }
-        set { shipping_id = value; }
-    }
-
-    public int Billing_id
-    {
-        get { return billing_id; }
-        set { billing_id = value; }
-    }
+    
 
     public int Order_id
     {

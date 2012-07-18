@@ -14,24 +14,25 @@ public partial class Addproduct : System.Web.UI.Page
         {
 
             bindCatagory();
+            bindsubproduct();
             bindColor();
             bindSize();
-            addtocontrols();
             // bindproduct();
             // clearcontrol();
         }
 
     }
 
-    private void addtocontrols()
+    private void bindsubproduct()
     {
-        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.fkCategory == Convert.ToInt32(ddlCatagory.SelectedValue)).Select(a => a).First();
-        txtProductname.Text = source.Product_name;
-        txtShortdescription.Text = source.Short_Description;
-        txtDescription.Text = source.Description;
-        txtDiscount.Text = source.Pro_Discount;
+        var source = eCommerceHelper.Context.ecommerce_ProductSubdetails.Select(a => a);
+        ddlProductSub.DataSource = source;
+        ddlProductSub.DataTextField = "Productsub_name";
+        ddlProductSub.DataValueField = "ProductSub_id";
+        ddlProductSub.DataBind();
+        ddlProductSub.Items.Add("others");
+        ddlProductSub.Items.Insert(0, new ListItem("-select-", "0"));
     }
-
 
 
     private void bindSize()
@@ -112,10 +113,7 @@ public partial class Addproduct : System.Web.UI.Page
             btnSize.Visible = false;
         }
     }
-    protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        addtocontrols();
-    }
+
     protected void btnColor_Click(object sender, EventArgs e)
     {
         ecommerce_Color obj = new ecommerce_Color();
@@ -136,38 +134,29 @@ public partial class Addproduct : System.Web.UI.Page
     }
     protected void txtSubmit_Click(object sender, EventArgs e)
     {
-        var source = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.fkCategory == Convert.ToInt32(ddlCatagory.SelectedValue)).Select(a => a).First();
-        source.Product_name = txtProductname.Text;
-        source.Short_Description = txtShortdescription.Text;
-        source.Description = txtDescription.Text;
-        source.Pro_Discount = txtDiscount.Text;
-        ecommerce_Productdetail obj1 = new ecommerce_Productdetail();
-        obj1.Product_name = txtProductname.Text;
-        obj1.Short_Description = txtShortdescription.Text;
-        obj1.Description = txtDescription.Text;
-        obj1.Pro_Discount = txtDiscount.Text;
-        obj1.fkCategory = Convert.ToInt32(ddlCatagory.SelectedValue);
-        eCommerceHelper.Context.ecommerce_Productdetails.InsertOnSubmit(obj1);
-        eCommerceHelper.Context.SubmitChanges();
-
-
+        //ecommerce_Productdetail obj1 = new ecommerce_Productdetail();
+        //obj1.Short_Description = txtShortdescription.Text;
+        //obj1.Description = txtDescription.Text;
+        //obj1.Pro_Discount = txtDiscount.Text;
+        //obj1.fkCategory = Convert.ToInt32(ddlCatagory.SelectedValue);
+        //eCommerceHelper.Context.ecommerce_Productdetails.InsertOnSubmit(obj1);
+        //eCommerceHelper.Context.SubmitChanges();
         if (fuImage.HasFile)
         {
-
+            if (ddlCatagory.SelectedItem.Text == "Women's")
+            {
+                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand(Convert.ToInt32(ddlCatagory.SelectedValue), txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, null, null);
+            }
+            else
+            {
+                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand(Convert.ToInt32(ddlCatagory.SelectedValue), txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, Convert.ToInt32(ddlProductSub.SelectedValue), null);
+            }
             string path = "~/ProductImage/" + fuImage.FileName;
             fuImage.SaveAs(Server.MapPath(path));
             decimal discount_Price = Convert.ToDecimal(Convert.ToDecimal(txtprice.Text) - (Convert.ToDecimal(txtprice.Text) * (Convert.ToDecimal(Convert.ToInt32(txtDiscount.Text)) / 100)));
             int productid = eCommerceHelper.Context.ecommerce_Productdetails.Select(a => a.Product_id).Max();
-            if (ddlCatagory.SelectedValue == "1")
-            {
-                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), productid, discount_Price, path, Convert.ToDecimal(txtprice.Text));
-                obj.Insert();
-            }
-            else
-            {
-                ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), productid, discount_Price, path, Convert.ToDecimal(txtprice.Text));
-                obj.Insert();
-            }
+            ecommerce_StockBL obj = new ecommerce_StockBL(Convert.ToInt32(txtStock.Text), Convert.ToInt32(ddlSizelist.SelectedValue), Convert.ToInt32(ddlColorlist.SelectedValue), productid, discount_Price, path, Convert.ToDecimal(txtprice.Text));
+            obj.Insert();
             clear();
         }
 
@@ -177,5 +166,44 @@ public partial class Addproduct : System.Web.UI.Page
     {
         txtprice.Text = string.Empty;
         txtStock.Text = string.Empty;
+        txtDiscount.Text = string.Empty;
+        txtShortdescription.Text = string.Empty;
+        txtStock.Text = string.Empty;
+        txtDescription.Text = string.Empty;
+    }
+
+    protected void ddlProductSub_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlProductSub.SelectedItem.Text == "others")
+        {
+            txtProductsub.Visible = true;
+            btnaddsub.Visible = true;
+
+        }
+        else
+        {
+            txtProductsub.Visible = false;
+            btnaddsub.Visible = false;
+        }
+    }
+    protected void btnaddsub_Click(object sender, EventArgs e)
+    {
+        ecommerce_ProductSubdetail obj = new ecommerce_ProductSubdetail();
+        obj.Productsub_name = txtProductsub.Text;
+        eCommerceHelper.Context.ecommerce_ProductSubdetails.InsertOnSubmit(obj);
+        eCommerceHelper.Context.SubmitChanges();
+        bindsubproduct();
+        txtProductsub.Text = "";
+    }
+    protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlCatagory.SelectedItem.Text == "Men's")
+        {
+            subproduct.Visible = true;
+        }
+        else
+        {
+            subproduct.Visible = false;
+        }
     }
 }

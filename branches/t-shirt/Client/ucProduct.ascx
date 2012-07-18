@@ -7,10 +7,9 @@
     <table cellpadding="2" cellspacing="2" width="350">
         <tr class="productHeadingfont">
             <td>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LinkButton ID="lbtnProductname" runat="server" Text='<%# Eval("Product_name") %>'
-                    Font-Underline="False" ForeColor="#CCCCCC"></asp:LinkButton><asp:Image ID="Image1"
-                        runat="server" ImageUrl="~/images/line1.jpg" Width="310px" Height="1px" />
+                &nbsp;&nbsp;&nbsp;&nbsp; Infiniti trend Wear &nbsp;
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/line1.jpg" Width="310px"
+                    Height="1px" />
             </td>
         </tr>
         <tr>
@@ -41,7 +40,6 @@
                                                 <td class="productDetailfont">
                                                     <asp:Label ID="lbPrice" runat="server" Text='<%#Eval("Price") %>'></asp:Label>&nbsp;Rs.
                                                 </td>
-                                               
                                                 <td class="productDetailfont">
                                                     <asp:Label ID="lbActual" runat="server" Text='<%# Eval("Actual") %>' Font-Strikeout="True"></asp:Label>&nbsp;Rs.
                                                 </td>
@@ -57,7 +55,8 @@
                                                     Status :
                                                 </td>
                                                 <td class="productDetailfont">
-                                                     <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Status") %>'></asp:Label>&nbsp;Item available
+                                                    <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Status") %>'></asp:Label>&nbsp;Item
+                                                    available
                                                 </td>
                                             </tr>
                                         </table>

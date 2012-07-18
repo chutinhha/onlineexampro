@@ -8,9 +8,21 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_ProductdetailProperties
 {
-    private int product_id, fkCategory;
-    private string product_name, image, description, short_Description, pro_Discount, company;
+    private int product_id, fkCategory, fkProductSubdetail, fkOfferDetail;
+    private string description, short_Description, pro_Discount;
     private DateTime date;
+
+    public int FkOfferDetail
+    {
+        get { return fkOfferDetail; }
+        set { fkOfferDetail = value; }
+    }
+
+    public int FkProductSubdetail
+    {
+        get { return fkProductSubdetail; }
+        set { fkProductSubdetail = value; }
+    }
 
 
     public int FkCategory
@@ -29,11 +41,7 @@ public abstract class ecommerce_ProductdetailProperties
 
 
 
-    public string Company
-    {
-        get { return company; }
-        set { company = value; }
-    }
+
 
     public string Pro_Discount
     {
@@ -53,21 +61,7 @@ public abstract class ecommerce_ProductdetailProperties
         set { description = value; }
     }
 
-    public string Image
-    {
-        get { return image; }
-        set { image = value; }
-    }
 
-
-
-
-
-    public string Product_name
-    {
-        get { return product_name; }
-        set { product_name = value; }
-    }
 
     public DateTime Date
     {
