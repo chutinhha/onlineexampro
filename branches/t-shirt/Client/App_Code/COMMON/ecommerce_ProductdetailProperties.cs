@@ -8,7 +8,13 @@ using System.Web;
 /// </summary>
 public abstract class ecommerce_ProductdetailProperties
 {
-    private int product_id, fkCategory, fkProductSubdetail, fkOfferDetail;
+    private int product_id, fkProductSubdetail, fkOfferDetail, genter;
+
+    public int Genter
+    {
+        get { return genter; }
+        set { genter = value; }
+    }
     private string description, short_Description, pro_Discount;
     private DateTime date;
 
@@ -25,11 +31,7 @@ public abstract class ecommerce_ProductdetailProperties
     }
 
 
-    public int FkCategory
-    {
-        get { return fkCategory; }
-        set { fkCategory = value; }
-    }
+    
 
 
 

@@ -145,11 +145,11 @@ public partial class Addproduct : System.Web.UI.Page
         {
             if (ddlCatagory.SelectedItem.Text == "Women's")
             {
-                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand(Convert.ToInt32(ddlCatagory.SelectedValue), txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, null, null);
+                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand( txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, null, null,Convert.ToInt32(ddlCatagory.SelectedValue));
             }
             else
             {
-                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand(Convert.ToInt32(ddlCatagory.SelectedValue), txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, Convert.ToInt32(ddlProductSub.SelectedValue), null);
+                eCommerceHelper.Context.sp_ecommerce_ProductdetailNewInsertCommand(txtDescription.Text, txtShortdescription.Text, DateTime.Now, txtDiscount.Text, Convert.ToInt32(ddlProductSub.SelectedValue), null, Convert.ToInt32(ddlCatagory.SelectedValue));
             }
             string path = "~/ProductImage/" + fuImage.FileName;
             fuImage.SaveAs(Server.MapPath(path));
