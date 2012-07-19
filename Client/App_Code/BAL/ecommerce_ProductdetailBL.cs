@@ -8,27 +8,26 @@ using System.Web;
 /// </summary>
 public class ecommerce_ProductdetailBL : ecommerce_ProductdetailProperties, IeCommerce
 {
-    public ecommerce_ProductdetailBL(int product_id, int fkCategory, string description, string short_Description, DateTime date, string pro_Discount, int fkProductSubdetail, int fkOfferDetail)
+    public ecommerce_ProductdetailBL(int product_id, string description, string short_Description, DateTime date, string pro_Discount, int fkProductSubdetail, int fkOfferDetail, int genter)
     {
         this.Product_id = product_id;
-        this.FkCategory = fkCategory;
         this.Description = description;
         this.Short_Description = short_Description;
         this.Date = date;
         this.Pro_Discount = pro_Discount;
         this.FkProductSubdetail = fkProductSubdetail;
         this.FkOfferDetail = fkOfferDetail;
-
+        this.Genter = genter;
     }
-    public ecommerce_ProductdetailBL(int fkCategory, string description, string short_Description, DateTime date, string pro_Discount, int fkProductSubdetail, int fkOfferDetail)
+    public ecommerce_ProductdetailBL(string description, string short_Description, DateTime date, string pro_Discount, int fkProductSubdetail, int fkOfferDetail, int genter)
     {
-        this.FkCategory = fkCategory;
         this.Description = description;
         this.Short_Description = short_Description;
         this.Date = date;
         this.Pro_Discount = pro_Discount;
         this.FkProductSubdetail = fkProductSubdetail;
         this.FkOfferDetail = fkOfferDetail;
+        this.Genter = genter;
     }
     public ecommerce_ProductdetailBL(int product_id)
     {

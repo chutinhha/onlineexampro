@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Tshirt" Class="eCommerceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=iconstech\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TshirtConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ecommerce_Category" Member="ecommerce_Categories">
-    <Type Name="ecommerce_Category">
-      <Column Name="Category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Categories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Productdetails" ThisKey="Category_id" OtherKey="fkCategory" Type="ecommerce_Productdetail" />
-    </Type>
-  </Table>
   <Table Name="dbo.ecommerce_Billing_Address" Member="ecommerce_Billing_Addresses">
     <Type Name="ecommerce_Billing_Address">
       <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -20,6 +13,14 @@
       <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_Customer_registration_ecommerce_Billing_Address" Member="ecommerce_Customer_registration" ThisKey="fk_Customerid" OtherKey="Customer_id" Type="ecommerce_Customer_registration" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ecommerce_Category" Member="ecommerce_Categories">
+    <Type Name="ecommerce_Category">
+      <Column Name="Category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Categories" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Productdetails" ThisKey="Category_id" OtherKey="Gender" Type="ecommerce_Productdetail" />
+      <Association Name="ecommerce_Category_ecommerce_ProductSubdetail" Member="ecommerce_ProductSubdetails" ThisKey="Category_id" OtherKey="fkCatagoryId" Type="ecommerce_ProductSubdetail" />
     </Type>
   </Table>
   <Table Name="dbo.ecommerce_Change_pwd_log" Member="ecommerce_Change_pwd_logs">
@@ -108,15 +109,15 @@
   <Table Name="dbo.ecommerce_Productdetail" Member="ecommerce_Productdetails">
     <Type Name="ecommerce_Productdetail">
       <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_Productdetail_ecommerce_Stock" Member="ecommerce_Stocks" ThisKey="Product_id" OtherKey="fkProduct_id" Type="ecommerce_Stock" />
-      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Category" ThisKey="fkCategory" OtherKey="Category_id" Type="ecommerce_Category" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="ecommerce_Category_ecommerce_Productdetail" Member="ecommerce_Category" ThisKey="Gender" OtherKey="Category_id" Type="ecommerce_Category" IsForeignKey="true" />
       <Association Name="ecommerce_OfferDetail_ecommerce_Productdetail" Member="ecommerce_OfferDetail" ThisKey="fkOfferDetail" OtherKey="Offer_id" Type="ecommerce_OfferDetail" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="ecommerce_ProductSubdetail_ecommerce_Productdetail" Member="ecommerce_ProductSubdetail" ThisKey="fkProductSubdetail" OtherKey="ProductSub_id" Type="ecommerce_ProductSubdetail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -125,7 +126,9 @@
     <Type Name="ecommerce_ProductSubdetail">
       <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ecommerce_ProductSubdetail_ecommerce_Productdetail" Member="ecommerce_Productdetails" ThisKey="ProductSub_id" OtherKey="fkProductSubdetail" Type="ecommerce_Productdetail" />
+      <Association Name="ecommerce_Category_ecommerce_ProductSubdetail" Member="ecommerce_Category" ThisKey="fkCatagoryId" OtherKey="Category_id" Type="ecommerce_Category" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.ecommerce_Promocode" Member="ecommerce_Promocodes">
@@ -593,91 +596,9 @@
       <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand" Method="sp_ecommerce_ProductdetailNewDeleteCommand">
-    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand" Method="sp_ecommerce_ProductdetailNewInsertCommand">
-    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="fkProductSubdetail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkOfferDetail" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_ProductdetailNewInsertCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_ecommerce_OrdersNewDeleteCommand" Method="sp_ecommerce_OrdersNewDeleteCommand">
     <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand" Method="sp_ecommerce_ProductdetailNewSelectCommand">
-    <ElementType Name="sp_ecommerce_ProductdetailNewSelectCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand" Method="sp_ecommerce_ProductdetailNewUpdateCommand">
-    <Parameter Name="fkCategory" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
-    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="fkProductSubdetail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="fkOfferDetail" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Product_id" Parameter="product_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_ProductdetailNewUpdateCommandResult">
-      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fkCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewDeleteCommand" Method="sp_ecommerce_ProductSubdetailNewDeleteCommand">
-    <Parameter Name="Original_ProductSub_id" Parameter="original_ProductSub_id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewInsertCommand" Method="sp_ecommerce_ProductSubdetailNewInsertCommand">
-    <Parameter Name="Productsub_name" Parameter="productsub_name" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="sp_ecommerce_ProductSubdetailNewInsertCommandResult">
-      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewSelectCommand" Method="sp_ecommerce_ProductSubdetailNewSelectCommand">
-    <ElementType Name="sp_ecommerce_ProductSubdetailNewSelectCommandResult">
-      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewUpdateCommand" Method="sp_ecommerce_ProductSubdetailNewUpdateCommand">
-    <Parameter Name="Productsub_name" Parameter="productsub_name" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="Original_ProductSub_id" Parameter="original_ProductSub_id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ProductSub_id" Parameter="productSub_id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_ecommerce_ProductSubdetailNewUpdateCommandResult">
-      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </ElementType>
   </Function>
   <Function Name="dbo.sp_ecommerce_PromocodeNewDeleteCommand" Method="sp_ecommerce_PromocodeNewDeleteCommand">
     <Parameter Name="Original_Promocode_id" Parameter="original_Promocode_id" Type="System.Int32" DbType="Int" />
@@ -899,6 +820,117 @@
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
     <Parameter Name="Result" Parameter="result" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewUpdateCommand" Method="sp_ecommerce_ProductSubdetailNewUpdateCommand">
+    <Parameter Name="Productsub_name" Parameter="productsub_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkCatagoryId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_ProductSub_id" Parameter="original_ProductSub_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductSub_id" Parameter="productSub_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_ProductSubdetailNewUpdateCommandResult">
+      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewSelectCommand" Method="sp_ecommerce_ProductSubdetailNewSelectCommand">
+    <ElementType Name="sp_ecommerce_ProductSubdetailNewSelectCommandResult">
+      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewInsertCommand" Method="sp_ecommerce_ProductSubdetailNewInsertCommand">
+    <Parameter Name="Productsub_name" Parameter="productsub_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkCatagoryId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_ProductSubdetailNewInsertCommandResult">
+      <Column Name="ProductSub_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Productsub_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductSubdetailNewDeleteCommand" Method="sp_ecommerce_ProductSubdetailNewDeleteCommand">
+    <Parameter Name="Original_ProductSub_id" Parameter="original_ProductSub_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Usp_Stock" Method="Usp_Stock">
+    <Parameter Name="Gender" Parameter="gender" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Size" Parameter="size" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Color" Parameter="color" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCatagory" Parameter="subCatagory" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Usp_StockResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Stock_Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewSelectCommand" Method="sp_ecommerce_ProductdetailNewSelectCommand">
+    <ElementType Name="sp_ecommerce_ProductdetailNewSelectCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewUpdateCommand" Method="sp_ecommerce_ProductdetailNewUpdateCommand">
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkProductSubdetail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOfferDetail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Product_id" Parameter="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_ProductdetailNewUpdateCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewInsertCommand" Method="sp_ecommerce_ProductdetailNewInsertCommand">
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Short_Description" Parameter="short_Description" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Pro_Discount" Parameter="pro_Discount" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkProductSubdetail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOfferDetail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ecommerce_ProductdetailNewInsertCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Short_Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Pro_Discount" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkProductSubdetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOfferDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ecommerce_ProductdetailNewDeleteCommand" Method="sp_ecommerce_ProductdetailNewDeleteCommand">
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
