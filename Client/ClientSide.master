@@ -104,13 +104,6 @@
                 </td>
             </tr>
         </table>
-        <table>
-            <tr>
-                <td>
-                    <uc2:ucFooter ID="ucFooter1" runat="server" />
-                </td>
-            </tr>
-        </table>
     </div>
     </form>
 </body>

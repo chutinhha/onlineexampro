@@ -7,7 +7,7 @@
     <table cellpadding="2" cellspacing="2" width="350">
         <tr class="productHeadingfont">
             <td>
-                &nbsp;&nbsp;&nbsp;&nbsp; Infiniti trend Wear &nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp; Infiniti trend Wear for&nbsp;<asp:Label ID="lbGenter" runat="server" Text='<%#Eval("Gender") %>'></asp:Label>
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/images/line1.jpg" Width="310px"
                     Height="1px" />
             </td>
@@ -17,7 +17,7 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td width="100px">
-                            <asp:Image ID="imgProduct" Width="100" Height="100" runat="server" ImageUrl='<%#Eval("Image") %>' />
+                            <asp:Image ID="imgProduct" Width="100" Height="100" runat="server" ImageUrl='<%#Eval("Stock_Image") %>' />
                         </td>
                         <td width="5px">
                         </td>
@@ -41,7 +41,7 @@
                                                     <asp:Label ID="lbPrice" runat="server" Text='<%#Eval("Price") %>'></asp:Label>&nbsp;Rs.
                                                 </td>
                                                 <td class="productDetailfont">
-                                                    <asp:Label ID="lbActual" runat="server" Text='<%# Eval("Actual") %>' Font-Strikeout="True"></asp:Label>&nbsp;Rs.
+                                                    <asp:Label ID="lbActual" runat="server" Text='<%# Eval("Actual_Price") %>' Font-Strikeout="True"></asp:Label>&nbsp;Rs.
                                                 </td>
                                             </tr>
                                         </table>
@@ -55,7 +55,7 @@
                                                     Status :
                                                 </td>
                                                 <td class="productDetailfont">
-                                                    <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Status") %>'></asp:Label>&nbsp;Item
+                                                    <asp:Label ID="lbStatus" runat="server" Text='<%#Eval("Stock_Value") %>'></asp:Label>&nbsp;Item
                                                     available
                                                 </td>
                                             </tr>

@@ -132,10 +132,6 @@ public partial class MyCart : System.Web.UI.Page
 
     }
 
-
-
-
-
     private void calculateTotal()
     {
         decimal total = 0;

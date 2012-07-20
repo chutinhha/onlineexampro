@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using DAL;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data;
 
 public partial class Home : System.Web.UI.Page
 {
@@ -16,14 +15,24 @@ public partial class Home : System.Web.UI.Page
         if (!IsPostBack)
         {
             bindCatagory();
+            bindSize();
             bindcolor();
+            bindSubCatagory();
             binddatalist();
         }
-
     }
+
+    private void bindSize()
+    {
+        ddlSize.DataSource = eCommerceHelper.Context.ecommerce_Sizes.Select(a => a);
+        ddlSize.DataTextField = "Size_values";
+        ddlSize.DataValueField = "Size_id";
+        ddlSize.DataBind();
+        ddlSize.Items.Insert(0, new ListItem("-select-", "0"));
+    }
+
     private void bindcolor()
     {
-
         if (ddlCatagory.SelectedValue == "0")
         {
             ddlBrand.DataSource = eCommerceHelper.Context.ecommerce_Colors.Select(a => a);
@@ -66,126 +75,72 @@ public partial class Home : System.Web.UI.Page
 
     private void binddatalist()
     {
-        SqlConnection con = new SqlConnection("Data Source=(local)\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=Tshirt;Integrated Security=True");
         con.Open();
-        SqlCommand cmd = new SqlCommand("Usp_Stock",con);
-        cmd.CommandType=CommandType.StoredProcedure;
-        //using (eCommerceDataContext dataDB = new eCommerceDataContext())
-        //{
-
-        //    if (ddlCatagory.SelectedValue == "0" && ddlBrand.SelectedValue == "0")
-        //    {
-        //        var source = from a in dataDB.ecommerce_Stocks join b in dataDB.ecommerce_Productdetails on a.fkProduct_id equals b.Product_id select new { Price = a.price, Pro_Discount = b.Pro_Discount, Product_id = b.Product_id + ";" + a.fkColor_id, Image = a.Stock_Image, Short_Description = b.Short_Description, Actual = a.Actual_Price, Status = a.Stock_Value };
-        //        DataList1.DataSource = source;
-        //        DataList1.DataBind();
-        //    }
-        //    else
-        //    {
-        //        List<int> productids = new List<int>();
-        //        if (ddlCatagory.SelectedValue == "0")
-        //        {
-        //            DataTable dt = GetTable();
-        //            var source = from a in dataDB.ecommerce_Stocks join b in dataDB.ecommerce_Productdetails on a.fkProduct_id equals b.Product_id where a.fkColor_id == Convert.ToInt32(ddlBrand.SelectedValue) select new { Price = a.price, Pro_Discount = b.Pro_Discount, Product_id = b.Product_id + ";" + a.fkColor_id, Image = a.Stock_Image, Short_Description = b.Short_Description, Actual = a.Actual_Price, Status = a.Stock_Value };
-        //            if (source.Count() != 0)
-        //            {
-        //                foreach (var items in source)
-        //                {
-        //                    DataRow dr = dt.NewRow();
-        //                    dr["Price"] = items.Price;
-        //                    dr["Pro_Discount"] = items.Pro_Discount;
-        //                    dr["Product_id"] = items.Product_id;
-        //                    dr["Image"] = items.Image;
-        //                    dr["Short_Description"] = items.Short_Description;
-        //                    dr["Actual"] = items.Actual;
-        //                    dr["Status"] = items.Status;
-        //                    dt.Rows.Add(dr);
-        //                }
-        //                DataList1.DataSource = dt;
-        //                DataList1.DataBind();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            productids = eCommerceHelper.Context.ecommerce_Productdetails.Where(a => a.Gender == Convert.ToInt32(ddlCatagory.SelectedValue)).Select(a => a.Product_id).ToList();
-        //            DataTable dt = GetTable();
-        //            foreach (var item in productids)
-        //            {
-        //                DataRow dr = dt.NewRow();
-        //                if (ddlCatagory.SelectedValue != "0" && ddlBrand.SelectedValue == "0")
-        //                {
-        //                    var source = from a in dataDB.ecommerce_Stocks join b in dataDB.ecommerce_Productdetails on a.fkProduct_id equals b.Product_id where a.fkProduct_id == Convert.ToInt32(item) select new { Price = a.price, Pro_Discount = b.Pro_Discount, Product_id = b.Product_id + ";" + a.fkColor_id, Image = a.Stock_Image, Short_Description = b.Short_Description, Actual = a.Actual_Price, Status = a.Stock_Value };
-        //                    foreach (var items in source)
-        //                    {
-        //                        dr["Price"] = items.Price;
-        //                        dr["Pro_Discount"] = items.Pro_Discount;
-        //                        dr["Product_id"] = items.Product_id;
-        //                        dr["Image"] = items.Image;
-        //                        dr["Short_Description"] = items.Short_Description;
-        //                        dr["Actual"] = items.Actual;
-        //                        dr["Status"] = items.Status;
-        //                    }
-        //                    dt.Rows.Add(dr);
-
-        //                }
-        //                else
-        //                {
-        //                    if (ddlCatagory.SelectedValue != "0" && ddlBrand.SelectedValue != "0")
-        //                    {
-        //                        var source = from a in dataDB.ecommerce_Stocks join b in dataDB.ecommerce_Productdetails on a.fkProduct_id equals b.Product_id where a.fkProduct_id == Convert.ToInt32(item) && a.fkColor_id == Convert.ToInt32(ddlBrand.SelectedValue) select new { Price = a.price, Pro_Discount = b.Pro_Discount, Product_id = b.Product_id + ";" + a.fkColor_id, Image = a.Stock_Image, Short_Description = b.Short_Description, Actual = a.Actual_Price, Status = a.Stock_Value };
-        //                        if (source.Count() != 0)
-        //                        {
-        //                            foreach (var items in source)
-        //                            {
-        //                                dr["Price"] = items.Price;
-        //                                dr["Pro_Discount"] = items.Pro_Discount;
-        //                                dr["Product_id"] = items.Product_id;
-        //                                dr["Image"] = items.Image;
-        //                                dr["Short_Description"] = items.Short_Description;
-        //                                dr["Actual"] = items.Actual;
-        //                                dr["Status"] = items.Status;
-        //                            }
-        //                            dt.Rows.Add(dr);
-        //                        }
-        //                    }
-
-
-        //                }
-
-        //            }
-        //            DataList1.DataSource = dt;
-        //            DataList1.DataBind();
-        //        }
-
-        //    }
-        //}
+        SqlCommand cmd = new SqlCommand("Usp_Stock", con);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@Gender", Convert.ToInt32(ddlCatagory.SelectedValue));
+        cmd.Parameters.AddWithValue("@Size", Convert.ToInt32(ddlSize.SelectedValue));
+        cmd.Parameters.AddWithValue("@Color", Convert.ToInt32(ddlBrand.SelectedValue));
+        cmd.Parameters.AddWithValue("@SubCatagory", Convert.ToInt32(ddlsubcatagory.SelectedValue));
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        con.Close();
+        DataTable dt = Gettable();
+        foreach (DataRow item in ds.Tables[0].Rows)
+        {
+            DataRow dr = dt.NewRow();
+            dr[0] = item["Stock_Image"];
+            dr[1] = item["Short_Description"];
+            dr[2] = item["Price"];
+            dr[3] = item["Actual_Price"];
+            dr[4] = item["Stock_Value"];
+            dr[5] = item["Pro_Discount"];
+            dr[6] = item["Product_id"] + ";" + item["fkColor_id"] + ";" + item["fkSize_id"] +";"+ item["fkProductSubdetail"];
+            if (Convert.ToInt32(item["Gender"]) == 1)
+            {
+                dr[7] = "Men's";
+            }
+            else
+            {
+                dr[7] = "Women's";
+            }
+            dt.Rows.Add(dr);
+        }
+        DataList1.DataSource = dt;
+        DataList1.DataBind();
     }
 
-    private DataTable GetTable()
+    private DataTable Gettable()
     {
         DataTable dt = new DataTable();
-        dt.Columns.Add(new DataColumn("Price"));
-        dt.Columns.Add(new DataColumn("Pro_Discount"));
-        dt.Columns.Add(new DataColumn("Product_id"));
-        dt.Columns.Add(new DataColumn("Image"));
-        dt.Columns.Add(new DataColumn("Short_Description"));
-        dt.Columns.Add(new DataColumn("Actual"));
-        dt.Columns.Add(new DataColumn("Status"));
-        return dt;
+        dt.Columns.Add("Stock_Image");
+        dt.Columns.Add("Short_Description");
+        dt.Columns.Add("Price");
+        dt.Columns.Add("Actual_Price");
+        dt.Columns.Add("Stock_Value");
+        dt.Columns.Add("Pro_Discount");
+        dt.Columns.Add("Product_id"); 
+        dt.Columns.Add("Gender");
+        return (dt);
     }
+
     protected void ddlBrand_SelectedIndexChanged(object sender, EventArgs e)
     {
         binddatalist();
     }
+
     protected void ddlCatagory_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (ddlCatagory.SelectedValue == "1")
         {
             subproduct.Visible = true;
-            bindSubCatagory();
         }
         else
         {
             subproduct.Visible = false;
+            ddlsubcatagory.SelectedValue = "0";
         }
         bindcolor();
         binddatalist();
@@ -197,10 +152,14 @@ public partial class Home : System.Web.UI.Page
         ddlsubcatagory.DataTextField = "Productsub_name";
         ddlsubcatagory.DataValueField = "ProductSub_id";
         ddlsubcatagory.DataBind();
-
+        ddlsubcatagory.Items.Insert(0, new ListItem("-select-", "0"));
     }
     protected void ddlsubcatagory_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        binddatalist();
+    }
+    protected void ddlSize_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        binddatalist();
     }
 }
