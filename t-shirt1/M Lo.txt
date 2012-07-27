@@ -1,0 +1,23 @@
+i-cons Technologies Reseller login Credentials:
+
+Control panel URL: https://cp.abtinfo.net:8443
+
+Reseller Login: icontech
+Password: icon@3456*
+
+
+infiniticlothing.com
+
+ftp://infiniticlothing.com
+
+user: infiniti
+pwd: infi@123
+
+
+DB details as follows:
+
+IP: 118.91.232.74(for infiniticlothing.com)
+
+User Name: infinusr
+
+Password: P@ss4!nf0
