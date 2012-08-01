@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using AjaxControlToolkit;
 
 
 public partial class ucLogin : BasePageUserControl
@@ -52,16 +53,20 @@ public partial class ucLogin : BasePageUserControl
             {
                 lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006600");
                 lbResponse.Text = "We had sent mail to your Email Id Verify it..!";
+                ModalPopupExtender md = (ModalPopupExtender)((UserControl)Page.Master.FindControl("ucLoginandLogout1")).FindControl("mdlLogin");
+                md.Show();
             }
         }
         else
         {
             lbResponse.Text = "Invalid Login!";
+            ModalPopupExtender md = (ModalPopupExtender)((UserControl)Page.Master.FindControl("ucLoginandLogout1")).FindControl("mdlLogin");
+            md.Show();
         }
     }
     public void CheckUser(string email, string password, ref bool? isValid)
     {
-        eCommerceHelper.Context.sp_check_user(email, password, ref assignValue, ref isValid);
+        InfinitiHelper.Context.sp_check_user(email, password, ref assignValue, ref isValid);
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {

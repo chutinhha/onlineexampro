@@ -64,8 +64,10 @@ background-clip: padding-box;
 {
     color: #FFFFFF;
     text-decoration: none;
+    font-family: calibri;
 }
 .buynow:hover
 {
+     font-family: calibri;
     color: #339933;
 }

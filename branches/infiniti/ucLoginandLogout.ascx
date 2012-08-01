@@ -55,12 +55,10 @@
                         <asp:Label ID="lbuser" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp; &nbsp;
                     </td>
                     <td>
-                        <asp:LinkButton ID="regis" runat="server" OnClick="regis_Click" 
-                            ForeColor="White">Register</asp:LinkButton>&nbsp;
+                        <asp:LinkButton ID="regis" runat="server" OnClick="regis_Click" ForeColor="White">Register</asp:LinkButton>&nbsp;
                     </td>
                     <td>
-                        <asp:LinkButton ID="login4" runat="server" OnClick="login4_Click" 
-                            ForeColor="White">Login</asp:LinkButton>&nbsp;
+                        <asp:LinkButton ID="login4" runat="server" OnClick="login4_Click" ForeColor="White">Login</asp:LinkButton>&nbsp;
                     </td>
                     <td>
                         <asp:LinkButton ID="lbtnLogout" runat="server" Text="Logout" OnClick="lbtnLogout_Click"></asp:LinkButton>
@@ -73,7 +71,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td >
+                    <td>
                         <a href="MyCart.aspx" style="text-decoration: none">
                             <table>
                                 <tr>
@@ -84,7 +82,7 @@
                                         Cart
                                     </td>
                                     <td style="color: #FFFFFF">
-                                        (<%= Session["item"] %>)
+                                        (<%= Session["item"]%>)
                                     </td>
                                 </tr>
                             </table>

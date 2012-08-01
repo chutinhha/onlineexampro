@@ -29,9 +29,9 @@ public partial class MailActivation : System.Web.UI.Page
                 }
                 string[] b = login_id.Split('=');
                 login_id = b[1];
-                using (eCommerceDataContext dataDB = new eCommerceDataContext())
+                using (InfinitiClothDataContext dataDB = new InfinitiClothDataContext())
                 {
-                    var account = (from a in dataDB.ecommerce_Customer_registrations where a.Email == login_id select a).FirstOrDefault();
+                    var account = (from a in dataDB.Infiniti_CustomerRegistrations where a.Email == login_id select a).FirstOrDefault();
                     account.ActivationStatus_Mail = 1;
                     dataDB.SubmitChanges();
                     lbResponse.Text = "Your Account activated successfully!";

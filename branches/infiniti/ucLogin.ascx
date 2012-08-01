@@ -50,14 +50,9 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <br />
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="ForgetPassword.aspx">Forget Password ?</a>
+        <td colspan="2" style="font-family: calibri; padding-left: 80px;">
+            <asp:LinkButton runat="server" ID="lbtnForget" PostBackUrl="~/ForgetPassword.aspx"
+                ForeColor="Black">Forget Password?</asp:LinkButton>
         </td>
     </tr>
 </table>

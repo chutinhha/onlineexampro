@@ -17,16 +17,16 @@ public partial class ForgetPassword : System.Web.UI.Page
     }
     protected void btnforget_Click(object sender, EventArgs e)
     {
-        using (eCommerceDataContext dataDB = new eCommerceDataContext())
+        using (InfinitiClothDataContext dataDB = new InfinitiClothDataContext())
         {
-            var counter = from a in dataDB.ecommerce_Customer_registrations where a.Email == txtEmail.Text select a;
+            var counter = from a in dataDB.Infiniti_CustomerRegistrations where a.Email == txtEmail.Text select a;
 
             if (counter.Count() == 1)
             {
                 var getval = counter.FirstOrDefault();
                 EncryptedQueryString args = new EncryptedQueryString();
                 args["arg1"] = txtEmail.Text;
-                string url = string.Format("http://localhost:52373/Client/ResetPassword.aspx?args={0}", args.ToString());
+                string url = string.Format("http://www.infiniticlothing.com/ResetPassword.aspx?args={0}", args.ToString());
                 String email = txtEmail.Text;
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress("iconstechnologies@gmail.com");

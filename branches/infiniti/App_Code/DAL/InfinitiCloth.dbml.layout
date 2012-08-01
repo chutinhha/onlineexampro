@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.125, 25.125" name="InfinitiCloth">
+  <DataContextMoniker Name="/InfinitiClothDataContext" />
+  <nestedChildShapes>
+    <classShape Id="69b17a94-b9c6-4251-a039-49ff7c9ad115" absoluteBounds="6.25, 6.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infinit_OfferDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b120244-c080-4fd9-8f43-4c56c4723a90" absoluteBounds="6.265, 7.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b741e745-05a5-4d6f-83ce-d4d30c7f30d5" absoluteBounds="9, 18.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_Billing_Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd52f9a1-49a5-4ae7-bfa7-5a16a757ddb8" absoluteBounds="9.015, 19.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7abb5be-fd66-4bf8-83f2-4a3adc01deb4" absoluteBounds="0.75, 4, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_CatagoryDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cae81702-5dda-4b44-9d78-6eed69cb55a8" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa0ad93b-ac3d-4d8f-a93c-b22a1e0bd861" absoluteBounds="9, 12.125, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_Change_pwd_log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="802e3546-8c8c-487a-b770-a83ad1028f06" absoluteBounds="9.015, 12.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73494708-4153-4ff7-b39b-e389cf16f8cb" absoluteBounds="6.25, 11.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_ColorDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd0a86c8-fa7f-45b8-81c1-d777db9f718e" absoluteBounds="6.265, 11.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8870eaa8-c3b4-4c25-b0aa-7aeaa3c11ad8" absoluteBounds="8.75, 7.5, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_CountryDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bca2e539-7722-42d5-bf56-61a1101d1a0f" absoluteBounds="8.765, 7.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" absoluteBounds="6.25, 14.5, 2, 4.0785139973958291">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5dd225cf-770a-4116-acca-84f290cc02d7" absoluteBounds="6.265, 14.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d77f479-9035-4ed5-805f-087f6e8cbdb7" absoluteBounds="6.25, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_DesignDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53e6715f-5657-428c-b296-6eacaf54930e" absoluteBounds="6.265, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61ddcf54-22a6-4c4f-a2ce-58d492e27e3e" absoluteBounds="9, 15.5, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="120934ca-e8f0-4e9c-9ac3-2db536a1d697" absoluteBounds="9.015, 15.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="06f16c74-e226-4ad0-8034-c86650c4b6ce" absoluteBounds="11.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_OrderItemDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da29373c-fc06-4ad8-b048-6f3892738dac" absoluteBounds="11.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5c34d82-b194-4912-9a7b-1f80eb4b2e63" absoluteBounds="11.75, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_OrderSummaryDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4bcbf2b-a2ad-4106-a869-03984bbb9312" absoluteBounds="11.765, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" absoluteBounds="9, 3, 2, 3.5016097005208335">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_ProductDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2bab617-26ca-4ddc-abed-b83132ac92fc" absoluteBounds="9.015, 3.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5a771c9-08c5-4a7b-90b5-84141a3ec8a1" absoluteBounds="9, 22.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_Shipping_Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f2446f2-cfd6-4cc3-8273-e8141bc5e446" absoluteBounds="9.015, 22.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd18b9d7-cd24-4b75-b68a-726e0571c3df" absoluteBounds="6.25, 9, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_SizeDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="499b5581-8e32-4762-a49c-633f0ede8ebd" absoluteBounds="6.265, 9.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="543c9e7d-2346-4632-b777-e9f311a1e139" absoluteBounds="11.5, 7.5, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_StateDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90b8981d-cb47-4d06-9570-3fe3b1cd1741" absoluteBounds="11.515, 7.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4534ee36-4f3e-4b7f-89a3-511d33af1db2" absoluteBounds="3.5, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/InfinitiClothDataContext/Infiniti_SubCatarory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a99b5dd4-3592-4ade-b86e-b55a2507b3e8" absoluteBounds="3.515, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 18.5785139973958); (7.25 : 19.9912019856771); (9 : 19.9912019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration/Infiniti_CustomerRegistration_Infiniti_Billing_Address" />
+      <nodes>
+        <classShapeMoniker Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" />
+        <classShapeMoniker Id="b741e745-05a5-4d6f-83ce-d4d30c7f30d5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 14.5); (8.625 : 14.125); (8.625 : 14.2708968098958); (9 : 13.8958968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration/Infiniti_CustomerRegistration_Infiniti_Change_pwd_log" />
+      <nodes>
+        <classShapeMoniker Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" />
+        <classShapeMoniker Id="fa0ad93b-ac3d-4d8f-a93c-b22a1e0bd861" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 16.4815991210938); (9 : 16.4815991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration/Infiniti_CustomerRegistration_Infiniti_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" />
+        <classShapeMoniker Id="61ddcf54-22a6-4c4f-a2ce-58d492e27e3e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 15.5); (10 : 14.1458968098958); (11.25 : 14.1458968098958); (11.25 : 1.73159912109375); (11.75 : 1.73159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_OrderDetail/Infiniti_OrderDetail_Infiniti_OrderItemDetail" />
+      <nodes>
+        <classShapeMoniker Id="61ddcf54-22a6-4c4f-a2ce-58d492e27e3e" />
+        <classShapeMoniker Id="06f16c74-e226-4ad0-8034-c86650c4b6ce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 18.0521061197917); (13.65625 : 18.0521061197917); (13.65625 : 5.57859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration/Infiniti_CustomerRegistration_Infiniti_OrderSummaryDetail" />
+      <nodes>
+        <classShapeMoniker Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" />
+        <classShapeMoniker Id="c5c34d82-b194-4912-9a7b-1f80eb4b2e63" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 3); (10 : 2.25365118164062); (11.75 : 2.25365118164062)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_ProductDetail/Infiniti_ProductDetail_Infiniti_OrderItemDetail" />
+      <nodes>
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+        <classShapeMoniker Id="06f16c74-e226-4ad0-8034-c86650c4b6ce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 4.78929768880208); (11.75 : 4.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_ProductDetail/Infiniti_ProductDetail_Infiniti_OrderSummaryDetail" />
+      <nodes>
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+        <classShapeMoniker Id="c5c34d82-b194-4912-9a7b-1f80eb4b2e63" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.15625); (10.90625 : 7.15625); (10.90625 : 6.50160970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infinit_OfferDetail/Infinit_OfferDetail_Infiniti_ProductDetail" />
+      <nodes>
+        <classShapeMoniker Id="69b17a94-b9c6-4251-a039-49ff7c9ad115" />
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 11.125); (7.25 : 10.6362939453125); (8.5 : 10.6362939453125); (8.5 : 4.75080485026042); (9 : 4.75080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_ColorDetail/Infiniti_ColorDetail_Infiniti_ProductDetail" />
+      <nodes>
+        <classShapeMoniker Id="73494708-4153-4ff7-b39b-e389cf16f8cb" />
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 5.22720011393229); (9 : 5.22720011393229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_DesignDetail/Infiniti_DesignDetail_Infiniti_ProductDetail" />
+      <nodes>
+        <classShapeMoniker Id="0d77f479-9035-4ed5-805f-087f6e8cbdb7" />
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.7812525 : 18.5785139973958); (7.7812525 : 23.4912019856771); (9 : 23.4912019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CustomerRegistration/Infiniti_CustomerRegistration_Infiniti_Shipping_Address" />
+      <nodes>
+        <classShapeMoniker Id="db68785c-b38e-49c1-bcb6-6fb234010ed2" />
+        <classShapeMoniker Id="b5a771c9-08c5-4a7b-90b5-84141a3ec8a1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.69314697265625); (10.8749975 : 9.69314697265625); (10.8749975 : 6.50160970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_SizeDetail/Infiniti_SizeDetail_Infiniti_ProductDetail" />
+      <nodes>
+        <classShapeMoniker Id="fd18b9d7-cd24-4b75-b68a-726e0571c3df" />
+        <classShapeMoniker Id="785fa84c-a9f1-414a-8f9f-4903df3dbdcb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 8.19314697265625); (11.5 : 8.19314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CountryDetail/Infiniti_CountryDetail_Infiniti_StateDetail" />
+      <nodes>
+        <classShapeMoniker Id="8870eaa8-c3b4-4c25-b0aa-7aeaa3c11ad8" />
+        <classShapeMoniker Id="543c9e7d-2346-4632-b777-e9f311a1e139" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.78929768880208); (6.25 : 4.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_SubCatarory/Infiniti_SubCatarory_Infiniti_DesignDetail" />
+      <nodes>
+        <classShapeMoniker Id="4534ee36-4f3e-4b7f-89a3-511d33af1db2" />
+        <classShapeMoniker Id="0d77f479-9035-4ed5-805f-087f6e8cbdb7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.69314697265625); (3.5 : 4.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InfinitiClothDataContext/Infiniti_CatagoryDetail/Infiniti_CatagoryDetail_Infiniti_SubCatarory" />
+      <nodes>
+        <classShapeMoniker Id="a7abb5be-fd66-4bf8-83f2-4a3adc01deb4" />
+        <classShapeMoniker Id="4534ee36-4f3e-4b7f-89a3-511d33af1db2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
