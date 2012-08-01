@@ -1,191 +1,306 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
-    CodeFile="Addproduct.aspx.cs" Inherits="Addproduct" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddProduct.aspx.cs" Inherits="Admin_AddProduct" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <title>Add Prodects</title>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table cellpadding="0" cellspacing="0" width="980px" align="center">
-        <tr>
-            <td>
-                <h3>
-                    Add Your Product:
-                </h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table width="800px" cellpadding="0" cellspacing="0" align="center">
-                    <tr>
-                        <td width="100px">
-                            Category:
-                        </td>
-                        <td width="150px">
-                            <asp:DropDownList Width="142px" ID="ddlCatagory" runat="server" 
-                                AutoPostBack="True">
-                            </asp:DropDownList>
-                        </td>
-                        <td valign="top">
-                            <table width="100%">
-                                <tr>
-                                    <td width="142px">
-                                        <asp:TextBox ID="txtaddCatagory" Width="142px" runat="server" Visible="false"></asp:TextBox>
-                                      
-                                    </td>
-                                    <td>
-                                        <asp:Button ID="btnAdd" runat="server" Text="ADD" Visible="false" 
-                                            onclick="btnAdd_Click" />
-                                     
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Prodect image:
-                        </td>
-                        <td colspan="2">
-                            <asp:FileUpload ID="fuProductimage" runat="server" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Product Name:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtProductname" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Short Description:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtShortdescription" runat="server" MaxLength="100" 
-                                TextMode="MultiLine"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Description:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Product Price:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Status:
-                        </td>
-                        <td colspan="2">
-                            <asp:DropDownList Width="142px" ID="ddlStatus" runat="server">
-                                <asp:ListItem>available</asp:ListItem>
-                                <asp:ListItem>unavailable</asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Discount:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtDiscount" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Company:
-                        </td>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td  colspan="3">
-                            <table width="100%">
-                                <tr>
-                                    <td width="93px">
-                                        Have Option:
-                                    </td>
-                                    <td>
-                                        <asp:DropDownList Width="142px" ID="ddlHaveoption" runat="server" 
-                                            AutoPostBack="True" onselectedindexchanged="ddlHaveoption_SelectedIndexChanged">
-                                            <asp:ListItem>yes</asp:ListItem>
-                                            <asp:ListItem>no</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lbOptiontitle" runat="server" Text="Option Title:"></asp:Label>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:TextBox ID="txtOptiontitle" runat="server"></asp:TextBox>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lbOptioncontent" runat="server" Text="Option Content:"></asp:Label>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:TextBox ID="txtOptioncontent" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="5px" colspan="3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="center">
-                            <asp:Button ID="btnPost" runat="server" Text="Post" onclick="btnPost_Click" />
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</asp:Content>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table cellpadding="0" cellspacing="0" width="900px" align="center">
+            <tr>
+                <td>
+                    Add Product:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Catagory:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlCatagory" runat="server" OnSelectedIndexChanged="ddlCatagory_SelectedIndexChanged"
+                                    AutoPostBack="True">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <table id="otherCatagory" runat="server" visible="false">
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCatagory" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnAddCatagory" runat="server" Text="ADD" OnClick="btnAddCatagory_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                SubCatagory:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlSubCatagory" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSubCatagory_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <table id="otherSubCatagory" runat="server" visible="false">
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtSubCatagory" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnAddSubCatagory" runat="server" Text="ADD" OnClick="btnAddSubCatagory_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Design Name:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlDesignName" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDesignName_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <table id="otherDesign" runat="server" visible="false">
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtDesignName" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnAddDesign" runat="server" Text="ADD" OnClick="btnAddDesign_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Size:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSize_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <table id="otherSize" runat="server" visible="false">
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtSize" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnSize" runat="server" Text="ADD" OnClick="btnSize_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Color:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlColor" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlColor_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <table id="otherColor" runat="server" visible="false">
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtColor" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:FileUpload ID="fuColor" runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnAddColor" runat="server" Text="ADD" OnClick="btnAddColor_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Discription:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtDiscription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Short Discription:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtShortDiscrition" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Actual Price:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPrice" runat="server" AutoPostBack="True" 
+                                    ontextchanged="txtPrice_TextChanged"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Discount:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtDiscount" runat="server" AutoPostBack="True" OnTextChanged="txtDiscount_TextChanged"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Discount Price:
+                            </td>
+                            <td>
+                                <asp:Label ID="lbDisPrice" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Product Image Small:
+                            </td>
+                            <td>
+                                <asp:FileUpload ID="fuSmall" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Product Image Large:
+                            </td>
+                            <td>
+                                <asp:FileUpload ID="fuLarge" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Stock:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btnSubmit" runat="server" Text="submit" OnClick="btnSubmit_Click" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

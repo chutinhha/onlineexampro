@@ -1,0 +1,1037 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="InfinitiDB" Class="InfinitiClothDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=InfinitiDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="InfinitiDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Infinit_OfferDetail" Member="Infinit_OfferDetails">
+    <Type Name="Infinit_OfferDetail">
+      <Column Name="Offer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Offer_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infinit_OfferDetail_Infiniti_ProductDetail" Member="Infiniti_ProductDetails" ThisKey="Offer_id" OtherKey="fkOffer_id" Type="Infiniti_ProductDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_Billing_Address" Member="Infiniti_Billing_Addresses">
+    <Type Name="Infiniti_Billing_Address">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Billing_Address" Member="Infiniti_CustomerRegistration" ThisKey="fk_Customerid" OtherKey="Customer_id" Type="Infiniti_CustomerRegistration" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_CatagoryDetail" Member="Infiniti_CatagoryDetails">
+    <Type Name="Infiniti_CatagoryDetail">
+      <Column Name="Catagory_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Catagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_CatagoryDetail_Infiniti_SubCatarory" Member="Infiniti_SubCatarories" ThisKey="Catagory_id" OtherKey="fkCatagory_id" Type="Infiniti_SubCatarory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_Change_pwd_log" Member="Infiniti_Change_pwd_logs">
+    <Type Name="Infiniti_Change_pwd_log">
+      <Column Name="Change_pwd_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="New_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="old_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Change_pwd_log" Member="Infiniti_CustomerRegistration" ThisKey="fkCustomer_id" OtherKey="Customer_id" Type="Infiniti_CustomerRegistration" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_ColorDetail" Member="Infiniti_ColorDetails">
+    <Type Name="Infiniti_ColorDetail">
+      <Column Name="Color_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Color_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Color_image_url" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_ColorDetail_Infiniti_ProductDetail" Member="Infiniti_ProductDetails" ThisKey="Color_id" OtherKey="fkColor_id" Type="Infiniti_ProductDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_CountryDetail" Member="Infiniti_CountryDetails">
+    <Type Name="Infiniti_CountryDetail">
+      <Column Name="Country_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_CountryDetail_Infiniti_StateDetail" Member="Infiniti_StateDetails" ThisKey="Country_id" OtherKey="FkCountry_id" Type="Infiniti_StateDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_CustomerRegistration" Member="Infiniti_CustomerRegistrations">
+    <Type Name="Infiniti_CustomerRegistration">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Billing_Address" Member="Infiniti_Billing_Addresses" ThisKey="Customer_id" OtherKey="fk_Customerid" Type="Infiniti_Billing_Address" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Change_pwd_log" Member="Infiniti_Change_pwd_logs" ThisKey="Customer_id" OtherKey="fkCustomer_id" Type="Infiniti_Change_pwd_log" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_OrderDetail" Member="Infiniti_OrderDetails" ThisKey="Customer_id" OtherKey="fkCustomer_id" Type="Infiniti_OrderDetail" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_OrderSummaryDetail" Member="Infiniti_OrderSummaryDetails" ThisKey="Customer_id" OtherKey="fkCustomer_id" Type="Infiniti_OrderSummaryDetail" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Shipping_Address" Member="Infiniti_Shipping_Addresses" ThisKey="Customer_id" OtherKey="fk_Customerid" Type="Infiniti_Shipping_Address" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_DesignDetail" Member="Infiniti_DesignDetails">
+    <Type Name="Infiniti_DesignDetail">
+      <Column Name="Design_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Design_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSubCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_DesignDetail_Infiniti_ProductDetail" Member="Infiniti_ProductDetails" ThisKey="Design_id" OtherKey="fkDesign_id" Type="Infiniti_ProductDetail" />
+      <Association Name="Infiniti_SubCatarory_Infiniti_DesignDetail" Member="Infiniti_SubCatarory" ThisKey="fkSubCatagory_id" OtherKey="SubCatagory_id" Type="Infiniti_SubCatarory" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_OrderDetail" Member="Infiniti_OrderDetails">
+    <Type Name="Infiniti_OrderDetail">
+      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Delivery_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Infiniti_OrderDetail_Infiniti_OrderItemDetail" Member="Infiniti_OrderItemDetails" ThisKey="Order_id" OtherKey="fkOrder_id" Type="Infiniti_OrderItemDetail" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_OrderDetail" Member="Infiniti_CustomerRegistration" ThisKey="fkCustomer_id" OtherKey="Customer_id" Type="Infiniti_CustomerRegistration" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_OrderItemDetail" Member="Infiniti_OrderItemDetails">
+    <Type Name="Infiniti_OrderItemDetail">
+      <Column Name="OrderItem_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_OrderDetail_Infiniti_OrderItemDetail" Member="Infiniti_OrderDetail" ThisKey="fkOrder_id" OtherKey="Order_id" Type="Infiniti_OrderDetail" IsForeignKey="true" />
+      <Association Name="Infiniti_ProductDetail_Infiniti_OrderItemDetail" Member="Infiniti_ProductDetail" ThisKey="fkProduct_id" OtherKey="Product_id" Type="Infiniti_ProductDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_OrderSummaryDetail" Member="Infiniti_OrderSummaryDetails">
+    <Type Name="Infiniti_OrderSummaryDetail">
+      <Column Name="OrderSummary_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_OrderSummaryDetail" Member="Infiniti_CustomerRegistration" ThisKey="fkCustomer_id" OtherKey="Customer_id" Type="Infiniti_CustomerRegistration" IsForeignKey="true" />
+      <Association Name="Infiniti_ProductDetail_Infiniti_OrderSummaryDetail" Member="Infiniti_ProductDetail" ThisKey="fkProduct_id" OtherKey="Product_id" Type="Infiniti_ProductDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_ProductDetail" Member="Infiniti_ProductDetails">
+    <Type Name="Infiniti_ProductDetail">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_ProductDetail_Infiniti_OrderItemDetail" Member="Infiniti_OrderItemDetails" ThisKey="Product_id" OtherKey="fkProduct_id" Type="Infiniti_OrderItemDetail" />
+      <Association Name="Infiniti_ProductDetail_Infiniti_OrderSummaryDetail" Member="Infiniti_OrderSummaryDetails" ThisKey="Product_id" OtherKey="fkProduct_id" Type="Infiniti_OrderSummaryDetail" />
+      <Association Name="Infinit_OfferDetail_Infiniti_ProductDetail" Member="Infinit_OfferDetail" ThisKey="fkOffer_id" OtherKey="Offer_id" Type="Infinit_OfferDetail" IsForeignKey="true" />
+      <Association Name="Infiniti_ColorDetail_Infiniti_ProductDetail" Member="Infiniti_ColorDetail" ThisKey="fkColor_id" OtherKey="Color_id" Type="Infiniti_ColorDetail" IsForeignKey="true" />
+      <Association Name="Infiniti_DesignDetail_Infiniti_ProductDetail" Member="Infiniti_DesignDetail" ThisKey="fkDesign_id" OtherKey="Design_id" Type="Infiniti_DesignDetail" IsForeignKey="true" />
+      <Association Name="Infiniti_SizeDetail_Infiniti_ProductDetail" Member="Infiniti_SizeDetail" ThisKey="fkSize_id" OtherKey="Size_id" Type="Infiniti_SizeDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_Shipping_Address" Member="Infiniti_Shipping_Addresses">
+    <Type Name="Infiniti_Shipping_Address">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_CustomerRegistration_Infiniti_Shipping_Address" Member="Infiniti_CustomerRegistration" ThisKey="fk_Customerid" OtherKey="Customer_id" Type="Infiniti_CustomerRegistration" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_SizeDetail" Member="Infiniti_SizeDetails">
+    <Type Name="Infiniti_SizeDetail">
+      <Column Name="Size_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Size_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_SizeDetail_Infiniti_ProductDetail" Member="Infiniti_ProductDetails" ThisKey="Size_id" OtherKey="fkSize_id" Type="Infiniti_ProductDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_StateDetail" Member="Infiniti_StateDetails">
+    <Type Name="Infiniti_StateDetail">
+      <Column Name="State_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="State_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FkCountry_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Infiniti_CountryDetail_Infiniti_StateDetail" Member="Infiniti_CountryDetail" ThisKey="FkCountry_id" OtherKey="Country_id" Type="Infiniti_CountryDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Infiniti_SubCatarory" Member="Infiniti_SubCatarories">
+    <Type Name="Infiniti_SubCatarory">
+      <Column Name="SubCatagory_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubCatagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Infiniti_SubCatarory_Infiniti_DesignDetail" Member="Infiniti_DesignDetails" ThisKey="SubCatagory_id" OtherKey="fkSubCatagory_id" Type="Infiniti_DesignDetail" />
+      <Association Name="Infiniti_CatagoryDetail_Infiniti_SubCatarory" Member="Infiniti_CatagoryDetail" ThisKey="fkCatagory_id" OtherKey="Catagory_id" Type="Infiniti_CatagoryDetail" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Function Name="dbo.[sp_ Infiniti_OrderDetailNewDeleteCommand]" Method="sp__Infiniti_OrderDetailNewDeleteCommand">
+    <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.[sp_ Infiniti_OrderDetailNewInsertCommand]" Method="sp__Infiniti_OrderDetailNewInsertCommand">
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Order_Date" Parameter="order_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Delivery_Date" Parameter="delivery_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Shiping_Tax" Parameter="shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="sp__Infiniti_OrderDetailNewInsertCommandResult">
+      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Delivery_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[sp_ Infiniti_OrderDetailNewSelectCommand]" Method="sp__Infiniti_OrderDetailNewSelectCommand">
+    <ElementType Name="sp__Infiniti_OrderDetailNewSelectCommandResult">
+      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Delivery_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.[sp_ Infiniti_OrderDetailNewUpdateCommand]" Method="sp__Infiniti_OrderDetailNewUpdateCommand">
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Order_Date" Parameter="order_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Delivery_Date" Parameter="delivery_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Shiping_Tax" Parameter="shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Total_Amount" Parameter="total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Original_Order_id" Parameter="original_Order_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Order_id" Parameter="order_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp__Infiniti_OrderDetailNewUpdateCommandResult">
+      <Column Name="Order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Delivery_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Shiping_Tax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Total_Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_check_user" Method="sp_check_user" IsComposable="true">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(100)" Direction="InOut" />
+    <Parameter Name="Result" Parameter="result" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_Infinit_OfferDetailNewDeleteCommand" Method="sp_Infinit_OfferDetailNewDeleteCommand">
+    <Parameter Name="Original_Offer_id" Parameter="original_Offer_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infinit_OfferDetailNewInsertCommand" Method="sp_Infinit_OfferDetailNewInsertCommand">
+    <Parameter Name="Offer_Name" Parameter="offer_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infinit_OfferDetailNewInsertCommandResult">
+      <Column Name="Offer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Offer_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infinit_OfferDetailNewSelectCommand" Method="sp_Infinit_OfferDetailNewSelectCommand">
+    <ElementType Name="sp_Infinit_OfferDetailNewSelectCommandResult">
+      <Column Name="Offer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Offer_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infinit_OfferDetailNewUpdateCommand" Method="sp_Infinit_OfferDetailNewUpdateCommand">
+    <Parameter Name="Offer_Name" Parameter="offer_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Offer_id" Parameter="original_Offer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Offer_id" Parameter="offer_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infinit_OfferDetailNewUpdateCommandResult">
+      <Column Name="Offer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Offer_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Billing_AddressNewDeleteCommand" Method="sp_Infiniti_Billing_AddressNewDeleteCommand">
+    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Billing_AddressNewInsertCommand" Method="sp_Infiniti_Billing_AddressNewInsertCommand">
+    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="fk_Customerid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Billing_AddressNewInsertCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Billing_AddressNewSelectCommand" Method="sp_Infiniti_Billing_AddressNewSelectCommand">
+    <ElementType Name="sp_Infiniti_Billing_AddressNewSelectCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Billing_AddressNewUpdateCommand" Method="sp_Infiniti_Billing_AddressNewUpdateCommand">
+    <Parameter Name="bil_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="bill_zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bill_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="fk_Customerid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_billing_id" Parameter="original_billing_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="billing_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Billing_AddressNewUpdateCommandResult">
+      <Column Name="billing_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bil_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bill_zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bill_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bill_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CatagoryDetailNewDeleteCommand" Method="sp_Infiniti_CatagoryDetailNewDeleteCommand">
+    <Parameter Name="Original_Catagory_id" Parameter="original_Catagory_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CatagoryDetailNewInsertCommand" Method="sp_Infiniti_CatagoryDetailNewInsertCommand">
+    <Parameter Name="Catagory_Name" Parameter="catagory_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_CatagoryDetailNewInsertCommandResult">
+      <Column Name="Catagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Catagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CatagoryDetailNewSelectCommand" Method="sp_Infiniti_CatagoryDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_CatagoryDetailNewSelectCommandResult">
+      <Column Name="Catagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Catagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CatagoryDetailNewUpdateCommand" Method="sp_Infiniti_CatagoryDetailNewUpdateCommand">
+    <Parameter Name="Catagory_Name" Parameter="catagory_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Catagory_id" Parameter="original_Catagory_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Catagory_id" Parameter="catagory_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_CatagoryDetailNewUpdateCommandResult">
+      <Column Name="Catagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Catagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Change_pwd_logNewDeleteCommand" Method="sp_Infiniti_Change_pwd_logNewDeleteCommand">
+    <Parameter Name="Original_Change_pwd_id" Parameter="original_Change_pwd_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Change_pwd_logNewInsertCommand" Method="sp_Infiniti_Change_pwd_logNewInsertCommand">
+    <Parameter Name="New_pwd" Parameter="new_pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="old_pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Change_pwd_logNewInsertCommandResult">
+      <Column Name="Change_pwd_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="New_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="old_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Change_pwd_logNewSelectCommand" Method="sp_Infiniti_Change_pwd_logNewSelectCommand">
+    <ElementType Name="sp_Infiniti_Change_pwd_logNewSelectCommandResult">
+      <Column Name="Change_pwd_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="New_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="old_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Change_pwd_logNewUpdateCommand" Method="sp_Infiniti_Change_pwd_logNewUpdateCommand">
+    <Parameter Name="New_pwd" Parameter="new_pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="old_pwd" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Change_pwd_id" Parameter="original_Change_pwd_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Change_pwd_id" Parameter="change_pwd_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Change_pwd_logNewUpdateCommandResult">
+      <Column Name="Change_pwd_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="New_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="old_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ColorDetailNewDeleteCommand" Method="sp_Infiniti_ColorDetailNewDeleteCommand">
+    <Parameter Name="Original_Color_id" Parameter="original_Color_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ColorDetailNewInsertCommand" Method="sp_Infiniti_ColorDetailNewInsertCommand">
+    <Parameter Name="Color_Name" Parameter="color_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Color_image_url" Parameter="color_image_url" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_ColorDetailNewInsertCommandResult">
+      <Column Name="Color_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Color_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Color_image_url" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ColorDetailNewSelectCommand" Method="sp_Infiniti_ColorDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_ColorDetailNewSelectCommandResult">
+      <Column Name="Color_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Color_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Color_image_url" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ColorDetailNewUpdateCommand" Method="sp_Infiniti_ColorDetailNewUpdateCommand">
+    <Parameter Name="Color_Name" Parameter="color_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Color_image_url" Parameter="color_image_url" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Color_id" Parameter="original_Color_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Color_id" Parameter="color_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_ColorDetailNewUpdateCommandResult">
+      <Column Name="Color_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Color_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Color_image_url" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CountryDetailNewDeleteCommand" Method="sp_Infiniti_CountryDetailNewDeleteCommand">
+    <Parameter Name="Original_Country_id" Parameter="original_Country_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CountryDetailNewInsertCommand" Method="sp_Infiniti_CountryDetailNewInsertCommand">
+    <Parameter Name="Country_Name" Parameter="country_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Country_Code" Parameter="country_Code" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_CountryDetailNewInsertCommandResult">
+      <Column Name="Country_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CountryDetailNewSelectCommand" Method="sp_Infiniti_CountryDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_CountryDetailNewSelectCommandResult">
+      <Column Name="Country_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CountryDetailNewUpdateCommand" Method="sp_Infiniti_CountryDetailNewUpdateCommand">
+    <Parameter Name="Country_Name" Parameter="country_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Country_Code" Parameter="country_Code" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Country_id" Parameter="original_Country_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Country_id" Parameter="country_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_CountryDetailNewUpdateCommandResult">
+      <Column Name="Country_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CustomerRegistrationNewDeleteCommand" Method="sp_Infiniti_CustomerRegistrationNewDeleteCommand">
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CustomerRegistrationNewInsertCommand" Method="sp_Infiniti_CustomerRegistrationNewInsertCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_Infiniti_CustomerRegistrationNewInsertCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CustomerRegistrationNewSelectCommand" Method="sp_Infiniti_CustomerRegistrationNewSelectCommand">
+    <ElementType Name="sp_Infiniti_CustomerRegistrationNewSelectCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_CustomerRegistrationNewUpdateCommand" Method="sp_Infiniti_CustomerRegistrationNewUpdateCommand">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Country" Parameter="country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Reg_Date" Parameter="reg_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Last_login" Parameter="last_login" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Error_count" Parameter="error_count" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cus_Status" Parameter="cus_Status" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Profile_image" Parameter="profile_image" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="First_name" Parameter="first_name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Last_name" Parameter="last_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ActivationStatus_Mail" Parameter="activationStatus_Mail" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActivationStatus_Sms" Parameter="activationStatus_Sms" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email_Subs" Parameter="email_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Sms_Subs" Parameter="sms_Subs" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Original_Customer_id" Parameter="original_Customer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Customer_id" Parameter="customer_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_CustomerRegistrationNewUpdateCommandResult">
+      <Column Name="Customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Last_login" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Error_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cus_Status" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Profile_image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="First_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Last_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationStatus_Mail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationStatus_Sms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sms_Subs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_DesignDetailNewDeleteCommand" Method="sp_Infiniti_DesignDetailNewDeleteCommand">
+    <Parameter Name="Original_Design_id" Parameter="original_Design_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_DesignDetailNewInsertCommand" Method="sp_Infiniti_DesignDetailNewInsertCommand">
+    <Parameter Name="Design_Name" Parameter="design_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkSubCatagory_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_DesignDetailNewInsertCommandResult">
+      <Column Name="Design_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Design_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSubCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_DesignDetailNewSelectCommand" Method="sp_Infiniti_DesignDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_DesignDetailNewSelectCommandResult">
+      <Column Name="Design_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Design_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkSubCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderItemDetailNewDeleteCommand" Method="sp_Infiniti_OrderItemDetailNewDeleteCommand">
+    <Parameter Name="Original_OrderItem_id" Parameter="original_OrderItem_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderItemDetailNewInsertCommand" Method="sp_Infiniti_OrderItemDetailNewInsertCommand">
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Actual_Price" Parameter="actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOrder_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_OrderItemDetailNewInsertCommandResult">
+      <Column Name="OrderItem_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderItemDetailNewSelectCommand" Method="sp_Infiniti_OrderItemDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_OrderItemDetailNewSelectCommandResult">
+      <Column Name="OrderItem_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderItemDetailNewUpdateCommand" Method="sp_Infiniti_OrderItemDetailNewUpdateCommand">
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Actual_Price" Parameter="actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOrder_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_OrderItem_id" Parameter="original_OrderItem_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrderItem_id" Parameter="orderItem_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_OrderItemDetailNewUpdateCommandResult">
+      <Column Name="OrderItem_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOrder_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderSummaryDetailNewDeleteCommand" Method="sp_Infiniti_OrderSummaryDetailNewDeleteCommand">
+    <Parameter Name="Original_OrderSummary_id" Parameter="original_OrderSummary_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderSummaryDetailNewInsertCommand" Method="sp_Infiniti_OrderSummaryDetailNewInsertCommand">
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_OrderSummaryDetailNewInsertCommandResult">
+      <Column Name="OrderSummary_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderSummaryDetailNewSelectCommand" Method="sp_Infiniti_OrderSummaryDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_OrderSummaryDetailNewSelectCommandResult">
+      <Column Name="OrderSummary_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_OrderSummaryDetailNewUpdateCommand" Method="sp_Infiniti_OrderSummaryDetailNewUpdateCommand">
+    <Parameter Name="fkCustomer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkProduct_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_OrderSummary_id" Parameter="original_OrderSummary_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrderSummary_id" Parameter="orderSummary_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_OrderSummaryDetailNewUpdateCommandResult">
+      <Column Name="OrderSummary_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkCustomer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkProduct_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ProductDetailNewDeleteCommand" Method="sp_Infiniti_ProductDetailNewDeleteCommand">
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ProductDetailNewInsertCommand" Method="sp_Infiniti_ProductDetailNewInsertCommand">
+    <Parameter Name="fkDesign_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOffer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Product_img_url_small" Parameter="product_img_url_small" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Product_img_url_large" Parameter="product_img_url_large" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Product_Actual_Price" Parameter="product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Product_Discount_Price" Parameter="product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Short_Discription" Parameter="short_Discription" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Discription" Parameter="discription" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_ProductDetailNewInsertCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ProductDetailNewSelectCommand" Method="sp_Infiniti_ProductDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_ProductDetailNewSelectCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_ProductDetailNewUpdateCommand" Method="sp_Infiniti_ProductDetailNewUpdateCommand">
+    <Parameter Name="fkDesign_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkColor_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkSize_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fkOffer_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stock_Value" Parameter="stock_Value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Product_img_url_small" Parameter="product_img_url_small" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Product_img_url_large" Parameter="product_img_url_large" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Product_Actual_Price" Parameter="product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Product_Discount_Price" Parameter="product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="Discount" Parameter="discount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Short_Discription" Parameter="short_Discription" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Discription" Parameter="discription" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Product_id" Parameter="original_Product_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Product_id" Parameter="product_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_ProductDetailNewUpdateCommandResult">
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Shipping_AddressNewDeleteCommand" Method="sp_Infiniti_Shipping_AddressNewDeleteCommand">
+    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Shipping_AddressNewSelectCommand" Method="sp_Infiniti_Shipping_AddressNewSelectCommand">
+    <ElementType Name="sp_Infiniti_Shipping_AddressNewSelectCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Shipping_AddressNewInsertCommand" Method="sp_Infiniti_Shipping_AddressNewInsertCommand">
+    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="fk_Customerid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Shipping_AddressNewInsertCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_Shipping_AddressNewUpdateCommand" Method="sp_Infiniti_Shipping_AddressNewUpdateCommand">
+    <Parameter Name="ship_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ship_Zipcode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_City" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_State" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Country" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ship_Phone" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="fk_Customerid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_Shipping_id" Parameter="original_Shipping_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Shipping_id" Parameter="shipping_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_Shipping_AddressNewUpdateCommandResult">
+      <Column Name="Shipping_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ship_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ship_Zipcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_State" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Country" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ship_Mail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ship_Phone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="fk_Customerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SizeDetailNewDeleteCommand" Method="sp_Infiniti_SizeDetailNewDeleteCommand">
+    <Parameter Name="Original_Size_id" Parameter="original_Size_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SizeDetailNewInsertCommand" Method="sp_Infiniti_SizeDetailNewInsertCommand">
+    <Parameter Name="Size_Name" Parameter="size_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_SizeDetailNewInsertCommandResult">
+      <Column Name="Size_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SizeDetailNewSelectCommand" Method="sp_Infiniti_SizeDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_SizeDetailNewSelectCommandResult">
+      <Column Name="Size_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SizeDetailNewUpdateCommand" Method="sp_Infiniti_SizeDetailNewUpdateCommand">
+    <Parameter Name="Size_Name" Parameter="size_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_Size_id" Parameter="original_Size_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Size_id" Parameter="size_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_SizeDetailNewUpdateCommandResult">
+      <Column Name="Size_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_StateDetailNewDeleteCommand" Method="sp_Infiniti_StateDetailNewDeleteCommand">
+    <Parameter Name="Original_State_id" Parameter="original_State_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_StateDetailNewInsertCommand" Method="sp_Infiniti_StateDetailNewInsertCommand">
+    <Parameter Name="State_Name" Parameter="state_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FkCountry_id" Parameter="fkCountry_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_StateDetailNewInsertCommandResult">
+      <Column Name="State_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FkCountry_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_StateDetailNewSelectCommand" Method="sp_Infiniti_StateDetailNewSelectCommand">
+    <ElementType Name="sp_Infiniti_StateDetailNewSelectCommandResult">
+      <Column Name="State_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FkCountry_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_StateDetailNewUpdateCommand" Method="sp_Infiniti_StateDetailNewUpdateCommand">
+    <Parameter Name="State_Name" Parameter="state_Name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FkCountry_id" Parameter="fkCountry_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Original_State_id" Parameter="original_State_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="State_id" Parameter="state_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_StateDetailNewUpdateCommandResult">
+      <Column Name="State_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FkCountry_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SubCataroryNewDeleteCommand" Method="sp_Infiniti_SubCataroryNewDeleteCommand">
+    <Parameter Name="Original_SubCatagory_id" Parameter="original_SubCatagory_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SubCataroryNewInsertCommand" Method="sp_Infiniti_SubCataroryNewInsertCommand">
+    <Parameter Name="SubCatagory_Name" Parameter="subCatagory_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkCatagory_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Infiniti_SubCataroryNewInsertCommandResult">
+      <Column Name="SubCatagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubCatagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SubCataroryNewSelectCommand" Method="sp_Infiniti_SubCataroryNewSelectCommand">
+    <ElementType Name="sp_Infiniti_SubCataroryNewSelectCommandResult">
+      <Column Name="SubCatagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubCatagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Infiniti_SubCataroryNewUpdateCommand" Method="sp_Infiniti_SubCataroryNewUpdateCommand">
+    <Parameter Name="SubCatagory_Name" Parameter="subCatagory_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fkCatagory_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Original_SubCatagory_id" Parameter="original_SubCatagory_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCatagory_id" Parameter="subCatagory_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Infiniti_SubCataroryNewUpdateCommandResult">
+      <Column Name="SubCatagory_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubCatagory_Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fkCatagory_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_designhome" Method="sp_designhome">
+    <Parameter Name="SUBCATAGORY_ID" Parameter="sUBCATAGORY_ID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_designhomeResult">
+      <Column Name="DESIGN_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RANK" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetColor" Method="GetColor">
+    <Parameter Name="Designid" Parameter="designid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetColorResult">
+      <Column Name="Color_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Color_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSize" Method="GetSize">
+    <Parameter Name="Design_id" Parameter="design_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Color_id" Parameter="color_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSizeResult">
+      <Column Name="Size_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Size_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_HomePage" Method="sp_HomePage">
+    <ElementType Name="sp_HomePageResult">
+      <Column Name="DESIGN_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RANK" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_MenHomePage" Method="sp_MenHomePage">
+    <ElementType Name="sp_MenHomePageResult">
+      <Column Name="DESIGN_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RANK" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_WomenHomePage" Method="sp_WomenHomePage">
+    <ElementType Name="sp_WomenHomePageResult">
+      <Column Name="DESIGN_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fkDesign_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkColor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkSize_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkOffer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock_Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_img_url_small" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_img_url_large" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Product_Actual_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Product_Discount_Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Short_Discription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Discription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RANK" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

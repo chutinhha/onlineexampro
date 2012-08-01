@@ -1,10 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ClientSide.master" AutoEventWireup="true" CodeFile="Help.aspx.cs" Inherits="Help" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/ClientSide.master" AutoEventWireup="false"
+    CodeFile="Help.aspx.vb" Inherits="Help" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
- <link href="Stylesheet/contentStyle.css" rel="stylesheet" type="text/css" />
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="Stylesheet/contentStyle.css" rel="stylesheet" type="text/css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<table cellpadding="0" cellspacing="0" width="100%" align="left" class="pageback">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table cellpadding="0" cellspacing="0" width="100%" align="left" class="pageback">
         <tr>
             <td>
                 <br />
@@ -742,4 +743,3 @@
         </tr>
     </table>
 </asp:Content>
-

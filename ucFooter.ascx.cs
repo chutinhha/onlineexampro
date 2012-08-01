@@ -11,4 +11,8 @@ public partial class ucFooter : System.Web.UI.UserControl
     {
 
     }
+    protected void footermenu()
+    {
+
+    }
 }

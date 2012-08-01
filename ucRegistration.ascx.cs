@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Text;
 using DAL;
+using AjaxControlToolkit;
 
 public partial class ucRegistration : System.Web.UI.UserControl
 {
@@ -29,10 +30,10 @@ public partial class ucRegistration : System.Web.UI.UserControl
             {
                 a = "1";
             }
-            using (eCommerceDataContext dataDB = new eCommerceDataContext())
+            using (InfinitiClothDataContext dataDB = new InfinitiClothDataContext())
             {
                 string path = "~/Images/Profile/default_person.jpg";
-                var counter = from b in dataDB.ecommerce_Customer_registrations where b.Email == txtEmail.Text select b;
+                var counter = from b in dataDB.Infiniti_CustomerRegistrations where b.Email == txtEmail.Text select b;
                 if (counter.Count() == 0)
                 {
                     ecommerce_Customer_registrationBL obj = new ecommerce_Customer_registrationBL(txtEmail.Text, txtPassword.Text, 0, 1, DateTime.Now, DateTime.MaxValue, 0, null, path, txtFullName.Text, null, DateTime.MaxValue, 0, 0, a, a);
@@ -40,7 +41,7 @@ public partial class ucRegistration : System.Web.UI.UserControl
                     {
                         EncryptedQueryString args = new EncryptedQueryString();
                         args["arg1"] = txtEmail.Text;
-                        string url = string.Format("http://localhost:52373/Client/MailActivation.aspx?args={0}", args.ToString());
+                        string url = string.Format("http://www.infiniticlothing.com/MailActivation.aspx?args={0}", args.ToString());
                         String email = txtEmail.Text;
                         MailMessage msg = new MailMessage();
                         msg.From = new MailAddress("iconstechnologies@gmail.com");
@@ -61,6 +62,8 @@ public partial class ucRegistration : System.Web.UI.UserControl
                 {
                     lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff6230");
                     lbResponse.Text = "Email Id Already exist!";
+                    ModalPopupExtender md = (ModalPopupExtender)((UserControl)Page.Master.FindControl("ucLoginandLogout1")).FindControl("mdlRegistration");
+                    md.Show();
                 }
             }
         }
@@ -68,6 +71,8 @@ public partial class ucRegistration : System.Web.UI.UserControl
         {
             lbResponse.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff6230");
             lbResponse.Text = "Check the terms & conditions";
+            ModalPopupExtender md = (ModalPopupExtender)((UserControl)Page.Master.FindControl("ucLoginandLogout1")).FindControl("mdlRegistration");
+            md.Show();
         }
     }
 

@@ -7,11 +7,11 @@
 <head runat="server">
     <link href="Stylesheet/StyleSheet.css" rel="stylesheet" type="text/css" />
     <link href="Stylesheet/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" language="javascript">
+    <%--<script type="text/javascript" language="javascript">
         $(window)._load(function () {
             $("#form1").next().css("display", "none");
         });
-    </script>
+    </script>--%>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -26,8 +26,9 @@
                 <td height="152px" style="background-image: url('images/title.png'); background-repeat: repeat-x">
                     <table align="left" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td>
-                                <img alt="logo" src="images/logo.png" />
+                            <td style="padding-left: 10px">
+                                <a href="Index.aspx">
+                                    <img alt="logo" src="images/logo.png" /></a>
                             </td>
                         </tr>
                     </table>
@@ -40,41 +41,7 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td align="center" style="background-image: url('images/main-bg.png');
-                    background-repeat: repeat-x; margin-left: 30px; font-family: calibri; color: #FFFFFF;">
-                    <table width="100%">
-                        <tr>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton1" CssClass="linkbutton" runat="server" Text="Home"></asp:LinkButton>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </td>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton2" CssClass="linkbutton" runat="server" Text="T-Shirts"></asp:LinkButton>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </td>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton3" CssClass="linkbutton" runat="server" Text="Sale"></asp:LinkButton>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </td>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton4" CssClass="linkbutton" runat="server" Text="Today's Deal"></asp:LinkButton>
-                            </td>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton5" CssClass="linkbutton" runat="server" Text="Fun Stuff"></asp:LinkButton>
-                            </td>
-                            <td align="center">
-                                <asp:LinkButton ID="LinkButton6" CssClass="linkbutton" runat="server" Text="What's New"></asp:LinkButton>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-            </tr>
+            
             <tr>
                 <td>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -83,30 +50,6 @@
             </tr>
             <tr>
                 <td align="center">
-                    <table>
-                        <tr>
-                            <td id="nav-footer" style="font-family: Calibri; font-size: 12px; color: #666666">
-                                <div>
-                                    <ul>
-                                        <li><a href="#" style="text-decoration: none">Order Tracking</a> </li>
-                                        <li><a href="#" style="text-decoration: none">Register</a></li>
-                                        <li><a href="#" style="text-decoration: none">Customer Service</a></li>
-                                        <li><a href="#" style="text-decoration: none" target="_blank">Privacy Policy</a></li>
-                                        <li><a href="#" style="text-decoration: none">Terms & Conditions</a></li>
-                                        <li><a href="#" style="text-decoration: none">Careers</a></li>
-                                        <li><a href="#" style="text-decoration: none">Genuine Branding</a></li>
-                                        <li><a href="#" style="text-decoration: none">Subscribe</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td>
                     <uc2:ucFooter ID="ucFooter1" runat="server" />
                 </td>
             </tr>

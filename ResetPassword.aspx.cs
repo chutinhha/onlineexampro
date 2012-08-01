@@ -43,9 +43,9 @@ public partial class ResetPassword : System.Web.UI.Page
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
-        var updatePwd = eCommerceHelper.Context.ecommerce_Customer_registrations.Where(a => a.Email == login_id).Select(a => a).FirstOrDefault();
+        var updatePwd = InfinitiHelper.Context.Infiniti_CustomerRegistrations.Where(a => a.Email == login_id).Select(a => a).FirstOrDefault();
         updatePwd.Password = txtNewpassword.Text;
-        var Counter = eCommerceHelper.Context.ecommerce_Change_pwd_logs.Where(a => a.Customer_id == updatePwd.Customer_id).Select(a => a);
+        var Counter = InfinitiHelper.Context.Infiniti_Change_pwd_logs.Where(a => a.fkCustomer_id == updatePwd.Customer_id).Select(a => a);
         if (Counter.Count() == 0)
         {
             ecommerce_Change_pwd_logBL obj = new ecommerce_Change_pwd_logBL(txtNewpassword.Text, updatePwd.Password, DateTime.Now, updatePwd.Customer_id);
@@ -56,9 +56,9 @@ public partial class ResetPassword : System.Web.UI.Page
             var UpdateChangePwd = Counter.FirstOrDefault();
             UpdateChangePwd.old_pwd = UpdateChangePwd.New_pwd;
             UpdateChangePwd.New_pwd = txtNewpassword.Text;
-            eCommerceHelper.Context.SubmitChanges();
+            InfinitiHelper.Context.SubmitChanges();
         }
-        eCommerceHelper.Context.SubmitChanges();
+        InfinitiHelper.Context.SubmitChanges();
         lbResponse.Text = "Reset Successfully!";
 
     }
