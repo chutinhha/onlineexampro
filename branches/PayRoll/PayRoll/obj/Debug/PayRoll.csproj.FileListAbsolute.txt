@@ -1,5 +1,0 @@
-D:\PayRoll\PayRoll\bin\PayRoll.dll
-D:\PayRoll\PayRoll\bin\PayRoll.pdb
-D:\PayRoll\PayRoll\obj\Debug\ResolveAssemblyReference.cache
-D:\PayRoll\PayRoll\obj\Debug\PayRoll.dll
-D:\PayRoll\PayRoll\obj\Debug\PayRoll.pdb
