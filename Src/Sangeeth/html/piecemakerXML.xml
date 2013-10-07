@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Piecemaker>
+  <Settings>
+    <imageWidth>950</imageWidth>
+    <imageHeight>317</imageHeight>
+    <segments>11</segments>
+    <tweenTime>3</tweenTime>
+    <tweenDelay>0.1</tweenDelay>
+    <tweenType>easeInOutElastic</tweenType>
+    <zDistance>50</zDistance>
+    <expand>0</expand>
+    <innerColor>0x7A103D</innerColor>
+    <textBackground>0x373737</textBackground>
+    <shadowDarkness>0</shadowDarkness>
+    <textDistance>25</textDistance>
+	<bgcolor>opaque</bgcolor>
+    <autoplay>3</autoplay>
+  </Settings>
+  <Image Filename="piecemaker.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+  <Image Filename="piecemaker.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+  <Image Filename="piecemaker2.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+  <Image Filename="piecemaker4.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+  <Image Filename="piecemaker3.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+  <Image Filename="piecemaker.png">
+    <Text>
+      <headline>Description Text</headline>
+      <break>Ӂ</break>
+      <paragraph>Here you can add a description text for every single image.</paragraph>
+      <break>Ӂ</break>
+      <inline>This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add</inline>
+      <a href="http://www.templateworld.com/" target="_blank">Ӂhyperlinks</a>
+      <paragraph>. This one leads you to the official Piecemaker website, by the way.</paragraph>
+    </Text>
+  </Image>
+</Piecemaker>

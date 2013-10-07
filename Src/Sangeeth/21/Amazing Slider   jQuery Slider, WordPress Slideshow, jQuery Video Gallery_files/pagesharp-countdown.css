@@ -1,0 +1,52 @@
+
+#icon-pagesharp-countdown {
+    background: url("images/logo-32.png") no-repeat; 
+}
+
+#pagesharp-countdown {
+	display:block;
+	position:relative;
+	margin:8px auto;
+}
+
+#pagesharp-title-before {
+	display:block;
+	position:absolute;
+	right:100%;
+	margin-top:16px;
+	margin-right:16px;
+	color:#333;
+	font:bold 24px "Open Sans",Arial,sans-serif;
+}
+
+#pagesharp-title-after {
+	display:block;
+	position:absolute;
+	left:100%;
+	margin-top:16px;
+	margin-left:16px;
+	color:#333;
+	font:bold 24px "Open Sans",Arial,sans-serif;
+}
+
+@media (max-width:600px) {
+	
+	#pagesharp-countdown {
+		margin:48px auto;
+	}
+
+	#pagesharp-title-before {
+		left: 0%;
+		right: 0%;
+		bottom: 100%;
+		margin-left:4px;
+		margin-bottom:16px;
+	}
+	
+	#pagesharp-title-after {
+		left: 0%;
+		top: 100%;
+		margin-left:4px;
+		margin-top:8px;
+	}
+}

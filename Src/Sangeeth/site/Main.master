@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/_mobile.css" rel="stylesheet" type="text/css" />
+    <link href="css/karma-teal-grey.css" rel="stylesheet" type="text/css" />
+    <link href="css/secondary-teal-grey.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/karma-pink.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1-slider.js" type="text/javascript"></script>
+    <script src="Scripts/testimonial-slider.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script src="Scripts/karma.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <div id="header">
+            <div class="top-block">
+                <div class="top-holder">
+                    <div class="toolbar-left">
+                        <ul class="sub-menu sf-js-enabled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="toolbar-right">
+                        <ul>
+                            <li><a href="http://www.sampath.net">www.sampath.net</a></li>
+                            <li><a href="http://www.twitter.com/sampath">@sampath</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-holder">
+                <div class="rays">
+                    <div class="header-area">
+                        <!-- ***************** - LOGO - ***************** -->
+                        <a href="#" class="logo">
+                            <img src="Images/lord_vinayagar-normal.jpg" height="57" width="154" />
+                        </a>
+                        <!-- ***************** - END LOGO - ***************** -->
+                        <!-- ***************** - Main Navigation - ***************** -->
+                        <ul id="menu-main-nav">
+                            <li class="parent"><a href="../content-3d-effects.html"><span><strong>Home</strong><span
+                                class="navi-description">about decors</span></span></a>
+                                <div class="drop" style="display: block; height: 0px; overflow: hidden; opacity: 0;">
+                                </div>
+                            </li>
+                            <li class="parent"><a href="../index-jquery-2.html"><span><strong>Stage Decors</strong><span
+                                class="navi-description">various decorations</span></span></a>
+                                <div class="drop" style="display: block; height: 0px; overflow: hidden; opacity: 0;">
+                                </div>
+                            </li>
+                            <li class="current_page_item parent"><a href="color-autumn.html"><span><strong>Audio
+                                & Lights</strong><span class="navi-description">audio &amp; light effects</span></span></a>
+                                <div class="drop" style="display: block; height: 0px; overflow: hidden; opacity: 0;">
+                                </div>
+                            </li>
+                            <li class="parent"><a href="../template-gallery-3d.html"><span><strong>About Us</strong><span
+                                class="navi-description">about company</span></span></a>
+                                <div class="drop" style="display: block; height: 0px; overflow: hidden; opacity: 0;">
+                                </div>
+                            </li>
+                            <li class="parent"><a href="../template-blog.html"><span><strong>Contact Us</strong><span
+                                class="navi-description">contact company</span></span></a>
+                                <div class="drop" style="display: block; height: 0px; overflow: hidden; opacity: 0;">
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- ***************** - END Main Navigation - ***************** -->
+                    </div>
+                    <!-- header-area -->
+                </div>
+                <!-- end rays -->
+            </div>
+        </div>
+        <div id="main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- main-area -->
+            <!-- ***************** - Top Footer - ***************** -->
+            <div id="footer">
+                <div class="footer-area">
+                    <div class="footer-wrapper">
+                        <div class="footer-holder">
+                            <!-- /***************** - Footer Content Starts Here - ***************** -->
+                            <div class="one_fourth">
+                                <h3>
+                                    Latest from the Blog</h3>
+                                <div class="footer_post">
+                                    <h4>
+                                        <a href="template-blog-full-post.html">Blog Post 1</a></h4>
+                                    <p>
+                                        <a href="template-blog-full-post.html">Duis mollis, est non commodo luctus, nisi erat
+                                            porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet...</a></p>
+                                </div>
+                                <!-- end footer_post -->
+                                <div class="footer_post">
+                                    <h4>
+                                        <a href="template-blog-full-post.html">Blog Post 2</a></h4>
+                                    <p>
+                                        <a href="template-blog-full-post.html">Duis mollis, est non commodo luctus, nisi erat
+                                            porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet...</a></p>
+                                </div>
+                                <!-- end footer_post -->
+                            </div>
+                            <!-- end first one_fourth_column -->
+                            <div class="one_fourth">
+                                <h3>
+                                    Useful Links</h3>
+                                <ul class="blogroll">
+                                    <li><a href="content-code-snippets.html">
+                                        <img src="http://s3.truethemes.net/theme-xml-content/wp-karma/footer-useful-link.png"
+                                            alt="" title="">Click Here</a> to check out the over 100 built in code snippets.</li>
+                                </ul>
+                            </div>
+                            <!-- end second one_fourth_column -->
+                            <div class="one_fourth">
+                                <h3>
+                                    Follow Us</h3>
+                                <ul class="social_icons">
+                                    <li><a href="#" class="rss">rss</a></li>
+                                    <li><a href="http://www.twitter.com/truethemes" class="twitter">Twitter</a></li>
+                                    <li><a href="http://www.facebook.com/truethemes" class="facebook">Facebook</a></li>
+                                    <li><a href="#" class="flickr">Flickr</a></li>
+                                    <li><a href="#" class="youtube">YouTube</a></li>
+                                    <li><a href="#" class="linkedin">LinkedIn</a></li>
+                                    <li><a href="#" class="foursquare">FourSquare</a></li>
+                                    <li><a href="#" class="delicious">Delicious</a></li>
+                                    <li><a href="#" class="digg">Digg</a></li>
+                                    <li><a href="#" class="google">Google +</a></li>
+                                    <!-- <li><a href="#" class="email">Email</a></li> -->
+                                </ul>
+                            </div>
+                            <!-- end third one_fourth_column -->
+                            <div class="one_fourth_last">
+                                <h3>
+                                    Join our Crew</h3>
+                                <div id="mc_signup">
+                                    <form method="post" action="http://truethemes.us2.list-manage1.com/subscribe/post?u=e2deed44e98de9950b14e7fb3&amp;id=47d7d9240b"
+                                    id="mc_signup_form">
+                                    <p>
+                                        <input type="hidden" id="mc_submit_type" name="mc_submit_type" value="html">
+                                        <input type="hidden" name="mcsf_action" value="mc_submit_signup_form">
+                                        <input type="hidden" id="_mc_submit_signup_form_nonce" name="_mc_submit_signup_form_nonce"
+                                            value="93e0dda974">
+                                        <label for="mce-EMAIL" class="mc_var_label">
+                                            Email Address:</label>
+                                        <br>
+                                        <input type="text" size="18" value="" name="EMAIL" id="mce-EMAIL" class="mc_input"></p>
+                                    <p>
+                                        <br>
+                                        <input type="submit" name="mc_signup_submit" id="mc_signup_submit" value="Subscribe"
+                                            class="button"></p>
+                                    </form>
+                                </div>
+                                <!-- end mc_signup -->
+                            </div>
+                            <!-- end fourth one_fourth_column -->
+                            <!-- ***************** - END Footer Content - ***************** -->
+                        </div>
+                        <!-- footer-holder -->
+                    </div>
+                    <!-- end footer-wrapper -->
+                </div>
+                <!-- end footer-area -->
+            </div>
+            <!-- end footer -->
+            <!-- /***************** - END Top Footer Area - ***************** -->
+            <!-- /***************** - Bottom Footer - ***************** -->
+            <div id="footer_bottom">
+                <div class="info">
+                    <div id="foot_left">
+                        <p>
+                            Copyright © 2011 Your Company Name. All rights reserved.</p>
+                    </div>
+                    <!-- end foot_left -->
+                    <div id="foot_right">
+                        <div class="top-footer">
+                            <a href="#" class="link-top">top</a></div>
+                        <ul>
+                            <li><a href="index-jquery-1.html">Home</a></li>
+                            <li><a href="template-sitemap.html">Sitemap</a></li>
+                            <li><a href="template-contact-iphone.html">Contact</a></li>
+                            <li><a href="template-blog.html">Blog</a></li>
+                            <li><a href="http://themeforest.net/item/karma-clean-and-modern-website-template/234990">
+                                Purchase</a></li>
+                        </ul>
+                    </div>
+                    <!-- end foot_right -->
+                </div>
+                <!-- end info -->
+            </div>
+            <!-- end footer_bottom -->
+            <!-- /***************** - END Bottom Footer - ***************** -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* ************************************************************************* */
+/* SECONDARY PINK */
+/* ************************************************************************* */
+
+
+/*---------------------------------------------------------------*/
+/* LINKS + LISTS
+/*---------------------------------------------------------------*/
+#content a, #sidebar a, .content_full_width a, p a strong
+{
+    color: #BA4E91;
+}
+#horizontal_nav ul a:hover, #horizontal_nav ul .current_page_item
+{
+    background: url('../Images/bg-horz-active.jpg') no-repeat 100% 0;
+}
+#horizontal_nav ul .current_page_item span, #horizontal_nav ul a:hover span
+{
+    background: url('../Images/bg-horz-active.jpg') no-repeat;
+}
+.nav_right_sub_nav ul a:hover, .nav_right_sub_nav ul li.current_page_item a
+{
+    background: url('../Images/sprite.png') no-repeat 0px -39px !important;
+}
+#sub_nav ul a:hover, #sub_nav ul li.current_page_item a
+{
+    background: url('../Images/sprite.png') no-repeat 0px 0px;
+}
+#sub_nav ul ul a, #sub_nav ul ul a:hover, .list li, #sidebar ul li, #sub_nav ul li.current_page_item ul li a, #sub_nav ul li.current_page_parent ul li.current_page_item a
+{
+    background: url('../Images/bullet1.png') no-repeat 0 9px !important;
+    color: #BA4E91 !important;
+}
+#sub_nav ul li.current_page_item .children a
+{
+    background: url('../Images/bullet1.png') no-repeat 0 9px;
+    padding: 4px 0 1px 14px;
+    color: #666;
+}
+#sub_nav ul li.current_page_item .children a:hover
+{
+    text-decoration: underline;
+    background: url('../Images/bullet1.png') no-repeat 0 9px;
+    color: #666;
+}
+#sub_nav ul .children .current_page_item a, #sub_nav ul .children .current_page_item a:hover
+{
+    background: url('../Images/bullet1.png') no-repeat 0 9px;
+    padding: 4px 0 1px 14px;
+    color: #BB4F92;
+    font-weight: bold;
+}
+#sub_nav ul .children .current_page_item .children a
+{
+    font-weight: normal;
+}
+.list2 li
+{
+    background: url('../Images/bullet2.png') no-repeat 0 9px !important;
+    padding: 5px 0 0 19px;
+}
+.list3 li
+{
+    background: url('../Images/bullet3.png') no-repeat 0 10px !important;
+    padding: 5px 0 0 18px;
+}
+.list4 li
+{
+    background: url('../Images/bullet4.png') no-repeat 0 9px !important;
+}
+
+
+
+
+/*---------------------------------------------------------------*/
+/* LAYOUT
+/*---------------------------------------------------------------*/
+.home-bnr-jquery
+{
+    background: #B44E94 url('../Images/bg-jquery-bnr.jpg') no-repeat 0 0;
+    color: #FFF;
+}
+#main .tools
+{
+    background: url('../Images/bg-tools-c.jpg') repeat-y;
+    color: #fff;
+}
+#main .tools .holder
+{
+    background: url('../Images/bg-tools-t.jpg') no-repeat;
+}
+#main .tools .frame
+{
+    background: url('../Images/bg-tools-b.jpg') no-repeat 0 100%;
+    height: 1%;
+    overflow: hidden;
+    padding: 18px 22px 0 20px;
+}
+/* jQuery2 */
+.home-bnr-jquery ul
+{
+    background-image: url('../Images/6.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+/*---------------------------------------------------------------*/
+/* MISC
+/*---------------------------------------------------------------*/
+.post_content
+{
+    background: url('../Images/bg-post-content.png') no-repeat 577px 0px;
+}
+.search-form .text
+{
+    background: url('../Images/sprite.png') no-repeat -66px -78px;
+}
+#wrapper .tabset .active, .tabset a:hover
+{
+    background: url('../Images/bg-horz-active.jpg') no-repeat 100% 0;
+}
+#wrapper .tabset .active span, .tabset a:hover span
+{
+    background: url('../Images/bg-horz-active.jpg') no-repeat;
+}
+.karma-pages a:active, .karma-pages span.current, .wp-pagenavi a:active, .wp-pagenavi span.current
+{
+    background: url('../Images/sprite.png') no-repeat -66px -107px;
+}
