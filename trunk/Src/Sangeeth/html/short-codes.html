@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Corporate Blues | TemplateWorld</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+
+<!--  initialize the slideshow when the DOM is ready -->
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		speed: 2000,
+		timeout: 2000,
+		next: '#next',
+		prev: '#prev'
+	});
+});
+</script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<!--SCRIPT FOR MENU-->
+<script type="text/javascript">
+<!--
+$(document).ready(function () {	
+	
+	$('#menu li').hover(
+		function () {
+			//show its submenu
+			$('ul', this).slideDown();
+			$('ul li ul', this).slideUp(0);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).slideUp();
+		}
+	);
+
+});
+-->
+</script>
+<script type="text/javascript" src="js/contactable/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="js/contactable/jquery.contactable.js"></script>
+<link rel="stylesheet" href="js/contactable/contactable.css" type="text/css" />
+<script type="text/javascript">
+	$(function(){
+		$('#contact').contactable({
+	 		subject: 'A Feeback Message'
+	 	});
+	});
+</script>
+
+<!--[if IE 8]>
+<style type="text/css">
+.table_wrap p.heading_3						{width:449px;}
+</style>
+<![endif]-->
+<!--[if IE 7]>
+<style type="text/css">
+#contactForm{height:365px;}
+form#contactForm .submit{margin-top:0px;}
+</style>
+<![endif]-->
+</head>
+
+<body class="bgg">
+<div id="contact"> </div>
+<div id="fullwidth">
+  <div class="main_wrap">
+    <p class="mail">Call Us: 001 234 567 890 e-mail: name@email.com</p>
+    <div id="box1"> <a href="#"><img src="images/s1.png" alt="" /></a> <a href="#"><img src="images/s2.png" alt="" /></a> <a href="#"><img src="images/s3.png" alt="" /></a>
+      <input name="name" type="text" value="" />
+      <input name="name" type="text" value="" class="ser" />
+    </div>
+    <a href="index.html" class="logo"></a>
+    <ul id="menu">
+      <li ><a href="index.html">Home</a>
+        <ul>
+          <li><a href="home.html">Static Page</a></li>
+        </ul>
+      </li>
+      <li class="select"><a>Options</a>
+        <ul>
+          <li><a href="short-codes.html">Short Codes</a></li>
+          <li><a href="left-panel.html">Left Panel</a></li>
+          <li><a href="right-panel.html">Right Panel</a></li>
+          <li><a href="3-columns.html">3 Column</a></li>
+          <li><a href="misc.html">Miscellaneous</a></li>
+          <li><a href="#">New Multi-Level Menu</a>
+            <ul>
+              <li><a href="#">Level 1.1</a></li>
+              <li><a href="#">Level 1.2</a>
+                <ul>
+                  <li><a href="#">Level 2.1</a></li>
+                  <li><a href="#">Level 2.2</a>
+                    <ul>
+                      <li><a href="#">Level 3.1</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#">Level 1.3</a></li>
+            </ul>
+          </li>
+          <li><a href="scroll.html">Scroll Page </a></li>
+          <li><a href="dynamic-tabs.html">Tabs Page</a></li>
+        </ul>
+      </li>
+      <li><a>Gallery</a>
+        <ul>
+          <li><a href="gallery1.html">Gallery 1</a></li>
+          <li><a href="gallery2.html">Gallery 2</a></li>
+          <li><a href="gallery3.html">Gallery 3</a></li>
+        </ul>
+      </li>
+      <li><a>Blog</a>
+        <ul>
+          <li><a href="blog.html">Blog Page</a></li>
+          <li><a href="blog-innerpage.html">Full Post Page</a></li>
+        </ul>
+      </li>
+      <li class="last"><a href="contact.html">Contact<br />
+        </a></li>
+    </ul>
+  </div>
+</div>
+<div class="content inner">
+  <div class="main_wrap"> 
+    <!--Content Start-->
+    <div class="full_width">
+      <p class="breadcrumb"><a href="index.html">Home</a> / <a href="devtodo">Category</a> / <strong class="active-link">Page Title</strong></p>
+    </div>
+    <div class="full_width">
+      <h3>Full Page Width</h3>
+      <p><span class="drop_cap">D</span>rop-Cap. <span class="marker">Text with class=&quot;drop-cap&quot;.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra mi erat. Donec feugiat rutrum sapien id aliquam. Integer luctus posuere suscipit. Vestibulum eu fringilla neque. Suspendisse ut eleifend odio. Quisque egestas mollis faucibus. Proin tristique turpis vel quam molestie dignissim. Suspendisse ipsum augue, vulputate quis tincidunt ut, pulvinar nec nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vel sapien nulla. Donec id tincidunt diam. Aenean feugiat metus vel dolor porttitor feugiat. Nullam metus enim, interdum id euismod pulvinar, gravida congue orci.</p>
+    </div>
+    <div class="two-equals">
+      <h3>Two Equals</h3>
+      <p><span class="marker">Text with class=&quot;two_equals&quot;.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra mi erat. Donec feugiat rutrum sapien id aliquam. Integer luctus posuere suscipit. Vestibulum eu fringilla neque. Suspendisse ut eleifend odio. Quisque egestas mollis faucibus. Proin tristique turpis vel quam molestie dignissim. Suspendisse ipsum augue, vulputate quis tincidunt ut, pulvinar nec nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vel sapien nulla. Donec id tincidunt diam. Aenean feugiat metus vel dolor porttitor feugiat. Nullam metus enim, interdum id euismod pulvinar, gravida congue orci.</p>
+    </div>
+    <div class="two-equals">
+      <h3>Two Equals</h3>
+      <p><span class="marker">Text with class=&quot;two_equals&quot;.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra mi erat. Donec feugiat rutrum sapien id aliquam. Integer luctus posuere suscipit. Vestibulum eu fringilla neque. Suspendisse ut eleifend odio. Quisque egestas mollis faucibus. Proin tristique turpis vel quam molestie dignissim. Suspendisse ipsum augue, vulputate quis tincidunt ut, pulvinar nec nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vel sapien nulla. Donec id tincidunt diam. Aenean feugiat metus vel dolor porttitor feugiat. Nullam metus enim, interdum id euismod pulvinar, gravida congue orci.</p>
+    </div>
+    <div class="mini_wrap">
+      <h3>Three Equals</h3>
+      <p><span class="marker">Text with class= &quot;three_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="mini_wrap">
+      <h3>Three Equals</h3>
+      <p><span class="marker">Text with class= &quot;three_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="mini_wrap">
+      <h3>Three Equals</h3>
+      <p><span class="marker">Text with class= &quot;three_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="mini_wrap">
+      <h3>Left 1/3</h3>
+      <p><span class="marker">Text with class= &quot;three_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id </p>
+    </div>
+    <div class="left_pannel">
+      <h3>Right 2/3</h3>
+      <p><span class="marker">Text with class=&quot;right_panel&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices.</p>
+      <p>Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices.</p>
+    </div>
+    <div class="left_pannel">
+      <h3>Left 2/3</h3>
+      <p><span class="marker">Text with class=&quot;left_panel&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices.</p>
+      <p>Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices.</p>
+    </div>
+    <div class="mini_wrap">
+      <h3>Right 1/3</h3>
+      <p><span class="marker">Text with class= &quot;three_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="block">
+      <h3>Four Equals</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="block">
+      <h3>Four Equals</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="block">
+      <h3>Four Equals</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius rutrum ante id ultrices. </p>
+    </div>
+    <div class="block">
+      <h3>Four Equals</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. </p>
+      <p>Pellentesque molestie dui vel nibh hendrerit pellentesque. Duis varius </p>
+    </div>
+    <div class="left_three">
+      <h3>Left 3/4</h3>
+      <p><span class="marker">Text with class=&quot;left_three&quot;.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra mi erat. Donec feugiat rutrum sapien id aliquam. Integer luctus posuere suscipit. Vestibulum eu fringilla neque. Suspendisse ut eleifend odio. Quisque egestas mollis faucibus. Proin tristique turpis vel quam molestie dignissim. Suspendisse ipsum augue, vulputate quis tincidunt ut, pulvinar nec nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vel sapien nulla. Donec id tincidunt diam. Aenean feugiat metus vel dolor porttitor feugiat. Nullam metus enim, interdum id euismod pulvinar, gravida congue orci. Aliquam dictum, orci sed tristique blandit, quam augue blandit dolor, et porta tellus orci id ligula.</p>
+    </div>
+    <div class="block">
+      <h3>Right 1/4</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque.</p>
+    </div>
+    <div class="block">
+      <h3>Left 1/4</h3>
+      <p><span class="marker">With class=&quot;four_equals&quot;.</span> Donec vel odio ut ipsum elementum sollicitudin. Quisque nec diam augue. Integer aliquet, eros ac lobortis feugiat, justo massa mattis dui, ac euismod diam diam a mauris. Pellentesque molestie dui vel nibh hendrerit pellentesque.</p>
+    </div>
+    <div class="right_three">
+      <h3>Right 3/4</h3>
+      <p><span class="marker">Text with class=&quot;right_three&quot;.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean viverra mi erat. Donec feugiat rutrum sapien id aliquam. Integer luctus posuere suscipit. Vestibulum eu fringilla neque. Suspendisse ut eleifend odio. Quisque egestas mollis faucibus. Proin tristique turpis vel quam molestie dignissim. Suspendisse ipsum augue, vulputate quis tincidunt ut, pulvinar nec nibh. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vel sapien nulla. Donec id tincidunt diam. Aenean feugiat metus vel dolor porttitor feugiat. Nullam metus enim, interdum id euismod pulvinar, gravida congue orci. Aliquam dictum, orci sed tristique blandit, quam augue blandit dolor, et porta tellus orci id ligula.</p>
+    </div>
+    <div class="full_width">
+      <h3>Tables with div's</h3>
+      <div class="two-equals no_left_margin">
+        <h4>Type 1</h4>
+        <div class="table_wrap">
+          <p class="heading">Heading</p>
+          <p class="two_columns">Content</p>
+          <p class="two_columns">Content</p>
+          <p class="two_columns">Content</p>
+          <p class="two_columns">Content</p>
+          <p class="two_columns">Content</p>
+          <p class="two_columns">Content</p>
+        </div>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>Type 2</h4>
+        <div class="table_wrap">
+          <p class="heading_2">Heading</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+          <p class="three_columns">Content</p>
+        </div>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>Type 3</h4>
+        <div class="table_wrap">
+          <p class="heading_3">Heading</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+          <p class="four_columns">Content</p>
+        </div>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>Type 4</h4>
+        <div class="table_wrap">
+          <p class="heading_2">Heading</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+          <p class="five_columns">Content</p>
+        </div>
+      </div>
+    </div>
+    <div class="full_width">
+      <h3>List Styles</h3>
+      <div class="two-equals no_left_margin">
+        <h4>With Alphabets</h4>
+        <ol>
+          <li class="list_with_alpha">Lorem ipsum dolor sit amet, consectetur</li>
+          <li class="list_with_alpha">Donec feugiat rutrum sapien id aliquam</li>
+          <li class="list_with_alpha">Quisque egestas mollis faucibus</li>
+          <li class="list_with_alpha">Proin tristique turpis ve quam dignissim</li>
+        </ol>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>With Bullets</h4>
+        <ol>
+          <li class="list_with_bullet">Lorem ipsum dolor sit amet, consectetur</li>
+          <li class="list_with_bullet">Donec feugiat rutrum sapien id aliquam</li>
+          <li class="list_with_bullet">Quisque egestas mollis faucibus</li>
+          <li class="list_with_bullet">Proin tristique turpis ve quam dignissim</li>
+        </ol>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>With Numbers</h4>
+        <ol>
+          <li class="list_with_decimal">Lorem ipsum dolor sit amet, consectetur</li>
+          <li class="list_with_decimal">Donec feugiat rutrum sapien id aliquam</li>
+          <li class="list_with_decimal">Quisque egestas mollis faucibus</li>
+          <li class="list_with_decimal">Proin tristique turpis ve quam dignissim</li>
+        </ol>
+      </div>
+      <div class="two-equals no_left_margin">
+        <h4>With Images</h4>
+        <ol>
+          <li class="list_with_image">Lorem ipsum dolor sit amet, consectetur</li>
+          <li class="list_with_image">Donec feugiat rutrum sapien id aliquam</li>
+          <li class="list_with_image">Quisque egestas mollis faucibus</li>
+          <li class="list_with_image">Proin tristique turpis ve quam dignissim</li>
+        </ol>
+      </div>
+    </div>
+    <div class="full_width">
+      <h3>Block Quote Styles</h3>
+      <div class="two-equals topMargin no_left_margin">
+        <h4>Quotes with Image Style 1</h4>
+        <ul id="quoteWithImg">
+          <li><img src="images/quote-Img.png" width="115" height="132" alt="quotesWithImg" />
+            <div class="q-content">
+              <blockquote>Aenean nunc erat, molestie vel sagittis vitae, pellentesque volutpat diam. Sed semper volutpat justo, sit amet scelerisque mi malesuada id. <img src="images/q-wbotm.png" width="16" height="14" alt="quotes" class="qbotm" /></blockquote>
+              <p><span>John doe</span><br />
+                Senior Web Designer</p>
+            </div>
+          </li>
+          <li><img src="images/quote-Img.png" width="115" height="132" alt="quotesWithImg" />
+            <div class="q-content">
+              <blockquote>Aenean nunc erat, molestie vel sagittis vitae, pellentesque volutpat diam. Sed semper volutpat justo, sit amet scelerisque mi malesuada id. <img src="images/q-wbotm.png" width="16" height="14" alt="quotes" class="qbotm" /></blockquote>
+              <p><span>John doe</span><br />
+                Seo Marketing</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="two-equals topMargin no_right_margin">
+        <h4>Quotes with Image Style 2</h4>
+        <blockquote class="withOutPic"> ...Pellentesque ac eros mauris, et interdum ipsum. Morbi sapien augue, venenatis eu dictum vitae, gravida ac est. Pro
+          in molestie dolor et velit mollis tincidunt. Vestibulum quis nunc velit.
+          <p class="signature">Cris Nataline</p>
+          <a href="#">Read the complete testimonials</a> </blockquote>
+        <blockquote class="withOutPic"> Nullam a ullamcorper purus. Aenean sit amet ipsum sed mauris tristique varius auctor eu mauris. Etiam ut consequat tortor. Proin at elit ligula, a ornare dolor. Proin scelerisque nunc vel quam scelerisque iaculis. Duis nec gravida quam.
+          <p class="signature">John doe joe</p>
+          <a href="#">Read the complete testimonials</a> </blockquote>
+      </div>
+    </div>
+    <div class="full_width">
+      <div class="two-equals no_left_margin">
+        <h4>Client Testimonials Style 1</h4>
+        <div class="testimonials">
+          <div class="testContent">
+            <p class="testipara">&quot; nteger venenatis tristique libero, et feugiat elit pharetra sed. Aenean sit amet gravida nulla. Cras ante ipsum, pellentesque non molestie quis, hendrerit sed lorem. Sed nec ipsum ac sem posuere congue quis a nisl. Sed elit libero, varius vitae varius sit amet, lacinia ac quam. Donec nulla metus, rutrum in mattis in, molestie a ante &quot;</p>
+            <p class="signature"><span>John doe</span><br />
+              Feugiat eli pharetra </p>
+          </div>
+          <img src="images/test_botmCurve.png" width="448" height="35"  alt="" /> </div>
+      </div>
+      <div class="two-equals no_right_margin">
+        <h4>Client Testimonials Style 2</h4>
+        <div class="testimonials2">
+          <blockquote>&quot; Nullam vel risus sed mauris convallis tincidunt. Sed nec feugiat sem. Ut non vestibulum tellus. volutpat molestie. Vestibulum pretium auctor dolor, id ultrices est varius quis. Suspendisse pulvinar luctus sem sed posuere. Nullam et sapien massa, non semper mauris.  &quot;</blockquote>
+          <p class="signature"><a href="#" class="default cssButn">View All<span> Testimonials</span></a> <span>John doe</span> Feugiat eli pharetra </p>
+        </div>
+      </div>
+    </div>
+    <div class="full_width">
+      <h3>This sentence is a H3 Heading.</h3>
+      <h4>This sentence is a H4 Heading.</h4>
+    </div>
+    <!--Content End--> 
+  </div>
+</div>
+<div id="footer">
+  <div class="main_wrap">
+    <div id="shadow">
+      <div class="left_pannel">
+        <h3>Latest News</h3>
+        <div class="mini_wrap no_left_margin">
+          <ul class="post">
+            <li><a href="#">Lorem ipsum dolor sit amet, consectetur</a></li>
+            <li><a href="#">Ut scelerisque sapien in arcu cursus</a></li>
+            <li><a href="#">Suspendisse laoreet mauris ut magna</a></li>
+          </ul>
+        </div>
+        <div class="mini_wrap no_left_margin">
+          <ul class="post">
+            <li><a href="#">Lorem ipsum dolor sit amet, consectetur</a></li>
+            <li><a href="#">Ut scelerisque sapien in arcu cursus</a></li>
+            <li><a href="#">Suspendisse laoreet mauris ut magna</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mini_wrap no_left_margin">
+        <h3>Location</h3>
+        <p>1090 25th Place,Bradenton<br />
+          FL 34203,United States<br />
+          Telephone: +123-1234-56789<br />
+          FAX: +987-654-321</p>
+      </div>
+      <div id="ftnav">
+        <ul class="nav3">
+          <li><a href="index.html">Home</a></li>
+          <li class="sep">|</li>
+          <li><a href="short-codes.html">Options</a></li>
+          <li class="sep">|</li>
+          <li><a href="gallery1.html">Gallery</a></li>
+          <li class="sep">|</li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="sep">|</li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <p class="copy">© All Rights Reserved. Designed by <a href="http://www.templateworld.com">Template World</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
