@@ -1,0 +1,1045 @@
+﻿body {
+    margin: 0px;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 1.5em;
+    color: #333333;
+    border: 0px;
+    padding: 0px;
+    background-color: #ffffff;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/pattern-bg.png');
+    background-repeat: repeat;
+}
+
+.outermost-container {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+}
+
+.container1 {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/headerBg.jpg') repeat-x top;
+}
+
+.container2 {
+    width: 960px;
+    height: 192px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meethaq-logo {
+    float: left;
+    width: 171px;
+    height: 192px;
+    position: relative;
+    top: -36px;
+    left: 105px;
+    z-index: 2;
+}
+
+.meethaq-menu {
+    float: right;
+    width: 789px;
+    height: 138px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.meethaq-menu-sm-arb {
+    float: right;
+    width: 789px;
+    height: 56px;
+    vertical-align: middle;
+    text-align: right;
+    color: #ffffff;
+    margin: 0px;
+    padding: 44px 0px 0px 0px;
+    border: 0px;
+}
+
+    .meethaq-menu-sm-arb a {
+        color: #ffffff;
+    }
+
+        .meethaq-menu-sm-arb a:hover {
+            color: #ffffff;
+        }
+
+.meethaq-menu-pnl {
+    float: left;
+    width: 789px;
+    height: 38px;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.meethaq-menu-buttons {
+    float: right;
+    height: 18px;
+    vertical-align: middle;
+    text-align: right;
+    margin: 0px;
+    border: 0px;
+    padding: 10px 10px 10px 10px;
+    color: #481210;
+    font-size: 14px;
+}
+
+    .meethaq-menu-buttons:hover {
+        background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/Button-Bg-On.png');
+        background-repeat: repeat-x;
+        color: #ffffff;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+.meethaq-menu-separator {
+    float: right;
+    width: 1px;
+    height: 38px;
+    background-color: #481210;
+}
+
+.meethaq-home-banner {
+    width: 100%;
+    height: 420px;
+    position: relative;
+    margin-top: -53px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: solid 1px #cea31e;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/TopBanners/Trust-big-banner.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.meethaq-about-bm-banner {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    margin-top: -53px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: solid 1px #cea31e;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.meethaq-who-we-are-banner {
+    width: 100%;
+    height: 470px;
+    position: relative;
+    margin-top: -53px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: solid 1px #cea31e;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/Meethaq-Home-Banner3.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.meethaq-who-we-are-banner1 {
+    width: 100%;
+    height: 470px;
+    position: relative;
+    margin-top: -53px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: solid 1px #cea31e;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/Who-we-are1.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.container3 {
+    width: 100%;
+    position: relative;
+    vertical-align: top;
+    text-align: left;
+    float: left;
+    padding-top: 15px;
+    background-color: #FFF;
+    margin-bottom: 72px;
+}
+
+.container4 {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container5 {
+    float: left;
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin-left:75px;
+    margin-top:-52px;
+    border: 0px;
+    padding: 0px;
+}
+
+.container6 {
+    float: left;
+    width: 700px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    border: 0px;
+    padding: 0px 0px 22px 0px;
+}
+
+.container6-separator-v {
+    float: left;
+    width: 4px;
+    height: 340px;
+    margin: 0px 17px 0px 17px;
+    padding: 0px;
+    border: 0px;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/dot.png');
+    background-repeat: repeat-y;
+}
+
+.inner-page-heading {
+    color: #671b1f;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0px;
+    border: 0px;
+    padding: 0px 0px 0px 0px;
+    text-transform: uppercase;
+}
+
+.home-tn-image {
+    float: left;
+    width: 165px;
+    height: 144px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    border: solid 1px #d0cec2;
+}
+
+.home-content {
+    float: left;
+    width: 770px;
+    height: 172px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    border: 0px;
+    padding: 0px 0px 0px 22px;
+}
+
+    .home-content p {
+        margin: 0px;
+        border: 0px;
+        padding: 0px 0px 5px 0px;
+        color: #671b1f;
+    }
+
+.homeRightPane {
+    width: 222px;
+    float: right;
+}
+
+.home-content span {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.grey-line-v {
+    float: left;
+    width: 722px;
+    height: 1px;
+    margin: 22px 22px 22px 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #d0cec2;
+}
+
+.achievements {
+    float: right;
+    width: 194px;
+    height: 300px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px;
+    border: solid 1px #d0cec2;
+}
+
+.achievements-row {
+    float: left;
+    width: 194px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.achievements-row1 {
+    float: left;
+    width: 194px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 5px 0px 0px 0px;
+    border-top: solid 1px #d0cec2;
+    padding: 0px;
+}
+
+.achievements-raquo {
+    float: left;
+    width: 5px;
+    height: 5px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px 5px 5px 0px;
+    vertical-align: top;
+    text-align: center;
+    color: #cea31e;
+}
+
+.achievements-content {
+    float: left;
+    width: 174px;
+    height: auto;
+    margin: 0px;
+    border: 0px;
+    padding: 5px;
+    vertical-align: top;
+    text-align: left;
+    font-size: 8pt;
+    line-height: 1.2em;
+}
+
+.achievements-content1 {
+    float: left;
+    width: 69px;
+    height: auto;
+    margin: 0px;
+    border: 0px;
+    padding: 8px 5px 5px 5px;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 8pt;
+    line-height: 1.2em;
+}
+
+.achievements-content2 {
+    float: right;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    border: 0px;
+    padding: 23px 0px 5px 0px;
+    vertical-align: top;
+    text-align: left;
+    font-size: 8pt;
+    line-height: 1.2em;
+}
+
+    .achievements-content2 a {
+        float: right;
+        color: #3e61b3 !important;
+        background-image: url(http://localhost:38631/Portals/_default/Skins/Gravity/images/Facebook.png);
+        background-repeat: no-repeat;
+        height: 19px;
+        line-height: 20px;
+        padding-left: 25px;
+    }
+
+.achievements p {
+    margin: 0px;
+    border: 0px;
+    padding: 0px 0px 5px 0px;
+    color: #671b1f;
+    font-size: 8pt;
+    line-height: 1.2em;
+}
+
+.nes-widget {
+    float: left;
+    width: 222px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.nes-widget-heading {
+    float: left;
+    width: 217px;
+    height: 18px;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0px;
+    padding: 3px 0px 3px 5px;
+    border: 0px;
+    color: #481210;
+    background-color: #cea31e;
+    font-size: 12px;
+}
+
+.nes-widget-raquo {
+    float: left;
+    width: 10px;
+    height: 30px;
+    vertical-align: top;
+    text-align: left;
+    margin: 7px 0px 0px 0px;
+    border: 0px;
+    padding: 3px 5px 5px 5px;
+    color: #ff4444;
+}
+
+.nes-widget-content {
+    float: left;
+    width: 202px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 5px 0px 5px 0px;
+    border: 0px;
+    padding: 5px 0px 5px 0px;
+    color: #671b1f;
+    font-size: 9pt;
+    line-height: 1.3em;
+}
+
+    .nes-widget-content a {
+        text-decoration: none;
+        border-bottom: solid 1px #d9c6c7;
+    }
+
+        .nes-widget-content a:hover {
+            text-decoration: none;
+            border-bottom: 0px;
+        }
+
+.nes-widget-separator-h {
+    float: left;
+    width: 222px;
+    height: 5px;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/dot.png');
+    background-position: left center;
+    background-repeat: repeat-x;
+}
+
+.nes-widget-separator-v {
+    float: left;
+    width: 5px;
+    height: 140px;
+    margin: 0px 10px 0px 10px;
+    padding: 0px;
+    border: 0px;
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/dot.png');
+    background-repeat: repeat-y;
+}
+
+.nes-widget-separator-v1 {
+    float: left;
+    width: 5px;
+    height: 180px;
+    margin: 0px 14px 0px 10px;
+    padding: 0px;
+    border: 0px;
+}
+
+.nes-widget-nl {
+    float: left;
+    width: 222px;
+    height: 180px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.nes-widget-nl-form {
+    float: left;
+    width: 220px;
+    height: 152px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    border-left: solid 1px #d0cec2;
+    border-bottom: solid 1px #d0cec2;
+    border-right: solid 1px #d0cec2;
+    border-top: 0px;
+    padding: 0px;
+    font-size: 9pt;
+}
+
+.nes-widget-nl-form-heading {
+    float: left;
+    width: 200px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px;
+    line-height: 1.1em;
+}
+
+.nes-widget-nl-form-lbl {
+    float: left;
+    width: 70px;
+    height: 18px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.nes-widget-nl-form-fld {
+    float: left;
+    width: 110px;
+    height: 18px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px 10px 10px 0px;
+}
+
+.txtbx {
+    width: 130px;
+    height: 18px;
+    margin: 0px;
+    padding: 0px;
+    border: solid 1px #d0cec2;
+    font-size: 8pt;
+}
+
+.copyrights {
+    float: left;
+    width: 960px;
+    height: auto;
+    margin: 26px 0px 0px 0px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: left;
+    border-top: solid 1px #d0cec2;
+    border-bottom: solid 1px #d0cec2;
+    border-left: 0px;
+    border-right: 0px;
+    color: #999999;
+}
+
+.copyrights-txt {
+    float: left;
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+    text-align: center;
+    margin: 0px;
+    border: 0px;
+    padding: 5px 0px 5px 0px;
+}
+
+.privacy-sitemap-txt {
+    float: left;
+    width: 480px;
+    height: auto;
+    vertical-align: top;
+    text-align: right;
+    margin: 0px;
+    border: 0px;
+    padding: 5px 0px 5px 0px;
+}
+
+.footnote {
+    float: left;
+    width: 960px;
+    height: auto;
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: center;
+    border: 0px;
+    color: #999999;
+    font-size: 8pt;
+}
+
+.copyrights a {
+    color: #999999;
+    text-decoration: none;
+}
+
+    .copyrights a:hover {
+        color: #999999;
+        text-decoration: underline;
+    }
+
+.bottom-design {
+    float: left;
+    width: 100%;
+    height: 72px;
+    display: block;
+    background: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/pattern-bg.png') repeat-x top;
+}
+
+.home-content a {
+    color: #A30820;
+    text-decoration: none;
+    float: right;
+    margin-right: 10px;
+}
+
+    .home-content a:hover {
+        color: #A30820;
+        text-decoration: underline;
+    }
+
+a {
+    color: #671b1f;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #671b1f;
+        text-decoration: underline;
+    }
+
+.inner-page-title a {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+    .inner-page-title a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+.Disclaimer a {
+    color: #A30820;
+    text-decoration: none;
+}
+
+    .Disclaimer a:hover {
+        color: #A30820;
+        text-decoration: underline;
+    }
+
+.img-no-border {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.menu-spacer {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 313px;
+    height: 30px;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.red-para {
+    color: #671b1f;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.red {
+    color: #671b1f;
+}
+
+.yellow {
+    color: #cea31e;
+}
+
+.yellow-line-top {
+    float: left;
+    width: 331px;
+    height: 2px;
+    border: 0px;
+    padding: 0px;
+    margin: 14px 0px 22px 0px;
+    background-color: #cea31e;
+}
+
+.separator-design-top {
+    float: left;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    text-align: left;
+    margin: 6px 9px 12px 9px;
+    padding: 0px;
+    border: 0px;
+}
+
+.ulli {
+    list-style-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/ulli.png');
+}
+
+.yellow-line-bottom {
+    float: left;
+    width: 331px;
+    height: 2px;
+    border: 0px;
+    padding: 0px;
+    margin: 18px 0px 18px 0px;
+    background-color: #cea31e;
+}
+
+.separator-design-bottom {
+    float: left;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    text-align: left;
+    margin: 9px;
+    padding: 0px;
+    border: 0px;
+}
+
+.contentImg {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #CEA31E;
+    width: 680px;
+}
+
+.minicontentImg {
+    padding: 30px;
+    border: 1px solid #CEA31E;
+    width: auto;
+}
+
+.wrapper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 72px;
+    background-color: #ffffff;
+}
+
+.content {
+    text-align: left;
+}
+
+    .content a {
+        color: #A30820;
+        text-decoration: none;
+    }
+
+        .content a:hover {
+            color: #A30820;
+            text-decoration: underline;
+        }
+
+.contact-title {
+    font-weight: bold;
+    padding: 14px 0px;
+    color: #671B1F;
+    display: inline;
+}
+
+.content-caption {
+    font-weight: bold;
+    padding: 14px 0 0 0;
+    color: #671B1F; /*text-decoration: underline;*/
+}
+
+.content-title {
+    font-weight: bold;
+    padding: 14px 0px;
+    color: #671B1F;
+    width: 100%;
+    float: left; /*text-decoration: underline;*/
+}
+
+.content-sub-title-gold {
+    color: #cea31e;
+    font-weight: bold;
+}
+
+.clearfix {
+    clear: both;
+}
+/* Mini Nav Bar Styles*/
+.meethaq-menu-mini-nav {
+    margin-top: 25px;
+}
+
+    .meethaq-menu-mini-nav a:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .meethaq-menu-mini-nav a {
+        color: #521210;
+        text-decoration: none;
+    }
+
+    .meethaq-menu-mini-nav ul {
+        list-style: none;
+        background-color: #d2a71d;
+        padding-left: 0px;
+        float: right;
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        webkit-border-radius: 2px;
+        margin-right: 103px;
+    }
+
+    .meethaq-menu-mini-nav li {
+        list-style: none;
+        float: left;
+        padding: 0 15px;
+    }
+
+    .meethaq-menu-mini-nav .mini-nav-li {
+        list-style: none;
+        float: left;
+        background: url(http://localhost:38631/Portals/_default/Skins/Gravity/images/nav-separator.png) no-repeat center right;
+        padding: 0 15px;
+    }
+
+/*Sitemap*/
+.sitemap .tab {
+    color: #671B1F;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sitemap li a {
+    color: #CEA31E;
+}
+
+.sitemap li ul li a {
+    color: #671B1F;
+}
+
+.nes-subscribe-widget-message {
+    float: left;
+    width: 210px;
+    height: auto;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px 0px 5px 0px;
+    border: 0px;
+    padding: 0px 3px 5px 5px;
+    line-height: 1.3em;
+}
+
+.FAQuestion {
+    color: #CEA31E;
+}
+
+ul.data-lists {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/*#accordion h3 {color: white;background-color: #671B1F;background-image: none;}*/
+#accordion {
+    font-size: 12px;
+    float: left;
+}
+
+.tnc {
+    font-size: 9px;
+}
+
+.inner-page-title {
+    width: 115.5%;
+    background-color: #671B1F;
+    color: #ffffff;
+    font-size: 12px;
+    margin-top: -80px;
+    border: 0px;
+    padding: 5px 0px 5px 0px;
+    margin-left: -91px;
+}
+
+#accordion .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active {
+    background-color: #fffae8;
+    background-image: none;
+}
+
+.login-nl-form {
+    float: left;
+    width: 250px;
+    height: 200px;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 250px;
+    border-left: solid 1px #D0CEC2;
+    border-bottom: solid 1px #D0CEC2;
+    border-right: solid 1px #D0CEC2;
+    border-top: 0px;
+    padding: 0px;
+    font-size: 9pt;
+}
+
+.login-form-heading {
+    float: left;
+    width: 217px;
+    height: 18px;
+    vertical-align: middle;
+    text-align: left;
+    margin: 0px;
+    padding: 3px 0px 3px 5px;
+    border: 0px;
+    color: #481210;
+    background-color: #cea31e;
+    font-size: 12px;
+}
+
+.login-form-fld {
+    float: left;
+    width: 130px;
+    height: 18px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px 2px 10px 10px;
+}
+
+.login-form-lbl {
+    float: left;
+    width: 90px;
+    height: 18px;
+    vertical-align: top;
+    text-align: left;
+    margin: 0px;
+    padding: 10px 2px 10px 10px;
+}
+
+.login-nl-form .txt-msg {
+    width: 100%;
+    color: Red;
+    padding: 10px;
+}
+
+.logo-img {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.achievements-content2 a img {
+    border: 0px;
+}
+
+.toppad {
+    padding-top: 14px;
+}
+
+.bodImg {
+    float: right;
+    padding: 1px;
+    margin: 5px 0 10px 20px;
+    border: 1px solid #CEA31E;
+}
+
+.HomeNews {
+    float: left;
+    margin-top: -384px;
+    margin-left: 843px;
+    width: 225px;
+}
+
+    .HomeNews .nes-widget-heading {
+        z-index: 1;
+        position: relative;
+    }
+
+    .HomeNews .nes-widget-heading, .HomeNews .newsticker-jcarousellite, .HomeNews .eventticker-jcarousellite {
+        float: left;
+    }
+
+        .HomeNews .newsticker-jcarousellite li, .HomeNews .eventticker-jcarousellite li {
+    background-image: url('http://localhost:38631/Portals/_default/Skins/Gravity/images/dot.png');
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    color: #000000;
+}
+
+    .HomeNews .nes-widget-raquo {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+    .HomeNews a {
+    color: #000000;
+}
+.homeEvent {
+    float: left;
+    width: 340px;
+    margin: 0px 2px;
+}
+
+    .homeEvent .nes-widget, .homeEvent .nes-widget-separator-h, .homeEvent .nes-widget-nl-form, .homeEvent .nes-widget-nl-form-heading {
+        width: 340px;
+    }
+
+    .homeEvent .nes-widget-heading {
+        width: 337px;
+        position: relative;
+    }
+
+    .homeEvent .nes-widget-content {
+        width: 90%;
+    }
+
+    .homeEvent .nes-widget-nl-form-fld {
+        width: 45%;
+    }
+
+    .homeEvent .nes-widget-nl-form-lbl {
+        width: 25%;
+        margin-left: 15%;
+    }
+
+.homeCopy .copyrights {
+    width: 100%;
+}
+
+.lckBtn {
+    background-color: #CEA31E;
+    padding: 5px 10px;
+    margin: 0px auto;
+    width: 100px;
+    text-align: center;
+}
+
+    .lckBtn a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        .lckBtn a:hover {
+            color: #FFF;
+        }
+
+.pdfIcon {
+    background-image: url(http://localhost:38631/Portals/_default/Skins/Gravity/images/dpdficon.png);
+    background-repeat: no-repeat;
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin-left: 18px;
+}
