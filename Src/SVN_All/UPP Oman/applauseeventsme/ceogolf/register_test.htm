@@ -1,0 +1,345 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title> OER CEO Golf </title>
+
+<!--form  fields validation added-->
+<!--#start-->
+
+<SCRIPT language=JavaScript>
+function checkCheckBox(f)
+{
+		
+	if (f.name.value == "") 
+	{
+		alert("Please fill in your Name.")
+		f.name.focus()
+		return false
+	}
+	
+	if (f.contact.value == "") 
+	{
+		alert("Please fill in your Phone No.")
+		f.contact.focus()
+		return false
+	}
+
+	if (f.mobile.value == "") 
+	{
+		alert("Please fill in your Mobile No.")
+		f.mobile.focus()
+		return false
+	}
+	
+
+	var valid = " ()+0123456789"
+	var ok = "yes";
+	var temp;
+	if(f.mobile.value.length==0)
+	ok="no";
+
+	for (var i=0; i<f.mobile.value.length; i++) 
+	{
+		temp = "" + f.mobile.value.substring(i, i+1);
+		if (valid.indexOf(temp) == "-1" ) 
+		ok = "no";
+	}
+
+	if (ok == "no") 
+	{
+		
+		alert("Please enter a Valid Telephone Number.  Eg: + (968) 9898900 " );
+		f.mobile.focus();
+		return false;
+		
+	}
+	
+ 		 return true;
+}
+
+
+
+</SCRIPT>
+
+
+
+<!--#end-->
+
+
+
+</head>
+
+<body bgcolor="#141414" topmargin="0" rightmargin="0"  leftmargin="0" bottommargin="0">
+
+<div align="center">
+  <table border="0" cellpadding="0" style="border-collapse: collapse" width="778" bgcolor="#141414">
+    <tr>
+      <td><map name="FPMap1">
+      <area href="index.htm" shape="rect" coords="705, 1, 763, 15">
+      </map>
+      <img border="0" src="images/top1.jpg" usemap="#FPMap1" width="770" height="16"></td>
+    </tr>
+    <tr>
+      <td>
+		<img border="0" src="images/2010_banner1.jpg" width="770" height="290"></td>
+    </tr>
+    <tr>
+      <td valign="top">
+      <table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" bgcolor="#141414" height="531">
+        <tr>
+          <td width="214" valign="top" height="512">
+          <table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+            <tr>
+              <td>
+              <img border="0" src="images/img2.jpg" width="214" height="298"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+          </td>
+          <td valign="top" height="512">
+          <table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+            <tr>
+              <td>
+              &nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>
+				<font color="#0099CD" face="Verdana" style="font-size: 12pt">
+				Register Now !!!</font></b></td>
+            </tr>
+            <tr>
+              <td width="3%">
+              <p style="margin-left:10px">
+              <b><font color="#0099CD" face="Verdana" style="font-size: 12pt">&nbsp; </font></b></td>
+            </tr>
+            <tr>
+              <td width="3%" height="27">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            </tr>
+            <tr>
+              <td width="3%">
+              <div align="center">
+               <form name="formname" method="post" action="formmail.php" onsubmit="return checkCheckBox(this)">                                 
+					<input type="hidden" name="env_report" value="REMOTE_HOST,REMOTE_ADDR,HTTP_USER_AGENT,AUTH_TYPE,REMOTE_USER">
+					<input type="hidden" name="recipients" value="anushaprasanna27XDJRgmail.com, nadin-hadiXDJRhotmail.com, manishrawalXDJRgmail.com, oerceogolf2010XDJRinfoline.co.om">
+					<input type="hidden" name="good_url" value="http://www.applauseeventsme.com/ceogolf/register_thankyou.htm">
+					<input type="hidden" name="subject" value="Ceogolf - Register">
+
+              
+				<table border="0" width="93%" cellspacing="0" cellpadding="0" height="249" bgcolor="#F5F5F5" bordercolor="#FFFFFF">
+					<tr>
+						<td valign="top" width="28%" height="22">
+						&nbsp;</td>
+						<td valign="top" width="72%" height="22">
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="26">
+						<p align="justify" style="margin-left: 9px">
+						<font style="font-size: 8pt" face="Verdana">Name</font></td>
+						<td valign="top" width="72%" height="26">
+                        <input name="name" type="text" size="24" maxlength="25" tabindex="1" ><font style="font-size: 8pt" face="Verdana" color="#FF0000"> 
+                        *</font></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="26">
+						<p align="justify" style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Designation</font></td>
+						<td valign="top" width="72%" height="26">
+                        <input name="designation" type="text" size="24" maxlength="25" tabindex="2" ></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="26">
+						<p align="justify" style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Company</font></td>
+						<td valign="top" width="72%" height="26">
+                        <input name="company" type="text" size="24" maxlength="25" tabindex="3" ></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="28">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Phone</font></td>
+						<td valign="top" width="72%" height="28">
+                        <input name="contact" type="text" size="24" maxlength="14" tabindex="4" >
+                        <font style="font-size: 8pt" face="Verdana" color="#FF0000">
+                        *</font></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="28">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Mobile</font></td>
+						<td valign="top" width="72%" height="28">
+                        <input name="mobile" type="text" size="24" maxlength="14" tabindex="5" >
+                        <font style="font-size: 8pt" face="Verdana" color="#FF0000">
+                        *</font></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="28">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Fax</font></td>
+						<td valign="top" width="72%" height="28">
+                        <input name="fax" type="text" size="24" maxlength="14" tabindex="6" ></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="28">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">EMail</font></td>
+						<td valign="top" width="72%" height="28">
+                        <input name="email" type="text" size="24" maxlength="35" tabindex="7" ></td>
+					</tr>
+					<tr>
+						<td width="28%" height="41">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">Status</font></td>
+						<td width="72%" height="41">
+                        <font style="font-size: 8pt" face="Verdana">Golfer
+												<input type="radio" value="Golfer (Handicap)" name="Status" tabindex="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        Golfer-to-be
+												<input type="radio" value="Golfer-to-be" name="Status" tabindex="9"> </font></td>
+					</tr>
+					<tr>
+						<td valign="top" width="28%" height="31">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">If golfer, 
+                        then handicap</font></td>
+						<td valign="top" width="72%" height="31">
+                        <input name="handicap" size="10" maxlength="35" tabindex="10" >
+                        <font style="font-size: 8pt" face="Verdana">(Number)</font></td>
+					</tr>
+                    <tr>
+						<td valign="top" width="28%" height="31">
+						<p style="margin-left: 9px">
+						<font face="Verdana" style="font-size: 8pt">T-Shirt Size</font></td>
+						<td valign="top" width="72%" height="31">
+                        <input name="tshirt" type="text" size="24" maxlength="35" tabindex="11" ></td>
+					</tr>
+                    <tr>
+						<td valign="top" width="28%" height="31">
+						<p style="margin-left: 9px">
+						<font style="font-size: 8pt" face="Verdana">Spouse name</font></td>
+						<td valign="top" width="72%" height="31">
+                        <input name="Spousename" type="text" size="24" maxlength="35" tabindex="12" ></td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2">
+						<p style="margin-left: 9px; margin-right: 9" align="right">
+                        <font style="font-size: 8pt" face="Verdana" color="#FF0000">
+                        * Mandatory Fields</font></td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2">
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2">
+						<p align="center"> <input type="submit" value="Submit" name="B1">&nbsp;&nbsp;&nbsp; 
+                          <input type="reset" name="Submit2" value="Reset" ></td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2" height="24">
+						&nbsp;</td>
+					</tr>
+				</table>
+				
+				</form>
+				</div>
+				</td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="214" valign="top" height="19">
+          &nbsp;</td>
+          <td valign="top" height="19">
+          <div align="center">
+            <center>
+            <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="93%" id="AutoNumber4" bordercolor="#62BB4A" height="19">
+              <tr>
+                <td width="100%" height="19">
+                <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber5">
+                  <tr>
+                    <td width="20%">
+                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="111" id="AutoNumber6" height="54">
+                      <tr>
+                        <td width="17" height="16">
+                        <img border="0" src="images/left-green.jpg" width="17" height="17"></td>
+                        <td width="74" height="16" background="images/bg-box-green.jpg"> </td>
+                        <td width="16" height="16">
+                        <img border="0" src="images/right-green.jpg" width="17" height="17"></td>
+                      </tr>
+                      <tr>
+                        <td width="17" height="19"> </td>
+                        <td width="74" height="19">&nbsp;</td>
+                        <td width="16" height="19"> </td>
+                      </tr>
+                      <tr>
+                        <td width="17" height="16">
+                        <img border="0" src="images/bot-left.jpg" width="17" height="16"></td>
+                        <td width="74" height="16" background="images/bg-box-whire.jpg"> </td>
+                        <td width="16" height="16">
+                        <img border="0" src="images/bot-right.jpg" width="17" height="16"></td>
+                      </tr>
+                    </table>
+                    </td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                    <td width="20%">&nbsp;</td>
+                  </tr>
+                </table>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</td>
+              </tr>
+            </table>
+            </center>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td width="214" valign="top" height="19">
+          &nbsp;</td>
+          <td valign="top" height="19">
+          &nbsp;</td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="19">
+      <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber3">
+        <tr>
+          <td width="4%">
+          <img border="0" src="images/left.jpg" width="49" height="16"></td>
+          <td width="93%" bgcolor="#62BB4A">
+          <p align="right">
+          <font face="Verdana" style="font-size: 8pt" color="#141414">© Applause 
+          Events</font></td>
+          <td width="3%">
+          <img border="0" src="images/right.jpg" width="34" height="16"></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="19">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+</body>
+
+</html>
