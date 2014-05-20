@@ -1,0 +1,12 @@
+#newsticker-demo { 
+width:285px; 
+font-family:Verdana,Arial,Sans-Serif;
+font-size:11px;
+margin:20px 15px;
+}
+#newsticker-demo a { text-decoration:none;color:#cc3333;}
+
+.newsticker-jcarousellite { width:100%; }
+.newsticker-jcarousellite ul{display:block;float:left;}
+.newsticker-jcarousellite ul li{ list-style:none; display:block; padding:8px 0px;border-bottom:solid 1px #cccccc;height:25px !important;}
+.clear { clear: both; }
