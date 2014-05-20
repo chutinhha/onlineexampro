@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>7 November 2002</title><script LANGUAGE="JavaScript">
+<!-- hide
+        function makeArray(len) 
+        {       for (var i = 0; i < len; i++)
+                {       this[i] = null
+
+                }
+                this.length = len
+        }
+
+
+        var daynames = new makeArray(7)
+        daynames[0] = "Sunday"
+        daynames[1] = "Monday"
+        daynames[2] = "Tuesday"
+        daynames[3] = "Wednesday"
+        daynames[4] = "Thursday"
+        daynames[5] = "Friday"
+        daynames[6] = "Saturday"
+
+
+        var monthnames = new makeArray(12)
+        monthnames[0] = "January"
+        monthnames[1] = "February"
+        monthnames[2] = "March"
+        monthnames[3] = "April"
+        monthnames[4] = "May"
+        monthnames[5] = "June"
+        monthnames[6] = "July"
+        monthnames[7] = "August"
+        monthnames[8] = "September"
+        monthnames[9] = "October"
+        monthnames[10] = "November"
+        monthnames[11] = "December"
+
+
+        var now = new Date()
+        var day = now.getDay()
+        var month = now.getMonth()
+        var year = now.getYear()
+        var date = now.getDate()
+        var hour=now.getHours()
+        var minutes=now.getMinutes()
+
+        function writeDate()
+        {       document.write("<b><FONT COLOR='black' SIZE='-2' FACE='Arial'>" +      monthnames[month] + " " + date + ", " + year +"  "      +"</FONT></B>")
+
+        }
+
+//-->
+</script>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+<!-- Begin
+
+function printWindow() {
+bV = parseInt(navigator.appVersion);
+if (bV >= 4) window.print();
+}
+
+//  End -->
+
+</script>
+</head>
+
+
+<body topmargin="0" leftmargin="0">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+     <table border="0" width="100%" cellspacing="0" cellpadding="0" height="19">
+      <tr>
+          <td width="308" height="19" valign="top">
+          <form name="doublecombo">
+<table border="0" cellpadding="0" cellspacing="0" width="665" bgcolor="#F3F3F3">
+	<tr>
+		<td width="122"><select name="example" size="1" onChange="redirect(this.options.selectedIndex)" style="color: #000000; font-family: Verdana; font-size: 8pt">
+
+
+<option>Select year</option>
+<option>2006</option>
+<option>2005</option>
+<option>2004</option>
+</select></td>
+		<td>
+
+<select name="stage2" size="1" style="font-family: Verdana; font-size: 8pt">
+
+<option value="http://oeronline.com/kk-cartoon/2006_march.php">Select month</option>
+</select></td>
+		<td>&nbsp;</td>
+		<td>
+
+           <A HREF="JavaScript: go();"
+           OnMouseOver="self.status='your words for onmouseover';return true" OnMouseOut="self.status='';return true">
+           <img src="images/button.jpg" Align="middle" border=0 alt="Description of Image" height="18" width="25"></A></td>
+		<td>
+                <a href="javascript:window.close();">
+    <font face="Verdana" size="1" color="#000000">Close</font></a></td>
+	</tr>
+</table>
+
+<script>
+
+<!--
+/*
+Double Combo Script Credit
+By Website Abstraction (www.wsabstract.com)
+Over 200+ free JavaScripts here!
+*/
+
+
+var groups=document.doublecombo.example.options.length
+var group=new Array(groups)
+for (i=0; i<groups; i++)
+group[i]=new Array()
+group[0][0]=new Option("March","http://oeronline.com/kk-cartoon/2006_march.php")
+
+group[1][0]=new Option("January","http://oeronline.com/kk-cartoon/2006_janu.php")
+group[1][1]=new Option("February","http://oeronline.com/kk-cartoon/2006_feb.php")
+group[1][2]=new Option("March","http://oeronline.com/kk-cartoon/2006_march.php")
+
+group[2][0]=new Option("January","http://oeronline.com/kk-cartoon/2005_jan.php")
+group[2][1]=new Option("February","http://oeronline.com/kk-cartoon/2005_feb.php")
+group[2][2]=new Option("March","http://oeronline.com/kk-cartoon/2005_april.php")
+group[2][3]=new Option("April","http://oeronline.com/kk-cartoon/2005_may.php")
+group[2][4]=new Option("May","http://oeronline.com/kk-cartoon/2005_june.php")
+group[2][5]=new Option("June","http://oeronline.com/kk-cartoon/2005_july.php")
+group[2][6]=new Option("July","http://oeronline.com/kk-cartoon/2005_august.php")
+group[2][7]=new Option("August","http://oeronline.com/kk-cartoon/2005_september.php")
+group[2][8]=new Option("September","http://oeronline.com/kk-cartoon/2005_october.php")
+group[2][9]=new Option("October","http://oeronline.com/kk-cartoon/2005_nov.php")
+group[2][10]=new Option("November","http://oeronline.com/kk-cartoon/2005_dec.php")
+
+group[3][0]=new Option("January","http://oeronline.com/kk-cartoon/2004_jan.php")
+group[3][1]=new Option("February","http://oeronline.com/kk-cartoon/2004_feb.php")
+group[3][2]=new Option("March","http://oeronline.com/kk-cartoon/2004_mar.php")
+group[3][3]=new Option("May","http://oeronline.com/kk-cartoon/2004_may.php")
+group[3][4]=new Option("June","http://oeronline.com/kk-cartoon/2004_june.php")
+group[3][5]=new Option("July","http://oeronline.com/kk-cartoon/2004_july.php")
+group[3][6]=new Option("August","http://oeronline.com/kk-cartoon/2004_aug.php")
+group[3][7]=new Option("September","http://oeronline.com/kk-cartoon/2004_sept.php")
+group[3][8]=new Option("October","http://oeronline.com/kk-cartoon/2004_oct.php")
+group[3][9]=new Option("November","http://oeronline.com/kk-cartoon/2004_nov.php")
+group[3][10]=new Option("December","http://oeronline.com/kk-cartoon/2004_dec.php")
+
+
+var temp=document.doublecombo.stage2
+function redirect(x){
+for (m=temp.options.length-1;m>0;m--)
+temp.options[m]=null
+for (i=0;i<group[x].length;i++){
+
+temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+
+}
+
+
+temp.options[0].selected=true
+
+}
+
+function go(){
+
+location=temp.options[temp.selectedIndex].value
+
+}
+
+//-->
+
+</script>
+
+</form>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

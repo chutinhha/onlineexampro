@@ -1,0 +1,1 @@
+<a href = "http://www.bankmuscat.com"><image src="http://www.oeronline.com/images/banner_bk.gif" width="468" height="60" border=0></a>

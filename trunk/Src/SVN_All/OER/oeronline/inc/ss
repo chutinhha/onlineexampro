@@ -1,0 +1,28 @@
+<?
+
+srand((double)microtime()*1000000); 
+$randomnumber = rand(0,1); // change the second number if need be (see number 4 above)
+
+
+$include0 = "bk.inc"; 
+$include1 = "oer.inc";
+
+if 	($randomnumber== "0") {
+	include ("$include0");
+
+	} else if ($randomnumber== "1") {
+	include("$include1");
+	
+		} else if ($randomnumber== "2") {
+	include("$include2");
+	
+		} 	
+	
+	
+	} else {
+	
+	echo ("ERROR: A random num is being generated out of range, or 
+
+not at all ");	
+	}
+?>

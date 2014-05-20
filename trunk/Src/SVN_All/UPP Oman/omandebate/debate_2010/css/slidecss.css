@@ -1,0 +1,55 @@
+.bmsubhead
+{
+	text-align : justify;
+	font-size: 8pt;
+	font-family : verdana;
+	font-weight : bold;
+	cursor : pointer;
+	width : 100%;
+	border-bottom : solid 1px #e6e6e6;
+	margin-top : 0px;
+	margin-bottom : 5px;
+	height : 22px;
+	background : url(../images/arrow.gif) no-repeat left;
+}
+.subinner
+{
+	float: left;
+	clear : both;
+	padding-top : 3px;
+	padding-left : 16px;
+	color : #FF0000;
+
+}
+
+.subinner_black
+{
+	float: left;
+	clear : both;
+	padding-top : 3px;
+	padding-left : 16px;
+	color : #000000!important;
+}
+.bmsubheadtxt
+{
+	display : none;
+	width : 100%;
+	margin-left : 5px;
+	margin-top : 10px;
+	margin-bottom : 10px;
+	font-family : verdana;
+	font-size: 8pt;
+	font-weight : normal;
+	line-height : 20px;
+	text-align : justify;
+	
+}
+.bmsubheadtxt li
+{
+	padding : 5px 0px;
+}
+
+.activeArrow
+{
+	background : url(../images/arrowdown.gif) no-repeat left;
+}
