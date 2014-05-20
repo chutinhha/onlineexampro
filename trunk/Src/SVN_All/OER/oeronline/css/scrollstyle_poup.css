@@ -1,0 +1,44 @@
+#slider1 {
+	height: 100%;
+	overflow:hidden;
+	padding: 0 0 10px;
+	height:auto;
+}
+#slider1 .viewport {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	height:auto;
+}
+#slider1 .disable {
+	visibility: hidden;
+}
+#slider1 .overview {
+	list-style: none;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+left: 0 top: 0;
+}
+#slider1 .overview li {
+	float: left;
+	margin: 0;
+	width: 540px;
+	padding-right:10px;
+	line-height:18px;
+	
+}
+a.prev {
+	display:block;
+	float: right;
+	padding-right:10px;
+	border-right:1px solid #000;
+	margin-right:10px;
+	/*background: url(../images/up.png) no-repeat top right;*/
+}
+a.next {
+	float: right;
+	/*background: url(../images/down.png) no-repeat top center;*/
+}

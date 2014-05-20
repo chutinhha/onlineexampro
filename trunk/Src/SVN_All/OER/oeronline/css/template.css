@@ -1,0 +1,96 @@
+body{
+font-family:Verdana, Geneva, sans-serif;
+font-size: 8pt;	
+}
+.pub_table{
+	border-collapse: collapse;
+}
+.pub_table td{
+	padding-top:10px;
+	font-size:10px;
+	padding-bottom:10px;
+}
+.pub_table h6{
+	color:#FF002A;
+	margin:0;
+	font-size:10px;
+}
+.pub_table .pubtext{
+padding-left:20px;	
+}
+.pub_table .publinks{
+background:#CC3333;
+padding-top:5px;
+padding-bottom:5px;
+border-bottom:1px solid #fff;
+font-size:9px;
+text-align:center;
+height:25px;
+}
+.pub_table .publinks a{
+color:#fff;
+}
+.pub_table .publinks a:hover{
+text-decoration:underline;
+}
+.pub_table .publinks p{
+color:#fff;
+}
+.boxstyle{
+	font-size:10px;
+	padding:0 10px;
+}
+.boxstyle p{
+	text-align:justify;
+}
+.boxstyle h4{
+	text-align:center;
+	color:#C00000;
+	padding-top:5px;
+}
+.boxstyle h4 a{
+	color:#C00000;
+}
+.subheadline{
+	font-weight:bold;
+	font-size:13px;
+	line-height:18px;
+}
+.innertable{
+	font-size:11px;
+}
+.innertable h4{
+	font-size:15px;
+}
+.innertable p{
+	text-align:justify;
+}
+.headcat{
+	text-transform:uppercase;
+	font-size:10px;
+	font-weight:bold;
+}
+.boxdesc p{
+	font-weight:normal;
+	font-size:10px;
+	line-height:14px;
+}
+.boxdesc .subheadline{
+	font-weight:normal !important;
+	font-size:10px !important;
+	line-height:14px !important;
+}
+.rightsubhead{
+	margin:0;
+}
+.rightsubhead a{
+	color:#C00000;
+	font-size:11px;
+}
+.seperator{
+	border-bottom:1px solid #F0F0F0;
+}
+.footbox{
+	float:left;
+	margin-right:40px;
+}
