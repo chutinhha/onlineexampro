@@ -1,0 +1,55 @@
+<?
+/*
+
+
+PLEASE KEEP THE CREDITS INTACT WHEN DISTRIBUTING THIS SCRIPT
+USE AT YOUR OWN RISK WITH NO SUPPORT OR GUARANTEES
+USE IT FOR PUBLIC, PRIVATE, PROFIT AT NO CHARGE
+
+AD_ROTATOR IN PHP3 
+BY: MARK DONCHEK
+E: MARK@MARKDONLINE.COM
+W: WWW.MARKDONLINE.COM
+
+This script is ideal for rotating a few ads on a small site without comittiing to an elaborate 
+database system.  Since each ad is stored in its own include file,
+it can contain HTML, quotes, semicolons, etc which may throw other scripts off.
+
+
+1. Simply cut and paste all of this code in a php doc where you want your ad to appear.
+2. create an include file for each ad.  
+3. copy all necessary code for the ad into its respective include.
+4. change the var $randomnumber to accomodate the number of ads you have.
+   where 'x' = one less than the number of ads you have:
+*/
+
+srand((double)microtime()*1000000); 
+$randomnumber = rand(0,x); // change the second number if need be (see number 4 above)
+
+/*
+5. change "your_path/any_ad.inc" for each ad you have
+6. alter the number of elseifs to accomodate the number of includes if necessary (ads).
+*/
+
+
+
+$include0 = "bk.inc"; 
+$include1 = "oer.inc";
+
+if 	($randomnumber== "0") {
+	include ("$include0");
+
+	} else if ($randomnumber== "1") {
+	include("$include1");
+	
+		} else if ($randomnumber== "2") {
+	include("$include2");
+	
+		} 	
+	
+	
+	} else {
+	
+	echo ("ERROR: A random num is being generated out of range, or not at all ");	
+	}
+?>

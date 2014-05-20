@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Register Now</title>
+<Script Language=JavaScript>
+function check()
+{
+
+	if(document.frm.f_name.value=="")
+	{
+		alert("Please Enter Your Name");
+		document.frm.f_name.focus();
+		return false;
+	
+	}
+	if(document.frm.f_id.value=="" || document.frm.f_id.value.indexOf(' ')>=0)
+	{
+		alert("Please Enter A Valid Username");
+		document.frm.f_id.focus();
+		return false;
+	
+	}
+	if(document.frm.f_pwd.value=="")
+	{
+		alert("Please Enter Password");
+		document.frm.f_pwd.focus();
+		return false;
+	
+	}
+	if(document.frm.f_email.value=="" || document.frm.f_email.value.indexOf('@')<1 || document.frm.f_email.value.indexOf('.')<2 ||document.frm.f_email.value.indexOf(' ')>=0)
+	{
+		alert("Please Enter Valid Email.");
+		document.frm.f_email.focus();
+		return false;
+	
+	}
+	/*if(NaN(document.frm.f_gsm.value))
+	{
+		alert("Please Enter Valid GSM - Number.");
+		document.frm.f_gsm.focus();
+		return false;
+
+	}
+	if(!document.frm.f_tel.value="" && isNaN(document.frm.f_tel.value))
+	{
+		alert("Please Enter Valid Telephone - Number.");
+		document.frm.f_tel.focus();
+		return false;
+
+	}*/
+
+}
+
+</Script>
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<form method=post action=/php/register.php name=frm onSubmit="return check()">
+
+<table border="0" width="766" cellspacing="0" cellpadding="0" height="109">
+  <tr>
+    <td width="764" height="19" colspan="3">
+      <p align="center"><font face="Verdana" size="2"><b>Register Now</b></font></td>
+  </tr>
+  <tr>
+    <td width="764" height="19" colspan="3"></td>
+  </tr>
+  <tr>
+    <td width="246" height="19"></td>
+    <td width="111" height="19"><font face="Verdana" size="1"><b>Name</b></font></td>
+    <td width="403" height="19"><input type="text" name="f_name" size="16"></td>
+  </tr>
+  <tr>
+    <td width="246" height="25"></td>
+    <td width="111" height="25"><font face="Verdana" size="1"><b>Designation</b></font></td>
+    <td width="403" height="25"><input type="text" name="f_desi" size="16"> </td>
+  </tr>
+  <tr>
+    <td width="246" height="15"></td>
+    <td width="111" height="15"><font face="Verdana" size="1"><b>Company</b></font></td>
+    <td width="403" height="15"><input type="text" name="f_comp" size="16"></td>
+  </tr>
+  <tr>
+    <td width="246" height="15"></td>
+    <td width="111" height="15"><font face="Verdana" size="1"><b>Email&nbsp;</b></font></td>
+    <td width="403" height="15"><input type="text" name="f_email" size="16"></td>
+  </tr>
+  <tr>
+    <td width="246" height="15"></td>
+    <td width="111" height="15"><font face="Verdana" size="1"><b>Username</b></font></td>
+    <td width="403" height="15"><input type="text" name="f_id" size="16"></td>
+  </tr>
+  <tr>
+    <td width="246" height="15"></td>
+    <td width="111" height="15"><font face="Verdana" size="1"><b>Password</b></font></td>
+    <td width="403" height="15"><input type="password" name="f_pwd" size="16"></td>
+  </tr>
+  <tr>
+    <td width="764" height="39" colspan="3">
+      <p align="center">&nbsp;<input type="submit" value="Submit" name="B1"> <input type="reset" value="Reset" name="B2"></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="764" height="20" colspan="3">
+      <p align="center"><font face="Verdana" size="1"><u><a href="login.php">Login</a></u> l
+      <u><a href="forgot_password.php">Forgot
+      Password?</a></u></font></p>
+    </td>
+  </tr>
+</table>			<input type=hidden name=time value=first>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+﻿<html>
+<head>
+<title>7 November 2002</title><script LANGUAGE="JavaScript">
+<!-- hide
+        function makeArray(len) 
+        {       for (var i = 0; i < len; i++)
+                {       this[i] = null
+
+                }
+                this.length = len
+        }
+
+
+        var daynames = new makeArray(7)
+        daynames[0] = "Sunday"
+        daynames[1] = "Monday"
+        daynames[2] = "Tuesday"
+        daynames[3] = "Wednesday"
+        daynames[4] = "Thursday"
+        daynames[5] = "Friday"
+        daynames[6] = "Saturday"
+
+
+        var monthnames = new makeArray(12)
+        monthnames[0] = "January"
+        monthnames[1] = "February"
+        monthnames[2] = "March"
+        monthnames[3] = "April"
+        monthnames[4] = "May"
+        monthnames[5] = "June"
+        monthnames[6] = "July"
+        monthnames[7] = "August"
+        monthnames[8] = "September"
+        monthnames[9] = "October"
+        monthnames[10] = "November"
+        monthnames[11] = "December"
+
+
+        var now = new Date()
+        var day = now.getDay()
+        var month = now.getMonth()
+        var year = now.getYear()
+        var date = now.getDate()
+        var hour=now.getHours()
+        var minutes=now.getMinutes()
+
+        function writeDate()
+        {       document.write("<b><FONT COLOR='black' SIZE='-2' FACE='Arial'>" +      monthnames[month] + " " + date + ", " + year +"  "      +"</FONT></B>")
+
+        }
+
+//-->
+</script>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+<!-- Begin
+
+function printWindow() {
+bV = parseInt(navigator.appVersion);
+if (bV >= 4) window.print();
+}
+
+//  End -->
+
+</script>
+</head>
+
+
+<body topmargin="0" leftmargin="0">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+     <table border="0" width="100%" cellspacing="0" cellpadding="0" height="19">
+      <tr>
+          <td width="308" height="19" valign="top">
+          <form name="doublecombo">
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0" width="485" bgcolor="#F3F3F3">
+	<tr>
+		<td width="122">
+		<p align="center"><select name="example" size="1" onChange="redirect(this.options.selectedIndex)" style="color: #000000; font-family: Verdana; font-size: 8pt">
+
+
+<option>Select Year</option>
+<option>2013</option>
+<option>2012</option>
+<option>2011</option>
+<option>2010</option>
+<option>2009</option>
+<option>2008</option>
+<option>2007</option>
+<option>2006</option>
+<option>2005</option>
+<option>2004</option>
+</select></td>
+		<td width="99">
+
+<p align="left">
+
+<select name="stage2" size="1" style="font-family: Verdana; font-size: 8pt">
+
+<option value="">Select Month</option>
+</select></td>
+		<td>
+
+           <p align="center">
+
+           <A HREF="JavaScript: go();"
+           OnMouseOver="self.status='your words for onmouseover';return true" OnMouseOut="self.status='';return true">
+           <img src="images/button.jpg" Align="left" border=0 alt="Description of Image" height="18" width="25"></A></td>
+		<td width="72">
+                <p align="center">
+                <a href="javascript:window.close();">
+    <font face="Verdana" size="1" color="#000000">Close</font></a></td>
+	</tr>
+</table>
+
+</div>
+
+<script>
+
+<!--
+/*
+Double Combo Script Credit
+By Website Abstraction (www.wsabstract.com)
+Over 200+ free JavaScripts here!
+*/
+
+
+var groups=document.doublecombo.example.options.length
+var group=new Array(groups)
+for (i=0; i<groups; i++)
+group[i]=new Array()
+
+
+group[0][0]=new Option("February","http://oeronline.com/kk-cartoon/2013_feb.php")
+
+group[1][0]=new Option("January","http://oeronline.com/kk-cartoon/2013_jan.php")
+group[1][1]=new Option("February","http://oeronline.com/kk-cartoon/2013_feb.php")
+group[1][2]=new Option("April","http://oeronline.com/kk-cartoon/2013_apr.php")
+group[1][3]=new Option("May","http://oeronline.com/kk-cartoon/2013_may.php")
+group[1][4]=new Option("June","http://oeronline.com/kk-cartoon/2013_june.php")
+group[1][5]=new Option("July","http://oeronline.com/kk-cartoon/2013_july.php")
+group[1][6]=new Option("August","http://oeronline.com/kk-cartoon/2013_aug.php")
+group[1][7]=new Option("September","http://oeronline.com/kk-cartoon/2013_sep.php")
+group[1][8]=new Option("October","http://oeronline.com/kk-cartoon/2013_oct.php")
+group[1][9]=new Option("November","http://oeronline.com/kk-cartoon/2013_nov.php")
+group[1][10]=new Option("December","http://oeronline.com/kk-cartoon/2013_dec.php")
+
+group[2][0]=new Option("January","http://oeronline.com/kk-cartoon/2012_jan.php")
+group[2][1]=new Option("February","http://oeronline.com/kk-cartoon/2012_feb.php")
+group[2][2]=new Option("March","http://oeronline.com/kk-cartoon/2012_mar.php")
+group[2][3]=new Option("April","http://oeronline.com/kk-cartoon/2012_apr.php")
+group[2][4]=new Option("May","http://oeronline.com/kk-cartoon/2012_may.php")
+group[2][5]=new Option("June","http://oeronline.com/kk-cartoon/2012_june.php")
+group[2][6]=new Option("July","http://oeronline.com/kk-cartoon/2012_july.php")
+group[2][7]=new Option("August","http://oeronline.com/kk-cartoon/2012_aug.php")
+group[2][8]=new Option("September","http://oeronline.com/kk-cartoon/2012_sep.php")
+group[2][9]=new Option("Octomber","http://oeronline.com/kk-cartoon/2012_oct.php")
+group[2][9]=new Option("November","http://oeronline.com/kk-cartoon/2012_nov.php")
+group[2][10]=new Option("December","http://oeronline.com/kk-cartoon/2012_dec.php")
+
+group[3][0]=new Option("January","http://oeronline.com/kk-cartoon/2011_jan.php")
+group[3][1]=new Option("February ","http://oeronline.com/kk-cartoon/2011_feb.php")
+group[3][2]=new Option("March ","http://oeronline.com/kk-cartoon/2011_mar.php")
+group[3][3]=new Option("April ","http://oeronline.com/kk-cartoon/2011_april.php")
+group[3][4]=new Option("May ","http://oeronline.com/kk-cartoon/2011_may.php")
+group[3][5]=new Option("June ","http://oeronline.com/kk-cartoon/2011_june.php")
+group[3][6]=new Option("July ","http://oeronline.com/kk-cartoon/2011_july.php")
+group[3][7]=new Option("August ","http://oeronline.com/kk-cartoon/2011_aug.php")
+group[3][8]=new Option("September ","http://oeronline.com/kk-cartoon/2011_sep.php")
+group[3][9]=new Option("October ","http://oeronline.com/kk-cartoon/2011_oct.php")
+group[3][10]=new Option("November ","http://oeronline.com/kk-cartoon/2011_nov.php")
+group[3][11]=new Option("December","http://oeronline.com/kk-cartoon/2011_dec.php")
+
+group[4][0]=new Option("January","http://oeronline.com/kk-cartoon/2010_jan.php")
+group[4][1]=new Option("February ","http://oeronline.com/kk-cartoon/2010_feb.php")
+group[4][2]=new Option("April ","http://oeronline.com/kk-cartoon/2010_apr.php")
+group[4][3]=new Option("May ","http://oeronline.com/kk-cartoon/2010_may.php")
+group[4][4]=new Option("June ","http://oeronline.com/kk-cartoon/2010_june.php")
+group[4][5]=new Option("July ","http://oeronline.com/kk-cartoon/2010_july.php")
+group[4][6]=new Option("August ","http://oeronline.com/kk-cartoon/2010_august.php")
+group[4][7]=new Option("September ","http://oeronline.com/kk-cartoon/2010_september.php")
+group[4][8]=new Option("October ","http://oeronline.com/kk-cartoon/2010_october.php")
+
+group[5][0]=new Option("January","http://oeronline.com/kk-cartoon/2009_jan.php")
+group[5][1]=new Option("February","http://oeronline.com/kk-cartoon/2009_feb.php")
+group[5][2]=new Option("March","http://oeronline.com/kk-cartoon/2009_mar.php")
+group[5][3]=new Option("April","http://oeronline.com/kk-cartoon/2009_apr.php")
+group[5][4]=new Option("May","http://oeronline.com/kk-cartoon/2009_may.php")
+group[5][5]=new Option("June","http://oeronline.com/kk-cartoon/2009_june.php")
+group[5][6]=new Option("July","http://oeronline.com/kk-cartoon/2009_july.php")
+group[5][7]=new Option("August","http://oeronline.com/kk-cartoon/2009_august.php")
+group[5][8]=new Option("September","http://oeronline.com/kk-cartoon/2009_september.php")
+group[5][9]=new Option("October","http://oeronline.com/kk-cartoon/2009_october.php")
+group[5][10]=new Option("November","http://oeronline.com/kk-cartoon/2009_november.php")
+group[5][11]=new Option("December","http://oeronline.com/kk-cartoon/2009_december.php")
+
+group[6][0]=new Option("April","http://oeronline.com/kk-cartoon/2008_april.php")
+group[6][1]=new Option("May","http://oeronline.com/kk-cartoon/2008_may.php")
+group[6][2]=new Option("June","http://oeronline.com/kk-cartoon/2008_june.php")
+group[6][3]=new Option("July","http://oeronline.com/kk-cartoon/2008_july.php")
+group[6][4]=new Option("August","http://oeronline.com/kk-cartoon/2008_aug.php")
+group[6][5]=new Option("September","http://oeronline.com/kk-cartoon/2008_sept.php")
+group[6][6]=new Option("October","http://oeronline.com/kk-cartoon/2008_oct.php")
+group[6][7]=new Option("November","http://oeronline.com/kk-cartoon/2008_nov.php")
+group[6][8]=new Option("December","http://oeronline.com/kk-cartoon/2008_dec.php")
+
+group[7][0]=new Option("January","http://oeronline.com/kk-cartoon/2007_jan.php")
+group[7][1]=new Option("February","http://oeronline.com/kk-cartoon/2007_feb.php")
+group[7][2]=new Option("March","http://oeronline.com/kk-cartoon/2007_march.php")
+group[7][3]=new Option("April","http://oeronline.com/kk-cartoon/2007_april.php")
+group[7][4]=new Option("June","http://oeronline.com/kk-cartoon/2007_june.php")
+group[7][5]=new Option("July","http://oeronline.com/kk-cartoon/2007_july.php")
+group[7][6]=new Option("August","http://oeronline.com/kk-cartoon/2007_aug.php")
+group[7][7]=new Option("Septmber","http://oeronline.com/kk-cartoon/2007_sep.php")
+group[7][8]=new Option("October","http://oeronline.com/kk-cartoon/2007_oct.php")
+group[7][9]=new Option("November","http://oeronline.com/kk-cartoon/2007_nov.php")
+group[7][10]=new Option("December","http://oeronline.com/kk-cartoon/2007_dec.php")
+
+group[8][0]=new Option("January","http://oeronline.com/kk-cartoon/2006_janu.php")
+group[8][1]=new Option("February","http://oeronline.com/kk-cartoon/2006_feb.php")
+group[8][2]=new Option("March","http://oeronline.com/kk-cartoon/2006_march.php")
+group[8][3]=new Option("April","http://oeronline.com/kk-cartoon/2006_april.php")
+group[8][4]=new Option("May","http://oeronline.com/kk-cartoon/2006_may.php")
+group[8][5]=new Option("June","http://oeronline.com/kk-cartoon/2006_june.php")
+group[8][6]=new Option("July","http://oeronline.com/kk-cartoon/2006_july.php")
+group[8][7]=new Option("August","http://oeronline.com/kk-cartoon/2006_augst.php")
+group[8][8]=new Option("September","http://oeronline.com/kk-cartoon/2006_sept.php")
+group[8][9]=new Option("October","http://oeronline.com/kk-cartoon/2006_oct.php")
+group[8][10]=new Option("November","http://oeronline.com/kk-cartoon/2006_nov.php")
+
+group[9][0]=new Option("January","http://oeronline.com/kk-cartoon/2005_jan.php")
+group[9][1]=new Option("February","http://oeronline.com/kk-cartoon/2005_feb.php")
+group[9][2]=new Option("April","http://oeronline.com/kk-cartoon/2005_april.php")
+group[9][3]=new Option("May","http://oeronline.com/kk-cartoon/2005_may.php")
+group[9][4]=new Option("June","http://oeronline.com/kk-cartoon/2005_june.php")
+group[9][5]=new Option("July","http://oeronline.com/kk-cartoon/2005_july.php")
+group[9][6]=new Option("August","http://oeronline.com/kk-cartoon/2005_august.php")
+group[9][7]=new Option("September","http://oeronline.com/kk-cartoon/2005_september.php")
+group[9][8]=new Option("October","http://oeronline.com/kk-cartoon/2005_october.php")
+group[9][9]=new Option("November","http://oeronline.com/kk-cartoon/2005_nov.php")
+
+group[10][0]=new Option("January","http://oeronline.com/kk-cartoon/2004_jan.php")
+group[10][1]=new Option("February","http://oeronline.com/kk-cartoon/2004_feb.php")
+group[10][2]=new Option("March","http://oeronline.com/kk-cartoon/2004_mar.php")
+group[10][3]=new Option("May","http://oeronline.com/kk-cartoon/2004_may.php")
+group[10][4]=new Option("June","http://oeronline.com/kk-cartoon/2004_june.php")
+group[10][5]=new Option("July","http://oeronline.com/kk-cartoon/2004_july.php")
+group[10][6]=new Option("August","http://oeronline.com/kk-cartoon/2004_aug.php")
+group[10][7]=new Option("September","http://oeronline.com/kk-cartoon/2004_sept.php")
+group[10][8]=new Option("October","http://oeronline.com/kk-cartoon/2004_oct.php")
+group[10][9]=new Option("November","http://oeronline.com/kk-cartoon/2004_nov.php")
+group[10][10]=new Option("December","http://oeronline.com/kk-cartoon/2004_dec.php")
+
+
+var temp=document.doublecombo.stage2
+function redirect(x){
+for (m=temp.options.length-1;m>0;m--)
+temp.options[m]=null
+for (i=0;i<group[x].length;i++){
+
+temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+
+}
+
+
+temp.options[0].selected=true
+
+}
+
+function go(){
+
+location=temp.options[temp.selectedIndex].value
+
+}
+
+//-->
+
+</script>
+
+</form>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
