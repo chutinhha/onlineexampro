@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/jquery.textFx.js"></script>
+    <script src="js/jquery.textFx.min.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).load(function () {
+                //$("#1").hide();
+                $("#2").hide();
+                $("#3").hide();
+                $("#4").hide();
+                $("#final").hide();
+                $('.tagline').hide();
+                $('.green-box').hide();
+                //$("#text").hide();
+                //setTimeout(function () {
+                //    $("#1").show(2000);
+                //}, 0);
+
+                //$(this).delay(2000);
+                //$("#2").show();
+                //setTimeout(function () {
+                //    //$(oldBox).effect('slide', { direction: 'right', mode: 'show' }, 500);
+                //    $('#2').show('slide', { direction: 'up' }, 2000).fadeOut(2000);
+                //}, 0);
+                runEffect();
+                setTimeout(function () {
+                    $("#3").show('explode', 1000, callback1);
+                }, 3000);
+                setTimeout(function () {
+                    $("#4").show();
+                }, 5250);
+                setTimeout(function () {
+                    $('.tagline').show().textFx({
+                        type: 'fadeIn',
+                        iChar: 50,
+                        iAnim: '50'
+                        //Fades in
+                    });
+                    setTimeout(function () {
+                        $(".tagline:visible").removeAttr("style").fadeOut(1000);
+                        $("#4:visible").removeAttr("style").css('padding-left', '20px').fadeOut(1000);
+                    }, 2000);
+                }, 6000);
+                setTimeout(function () {
+                    $('#final').show().textFx({
+                        type: 'fadeIn',
+                        iChar: 50,
+                        iAnim: '50'
+                        //Fades in
+                    });
+                    setTimeout(function () {
+                        //$("#final:visible").removeAttr("style").fadeOut(1000);
+                    }, 2000);
+                }, 8500);
+                setTimeout(function () {
+                    $('.green-box').show();
+                    blinkeffect('.green-box p');
+                }, 12000);
+
+            });
+            function blinkeffect(selector) {
+                $(selector).fadeOut('slow', function () {
+                    $(this).find('a').css('color', 'green');
+                    $(this).fadeIn('slow', function () {
+                        $(this).find('a').css('color', 'black');
+                        blinkeffect(this);
+                    });
+                });
+            }
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = 'slide';//$("#effectTypes").val();
+                //alert(selectedEffect);
+                // most effect types need no options passed by default
+                var options = {};
+                // some effects have required parameters
+                if (selectedEffect === "scale") {
+                    options = { percent: 100 };
+                } else if (selectedEffect === "size") {
+                    options = { to: { width: 280, height: 185 } };
+                }
+
+                // run the effect
+                $("#2").show(selectedEffect, { direction: 'left' }, 1000, callback);
+            };
+
+            //callback function to bring a hidden box back
+            function callback() {
+                setTimeout(function () {
+                    $("#2:visible").removeAttr("style").css('padding-left', '10px').fadeOut(1000);
+                }, 1000);
+            };
+            function callback1() {
+                setTimeout(function () {
+                    $("#3:visible").removeAttr("style").css('padding-left', '20px').hide(1000);
+                }, 500);
+            };
+        });
+
+    </script>
+    <style>
+        .tagline {
+            color: green;
+            font-weight: bold;
+            font-size: 25px;
+            position: absolute;
+            top: 65px;
+            left: 190px;
+        }
+
+        .green-box {
+            border: 2px solid rgb(10, 173, 10);
+            border-radius: 5px;
+            display: inline-block;
+            height: 30px;
+            width: 120px;
+            font-size: 25px;
+            text-align: center;
+            position: absolute;
+            top: 80px;
+            left: 320px;
+            font-weight: bold;
+            color: green;
+        }
+
+        div#an {
+            position: relative;
+        }
+    </style>
+</head>
+<body style="
+    margin: 0;
+">
+    <div id="an" style="padding: 5px; border: 1px solid #000000; height: 140px; width: 629px;margin-right: 0 !important;float: left;">
+        <img style="border-right-style: solid; border-right-width: 1px; border-right-color: #808000; float: left; padding-right: 10px" id="1" src="images/Flash/0.png" />
+        <img style="float: left; padding-left: 10px; display: none" id="2" src="images/Flash/1.png" />
+        <img style="float: left; padding-left: 20px; display: none" id="3" src="images/Flash/2.png" />
+        <img style="float: left; padding-left: 20px; display: none" id="4" src="images/Flash/3.png" />
+        <p class="tagline" style="display: none">It’s time to take the first step.</p>
+        <p id="final" style="position: absolute; left: 230px; font-size: 25px; color: #008000; font-weight: bold; display: none">
+            It's time to take the green pledge.
+        </p>
+        <div class="green-box" style="display: none">
+            <p style="margin-top: 0;">
+                <a target="_blank" style="text-decoration: none; color: green" href="http://www.omangreenawards.com/submit_ideas.html">Click Here
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+

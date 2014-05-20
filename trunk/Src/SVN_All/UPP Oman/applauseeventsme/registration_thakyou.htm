@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<title>OER CEO Golf 2011</title>
+
+
+<SCRIPT language=JavaScript>
+function checkCheckBox(f)
+{
+		
+	if (f.realname.value == "") 
+	{
+		alert("Please fill in your Name.")
+		f.realname.focus()
+		return false
+	}
+	
+
+	if (f.mobile.value == "") 
+	{
+		alert("Please fill in your Mobile No.")
+		f.mobile.focus()
+		return false
+	}
+	
+
+	var valid = " ()+0123456789"
+	var ok = "yes";
+	var temp;
+	if(f.mobile.value.length==0)
+	ok="no";
+
+	for (var i=0; i<f.mobile.value.length; i++) 
+	{
+		temp = "" + f.mobile.value.substring(i, i+1);
+		if (valid.indexOf(temp) == "-1" ) 
+		ok = "no";
+	}
+
+	if (ok == "no") 
+	{
+		
+		alert("Please enter a Valid Telephone Number.  Eg: + (968) 9898900 " );
+		f.mobile.focus();
+		return false;
+		
+	}
+	if (f.email.value.indexOf('@', 0) == -1) 
+	{                                       
+		alert("Please fill in your correct Email ")
+		f.email.focus()
+		return false
+		
+ 		 return true;
+}
+	
+	}
+
+
+</SCRIPT>
+
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
+
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#E6E6E6" width="700" id="AutoNumber2" height="52">
+    <tr>
+      <td width="100%" bgcolor="#E6E6E6" height="31">
+      <p align="center"><b><font face="Arial" size="2">OER CEO Golf 2013</font></b></td>
+    </tr>
+    <tr>
+      <td width="100%" height="116">
+      <p style="margin-left: 10; margin-top: 10; margin-bottom: 10" align="center">
+      <font face="Arial" size="2"><b>Thank you for your interest to participate 
+      (ITP) in the upcoming 9th edition of OER CEO Golf,</b></font></td>
+    </tr>
+    <tr>
+      <td width="100%" height="171" valign="top">
+      <form name="formname" method="post" action="formgolf.php" onsubmit="return checkCheckBox(this)">                                 
+					<input type="hidden" name="env_report" value="REMOTE_HOST,REMOTE_ADDR,HTTP_USER_AGENT,AUTH_TYPE,REMOTE_USER">
+					<input type="hidden" name="recipients" value="sudha9490XDJRgmail.com,jtraceyXDJRapplauseeventsme.com">
+					<input type="hidden" name="good_url" value="http://www.applauseeventsme.com">
+					<input type="hidden" name="subject" value="Ceogolf 2011- INTEREST TO PARTICIPATE ">
+					
+					
+      <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3" height="460">
+        <tr>
+          <td width="32%" bgcolor="#F7F7F7" height="390" valign="middle">
+          <p align="center" style="margin-top: 10">
+          <a href="http://applauseeventsme.com/ceogolf/aboutus.htm">
+          <img border="0" src="images/oer_golf_2013_logo.jpg" width="173" height="317"></a><br>
+&nbsp;</td>
+        </tr>
+        </table>
+      </form>
+      </td>
+    </tr>
+    </table>
+  </center>
+</div>
+
+</body>
+
+</html>

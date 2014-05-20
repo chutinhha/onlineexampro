@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Meta lines -->
+	<!-- To make sure browser is not caching this page -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> <!-- x -> H_1.1 -->
+	<meta http-equiv="Pragma" content="no-cache" /> <!-- x -> H_1.0 -->
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&amp;subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/uncompiled/normalize.css" />
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="css/uncompiled/jquery.fancybox.css" />-->
+	<link rel="stylesheet" href="css/nomination.css" type="text/css" />
+	<link rel="stylesheet" href="css/blocks.css" />
+	<link rel="stylesheet" href="css/home.css" />
+	<!--[if IE]>
+	<style>
+		.item .tooltip .content{ display:none; opacity:1; }
+		.item .tooltip:hover .content{ display:block; }
+	</style>
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<link rel="stylesheet" href="css/ie.css" />
+	<![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/libs/slides.min.jquery.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="js/libs/jquery.masonry.min.js"></script>
+	<script src="js/libs/jquery.queryloader2.js"></script>
+<!--	<script src="js/libs/jquery.fancybox.pack.js"></script>-->
+	<script src="js/animations.js"></script>
+	<script src="js/func.js"></script>
+	<script src="js/scrolltopcontrol.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css?v=2.1.4" media="screen" />
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : true,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+
+		});
+	</script>
+    
+    
+	<script>
+	$(document).ready(function(){
+							   
+	
+		//----------Select the first tab and div by default
+		
+		$('#vertical_tab_nav > ul > li > a').eq(0).addClass( "selected" );
+		$('#vertical_tab_nav > div > #nomi').eq(0).css('display','block');
+	
+	
+		//---------- This assigns an onclick event to each tab link("a" tag) and passes a parameter to the showHideTab() function
+				
+			$('#vertical_tab_nav > ul > li > a').click(function(){
+				
+				/*Handle Tab Nav*/
+				$('#vertical_tab_nav > ul > li > a').removeClass( "selected");
+				$(this).addClass( "selected");
+				
+				/*Handles Tab Content*/
+				var clicked_index = $('#vertical_tab_nav > ul > li > a').index(this);
+				$('#vertical_tab_nav > div > #nomi').css('display','none');
+				$('#vertical_tab_nav > div > #nomi').eq(clicked_index).fadeIn();
+				
+				$(this).blur();
+				return false;
+				
+			});
+			
+		 
+	});
+	</script>
+<script type="text/javascript">
+$(function(){
+// Check the initial Poistion of the Sticky Header
+var stickyHeaderTop = $('#stickyheader').offset().top;
+ 
+$(window).scroll(function(){
+if( $(window).scrollTop() > stickyHeaderTop ) {
+$('#stickyheader').css({position: 'fixed', top: '10px', display: 'block'});
+} else {
+$('#stickyheader').css({position: 'static', top: '0px', display: 'none'});
+}
+});
+});
+</script>
+</head>
+ 
+<body class="index" id="body" class="preload"> 
+
+
+<!-- add class .fixed for tag <nav> to attach navigation -->
+<nav class="clearfix">
+<div class="i_logo_wrap_">
+		<div id="stickyheader">
+			<div class="logo_widget">
+				<div class="logo_space"></div>
+				<div class="logo_img"><img src="images/i_logo.jpg" /></div>
+				<div class="i_name">Dossier</div>
+				<div class="text_f_logo">Construction Awards 2013</div>
+				<div class="i_bar"></div>
+			</div>
+		</div>
+		<div id="stickyalias"></div>
+	</div>
+	<div class="center">
+		<h1><a href="#home">DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013</a></h1>
+		<span class="mobile_menu"></span>
+		<ul>
+			<li><a href="#profile">Dossier Profile <div id="advanced"></div></a></li>
+			<li><a href="#event_concept">Event Concept <div id="advanced"></div></a></li>
+			<li><a href="#partners">Partners <div id="advanced"></div></a></li>
+			<li><a href="#target">Target Audience <div id="advanced"></div></a></li>
+			<li><a href="#programme">Programme</a><div id="advanced"></div></li>
+			<li><a href="#award_cat">Award Categories & Winners</a><div id="advanced"></div></li>
+			<!--<li><a href="#nomination">Nominate Now</a><div id="advanced"></div></li>-->
+            <li><a href="#photogallery">Photo Gallery</a><div id="advanced"></div></li>
+			<li><a href="#about">About UMS</a><div id="advanced"></div></li>
+			<!--<li><a href="#media">Media</a><div id="advanced"></div></li>-->
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</div>
+	
+</nav>
+
+
+
+<section id="home">
+	<div class="wrapper">
+		<div class="header-holder">
+			<div class="logo-wrap">
+				<div class="logo-resize">						
+					<div id="percentage-box"></div>
+				</div>
+				<div class="logo">DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013</div>
+			</div>
+			<ul>
+				<li data-menu-position="1"><span class="hoverColor"></span><a href="#profile"><i class="icon-lightbulb"></i>About Dossier </a></li>
+				<li data-menu-position="4"><span class="hoverColor"></span><a href="#event_concept"><i class="icon-lightbulb"></i>Event Concept</a></li>
+                 <li data-menu-position="2"><span class="hoverColor"></span><a href="#event_concept"></a></li>
+				<li data-menu-position="11"><span class="hoverColor"></span><a href="#partners"><i class="icon-group"></i>Partners</a></li>
+				<li data-menu-position="10"><span class="hoverColor"></span><a href="#target" class="small"><i class="icon-screenshot"></i>Target Audience</a></li>
+				<li data-menu-position="3"><span class="hoverColor"></span><a href="#programme"><i class="icon-file-text-alt"></i>Programme</a></li>
+				<li data-menu-position="5"><span class="hoverColor"></span><a href="#award_cat"><i class="icon-list-ol"></i>Award Categories & Winners</a></li>
+                <li data-menu-position="6"><span class="hoverColor"></span><a href="#event_concept"></a></li>
+				<li data-menu-position="9"><span class="hoverColor"></span><a href="#contact"><i class="icon-star-empty"></i>Contact</a></li>
+				 <!--<li data-menu-position="12"><span class="hoverColor"></span><a href="images/Dossier-P.exe"  class="fancybox"><i class="icon-info-sign"></i>About UMS</a></li>
+				<li data-menu-position="8"><span class="hoverColor"></span><a href="#media"><i class="icon-youtube-play"></i>Media</a></li>-->
+               <!-- <li data-menu-position="12"  style="background-image: url(images/award.gif); background-repeat: no-repeat;"><a href="images/Dossier-P.exe"  class="fancybox"></a></li>-->
+                <li data-menu-position="12"><span class="hoverColor"></span><a href="#photogallery"><i class="icon-star-empty"></i>Photo Gallery</a></li>
+				<li data-menu-position="8"  style="background-image: url(images/event.gif); background-repeat: no-repeat;"><a href="http://www.knowledgesharingconference.com/?utm_source=Dossier&utm_medium=DiaryListing&utm_campaign=23059.001%2B-%2BExternals&utm_term=homepage&utm_content=Text&MAC=23059.001_Dossier_listing)" target="_blank"></a></li>
+				<li data-menu-position="7"><span class="hoverColor"></span><a href="#about"><i class="icon-star-empty"></i>About UMS </a></li>
+			</ul>
+			<a href="#about" class="home-scroll"></a>
+		</div>
+	</div>
+</section>
+	
+<div class="line-up"> </div>
+
+<section id="profile">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2>DOSSIER PROFILE</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<section class="slogan">
+				 ABOUT<i> DOSSIER</i> CONSTRUCTION MAGAZINE
+			</section>
+			
+			<section class="about-text cols">
+				<div class="col ">
+					<div>
+						<article>
+							<p>
+								Dossier-Construction is Oman’s first and only Business to Business (B2B) magazine on the sector for the last seven years. 
+								Published by United Media Services (UMS), known for Oman Economic Review magazine, Dossier-Construction targets the who’s who of the industry: 
+								procurement and purchasing heads, top officials in the ministries, senior-to-mid level managers in the construction firms, 
+								independent consultants and building material suppliers, industry bodies and visitors/participants in relevant trade forums and more.
+								 An authoritative source of information, Dossier-Construction is a strategic partner with all the major industry trade shows in Muscat.
+							</p>
+						</article>
+                        
+                        
+                        	<article>
+							<p>
+							<div class="w_holder">
+							
+							<div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-1.jpg" />
+								</div>
+							</div>
+							<div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-2.jpg" />
+								</div>
+							</div>
+							<div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-3.jpg" />
+								</div>
+							</div>
+							<div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-4.jpg" />
+								</div>
+							</div>
+							<div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-5.jpg" />
+								</div>
+							</div>
+                            <div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-6.jpg" />
+								</div>
+							</div>
+                            <div class="iw_holder">
+							<div class="w">
+								<div class="glass"></div>
+								<img src="images/mag-7.jpg" />
+								</div>
+							</div>
+							</div>
+							</p>
+							<div class="to_fit"></div>
+						</article>
+                        
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        
+					</div>
+				</div>
+				
+			</section>
+			
+		</div>
+		
+	</div>
+</section>
+<div class="line-up"> </div>
+<section id="event_concept">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">EVENT CONCEPT</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+						<article>
+						<br />
+						<br />
+							<h3>DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013</h3>
+							<p>UMS is recognized for premier corporate events such as OMAN DEBATE hosted by Tim Sebastian, OMAN FORUM hosted by Yusuf Al Hooti, OER TOP 20 AWARDS, AIWA AWARDS, OER CEO GOLF, etc. After the unprecedented success of DOSSIER-CONSTRUCTION print magazine, UMS took the opportunity to connect with the industry stakeholders through DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013 -- an exclusive construction, real estate and infrastructure industry event. 
+								<br />
+								<br />
+								The objective was to felicitate industry performers, individuals, best practices, technology and project excellence through an awards ceremony; and drive the exchange of knowledge and best practices within the industry through an intellectual forum in the form of a Summit. 
+								<br />
+								<br />
+									The one day event included a half-day long Summit followed by a special award ceremony in the evening felicitating the best of the best within the construction, infrastructure, real estate, interiors and building materials' industries.
+								<br />
+								<br />
+							</p>
+						</article>
+		</div>
+	</div>
+</section>
+<div class="line-up"> </div>
+<section id="partners">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">PARTNERS</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<div class="devices">
+							<!--<p align="center"><img src="images/partners/motc.jpg"></p>-->
+			
+
+<article>
+					<h3>The DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013 will be organized in association with:  </h3>
+                    </article> <br> 
+                    							
+                            <h3>GOLD SPONSORS:</h3>
+                            <p>
+                            <ul class="gallery">
+                            	<li><img src="images/partners/gs1.jpg"><div class="dd_det">MUSCAT HILLS</div></li>
+                                <li><img src="images/partners/BEC logo.jpg"><div class="dd_det">BEC</div></li>
+                                <li><img src="images/partners/KAS logo.jpg"><div class="dd_det">KAS</div></li>
+							</ul>
+							</p>
+							<br /><br /><br /><br /><br />
+                            
+                            
+                             <h3>SILVER SPONSORS:</h3>
+                            <p>
+                            <ul class="gallery">
+								<li><img src="images/partners/ss1.jpg"><div class="dd_det">INTERNATIONAL HEAVY EQUIPMENT</div></li>
+								<li><img src="images/partners/ss2.jpg"><div class="dd_det"> ALHABIB </div></li>
+                                <li><img src="images/partners/ss3.jpg"><div class="dd_det"> VOLTAMP </div></li>
+                                <li><img src="images/partners/ss4.jpg"><div class="dd_det"> HASAN JUMA BACKER </div></li>
+                                
+							</ul>
+                            
+                            <ul class="gallery" style=" clear:both; padding-top: 25px;">
+								
+                                <li><img src="images/partners/NBO.jpg"><div class="dd_det">NATIONAL BANK OF OMAN</div></li>
+                                <li><img src="images/partners/oman_cement.jpg"><div class="dd_det">OMAN CEMENT COMPANY (S.A.O.G)</div></li>
+                                <li><img src="images/partners/teejan.jpg"><div class="dd_det">TEEJAN</div></li>
+                                <li><img src="images/partners/simplex.jpg"><div class="dd_det">SIMPLEX</div></li>
+							</ul>
+							</p>
+							<br /><br /><br /><br /><br />
+                            
+                            <h3>SUPPORT SPONSORS:</h3>
+                            <p>
+                            <ul class="gallery">
+                            	<li><img src="images/partners/sp4.jpg"><div class="dd_det">AL-HASSAN GROUP OF COMPANIES</div></li>
+                                <li><img src="images/partners/Shamel logo.jpg"><div class="dd_det">SHAMEL</div></li>
+							</ul>
+							</p>
+							<br /><br /><br /><br /><br /> 
+                            					
+						<h3>SUPPORT PARTNERS:</h3>
+            			<p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/sp1.jpg"> <div class="dd_det"> MUSCAT MUNICIPALITY </div> </li>
+                       			<li> <img src="images/partners/sp2.jpg"> <div class="dd_det"> OMAN SOCIETY OF ENGINEERS </div> </li>
+								<li><img src="images/partners/sp3.jpg"> <div class="dd_det"> GERMAN UNIVERSITY OF TECHNOLOGY IN OMAN </div></li>                    
+                                <li><img src="images/partners/OCI logo.jpg"> <div class="dd_det"> OMAN CABLES INDUSTRIES</div></li>
+                               
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        <h3>STRATEGIC PARTNER:</h3>
+            			<p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/atkins.jpg"> <div class="dd_det">ATKINS</div> </li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        
+                        
+						<h3>VALIDATION PARTNER:</h3>
+                        <p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/vp1.jpg" width="180" height="100" alt="validation partner">...</li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        <h3>MEDIA PARTNER:</h3>
+                        <p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/mp1.jpg" width="180" height="100" alt="validation partner">...</li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        <h3>LIGHT AND SOUND PARTNER:</h3>
+                        <p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/ls1.jpg" width="180" height="100" alt="validation partner">...</li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        <h3>AMBIENCE PARTNER:</h3>
+                        <p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/ap1.jpg" width="180" height="100" alt="validation partner">...</li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+                        <h3>PRINT PARTNER:</h3>
+                        <p>
+							<ul class="gallery">
+                            	<li><img src="images/partners/pp1.jpg" width="180" height="100" alt="validation partner">...</li>
+							</ul>
+						</p>
+       					<br /><br /><br /><br /><br />
+                        
+                        
+						
+
+                        
+                        
+                        
+            
+			</div>
+			
+		</div>
+	</div>
+</section>
+<br /><br /><br /><br /><br /><br /><br /><br />
+<div class="line-up"> </div>
+<section id="target">
+	<div class="wrapper">
+		<section class="page-title">
+		<div class="m-up"></div>
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">Target Audience</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<article>
+			
+				<h3>The event will be attended by the key ministers and senior officials in the Government, senior executives in the public and private sectors and leaders of industry bodies drawn from the following:</h3>			
+				<br />
+				<br />
+				<p>
+				<ul>
+								
+				<li>Ministry of Transport & Communications</li>		
+				<li>Ministry of Oil & Gas</li>		
+				<li>Ministry of Commerce & Industry</li>
+				<li>Ministry of Tourism</li>
+				<li>Ministry of Housing</li>
+                <li>Petroleum Development Oman (PDO)</li>
+				<li>The Public Authority for Electricity & Water</li>
+				<li>Muscat Municipality</li>
+				<li>The Special Economic Zone at Duqm (SEZAD)</li>
+				<li>Omran</li>
+				<li>Oman Society of Engineers</li>
+				<li>Oman Society of Contractors</li>
+				<li>German University of Technology (GUtech)</li>
+				<li>Industrial Estates</li>
+				<li>Free Zones</li>
+				<li>Oil & Gas</li>
+				<li>Logistics</li>
+				<li>Transportation</li>
+				<li>Construction & Interiors Contractors</li>
+				<li>Engineering & Interiors Consultants</li>
+				<li>Architects</li>
+				<li>Technology suppliers (power, water)</li>
+				<li>Machinery & Equipment Suppliers </li>
+				<li>Manufacturers, Marketers & Suppliers of Building Materials </li>
+				<li>Real Estate Developers  </li>
+				<li>Furniture Retailers</li>
+				<li>Interior Decorators & Designers</li>
+				<li>Paints & Coatings Companies</li>
+				<li>Kitchen Equipment Sellers & Suppliers </li>
+				<li>Air Conditioning Suppliers</li>
+				<li>Sanitary ware & Bathroom Fittings Suppliers & Dealers</li>
+				<li>Academicians and Universities</li>
+				<li>Legal& Advisory bodies</li>
+
+				</ul>
+				</p>
+			
+			</article>
+		</div>
+		<section class="bg-fixed">
+			<article class="center">
+				<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+			</article>
+		</section>
+	</div>
+</section>
+<div class="line-up"> </div>
+<section id="programme">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">programme</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<div class="devices">
+<article>
+<h3>PROGRAMME</h3>
+<br />
+
+  <span class="time">9.00 AM</span>	
+  <span class="left-pad">Welcome of the Chief Guest – HE Ahmed bin Mohammed bin Salim al Futaisi, Minister of Transport & Communications </span>
+  <br /><br />
+  <span class="time">9.05 AM	</span>	
+  <span class="left-pad">Opening Remarks</span>
+  <br /><br />
+   
+   <span class="time">9.10 AM</span>	 
+   <span class="left-pad">Presentation by Eng. Nasser Al Maqbali, Omran </span>
+   <br /><br />
+   <span class="time">9.25 AM</span>	
+   <span class="left-pad">Presentation by Grant Gellatly, Galfar Engineering & Contracting </span>
+   <br /><br />
+   <span class="time">9.40 AM</span> 
+   <span class="left-pad"><strong>Panel Discussion:</strong> Opportunities & Challenges For Omani Construction Industry</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad"><strong>Moderator:</strong> Simon Karam, Director, Sarooj Construction Company</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad"><strong>Panelists:</strong> Dr.Hamed Hashim Al Dhahab, CEO, Al Watanyiah United Engineering & Contracting</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">Yusuf Nalwala, Managing Director, Al Ansari Group </span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">Ahmed Al Sibani, Vice President – Procurement, Galfar Engineering & Contracting</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">Suliman Al Khalili, Director-Information, Ministry of Manpower</span>
+   <br /><br />
+   <span class="time">10.40 AM</span> 
+   <span class="left-pad">Networking Break</span>
+  <br /><br />
+   <span class="time">11.00AM</span> 
+   <span class="left-pad">Presentation by Eng. Yahya Al Zadjali, Special Economic Zone Authority Duqm</span>
+   <br /><br />
+   <span class="time">11.15 AM</span> 
+   <span class="left-pad">Presentation by Daniel Schulze- Wethmar, Hoehler + Partner</span>
+   <br /><br />
+   <span class="time">11.30AM – 12.30PM</span> 
+   <span class="left-pad">Panel Discussion: Building Smart Cities</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad"><strong>Moderator:</strong> Prof. Frank Eisenmann, Head of Department of Urban Planning & Architectural Design (UPAD), </span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">German University of Technology (GUtech)</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad"><strong>Panelists:</strong> Eng. Nasser Saif Al-Maqbali, Chief Operating Officer, Omran
+</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">Rohan Thotabaduge, Associate Architect, Atkins</span>
+   <br />
+   <span class="time">&nbsp;</span> <span class="left-pad">Nadia Maqbool, Owner, 23 Degrees North</span>
+   <br /><br />
+   <span class="time">12.30PM</span> 
+   <span class="left-pad">Vote of Thanks</span>
+   <br /><br />
+   
+
+		
+		
+</p>
+
+</article>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="line-up"> </div>
+<section id="award_cat">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">Award Categories & Winners</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<div class="devices">
+            
+			<table border="0" cellspacing="1" cellpadding="5" width="80%">
+  <tr>
+    <td>Best Construction Safety Initiative </td>
+    <td>Carillion Alawi</td>
+  </tr>
+  <tr>
+    <td>Best EPC Contractor</td>
+    <td>Bahwan Engineering Company</td>
+  </tr>
+  <tr>
+    <td>Best Contractor for Infrastructure Project </td>
+    <td>Galfar Engineering &amp; Contracting</td>
+  </tr>
+  <tr>
+    <td>Best Contractor for a Sustainable Project</td>
+    <td>Carillion Alawi</td>
+  </tr>
+  <tr>
+    <td>Special Award for    Best Upcoming Construction Contractor </td>
+    <td>Khalid Bin Ahmed &amp; Sons (KAS) </td>
+  </tr>
+  <tr>
+    <td>Best Construction    Contractor</td>
+    <td>Larsen &amp;    Toubro (Oman)</td>
+  </tr>
+  <tr>
+    <td>Special    Commendation  in Construction    Contracting </td>
+    <td>Hasan Juma Backer Trading &amp;    Contracting</td>
+  </tr>
+  <tr>
+    <td>Best MEP    Contractor</td>
+    <td>Bahwan Engineering Company</td>
+  </tr>
+  <tr>
+    <td>Best Engineer</td>
+    <td>Kameshwar Rao, Al Hassan    Engineering Co.</td>
+  </tr>
+  <tr>
+    <td>Special Award    for Distinctive Construction Contractor </td>
+    <td>Teejan Trading &amp;    Contracting</td>
+  </tr>
+  <tr>
+    <td>Special Award for    Leadership &amp; People Development</td>
+    <td>Dr. P. Mohamed Ali, Galfar    Engineering &amp; Contracting</td>
+  </tr>
+  <tr>
+    <td>Special Award for    Excellence in Project Finance</td>
+    <td>National Bank of Oman </td>
+  </tr>
+  <tr>
+    <td>Special Award for    Most Trusted Cement Company </td>
+    <td>Oman Cement Company</td>
+  </tr>
+  <tr>
+    <td>Special Award for Most Trusted    Electricals' Manufacturer </td>
+    <td>Voltamp Energy</td>
+  </tr>
+  <tr>
+    <td>Best Interior    Design</td>
+    <td>Almouj Golf    Academy - The Wave, Muscat</td>
+  </tr>
+  <tr>
+    <td>Special Award for    Interior Design Development</td>
+    <td>Shamel International Industries    Trading &amp; Contracting</td>
+  </tr>
+  <tr>
+    <td>Best Project    Design</td>
+    <td>Omran</td>
+  </tr>
+  <tr>
+    <td>Best Engineering    Consultant</td>
+    <td>Atkins</td>
+  </tr>
+  <tr>
+    <td>Best Consultant for    Commercial Project</td>
+    <td>Hoehler + Partner LLC</td>
+  </tr>
+  <tr>
+    <td>Best Architect</td>
+    <td>Towell Talati</td>
+  </tr>
+  <tr>
+    <td>Best Architect</td>
+    <td>Masood Raza, Atkins</td>
+  </tr>
+  <tr>
+    <td>Special Award for Real Estate    Finance </td>
+    <td>Bank Muscat 'Baituna' </td>
+  </tr>
+  <tr>
+    <td>Best Residential    Project</td>
+    <td>The Wave, Muscat</td>
+  </tr>
+  <tr>
+    <td>Best Project    Developer</td>
+    <td>Towell Property</td>
+  </tr>
+</table>
+
+<br />
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+			</div>
+			
+		</div>
+	</div>
+</section>
+<div class="line-up"> </div>
+<!--<div class="line-up"> </div>
+<section id="nomination">
+	<div class="wrapper">
+		<section class="page-title">
+		<div class="m-up"></div>
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">nomination forms</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			<script>
+			    $(document).ready(function() {  
+      
+					$('.igo').click(function(){  
+					
+					var toLoad = $(this).attr('href'); 
+					$('#best_').hide('slow',loadContent);  
+					$('#best_').load();  
+					$('#best_').load('loader.html');  
+					$('#best_').fadeIn('slow');  
+					function loadContent() {  
+					$('#best_').load(toLoad,'fast',showNewContent())  
+					}  
+					function showNewContent() {  
+					//$('#best_').show('normal',hideLoader());  
+					}  
+					function hideLoader() {  
+					//$('#load').fadeOut('normal');  
+					}  
+					return false;  
+					
+					});  
+					});  
+			</script>
+			<script>
+			$(document).ready(function() {
+			$('#best_').load('Best_sustainable_project_awrads.html');
+			$('#loader_').load('loader.html');
+
+			});
+			</script>
+	<div style="display:none;" id="loader_"></div>
+				<div id="tabs_form">
+					<div id="nomi_nav">
+						<ul>
+							<li><a href="Best_sustainable_project_awrads.html" class="igo">Best Sustainable Project Award</a></li>
+							<li><a href="Best_Project_Finance_Awrad.html" class="igo">Best Project Finance Award</a></li>
+							<li><a href="Best_EPC_Contractor.html" class="igo">Best EPC Contractor</a></li>
+							<li><a href="Best_Architect_Award.html" class="igo">Best Architect</a></li>
+							<li><a href="Best_Commercial_Project.html" class="igo">Best Commercial Project</a></li>
+							<li><a href="Best_Construction_Contractor.html" class="igo">Best Construction Contractor</a></li>
+								<li><a href="Best_Construction_Safety_Initiative.html" class="igo">Best Construction Safety Initiative</a></li>
+							<li><a href="Best_Engineer.html" class="igo">Best Engineer</a></li>
+							<li><a href="Best_Engineering_Consultant.html" class="igo">Best Engineering Consultant</a></li>
+							<li><a href="Best_Infrastructure_Project.html" class="igo">Best Infrastructure Project</a></li>
+							<li><a href="best_interior_design.html" class="igo">Best Interior Design</a></li>
+							<li><a href="Best_project_design.html" class="igo">Best project design</a></li>
+							<li><a href="Best_MEP_Contractor.html" class="igo">Best MEP Contractor</a></li>
+							<li><a href="Best_Project_Developer.html" class="igo">Best Project Developer</a></li>
+							<li><a href="Best_Residential_project.html" class="igo">Best Residential project</a></li>
+							
+							
+
+						</ul>
+					</div>
+					
+					<div id="best_" class="show_form" >
+					
+					</div>
+				</div>
+		</div>
+		<section class="bg-fixed">
+			<article class="center">
+				
+			</article>
+		</section>
+	</div>
+</section>-->
+
+<section id="photogallery">
+	<div class="wrapper">
+		<section class="page-title">
+		<div class="m-up"></div>
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">Photo Gallery</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="photogallery">        
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/1.JPG"><img src="images/photogallery/thumb/1.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/2.JPG"><img src="images/photogallery/thumb/2.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/3.JPG"><img src="images/photogallery/thumb/3.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/4.JPG"><img src="images/photogallery/thumb/4.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/5.JPG"><img src="images/photogallery/thumb/5.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/6.JPG"><img src="images/photogallery/thumb/6.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/7.JPG"><img src="images/photogallery/thumb/7.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/8.JPG"><img src="images/photogallery/thumb/8.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/9.JPG"><img src="images/photogallery/thumb/9.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/10.JPG"><img src="images/photogallery/thumb/10.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/11.JPG"><img src="images/photogallery/thumb/11.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/12.JPG"><img src="images/photogallery/thumb/12.JPG" alt="" /></a>        
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/13.JPG"><img src="images/photogallery/thumb/13.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/14.JPG"><img src="images/photogallery/thumb/14.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/15.JPG"><img src="images/photogallery/thumb/15.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/16.JPG"><img src="images/photogallery/thumb/16.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/17.JPG"><img src="images/photogallery/thumb/17.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/18.JPG"><img src="images/photogallery/thumb/18.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/19.JPG"><img src="images/photogallery/thumb/19.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/20.JPG"><img src="images/photogallery/thumb/20.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/21.JPG"><img src="images/photogallery/thumb/21.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/22.JPG"><img src="images/photogallery/thumb/22.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/23.JPG"><img src="images/photogallery/thumb/23.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/24.JPG"><img src="images/photogallery/thumb/24.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/25.JPG"><img src="images/photogallery/thumb/25.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/26.JPG"><img src="images/photogallery/thumb/26.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/27.JPG"><img src="images/photogallery/thumb/27.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/28.JPG"><img src="images/photogallery/thumb/28.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/29.JPG"><img src="images/photogallery/thumb/29.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/30.JPG"><img src="images/photogallery/thumb/30.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/31.JPG"><img src="images/photogallery/thumb/31.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/32.JPG"><img src="images/photogallery/thumb/32.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/33.JPG"><img src="images/photogallery/thumb/33.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/34.JPG"><img src="images/photogallery/thumb/34.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/35.JPG"><img src="images/photogallery/thumb/35.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/36.JPG"><img src="images/photogallery/thumb/36.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/37.JPG"><img src="images/photogallery/thumb/37.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/38.JPG"><img src="images/photogallery/thumb/38.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/39.JPG"><img src="images/photogallery/thumb/39.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/40.JPG"><img src="images/photogallery/thumb/40.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/41.JPG"><img src="images/photogallery/thumb/41.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/42.JPG"><img src="images/photogallery/thumb/42.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/43.JPG"><img src="images/photogallery/thumb/43.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/44.JPG"><img src="images/photogallery/thumb/44.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/45.JPG"><img src="images/photogallery/thumb/45.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/46.JPG"><img src="images/photogallery/thumb/46.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/47.JPG"><img src="images/photogallery/thumb/47.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/48.JPG"><img src="images/photogallery/thumb/48.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/49.JPG"><img src="images/photogallery/thumb/49.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/50.JPG"><img src="images/photogallery/thumb/50.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/51.JPG"><img src="images/photogallery/thumb/51.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/52.JPG"><img src="images/photogallery/thumb/52.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/53.JPG"><img src="images/photogallery/thumb/53.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/54.JPG"><img src="images/photogallery/thumb/54.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/55.JPG"><img src="images/photogallery/thumb/55.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/56.JPG"><img src="images/photogallery/thumb/56.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/57.JPG"><img src="images/photogallery/thumb/57.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/58.JPG"><img src="images/photogallery/thumb/58.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/59.JPG"><img src="images/photogallery/thumb/59.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/60.JPG"><img src="images/photogallery/thumb/60.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/61.JPG"><img src="images/photogallery/thumb/61.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/62.JPG"><img src="images/photogallery/thumb/62.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/63.JPG"><img src="images/photogallery/thumb/63.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/64.JPG"><img src="images/photogallery/thumb/64.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/65.JPG"><img src="images/photogallery/thumb/65.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/66.JPG"><img src="images/photogallery/thumb/66.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/67.JPG"><img src="images/photogallery/thumb/67.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/68.JPG"><img src="images/photogallery/thumb/68.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/69.JPG"><img src="images/photogallery/thumb/69.JPG" alt="" /></a>
+        <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/70.JPG"><img src="images/photogallery/thumb/70.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/71.JPG"><img src="images/photogallery/thumb/71.JPG" alt="" /></a>
+         <a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/72.JPG"><img src="images/photogallery/thumb/72.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/73.JPG"><img src="images/photogallery/thumb/73.JPG" alt="" /></a>
+		<a class="fancybox-buttons" data-fancybox-group="button" href="images/photogallery/74.JPG"><img src="images/photogallery/thumb/74.JPG" alt="" /></a>
+		</div>
+		<section class="bg-fixed">
+			<article class="center">
+				<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+			</article>
+		</section>
+	</div>
+</section>
+
+<div class="line-up"> </div>
+<section id="about">
+	<div class="wrapper">
+		<section class="page-title">
+		<div class="m-up"></div>
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">about U.M.S</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center"><br />
+			<br /><br />
+			<br />
+			<h3>Who we are</h3>
+			<p>Unparalleled in its resources, highly professional set-up and technology base, United Media Services (UMS) offers fully-integrated, powerful channels and solutions to help marketers effectively connect with customers throughout the GCC and beyond.
+			<br />
+			<br />
+			With specialised competencies across the media and communications spectrum, UMS offers unmatched creative and strategic strengths derived from its in-depth understanding of the regional markets, people, branding, business, culture, technology, and media dynamics.</p>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br /><br />
+			<br />
+		</div>
+		<section class="bg-fixed">
+			<article class="center">
+				<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+			</article>
+		</section>
+	</div>
+</section>
+<!--<div class="line-up"> </div>
+<section id="media">
+	<div class="wrapper">
+		<section class="page-title">
+		<div class="m-up"></div>
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2 style="text-transform:capitalize;">Media</h2>
+			<span class="h-line"></span>
+		</section>
+		<div class="center">
+			
+		</div>
+		<section class="bg-fixed">
+			<article class="center">
+				<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+			</article>
+		</section>
+	</div>
+</section>
+
+-->
+<div class="line-up"> </div>
+<section id="contact">
+	<div class="wrapper">
+		<section class="page-title">
+			<span class="h-line"></span>
+			<span class="h-ico"></span><h2>Contacts</h2>
+			<span class="h-line"></span>
+		</section>
+		<div id="map" style="display:none !important;">
+		</div>
+		<div class="center">
+			<section class="cols feedback">
+				<div class="col">
+					<div>
+						<h3>For partnerships and sponsorships:</h3>
+						<p style="color:black;"><b>Fidha Saleem</b>
+						<br />
+						<span>Email:</span> <a href="mailto:fidha@umsoman.com">fidha@umsoman.com</a><br /> Phone: +968 99653581
+						<br /><br /><b>Shivkumar</b><br />
+						<span>Email:</span> <a href="mailto:info@dossier.com">info@dossier.com</a> <br />Phone: +968 99362061
+						<h3>For table reservations:</h3>
+						<b>Rekha Nair</b>	<br />
+						<span>Email:</span> <a href="mailto:Rekha@umsoman.com">Rekha@umsoman.com</a> <br />Phone: + 968 99269147</p>
+						</p>
+					
+					</div>
+				</div>
+				
+			</section>
+		</div>
+	</div>
+</section>
+
+<footer style="background-color:#555557;">
+	<div class="center">
+		&copy; Copyright 2013 DOSSIER CONSTRUCTION AWARDS & SUMMIT 2013
+	</div>
+</footer>
+
+</body>
+</html>

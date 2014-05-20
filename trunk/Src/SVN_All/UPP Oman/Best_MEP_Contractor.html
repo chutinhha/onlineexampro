@@ -1,0 +1,188 @@
+<head>
+	<link rel="stylesheet" href="css/nomination.css" type="text/css" />
+	<!--[if IE]>
+	<style>
+		.item .tooltip .content{ display:none; opacity:1; }
+		.item .tooltip:hover .content{ display:block; }
+	</style>
+	<![endif]-->
+	</head>
+	
+	<div id='wrap'>
+		
+		<section class='form mode2'>
+			<form action="sendmail_mep.php" method="post" name="pform" id="pform" enctype="multipart/form-data">
+				<h2>BEST MEP CONTRACTOR</h2>
+				<br />
+				<p class="clar">It will be awarded to a company known for its contribution in MEP (Mechanical, Electrical and Plumbing) domain. Judges will look for contractors who have gone above and beyond their roles in meeting the needs of the end user and have shown evidence of a high standard of finish with particular regard to finishing the work on time and on budget. </p>
+<div class="line-separator"></div>
+<br />
+				<fieldset>
+				<h4>ORGANIZATIONAL DETAILS</h4>
+				<br />
+					<div class="item">
+						<label>
+							<span>Organization Name</span>
+							<input  name="orgname" placeholder="ex. Name of company" required="required" type="text" />		
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Website Address</span>
+							<input required="required" name="url" placeholder="www.website.com" type="text" />
+						</label>
+					</div>
+					<div class="item">
+						<label>
+							<span>Corporate Address</span>
+							<textarea required="required" name='C_A'></textarea>
+						</label>
+					</div>
+					</fieldset>
+				<fieldset>
+					<h4>CONTACT DETAILS</h4>
+					<br />	
+					<div class="item">
+						<label>
+							<span>Person's Name</span>
+							<input  name="name"  required="required" type="text" />		
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Position/Designation</span>
+							<input  name="Designation" placeholder="ex. Construction Manager" required="required" type="text" />		
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Email Address</span>
+							<input name="email" class='email' required="required" type="email" />
+						</label>
+					</div>
+					<div class="item">
+						<label>
+							<span>Mobile</span>
+							<input type="tel" class='tel' name="mobile" required='required' data-validate-length-range="8,13">
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Telephone</span>
+							<input type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,13">
+						</label>
+						
+					</div>
+					</fieldset>
+				<fieldset>
+					<h4>CONTRACTOR'S DETAILS</h4>
+					<br />	
+					<div class="item">
+						<label>
+							<span>Which have been your most outstanding projects in the last two years?</span>
+							<textarea required="required" name='outstanding_projects'></textarea>
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>As an MEP contractor, what have been your key contributions in executing them?</span>
+							
+							<textarea required="required" name='key_contributions'></textarea>
+
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>What are your key competencies that stand you apart from the competition?</span>
+							<textarea required="required" name='key_competencies'></textarea>
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Tell us about your main achievements in training your staff and developing Omani talent? </span>
+							<textarea required="required" name='main_achievements'></textarea>
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>What are your major accomplishments in adopting and following best HSE practices?  </span>
+							<textarea required="required" name='major_accomplishment'></textarea>
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>What are the key awards or certifications you have received<br /> from your clients or third party bodies?</span>
+							<textarea required="required" name='key_awards'></textarea>
+						</label>
+						
+					</div>
+					<div class="item">
+						<label>
+							<span>Attachment</span>
+							<input name="attachment" type="file" />	
+						</label>
+					</div>
+				</fieldset>
+				<p>You can upload up to 2MB through this link. If your file size is bigger, please email it to Fidha Saleem (<a href="mailto:fidha@umsoman.com">fidha@umsoman.com</a>) or contact her on +968 99653581.</p>
+				<div class="screen_"> 
+  <h1>PARTICIPATION AGREEMENT</h1>
+  <p  class="more_c">By submitting your entry, you hereby agree to the following general terms & conditions of Dossier Construction Awards & Summit 2013:</p>
+ <div class="scrollshadow">
+	<ul>
+		<li>- Nominations are invited from all relevant organisations or individuals pertaining to projects located in Oman only.</li>
+		<li>- Companies are free to nominate as many projects across different award categories.</li>
+		<li>- Submissions should relate to a project completed in the last two years.</li>
+		<li>- The shortlisted entries will be evaluated based on the information provided by the nominees. </li>
+		<li>- The winners will be selected by a jury of distinguished experts drawn from the industry.</li>
+		<li>- The decision of judges is final and no correspondence will be entered into following the awards.</li>
+		<li>- UMS and its partners in the event will not be responsible for any error due to misrepresentation of facts and information by the nominees.</li>
+	</ul>
+  </div></div>
+				<button id='send' type='submit'>Submit</button>
+			</form>	
+		</section>
+	</div>
+    <script src="js/multifield.js"></script>
+    <script src="js/validator.js"></script>
+	<script>
+		// initialize the validator function
+		validator.message['date'] = 'not a real date';
+		
+		// validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+		$('form')
+			.on('blur', 'input[required], input.optional, select.required', validator.checkField)
+			.on('change', 'select.required', validator.checkField);
+			
+		$('.multi.required')
+			.on('keyup', 'input', function(){ 
+				validator.checkField.apply( $(this).siblings().last()[0] );
+			}).on('blur', 'input', function(){ 
+				validator.checkField.apply( $(this).siblings().last()[0] );
+			});
+		
+		// bind the validation to the form submit event
+		//$('#send').click('submit');//.prop('disabled', true);
+		
+		$('form').submit(function(e){
+			e.preventDefault();
+			var submit = true;
+			// evaluate the form using generic validaing
+			if( !validator.checkAll( $(this) ) ){
+				submit = false;
+			}
+
+			if( submit )
+				this.submit();
+			return false;
+		});
+		
+	</script>

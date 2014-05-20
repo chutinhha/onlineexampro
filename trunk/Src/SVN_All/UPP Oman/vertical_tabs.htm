@@ -1,0 +1,125 @@
+
+<html>
+<head>
+	<title>Simple Vertical Tab Navigation</title>
+		<link rel="stylesheet" href="css/nomination.css" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+						   
+
+	//----------Select the first tab and div by default
+	
+	$('#vertical_tab_nav > ul > li > a').eq(0).addClass( "selected" );
+	$('#vertical_tab_nav > div > #nomi').eq(0).css('display','block');
+
+
+	//---------- This assigns an onclick event to each tab link("a" tag) and passes a parameter to the showHideTab() function
+			
+		$('#vertical_tab_nav > ul > li > a').click(function(){
+			
+			/*Handle Tab Nav*/
+			$('#vertical_tab_nav > ul > li > a').removeClass( "selected");
+			$(this).addClass( "selected");
+			
+			/*Handles Tab Content*/
+			var clicked_index = $('#vertical_tab_nav > ul > li > a').index(this);
+			$('#vertical_tab_nav > div > #nomi').css('display','none');
+			$('#vertical_tab_nav > div > #nomi').eq(clicked_index).fadeIn();
+			
+			$(this).blur();
+			return false;
+			
+		});
+		
+	 
+});//end ready
+</script>
+</head>
+<body>
+
+		<section id="vertical_tab_nav">
+
+			<ul>
+				<li><a href="index.html">Tab One</a></li>
+				<li class="selected"><a href="index.html">Tab Two</a></li>
+				<li><a href="index.html">Tab Three</a></li>
+				<li><a href="index.html">Tab Four</a></li>
+			</ul>
+
+			<div>
+				<article id="nomi">
+					<h2>Tab Content One</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</article>
+
+				<article id="nomi">
+					<h2>Tab Content Two</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</article>
+
+				<article id="nomi">
+					<h2>Tab Content Three</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</article>
+
+				<article id="nomi">
+					<h2>Tab Content Four</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</article>
+				
+			</div>
+		</section>
+
+
+
+</body>
+</html>
