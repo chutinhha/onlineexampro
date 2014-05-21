@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+#headding{
+	width:95%;
+	float:left;
+	height:30px;
+	font-size:18px;
+	background:#DFE7FA;
+	color:#70797C;
+	line-height:30px;
+	padding-left:10px;
+	margin:10px 0 20px 0;
+}
+.formStyle{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#4D555B;
+}
+.txtarea{
+	width:200px;
+	height:70px;
+}

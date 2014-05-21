@@ -1,0 +1,290 @@
+
+
+
+
+
+
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>:: OER - January - 2013 ::</title>
+<style type="text/css">
+.style2 {
+	border-collapse: collapse;
+}
+.style5 {
+	font-weight: bold;
+	border-style: solid;
+	border-width: 0;
+	background-color: #343434;
+}
+.style7 {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #343434;
+}
+.style9 {
+	background-color: #ECE6DF;
+}
+.style10 {
+	font-family: Verdana;
+	font-size: xx-small;
+	margin: 10px;
+}
+.style23 {
+	font-family: Verdana;
+	font-size: xx-small;
+}
+.style44 {
+	margin: 3px 10px;
+	color: #FFFFFF;
+	font-family: Verdana;
+	font-size: medium;
+}
+</style>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0">
+
+
+<table border="0" cellpadding="0" style="width: 780px;" bordercolor="#111111" class="style2" align="center">
+  <tr>
+    <td width="100%">
+<? include("../../../inc/top1.php"); ?>  
+<? include("../../../inc/menu_gen.htm");
+?></td>
+  </tr>
+  <tr>
+    <td width="100%" height="21">
+<?include("../../../inc/home_inc1.htm");?></td>
+  </tr>
+  <tr>
+    <td width="100%" height="15" valign="middle">
+      <div align="center">
+        <center>
+        <table border="0" bgcolor="#FFFCE8" cellpadding="0" style="width: 100%;" bordercolor="#111111" class="style2">
+          <tr>
+            <td width="100%" bgcolor="#EFEFE9" colspan="3" align=center height="10">
+            <div align="left">
+				<table border="0" style="border-collapse: collapse" width="154" cellpadding="0">
+					<tr>
+						<td width="10" bgcolor="#FF0000" height="30" style="border-left-style: solid; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-style: solid; border-bottom-width: 1px; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bordercolor="#000000">
+						&nbsp;</td>
+						<td valign="bottom" style="border-bottom-style: solid; border-bottom-width: 1px; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" bordercolor="#FF0000" width="128">
+            <p align="left" style="margin-left: 5px"> <b>
+			<font face="Verdana" style="font-size: 8pt"> 
+                      <a name="top">MARKET WATCH</a></font></b></td>
+					</tr>
+				</table>
+			</div>
+			</td>
+          </tr>
+          <tr>
+            <td bgcolor="#FFFFFF" style="width: 1%">&nbsp;</td>
+            <td width="70%" bgcolor="#FFFFFF" valign="top">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse" bordercolor="#111111">
+	<tr>
+						<td colspan="2">
+						&nbsp;</td>
+					</tr>
+	<tr>
+						<td class="style5" style="height: 45px" colspan="2">
+						<p align="justify" class="style44">
+						Enhanced skincare for men </td>
+					</tr>
+	<tr>
+						<td valign="top" class="style9">
+						<p align="justify" class="style10">
+				Years of research into the specific needs of male skin have made 
+				NIVEA FOR MEN, one of the leading male skin care brand in the 
+				world – one that truly understands and offers solutions for the 
+				unique skin care needs of men. The enhanced NIVEA FOR MEN 
+				Sensitive Range has been developed especially for men with 
+				irritation-prone skin, offering both – products that prep and 
+				protect your skin pre shave and those that soothe and comfort it 
+				post shave – leaving your face feeling supple and looking 
+				refreshed. All products in the range use an Active Comfort 
+				System based around natural ingredients and an increased level 
+				of moisturisers that not only soothe irritations associated with 
+				shaving, but also improve the skin’s own defences over time.</td>
+						<td valign="top" class="style9">
+						<p align="center">
+				<font face="Verdana" size="1">
+				<img border="0" src="images/marketwatch-jan-13-1.jpg" width="120" height="180" style="border: 1px solid #808080; "></font></td>
+					</tr>
+	<tr>
+						<td colspan="2">
+
+                    <hr color="#CC3333">
+            			</td>
+					</tr>
+	<tr>
+						<td class="style5" style="height: 45px" colspan="2">
+						<p align="justify" class="style44">
+						Take-anywhere partner</td>
+					</tr>
+	<tr>
+						<td valign="top" class="style9">
+						<p align="justify" class="style10">
+				Canon Middle East expands its award-winning EOS range with the 
+				launch of the new EOS M. The company’s first ever compact system 
+				camera (CSC), the EOS M is designed for those who use 
+				photography to share their everyday passions – from food, to 
+				fashion and culture, music and art. Offering DSLR-quality 
+				imaging, creative features and Full HD movie creation in a 
+				compact and easy-to-use model, the EOS M is the perfect, 
+				take-anywhere partner for a new breed of enthusiasts who 
+				chronicle their lives through images, without necessarily 
+				considering themselves to be ‘photographers’. The EOS M is 
+				available in sleek black, glossy white, stylish silver or bold 
+				red colours, and condenses Canon’s renowned EOS imaging heritage 
+				into a stylish, compact design.</td>
+						<td valign="top" class="style9">
+						<p align="center">
+				<font face="Verdana" size="1">
+				<br>
+				<img border="0" src="images/marketwatch-jan-13-2.jpg" width="150" height="100" style="border: 1px solid #808080; "></font></td>
+					</tr>
+	<tr>
+						<td colspan="2">
+
+                    <hr color="#CC3333">
+            			</td>
+					</tr>
+	<tr>
+		        <td width="100%" valign="top" colspan="2"> 
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td class="style7" style="height: 45px" colspan="2">
+						<p align="justify" style="margin: 3px 10px">
+						<font face="Verdana" size="4">Interchangeable lens 
+						camera</font></td>
+						</tr>
+					<tr>
+						<td valign="top" class="style9">
+						<p align="justify" style="margin: 10px; ">
+				<span class="style23">The Fujifilm X-E1, an all-new 
+				interchangeable lens camera, which won the ‘Photokina STAR 
+				2012’, has made its much anticipated Oman debut and is now 
+				available across the country following its predecessor, the 
+				X-Pro1. The X-E1 boasts of the same 16 megapixel APS-C X-Trans 
+				CMOS Sensor with top-class OLED electronic viewfinder, a smaller 
+				body with built-in flash and the same X mount for the Fujinon XF 
+				lens range. The image quality is comparable to a 35mm full frame 
+				D-SLR sensor making the camera extremely attractive for 
+				professional photographers. Made in Japan, the X-E1 exudes class 
+				and high quality, as can be seen from each of its components. 
+				The top and front covers are made from die-cast magnesium for a 
+				rigid, yet delicate design. </span></td>
+						<td valign="top" class="style9">
+				<font face="Verdana" size="1">
+						<br>
+				<img border="0" src="images/marketwatch-jan-13-3.jpg" style="border: 1px solid #808080; " width="150" height="112"><br>
+&nbsp;</font></td>
+						</tr>
+					<tr>
+						<td colspan="2">
+
+                    <hr color="#CC3333">
+            			</td>
+					</tr>
+					</table>
+                  <p align="right" style="margin: 3px 10px">
+					<font face="Verdana" size="1">
+                    <br>
+                <a href="#top">Top^</a></font><br>
+				</td>
+		</tr>
+	</table>
+
+            </td>
+            <td  valign=top bgcolor=white><?include("../../../inc/current_issue_menu.php");?>&nbsp;</td>
+          </tr>
+          
+        </table>
+	</tr>
+  <tr>
+    <td width="100%" height="15" valign="middle">
+              <? include("../../../inc/menu1.htm");?>
+        <? include("../../../inc/bottom.htm");?>
+</table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+        </table>
+</body>
+</html>
