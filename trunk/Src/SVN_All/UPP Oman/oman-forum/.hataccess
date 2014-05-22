@@ -1,0 +1,14 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^oman-forum.com[nc]
+RewriteRule ^(.*)$ http://www.oman-forum.com/$1 [r=301,nc]
+
+//Caching schema
+<FilesMatch "\.()$">
+Header set Cache-Control "public, max-age=86400"
+</FilesMatch>
+
+//Prevent directory listings
+Options All -Indexes
+ 
