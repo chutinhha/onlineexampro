@@ -1,0 +1,325 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Oman Debate</title>
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+.page
+{
+	text-decoration:none;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:8pt;
+	padding:5px;
+}
+-->
+</style>
+</head>
+
+<body bgcolor="#889198">
+
+<div align="center">
+	<table border="0" cellpadding="0" style="border-collapse: collapse" width="994">
+		<tr>
+			<td valign="top">
+			<p align="center">
+			<map name="FPMap1">
+			<area target="_blank" href="http://twitter.com/#!/ums_oman" shape="rect" coords="879, 6, 988, 48">
+			<area shape="rect" coords="747,6,856,47" href="videos.html">
+			</map>
+			<img border="0" src="images/top1.jpg" width="994" height="52" usemap="#FPMap1"></td>
+		</tr>
+		<tr>
+			<td valign="top">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="994" bgcolor="#C9D0D4">
+				<tr>
+					<td width="559" valign="top"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="559" height="636">
+                      <param name="movie" value="images/oer-b-changed.swf">
+                      <param name="quality" value="High">
+                      <embed src="images/oer-b-changed.swf" quality="High" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="559" height="636"></embed>
+				    </object></td>
+				  <td valign="top">
+					<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+						<tr>
+							<td valign="top" colspan="3">
+							<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+								<tr>
+									<td valign="top" width="108">
+									<a href="debate.html">
+									<img border="0" src="images/debate.jpg" width="108" height="42"></a></td>
+									<td valign="top" width="95">
+									<a href="awards.html">
+									<img border="0" src="images/awards.jpg" width="95" height="42"></a></td>
+									<td valign="top" width="109">
+									<a href="panelists.html">
+									<img border="0" src="images/panelists.jpg" width="109" height="42"></a></td>
+									<td valign="top">
+									<a href="partners.html">
+									<img border="0" src="images/partners.jpg" width="123" height="42"></a></td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;
+							</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">
+							<p align="center"><strong>Oman Debate 2014</strong></td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">
+							  <p><strong>Date: 26th  May, 2014<br>
+							    Venue: Majan Ballroom, Al Bustan Palace, A Ritz Carlton Hotel&nbsp;<br>
+							    Time: 9.00-12.30 pm&nbsp;<br>
+							    </strong><br>
+							    <strong>Topic: In-Country Value Oman &ndash; The National Priority</strong><strong><u> </u></strong></p>
+<p style="line-height: 20px" align="center">
+<p><strong>BACKGROUND  NOTE ON ICV:</strong><br>
+  The promotion of local products &amp;  services and development &amp; deployment of Omani human resources has been a  priority area for the Government and the private sector for quite some time.  The oil and gas sector in Oman has moved the agenda to a high ground in the  form of a well-researched, comprehensively defined and structured programme  called &lsquo;IN-COUNTRY VALUE DEVELOPMENT &ndash; BLUEPRINT STRATEGY&rsquo;. ICV is the total  spend retained in-country that can benefit business development, contribute to  human capability development and stimulate productivity in the Omani economy.  In short, products made and services provided by skilled Omanis. The strategy  entails ICV opportunities of $64 billion in the period 2013-2020 encompassing  business prospects for the Omani/Oman based companies and employment of Omanis  in the activities related to the oil &amp; gas sector. </p>
+<p><strong>POINTS  TO BE DISCUSSED:</strong><br>
+  Oman Debate 2014 will discuss the ICV  Blueprint Strategy in the overall national economic and social development  context as per the following points:</p>
+<ul>
+  <li>Briefly review the ICV  Blueprint strategy and a detailed debate on the associated challenges and  opportunities.</li>
+  <li>The multiplier effect of the  strategy on the non-oil &amp; gas industries as it has a direct bearing on the  services (banking, finance, telecom, IT, logistics etc.) and manufacturing  sectors, etc.</li>
+  <li>Boon to the small and medium  enterprises (SMEs)</li>
+  <li>The learnings from the strategy  which could be applied in other key sectors such as tourism, banking, IT,  telecom, manufacturing, retail and logistics.</li>
+  <li>Deliberate on the need and  feasibility aspect for making a similar ICV policy for the entire national  economy and the related incentive and monitoring mechanism.&nbsp;&nbsp; </li>
+  <li>Reflect upon its impact on  foreign direct investment (FDI).</li>
+  <li>Assess if it would really give  the desired boost to the home grown private sector companies, if the strategy  is rolled-out across sectors at the national level.<br>
+  &nbsp;</li>
+</ul></td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">
+							<p align="center">
+							&nbsp;</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;
+											</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						<tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						
+						<tr>
+							<td valign="top" width="9%" height="187">&nbsp;</td>
+							<td valign="top" width="82%" height="187">
+							<table border="0" cellpadding="0" style="border-collapse: collapse" width="101%">
+								<tr>
+									<td bgcolor="#676767" width="49%">
+									<p style="margin: 10px">
+									<font face="Verdana" style="font-size: 9pt; font-weight: 700" color="#FFFFFF">
+									Opinion Poll</font></td>
+									<td bgcolor="#676767" width="51%">
+									<p align="right" style="margin: 10px">
+									<font face="Verdana" style="font-size: 9pt" color="#FFFFFF">
+								  <a style=" color: #FFFFFF; text-decoration: none;" href="voteArchive.php">View Archive</a></font></td>
+								</tr>
+								<tr>
+									<td bgcolor="#343434" colspan="2" height="46">
+									<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="80">
+										<tr>
+											<td width="75">
+											<p align="center">
+											<font color="#FFFFFF" face="Verdana" style="font-size: 8pt">
+											<img border="0" src="images/poll_icon.jpg" width="52" height="54" align="middle" hspace="0"></font></td>
+											<td>
+											<font color="#FFFFFF" face="Verdana" style="font-size: 8pt">
+											<?php
+												include('oerDb.php');
+												
+												$rec_limit = 1;
+												$cntQuery = mysql_query("SELECT id FROM question WHERE pub=1");
+												$cntVal = mysql_fetch_array($cntQuery);
+												$cnt = $cntVal[id];
+												if( isset($_GET{'page'} ) )
+												{
+													$page= $_GET['page'];
+												}
+												else
+												{
+													$page= $cnt;
+												}
+												$nxtQuery = mysql_query("SELECT id FROM question WHERE id > $page ORDER BY id ASC LIMIT 1");
+												$nxtVal = mysql_fetch_array($nxtQuery);
+												$nxt = $nxtVal[id];
+												
+												$prevId = $page-2;
+												$prevQuery = mysql_query("SELECT id FROM question WHERE id < $page ORDER BY id DESC LIMIT 1");
+												$prevVal = mysql_fetch_array($prevQuery);
+												$prev = $prevVal[id];
+												
+												$votQuery = mysql_query("SELECT * FROM question WHERE id=$page AND deleted=0");
+												if(mysql_num_rows($votQuery)>0)
+												{
+													$vote = mysql_fetch_array($votQuery);
+													echo $vote[question];
+													$noPoll = '';
+												}
+												else
+												{
+													echo "No Opinion Poll statement"; 
+													$noPoll = 'disabled';
+												}
+												
+											?></font></td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#FEFEFE" colspan="2">
+										<?php include('vote.php');?>
+                                    </td>
+								</tr>
+								<tr align="center" valign="middle">
+									<td height="35" colspan="2" bgcolor="#FEFEFE"><?php 
+										if($nxt != '' & $prev != '')
+										{
+											echo "<a href=\"$_PHP_SELF?page=$prev\" class='page'><< Previous</a> | ";
+										   	echo "<a href=\"$_PHP_SELF?page=$nxt\" class='page'>Next >></a>";
+										}
+										else if($nxt != '')
+										{
+											echo "<a href=\"$_PHP_SELF?page=$nxt\" class='page'>Next >></a>";
+										}
+										else if($prev != '')
+										{
+											echo "<a href=\"$_PHP_SELF?page=$prev\" class='page'><< Previous</a> ";
+										}
+?></td>
+							  </tr>
+							</table>
+							</td>
+							<td valign="top" width="9%" height="187">&nbsp;</td>
+						</tr>
+                        <tr>
+							<td valign="top" width="9%">&nbsp;</td>
+							<td valign="top" width="82%">&nbsp;
+											</td>
+							<td valign="top" width="9%">&nbsp;</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" bgcolor="#C9D0D4" height="46">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" bgcolor="#FFFFFF" height="127">
+				<tr>
+					<td width="37" bgcolor="#C9D0D4">&nbsp;</td>
+					<td><p style="margin: 5px">&nbsp;</p>
+					
+					  <table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+                        <tr>
+                          <td width="30">&nbsp;</td>
+                          <td width="115" valign="top" style="width: 261px">
+					<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+						<tr>
+							<td width="30">&nbsp;</td>
+							<td width="115" valign="top" style="width: 261px">
+					<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+						<tr>
+							<td width="30">&nbsp;</td>
+							<td width="115" valign="top" style="width: 261px">
+							<map name="FPMap0">
+							<area target="_blank" href="http://www.timesofoman.com/" shape="rect" coords="647, 106, 729, 143">
+							<area target="_blank" href="http://www.shabiba.com/" shape="rect" coords="641, 54, 735, 96">
+							<area target="_blank" href="http://www.soharsteel.com/" shape="rect" coords="546, 32, 605, 95">
+							<area target="_blank" href="http://www.alhabibonline.com/index.html" shape="rect" coords="229, 45, 350, 104">
+							<area target="_blank" href="http://www.nawras.om/" shape="rect" coords="146, 27, 215, 134">
+							</map>
+							<img border="0" src="images/omandebate-partners-2012.jpg" usemap="#FPMap0" width="932" height="150"></td>
+							<td valign="top">&nbsp;</td>
+							<td width="27">&nbsp;</td>
+						</tr>
+						</table>
+							</td>
+							<td valign="top">&nbsp;</td>
+							<td width="27">&nbsp;</td>
+						</tr>
+						</table>
+							</td>
+                          <td valign="top">&nbsp;</td>
+                          <td width="27">&nbsp;</td>
+                        </tr>
+                      </table>
+				  <p style="margin: 5px">&nbsp;</p></td>
+					<td width="38" bgcolor="#C9D0D4">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="37" bgcolor="#C9D0D4">&nbsp;</td>
+					<td bgcolor="#C9D0D4"><br>
+&nbsp;</td>
+					<td width="38" bgcolor="#C9D0D4">&nbsp;</td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">&nbsp;</td>
+		</tr>
+		<tr>
+			<td valign="top">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+				<tr>
+					<td width="510">
+					<font face="Verdana" style="font-size: 9pt" color="#FFFFFF">
+					<a href="press.html" style="text-decoration: none">
+					<font color="#FFFFFF">Press</font></a>&nbsp; |&nbsp;
+					<a style="text-decoration: none" href="gallery.html">
+					<font color="#FFFFFF">Gallery </font></a>&nbsp;|&nbsp; 
+					<a href="contact.html" style="text-decoration: none">
+					<font color="#FFFFFF">Contact Us</font></a>&nbsp; |
+					<a style="text-decoration: none" target="_blank" href="debate_2010">
+					<font color="#FFFFFF">View Debate 2010</font></a></font></td>
+					<td>&nbsp;</td>
+					<td>
+					<p align="right">
+					<font face="Verdana" style="font-size: 8pt" color="#FFFFFF">
+					(c) OMAN Debate 2012, Sultanate of Oman</font></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+</body>
+
+</html>

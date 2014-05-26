@@ -343,6 +343,9 @@
                                     <a style="text-decoration: none" target="_blank" href="debate_2010">
                                         <font color="#FFFFFF">View Debate 2010</font></a>
                                     &nbsp; |
+									<a style="text-decoration: none" target="_blank" href="debate_2011">
+                                        <font color="#FFFFFF">View Debate 2011</font></a>
+                                    &nbsp; |
                                     <a style="text-decoration: none" target="_blank" href="debate_2012">
                                         <font color="#FFFFFF">View Debate 2012</font></a>
                                     </font>
