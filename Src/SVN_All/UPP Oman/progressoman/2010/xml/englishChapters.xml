@@ -1,0 +1,333 @@
+<chapter nChapter = "17">
+<chapter1 cName="01 - Foreword">
+<page thumb="pages/thumbs/english/E01.jpg" gotoPg="1"/>
+<page thumb="pages/thumbs/english/E02.jpg" gotoPg="2"/>
+<page thumb="pages/thumbs/english/E03.jpg" gotoPg="3"/>
+<page thumb="pages/thumbs/english/E04.jpg" gotoPg="4"/>
+<page thumb="pages/thumbs/english/E05.jpg" gotoPg="5"/>
+<page thumb="pages/thumbs/english/E06.jpg" gotoPg="6"/>
+<page thumb="pages/thumbs/english/E07.jpg" gotoPg="7"/>
+<page thumb="pages/thumbs/english/E08.jpg" gotoPg="8"/>
+<page thumb="pages/thumbs/english/E09.jpg" gotoPg="9"/>
+<page thumb="pages/thumbs/english/E10.jpg" gotoPg="10"/>
+<page thumb="pages/thumbs/english/E11.jpg" gotoPg="11"/>
+<page thumb="pages/thumbs/english/E12.jpg" gotoPg="12"/>
+<page thumb="pages/thumbs/english/E13.jpg" gotoPg="13"/>
+<page thumb="pages/thumbs/english/E14.jpg" gotoPg="14"/>
+<page thumb="pages/thumbs/english/E15.jpg" gotoPg="15"/>
+<page thumb="pages/thumbs/english/E16.jpg" gotoPg="16"/>
+<page thumb="pages/thumbs/english/E17.jpg" gotoPg="17"/>
+<page thumb="pages/thumbs/english/E18.jpg" gotoPg="18"/>
+<page thumb="pages/thumbs/english/E19.jpg" gotoPg="19"/>
+<page thumb="pages/thumbs/english/E20.jpg" gotoPg="20"/>
+<page thumb="pages/thumbs/english/E21.jpg" gotoPg="21"/>
+<page thumb="pages/thumbs/english/E22.jpg" gotoPg="22"/>
+<page thumb="pages/thumbs/english/E23.jpg" gotoPg="23"/>
+<page thumb="pages/thumbs/english/E24.jpg" gotoPg="24"/>
+</chapter1>
+
+<chapter2 cName="02 - Milestones">
+<page thumb="pages/thumbs/english/E25.jpg" gotoPg="25"/>
+<page thumb="pages/thumbs/english/E26.jpg" gotoPg="26"/>
+<page thumb="pages/thumbs/english/E27.jpg" gotoPg="27"/>
+<page thumb="pages/thumbs/english/E28.jpg" gotoPg="28"/>
+<page thumb="pages/thumbs/english/E29.jpg" gotoPg="29"/>
+<page thumb="pages/thumbs/english/E30.jpg" gotoPg="30"/>
+<page thumb="pages/thumbs/english/E31.jpg" gotoPg="31"/>
+<page thumb="pages/thumbs/english/E32.jpg" gotoPg="32"/>
+<page thumb="pages/thumbs/english/E33.jpg" gotoPg="33"/>
+<page thumb="pages/thumbs/english/E34.jpg" gotoPg="34"/>
+<page thumb="pages/thumbs/english/E35.jpg" gotoPg="35"/>
+</chapter2>
+
+<chapter3 cName="03 - Economy">
+<page thumb="pages/thumbs/english/E36.jpg" gotoPg="36"/>
+<page thumb="pages/thumbs/english/E37.jpg" gotoPg="37"/>
+<page thumb="pages/thumbs/english/E38.jpg" gotoPg="38"/>
+<page thumb="pages/thumbs/english/E39.jpg" gotoPg="39"/>
+<page thumb="pages/thumbs/english/E40.jpg" gotoPg="40"/>
+<page thumb="pages/thumbs/english/E41.jpg" gotoPg="41"/>
+<page thumb="pages/thumbs/english/E42.jpg" gotoPg="42"/>
+<page thumb="pages/thumbs/english/E43.jpg" gotoPg="43"/>
+<page thumb="pages/thumbs/english/E44.jpg" gotoPg="44"/>
+<page thumb="pages/thumbs/english/E45.jpg" gotoPg="45"/>
+<page thumb="pages/thumbs/english/E46.jpg" gotoPg="46"/>
+<page thumb="pages/thumbs/english/E47.jpg" gotoPg="47"/>
+<page thumb="pages/thumbs/english/E48.jpg" gotoPg="48"/>
+<page thumb="pages/thumbs/english/E49.jpg" gotoPg="49"/>
+<page thumb="pages/thumbs/english/E50.jpg" gotoPg="50"/>
+<page thumb="pages/thumbs/english/E51.jpg" gotoPg="51"/>
+<page thumb="pages/thumbs/english/E52.jpg" gotoPg="52"/>
+<page thumb="pages/thumbs/english/E53.jpg" gotoPg="53"/>
+<page thumb="pages/thumbs/english/E54.jpg" gotoPg="54"/>
+<page thumb="pages/thumbs/english/E55.jpg" gotoPg="55"/>
+<page thumb="pages/thumbs/english/E56.jpg" gotoPg="56"/>
+</chapter3>
+
+
+<chapter4 cName="04 - Oil & Gas">
+<page thumb="pages/thumbs/english/E57.jpg" gotoPg="57"/>
+<page thumb="pages/thumbs/english/E58.jpg" gotoPg="58"/>
+<page thumb="pages/thumbs/english/E59.jpg" gotoPg="59"/>
+<page thumb="pages/thumbs/english/E60.jpg" gotoPg="60"/>
+<page thumb="pages/thumbs/english/E61.jpg" gotoPg="61"/>
+<page thumb="pages/thumbs/english/E62.jpg" gotoPg="62"/>
+<page thumb="pages/thumbs/english/E63.jpg" gotoPg="63"/>
+<page thumb="pages/thumbs/english/E64.jpg" gotoPg="64"/>
+<page thumb="pages/thumbs/english/E65.jpg" gotoPg="65"/>
+<page thumb="pages/thumbs/english/E66.jpg" gotoPg="66"/>
+<page thumb="pages/thumbs/english/E67.jpg" gotoPg="67"/>
+<page thumb="pages/thumbs/english/E68.jpg" gotoPg="68"/>
+<page thumb="pages/thumbs/english/E69.jpg" gotoPg="69"/>
+<page thumb="pages/thumbs/english/E70.jpg" gotoPg="70"/>
+<page thumb="pages/thumbs/english/E71.jpg" gotoPg="71"/>
+<page thumb="pages/thumbs/english/E72.jpg" gotoPg="72"/>
+<page thumb="pages/thumbs/english/E73.jpg" gotoPg="73"/>
+<page thumb="pages/thumbs/english/E74.jpg" gotoPg="74"/>
+<page thumb="pages/thumbs/english/E75.jpg" gotoPg="75"/>
+<page thumb="pages/thumbs/english/E76.jpg" gotoPg="76"/>
+<page thumb="pages/thumbs/english/E77.jpg" gotoPg="77"/>
+<page thumb="pages/thumbs/english/E78.jpg" gotoPg="78"/>
+<page thumb="pages/thumbs/english/E79.jpg" gotoPg="79"/>
+</chapter4>
+
+<chapter5 cName="05 - Banking">
+
+<page thumb="pages/thumbs/english/E80.jpg" gotoPg="80"/>
+<page thumb="pages/thumbs/english/E81.jpg" gotoPg="81"/>
+<page thumb="pages/thumbs/english/E82.jpg" gotoPg="82"/>
+<page thumb="pages/thumbs/english/E83.jpg" gotoPg="83"/>
+<page thumb="pages/thumbs/english/E84.jpg" gotoPg="84"/>
+<page thumb="pages/thumbs/english/E85.jpg" gotoPg="85"/>
+<page thumb="pages/thumbs/english/E86.jpg" gotoPg="86"/>
+<page thumb="pages/thumbs/english/E87.jpg" gotoPg="87"/>
+<page thumb="pages/thumbs/english/E88.jpg" gotoPg="88"/>
+<page thumb="pages/thumbs/english/E89.jpg" gotoPg="89"/>
+<page thumb="pages/thumbs/english/E90.jpg" gotoPg="90"/>
+<page thumb="pages/thumbs/english/E91.jpg" gotoPg="91"/>
+<page thumb="pages/thumbs/english/E92.jpg" gotoPg="92"/>
+</chapter5>
+
+<chapter6 cName="06 - Capital Market">
+
+<page thumb="pages/thumbs/english/E93.jpg" gotoPg="93"/>
+<page thumb="pages/thumbs/english/E94.jpg" gotoPg="94"/>
+<page thumb="pages/thumbs/english/E95.jpg" gotoPg="95"/>
+<page thumb="pages/thumbs/english/E96.jpg" gotoPg="96"/>
+<page thumb="pages/thumbs/english/E97.jpg" gotoPg="97"/>
+<page thumb="pages/thumbs/english/E98.jpg" gotoPg="98"/>
+<page thumb="pages/thumbs/english/E99.jpg" gotoPg="99"/>
+</chapter6>
+
+
+<chapter7 cName="07 - Insurance">
+
+<page thumb="pages/thumbs/english/E100.jpg" gotoPg="100"/>
+<page thumb="pages/thumbs/english/E101.jpg" gotoPg="101"/>
+<page thumb="pages/thumbs/english/E102.jpg" gotoPg="102"/>
+<page thumb="pages/thumbs/english/E103.jpg" gotoPg="103"/>
+<page thumb="pages/thumbs/english/E104.jpg" gotoPg="104"/>
+<page thumb="pages/thumbs/english/E105.jpg" gotoPg="105"/>
+</chapter7>
+
+<chapter8 cName="08 - Health">
+
+<page thumb="pages/thumbs/english/E106.jpg" gotoPg="106"/>
+<page thumb="pages/thumbs/english/E107.jpg" gotoPg="107"/>
+<page thumb="pages/thumbs/english/E108.jpg" gotoPg="108"/>
+<page thumb="pages/thumbs/english/E109.jpg" gotoPg="109"/>
+<page thumb="pages/thumbs/english/E110.jpg" gotoPg="110"/>
+<page thumb="pages/thumbs/english/E111.jpg" gotoPg="111"/>
+<page thumb="pages/thumbs/english/E112.jpg" gotoPg="112"/>
+</chapter8>
+
+<chapter9 cName="09 - Education">
+
+<page thumb="pages/thumbs/english/E113.jpg" gotoPg="113"/>
+<page thumb="pages/thumbs/english/E114.jpg" gotoPg="114"/>
+<page thumb="pages/thumbs/english/E115.jpg" gotoPg="115"/>
+<page thumb="pages/thumbs/english/E116.jpg" gotoPg="116"/>
+<page thumb="pages/thumbs/english/E117.jpg" gotoPg="117"/>
+<page thumb="pages/thumbs/english/E118.jpg" gotoPg="118"/>
+<page thumb="pages/thumbs/english/E119.jpg" gotoPg="119"/>
+<page thumb="pages/thumbs/english/E120.jpg" gotoPg="120"/>
+<page thumb="pages/thumbs/english/E121.jpg" gotoPg="121"/>
+</chapter9>
+
+<chapter10 cName="10 - Manufacturing">
+
+<page thumb="pages/thumbs/english/E122.jpg" gotoPg="122"/>
+<page thumb="pages/thumbs/english/E123.jpg" gotoPg="123"/>
+<page thumb="pages/thumbs/english/E124.jpg" gotoPg="124"/>
+<page thumb="pages/thumbs/english/E125.jpg" gotoPg="125"/>
+<page thumb="pages/thumbs/english/E126.jpg" gotoPg="126"/>
+<page thumb="pages/thumbs/english/E127.jpg" gotoPg="127"/>
+<page thumb="pages/thumbs/english/E128.jpg" gotoPg="128"/>
+<page thumb="pages/thumbs/english/E129.jpg" gotoPg="129"/>
+<page thumb="pages/thumbs/english/E130.jpg" gotoPg="130"/>
+<page thumb="pages/thumbs/english/E131.jpg" gotoPg="131"/>
+<page thumb="pages/thumbs/english/E132.jpg" gotoPg="132"/>
+<page thumb="pages/thumbs/english/E133.jpg" gotoPg="133"/>
+<page thumb="pages/thumbs/english/E134.jpg" gotoPg="134"/>
+<page thumb="pages/thumbs/english/E135.jpg" gotoPg="135"/>
+<page thumb="pages/thumbs/english/E136.jpg" gotoPg="136"/>
+</chapter10>
+
+<chapter11 cName="11 - Infrastructure">
+
+<page thumb="pages/thumbs/english/E137.jpg" gotoPg="137"/>
+<page thumb="pages/thumbs/english/E138.jpg" gotoPg="138"/>
+<page thumb="pages/thumbs/english/E139.jpg" gotoPg="139"/>
+<page thumb="pages/thumbs/english/E140.jpg" gotoPg="140"/>
+<page thumb="pages/thumbs/english/E141.jpg" gotoPg="141"/>
+<page thumb="pages/thumbs/english/E142.jpg" gotoPg="142"/>
+<page thumb="pages/thumbs/english/E143.jpg" gotoPg="143"/>
+<page thumb="pages/thumbs/english/E144.jpg" gotoPg="144"/>
+<page thumb="pages/thumbs/english/E145.jpg" gotoPg="145"/>
+<page thumb="pages/thumbs/english/E146.jpg" gotoPg="146"/>
+<page thumb="pages/thumbs/english/E147.jpg" gotoPg="147"/>
+<page thumb="pages/thumbs/english/E148.jpg" gotoPg="148"/>
+<page thumb="pages/thumbs/english/E149.jpg" gotoPg="149"/>
+<page thumb="pages/thumbs/english/E150.jpg" gotoPg="150"/>
+<page thumb="pages/thumbs/english/E151.jpg" gotoPg="151"/>
+<page thumb="pages/thumbs/english/E152.jpg" gotoPg="152"/>
+<page thumb="pages/thumbs/english/E153.jpg" gotoPg="153"/>
+<page thumb="pages/thumbs/english/E154.jpg" gotoPg="154"/>
+<page thumb="pages/thumbs/english/E155.jpg" gotoPg="155"/>
+<page thumb="pages/thumbs/english/E156.jpg" gotoPg="156"/>
+<page thumb="pages/thumbs/english/E157.jpg" gotoPg="157"/>
+<page thumb="pages/thumbs/english/E158.jpg" gotoPg="158"/>
+<page thumb="pages/thumbs/english/E159.jpg" gotoPg="159"/>
+<page thumb="pages/thumbs/english/E160.jpg" gotoPg="160"/>
+<page thumb="pages/thumbs/english/E161.jpg" gotoPg="161"/>
+<page thumb="pages/thumbs/english/E162.jpg" gotoPg="162"/>
+<page thumb="pages/thumbs/english/E163.jpg" gotoPg="163"/>
+<page thumb="pages/thumbs/english/E164.jpg" gotoPg="164"/>
+<page thumb="pages/thumbs/english/E165.jpg" gotoPg="165"/>
+<page thumb="pages/thumbs/english/E166.jpg" gotoPg="166"/>
+<page thumb="pages/thumbs/english/E167.jpg" gotoPg="167"/>
+<page thumb="pages/thumbs/english/E168.jpg" gotoPg="168"/>
+<page thumb="pages/thumbs/english/E169.jpg" gotoPg="169"/>
+<page thumb="pages/thumbs/english/E170.jpg" gotoPg="170"/>
+<page thumb="pages/thumbs/english/E171.jpg" gotoPg="171"/>
+</chapter11>
+
+<chapter12 cName="12 - Shipping">
+
+<page thumb="pages/thumbs/english/E172.jpg" gotoPg="172"/>
+<page thumb="pages/thumbs/english/E173.jpg" gotoPg="173"/>
+<page thumb="pages/thumbs/english/E174.jpg" gotoPg="174"/>
+<page thumb="pages/thumbs/english/E175.jpg" gotoPg="175"/>
+<page thumb="pages/thumbs/english/E176.jpg" gotoPg="176"/>
+</chapter12>
+
+<chapter13 cName="13 - Real Estate">
+
+<page thumb="pages/thumbs/english/E177.jpg" gotoPg="177"/>
+<page thumb="pages/thumbs/english/E178.jpg" gotoPg="178"/>
+<page thumb="pages/thumbs/english/E179.jpg" gotoPg="179"/>
+<page thumb="pages/thumbs/english/E180.jpg" gotoPg="180"/>
+<page thumb="pages/thumbs/english/E181.jpg" gotoPg="181"/>
+<page thumb="pages/thumbs/english/E182.jpg" gotoPg="182"/>
+<page thumb="pages/thumbs/english/E183.jpg" gotoPg="183"/>
+</chapter13>
+
+<chapter14 cName="14 - ICT">
+
+
+<page thumb="pages/thumbs/english/E184.jpg" gotoPg="184"/>
+<page thumb="pages/thumbs/english/E185.jpg" gotoPg="185"/>
+<page thumb="pages/thumbs/english/E186.jpg" gotoPg="186"/>
+<page thumb="pages/thumbs/english/E187.jpg" gotoPg="187"/>
+<page thumb="pages/thumbs/english/E188.jpg" gotoPg="188"/>
+<page thumb="pages/thumbs/english/E189.jpg" gotoPg="189"/>
+<page thumb="pages/thumbs/english/E190.jpg" gotoPg="190"/>
+<page thumb="pages/thumbs/english/E191.jpg" gotoPg="191"/>
+<page thumb="pages/thumbs/english/E192.jpg" gotoPg="192"/>
+<page thumb="pages/thumbs/english/E193.jpg" gotoPg="193"/>
+<page thumb="pages/thumbs/english/E194.jpg" gotoPg="194"/>
+<page thumb="pages/thumbs/english/E195.jpg" gotoPg="195"/>
+<page thumb="pages/thumbs/english/E196.jpg" gotoPg="196"/>
+<page thumb="pages/thumbs/english/E197.jpg" gotoPg="197"/>
+<page thumb="pages/thumbs/english/E198.jpg" gotoPg="198"/>
+<page thumb="pages/thumbs/english/E199.jpg" gotoPg="199"/>
+<page thumb="pages/thumbs/english/E200.jpg" gotoPg="200"/>
+<page thumb="pages/thumbs/english/E201.jpg" gotoPg="201"/>
+<page thumb="pages/thumbs/english/E202.jpg" gotoPg="202"/>
+<page thumb="pages/thumbs/english/E203.jpg" gotoPg="203"/>
+<page thumb="pages/thumbs/english/E204.jpg" gotoPg="204"/>
+<page thumb="pages/thumbs/english/E205.jpg" gotoPg="205"/>
+<page thumb="pages/thumbs/english/E206.jpg" gotoPg="206"/>
+<page thumb="pages/thumbs/english/E207.jpg" gotoPg="207"/>
+<page thumb="pages/thumbs/english/E208.jpg" gotoPg="208"/>
+<page thumb="pages/thumbs/english/E209.jpg" gotoPg="209"/>
+<page thumb="pages/thumbs/english/E210.jpg" gotoPg="210"/>
+<page thumb="pages/thumbs/english/E211.jpg" gotoPg="211"/>
+<page thumb="pages/thumbs/english/E212.jpg" gotoPg="212"/>
+<page thumb="pages/thumbs/english/E213.jpg" gotoPg="213"/>
+<page thumb="pages/thumbs/english/E214.jpg" gotoPg="214"/>
+<page thumb="pages/thumbs/english/E215.jpg" gotoPg="215"/>
+<page thumb="pages/thumbs/english/E216.jpg" gotoPg="216"/>
+<page thumb="pages/thumbs/english/E217.jpg" gotoPg="217"/>
+<page thumb="pages/thumbs/english/E218.jpg" gotoPg="218"/>
+<page thumb="pages/thumbs/english/E219.jpg" gotoPg="219"/>
+<page thumb="pages/thumbs/english/E220.jpg" gotoPg="220"/>
+<page thumb="pages/thumbs/english/E221.jpg" gotoPg="221"/>
+<page thumb="pages/thumbs/english/E222.jpg" gotoPg="222"/>
+<page thumb="pages/thumbs/english/E223.jpg" gotoPg="223"/>
+</chapter14>
+
+<chapter15 cName="15 - Tourism">
+
+<page thumb="pages/thumbs/english/E224.jpg" gotoPg="224"/>
+<page thumb="pages/thumbs/english/E225.jpg" gotoPg="225"/>
+<page thumb="pages/thumbs/english/E226.jpg" gotoPg="226"/>
+<page thumb="pages/thumbs/english/E227.jpg" gotoPg="227"/>
+<page thumb="pages/thumbs/english/E228.jpg" gotoPg="228"/>
+<page thumb="pages/thumbs/english/E229.jpg" gotoPg="229"/>
+<page thumb="pages/thumbs/english/E230.jpg" gotoPg="230"/>
+<page thumb="pages/thumbs/english/E231.jpg" gotoPg="231"/>
+<page thumb="pages/thumbs/english/E232.jpg" gotoPg="232"/>
+<page thumb="pages/thumbs/english/E233.jpg" gotoPg="233"/>
+<page thumb="pages/thumbs/english/E234.jpg" gotoPg="234"/>
+<page thumb="pages/thumbs/english/E235.jpg" gotoPg="235"/>
+<page thumb="pages/thumbs/english/E236.jpg" gotoPg="236"/>
+<page thumb="pages/thumbs/english/E237.jpg" gotoPg="237"/>
+<page thumb="pages/thumbs/english/E238.jpg" gotoPg="238"/>
+<page thumb="pages/thumbs/english/E239.jpg" gotoPg="239"/>
+<page thumb="pages/thumbs/english/E240.jpg" gotoPg="240"/>
+<page thumb="pages/thumbs/english/E241.jpg" gotoPg="241"/>
+<page thumb="pages/thumbs/english/E242.jpg" gotoPg="242"/>
+<page thumb="pages/thumbs/english/E243.jpg" gotoPg="243"/>
+<page thumb="pages/thumbs/english/E244.jpg" gotoPg="244"/>
+<page thumb="pages/thumbs/english/E245.jpg" gotoPg="245"/>
+<page thumb="pages/thumbs/english/E246.jpg" gotoPg="246"/>
+<page thumb="pages/thumbs/english/E247.jpg" gotoPg="247"/>
+</chapter15>
+
+
+<chapter16 cName="16 - Agriculture">
+
+<page thumb="pages/thumbs/english/E248.jpg" gotoPg="248"/>
+<page thumb="pages/thumbs/english/E249.jpg" gotoPg="249"/>
+<page thumb="pages/thumbs/english/E250.jpg" gotoPg="250"/>
+<page thumb="pages/thumbs/english/E251.jpg" gotoPg="251"/>
+<page thumb="pages/thumbs/english/E252.jpg" gotoPg="252"/>
+<page thumb="pages/thumbs/english/E253.jpg" gotoPg="253"/>
+<page thumb="pages/thumbs/english/E254.jpg" gotoPg="254"/>
+<page thumb="pages/thumbs/english/E255.jpg" gotoPg="255"/>
+<page thumb="pages/thumbs/english/E256.jpg" gotoPg="256"/>
+<page thumb="pages/thumbs/english/E257.jpg" gotoPg="257"/>
+</chapter16>
+
+<chapter17 cName="17 - Crown Jewel">
+
+<page thumb="pages/thumbs/english/E258.jpg" gotoPg="258"/>
+<page thumb="pages/thumbs/english/E259.jpg" gotoPg="259"/>
+<page thumb="pages/thumbs/english/E260.jpg" gotoPg="260"/>
+<page thumb="pages/thumbs/english/E261.jpg" gotoPg="261"/>
+<page thumb="pages/thumbs/english/E262.jpg" gotoPg="262"/>
+<page thumb="pages/thumbs/english/E263.jpg" gotoPg="263"/>
+</chapter17>
+
+</chapter>

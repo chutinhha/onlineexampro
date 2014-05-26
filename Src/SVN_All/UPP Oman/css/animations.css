@@ -1,0 +1,115 @@
+/* line 6, ../sass/animations.scss */
+.animateFade,
+.slideLeft,
+.slideRight,
+.paddingAnimation,
+.widthAnimation {
+  -webkit-transition: opacity 0.4s, left 0.5s, right 0.5s, padding 0.3s, width 0.3s;
+  -moz-transition: opacity 0.4s, left 0.5s, right 0.5s, padding 0.3s, width 0.3s;
+  -o-transition: opacity 0.4s, left 0.5s, right 0.5s, padding 0.3s, width 0.3s;
+  transition: opacity 0.4s, left 0.5s, right 0.5s, padding 0.3s, width 0.3s;
+}
+
+/* line 10, ../sass/animations.scss */
+.animateFade {
+  opacity: 0;
+}
+/* line 12, ../sass/animations.scss */
+.animateFade.animationComplete {
+  opacity: 1;
+}
+
+/* line 16, ../sass/animations.scss */
+.slideLeft {
+  position: relative;
+  left: -30%;
+  right: auto;
+  opacity: 0;
+}
+/* line 21, ../sass/animations.scss */
+.slideLeft.animationComplete {
+  left: 0;
+  opacity: 1;
+}
+
+/* line 26, ../sass/animations.scss */
+.slideRight {
+  position: relative;
+  right: -30%;
+  left: auto;
+  opacity: 0;
+}
+/* line 31, ../sass/animations.scss */
+.slideRight.animationComplete {
+  right: 0;
+  opacity: 1;
+}
+
+/* line 37, ../sass/animations.scss */
+.paddingAnimation,
+.page-title .h-line.paddingAnimation {
+  opacity: 0;
+  padding: 0;
+}
+/* line 40, ../sass/animations.scss */
+.paddingAnimation.animationComplete,
+.page-title .h-line.paddingAnimation.animationComplete {
+  opacity: 1;
+  padding: 0 176px;
+}
+
+/* line 47, ../sass/animations.scss */
+#services .devices .imac.slideLeft,
+#services .devices .macbook.slideLeft {
+  left: 30%;
+}
+/* line 51, ../sass/animations.scss */
+#services .devices .ipad.slideLeft,
+#services .devices .iphone.slideLeft {
+  left: -30%;
+}
+/* line 54, ../sass/animations.scss */
+#services .devices .imac.slideLeft.animationComplete {
+  left: 238px;
+}
+/* line 57, ../sass/animations.scss */
+#services .devices .macbook.slideLeft.animationComplete {
+  left: 428px;
+}
+/* line 60, ../sass/animations.scss */
+#services .devices .ipad.slideLeft.animationComplete {
+  left: 22px;
+}
+/* line 63, ../sass/animations.scss */
+#services .devices .iphone.slideLeft.animationComplete {
+  left: 217px;
+}
+.Mcircle {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px; 
+	/* width and height can be anything, as long as they're equal */
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* Spinning, gradient circle; CSS only! */
+#advanced {
+	width: 8px;
+	height: 8px;
+	display:inline;
+	float:right;
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+	background-image: -ms-radial-gradient(center bottom, circle closest-corner, yellow 0%, orange 100%);
+	margin-top:12px;
+	margin-left:7px;
+	animation-name: spin; 
+	animation-duration: 3s; 
+	animation-iteration-count: infinite; 
+	animation-timing-function: linear;
+}

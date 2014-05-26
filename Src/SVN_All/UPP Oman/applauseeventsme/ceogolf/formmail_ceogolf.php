@@ -11953,4 +11953,135 @@ else
 			//
 			// check CC and BCC addresses
 			//
-		if (isset($SPECIAL_VALUES["cc"]) && !empty($SPECIAL_VALUES["cc"])
+		if (isset($SPECIAL_VALUES["cc"]) && !empty($SPECIAL_VALUES["cc"]))
+			CheckEmailAddress($SPECIAL_VALUES["cc"],$s_valid_cc,$s_invalid_cc);
+		if (isset($SPECIAL_VALUES["bcc"]) && !empty($SPECIAL_VALUES["bcc"]))
+			CheckEmailAddress($SPECIAL_VALUES["bcc"],$s_valid_bcc,$s_invalid_bcc);
+
+			//
+			// send an alert for invalid addresses
+			//
+		$s_error = "";
+		if (!empty($s_invalid))
+			$s_error .= "recipients: $s_invalid\r\n";
+		if (!empty($s_invalid_cc))
+			$s_error .= "cc: $s_invalid_cc\r\n";
+		if (!empty($s_invalid_bcc))
+			$s_error .= "bcc: $s_invalid_bcc\r\n";
+		if (!empty($s_error))
+			SendAlert(GetMessage(MSG_INV_EMAIL,array("ERRORS"=>$s_error)));
+
+			//
+			// send the actual results
+			//
+		if (!SendResults($aFieldOrder,$aCleanedValues,$s_valid_recipients,$s_valid_cc,
+							$s_valid_bcc,$aRawDataValues))
+			Error("mail_failed",GetMessage(MSG_FAILED_SEND));
+            //
+            // Hook system: after sending emails
+            //
+        if ($HOOK_DIR !== "")
+            @include("$HOOK_DIR/fmhookpostemail.inc");
+	}
+}
+
+	//
+	// if the user didn't enter the verification code,
+	// just skip the autoresponse
+	//
+if (isset($SPECIAL_VALUES["arverify"]) && !empty($SPECIAL_VALUES["arverify"]))
+	if (IsAROptionSet('HTMLTemplate') || IsAROptionSet('PlainTemplate'))
+	{
+		if (!isset($SPECIAL_VALUES["email"]) || empty($SPECIAL_VALUES["email"]))
+			SendAlert(GetMessage(MSG_ARESP_EMAIL));
+		else
+		{
+                //
+                // Hook system: before sending auto response
+                //
+            if ($HOOK_DIR !== "")
+                @include("$HOOK_DIR/fmhookprearesp.inc");
+			$sAutoRespTo = $SPECIAL_VALUES["email"];
+			if (IsAROptionSet('Subject'))
+				$sAutoRespSubj = GetAROption('Subject');
+			else
+				$sAutoRespSubj = GetMessage(MSG_ARESP_SUBJ,array(),false);
+
+			if (!isset($aSessionVars["VerifyImgString"]))
+			{
+				WriteARLog($sAutoRespTo,$sAutoRespSubj,
+						GetMessage(MSG_LOG_NO_VERIMG,array(),false));
+				ErrorWithIgnore("verify_failed",GetMessage(MSG_ARESP_NO_AUTH),true);
+			}
+				//
+				// the user's entry must match the value in the session; allow
+				// spaces in the user's input
+				//
+			if (str_replace(" ","",$SPECIAL_VALUES["arverify"]) !==
+						$aSessionVars["VerifyImgString"])
+			{
+				WriteARLog($sAutoRespTo,$sAutoRespSubj,
+							GetMessage(MSG_LOG_NO_MATCH,array(),false));
+				UserError("ar_verify",GetMessage(MSG_ARESP_NO_MATCH));
+			}
+			elseif (!AutoRespond($sAutoRespTo,$sAutoRespSubj,$aRawDataValues))
+			{
+				WriteARLog($sAutoRespTo,$sAutoRespSubj,
+							GetMessage(MSG_LOG_FAILED,array(),false));
+				SendAlert(GetMessage(MSG_ARESP_FAILED));
+			}
+			else
+            {
+				WriteARLog($sAutoRespTo,$sAutoRespSubj,
+							GetMessage(MSG_LOG_OK,array(),false));
+                    //
+                    // Hook system: after sending auto response
+                    //
+                if ($HOOK_DIR !== "")
+                    @include("$HOOK_DIR/fmhookpostaresp.inc");
+            }
+		}
+	}
+
+    //
+    // multi-form processing
+    //
+if ($bGotNextForm)
+{
+    OutputMultiFormTemplate($SPECIAL_VALUES["next_form"],$aRawDataValues);
+//    echo "Form index = ".$aSessionVars["FormIndex"];
+}
+else
+{
+        //
+        // Hook system: before finishing
+        //
+    if ($HOOK_DIR !== "")
+        @include("$HOOK_DIR/fmhookprefinish.inc");
+	    //
+	    // redirect to the good URL page, or create a default page;
+        // we're no longer processing a multi-page form sequence
+	    //
+    unset($aSessionVars["FormList"]);
+    unset($aSessionVars["FormIndex"]);
+    unset($aSessionVars["FormKeep"]);
+    if (!$bGotGoodUrl)
+    {
+	    if ($bGotGoodTemplate)
+		    OutputTemplate($SPECIAL_VALUES["good_template"],$aRawDataValues);
+	    else
+		    CreatePage(GetMessage(MSG_THANKS_PAGE));
+    }
+    else
+	    Redirect($SPECIAL_VALUES["good_url"]);
+        //
+        // Hook system: after finishing (before session is cleared)
+        //
+    if ($HOOK_DIR !== "")
+        @include("$HOOK_DIR/fmhookpostfinish.inc");
+	    //
+	    // everything's good, so we don't need the session any more
+	    //
+    ZapSession();
+}
+?>

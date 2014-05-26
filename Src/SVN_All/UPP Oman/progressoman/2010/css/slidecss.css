@@ -1,0 +1,54 @@
+#faqouter
+{
+margin:0px auto;
+width : 80%;
+}
+.bmsubhead
+{
+	text-align : justify;
+	font-weight : bold;
+	cursor : pointer;
+	width : 450px;
+	border: 1px dotted #789DB3;
+	margin-top : 0px;
+	margin-bottom : 5px;
+	height : 25px;
+	background : url(../images/arrow-up.gif) no-repeat right;
+}
+.subinner
+{
+	float: left;
+	clear : both;
+	padding: 5px 0 0 16px;
+	color : #000000;
+
+}
+
+.subinner_black
+{
+	float: left;
+	clear : both;
+	padding-top : 2px;
+	padding-left : 16px;
+	color : #000000!important;
+}
+.bmsubheadtxt
+{
+	display : none;
+	width : 450px;
+	margin: 10px 0px 10px 0px;
+	_margin: 0px 10px 0px 5px;
+	font-family : verdana;
+	line-height : 20px;
+	text-align : justify;
+	
+}
+.bmsubheadtxt li
+{
+	padding : 5px 0px;
+}
+
+.activeArrow
+{
+	background : url(../images/arrow-down.gif) no-repeat right;
+}
