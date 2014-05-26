@@ -40,7 +40,7 @@
 					<span class="style8"> 
 					<span lang="ar-sa">
 					&nbsp;</span></span>·ﬁ—«¡… «·⁄œœ ﬂ«„·« 
-					<a style="text-decoration: none" target="_blank" href="http://www.readwhere.com/read/269953/AIWA-1-15-May14#dual/1/1/rw">
+					<a style="text-decoration: none" target="_blank" href="http://www.readwhere.com/read/276957/AIWA/AIWA-16-31-May14#dual/1/1/rw">
 					<font color="#FF6C6C">≈÷€ÿ Â‰« </font></a> </font></b></td>
 						<td width="101">
 						<p dir="rtl">
@@ -51,7 +51,7 @@
 					<span lang="en-gb">&nbsp;</span>201</font><span style="font-weight: 700" lang="en-us"><font face="Tahoma" style="font-size: 7pt" color="#FFFFFF">4</font></span><b><font face="Tahoma" color="#FFFFFF" style="font-size: 8pt"><span lang="ar-sa">-</span>ﬁœ</font></b></td>
 						<td width="132">
 						<p align="left" dir="ltr">
-						<a target="_blank" style="text-decoration: none" href="http://www.readwhere.com/read/269953/AIWA-1-15-May14#dual/1/1/rw">
+						<a target="_blank" style="text-decoration: none" href="http://www.readwhere.com/read/276957/AIWA/AIWA-16-31-May14#dual/1/1/rw">
 						<span lang="en-us">
 						<font face="Verdana" size="2" color="#FFFFFF">V</font></span><font face="Verdana" size="2" color="#FFFFFF">iew 
 						E-MAGAZINE</font><font color="#FFFFFF"><span lang="en-us">&nbsp;
@@ -74,7 +74,7 @@
 		</tr>
 		<tr>
 			<td valign="top">
-			<img border="0" src="images/Aiwa home page May 1-15.jpg" width="1000" height="799"></td>
+			<img border="0" src="images/Aiwa home page May 16-31.jpg" width="1000" height="799"></td>
 		</tr>
 		<tr>
 <td><? include('inc_contctus.htm');?></td>		</tr>
