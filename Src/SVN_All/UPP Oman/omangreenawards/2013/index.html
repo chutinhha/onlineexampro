@@ -1,67 +1,67 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Language" content="en-us">
-<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Oman Green Awards </title>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Oman Green Awards </title>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-image1 = new Image
-image2 = new Image
-image1.src = "images/button1.jpg"
-image2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            image1 = new Image
+            image2 = new Image
+            image1.src = "images/button1.jpg"
+            image2.src = "images/button2.jpg"
+        }
+    </script>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-imagea1 = new Image
-imagea2 = new Image
-imagea1.src = "images/button1.jpg"
-imagea2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            imagea1 = new Image
+            imagea2 = new Image
+            imagea1.src = "images/button1.jpg"
+            imagea2.src = "images/button2.jpg"
+        }
+    </script>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-imageb1 = new Image
-imageb2 = new Image
-imageb1.src = "images/button1.jpg"
-imageb2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            imageb1 = new Image
+            imageb2 = new Image
+            imageb1.src = "images/button1.jpg"
+            imageb2.src = "images/button2.jpg"
+        }
+    </script>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-imagec1 = new Image
-imagec2 = new Image
-imagec1.src = "images/button1.jpg"
-imagec2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            imagec1 = new Image
+            imagec2 = new Image
+            imagec1.src = "images/button1.jpg"
+            imagec2.src = "images/button2.jpg"
+        }
+    </script>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-imaged1 = new Image
-imaged2 = new Image
-imaged1.src = "images/button1.jpg"
-imaged2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            imaged1 = new Image
+            imaged2 = new Image
+            imaged1.src = "images/button1.jpg"
+            imaged2.src = "images/button2.jpg"
+        }
+    </script>
 
-<SCRIPT LANGUAGE="JAVASCRIPT">
-if (document.images) {
-imagee1 = new Image
-imagee2 = new Image
-imagee1.src = "images/button1.jpg"
-imagee2.src = "images/button2.jpg"
-}
-</SCRIPT>
+    <script language="JAVASCRIPT">
+        if (document.images) {
+            imagee1 = new Image
+            imagee2 = new Image
+            imagee1.src = "images/button1.jpg"
+            imagee2.src = "images/button2.jpg"
+        }
+    </script>
 
-<script type="text/javascript" src="FlashFXP/Cache/~flashfxp/842EF686_edit.tmp/oodomimagerollover.js">
+    <script type="text/javascript" src="FlashFXP/Cache/~flashfxp/842EF686_edit.tmp/oodomimagerollover.js">
 
 /***********************************************
 * DOM Image Rollover II- By Adam Smith (http://www.codevendor.com)
@@ -69,29 +69,115 @@ imagee2.src = "images/button2.jpg"
 * Keep this notice intact for usage please
 ***********************************************/
 
-</script>
-<style>
-#Banner {
-display: block;
-position: fixed;
-top: 0px;
-right: 0px;
-width: 145px;
-height: 140px;
-z-index: 888;
-text-align: center;
-}
-#Banner img {
-margin: 0 auto;
-border: none;
-} 
-</style>
+    </script>
+    <style>
+        #Banner {
+            display: block;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            width: 145px;
+            height: 140px;
+            z-index: 888;
+            text-align: center;
+        }
+
+            #Banner img {
+                margin: 0 auto;
+                border: none;
+            }
+    </style>
 </head>
 
-<body bgcolor="#164205" topmargin="5" leftmargin="0" rightmargin="0" bottommargin="5" >
-<!--div id="Banner"><a href="http://www.omangreenawards.com/register_now.html"><img src="images/banner.gif" alt="Nomination Open" /></a></div-->
-<div align="center">
-  <center>
+<body bgcolor="#164205" topmargin="5" leftmargin="0" rightmargin="0" bottommargin="5">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script>
+        jQuery("document").ready(function ($) {
+
+            var nav = $('#open');
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 136) {
+                    nav.addClass("fix");
+                } else {
+                    nav.removeClass("fix");
+                }
+            });
+
+        });
+
+        $(function () {
+            blinkeffect('#open');
+        })
+        function blinkeffect(selector) {
+            $(selector).fadeOut('slow', function () {
+                $(this).fadeIn('slow', function () {
+                    blinkeffect(this);
+                });
+            });
+        }
+    </script>
+    <style>
+        .fix {
+            position: fixed;
+            top: 40px;
+            right: 0px;
+            text-align: center;
+        }
+
+        div#open {
+            position: fixed;
+            top: 40px;
+            right: 0;
+        }
+
+        .button-med {
+            background: #518506;
+            border: none;
+            color: rgb(254, 254, 254);
+            cursor: pointer;
+            display: inline-block;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 5px 10px 0 0;
+            padding: 5px 20px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .button {
+            background: #87AF73;
+            border: none;
+            color: rgb(254, 254, 254);
+            cursor: pointer;
+            display: inline-block;
+            font-size: 25px;
+            margin: 5px 10px 0 0;
+            padding: 5px 20px;
+            position: relative;
+            text-decoration: none;
+        }
+
+            .button:hover {
+                background: #90AA47;
+                border: none;
+                color: rgb(254, 254, 254);
+                cursor: pointer;
+                display: inline-block;
+                font-size: 25px;
+                margin: 5px 10px 0 0;
+                padding: 5px 20px;
+                position: relative;
+                text-decoration: none;
+            }
+    </style>
+    <div width="100%" id="open" style="z-index: 1">
+        <a class="button-med">Nominations closed! </a>
+    </div>
+
+    <!--div id="Banner"><a href="http://www.omangreenawards.com/register_now.html"><img src="images/banner.gif" alt="Nomination Open" /></a></div-->
+    <div align="center">
+        <center>
 
 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="965" id="AutoNumber1" bgcolor="#FFFFFF">
   <tr>
@@ -231,6 +317,7 @@ border: none;
 			</tr>
 			<tr>
 				<td>
+                  
 				<map name="FPMap12">
 				<area target="_blank" coords="109, 65, 200, 106" shape="rect" href="http://www.vale.com/">
 				<area target="_blank" coords="109, 119, 189, 150" shape="rect" href="http://www.shabiba.com/">
@@ -351,7 +438,7 @@ border: none;
         <td width="36">&nbsp;</td>
         <td width="409" bgcolor="#BECCB8" valign="bottom" colspan="2">
         <div align="center">
-          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="213%" id="AutoNumber21" height="96">
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber21" height="96">
             <tr>
               <td width="100%" height="96">
               <div align="center">
@@ -509,7 +596,7 @@ border: none;
   </table>
 
   </center>
-</div>
+    </div>
 
 </body>
 
