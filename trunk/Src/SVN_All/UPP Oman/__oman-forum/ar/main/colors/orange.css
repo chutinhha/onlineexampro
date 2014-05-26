@@ -1,0 +1,94 @@
+/*  Base color --- 6d5f27  */
+
+::-moz-selection {
+	color: #ffffff;
+	background-color: #6d5f27;
+}
+::selection {
+	color: #ffffff;
+	background-color: #6d5f27;
+}
+body {
+	color: #6e6e6e;
+	background-color: #353535;
+}
+a, b { color: #6d5f27;
+}
+.header,
+.carousel-control:hover,
+.jcarousel-next:hover,
+.jcarousel-prev:hover,
+.zoom_3d, .link_3d, 
+#toTop,
+.accordion h3:hover:before, .toggle h3:hover:before,
+.accordion h3.active:before, .toggle h3.active:before {background-color:#6d5f27;
+}
+.page_container {background:#fff;
+}
+.menu_wrap .nav > li.sfHover > a,
+.menu_wrap .nav > li.sfHover > a:hover,
+.menu_wrap .nav > li > a:hover,
+.menu_wrap .nav > li.current > a,
+.menu_wrap .nav > li.current > a:hover,
+.text_color { color:#6d5f27;
+}
+.welcome span,
+.quote span,
+.accordion h3.active, .toggle h3.active,
+.accordion h3:hover, .toggle h3:hover,
+ol.list,
+.post_title a:hover,
+.post_info span,
+ul.links li:hover a {color:#6d5f27;
+}
+.ch-info .ch-info-back,
+.icon_box a:hover {border-bottom:3px #6d5f27 solid;
+}
+.menu_wrap .nav > li > ul li > a:hover,
+.menu_wrap .nav > li > ul li.sfHover > a,
+.menu_wrap .nav > li > ul li.current > a { color:#6d5f27;
+}
+.menu_wrap .nav > li > ul li > a:hover:after,
+.menu_wrap .nav > li > ul li.sfHover > a:after,
+.menu_wrap .nav > li > ul li.current > a:after,
+.center_search .search_btn { background-color:#6d5f27;
+}
+.tp-leftarrow:hover, .tp-rightarrow:hover,
+.slide_title_bg,
+span.highlight,
+.dropcap2, .dropcap3,
+.quote.color:before,
+ul.list li:before,
+.list.arrow li:before,
+.list.arrow2 li:before,
+#filters li a.selected,
+.zoom, .link,
+ul.links li:hover:before,
+.portf_title {background-color:#6d5f27;
+}
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn_color,
+.price_btn:hover,
+.advanced .price_head,
+.advanced .price_btn,
+.text_color_bg {background:#6d5f27;
+}
+.btn_color:hover {background:#393939;
+}
+#footer {	border-top:3px #6d5f27 solid;	
+}
+.footer_bottom {border-top:1px #6d5f27 solid;
+}
+.foot_menu li a:hover, .foot_menu li a.current {color:#6d5f27 !important;
+}
+.FlickrImages li a:hover,
+#footer ul.recent_post li a:hover img,
+.item_description {border-color:#6d5f27;
+}
+#footer textarea:focus,
+#footer input[type="text"]:focus {
+	border-color:#6d5f27 !important;
+	color:#6d5f27 !important;
+}

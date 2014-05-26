@@ -1,0 +1,25 @@
+.topbannerdiv{
+	width:525px;
+	float:right;
+}
+.bottmPane
+{
+	color: #cccccc;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	width: 914px; 
+	padding: 10px 43px;
+}
+.bottmPane span
+{
+	float: right;
+}
+.bottmPane a
+{
+	color: #cccccc !important;
+	text-decoration: none;
+}
+.bottmPane a
+{
+	text-decoration: underline;
+}
