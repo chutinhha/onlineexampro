@@ -17,6 +17,28 @@
 }
 -->
 </style>
+ <style type="text/css">
+            .auto-style2 {
+                width: 100%;
+                font-family: Verdana;
+                font-size: 8pt;
+            }
+
+            .auto-style3 {
+                width: 100%;
+                text-align: center;
+            }
+
+            .auto-style4 {
+                width: 100%;
+                font-family: Verdana;
+                font-size: 8pt;
+                text-align: center;
+            }
+            li {
+                line-height: 20px;
+            }
+        </style>
 </head>
 
 <body bgcolor="#889198">
@@ -260,43 +282,133 @@
 			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" bgcolor="#FFFFFF" height="127">
 				<tr>
 					<td width="37" bgcolor="#C9D0D4">&nbsp;</td>
-					<td><p style="margin: 5px">&nbsp;</p>
-					
-					  <table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+					<td>
+					<table>
+					<tr>
+                <td valign="top">
+
+                    <table class="auto-style2">
                         <tr>
-                          <td width="30">&nbsp;</td>
-                          <td width="115" valign="top" style="width: 261px">
-					<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
-						<tr>
-							<td width="30">&nbsp;</td>
-							<td width="115" valign="top" style="width: 261px">
-					<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
-						<tr>
-							<td width="30">&nbsp;</td>
-							<td width="115" valign="top" style="width: 261px">
-							<map name="FPMap0">
-							<area target="_blank" href="http://www.timesofoman.com/" shape="rect" coords="647, 106, 729, 143">
-							<area target="_blank" href="http://www.shabiba.com/" shape="rect" coords="641, 54, 735, 96">
-							<area target="_blank" href="http://www.soharsteel.com/" shape="rect" coords="546, 32, 605, 95">
-							<area target="_blank" href="http://www.alhabibonline.com/index.html" shape="rect" coords="229, 45, 350, 104">
-							<area target="_blank" href="http://www.nawras.om/" shape="rect" coords="146, 27, 215, 134">
-							</map>
-							<img border="0" src="images/omandebate-partners-2012.jpg" usemap="#FPMap0" width="932" height="150"></td>
-							<td valign="top">&nbsp;</td>
-							<td width="27">&nbsp;</td>
-						</tr>
-						</table>
-							</td>
-							<td valign="top">&nbsp;</td>
-							<td width="27">&nbsp;</td>
-						</tr>
-						</table>
-							</td>
-                          <td valign="top">&nbsp;</td>
-                          <td width="27">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">Strategic Partners</td>
+                            <td>&nbsp;</td>
                         </tr>
-                      </table>
-				  <p style="margin: 5px">&nbsp;</p></td>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">
+                                <img border="0" src="images/2011/1.jpg"></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">
+                                <img border="0" src="images/grey_line.jpg"></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">Support Partners</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td width="173" align="center" colspan="1">
+                                            <p align="center">
+                                                <a target="_blank" href="#">
+                                                    <img src="images/2011/2.jpg" border="0" /></a>
+                                        </td>
+
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">
+                                <img border="0" src="images/grey_line.jpg"></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">&nbsp;</td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table class="auto-style4">
+
+
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td colspan="7">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td colspan="7">
+                                <div align="center">
+                                    <table border="0" width="703" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="339">
+                                                <p align="center">
+                                                    <span style="font-size: 8pt">Official Call Centre</span>
+                                            </td>
+                                            <td width="98">&nbsp;</td>
+                                            <td>
+                                                <p align="center">
+                                                    <span style="font-size: 8pt">Official</span><font style="font-size: 8pt"> Media</font>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="339">
+                                                <p align="center">
+
+                                                    <img border="0" src="images/2011/3.jpg">
+                                            </td>
+                                            <td width="98">&nbsp;</td>
+                                            <td>
+                                                <p align="center">
+
+                                                    <img border="0" src="images/2011/4.jpg">
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+					</table>
+					</td>
 					<td width="38" bgcolor="#C9D0D4">&nbsp;</td>
 				</tr>
 				<tr>
@@ -324,7 +436,10 @@
 					<a href="contact.html" style="text-decoration: none">
 					<font color="#FFFFFF">Contact Us</font></a>&nbsp; |
 					<a style="text-decoration: none" target="_blank" href="../debate_2010">
-					<font color="#FFFFFF">View Debate 2010</font></a></font></td>
+					<font color="#FFFFFF">View Debate 2010</font></a>
+					
+                                    
+					</font></td>
 					<td>&nbsp;</td>
 					<td>
 					<p align="right">
