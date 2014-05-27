@@ -230,7 +230,7 @@
                                                                         include('oerDb.php');
 
                                                                         $rec_limit = 1;
-                                                                        $cntQuery = mysql_query("SELECT id FROM question WHERE pub=1");
+                                                                        $cntQuery = mysql_query("SELECT id FROM question WHERE pub=1 and year(`date`) = 2014");
                                                                         $cntVal = mysql_fetch_array($cntQuery);
                                                                         $cnt = $cntVal[id];
                                                                         if (isset($_GET{'page'})) {
@@ -238,16 +238,16 @@
                                                                         } else {
                                                                             $page = $cnt;
                                                                         }
-                                                                        $nxtQuery = mysql_query("SELECT id FROM question WHERE id > $page ORDER BY id ASC LIMIT 1");
+                                                                        $nxtQuery = mysql_query("SELECT id FROM question WHERE id > $page  and year(`date`) = 2014 ORDER BY id ASC LIMIT 1");
                                                                         $nxtVal = mysql_fetch_array($nxtQuery);
                                                                         $nxt = $nxtVal[id];
 
                                                                         $prevId = $page - 2;
-                                                                        $prevQuery = mysql_query("SELECT id FROM question WHERE id < $page ORDER BY id DESC LIMIT 1");
+                                                                        $prevQuery = mysql_query("SELECT id FROM question WHERE id < $page  and year(`date`) = 2014 ORDER BY id DESC LIMIT 1");
                                                                         $prevVal = mysql_fetch_array($prevQuery);
                                                                         $prev = $prevVal[id];
 
-                                                                        $votQuery = mysql_query("SELECT * FROM question WHERE id=$page AND deleted=0");
+                                                                        $votQuery = mysql_query("SELECT * FROM question WHERE id=$page and year(`date`) = 2014 AND deleted=0");
                                                                         if (mysql_num_rows($votQuery) > 0) {
                                                                             $vote = mysql_fetch_array($votQuery);
                                                                             echo $vote[question];

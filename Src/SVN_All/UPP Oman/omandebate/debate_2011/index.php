@@ -126,20 +126,20 @@
 							Market Authority (CMA) is holding the fourth edition 
 							of its annual Oman Debate and Top 20 Awards at the 
 							Oman Auditorium, Al Bustan Palace Ritz Carlton Hotel 
-							on 3rd December, 2012 from 9.00 am – 12.30 pm. <br>
+							on 3rd December, 2012 from 9.00 am ï¿½ 12.30 pm. <br>
 							<br>
-							The Topic of this year’s Debate is – Is Oman Future 
+							The Topic of this yearï¿½s Debate is ï¿½ Is Oman Future 
 							Ready? The Oman Debate will raise and address issues 
 							like job creation, improving standards of education 
 							and the private sectors role in the development 
 							process. The Debate will be moderated by Tim 
 							Sebastian, the presenter of The Doha Debates and the 
-							former anchor of BBC’s Hard Talk. An eminent panel 
+							former anchor of BBCï¿½s Hard Talk. An eminent panel 
 							of leaders from the government and corporate sector 
 							will share their views with the august gathering.<br>
 							<br>
 							The invitees would include over 350 business leaders 
-							and decision makers from Oman’s corporate sector and 
+							and decision makers from Omanï¿½s corporate sector and 
 							the government. HE Ali bin Masoud al Sunaidi, the 
 							Honourable Minister of Commerce and Industry will 
 							grace the event as the Chief Guest and to deliver 
@@ -148,7 +148,7 @@
 							The Oman Debate will be held under the patronage of 
 							HH Sayyid Tarik Al Said, Editor-in-Chief, Oman 
 							Economic Review and HE Abdullah al Salmi, Executive 
-							President, Capital Market Authority. …&nbsp;&nbsp;&nbsp; </font>
+							President, Capital Market Authority. ï¿½&nbsp;&nbsp;&nbsp; </font>
 							<a target="_blank" href="images/OD2012_AAI_sept.jpg">
 							<font color="#FFFFFF" face="Verdana" style="font-size: 8pt">
 							More&gt;&gt;</font></a><br>
@@ -202,7 +202,7 @@
 												include('oerDb.php');
 												
 												$rec_limit = 1;
-												$cntQuery = mysql_query("SELECT id FROM question WHERE pub=1");
+												$cntQuery = mysql_query("SELECT id FROM question WHERE pub=1 and year(`date`) = 2010");
 												$cntVal = mysql_fetch_array($cntQuery);
 												$cnt = $cntVal[id];
 												if( isset($_GET{'page'} ) )
@@ -213,16 +213,16 @@
 												{
 													$page= $cnt;
 												}
-												$nxtQuery = mysql_query("SELECT id FROM question WHERE id > $page ORDER BY id ASC LIMIT 1");
+												$nxtQuery = mysql_query("SELECT id FROM question WHERE id > $page and year(`date`) = 2010 ORDER BY id ASC LIMIT 1");
 												$nxtVal = mysql_fetch_array($nxtQuery);
 												$nxt = $nxtVal[id];
 												
 												$prevId = $page-2;
-												$prevQuery = mysql_query("SELECT id FROM question WHERE id < $page ORDER BY id DESC LIMIT 1");
+												$prevQuery = mysql_query("SELECT id FROM question WHERE id < $page and year(`date`) = 2010 ORDER BY id DESC LIMIT 1");
 												$prevVal = mysql_fetch_array($prevQuery);
 												$prev = $prevVal[id];
 												
-												$votQuery = mysql_query("SELECT * FROM question WHERE id=$page AND deleted=0");
+												$votQuery = mysql_query("SELECT * FROM question WHERE id=$page and year(`date`) = 2010 AND deleted=0");
 												if(mysql_num_rows($votQuery)>0)
 												{
 													$vote = mysql_fetch_array($votQuery);
