@@ -5,19 +5,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>Oman Debate</title>
 <style type="text/css">
-<!--
-.style1 {font-weight: bold}
-.page
-{
-	text-decoration:none;
-	color:#000000;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:8pt;
-	padding:5px;
-}
--->
-</style>
- <style type="text/css">
+            <!--
+            .style1 {font-weight: bold}
+            .page
+            {
+                text-decoration:none;
+                color:#000000;
+                font-family:Verdana, Arial, Helvetica, sans-serif;
+                font-size:8pt;
+                padding:5px;
+            }
+            -->
+        </style>
+        <style type="text/css">
             .auto-style2 {
                 width: 100%;
                 font-family: Verdana;
@@ -68,21 +68,22 @@
 						<tr>
 							<td valign="top" colspan="3">
 							<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
-								<tr>
-									<td valign="top" width="108">
-									<a href="debate.html">
-									<img border="0" src="images/debate.jpg" width="108" height="42"></a></td>
-									<td valign="top" width="95">
-									<a href="awards.html">
-									<img border="0" src="images/awards.jpg" width="95" height="42"></a></td>
-									<td valign="top" width="109">
-									<a href="panelists.html">
-									<img border="0" src="images/panelists.jpg" width="109" height="42"></a></td>
-									<td valign="top">
-									<a href="partners.html">
-									<img border="0" src="images/partners.jpg" width="123" height="42"></a></td>
-								</tr>
-							</table>
+                                                    <tr>
+                                                        <td valign="top" width="108">
+                                                            <a href="debate.html">
+                                                                <img border="0" src="images/debate.jpg" width="108" height="42"></a></td>
+
+                                                        <td valign="top" width="109">
+                                                            <a href="panelists.html">
+                                                                <img border="0" src="images/panelists.jpg" width="109" height="42"></a></td>
+                                                        <td valign="top" width="109">
+                                                            <a href="partners.html">
+                                                                <img border="0" src="../images/partners.jpg" width="110" height="42"></a></td>
+                                                        <td valign="top" width="109">
+                                                            <a href="../gallery.html">
+                                                                <img border="0" src="../images/gallery.jpg" width="109" height="42"></a></td>
+                                                    </tr>
+                                                </table>
 							</td>
 						</tr>
 						<tr>
