@@ -103,7 +103,7 @@ form
 							<td valign="top">
                             <?php
 							include('oerDb.php');
-							$cntQuery = mysql_query("SELECT id,code,question FROM question WHERE pub=0 AND deleted=0");
+							$cntQuery = mysql_query("SELECT id,code,question FROM question WHERE deleted=0 and year(`date`) = 2010");
 							if(mysql_num_rows($cntQuery) >0)
 							{
 							
@@ -119,12 +119,12 @@ form
                               <?php
 							  
 							  $cnt = 1;
-							  $arQuery = mysql_query("SELECT id,code,question FROM question WHERE pub=0");
+							  $arQuery = mysql_query("SELECT id,code,question FROM question WHERE  year(`date`) = 2010");
 							  while($arVal = mysql_fetch_array($arQuery))
 							  {
-							  	$agrQuery = mysql_query("SELECT COUNT(id) agrCount FROM votedet WHERE question=$arVal[id] AND result = 1");
+							  	$agrQuery = mysql_query("SELECT COUNT(id) agrCount FROM votedet WHERE question=$arVal[id] AND result = 1 and year(`date`) = 2010");
 							  	$agrVal = mysql_fetch_array($agrQuery);
-								$disQuery = mysql_query("SELECT COUNT(id) disCount FROM votedet WHERE question=$arVal[id] AND result = 0");
+								$disQuery = mysql_query("SELECT COUNT(id) disCount FROM votedet WHERE question=$arVal[id] AND result = 0 and year(`date`) = 2010");
 							  	$disVal = mysql_fetch_array($disQuery);
 								$tot = $agrVal[agrCount]+$disVal[disCount];
 								if($tot ==0)
