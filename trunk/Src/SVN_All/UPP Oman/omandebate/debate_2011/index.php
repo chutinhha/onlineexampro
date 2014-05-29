@@ -155,7 +155,7 @@
 &nbsp;</td>
 							<td valign="top" width="9%">&nbsp;</td>
 						</tr>
-						<tr>
+						<!--<tr>
 							<td valign="top" width="9%">&nbsp;</td>
 							<td valign="top" width="82%">
 							<p align="center">
@@ -177,7 +177,7 @@
 						<tr>
 							<td valign="top" width="9%" height="187">&nbsp;</td>
 							<td valign="top" width="82%" height="187">
-							<!--<table border="0" cellpadding="0" style="border-collapse: collapse" width="101%">
+							<table border="0" cellpadding="0" style="border-collapse: collapse" width="101%">
 								<tr>
 									<td bgcolor="#676767" width="49%">
 									<p style="margin: 10px">
@@ -262,7 +262,7 @@
 										}
 ?></td>
 							  </tr>
-							</table>-->
+							</table>
 							</td>
 							<td valign="top" width="9%" height="187">&nbsp;</td>
 						</tr>
@@ -271,7 +271,7 @@
 							<td valign="top" width="82%">&nbsp;
 											</td>
 							<td valign="top" width="9%">&nbsp;</td>
-						</tr>
+						</tr>-->
 						</table>
 					</td>
 				</tr>
