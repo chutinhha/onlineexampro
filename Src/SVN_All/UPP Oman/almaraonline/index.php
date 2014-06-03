@@ -52,7 +52,7 @@
                                     </font></td>
                                 <td width="129" height="25">
                                     <font face="Verdana" size="2" color="#FFFFFF">
-                                    <a target="_blank" href="http://www.readwhere.com/read/270486/The-Woman-May-2014#dual/1/1/rw">
+                                    <a target="_blank" href="http://www.readwhere.com/read/282698/The-Woman/The-Woman-June-2014#dual/1/1/rw">
                                         <img border="0" src="images/click_here_button.jpg" width="111" height="20" align="left"></a></font></td>
                                 <td width="23" height="25">&nbsp;
                                 </td>
@@ -62,7 +62,7 @@
                                     </font></td>
                                 <td width="117" height="25">
                                     <font face="Verdana" size="2" color="#FFFFFF">
-                                    <a target="_blank" href="http://www.readwhere.com/read/269959/Al-Mara/Almara-May-14#dual/1/1">
+                                    <a target="_blank" href="http://www.readwhere.com/read/282187/Al-Mara/Almara-June-2014#dual/1/1">
                                         <img border="0" src="images/click_here_button.jpg" width="111" height="20" align="left"></a></font></td>
                                 <td width="70" height="25">
                                     <p style="margin-bottom: 5px">
@@ -94,10 +94,10 @@
                     <td valign="top" bgcolor="#580652">
                         <p align="center">
                             <map name="FPMap2">
-                                <area target="_blank" href="http://www.readwhere.com/read/269959/Al-Mara/Almara-May-14#dual/1/1" shape="rect" coords="715, 724, 939, 762">
-                                <area target="_blank" href="http://www.readwhere.com/read/269959/Al-Mara/Almara-May-14#dual/1/1" shape="rect" coords="652, 299, 912, 623">
+                                <area target="_blank" href="http://www.readwhere.com/read/282187/Al-Mara/Almara-June-2014#dual/1/1" shape="rect" coords="715, 724, 939, 762">
+                                <area target="_blank" href="http://www.readwhere.com/read/282187/Al-Mara/Almara-June-2014#dual/1/1" shape="rect" coords="652, 299, 912, 623">
                             </map>
-                        <img border="0" width="957px" src="images/AM HomePage.jpg" usemap="#FPMap2"></td>
+                        <img border="0" width="957px" src="images/AlmaraJun14om-1.jpg" usemap="#FPMap2"></td>
                 </tr>
                 <tr>
                     <td valign="top" bgcolor="#580652">
