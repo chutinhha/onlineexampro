@@ -50,7 +50,7 @@
 					<td width="131">
 					<b>
 					<font color="#ADB4B6">
-					<a target="_blank" href="http://www.readwhere.com/read/254049/Oil-Gas-Review-Jan-2014/Oil-Gas-Mar-Apr-2014#dual/1/1/rw">
+					<a target="_blank" href="http://www.readwhere.com/read/276426/Oil-Gas-Review-Jan-2014/Oil-Gas-Review-May-June-2014#dual/1/1/rw">
 					<img border="0" src="images/click_here_button.jpg"></a></font><font color="#FFFFFF"></a></font><font color="#ADB4B6"></a></font></b></td>
 					<td width="383">
 					<p align="right">
@@ -81,10 +81,10 @@
 						<td valign="top">
 			<map name="FPMap0">
 			<area target="_blank" href="http://www.oeronline.com/" shape="rect" coords="76, 765, 999, 789">
-			<area coords="650, 6, 988, 204" shape="rect" href="http://www.readwhere.com/read/254049/Oil-Gas-Review-Jan-2014/Oil-Gas-Mar-Apr-2014#dual/1/1/rw" target="_blank">
+			<area coords="650, 6, 988, 204" shape="rect" href="http://www.readwhere.com/read/276426/Oil-Gas-Review-Jan-2014/Oil-Gas-Review-May-June-2014#dual/1/1/rw" target="_blank">
 			<area target="_blank" coords="20, 8, 641, 135" shape="rect" href="http://www.ogronline.com">
 			</map>
-			<img border="0" usemap="#FPMap0" src="images/OGR-homepageMarApr-14.jpg" width="1000" height="761"></td>
+			<img border="0" usemap="#FPMap0" src="images/OGR-homepageMayJun-14.jpg" width="1000" height="761"></td>
 					</tr>
 					<tr>
 			<td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
