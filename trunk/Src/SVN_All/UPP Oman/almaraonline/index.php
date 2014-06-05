@@ -97,7 +97,7 @@
                                 <area target="_blank" href="http://www.readwhere.com/read/282187/Al-Mara/Almara-June-2014#dual/1/1" shape="rect" coords="715, 724, 939, 762">
                                 <area target="_blank" href="http://www.readwhere.com/read/282187/Al-Mara/Almara-June-2014#dual/1/1" shape="rect" coords="652, 299, 912, 623">
                             </map>
-                        <img border="0" width="957px" src="images/AlmaraJun14om-1.jpg" usemap="#FPMap2"></td>
+                        <img border="0" width="957px" src="images/AM-HomePage.jpg" usemap="#FPMap2"></td>
                 </tr>
                 <tr>
                     <td valign="top" bgcolor="#580652">
