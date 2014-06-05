@@ -98,7 +98,7 @@
                                 <area target="_blank" href=" http://www.readwhere.com/read/282698/The-Woman/The-Woman-June-2014#dual/1/1/rw" shape="rect" coords="774, 5, 939, 211">
                                 <area target="_blank" coords="243, 743, 721, 778" shape="rect" href=" http://www.readwhere.com/read/282698/The-Woman/The-Woman-June-2014#dual/1/1/rw">
                             </map>
-                        <img border="0" src="images/TheWoman14.jpg" width="957" height="778" usemap="#FPMap2"></td>
+                        <img border="0" src="images/homepg-TW-june-2014.jpg" width="957" height="778" usemap="#FPMap2"></td>
                 </tr>
                 <tr>
                     <td valign="top" bgcolor="#580652">
