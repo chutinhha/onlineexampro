@@ -74,7 +74,7 @@
 		</tr>
 		<tr>
 			<td valign="top">
-			<img border="0" src="images/AIWA June 1-15 low.jpg" width="1000"></td>
+			<img border="0" src="images/Aiwa home page JUNE 1-16.jpg" width="1000"></td>
 		</tr>
 		<tr>
 <td><? include('inc_contctus.htm');?></td>		</tr>
