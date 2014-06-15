@@ -360,7 +360,7 @@ imagee2.src = "images/button2.jpg"
 								category.</font></p>
 								
 								
-								<form name="formname" method="post" action="send_form.php"  onsubmit="return checkCheckBox(this)" enctype="multipart/form-data">
+								<form name="formname" method="post" action="send_form.php"  onsubmit="return checkCheckBox(this)" enctype="multipart/form-data"><input type='hidden' name='__token_timestamp__' value='1402834301'><input type='hidden' name='__token_val__' value='a5eedd6bbd03c73aaa5c43f5806ce862'>
 
 									<div align="center">
 										<table border="0" cellpadding="4" style="border-collapse: collapse" height="1783">
