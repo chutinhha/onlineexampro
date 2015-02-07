@@ -17,7 +17,7 @@
                 <table align="center" width="980px" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
-                            <asp:Image ID="Image1" runat="server" Width="980px" ImageUrl="~/Images/WebsiteBanner9.jpg" />
+                            <asp:Image ID="Image1" runat="server" Width="980px" ImageUrl="~/Images/WebsiteBanner9.jpg" />test
                         </td>
                     </tr>
                     <tr>
